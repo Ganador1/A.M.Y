@@ -1,0 +1,162 @@
+{
+  "summary": {
+    "total_tests": 6,
+    "successful_tests": 5,
+    "failed_tests": 1,
+    "success_rate": 0.8333333333333334,
+    "timestamp": 1758585799.2228758
+  },
+  "performance_metrics": {
+    "average_execution_time": 0.6469049453735352,
+    "average_memory_usage_mb": 54.8046875,
+    "average_performance_score": 0.6877098091973198,
+    "slow_tests": 0,
+    "memory_intensive_tests": 2,
+    "low_performance_tests": 3
+  },
+  "system_health": {
+    "total_memory_mb": 16384.0,
+    "available_memory_mb": 3041.828125,
+    "cpu_percent": 54.7,
+    "disk_usage_percent": 24.1,
+    "python_version": "3.13.5 (main, Jun 11 2025, 15:36:57) [Clang 17.0.0 (clang-1700.0.13.3)]",
+    "platform": "darwin",
+    "timestamp": 1758585795.339681
+  },
+  "detailed_metrics": [
+    {
+      "test_name": "_test_imports",
+      "execution_time": 1.2531180381774902,
+      "memory_usage_mb": 164.953125,
+      "cpu_usage_percent": 61.0,
+      "success": false,
+      "error_message": "invalid syntax (database.py, line 335)",
+      "coverage_percentage": null,
+      "performance_score": 0.3797921307881673
+    },
+    {
+      "test_name": "_test_fastapi",
+      "execution_time": 0.00023293495178222656,
+      "memory_usage_mb": 0.0,
+      "cpu_usage_percent": 0,
+      "success": true,
+      "error_message": null,
+      "coverage_percentage": null,
+      "performance_score": 0.9999844710032145
+    },
+    {
+      "test_name": "_test_integration",
+      "execution_time": 0.007924795150756836,
+      "memory_usage_mb": 1.828125,
+      "cpu_usage_percent": 0,
+      "success": true,
+      "error_message": null,
+      "coverage_percentage": null,
+      "performance_score": 0.9933779303232829
+    },
+    {
+      "test_name": "_test_benchmarks",
+      "execution_time": 2.18538498878479,
+      "memory_usage_mb": 29.1875,
+      "cpu_usage_percent": 79.0,
+      "success": true,
+      "error_message": null,
+      "coverage_percentage": null,
+      "performance_score": 0.49368266741434735
+    },
+    {
+      "test_name": "_test_memory",
+      "execution_time": 0.12270498275756836,
+      "memory_usage_mb": 132.78125,
+      "cpu_usage_percent": 70.5,
+      "success": true,
+      "error_message": null,
+      "coverage_percentage": null,
+      "performance_score": 0.4234863344828288
+    },
+    {
+      "test_name": "_test_concurrency",
+      "execution_time": 0.31206393241882324,
+      "memory_usage_mb": 0.078125,
+      "cpu_usage_percent": 42.9,
+      "success": true,
+      "error_message": null,
+      "coverage_percentage": null,
+      "performance_score": 0.8359353211720784
+    }
+  ],
+  "test_results": {
+    "imports": null,
+    "fastapi": {
+      "status": "skipped",
+      "reason": "FastAPI not available: No module named 'fastapi'",
+      "routes": [],
+      "endpoint_results": {},
+      "total_routes": 0
+    },
+    "integration": {
+      "app.services.plausibility_scoring_service.PlausibilityScoringService": {
+        "status": "failed",
+        "error": "invalid syntax (database.py, line 335)"
+      },
+      "app.services.literature_search.LiteratureSearchService": {
+        "status": "failed",
+        "error": "invalid syntax (database.py, line 335)"
+      },
+      "app.services.quantum_computing.QuantumComputingService": {
+        "status": "failed",
+        "error": "invalid syntax (database.py, line 335)"
+      }
+    },
+    "benchmarks": {
+      "numpy_matrix_mult": {
+        "time": 1.9010329246520996,
+        "array_shape": [
+          10000,
+          1000
+        ],
+        "result_shape": [
+          10000,
+          10000
+        ]
+      },
+      "pandas_describe": {
+        "time": 0.1742548942565918,
+        "dataframe_shape": [
+          10000,
+          100
+        ]
+      },
+      "scipy_svd": {
+        "time": 0.10578298568725586,
+        "matrix_shape": [
+          1000,
+          1000
+        ]
+      }
+    },
+    "memory": {
+      "initial_memory_mb": 290.125,
+      "peak_memory_mb": 343.609375,
+      "final_memory_mb": 343.609375,
+      "memory_recovered_mb": 0.0,
+      "gc_counts": [
+        13,
+        0,
+        0
+      ]
+    },
+    "concurrency": {
+      "thread_pool": {
+        "time": 0.3119950294494629,
+        "tasks_completed": 10,
+        "success": true
+      }
+    }
+  },
+  "recommendations": [
+    "\ud83d\udea8 Address 1 failed tests",
+    "\ud83d\udcbe Reduce memory usage in 2 tests",
+    "\ud83d\udcc8 Improve performance in 3 tests"
+  ]
+}

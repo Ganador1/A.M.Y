@@ -1,0 +1,83 @@
+{
+  "timestamp": "2025-10-02T00:57:45.489914",
+  "benchmarks": {
+    "structural_database": {
+      "pdb_fetch_latency": {
+        "min_ms": 3.9917909998621326,
+        "max_ms": 2108.9605420002044,
+        "mean_ms": 437.6494749998528,
+        "median_ms": 8.190665999791236,
+        "p95_ms": 2108.9605420002044,
+        "p99_ms": 2108.9605420002044,
+        "stdev_ms": 934.5761513533974,
+        "iterations": 5
+      },
+      "uniprot_fetch_latency": {
+        "min_ms": 283.7988339997537,
+        "max_ms": 1641.9873329996335,
+        "mean_ms": 563.9072999998461,
+        "median_ms": 292.8274160003639,
+        "p95_ms": 1641.9873329996335,
+        "p99_ms": 1641.9873329996335,
+        "stdev_ms": 602.7710937752959,
+        "iterations": 5
+      },
+      "pdb_batch_latency": {
+        "min_ms": 9.73754099868529,
+        "max_ms": 1019.9172920001729,
+        "mean_ms": 364.5675970001321,
+        "median_ms": 64.04795800153806,
+        "p95_ms": 1019.9172920001729,
+        "p99_ms": 1019.9172920001729,
+        "stdev_ms": 568.1987525516408,
+        "iterations": 3
+      },
+      "pdb_concurrent_10": {
+        "concurrency": 10,
+        "total_time_ms": 34.26658399985172,
+        "successes": 10,
+        "failures": 0,
+        "throughput_per_second": 291.8294978000513,
+        "success_rate": 1.0
+      }
+    },
+    "external_apis": {
+      "literature_fetch_latency": {
+        "min_ms": 82.95920800082968,
+        "max_ms": 803.1430419996468,
+        "mean_ms": 323.4942776665169,
+        "median_ms": 84.38058299907425,
+        "p95_ms": 803.1430419996468,
+        "p99_ms": 803.1430419996468,
+        "stdev_ms": 415.3886227636058,
+        "iterations": 3
+      },
+      "materials_fetch_latency": {
+        "min_ms": 148.16487500138464,
+        "max_ms": 1008.0589160006639,
+        "mean_ms": 441.55491633379523,
+        "median_ms": 168.44095799933712,
+        "p95_ms": 1008.0589160006639,
+        "p99_ms": 1008.0589160006639,
+        "stdev_ms": 490.7115915834418,
+        "iterations": 3
+      },
+      "literature_concurrent_5": {
+        "concurrency": 5,
+        "total_time_ms": 643.8591250007448,
+        "successes": 5,
+        "failures": 0,
+        "throughput_per_second": 7.765673896435366,
+        "success_rate": 1.0
+      }
+    },
+    "batch_vs_sequential": {
+      "comparison": {
+        "sequential_mean_ms": 20.921527666966238,
+        "batch_mean_ms": 11.360152666990567,
+        "speedup": 1.84
+      }
+    }
+  },
+  "total_benchmark_time_seconds": 9.172575083000993
+}

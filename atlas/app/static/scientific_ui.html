@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXIOM Scientific UI - Workflow Builder</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --axiom-primary: #2E86AB;
+            --axiom-secondary: #A23B72;
+            --axiom-success: #F18F01;
+            --axiom-info: #C73E1D;
+            --axiom-dark: #1A1B23;
+            --axiom-light: #F5F7FA;
+            --node-width: 200px;
+            --node-height: 80px;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--axiom-light) 0%, #E8F4FD 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .workflow-canvas {
+            min-height: 600px;
+            background: white;
+            border: 2px dashed #dee2e6;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .workflow-canvas.drag-over {
+            border-color: var(--axiom-primary);
+            background: rgba(46, 134, 171, 0.05);
+        }
+
+        .node-palette {
+            max-height: 600px;
+            overflow-y: auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .draggable-node {
+            width: var(--node-width);
+            height: var(--node-height);
+            background: linear-gradient(135deg, var(--axiom-primary) 0%, #4A9BC7 100%);
+            color: white;
+            border-radius: 8px;
+            cursor: move;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 8px;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .draggable-node:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+        }
+
+        .draggable-node .node-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .draggable-node .node-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .dropped-node {
+            position: absolute;
+            width: var(--node-width);
+            height: var(--node-height);
+            background: linear-gradient(135deg, var(--axiom-secondary) 0%, #C65A8C 100%);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: move;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .dropped-node.selected {
+            border: 3px solid var(--axiom-success);
+            box-shadow: 0 0 0 3px rgba(241, 143, 1, 0.3);
+        }
+
+        .node-connection-point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border: 2px solid var(--axiom-primary);
+            border-radius: 50%;
+            cursor: crosshair;
+        }
+
+        .connection-input {
+            left: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .connection-output {
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .workflow-connection {
+            position: absolute;
+            stroke: var(--axiom-primary);
+            stroke-width: 2;
+            fill: none;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .domain-tab {
+            border: none;
+            background: transparent;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .domain-tab.active {
+            background: var(--axiom-primary);
+            color: white;
+        }
+
+        .natural-language-input {
+            background: rgba(46, 134, 171, 0.05);
+            border: 2px solid var(--axiom-primary);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        .natural-language-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(46, 134, 171, 0.2);
+        }
+
+        .example-query {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+
+        .example-query:hover {
+            background: var(--axiom-light);
+            border-color: var(--axiom-primary);
+        }
+
+        .workflow-controls {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .loading-spinner {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            min-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1 class="display-6 fw-bold text-center mb-2">
+                    <i class="bi bi-diagram-3 text-primary"></i>
+                    AXIOM Scientific Workflow Builder
+                </h1>
+                <p class="text-center text-muted">
+                    Interfaz visual de arrastrar y soltar para científicos no programadores
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar con nodos -->
+            <div class="col-md-3">
+                <div class="sidebar p-3 mb-3">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-puzzle"></i> Componentes
+                    </h5>
+                    
+                    <!-- Tabs de dominio -->
+                    <div class="btn-group d-flex mb-3" role="group">
+                        <button type="button" class="domain-tab active" data-domain="chemistry">
+                            <i class="bi bi-flask"></i>
+                        </button>
+                        <button type="button" class="domain-tab" data-domain="biology">
+                            <i class="bi bi-virus"></i>
+                        </button>
+                        <button type="button" class="domain-tab" data-domain="physics">
+                            <i class="bi bi-atom"></i>
+                        </button>
+                        <button type="button" class="domain-tab" data-domain="materials">
+                            <i class="bi bi-gem"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Paleta de nodos -->
+                    <div class="node-palette" id="nodePalette">
+                        <!-- Los nodos se cargarán dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Interfaz de lenguaje natural -->
+                <div class="sidebar p-3">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-chat-dots"></i> Lenguaje Natural
+                    </h5>
+                    
+                    <div class="mb-3">
+                        <input type="text" 
+                               class="form-control natural-language-input" 
+                               id="nlInput"
+                               placeholder="Describe lo que quieres hacer...">
+                    </div>
+                    
+                    <button class="btn btn-primary w-100 mb-3" id="translateBtn">
+                        <i class="bi bi-translate"></i> Traducir
+                    </button>
+                    
+                    <div id="nlExamples">
+                        <small class="text-muted d-block mb-2">Ejemplos:</small>
+                        <!-- Los ejemplos se cargarán dinámicamente -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Canvas principal -->
+            <div class="col-md-6">
+                <div class="workflow-canvas" id="workflowCanvas">
+                    <div class="loading-spinner">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center text-muted" style="margin-top: 200px;" id="emptyState">
+                        <i class="bi bi-arrow-left-circle display-1 mb-3"></i>
+                        <h3>Arrastra componentes aquí</h3>
+                        <p>Construye tu flujo científico arrastrando componentes desde la izquierda</p>
+                    </div>
+                    
+                    <!-- SVG para conexiones -->
+                    <svg id="connectionsSvg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></svg>
+                </div>
+
+                <!-- Controles del workflow -->
+                <div class="workflow-controls mt-3 d-flex gap-2">
+                    <button class="btn btn-success" id="executeBtn" disabled>
+                        <i class="bi bi-play-circle"></i> Ejecutar
+                    </button>
+                    <button class="btn btn-outline-primary" id="validateBtn" disabled>
+                        <i class="bi bi-check-circle"></i> Validar
+                    </button>
+                    <button class="btn btn-outline-secondary" id="saveBtn" disabled>
+                        <i class="bi bi-save"></i> Guardar
+                    </button>
+                    <button class="btn btn-outline-danger" id="clearBtn">
+                        <i class="bi bi-trash"></i> Limpiar
+                    </button>
+                    <div class="ms-auto">
+                        <span class="badge bg-secondary me-2" id="nodeCount">0 nodos</span>
+                        <span class="badge bg-info" id="connectionCount">0 conexiones</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel de propiedades -->
+            <div class="col-md-3">
+                <div class="sidebar p-3">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-sliders"></i> Propiedades
+                    </h5>
+                    
+                    <div id="nodeProperties">
+                        <div class="text-center text-muted py-5">
+                            <i class="bi bi-cursor display-4 mb-3"></i>
+                            <p>Selecciona un nodo para ver sus propiedades</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification container -->
+    <div id="notifications"></div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Drag and Drop Logic -->
+    <script>
+        class ScientificWorkflowBuilder {
+            constructor() {
+                this.canvas = document.getElementById('workflowCanvas');
+                this.nodePalette = document.getElementById('nodePalette');
+                this.connectionsSvg = document.getElementById('connectionsSvg');
+                this.nlInput = document.getElementById('nlInput');
+                
+                this.nodes = new Map();
+                this.connections = [];
+                this.selectedNode = null;
+                this.currentDomain = 'chemistry';
+                this.dragOffset = { x: 0, y: 0 };
+                
+                this.initializeEventListeners();
+                this.loadDomainNodes(this.currentDomain);
+                this.loadNLExamples();
+            }
+
+            initializeEventListeners() {
+                // Domain tabs
+                document.querySelectorAll('.domain-tab').forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        document.querySelectorAll('.domain-tab').forEach(t => t.classList.remove('active'));
+                        e.target.classList.add('active');
+                        this.currentDomain = e.target.dataset.domain;
+                        this.loadDomainNodes(this.currentDomain);
+                    });
+                });
+
+                // Canvas events
+                this.canvas.addEventListener('dragover', this.handleDragOver.bind(this));
+                this.canvas.addEventListener('drop', this.handleDrop.bind(this));
+                this.canvas.addEventListener('click', this.handleCanvasClick.bind(this));
+
+                // Natural language
+                document.getElementById('translateBtn').addEventListener('click', this.translateNaturalLanguage.bind(this));
+                this.nlInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.translateNaturalLanguage();
+                });
+
+                // Control buttons
+                document.getElementById('executeBtn').addEventListener('click', this.executeWorkflow.bind(this));
+                document.getElementById('validateBtn').addEventListener('click', this.validateWorkflow.bind(this));
+                document.getElementById('clearBtn').addEventListener('click', this.clearWorkflow.bind(this));
+            }
+
+            async loadDomainNodes(domain) {
+                try {
+                    const response = await fetch(`/api/scientific-ui/nodes/${domain}?complexity=basic`);
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        this.renderNodePalette(data.nodes);
+                    }
+                } catch (error) {
+                    console.error('Error loading nodes:', error);
+                }
+            }
+
+            renderNodePalette(nodes) {
+                this.nodePalette.innerHTML = '';
+                
+                nodes.forEach(node => {
+                    const nodeElement = document.createElement('div');
+                    nodeElement.className = 'draggable-node';
+                    nodeElement.draggable = true;
+                    nodeElement.dataset.nodeType = node.type;
+                    nodeElement.dataset.nodeData = JSON.stringify(node);
+                    
+                    nodeElement.innerHTML = `
+                        <div class="node-icon">
+                            <i class="bi ${node.icon || 'bi-gear'}"></i>
+                        </div>
+                        <div class="node-title">${node.name}</div>
+                    `;
+                    
+                    nodeElement.addEventListener('dragstart', this.handleDragStart.bind(this));
+                    
+                    this.nodePalette.appendChild(nodeElement);
+                });
+            }
+
+            handleDragStart(e) {
+                e.dataTransfer.setData('text/plain', e.target.dataset.nodeData);
+            }
+
+            handleDragOver(e) {
+                e.preventDefault();
+                this.canvas.classList.add('drag-over');
+            }
+
+            handleDrop(e) {
+                e.preventDefault();
+                this.canvas.classList.remove('drag-over');
+                
+                const nodeData = JSON.parse(e.dataTransfer.getData('text/plain'));
+                const rect = this.canvas.getBoundingClientRect();
+                
+                const x = e.clientX - rect.left - (200 / 2); // Center the node
+                const y = e.clientY - rect.top - (80 / 2);
+                
+                this.createNode(nodeData, x, y);
+            }
+
+            createNode(nodeData, x, y) {
+                const nodeId = `node_${Date.now()}`;
+                const nodeElement = document.createElement('div');
+                nodeElement.className = 'dropped-node';
+                nodeElement.id = nodeId;
+                nodeElement.style.left = `${x}px`;
+                nodeElement.style.top = `${y}px`;
+                
+                nodeElement.innerHTML = `
+                    <div class="node-icon">
+                        <i class="bi ${nodeData.icon || 'bi-gear'}"></i>
+                    </div>
+                    <div class="node-title">${nodeData.name}</div>
+                    <div class="node-connection-point connection-input"></div>
+                    <div class="node-connection-point connection-output"></div>
+                `;
+                
+                // Event listeners
+                nodeElement.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.selectNode(nodeId);
+                });
+                
+                nodeElement.addEventListener('mousedown', this.startNodeDrag.bind(this, nodeId));
+                
+                this.canvas.appendChild(nodeElement);
+                this.nodes.set(nodeId, {
+                    ...nodeData,
+                    id: nodeId,
+                    x, y,
+                    element: nodeElement
+                });
+                
+                // Hide empty state
+                document.getElementById('emptyState').style.display = 'none';
+                
+                this.updateControls();
+            }
+
+            selectNode(nodeId) {
+                // Deselect previous
+                if (this.selectedNode) {
+                    this.nodes.get(this.selectedNode).element.classList.remove('selected');
+                }
+                
+                // Select new
+                this.selectedNode = nodeId;
+                this.nodes.get(nodeId).element.classList.add('selected');
+                
+                this.showNodeProperties(nodeId);
+            }
+
+            showNodeProperties(nodeId) {
+                const node = this.nodes.get(nodeId);
+                const propertiesPanel = document.getElementById('nodeProperties');
+                
+                propertiesPanel.innerHTML = `
+                    <div class="mb-3">
+                        <h6 class="fw-bold">${node.name}</h6>
+                        <small class="text-muted">${node.description || 'Componente científico'}</small>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Parámetros</label>
+                        ${this.renderParameterInputs(node.parameters || {})}
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-gear"></i> Configurar
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm" onclick="workflowBuilder.deleteNode('${nodeId}')">
+                            <i class="bi bi-trash"></i> Eliminar
+                        </button>
+                    </div>
+                `;
+            }
+
+            renderParameterInputs(parameters) {
+                let html = '';
+                for (const [key, param] of Object.entries(parameters)) {
+                    html += `
+                        <div class="mb-2">
+                            <label class="form-label small">${param.name || key}</label>
+                            <input type="${param.type || 'text'}" 
+                                   class="form-control form-control-sm" 
+                                   value="${param.value || ''}"
+                                   placeholder="${param.description || ''}">
+                        </div>
+                    `;
+                }
+                return html || '<small class="text-muted">Sin parámetros configurables</small>';
+            }
+
+            startNodeDrag(nodeId, e) {
+                if (e.target.classList.contains('node-connection-point')) return;
+                
+                const node = this.nodes.get(nodeId);
+                const rect = node.element.getBoundingClientRect();
+                
+                this.dragOffset = {
+                    x: e.clientX - rect.left,
+                    y: e.clientY - rect.top
+                };
+                
+                const handleMouseMove = (e) => {
+                    const canvasRect = this.canvas.getBoundingClientRect();
+                    const x = e.clientX - canvasRect.left - this.dragOffset.x;
+                    const y = e.clientY - canvasRect.top - this.dragOffset.y;
+                    
+                    node.element.style.left = `${x}px`;
+                    node.element.style.top = `${y}px`;
+                    
+                    node.x = x;
+                    node.y = y;
+                };
+                
+                const handleMouseUp = () => {
+                    document.removeEventListener('mousemove', handleMouseMove);
+                    document.removeEventListener('mouseup', handleMouseUp);
+                };
+                
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('mouseup', handleMouseUp);
+            }
+
+            deleteNode(nodeId) {
+                const node = this.nodes.get(nodeId);
+                if (node && node.element) {
+                    node.element.remove();
+                    this.nodes.delete(nodeId);
+                    
+                    // Remove connections
+                    this.connections = this.connections.filter(conn => 
+                        conn.source !== nodeId && conn.target !== nodeId
+                    );
+                    
+                    this.updateControls();
+                    
+                    if (this.nodes.size === 0) {
+                        document.getElementById('emptyState').style.display = 'block';
+                    }
+                }
+            }
+
+            handleCanvasClick(e) {
+                if (e.target === this.canvas) {
+                    this.deselectAll();
+                }
+            }
+
+            deselectAll() {
+                if (this.selectedNode) {
+                    this.nodes.get(this.selectedNode).element.classList.remove('selected');
+                    this.selectedNode = null;
+                    
+                    document.getElementById('nodeProperties').innerHTML = `
+                        <div class="text-center text-muted py-5">
+                            <i class="bi bi-cursor display-4 mb-3"></i>
+                            <p>Selecciona un nodo para ver sus propiedades</p>
+                        </div>
+                    `;
+                }
+            }
+
+            async translateNaturalLanguage() {
+                const query = this.nlInput.value.trim();
+                if (!query) return;
+                
+                try {
+                    this.showLoading(true);
+                    
+                    const response = await fetch('/api/scientific-ui/natural-language/translate', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            query,
+                            domain: this.currentDomain,
+                            user_level: 'beginner'
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success && data.data.translation) {
+                        this.showNotification('success', '¡Consulta traducida exitosamente!');
+                        // TODO: Create nodes based on translation
+                        console.log('Translation result:', data.data.translation);
+                    } else {
+                        this.showNotification('warning', 'No se pudo traducir la consulta');
+                    }
+                    
+                } catch (error) {
+                    console.error('Translation error:', error);
+                    this.showNotification('error', 'Error al traducir consulta');
+                } finally {
+                    this.showLoading(false);
+                }
+            }
+
+            async loadNLExamples() {
+                try {
+                    const response = await fetch('/api/scientific-ui/help/nl-examples');
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        this.renderNLExamples(data.examples_by_domain);
+                    }
+                } catch (error) {
+                    console.error('Error loading NL examples:', error);
+                }
+            }
+
+            renderNLExamples(examples) {
+                const container = document.getElementById('nlExamples');
+                const domainExamples = examples[this.currentDomain] || [];
+                
+                container.innerHTML = '<small class="text-muted d-block mb-2">Ejemplos:</small>';
+                
+                domainExamples.slice(0, 3).forEach(example => {
+                    const exampleElement = document.createElement('div');
+                    exampleElement.className = 'example-query mb-1';
+                    exampleElement.textContent = example;
+                    exampleElement.addEventListener('click', () => {
+                        this.nlInput.value = example;
+                    });
+                    container.appendChild(exampleElement);
+                });
+            }
+
+            async validateWorkflow() {
+                if (this.nodes.size === 0) {
+                    this.showNotification('warning', 'No hay nodos para validar');
+                    return;
+                }
+                
+                const workflow = this.serializeWorkflow();
+                
+                try {
+                    this.showLoading(true);
+                    
+                    const response = await fetch('/api/scientific-ui/workflows/validate', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(workflow)
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.valid) {
+                        this.showNotification('success', '✅ Workflow válido');
+                    } else {
+                        this.showNotification('warning', `⚠️ ${data.errors.join(', ')}`);
+                    }
+                    
+                } catch (error) {
+                    console.error('Validation error:', error);
+                    this.showNotification('error', 'Error al validar workflow');
+                } finally {
+                    this.showLoading(false);
+                }
+            }
+
+            async executeWorkflow() {
+                if (this.nodes.size === 0) {
+                    this.showNotification('warning', 'No hay nodos para ejecutar');
+                    return;
+                }
+                
+                const workflow = this.serializeWorkflow();
+                
+                try {
+                    this.showLoading(true);
+                    
+                    const response = await fetch('/api/scientific-ui/workflows/execute', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(workflow)
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        this.showNotification('success', `🚀 Workflow ejecutado (${data.total_execution_time})`);
+                        console.log('Execution results:', data.results);
+                    } else {
+                        this.showNotification('error', 'Error ejecutando workflow');
+                    }
+                    
+                } catch (error) {
+                    console.error('Execution error:', error);
+                    this.showNotification('error', 'Error al ejecutar workflow');
+                } finally {
+                    this.showLoading(false);
+                }
+            }
+
+            serializeWorkflow() {
+                const nodes = Array.from(this.nodes.values()).map(node => ({
+                    id: node.id,
+                    name: node.name,
+                    type: node.type,
+                    service_endpoint: node.service_endpoint,
+                    x: node.x,
+                    y: node.y,
+                    parameters: node.parameters || {}
+                }));
+                
+                return {
+                    name: `Workflow_${new Date().toISOString().substr(0, 10)}`,
+                    nodes,
+                    connections: this.connections,
+                    domain: this.currentDomain
+                };
+            }
+
+            clearWorkflow() {
+                if (confirm('¿Estás seguro de que quieres limpiar el workflow?')) {
+                    this.nodes.forEach(node => node.element.remove());
+                    this.nodes.clear();
+                    this.connections = [];
+                    this.selectedNode = null;
+                    
+                    document.getElementById('emptyState').style.display = 'block';
+                    this.updateControls();
+                    
+                    this.showNotification('info', 'Workflow limpiado');
+                }
+            }
+
+            updateControls() {
+                const hasNodes = this.nodes.size > 0;
+                
+                document.getElementById('executeBtn').disabled = !hasNodes;
+                document.getElementById('validateBtn').disabled = !hasNodes;
+                document.getElementById('saveBtn').disabled = !hasNodes;
+                
+                document.getElementById('nodeCount').textContent = `${this.nodes.size} nodos`;
+                document.getElementById('connectionCount').textContent = `${this.connections.length} conexiones`;
+            }
+
+            showLoading(show) {
+                document.querySelector('.loading-spinner').style.display = show ? 'block' : 'none';
+            }
+
+            showNotification(type, message) {
+                const notification = document.createElement('div');
+                notification.className = `alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show notification`;
+                notification.innerHTML = `
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                `;
+                
+                document.getElementById('notifications').appendChild(notification);
+                
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 5000);
+            }
+        }
+
+        // Initialize when page loads
+        let workflowBuilder;
+        document.addEventListener('DOMContentLoaded', () => {
+            workflowBuilder = new ScientificWorkflowBuilder();
+        });
+    </script>
+</body>
+</html>

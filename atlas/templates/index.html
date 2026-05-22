@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics AI - Laboratorio Científico Interactivo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- Navbar Mejorado -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-atom text-warning me-2"></i>
+                <span class="fw-bold">Mathematics AI</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#visual-workflow"><i class="fas fa-project-diagram me-1"></i>Visual</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mathematics"><i class="fas fa-calculator me-1"></i>Matemáticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#chemistry"><i class="fas fa-flask me-1"></i>Química</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#physics"><i class="fas fa-atom me-1"></i>Física</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#computing"><i class="fas fa-microchip me-1"></i>Computación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#scalability"><i class="fas fa-network-wired me-1"></i>Escalabilidad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#dashboards"><i class="fas fa-chart-line me-1"></i>Dashboards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#orchestrator"><i class="fas fa-cogs me-1"></i>Orquestador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#monitoring"><i class="fas fa-chart-bar me-1"></i>Monitoreo</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-light me-2" onclick="showAbout()">
+                        <i class="fas fa-info-circle"></i>
+                    </button>
+                    <button class="btn btn-outline-warning" onclick="showHelp()">
+                        <i class="fas fa-question-circle"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section Mejorado -->
+    <section class="hero-section">
+        <div class="container-fluid">
+            <div class="row align-items-center min-vh-75">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <h1 class="display-3 fw-bold mb-4">
+                            <span class="text-gradient">Laboratorio Científico</span><br>
+                            <small class="text-light">Interactivo</small>
+                        </h1>
+                        <p class="lead mb-4 text-light">
+                            Explora el fascinante mundo de las matemáticas, química, física y computación cuántica
+                            con nuestra interfaz web intuitiva. Sin comandos, solo ciencia.
+                        </p>
+                        <div class="hero-stats d-flex gap-4 mb-4">
+                            <div class="stat-item">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Módulos</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Funciones</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">∞</div>
+                                <div class="stat-label">Posibilidades</div>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <button class="btn btn-primary btn-lg px-4" onclick="scrollToSection('mathematics')">
+                                <i class="fas fa-rocket me-2"></i>Comenzar
+                            </button>
+                            <button class="btn btn-outline-light btn-lg px-4" onclick="showDemo()">
+                                <i class="fas fa-play me-2"></i>Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="hero-visual">
+                        <div class="floating-elements">
+                            <div class="floating-element element-1">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <div class="floating-element element-2">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <div class="floating-element element-3">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="floating-element element-4">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="floating-element element-5">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Visual Workflow Builder -->
+    <section id="visual-workflow" class="section bg-gradient-primary">
+        <div class="container-fluid">
+            <div class="row align-items-center py-5">
+                <div class="col-lg-6">
+                    <div class="text-white">
+                        <h2 class="display-5 fw-bold mb-4">
+                            <i class="fas fa-project-diagram text-warning me-3"></i>
+                            Interfaz Visual
+                        </h2>
+                        <p class="lead mb-4">
+                            🎨 <strong>Drag & Drop científico</strong> - Construye workflows complejos sin programar
+                        </p>
+                        <div class="feature-list mb-4">
+                            <div class="feature-item mb-3">
+                                <i class="fas fa-mouse-pointer text-warning me-3"></i>
+                                <span>Interfaz de arrastrar y soltar intuitiva</span>
+                            </div>
+                            <div class="feature-item mb-3">
+                                <i class="fas fa-language text-warning me-3"></i>
+                                <span>Procesamiento de lenguaje natural</span>
+                            </div>
+                            <div class="feature-item mb-3">
+                                <i class="fas fa-flask text-warning me-3"></i>
+                                <span>Templates para Química, Biología y Física</span>
+                            </div>
+                            <div class="feature-item mb-3">
+                                <i class="fas fa-cogs text-warning me-3"></i>
+                                <span>Ejecución automática de workflows</span>
+                            </div>
+                        </div>
+                        <a href="/static/scientific_ui.html" class="btn btn-warning btn-lg px-5 shadow">
+                            <i class="fas fa-play me-2"></i>
+                            Abrir Workflow Builder
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="visual-demo bg-white bg-opacity-10 rounded-4 p-4">
+                        <div class="demo-workspace bg-white rounded-3 p-3 mb-3" style="height: 200px; position: relative;">
+                            <!-- Simulated workflow nodes -->
+                            <div style="position: absolute; top: 20px; left: 20px; width: 80px; height: 40px; background: #007bff; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">
+                                <i class="fas fa-flask me-1"></i> Input
+                            </div>
+                            <div style="position: absolute; top: 80px; left: 140px; width: 80px; height: 40px; background: #28a745; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">
+                                <i class="fas fa-atom me-1"></i> Process
+                            </div>
+                            <div style="position: absolute; top: 140px; left: 260px; width: 80px; height: 40px; background: #ffc107; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: black; font-size: 12px;">
+                                <i class="fas fa-chart-line me-1"></i> Output
+                            </div>
+                            <!-- Connection lines -->
+                            <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                                <line x1="100" y1="40" x2="140" y2="100" stroke="#6c757d" stroke-width="2"/>
+                                <line x1="220" y1="100" x2="260" y2="160" stroke="#6c757d" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="demo-controls d-flex justify-content-center gap-2">
+                            <button class="btn btn-sm btn-outline-light">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-light">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-light">
+                                <i class="fas fa-save"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Matemáticas -->
+    <section id="mathematics" class="section bg-light">
+        <div class="container-fluid">
+            <div class="section-header text-center mb-5">
+                <h2 class="display-5 fw-bold text-gradient mb-3">
+                    <i class="fas fa-calculator text-primary me-3"></i>Matemáticas
+                </h2>
+                <p class="lead text-muted">Operaciones aritméticas, ecuaciones, cálculo y análisis estadístico</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Aritmética -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-plus-circle me-2"></i>Operaciones Aritméticas</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Operación</label>
+                                    <select id="arithmeticOperation" class="form-select">
+                                        <option value="add">Suma</option>
+                                        <option value="subtract">Resta</option>
+                                        <option value="multiply">Multiplicación</option>
+                                        <option value="divide">División</option>
+                                        <option value="power">Potencia</option>
+                                        <option value="sqrt">Raíz cuadrada</option>
+                                        <option value="log">Logaritmo</option>
+                                        <option value="sin">Seno</option>
+                                        <option value="cos">Coseno</option>
+                                        <option value="tan">Tangente</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Operandos</label>
+                                    <input type="text" id="arithmeticOperands" class="form-control"
+                                           placeholder="5, 3, 2">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100" onclick="calculateArithmetic()">
+                                        <i class="fas fa-calculate me-2"></i>Calcular
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="arithmeticResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ecuaciones -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0"><i class="fas fa-equals me-2"></i>Resolver Ecuaciones</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-8">
+                                    <label class="form-label fw-semibold">Ecuación</label>
+                                    <input type="text" id="equation" class="form-control"
+                                           placeholder="x^2 + 2*x - 3 = 0">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Variable</label>
+                                    <input type="text" id="variable" class="form-control" value="x">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-success w-100" onclick="solveEquation()">
+                                        <i class="fas fa-solve me-2"></i>Resolver
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="equationResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cálculo -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0"><i class="fas fa-integral me-2"></i>Cálculo Diferencial e Integral</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">Operación</label>
+                                    <select id="calculusOperation" class="form-select">
+                                        <option value="derivative">Derivada</option>
+                                        <option value="integral">Integral</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">Expresión</label>
+                                    <input type="text" id="calculusExpression" class="form-control"
+                                           placeholder="x^3 + 2*x^2 + x + 1">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">Variable</label>
+                                    <input type="text" id="calculusVariable" class="form-control" value="x">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">Orden</label>
+                                    <input type="number" id="calculusOrder" class="form-control" value="1" min="1">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-warning w-100" onclick="calculateCalculus()">
+                                        <i class="fas fa-function me-2"></i>Calcular
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="calculusResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estadísticas -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Análisis Estadístico</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Datos (separados por coma)</label>
+                                    <input type="text" id="statisticsData" class="form-control"
+                                           placeholder="1, 2, 3, 4, 5, 6, 7, 8, 9, 10">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-info w-100" onclick="calculateStatistics()">
+                                        <i class="fas fa-chart-line me-2"></i>Analizar
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="statisticsResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficos -->
+                <div class="col-12">
+                    <div class="card card-hover">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="mb-0"><i class="fas fa-chart-line me-2"></i>Generación de Gráficos</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">Expresión</label>
+                                    <input type="text" id="graphExpression" class="form-control"
+                                           placeholder="x^2 + 2*x + 1">
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label fw-semibold">X mín</label>
+                                    <input type="number" id="graphXMin" class="form-control" value="-10" step="0.1">
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label fw-semibold">X máx</label>
+                                    <input type="number" id="graphXMax" class="form-control" value="10" step="0.1">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">Título</label>
+                                    <input type="text" id="graphTitle" class="form-control" placeholder="Mi gráfico">
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-danger w-100 h-100" onclick="generateGraph()">
+                                        <i class="fas fa-chart-area me-2"></i>Generar
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="graphResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Química Computacional -->
+    <section id="chemistry" class="section bg-gradient-chemistry">
+        <div class="container-fluid">
+            <div class="section-header text-center mb-5">
+                <h2 class="display-5 fw-bold text-white mb-3">
+                    <i class="fas fa-flask text-warning me-3"></i>Química Computacional
+                </h2>
+                <p class="lead text-light">Análisis molecular, conformeros, secuencias biológicas y química cuántica</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Análisis Molecular -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-chemistry-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-molecule me-2"></i>Análisis Molecular</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">SMILES</label>
+                                    <input type="text" id="moleculeSmiles" class="form-control"
+                                           placeholder="CCO (etanol), c1ccccc1 (benceno)">
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="detailedAnalysis">
+                                        <label class="form-check-label fw-semibold">
+                                            Análisis detallado
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-chemistry w-100" onclick="analyzeMolecule()">
+                                        <i class="fas fa-search me-2"></i>Analizar Molécula
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="moleculeResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generación de Conformeros -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-chemistry-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-cubes me-2"></i>Generación de Conformeros</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-8">
+                                    <label class="form-label fw-semibold">SMILES</label>
+                                    <input type="text" id="conformerSmiles" class="form-control"
+                                           placeholder="CCO">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Número</label>
+                                    <input type="number" id="numConformers" class="form-control"
+                                           value="10" min="1" max="50">
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="optimizeConformers" checked>
+                                        <label class="form-check-label fw-semibold">
+                                            Optimizar geometría
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-chemistry w-100" onclick="generateConformers()">
+                                        <i class="fas fa-cube me-2"></i>Generar Conformeros
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="conformerResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Análisis de Secuencias -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-chemistry-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-dna me-2"></i>Análisis de Secuencias</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Tipo</label>
+                                    <select id="sequenceType" class="form-select">
+                                        <option value="dna">DNA</option>
+                                        <option value="rna">RNA</option>
+                                        <option value="protein">Proteína</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label fw-semibold">Secuencia</label>
+                                    <input type="text" id="sequence" class="form-control"
+                                           placeholder="ATCGATCG (DNA), AUGCUAGU (RNA), MAKETLK (Proteína)">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-chemistry w-100" onclick="analyzeSequence()">
+                                        <i class="fas fa-search-plus me-2"></i>Analizar Secuencia
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="sequenceResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Química Cuántica -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-chemistry-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-atom me-2"></i>Química Cuántica</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Coordenadas</label>
+                                    <input type="text" id="quantumAtom" class="form-control"
+                                           value="H 0 0 0; H 0 0 0.74">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">Base</label>
+                                    <select id="quantumBasis" class="form-select">
+                                        <option value="sto-3g">STO-3G</option>
+                                        <option value="6-31g">6-31G</option>
+                                        <option value="cc-pvdz">CC-pVDZ</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">Método</label>
+                                    <select id="quantumMethod" class="form-select">
+                                        <option value="hf">Hartree-Fock</option>
+                                        <option value="dft">DFT</option>
+                                        <option value="mp2">MP2</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-chemistry w-100" onclick="runQuantumChemistry()">
+                                        <i class="fas fa-cogs me-2"></i>Ejecutar Cálculo
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="quantumResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Física Cuántica -->
+    <section id="physics" class="section bg-gradient-physics">
+        <div class="container-fluid">
+            <div class="section-header text-center mb-5">
+                <h2 class="display-5 fw-bold text-white mb-3">
+                    <i class="fas fa-atom text-info me-3"></i>Física Cuántica
+                </h2>
+                <p class="lead text-light">Simulaciones de sistemas cuánticos, evolución de espín y óptica cuántica</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Evolución de Espín -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-physics-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-magnet me-2"></i>Evolución de Espín</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Campo Bx</label>
+                                    <input type="number" id="spinBx" class="form-control" value="1.0" step="0.1">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Campo By</label>
+                                    <input type="number" id="spinBy" class="form-control" value="0.0" step="0.1">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Campo Bz</label>
+                                    <input type="number" id="spinBz" class="form-control" value="1.0" step="0.1">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Tiempo máximo</label>
+                                    <input type="number" id="spinTmax" class="form-control" value="10.0" step="0.1">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Puntos</label>
+                                    <input type="number" id="spinPoints" class="form-control" value="100" min="10" max="1000">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-physics w-100" onclick="simulateSpinEvolution()">
+                                        <i class="fas fa-play me-2"></i>Simular Evolución
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="spinResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oscilador Armónico -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-physics-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-wave-square me-2"></i>Oscilador Armónico</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">ω (frecuencia)</label>
+                                    <input type="number" id="oscillatorOmega" class="form-control" value="1.0" step="0.1">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">N máx</label>
+                                    <input type="number" id="oscillatorNmax" class="form-control" value="10" min="1" max="50">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">α (coherente)</label>
+                                    <input type="number" id="oscillatorAlpha" class="form-control" value="2.0" step="0.1">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">T máx</label>
+                                    <input type="number" id="oscillatorTmax" class="form-control" value="20.0" step="0.1">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-physics w-100" onclick="simulateHarmonicOscillator()">
+                                        <i class="fas fa-wave-square me-2"></i>Simular Oscilador
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="oscillatorResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sistema de Dos Niveles -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-physics-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-layer-group me-2"></i>Sistema de Dos Niveles</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">ω (transición)</label>
+                                    <input type="number" id="twoLevelOmega" class="form-control" value="1.0" step="0.1">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">γ (decaimiento)</label>
+                                    <input type="number" id="twoLevelGamma" class="form-control" value="0.1" step="0.01" min="0">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">T máx</label>
+                                    <input type="number" id="twoLevelTmax" class="form-control" value="25.0" step="0.1">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-physics w-100" onclick="simulateTwoLevelSystem()">
+                                        <i class="fas fa-layer-group me-2"></i>Simular Sistema
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="twoLevelResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Análisis de Entrelazamiento -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-physics-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-link me-2"></i>Análisis de Entrelazamiento</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Tipo de Estado</label>
+                                    <select id="entanglementType" class="form-select">
+                                        <option value="bell">Estado de Bell (máximo entrelazamiento)</option>
+                                        <option value="werner">Estado de Werner (parcial)</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-physics w-100" onclick="analyzeEntanglement()">
+                                        <i class="fas fa-link me-2"></i>Analizar Entrelazamiento
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="entanglementResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Óptica Cuántica -->
+                <div class="col-12">
+                    <div class="card card-hover">
+                        <div class="card-header bg-gradient-physics-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-lightbulb me-2"></i>Óptica Cuántica (Jaynes-Cummings)</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-2">
+                                    <label class="form-label fw-semibold">N máx</label>
+                                    <input type="number" id="opticsNmax" class="form-control" value="20" min="1" max="100">
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label fw-semibold">κ (cavidad)</label>
+                                    <input type="number" id="opticsKappa" class="form-control" value="0.1" step="0.01" min="0">
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label fw-semibold">g (acoplamiento)</label>
+                                    <input type="number" id="opticsG" class="form-control" value="0.1" step="0.01" min="0">
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label fw-semibold">α (coherente)</label>
+                                    <input type="number" id="opticsAlpha" class="form-control" value="3.0" step="0.1">
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label fw-semibold">T máx</label>
+                                    <input type="number" id="opticsTmax" class="form-control" value="50.0" step="1">
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-physics w-100 h-100" onclick="simulateQuantumOptics()">
+                                        <i class="fas fa-lightbulb me-2"></i>Simular Óptica
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="opticsResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Computación Cuántica -->
+    <section id="computing" class="section bg-gradient-computing">
+        <div class="container-fluid">
+            <div class="section-header text-center mb-5">
+                <h2 class="display-5 fw-bold text-white mb-3">
+                    <i class="fas fa-microchip text-success me-3"></i>Computación Cuántica
+                </h2>
+                <p class="lead text-light">Algoritmos cuánticos, estados entrelazados y optimización variacional</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Estados de Bell -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-computing-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-ring me-2"></i>Estados de Bell</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Framework</label>
+                                    <select id="bellFramework" class="form-select">
+                                        <option value="qiskit">Qiskit</option>
+                                        <option value="cirq">Cirq</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-computing w-100" onclick="createBellState()">
+                                        <i class="fas fa-ring me-2"></i>Crear Estado de Bell
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="bellResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Búsqueda de Grover -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-computing-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-search me-2"></i>Búsqueda de Grover</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Estado objetivo</label>
+                                    <input type="text" id="groverTarget" class="form-control"
+                                           placeholder="11" value="11">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">N qubits</label>
+                                    <input type="number" id="groverNqubits" class="form-control"
+                                           value="2" min="2" max="2">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-computing w-100" onclick="runGroverSearch()">
+                                        <i class="fas fa-search me-2"></i>Ejecutar Búsqueda
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="groverResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transformada de Fourier Cuántica -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-computing-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-wave-square me-2"></i>QFT (Transformada de Fourier)</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Número de qubits</label>
+                                    <input type="number" id="qftNqubits" class="form-control"
+                                           value="3" min="1" max="10">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-computing w-100" onclick="runQuantumFourierTransform()">
+                                        <i class="fas fa-wave-square me-2"></i>Ejecutar QFT
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="qftResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VQE -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-computing-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-magic me-2"></i>VQE (Solucionador Variacional)</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Número de qubits</label>
+                                    <input type="number" id="vqeNqubits" class="form-control"
+                                           value="2" min="1" max="6">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-computing w-100" onclick="runVQE()">
+                                        <i class="fas fa-magic me-2"></i>Ejecutar VQE
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="vqeResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparación Cuántico vs Clásico -->
+                <div class="col-12">
+                    <div class="card card-hover">
+                        <div class="card-header bg-gradient-computing-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-balance-scale me-2"></i>Comparación Cuántico vs Clásico</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-10">
+                                    <label class="form-label fw-semibold">Tamaño del problema</label>
+                                    <input type="number" id="comparisonSize" class="form-control"
+                                           value="4" min="1" max="20">
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-computing w-100 h-100" onclick="runQuantumClassicalComparison()">
+                                        <i class="fas fa-balance-scale me-2"></i>Comparar
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="comparisonResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Módulos Axiom (explorador con demos) -->
+    <section id="axiom-modules" class="section bg-light">
+        <div class="container-fluid">
+            <div class="section-header text-center mb-4">
+                <h2 class="display-6 fw-bold text-gradient mb-2">
+                    <i class="fas fa-cubes text-primary me-3"></i>Módulos de Axiom
+                </h2>
+                <p class="lead text-muted">Explora cada módulo, ejecuta una demo y aprende cómo usarlo</p>
+            </div>
+
+            <div id="axiomModulesContainer" class="row g-4">
+                <!-- Tarjetas generadas dinámicamente por JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Escalabilidad Horizontal -->
+    <section id="scalability" class="section bg-gradient-scalability">
+        <div class="container-fluid">
+            <div class="section-header text-center mb-5">
+                <h2 class="display-5 fw-bold text-white mb-3">
+                    <i class="fas fa-network-wired text-info me-3"></i>Escalabilidad Horizontal
+                </h2>
+                <p class="lead text-light">Load balancing inteligente, service discovery automático y gestión de workers</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Load Balancer -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-scalability-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-balance-scale me-2"></i>Load Balancer</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Estrategia</label>
+                                    <select id="lbStrategy" class="form-select">
+                                        <option value="round_robin">Round Robin</option>
+                                        <option value="least_connections">Least Connections</option>
+                                        <option value="weighted_round_robin">Weighted Round Robin</option>
+                                        <option value="ip_hash">IP Hash</option>
+                                        <option value="random">Random</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Cliente IP</label>
+                                    <input type="text" id="clientIP" class="form-control"
+                                           placeholder="192.168.1.100" value="192.168.1.100">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-scalability w-100" onclick="testLoadBalancer()">
+                                        <i class="fas fa-play me-2"></i>Probar Load Balancer
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="loadBalancerResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Discovery -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-scalability-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-search me-2"></i>Service Discovery</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">ID Instancia</label>
+                                    <input type="text" id="instanceId" class="form-control"
+                                           placeholder="worker-01" value="worker-01">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Host</label>
+                                    <input type="text" id="instanceHost" class="form-control"
+                                           placeholder="localhost" value="localhost">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Puerto</label>
+                                    <input type="number" id="instancePort" class="form-control"
+                                           value="8002" min="1" max="65535">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-scalability w-100" onclick="registerInstance()">
+                                        <i class="fas fa-plus me-2"></i>Registrar Instancia
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="serviceDiscoveryResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Health Checks -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-scalability-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-heartbeat me-2"></i>Health Checks</h5>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-scalability w-100 mb-3" onclick="getScalabilityStatus()">
+                                <i class="fas fa-stethoscope me-2"></i>Verificar Estado del Sistema
+                            </button>
+                            <button class="btn btn-scalability w-100 mb-3" onclick="getLoadBalancerStats()">
+                                <i class="fas fa-chart-bar me-2"></i>Estadísticas Load Balancer
+                            </button>
+                            <button class="btn btn-scalability w-100" onclick="listInstances()">
+                                <i class="fas fa-list me-2"></i>Listar Instancias
+                            </button>
+                            <div id="healthCheckResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Worker Management -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-scalability-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-users-cog me-2"></i>Gestión de Workers</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Número Workers</label>
+                                    <input type="number" id="workerCount" class="form-control"
+                                           value="4" min="1" max="20">
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-scalability w-100 h-100" onclick="startWorkers()">
+                                        <i class="fas fa-play me-2"></i>Iniciar Workers
+                                    </button>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-scalability w-100" onclick="getWorkerStats()">
+                                        <i class="fas fa-chart-line me-2"></i>Estadísticas Workers
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="workerResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Dashboards en Tiempo Real -->
+    <section id="dashboards" class="section bg-gradient-dashboard">
+        <div class="container-fluid">
+            <div class="section-header text-center mb-5">
+                <h2 class="display-5 fw-bold text-white mb-3">
+                    <i class="fas fa-chart-line text-success me-3"></i>Dashboards en Tiempo Real
+                </h2>
+                <p class="lead text-light">Monitoreo completo del sistema AXIOM con métricas actualizadas</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Sistema General -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-dashboard-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-server me-2"></i>Sistema General</h5>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-dashboard w-100 mb-3" onclick="getSystemHealth()">
+                                <i class="fas fa-heartbeat me-2"></i>Salud del Sistema
+                            </button>
+                            <button class="btn btn-dashboard w-100 mb-3" onclick="getSystemMetrics()">
+                                <i class="fas fa-chart-bar me-2"></i>Métricas del Sistema
+                            </button>
+                            <button class="btn btn-dashboard w-100" onclick="getOptimizationStats()">
+                                <i class="fas fa-cogs me-2"></i>Estadísticas de Optimización
+                            </button>
+                            <div id="systemDashboardResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rendimiento -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-dashboard-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-tachometer-alt me-2"></i>Rendimiento</h5>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-dashboard w-100 mb-3" onclick="getPerformanceStats()">
+                                <i class="fas fa-stopwatch me-2"></i>Estadísticas de Rendimiento
+                            </button>
+                            <button class="btn btn-dashboard w-100 mb-3" onclick="getGPUStats()">
+                                <i class="fas fa-microchip me-2"></i>Estadísticas GPU
+                            </button>
+                            <button class="btn btn-dashboard w-100" onclick="getCacheStats()">
+                                <i class="fas fa-database me-2"></i>Estadísticas de Caché
+                            </button>
+                            <div id="performanceDashboardResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Escalabilidad -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-dashboard-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-network-wired me-2"></i>Escalabilidad</h5>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-dashboard w-100 mb-3" onclick="getScalabilityDashboard()">
+                                <i class="fas fa-balance-scale me-2"></i>Dashboard de Escalabilidad
+                            </button>
+                            <button class="btn btn-dashboard w-100 mb-3" onclick="getLoadBalancerDashboard()">
+                                <i class="fas fa-random me-2"></i>Dashboard Load Balancer
+                            </button>
+                            <button class="btn btn-dashboard w-100" onclick="getWorkerDashboard()">
+                                <i class="fas fa-users me-2"></i>Dashboard Workers
+                            </button>
+                            <div id="scalabilityDashboardResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicios Científicos -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-dashboard-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-flask me-2"></i>Servicios Científicos</h5>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-dashboard w-100 mb-3" onclick="getScientificServicesStatus()">
+                                <i class="fas fa-atom me-2"></i>Estado Servicios Científicos
+                            </button>
+                            <button class="btn btn-dashboard w-100 mb-3" onclick="getDNABERT2Status()">
+                                <i class="fas fa-dna me-2"></i>Estado DNABERT2
+                            </button>
+                            <button class="btn btn-dashboard w-100" onclick="getGNOMEMaterialsStatus()">
+                                <i class="fas fa-cubes me-2"></i>Estado GNOME Materials
+                            </button>
+                            <div id="scientificDashboardResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección del Orquestador -->
+    <section id="orchestrator" class="section bg-gradient-orchestrator">
+        <div class="container-fluid">
+            <div class="section-header text-center mb-5">
+                <h2 class="display-5 fw-bold text-white mb-3">
+                    <i class="fas fa-cogs text-warning me-3"></i>Orquestador AXIOM
+                </h2>
+                <p class="lead text-light">Controla y coordina todas las funcionalidades de AXIOM desde un solo lugar</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Workflow Orchestration -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-orchestrator-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-project-diagram me-2"></i>Workflow Orchestration</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Tipo de Workflow</label>
+                                    <select id="workflowType" class="form-select">
+                                        <option value="scientific">Análisis Científico Completo</option>
+                                        <option value="optimization">Optimización de Rendimiento</option>
+                                        <option value="scaling">Escalado Automático</option>
+                                        <option value="monitoring">Monitoreo Continuo</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-orchestrator w-100" onclick="executeWorkflow()">
+                                        <i class="fas fa-play me-2"></i>Ejecutar Workflow
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="workflowResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experiment Tracking -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-orchestrator-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-flask me-2"></i>Experiment Tracking</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-8">
+                                    <label class="form-label fw-semibold">Nombre del Experimento</label>
+                                    <input type="text" id="experimentName" class="form-control"
+                                           placeholder="Experimento de Optimización">
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-orchestrator w-100 h-100" onclick="startExperiment()">
+                                        <i class="fas fa-plus me-2"></i>Iniciar
+                                    </button>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-orchestrator w-100" onclick="listExperiments()">
+                                        <i class="fas fa-list me-2"></i>Listar Experimentos
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="experimentResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Versioning -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-orchestrator-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-code-branch me-2"></i>Data Versioning</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Dataset</label>
+                                    <input type="text" id="datasetName" class="form-control"
+                                           placeholder="dataset_proteinas">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Versión</label>
+                                    <input type="text" id="datasetVersion" class="form-control"
+                                           placeholder="v1.0.0">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-orchestrator w-100" onclick="versionData()">
+                                        <i class="fas fa-save me-2"></i>Versionar Datos
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="versioningResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Cycle -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-orchestrator-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-sync me-2"></i>Research Cycle</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Tipo de Investigación</label>
+                                    <select id="researchType" class="form-select">
+                                        <option value="hypothesis">Generación de Hipótesis</option>
+                                        <option value="experiment">Diseño Experimental</option>
+                                        <option value="analysis">Análisis de Resultados</option>
+                                        <option value="publication">Preparación para Publicación</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-orchestrator w-100" onclick="executeResearchCycle()">
+                                        <i class="fas fa-search me-2"></i>Ejecutar Ciclo de Investigación
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="researchResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Monitoreo Avanzado -->
+    <section id="monitoring" class="section bg-gradient-monitoring">
+        <div class="container-fluid">
+            <div class="section-header text-center mb-5">
+                <h2 class="display-5 fw-bold text-white mb-3">
+                    <i class="fas fa-chart-bar text-danger me-3"></i>Monitoreo Avanzado
+                </h2>
+                <p class="lead text-light">Sistema completo de monitoreo con alertas automáticas y métricas detalladas</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Estado del Sistema -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-monitoring-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-server me-2"></i>Estado del Sistema</h5>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-monitoring w-100 mb-3" onclick="getMonitoringStatus()">
+                                <i class="fas fa-info-circle me-2"></i>Estado General
+                            </button>
+                            <button class="btn btn-monitoring w-100 mb-3" onclick="getCurrentMetrics()">
+                                <i class="fas fa-chart-line me-2"></i>Métricas Actuales
+                            </button>
+                            <button class="btn btn-monitoring w-100" onclick="getMonitoringDashboard()">
+                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard Completo
+                            </button>
+                            <div id="systemStatusResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alertas -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-monitoring-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-exclamation-triangle me-2"></i>Alertas</h5>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-monitoring w-100 mb-3" onclick="getActiveAlerts()">
+                                <i class="fas fa-bell me-2"></i>Alertas Activas
+                            </button>
+                            <button class="btn btn-monitoring w-100 mb-3" onclick="getAlertsHistory()">
+                                <i class="fas fa-history me-2"></i>Historial de Alertas
+                            </button>
+                            <button class="btn btn-monitoring w-100" onclick="getAlertRules()">
+                                <i class="fas fa-cogs me-2"></i>Reglas de Alertas
+                            </button>
+                            <div id="alertsResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gestión de Alertas -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-monitoring-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-tools me-2"></i>Gestión de Alertas</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-8">
+                                    <label class="form-label fw-semibold">ID de Alerta</label>
+                                    <input type="text" id="alertId" class="form-control"
+                                           placeholder="alert_123">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Usuario</label>
+                                    <input type="text" id="ackUser" class="form-control"
+                                           placeholder="admin" value="admin">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-monitoring w-100" onclick="acknowledgeAlert()">
+                                        <i class="fas fa-check me-2"></i>Reconocer Alerta
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="alertManagementResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historial de Métricas -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-monitoring-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-database me-2"></i>Historial de Métricas</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Métrica</label>
+                                    <select id="metricName" class="form-select">
+                                        <option value="cpu_percent">CPU %</option>
+                                        <option value="memory_percent">Memoria %</option>
+                                        <option value="disk_percent">Disco %</option>
+                                        <option value="error_rate">Tasa de Error</option>
+                                        <option value="avg_response_time">Tiempo de Respuesta</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Horas</label>
+                                    <input type="number" id="metricHours" class="form-control"
+                                           value="1" min="1" max="24">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-monitoring w-100" onclick="getMetricsHistory()">
+                                        <i class="fas fa-search me-2"></i>Obtener Historial
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="metricsHistoryResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control del Sistema de Monitoreo -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-monitoring-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-power-off me-2"></i>Control del Sistema</h5>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-success w-100 mb-3" onclick="startMonitoring()">
+                                <i class="fas fa-play me-2"></i>Iniciar Monitoreo
+                            </button>
+                            <button class="btn btn-danger w-100 mb-3" onclick="stopMonitoring()">
+                                <i class="fas fa-stop me-2"></i>Detener Monitoreo
+                            </button>
+                            <button class="btn btn-monitoring w-100" onclick="getMonitoringHealth()">
+                                <i class="fas fa-heartbeat me-2"></i>Health Check
+                            </button>
+                            <div id="monitoringControlResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nueva Regla de Alerta -->
+                <div class="col-lg-6">
+                    <div class="card h-100 card-hover">
+                        <div class="card-header bg-gradient-monitoring-header">
+                            <h5 class="mb-0 text-white"><i class="fas fa-plus-circle me-2"></i>Nueva Regla de Alerta</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Nombre</label>
+                                    <input type="text" id="ruleName" class="form-control"
+                                           placeholder="high_cpu_usage">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Métrica</label>
+                                    <select id="ruleMetric" class="form-select">
+                                        <option value="cpu_percent">CPU %</option>
+                                        <option value="memory_percent">Memoria %</option>
+                                        <option value="disk_percent">Disco %</option>
+                                        <option value="error_rate">Tasa de Error</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Condición</label>
+                                    <select id="ruleCondition" class="form-select">
+                                        <option value=">">></option>
+                                        <option value="<"><</option>
+                                        <option value=">=">>=</option>
+                                        <option value="<="><=</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Umbral</label>
+                                    <input type="number" id="ruleThreshold" class="form-control"
+                                           placeholder="80.0" step="0.1">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Severidad</label>
+                                    <select id="ruleSeverity" class="form-select">
+                                        <option value="low">Baja</option>
+                                        <option value="medium">Media</option>
+                                        <option value="high">Alta</option>
+                                        <option value="critical">Crítica</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-monitoring w-100" onclick="createAlertRule()">
+                                        <i class="fas fa-plus me-2"></i>Crear Regla
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="newRuleResult" class="result-box mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Mejorado -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container-fluid">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand mb-3">
+                        <h4 class="text-warning mb-3">
+                            <i class="fas fa-atom me-2"></i>Mathematics AI
+                        </h4>
+                        <p class="mb-3">Inteligencia artificial especializada en matemáticas, química, física y computación cuántica.</p>
+                        <div class="social-links">
+                            <a href="#" class="text-light me-3"><i class="fab fa-github"></i></a>
+                            <a href="#" class="text-light me-3"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-light"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-warning mb-3">Funcionalidades</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Aritmética</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Ecuaciones</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Cálculo</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Estadísticas</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Química</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Física Cuántica</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Computación Q.</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Gráficos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-warning mb-3">Recursos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none"><i class="fas fa-book me-2"></i>Documentación</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none"><i class="fas fa-code me-2"></i>API Reference</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none"><i class="fas fa-graduation-cap me-2"></i>Tutoriales</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none"><i class="fas fa-question-circle me-2"></i>FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Mathematics AI. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small class="text-muted">Versión 2.0 - Laboratorio Científico Interactivo</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Demo Genérico por Módulo -->
+    <div class="modal fade" id="moduleDemoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title" id="moduleDemoTitle">Demo del módulo</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="moduleDemoDescription" class="mb-3 text-muted"></div>
+                    <div id="moduleDemoExamples" class="mb-3"></div>
+                    <div>
+                        <h6>Resultado</h6>
+                        <div id="moduleDemoResult" class="result-box"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Acerca de -->
+    <div class="modal fade" id="aboutModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title"><i class="fas fa-info-circle me-2"></i>Acerca de Mathematics AI</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-primary">¿Qué es Mathematics AI?</h6>
+                            <p>Una plataforma completa de inteligencia artificial especializada en ciencias exactas y computación cuántica.</p>
+                            
+                            <h6 class="text-primary mt-3">Características Principales</h6>
+                            <ul>
+                                <li>Interfaz web intuitiva sin comandos</li>
+                                <li>Más de 15 módulos científicos</li>
+                                <li>Algoritmos de vanguardia</li>
+                                <li>Visualizaciones interactivas</li>
+                                <li>Documentación completa</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-primary">Tecnologías</h6>
+                            <div class="tech-stack">
+                                <span class="badge bg-primary me-1 mb-1">Python</span>
+                                <span class="badge bg-success me-1 mb-1">FastAPI</span>
+                                <span class="badge bg-info me-1 mb-1">SymPy</span>
+                                <span class="badge bg-warning me-1 mb-1">Qiskit</span>
+                                <span class="badge bg-danger me-1 mb-1">RDKit</span>
+                                <span class="badge bg-secondary me-1 mb-1">NumPy</span>
+                                <span class="badge bg-dark me-1 mb-1">Matplotlib</span>
+                            </div>
+                            
+                            <h6 class="text-primary mt-3">Version</h6>
+                            <p class="mb-0">v2.0 - Laboratorio Científico Interactivo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/app.js?v=20250901"></script>
+</body>
+</html>

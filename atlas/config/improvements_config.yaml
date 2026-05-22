@@ -1,0 +1,13 @@
+cache:
+  dir: data/scientific_cache
+  ttl_days: 7
+knowledge_graph:
+  neo4j_password: password
+  neo4j_uri: bolt://localhost:7687
+  neo4j_user: neo4j
+quantum:
+  ibmq_token: ''
+scientific_apis:
+  email: research@institution.edu
+  ncbi_api_key: ''
+  semantic_scholar_api_key: ''

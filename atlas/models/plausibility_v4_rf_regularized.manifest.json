@@ -1,0 +1,50 @@
+{
+  "id": "plausibility_v4_rf_regularized",
+  "name": "Plausibility V4 Rf Regularized",
+  "version": "v4.0.0",
+  "created_at": "2025-09-17T03:02:04Z",
+  "git_commit": "0000000",
+  "description": "Auto-generated manifest draft",
+  "tags": [
+    "plausibility",
+    "auto"
+  ],
+  "parameters": {
+    "model_type": "rf",
+    "regularized": true
+  },
+  "metrics": {
+    "primary": 0.0,
+    "secondary": {},
+    "calibration": {}
+  },
+  "artifacts": [
+    {
+      "path": "models/plausibility_v4_rf_regularized.pkl",
+      "type": "model",
+      "hash_sha256": "3c3d2b1c15dbd07ffb10315fbc51ecf524b8d142a997a50befb303ab416b36a9",
+      "size_bytes": 315911,
+      "format": "pickle"
+    }
+  ],
+  "dataset": {
+    "name": "unknown",
+    "version": "na",
+    "hash": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc"
+  },
+  "lineage": {
+    "parents": [],
+    "provenance_graph_hash": "c72671ebf27e411821a55a75df7f5075cd862ad8babb4df6aa12090af76ae0c3"
+  },
+  "hashes": {
+    "manifest_sha256": "c4a642acac9a6c33870ba470e72afe22016421a3e0a45da58fbaa440faf3b277"
+  },
+  "signatures": [
+    {
+      "alg": "ed25519",
+      "sig": "Ch2iykIGqtJxl6EAXFHqrpSLSPzR/+DYHCwy8J/9aUxFqaxsRdIxvG4VH7TX1SEOPPI/9YcHZ+8DzYN+Yny0Cg==",
+      "public_key_fingerprint": "25c7a15472815b86addb077aa5797afa6785c4d096adfcbc43fb8d9fcd06d007",
+      "ts": "2025-09-17T04:18:00.324415Z"
+    }
+  ]
+}

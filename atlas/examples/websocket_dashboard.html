@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATLAS - Security Dashboard (WebSocket)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .controls {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .control-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button.connect {
+            background: #4CAF50;
+            color: white;
+        }
+
+        button.connect:hover {
+            background: #45a049;
+        }
+
+        button.disconnect {
+            background: #f44336;
+            color: white;
+        }
+
+        button.disconnect:hover {
+            background: #da190b;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .status.connected {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .status.disconnected {
+            background: #f44336;
+            color: white;
+        }
+
+        .status.connecting {
+            background: #ff9800;
+            color: white;
+        }
+
+        .topics {
+            margin-top: 15px;
+        }
+
+        .topic-checkbox {
+            margin-right: 20px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .panel h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .event-list, .metric-list, .alert-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .event-item, .alert-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+            background: #f5f5f5;
+        }
+
+        .event-item.info { border-left-color: #2196F3; }
+        .event-item.warning { border-left-color: #ff9800; }
+        .event-item.error { border-left-color: #f44336; }
+        .event-item.critical { border-left-color: #9C27B0; }
+
+        .alert-item.low { border-left-color: #4CAF50; }
+        .alert-item.medium { border-left-color: #ff9800; }
+        .alert-item.high { border-left-color: #f44336; }
+        .alert-item.critical { border-left-color: #9C27B0; }
+
+        .timestamp {
+            color: #666;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .stats {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .stat-label {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-value {
+            color: #333;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        .badge.success { background: #4CAF50; color: white; }
+        .badge.error { background: #f44336; color: white; }
+        .badge.info { background: #2196F3; color: white; }
+        .badge.warning { background: #ff9800; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 ATLAS Security Dashboard - Real-time Monitoring</h1>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="wsUrl">WebSocket URL:</label>
+                <input type="text" id="wsUrl" value="ws://localhost:8000/ws/audit/stream" placeholder="ws://localhost:8000/ws/audit/stream">
+
+                <label for="token">JWT Token:</label>
+                <input type="password" id="token" placeholder="Optional JWT token">
+
+                <button id="connectBtn" class="connect">Connect</button>
+                <button id="disconnectBtn" class="disconnect" disabled>Disconnect</button>
+
+                <span id="status" class="status disconnected">Disconnected</span>
+            </div>
+
+            <div class="topics">
+                <strong>Subscribe to:</strong>
+                <label class="topic-checkbox">
+                    <input type="checkbox" id="topicEvents" checked> Events
+                </label>
+                <label class="topic-checkbox">
+                    <input type="checkbox" id="topicMetrics" checked> Metrics
+                </label>
+                <label class="topic-checkbox">
+                    <input type="checkbox" id="topicAlerts" checked> Alerts
+                </label>
+            </div>
+
+            <div class="stats" id="statsPanel" style="display: none;">
+                <h3>Connection Statistics</h3>
+                <div class="stats-grid" id="statsGrid"></div>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="panel">
+                <h2>📊 Real-time Events</h2>
+                <div class="event-list" id="eventList">
+                    <p style="color: #999; text-align: center;">No events yet. Connect to start monitoring...</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>📈 Security Metrics</h2>
+                <div class="metric-list" id="metricList">
+                    <p style="color: #999; text-align: center;">No metrics yet. Connect to start monitoring...</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>🚨 Active Alerts</h2>
+                <div class="alert-list" id="alertList">
+                    <p style="color: #999; text-align: center;">No alerts yet. Connect to start monitoring...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let ws = null;
+        let reconnectInterval = null;
+        let pingInterval = null;
+
+        const wsUrlInput = document.getElementById('wsUrl');
+        const tokenInput = document.getElementById('token');
+        const connectBtn = document.getElementById('connectBtn');
+        const disconnectBtn = document.getElementById('disconnectBtn');
+        const statusSpan = document.getElementById('status');
+        const eventList = document.getElementById('eventList');
+        const metricList = document.getElementById('metricList');
+        const alertList = document.getElementById('alertList');
+        const statsPanel = document.getElementById('statsPanel');
+        const statsGrid = document.getElementById('statsGrid');
+
+        // Connect button
+        connectBtn.addEventListener('click', () => {
+            const url = wsUrlInput.value;
+            const token = tokenInput.value;
+
+            let wsUrl = url;
+            if (token) {
+                wsUrl += `?token=${encodeURIComponent(token)}`;
+            }
+
+            connect(wsUrl);
+        });
+
+        // Disconnect button
+        disconnectBtn.addEventListener('click', () => {
+            disconnect();
+        });
+
+        function connect(url) {
+            setStatus('connecting', 'Connecting...');
+            connectBtn.disabled = true;
+
+            try {
+                ws = new WebSocket(url);
+
+                ws.onopen = () => {
+                    setStatus('connected', 'Connected');
+                    connectBtn.disabled = true;
+                    disconnectBtn.disabled = false;
+
+                    // Subscribe to selected topics
+                    const topics = [];
+                    if (document.getElementById('topicEvents').checked) topics.push('events');
+                    if (document.getElementById('topicMetrics').checked) topics.push('metrics');
+                    if (document.getElementById('topicAlerts').checked) topics.push('alerts');
+
+                    if (topics.length > 0) {
+                        ws.send(JSON.stringify({
+                            action: 'subscribe',
+                            topics: topics
+                        }));
+                    }
+
+                    // Start ping interval
+                    pingInterval = setInterval(() => {
+                        if (ws.readyState === WebSocket.OPEN) {
+                            ws.send(JSON.stringify({ action: 'ping' }));
+                        }
+                    }, 30000); // Ping every 30 seconds
+
+                    // Request stats
+                    ws.send(JSON.stringify({ action: 'stats' }));
+                };
+
+                ws.onmessage = (event) => {
+                    const message = JSON.parse(event.data);
+                    handleMessage(message);
+                };
+
+                ws.onerror = (error) => {
+                    console.error('WebSocket error:', error);
+                    setStatus('disconnected', 'Error');
+                };
+
+                ws.onclose = () => {
+                    setStatus('disconnected', 'Disconnected');
+                    connectBtn.disabled = false;
+                    disconnectBtn.disabled = true;
+                    clearInterval(pingInterval);
+                    statsPanel.style.display = 'none';
+                };
+
+            } catch (error) {
+                console.error('Connection error:', error);
+                setStatus('disconnected', 'Connection failed');
+                connectBtn.disabled = false;
+            }
+        }
+
+        function disconnect() {
+            if (ws) {
+                ws.close();
+                ws = null;
+            }
+            clearInterval(pingInterval);
+        }
+
+        function setStatus(type, text) {
+            statusSpan.className = `status ${type}`;
+            statusSpan.textContent = text;
+        }
+
+        function handleMessage(message) {
+            console.log('Received:', message);
+
+            switch (message.type) {
+                case 'connection':
+                    console.log('Connected:', message);
+                    break;
+
+                case 'subscription':
+                    console.log('Subscribed to:', message.topics);
+                    break;
+
+                case 'event':
+                    addEvent(message.data);
+                    break;
+
+                case 'metric':
+                    updateMetrics(message.data);
+                    break;
+
+                case 'alert':
+                    addAlert(message.data);
+                    break;
+
+                case 'stats':
+                    updateStats(message.data);
+                    break;
+
+                case 'pong':
+                    console.log('Pong received');
+                    break;
+
+                case 'error':
+                    console.error('Server error:', message.message);
+                    break;
+
+                default:
+                    console.log('Unknown message type:', message.type);
+            }
+        }
+
+        function addEvent(event) {
+            if (eventList.children.length === 1 && eventList.children[0].tagName === 'P') {
+                eventList.innerHTML = '';
+            }
+
+            const div = document.createElement('div');
+            div.className = `event-item ${event.severity}`;
+            div.innerHTML = `
+                <div><strong>${event.event_type}</strong>
+                    <span class="badge ${event.success ? 'success' : 'error'}">${event.success ? 'SUCCESS' : 'FAILED'}</span>
+                </div>
+                <div>${event.message}</div>
+                ${event.username ? `<div>User: ${event.username}</div>` : ''}
+                ${event.ip_address ? `<div>IP: ${event.ip_address}</div>` : ''}
+                <div class="timestamp">${new Date(event.timestamp).toLocaleString()}</div>
+            `;
+
+            eventList.insertBefore(div, eventList.firstChild);
+
+            // Keep only last 50 events
+            while (eventList.children.length > 50) {
+                eventList.removeChild(eventList.lastChild);
+            }
+        }
+
+        function updateMetrics(metrics) {
+            if (metricList.children.length === 1 && metricList.children[0].tagName === 'P') {
+                metricList.innerHTML = '';
+            }
+
+            metricList.innerHTML = `
+                <div class="metric-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Total Events</div>
+                        <div class="metric-value">${metrics.total_events || 0}</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Failed Attempts</div>
+                        <div class="metric-value">${metrics.failed_attempts || 0}</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Unique Users</div>
+                        <div class="metric-value">${metrics.unique_users || 0}</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Unique IPs</div>
+                        <div class="metric-value">${metrics.unique_ips || 0}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function addAlert(alert) {
+            if (alertList.children.length === 1 && alertList.children[0].tagName === 'P') {
+                alertList.innerHTML = '';
+            }
+
+            const div = document.createElement('div');
+            div.className = `alert-item ${alert.severity}`;
+            div.innerHTML = `
+                <div><strong>${alert.title}</strong>
+                    <span class="badge warning">${alert.severity.toUpperCase()}</span>
+                    <span class="badge info">Risk: ${alert.risk_score}</span>
+                </div>
+                <div>${alert.description}</div>
+                ${alert.username ? `<div>User: ${alert.username}</div>` : ''}
+                ${alert.ip_address ? `<div>IP: ${alert.ip_address}</div>` : ''}
+                <div class="timestamp">${new Date(alert.created_at).toLocaleString()}</div>
+            `;
+
+            alertList.insertBefore(div, alertList.firstChild);
+
+            // Keep only last 20 alerts
+            while (alertList.children.length > 20) {
+                alertList.removeChild(alertList.lastChild);
+            }
+        }
+
+        function updateStats(stats) {
+            statsPanel.style.display = 'block';
+            statsGrid.innerHTML = `
+                <div class="stat-item">
+                    <span class="stat-label">Total Connections:</span>
+                    <span class="stat-value">${stats.total_connections}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Authenticated:</span>
+                    <span class="stat-value">${stats.authenticated_connections}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Anonymous:</span>
+                    <span class="stat-value">${stats.anonymous_connections}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Unique Users:</span>
+                    <span class="stat-value">${stats.unique_users}</span>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

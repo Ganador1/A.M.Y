@@ -1,0 +1,18 @@
+{
+  "summary": {
+    "total_files_analyzed": 598,
+    "total_issues": 0,
+    "high_severity_issues": 0,
+    "medium_severity_issues": 0,
+    "files_with_issues": 0
+  },
+  "breakdown": {
+    "n_plus_1_queries": 0,
+    "unoptimized_joins": 0,
+    "missing_indexes": 0
+  },
+  "issues": [],
+  "recommendations": [
+    "No performance issues detected - code follows best practices!"
+  ]
+}

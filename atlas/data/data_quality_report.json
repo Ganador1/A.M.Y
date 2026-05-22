@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-09-05T01:08:57.278662Z",
+  "csv_path": "data/toy_dataset_20250904_204437.csv",
+  "tool": "pandas",
+  "result": {
+    "tool": "pandas",
+    "checks": [
+      {
+        "name": "ids non-null",
+        "passed": true
+      },
+      {
+        "name": "ids unique",
+        "passed": true
+      },
+      {
+        "name": "value numeric",
+        "passed": true
+      }
+    ],
+    "passed": true,
+    "executed_checks": [
+      "ids non-null",
+      "ids unique",
+      "value numeric"
+    ]
+  }
+}

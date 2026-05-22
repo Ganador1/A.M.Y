@@ -1,0 +1,129 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "axiom-atlas"
+version = "4.1.0"
+description = "Autonomous Scientific Research Platform with Multi-Agent AI"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Giovanni Arangio", email = "giovanni@axiom.ai"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: FastAPI",
+]
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.22.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "sqlalchemy>=2.0.0",
+    "alembic>=1.11.0",
+    "python-dotenv>=1.0.0",
+    "httpx>=0.24.0",
+    "jinja2>=3.1.0",
+    "python-multipart>=0.0.6",
+    "psutil>=5.9.0",
+    "tenacity>=8.2.0",
+    "typer>=0.9.0",
+    "click>=8.1.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+scientific = [
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "pandas>=2.0.0",
+    "scikit-learn>=1.3.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "networkx>=3.1",
+    "sympy>=1.12",
+    "statsmodels>=0.14.0",
+    "plotly>=5.15.0",
+]
+bio = [
+    "biopython>=1.81",
+    "rdkit>=2023.3.1",
+]
+quantum = [
+    "qiskit>=0.44.0",
+    "cirq>=1.2.0",
+    "qutip>=4.7.0",
+]
+ai = [
+    "torch>=2.0.0",
+    "transformers>=4.30.0",
+    "sentence-transformers>=2.2.0",
+    "langchain>=0.0.200",
+    "openai>=0.27.0",
+    "tiktoken>=0.4.0",
+    "accelerate>=0.20.0",
+    "datasets>=2.14.0",
+]
+science_agents = [
+    "paper-qa>=2026.3.18",
+]
+distributed = [
+    "ray>=2.6.0",
+    "celery>=5.3.0",
+    "redis>=4.6.0",
+]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.7.0",
+    "ruff>=0.0.280",
+    "mypy>=1.5.0",
+    "pre-commit>=3.3.0",
+    "bandit>=1.7.5",
+    "pip-audit>=2.6.1",
+]
+all = [
+    "axiom-atlas[scientific,bio,quantum,ai,science_agents,distributed,dev]"
+]
+
+[project.urls]
+Homepage = "https://github.com/giovanniarangio/axiom-atlas"
+Documentation = "https://axiom-atlas.readthedocs.io"
+Repository = "https://github.com/giovanniarangio/axiom-atlas.git"
+Issues = "https://github.com/giovanniarangio/axiom-atlas/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*", "scripts*"]
+exclude = ["tests*", "docs*", "examples*", "archive*", "data*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+select = ["E", "F", "B", "I", "N", "UP", "PL", "RUF"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --cov=app --import-mode=importlib"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true

@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: axiom-redis
+  namespace: axiom-system
+  labels:
+    app: axiom
+    component: cache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: axiom
+      component: cache
+  template:
+    metadata:
+      labels:
+        app: axiom
+        component: cache
+    spec:
+      containers:
+      - name: redis
+        image: redis:7-alpine
+        ports:
+        - containerPort: 6379
+        command: ["redis-server", "--appendonly", "yes"]
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        volumeMounts:
+        - name: redis-data
+          mountPath: /data
+        livenessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      volumes:
+      - name: redis-data
+        persistentVolumeClaim:
+          claimName: axiom-redis-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: axiom-redis
+  namespace: axiom-system
+  labels:
+    app: axiom
+    component: cache
+spec:
+  selector:
+    app: axiom
+    component: cache
+  ports:
+  - port: 6379
+    targetPort: 6379
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: axiom-redis-pvc
+  namespace: axiom-system
+  labels:
+    app: axiom
+    component: cache
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi

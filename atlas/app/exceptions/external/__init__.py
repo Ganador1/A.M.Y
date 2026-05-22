@@ -1,0 +1,1 @@
+"""Excepciones de servicios externos (LLM, APIs científicas, servicios)"""

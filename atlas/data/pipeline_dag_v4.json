@@ -1,0 +1,133 @@
+{
+  "nodes": [
+    {
+      "id": "node:update_dataset.py:1",
+      "name": "update_dataset.py",
+      "cmd": [
+        "python",
+        "update_dataset.py",
+        "--rows",
+        "50",
+        "--max-batches",
+        "1",
+        "--semantic-limit",
+        "10",
+        "--semantic-batches",
+        "1"
+      ],
+      "status": "success",
+      "started_at": "2025-09-17T10:31:56.305970Z",
+      "ended_at": "2025-09-17T10:32:06.960849Z"
+    },
+    {
+      "id": "node:enrich_dataset_v4.py:2",
+      "name": "enrich_dataset_v4.py",
+      "cmd": [
+        "python",
+        "enrich_dataset_v4.py"
+      ],
+      "status": "success",
+      "started_at": "2025-09-17T10:32:06.989577Z",
+      "ended_at": "2025-09-17T10:32:07.374862Z"
+    },
+    {
+      "id": "node:generate_embeddings_v4.py:3",
+      "name": "generate_embeddings_v4.py",
+      "cmd": [
+        "python",
+        "generate_embeddings_v4.py"
+      ],
+      "status": "success",
+      "started_at": "2025-09-17T10:32:07.383053Z",
+      "ended_at": "2025-09-17T10:32:23.121394Z"
+    },
+    {
+      "id": "node:build_faiss_index_v4.py:4",
+      "name": "build_faiss_index_v4.py",
+      "cmd": [
+        "python",
+        "build_faiss_index_v4.py"
+      ],
+      "status": "success",
+      "started_at": "2025-09-17T10:32:23.139362Z",
+      "ended_at": "2025-09-17T10:32:23.531618Z"
+    },
+    {
+      "id": "node:cluster_embeddings_v4.py:5",
+      "name": "cluster_embeddings_v4.py",
+      "cmd": [
+        "python",
+        "cluster_embeddings_v4.py",
+        "--k",
+        "20"
+      ],
+      "status": "success",
+      "started_at": "2025-09-17T10:32:23.539383Z",
+      "ended_at": "2025-09-17T10:32:24.665747Z"
+    },
+    {
+      "id": "node:weak_label_v4.py:6",
+      "name": "weak_label_v4.py",
+      "cmd": [
+        "python",
+        "weak_label_v4.py"
+      ],
+      "status": "success",
+      "started_at": "2025-09-17T10:32:24.673481Z",
+      "ended_at": "2025-09-17T10:32:24.938009Z"
+    },
+    {
+      "id": "node:train_plausibility_model_v4.py:7",
+      "name": "train_plausibility_model_v4.py",
+      "cmd": [
+        "python",
+        "train_plausibility_model_v4.py"
+      ],
+      "status": "success",
+      "started_at": "2025-09-17T10:32:24.945317Z",
+      "ended_at": "2025-09-17T10:32:27.616513Z"
+    },
+    {
+      "id": "node:pipeline_metadata_v4.py:8",
+      "name": "pipeline_metadata_v4.py",
+      "cmd": [
+        "python",
+        "pipeline_metadata_v4.py"
+      ],
+      "status": "success",
+      "started_at": "2025-09-17T10:32:27.624641Z",
+      "ended_at": "2025-09-17T10:32:29.355817Z"
+    }
+  ],
+  "edges": [
+    {
+      "from": "node:update_dataset.py:1",
+      "to": "node:enrich_dataset_v4.py:2"
+    },
+    {
+      "from": "node:enrich_dataset_v4.py:2",
+      "to": "node:generate_embeddings_v4.py:3"
+    },
+    {
+      "from": "node:generate_embeddings_v4.py:3",
+      "to": "node:build_faiss_index_v4.py:4"
+    },
+    {
+      "from": "node:build_faiss_index_v4.py:4",
+      "to": "node:cluster_embeddings_v4.py:5"
+    },
+    {
+      "from": "node:cluster_embeddings_v4.py:5",
+      "to": "node:weak_label_v4.py:6"
+    },
+    {
+      "from": "node:weak_label_v4.py:6",
+      "to": "node:train_plausibility_model_v4.py:7"
+    },
+    {
+      "from": "node:train_plausibility_model_v4.py:7",
+      "to": "node:pipeline_metadata_v4.py:8"
+    }
+  ],
+  "generatedAt": "2025-09-17T10:32:29.364651Z"
+}

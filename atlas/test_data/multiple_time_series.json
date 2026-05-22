@@ -1,0 +1,3647 @@
+{
+  "collection_name": "multiple_time_series_dataset",
+  "description": "Colección de series temporales con diferentes patrones para testing",
+  "series_count": 4,
+  "series": {
+    "strong_trend_seasonal": {
+      "parameters": {
+        "trend_strength": 2.0,
+        "seasonal_strength": 1.5,
+        "noise_level": 0.3,
+        "anomaly_count": 3
+      },
+      "data": [
+        {
+          "timestamp": "2023-01-01T00:00:00",
+          "value": 8.24507122951685,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-02T00:00:00",
+          "value": 19.973501226521403,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-03T00:00:00",
+          "value": 24.681679293706278,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-04T00:00:00",
+          "value": 18.212383636450085,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-05T00:00:00",
+          "value": 2.628267141859822,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-06T00:00:00",
+          "value": -5.638531939380174,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-07T00:00:00",
+          "value": -0.3371149414221164,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-08T00:00:00",
+          "value": 9.75634461851609,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-09T00:00:00",
+          "value": 19.177844669644138,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-10T00:00:00",
+          "value": 23.175997212081906,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-11T00:00:00",
+          "value": 13.236313905086586,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-12T00:00:00",
+          "value": 0.06517252848592603,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-13T00:00:00",
+          "value": -6.92078150414013,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-14T00:00:00",
+          "value": -6.92384387152217,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-15T00:00:00",
+          "value": 5.718974346285559,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-16T00:00:00",
+          "value": 20.143817479471814,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-17T00:00:00",
+          "value": 23.645659968789214,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-18T00:00:00",
+          "value": 19.12244956115799,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-19T00:00:00",
+          "value": 6.17381218571813,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-20T00:00:00",
+          "value": -0.53180350309212,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-21T00:00:00",
+          "value": 9.067369631445672,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-22T00:00:00",
+          "value": 20.807395242296064,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-23T00:00:00",
+          "value": 35.62580665613706,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-24T00:00:00",
+          "value": 38.96908390026093,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-25T00:00:00",
+          "value": 34.82495191588826,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-26T00:00:00",
+          "value": 25.341088691656186,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-27T00:00:00",
+          "value": 17.718349828439557,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-28T00:00:00",
+          "value": 25.07130001367328,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-29T00:00:00",
+          "value": 37.2355490985586,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-30T00:00:00",
+          "value": 51.02827325470557,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-31T00:00:00",
+          "value": 54.74091183700897,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-01T00:00:00",
+          "value": 51.25965187741022,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-02T00:00:00",
+          "value": 36.07727895258333,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-03T00:00:00",
+          "value": 26.72865076153918,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-04T00:00:00",
+          "value": 32.51365149446825,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-05T00:00:00",
+          "value": 41.0248797764401,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-06T00:00:00",
+          "value": 54.58185877449051,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-07T00:00:00",
+          "value": 53.80915909432012,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-08T00:00:00",
+          "value": 46.190114097567566,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-09T00:00:00",
+          "value": 35.04482730364163,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-10T00:00:00",
+          "value": 27.42651861743337,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-11T00:00:00",
+          "value": 29.321156502994846,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-12T00:00:00",
+          "value": 40.686274420281485,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-13T00:00:00",
+          "value": 52.468918498747165,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-14T00:00:00",
+          "value": 54.23203986485705,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-15T00:00:00",
+          "value": 48.20781938310988,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-16T00:00:00",
+          "value": 36.86132679598615,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-17T00:00:00",
+          "value": 32.62414020472844,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-18T00:00:00",
+          "value": 36.35161265572123,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-19T00:00:00",
+          "value": 47.08556357121973,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-20T00:00:00",
+          "value": 64.32951997882212,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-21T00:00:00",
+          "value": 68.71190802775446,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-22T00:00:00",
+          "value": 62.80946827101484,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-23T00:00:00",
+          "value": 54.41109891597742,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-24T00:00:00",
+          "value": 49.57540358955493,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-25T00:00:00",
+          "value": 54.87196190813429,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-26T00:00:00",
+          "value": 66.32948566509208,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-27T00:00:00",
+          "value": 81.01843196904453,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-28T00:00:00",
+          "value": 86.77687403589523,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-01T00:00:00",
+          "value": 81.2294684924477,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-02T00:00:00",
+          "value": 67.3120887017202,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-03T00:00:00",
+          "value": 60.59012443878605,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-04T00:00:00",
+          "value": 62.73835925104977,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-05T00:00:00",
+          "value": 74.66437897420504,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-06T00:00:00",
+          "value": 89.47312040657131,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-07T00:00:00",
+          "value": 93.03397704960595,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-08T00:00:00",
+          "value": 82.46088512198156,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-09T00:00:00",
+          "value": 70.64134193011283,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-10T00:00:00",
+          "value": 61.11222551162159,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-11T00:00:00",
+          "value": 62.082192740298844,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-12T00:00:00",
+          "value": 75.00438391105588,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-13T00:00:00",
+          "value": 88.34565647757542,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-14T00:00:00",
+          "value": 88.94947954055199,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-15T00:00:00",
+          "value": 83.56787644822087,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-16T00:00:00",
+          "value": 64.90758349740855,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-17T00:00:00",
+          "value": 62.90781775539975,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-18T00:00:00",
+          "value": 65.98319247715166,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-19T00:00:00",
+          "value": 78.73341759505438,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-20T00:00:00",
+          "value": 92.94832393283838,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-21T00:00:00",
+          "value": 94.89224218771557,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-22T00:00:00",
+          "value": 91.81422311534232,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-23T00:00:00",
+          "value": 82.21257860878166,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-24T00:00:00",
+          "value": 78.42907064172105,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-25T00:00:00",
+          "value": 81.0165160776743,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-26T00:00:00",
+          "value": 94.95963565682423,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-27T00:00:00",
+          "value": 109.69690371074981,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-28T00:00:00",
+          "value": 117.10488688183224,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-29T00:00:00",
+          "value": 110.27571411967966,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-30T00:00:00",
+          "value": 97.8727168862745,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-31T00:00:00",
+          "value": 92.92343025456911,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-01T00:00:00",
+          "value": 96.47680330487867,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-02T00:00:00",
+          "value": 110.46505214493399,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-03T00:00:00",
+          "value": 120.31927961790937,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-04T00:00:00",
+          "value": 124.11066744578251,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-05T00:00:00",
+          "value": 115.96650636565045,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-06T00:00:00",
+          "value": 101.19172288768642,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-07T00:00:00",
+          "value": 95.40045902308384,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-08T00:00:00",
+          "value": 97.82796241391314,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-09T00:00:00",
+          "value": 108.72091341436685,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-10T00:00:00",
+          "value": 119.67248921881045,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-11T00:00:00",
+          "value": 120.48270614507074,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-12T00:00:00",
+          "value": 113.70797056609703,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-13T00:00:00",
+          "value": 100.87652512756178,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-14T00:00:00",
+          "value": 92.40487336380232,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-15T00:00:00",
+          "value": 96.89560950841283,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-16T00:00:00",
+          "value": 110.4245120394118,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-17T00:00:00",
+          "value": 125.6563982732768,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-18T00:00:00",
+          "value": 127.58726709535395,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-19T00:00:00",
+          "value": 121.49734527648796,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-20T00:00:00",
+          "value": 110.14930498910276,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-21T00:00:00",
+          "value": 101.652952427285,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-22T00:00:00",
+          "value": 109.93747586070872,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-23T00:00:00",
+          "value": 124.44604664487335,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-24T00:00:00",
+          "value": 142.4632821204791,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-25T00:00:00",
+          "value": 144.02730636934544,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-26T00:00:00",
+          "value": 139.20219721199558,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-27T00:00:00",
+          "value": 128.06709435385628,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-28T00:00:00",
+          "value": 120.41694870189565,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-29T00:00:00",
+          "value": 128.68192833606597,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-30T00:00:00",
+          "value": 141.42490040928215,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-01T00:00:00",
+          "value": 154.49223244808763,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-02T00:00:00",
+          "value": 155.79147523229577,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-03T00:00:00",
+          "value": 191.77688764749826,
+          "is_anomaly": true
+        },
+        {
+          "timestamp": "2023-05-04T00:00:00",
+          "value": 134.88676237462582,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-05T00:00:00",
+          "value": 129.82233253918406,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-06T00:00:00",
+          "value": 134.97301567096815,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-07T00:00:00",
+          "value": 141.61394587514394,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-08T00:00:00",
+          "value": 153.56143045790583,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-09T00:00:00",
+          "value": 157.00619203238776,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-10T00:00:00",
+          "value": 147.5694933600676,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-11T00:00:00",
+          "value": 132.66714541468218,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-12T00:00:00",
+          "value": 126.8291613155891,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-13T00:00:00",
+          "value": 128.09747825413132,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-14T00:00:00",
+          "value": 142.46214966894055,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-15T00:00:00",
+          "value": 152.7328992712276,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-16T00:00:00",
+          "value": 160.28680911706934,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-17T00:00:00",
+          "value": 149.95257640532517,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-18T00:00:00",
+          "value": 139.22968640493258,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-19T00:00:00",
+          "value": 134.71867381959325,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-20T00:00:00",
+          "value": 136.71501431046948,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-21T00:00:00",
+          "value": 153.01577090749268,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-22T00:00:00",
+          "value": 168.91245835197262,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-23T00:00:00",
+          "value": 170.0879482334731,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-24T00:00:00",
+          "value": 167.34570666191834,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-25T00:00:00",
+          "value": 157.09305031102477,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-26T00:00:00",
+          "value": 152.30998880929616,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-27T00:00:00",
+          "value": 154.56407286446537,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-28T00:00:00",
+          "value": 168.33275259405164,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-29T00:00:00",
+          "value": 184.72510400938538,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-30T00:00:00",
+          "value": 188.88594962545503,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-31T00:00:00",
+          "value": 181.9817607254109,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-01T00:00:00",
+          "value": 210.06260703186828,
+          "is_anomaly": true
+        },
+        {
+          "timestamp": "2023-06-02T00:00:00",
+          "value": 131.0400374018613,
+          "is_anomaly": true
+        },
+        {
+          "timestamp": "2023-06-03T00:00:00",
+          "value": 165.6382564369241,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-04T00:00:00",
+          "value": 177.5251273637849,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-05T00:00:00",
+          "value": 187.59030265188036,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-06T00:00:00",
+          "value": 194.04188388491025,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-07T00:00:00",
+          "value": 183.42196335604643,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-08T00:00:00",
+          "value": 167.45713804208714,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-09T00:00:00",
+          "value": 161.6969155573275,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-10T00:00:00",
+          "value": 161.83145497830895,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-11T00:00:00",
+          "value": 176.05041551434664,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-12T00:00:00",
+          "value": 188.403324739898,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-13T00:00:00",
+          "value": 188.6642093008133,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-14T00:00:00",
+          "value": 183.85743673881353,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-15T00:00:00",
+          "value": 170.96845720308286,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-16T00:00:00",
+          "value": 164.74792488695633,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-17T00:00:00",
+          "value": 170.85830507559072,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-18T00:00:00",
+          "value": 181.2737875748874,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-19T00:00:00",
+          "value": 194.40520408525074,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-20T00:00:00",
+          "value": 199.48378111650132,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-21T00:00:00",
+          "value": 194.02836571546953,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-22T00:00:00",
+          "value": 184.7708988243288,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-23T00:00:00",
+          "value": 179.96786213947988,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-24T00:00:00",
+          "value": 185.41859924101556,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-25T00:00:00",
+          "value": 200.52150113053682,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-26T00:00:00",
+          "value": 213.41349931526582,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-27T00:00:00",
+          "value": 220.63721038476697,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-28T00:00:00",
+          "value": 211.84554333347162,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-29T00:00:00",
+          "value": 204.9081046686246,
+          "is_anomaly": false
+        }
+      ]
+    },
+    "weak_trend_noisy": {
+      "parameters": {
+        "trend_strength": 0.5,
+        "seasonal_strength": 0.1,
+        "noise_level": 1.0,
+        "anomaly_count": 2
+      },
+      "data": [
+        {
+          "timestamp": "2023-01-01T00:00:00",
+          "value": 2.9835707650561636,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-02T00:00:00",
+          "value": 0.8589133859175568,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-03T00:00:00",
+          "value": 5.228802549383682,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-04T00:00:00",
+          "value": 9.291530345160801,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-05T00:00:00",
+          "value": -0.15276687380061893,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-06T00:00:00",
+          "value": -0.49896465223498887,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-07T00:00:00",
+          "value": 8.944718745887686,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-08T00:00:00",
+          "value": 5.844745139968203,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-09T00:00:00",
+          "value": 0.6168321926678217,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-10T00:00:00",
+          "value": 6.047186113371101,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-11T00:00:00",
+          "value": 0.660091364440722,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-12T00:00:00",
+          "value": -0.024472111824247467,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-13T00:00:00",
+          "value": 3.1823302557234427,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-14T00:00:00",
+          "value": -7.173720518377202,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-15T00:00:00",
+          "value": -5.203048437792402,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-16T00:00:00",
+          "value": 1.6603379703413772,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-17T00:00:00",
+          "value": -0.10902774684043859,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-18T00:00:00",
+          "value": 6.2969510252279335,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-19T00:00:00",
+          "value": 39.649420346982765,
+          "is_anomaly": true
+        },
+        {
+          "timestamp": "2023-01-20T00:00:00",
+          "value": -3.063749152205309,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-21T00:00:00",
+          "value": 11.88300454091069,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-22T00:00:00",
+          "value": 4.5825317880893435,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-23T00:00:00",
+          "value": 7.212459670921863,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-24T00:00:00",
+          "value": 0.32803221833495844,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-25T00:00:00",
+          "value": 4.570389228204258,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-26T00:00:00",
+          "value": 7.35396943289546,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-27T00:00:00",
+          "value": 0.8672393362883257,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-28T00:00:00",
+          "value": 9.043066547788584,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-29T00:00:00",
+          "value": 5.274808329506604,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-30T00:00:00",
+          "value": 7.912995193086424,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-31T00:00:00",
+          "value": 6.8462831191912645,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-01T00:00:00",
+          "value": 18.843566339124123,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-02T00:00:00",
+          "value": 8.893950352047595,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-03T00:00:00",
+          "value": 3.3589030351982183,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-04T00:00:00",
+          "value": 13.16266508513796,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-05T00:00:00",
+          "value": 3.922318062994049,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-06T00:00:00",
+          "value": 12.036523876466987,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-07T00:00:00",
+          "value": -28.43596294485697,
+          "is_anomaly": true
+        },
+        {
+          "timestamp": "2023-02-08T00:00:00",
+          "value": 4.355214402656386,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-09T00:00:00",
+          "value": 11.289768691643939,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-10T00:00:00",
+          "value": 13.64058934533713,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-11T00:00:00",
+          "value": 11.19295858678284,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-12T00:00:00",
+          "value": 10.749093666290316,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-13T00:00:00",
+          "value": 10.830713460057826,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-14T00:00:00",
+          "value": 5.383746953273874,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-15T00:00:00",
+          "value": 8.904495099378654,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-16T00:00:00",
+          "value": 9.623010616889786,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-17T00:00:00",
+          "value": 16.982402110203186,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-18T00:00:00",
+          "value": 13.93957269723708,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-19T00:00:00",
+          "value": 4.537384757995724,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-20T00:00:00",
+          "value": 16.118731776369376,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-21T00:00:00",
+          "value": 13.140818068778689,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-22T00:00:00",
+          "value": 11.522149170758402,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-23T00:00:00",
+          "value": 17.481231210463623,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-24T00:00:00",
+          "value": 19.41837708016697,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-25T00:00:00",
+          "value": 19.487697604733075,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-26T00:00:00",
+          "value": 11.780935787624893,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-27T00:00:00",
+          "value": 15.562065809896637,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-28T00:00:00",
+          "value": 19.289135116456695,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-01T00:00:00",
+          "value": 22.281130102470563,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-02T00:00:00",
+          "value": 14.430021607968849,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-03T00:00:00",
+          "value": 15.624957150117389,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-04T00:00:00",
+          "value": 11.461702130513068,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-05T00:00:00",
+          "value": 12.02124073991261,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-06T00:00:00",
+          "value": 23.056120869685486,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-07T00:00:00",
+          "value": 26.16255263604152,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-08T00:00:00",
+          "value": 18.6640958183475,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-09T00:00:00",
+          "value": 23.351128780859074,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-10T00:00:00",
+          "value": 19.775401389243743,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-11T00:00:00",
+          "value": 15.111804264078645,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-12T00:00:00",
+          "value": 21.11005065324039,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-13T00:00:00",
+          "value": 27.969851246255317,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-14T00:00:00",
+          "value": 20.503021063020007,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-15T00:00:00",
+          "value": 28.191390741880262,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-16T00:00:00",
+          "value": 6.648708001519333,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-17T00:00:00",
+          "value": 23.584305280085356,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-18T00:00:00",
+          "value": 20.39338033768553,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-19T00:00:00",
+          "value": 19.55657040711752,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-20T00:00:00",
+          "value": 22.623836365164767,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-21T00:00:00",
+          "value": 12.76955714214318,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-22T00:00:00",
+          "value": 21.4318930150138,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-23T00:00:00",
+          "value": 23.822868945276056,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-24T00:00:00",
+          "value": 29.26730601285282,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-25T00:00:00",
+          "value": 19.863439199697005,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-26T00:00:00",
+          "value": 19.57572763355952,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-27T00:00:00",
+          "value": 22.266063024321884,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-28T00:00:00",
+          "value": 29.908850172586703,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-29T00:00:00",
+          "value": 26.783823762257096,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-30T00:00:00",
+          "value": 21.95509355746074,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-31T00:00:00",
+          "value": 26.94081824928258,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-01T00:00:00",
+          "value": 25.343221068741443,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-02T00:00:00",
+          "value": 30.751293166439158,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-03T00:00:00",
+          "value": 23.42666276424893,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-04T00:00:00",
+          "value": 25.718779307665375,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-05T00:00:00",
+          "value": 25.064891516859664,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-06T00:00:00",
+          "value": 19.034854369383854,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-07T00:00:00",
+          "value": 27.47582442842909,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-08T00:00:00",
+          "value": 27.670681177104345,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-09T00:00:00",
+          "value": 27.347604727556128,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-10T00:00:00",
+          "value": 27.108018603321018,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-11T00:00:00",
+          "value": 21.581035095784504,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-12T00:00:00",
+          "value": 26.208382324904626,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-13T00:00:00",
+          "value": 25.939655292792963,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-14T00:00:00",
+          "value": 23.327862733559172,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-15T00:00:00",
+          "value": 26.972945488443962,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-16T00:00:00",
+          "value": 30.84986322262018,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-17T00:00:00",
+          "value": 39.33262573563981,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-18T00:00:00",
+          "value": 31.279312403944303,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-19T00:00:00",
+          "value": 31.484724960907034,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-20T00:00:00",
+          "value": 29.306248753173858,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-21T00:00:00",
+          "value": 19.907472994563193,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-22T00:00:00",
+          "value": 29.93667723527718,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-23T00:00:00",
+          "value": 31.533803019188618,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-24T00:00:00",
+          "value": 44.71455208658415,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-25T00:00:00",
+          "value": 32.0112070044581,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-26T00:00:00",
+          "value": 34.31452547871857,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-27T00:00:00",
+          "value": 32.12935735240716,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-28T00:00:00",
+          "value": 26.267754642718042,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-29T00:00:00",
+          "value": 38.34994917367697,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-30T00:00:00",
+          "value": 37.48896242748791,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-01T00:00:00",
+          "value": 38.75654429030895,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-02T00:00:00",
+          "value": 30.715947120139276,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-03T00:00:00",
+          "value": 41.982840313122146,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-04T00:00:00",
+          "value": 27.318911343549857,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-05T00:00:00",
+          "value": 36.93079436837884,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-06T00:00:00",
+          "value": 45.336647763900295,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-07T00:00:00",
+          "value": 30.397357597791007,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-08T00:00:00",
+          "value": 33.477467401283526,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-09T00:00:00",
+          "value": 37.17511045012028,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-10T00:00:00",
+          "value": 33.79551652442172,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-11T00:00:00",
+          "value": 27.87564826756295,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-12T00:00:00",
+          "value": 35.6255004296186,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-13T00:00:00",
+          "value": 30.373649831602236,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-14T00:00:00",
+          "value": 39.062027413181426,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-15T00:00:00",
+          "value": 33.12580410869747,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-16T00:00:00",
+          "value": 45.93409714397343,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-17T00:00:00",
+          "value": 34.01737029271192,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-18T00:00:00",
+          "value": 35.76719237561376,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-19T00:00:00",
+          "value": 41.23563571099861,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-20T00:00:00",
+          "value": 31.55609727464086,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-21T00:00:00",
+          "value": 39.99344492441729,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-22T00:00:00",
+          "value": 46.548511617027884,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-23T00:00:00",
+          "value": 32.5500519770156,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-24T00:00:00",
+          "value": 41.35345134162519,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-25T00:00:00",
+          "value": 41.24350241646287,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-26T00:00:00",
+          "value": 43.686979742794115,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-27T00:00:00",
+          "value": 34.15010317134891,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-28T00:00:00",
+          "value": 34.86367794573257,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-29T00:00:00",
+          "value": 45.18909416227884,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-30T00:00:00",
+          "value": 44.56903681055823,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-31T00:00:00",
+          "value": 44.08578933162908,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-01T00:00:00",
+          "value": 43.96620205845488,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-02T00:00:00",
+          "value": 38.539821767406245,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-03T00:00:00",
+          "value": 43.52137566812222,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-04T00:00:00",
+          "value": 44.81668744620916,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-05T00:00:00",
+          "value": 40.75616377781105,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-06T00:00:00",
+          "value": 54.033727959506486,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-07T00:00:00",
+          "value": 46.710061178662286,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-08T00:00:00",
+          "value": 37.69141275552586,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-09T00:00:00",
+          "value": 46.5667394550289,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-10T00:00:00",
+          "value": 38.78749759656296,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-11T00:00:00",
+          "value": 48.57292475463896,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-12T00:00:00",
+          "value": 51.42169752836225,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-13T00:00:00",
+          "value": 41.94546984858521,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-14T00:00:00",
+          "value": 50.571746450894054,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-15T00:00:00",
+          "value": 47.219406370425276,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-16T00:00:00",
+          "value": 49.0150141712226,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-17T00:00:00",
+          "value": 54.89340539471784,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-18T00:00:00",
+          "value": 45.295925224474146,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-19T00:00:00",
+          "value": 43.88528926811566,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-20T00:00:00",
+          "value": 43.76338928360727,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-21T00:00:00",
+          "value": 43.9656869455945,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-22T00:00:00",
+          "value": 47.173036219608264,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-23T00:00:00",
+          "value": 49.107118539903944,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-24T00:00:00",
+          "value": 49.35948296667679,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-25T00:00:00",
+          "value": 53.2685978094259,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-26T00:00:00",
+          "value": 50.34341741822132,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-27T00:00:00",
+          "value": 58.08844757727877,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-28T00:00:00",
+          "value": 49.288042692810514,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-29T00:00:00",
+          "value": 63.65603589419744,
+          "is_anomaly": false
+        }
+      ]
+    },
+    "strong_seasonal": {
+      "parameters": {
+        "trend_strength": 0.1,
+        "seasonal_strength": 2.5,
+        "noise_level": 0.2,
+        "anomaly_count": 4
+      },
+      "data": [
+        {
+          "timestamp": "2023-01-01T00:00:00",
+          "value": 12.996714153011233,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-02T00:00:00",
+          "value": 31.690233691489844,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-03T00:00:00",
+          "value": 36.551936406754216,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-04T00:00:00",
+          "value": 22.650433529396953,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-05T00:00:00",
+          "value": -2.493650586025719,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-06T00:00:00",
+          "value": -18.078005152556223,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-07T00:00:00",
+          "value": -13.768666285780256,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-08T00:00:00",
+          "value": 2.4651019725125374,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-09T00:00:00",
+          "value": 18.2166342592218,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-10T00:00:00",
+          "value": 21.555838714534104,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-11T00:00:00",
+          "value": 4.692335003003595,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-12T00:00:00",
+          "value": -19.06243067133008,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-13T00:00:00",
+          "value": -33.573556901213884,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-14T00:00:00",
+          "value": -32.15212854365081,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-15T00:00:00",
+          "value": -13.169639936657683,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-16T00:00:00",
+          "value": 7.321488359275378,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-17T00:00:00",
+          "value": 12.027376423641952,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-18T00:00:00",
+          "value": 0.6917432603927516,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-19T00:00:00",
+          "value": -20.862243390968224,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-20T00:00:00",
+          "value": -33.08818157140013,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-21T00:00:00",
+          "value": 16.787180142974982,
+          "is_anomaly": true
+        },
+        {
+          "timestamp": "2023-01-22T00:00:00",
+          "value": -2.9153043726314993,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-23T00:00:00",
+          "value": 19.535759754872537,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-24T00:00:00",
+          "value": 25.539971610295122,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-25T00:00:00",
+          "value": 15.506205306005658,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-26T00:00:00",
+          "value": -3.0895228435363284,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-27T00:00:00",
+          "value": -15.707544836001732,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-28T00:00:00",
+          "value": -7.548996725400089,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-29T00:00:00",
+          "value": 12.382925340669546,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-30T00:00:00",
+          "value": 33.101050052923604,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-31T00:00:00",
+          "value": 37.947468845947505,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-01T00:00:00",
+          "value": 26.658060247039483,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-02T00:00:00",
+          "value": 2.346437015062355,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-03T00:00:00",
+          "value": -13.474620884820226,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-04T00:00:00",
+          "value": -8.459668229329669,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-05T00:00:00",
+          "value": 46.98446361259879,
+          "is_anomaly": true
+        },
+        {
+          "timestamp": "2023-02-06T00:00:00",
+          "value": 25.62853627074987,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-07T00:00:00",
+          "value": 25.787172577656744,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-08T00:00:00",
+          "value": 10.335206666127855,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-09T00:00:00",
+          "value": -12.334173722035969,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-10T00:00:00",
+          "value": -27.650094353041784,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-11T00:00:00",
+          "value": -25.44804856670042,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-12T00:00:00",
+          "value": -7.881991996991319,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-13T00:00:00",
+          "value": 10.227599782450435,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-14T00:00:00",
+          "value": 13.12593136366486,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-15T00:00:00",
+          "value": 0.1412157499912069,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-16T00:00:00",
+          "value": -20.96474485583664,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-17T00:00:00",
+          "value": -32.10969547483683,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-18T00:00:00",
+          "value": -26.633316956009104,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-19T00:00:00",
+          "value": -7.389742567250748,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-20T00:00:00",
+          "value": 16.41316712048099,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-21T00:00:00",
+          "value": 22.974565105615618,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-22T00:00:00",
+          "value": 11.768593619748112,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-23T00:00:00",
+          "value": -5.96791754350377,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-24T00:00:00",
+          "value": -16.462726075826478,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-25T00:00:00",
+          "value": -9.291881244260548,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-26T00:00:00",
+          "value": 10.653406676374775,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-27T00:00:00",
+          "value": 32.53364465743578,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-28T00:00:00",
+          "value": 39.36400292016883,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-01T00:00:00",
+          "value": 27.345572999708793,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-02T00:00:00",
+          "value": 4.525687591478534,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-03T00:00:00",
+          "value": -8.92419054298654,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-04T00:00:00",
+          "value": -5.7691166643363,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-05T00:00:00",
+          "value": 12.436058878231819,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-06T00:00:00",
+          "value": 32.29786445799405,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-07T00:00:00",
+          "value": 35.61072274931756,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-08T00:00:00",
+          "value": 18.324946624034347,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-09T00:00:00",
+          "value": -4.793938029424657,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-10T00:00:00",
+          "value": -21.519284888779403,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-11T00:00:00",
+          "value": -20.19887064264079,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-12T00:00:00",
+          "value": -1.97798986935197,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-13T00:00:00",
+          "value": 16.68617149560832,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-14T00:00:00",
+          "value": 18.2470057044639,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-15T00:00:00",
+          "value": 5.0706312037234635,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-16T00:00:00",
+          "value": -21.559605378910707,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-17T00:00:00",
+          "value": -31.8613511660921,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-18T00:00:00",
+          "value": -27.43977494676927,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-19T00:00:00",
+          "value": -7.416649593344647,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-20T00:00:00",
+          "value": 13.882377307990698,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-21T00:00:00",
+          "value": 18.434904131688,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-22T00:00:00",
+          "value": 8.846695333118245,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-23T00:00:00",
+          "value": -9.827553671309364,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-24T00:00:00",
+          "value": -19.620903964057582,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-25T00:00:00",
+          "value": -14.120579980748753,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-26T00:00:00",
+          "value": 7.746956256961172,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-27T00:00:00",
+          "value": 30.042633370071588,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-28T00:00:00",
+          "value": 38.457201775476406,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-29T00:00:00",
+          "value": 26.14889221281643,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-30T00:00:00",
+          "value": 4.95866565614533,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-31T00:00:00",
+          "value": -6.661018323153538,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-01T00:00:00",
+          "value": -1.9207765514589008,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-02T00:00:00",
+          "value": 18.279288882386766,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-03T00:00:00",
+          "value": 35.402716992825134,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-04T00:00:00",
+          "value": 39.353778813891715,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-05T00:00:00",
+          "value": 24.070514552337286,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-06T00:00:00",
+          "value": -0.7533458562387709,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-07T00:00:00",
+          "value": -14.851236606174032,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-08T00:00:00",
+          "value": -12.55913158526749,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-09T00:00:00",
+          "value": 4.173368000992262,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-10T00:00:00",
+          "value": 20.979213755622062,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-11T00:00:00",
+          "value": 22.294419241266144,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-12T00:00:00",
+          "value": 7.704773676246465,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-13T00:00:00",
+          "value": -15.604196401806107,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-14T00:00:00",
+          "value": -30.840603350165566,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-15T00:00:00",
+          "value": -26.12386191661738,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-16T00:00:00",
+          "value": -6.230027355475879,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-17T00:00:00",
+          "value": 15.126915663235852,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-18T00:00:00",
+          "value": 19.106111028129884,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-19T00:00:00",
+          "value": 7.0254509920475785,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-20T00:00:00",
+          "value": -13.196286498330297,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-21T00:00:00",
+          "value": -26.396717623196547,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-22T00:00:00",
+          "value": -17.233896048401014,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-23T00:00:00",
+          "value": 5.010607659318727,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-24T00:00:00",
+          "value": 29.62848412704267,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-25T00:00:00",
+          "value": 34.4122643532502,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-26T00:00:00",
+          "value": 23.823221825859093,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-27T00:00:00",
+          "value": 3.962774259215938,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-28T00:00:00",
+          "value": -8.892850563316292,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-29T00:00:00",
+          "value": -0.39146725570355567,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-30T00:00:00",
+          "value": 19.62682273459649,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-01T00:00:00",
+          "value": 39.54072962326864,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-02T00:00:00",
+          "value": 42.45043189523625,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-03T00:00:00",
+          "value": 30.484848467508233,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-04T00:00:00",
+          "value": 4.7352762688441405,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-05T00:00:00",
+          "value": -8.494833829583555,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-06T00:00:00",
+          "value": -4.122091212427232,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-07T00:00:00",
+          "value": -20.088717750192547,
+          "is_anomaly": true
+        },
+        {
+          "timestamp": "2023-05-08T00:00:00",
+          "value": 27.381067189982783,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-09T00:00:00",
+          "value": 30.31708136761443,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-10T00:00:00",
+          "value": 13.68760930475071,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-11T00:00:00",
+          "value": -11.38518707660271,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-12T00:00:00",
+          "value": -25.350331655035376,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-13T00:00:00",
+          "value": -23.346501529136102,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-14T00:00:00",
+          "value": -33.515558192131905,
+          "is_anomaly": true
+        },
+        {
+          "timestamp": "2023-05-15T00:00:00",
+          "value": 13.885551337847376,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-16T00:00:00",
+          "value": 20.96503165090398,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-17T00:00:00",
+          "value": 5.4347605395584235,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-18T00:00:00",
+          "value": -14.934841929760985,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-19T00:00:00",
+          "value": -25.962895810158837,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-20T00:00:00",
+          "value": -21.375420829128995,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-21T00:00:00",
+          "value": 1.7986889848833119,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-22T00:00:00",
+          "value": 24.867312358363165,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-23T00:00:00",
+          "value": 29.392069672993472,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-24T00:00:00",
+          "value": 20.32715994295935,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-25T00:00:00",
+          "value": 1.3201944834265784,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-26T00:00:00",
+          "value": -9.24081627355037,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-27T00:00:00",
+          "value": -4.262180612087835,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-28T00:00:00",
+          "value": 17.004546319395907,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-29T00:00:00",
+          "value": 39.75520327243108,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-30T00:00:00",
+          "value": 45.22104983332012,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-31T00:00:00",
+          "value": 31.97747459644169,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-01T00:00:00",
+          "value": 10.161953930674695,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-02T00:00:00",
+          "value": -5.142284193859682,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-03T00:00:00",
+          "value": -0.6533349013335555,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-04T00:00:00",
+          "value": 17.260557008091926,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-05T00:00:00",
+          "value": 33.740653520769406,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-06T00:00:00",
+          "value": 38.816768544259915,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-07T00:00:00",
+          "value": 21.39848191036708,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-08T00:00:00",
+          "value": -4.51818712352938,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-09T00:00:00",
+          "value": -18.696675061352828,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-10T00:00:00",
+          "value": -17.8319212458946,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-11T00:00:00",
+          "value": 1.4173654320776596,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-12T00:00:00",
+          "value": 19.64194954062994,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-13T00:00:00",
+          "value": 21.239342517058166,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-14T00:00:00",
+          "value": 8.745635771195204,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-15T00:00:00",
+          "value": -13.7164354560301,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-16T00:00:00",
+          "value": -26.504239636963934,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-17T00:00:00",
+          "value": -19.73870336103178,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-18T00:00:00",
+          "value": -0.9726256853546759,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-19T00:00:00",
+          "value": 19.86925909998023,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-20T00:00:00",
+          "value": 26.730890078830647,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-21T00:00:00",
+          "value": 15.721643388984914,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-22T00:00:00",
+          "value": -2.6218624307126026,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-23T00:00:00",
+          "value": -13.060635569609497,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-24T00:00:00",
+          "value": -5.685713441622764,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-25T00:00:00",
+          "value": 16.85371956188442,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-26T00:00:00",
+          "value": 37.75532376770065,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-27T00:00:00",
+          "value": 45.82771246781426,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-28T00:00:00",
+          "value": 31.94588894344563,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-29T00:00:00",
+          "value": 14.09992069782321,
+          "is_anomaly": false
+        }
+      ]
+    },
+    "stationary_like": {
+      "parameters": {
+        "trend_strength": 0.05,
+        "seasonal_strength": 0.1,
+        "noise_level": 0.8,
+        "anomaly_count": 1
+      },
+      "data": [
+        {
+          "timestamp": "2023-01-01T00:00:00",
+          "value": 2.4868566120449307,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-02T00:00:00",
+          "value": 0.7457810390440487,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-03T00:00:00",
+          "value": 4.078320715193604,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-04T00:00:00",
+          "value": 7.014310544618698,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-05T00:00:00",
+          "value": -0.9242000912560537,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-06T00:00:00",
+          "value": -1.5218109355092722,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-07T00:00:00",
+          "value": 5.857126042112138,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-08T00:00:00",
+          "value": 3.3175338745024447,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-09T00:00:00",
+          "value": -0.9248666057547674,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-10T00:00:00",
+          "value": 3.2420562373829016,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-11T00:00:00",
+          "value": -1.390457423193743,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-12T00:00:00",
+          "value": -2.3241054867456103,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-13T00:00:00",
+          "value": -0.0763917923789037,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-14T00:00:00",
+          "value": -8.52859669830041,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-15T00:00:00",
+          "value": -6.9976836779050675,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-16T00:00:00",
+          "value": -1.5483242210880412,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-17T00:00:00",
+          "value": -3.118542995221098,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-18T00:00:00",
+          "value": 1.7089606758728828,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-19T00:00:00",
+          "value": -3.9676952423004903,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-20T00:00:00",
+          "value": -6.427981763719179,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-21T00:00:00",
+          "value": 5.38942281109528,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-22T00:00:00",
+          "value": -0.4710215203626675,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-23T00:00:00",
+          "value": 1.6142052092507,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-24T00:00:00",
+          "value": -4.029342500479517,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-25T00:00:00",
+          "value": -0.9187476003431843,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-26T00:00:00",
+          "value": 0.9581306420682758,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-27T00:00:00",
+          "value": -4.518079935451382,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-28T00:00:00",
+          "value": 1.8796590322362094,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-29T00:00:00",
+          "value": -1.1636591258259876,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-30T00:00:00",
+          "value": 0.9141861495836126,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-01-31T00:00:00",
+          "value": -0.09390970992012049,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-01T00:00:00",
+          "value": 9.19799206522971,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-02T00:00:00",
+          "value": 0.8627548393553597,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-03T00:00:00",
+          "value": -3.8794754213207425,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-04T00:00:00",
+          "value": 3.7926341395152185,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-05T00:00:00",
+          "value": -3.655720968599174,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-06T00:00:00",
+          "value": 2.7773809518532953,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-07T00:00:00",
+          "value": -5.777968798630826,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-08T00:00:00",
+          "value": 36.13032782585649,
+          "is_anomaly": true
+        },
+        {
+          "timestamp": "2023-02-09T00:00:00",
+          "value": 1.2884381820317987,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-10T00:00:00",
+          "value": 2.8462568435540088,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-11T00:00:00",
+          "value": 0.7143277357604674,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-12T00:00:00",
+          "value": 0.30608273080146214,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-13T00:00:00",
+          "value": 0.3217612897253279,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-14T00:00:00",
+          "value": -4.199183570325178,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-15T00:00:00",
+          "value": -1.6885098542378112,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-16T00:00:00",
+          "value": -1.4805964222062913,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-17T00:00:00",
+          "value": 4.1096374258837125,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-18T00:00:00",
+          "value": 1.528915301523369,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-19T00:00:00",
+          "value": -6.018010840831485,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-20T00:00:00",
+          "value": 3.224815404739946,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-21T00:00:00",
+          "value": 0.704671298915676,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-22T00:00:00",
+          "value": -0.873554527259661,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-23T00:00:00",
+          "value": 3.545532575254043,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-24T00:00:00",
+          "value": 4.811958563257611,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-25T00:00:00",
+          "value": 4.729601843158775,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-26T00:00:00",
+          "value": -1.4580589796552612,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-27T00:00:00",
+          "value": 1.5416692472003646,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-02-28T00:00:00",
+          "value": 4.376866098460956,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-01T00:00:00",
+          "value": 6.47318274071133,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-02T00:00:00",
+          "value": -0.17460303686742473,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-03T00:00:00",
+          "value": 0.475420596054951,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-04T00:00:00",
+          "value": -3.018555074251849,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-05T00:00:00",
+          "value": -2.6205414628223624,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-06T00:00:00",
+          "value": 6.154209572430954,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-07T00:00:00",
+          "value": 8.465530484565676,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-08T00:00:00",
+          "value": 2.1439271689781125,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-09T00:00:00",
+          "value": 5.504020463972636,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-10T00:00:00",
+          "value": 2.318793297157008,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-11T00:00:00",
+          "value": -1.5894446964000244,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-12T00:00:00",
+          "value": 3.150889684603486,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-13T00:00:00",
+          "value": 8.582652668616163,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-14T00:00:00",
+          "value": 2.4382884429120857,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-15T00:00:00",
+          "value": 8.274791778803687,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-16T00:00:00",
+          "value": -9.334898849698185,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-17T00:00:00",
+          "value": 3.90765417235818,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-18T00:00:00",
+          "value": 1.200188018050712,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-19T00:00:00",
+          "value": 0.49803585814204787,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-20T00:00:00",
+          "value": 2.923137041143234,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-21T00:00:00",
+          "value": -5.103209138786653,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-22T00:00:00",
+          "value": 1.539833059275892,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-23T00:00:00",
+          "value": 3.1026278821441973,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-24T00:00:00",
+          "value": 7.174886828446502,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-25T00:00:00",
+          "value": -0.48421236973884496,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-26T00:00:00",
+          "value": -0.7330971993014814,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-27T00:00:00",
+          "value": 1.3991049841075394,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-28T00:00:00",
+          "value": 7.373336323041057,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-29T00:00:00",
+          "value": 4.583564272709142,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-30T00:00:00",
+          "value": 0.3619487332948199,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-03-31T00:00:00",
+          "value": 4.053249140191575,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-01T00:00:00",
+          "value": 2.6204451953710572,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-02T00:00:00",
+          "value": 6.905553203839231,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-03T00:00:00",
+          "value": 1.0002242380145558,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-04T00:00:00",
+          "value": 2.666553186106719,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-05T00:00:00",
+          "value": 1.8257147537907064,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-06T00:00:00",
+          "value": -3.3843122467298357,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-07T00:00:00",
+          "value": 3.0456259390740112,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-08T00:00:00",
+          "value": 3.02415104458926,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-09T00:00:00",
+          "value": 2.7056197625337797,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-10T00:00:00",
+          "value": 2.4543375802715888,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-11T00:00:00",
+          "value": -2.1432589666343578,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-12T00:00:00",
+          "value": 1.2379661951560204,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-13T00:00:00",
+          "value": 0.6399117087610782,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-14T00:00:00",
+          "value": -1.7637147458225573,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-15T00:00:00",
+          "value": 0.9889798034619313,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-16T00:00:00",
+          "value": 4.049164321112905,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-17T00:00:00",
+          "value": 10.798395141691849,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-18T00:00:00",
+          "value": 4.205293250330339,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-19T00:00:00",
+          "value": 4.076336581357456,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-20T00:00:00",
+          "value": 1.9784600320685204,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-21T00:00:00",
+          "value": -5.827387075053966,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-22T00:00:00",
+          "value": 2.0581631777655076,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-23T00:00:00",
+          "value": 3.317148228242007,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-24T00:00:00",
+          "value": 13.84348874504858,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-25T00:00:00",
+          "value": 3.544350092144249,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-26T00:00:00",
+          "value": 5.102363611245302,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-27T00:00:00",
+          "value": 3.0020579489280523,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-28T00:00:00",
+          "value": -1.976975140891474,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-29T00:00:00",
+          "value": 7.5423218898882105,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-04-30T00:00:00",
+          "value": 6.820828277482703,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-01T00:00:00",
+          "value": 7.797914577902776,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-02T00:00:00",
+          "value": 1.2063401615261942,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-03T00:00:00",
+          "value": 9.909654940733539,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-04T00:00:00",
+          "value": -2.2010253031550633,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-05T00:00:00",
+          "value": 5.170752917036678,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-06T00:00:00",
+          "value": 11.721611132503721,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-07T00:00:00",
+          "value": -0.28808373070958515,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-08T00:00:00",
+          "value": 2.116390829210324,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-09T00:00:00",
+          "value": 4.896688135311971,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-10T00:00:00",
+          "value": 1.8688245807725612,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-11T00:00:00",
+          "value": -3.2552525471809663,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-12T00:00:00",
+          "value": 2.623976560957827,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-13T00:00:00",
+          "value": -1.7484039965710982,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-14T00:00:00",
+          "value": 5.15268079260211,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-15T00:00:00",
+          "value": 0.35807750494244717,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-16T00:00:00",
+          "value": 10.445615252922376,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-17T00:00:00",
+          "value": 0.6106794509699438,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-18T00:00:00",
+          "value": 1.6479131096965376,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-19T00:00:00",
+          "value": 5.729381063461338,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-20T00:00:00",
+          "value": -2.1571724871374767,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-21T00:00:00",
+          "value": 4.570454263556177,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-22T00:00:00",
+          "value": 9.79444148844378,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-23T00:00:00",
+          "value": -1.5407888107695387,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-24T00:00:00",
+          "value": 5.21909681270183,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-25T00:00:00",
+          "value": 4.7825023037786965,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-26T00:00:00",
+          "value": 6.452642904536356,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-27T00:00:00",
+          "value": -1.3168567322981484,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-28T00:00:00",
+          "value": -0.7711727037529821,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-29T00:00:00",
+          "value": 7.460448686047421,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-30T00:00:00",
+          "value": 6.81395157866583,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-05-31T00:00:00",
+          "value": 6.125799274579295,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-01T00:00:00",
+          "value": 5.658859994209313,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-02T00:00:00",
+          "value": 1.0075559861914374,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-03T00:00:00",
+          "value": 4.825434820123227,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-04T00:00:00",
+          "value": 5.808531174027795,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-05T00:00:00",
+          "value": 2.504034748910047,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-06T00:00:00",
+          "value": 12.950076353389665,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-07T00:00:00",
+          "value": 6.766954514733742,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-08T00:00:00",
+          "value": -0.8379541383329383,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-09T00:00:00",
+          "value": 5.938118807288926,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-10T00:00:00",
+          "value": -0.46128442036055795,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-11T00:00:00",
+          "value": 7.310979815700982,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-12T00:00:00",
+          "value": 9.536844966114629,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-13T00:00:00",
+          "value": 1.7884985356520113,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-14T00:00:00",
+          "value": 8.379320042320128,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-15T00:00:00",
+          "value": 5.32617851611448,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-16T00:00:00",
+          "value": 6.461110435809121,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-17T00:00:00",
+          "value": 11.013372188600204,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-18T00:00:00",
+          "value": 3.3066764689686354,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-19T00:00:00",
+          "value": 2.1529919129200863,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-20T00:00:00",
+          "value": 1.9154735456350354,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-21T00:00:00",
+          "value": 1.79267041491749,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-22T00:00:00",
+          "value": 4.009914465335219,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-23T00:00:00",
+          "value": 5.2743464533554505,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-24T00:00:00",
+          "value": 5.339775407570233,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-25T00:00:00",
+          "value": 8.447001152568646,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-26T00:00:00",
+          "value": 6.0846054704774994,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-27T00:00:00",
+          "value": 12.137706796210852,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-28T00:00:00",
+          "value": 4.804096174093173,
+          "is_anomaly": false
+        },
+        {
+          "timestamp": "2023-06-29T00:00:00",
+          "value": 15.93586672760782,
+          "is_anomaly": false
+        }
+      ]
+    }
+  }
+}

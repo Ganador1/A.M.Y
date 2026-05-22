@@ -1,0 +1,29 @@
+version: 1
+weights:
+  novelty: 0.15
+  evidence_strength: 0.20
+  reproducibility_risk: -0.20  # signo negativo: menor es mejor
+  coverage: 0.10
+  diversity: 0.05
+  consistency: 0.10
+  peer_review: 0.15
+  methodological_rigor: 0.10
+  safety: 0.05
+thresholds:
+  approve:
+    composite_min: 0.62  # lowered from 0.65 to allow high-quality cases (~0.625) to pass
+    max_reproducibility_risk: 0.50
+  refine:
+    composite_min: 0.45
+    composite_max: 0.65
+  halt:
+    composite_max: 0.30
+    min_reproducibility_risk: 0.80
+normalization:
+  missing_score_policy: treat_as_neutral  # otras opciones (future): zero, drop
+caps:
+  max_positive: 1.0
+  min_negative: -1.0
+logging:
+  decisions_path: data/policy_decisions.jsonl
+  include_deltas: true

@@ -1,0 +1,102 @@
+{
+  "manual_labels": {
+    "ec8f6352e235b711ba656ed32156ee8a78f4e7320e103994f73e1aba848376a1": 1,
+    "e5ecda61ba2da5be636139c6ebbde0786e0818804906cd93462aac6f93cbe09a": 1,
+    "5df96683-1884-4429-8ec4-bc0c154ad2ae": 1,
+    "1a433111-9dd1-4a9f-85ef-747e5c835513": 1,
+    "256de6ae09d0d3a858823af09e5c281d6c3456f3b3f10b948c52a4d4c83d7548": 1,
+    "cbf7aa27-cd35-4b71-9c50-02758663b2d7": 1
+  },
+  "total_labeled": 6,
+  "distribution": {
+    "plausible": 6,
+    "implausible": 0
+  },
+  "method": "llm_automated",
+  "llm_evaluations": {
+    "ec8f6352e235b711ba656ed32156ee8a78f4e7320e103994f73e1aba848376a1": {
+      "validity_score": 10,
+      "feasibility_score": 8,
+      "novelty_score": 7,
+      "reasoning": "The hypothesis follows established principles in quantum physics, particularly those related to electron spin and the behavior of donor electrons in semiconductors. The proposed use of silicon-germanium heterostructures for spin-resonance transistors is a logical extension of existing research in quantum computing. However, the feasibility score is slightly lower due to potential challenges in manufacturing large-scale computers and maintaining qubit coherence over long distances. The novelty score reflects the fact that while the concept is not entirely new, the proposed application for spin-resonance transistors in quantum information processing represents a significant advancement.",
+      "overall_plausible": true,
+      "confidence": 0.95
+    },
+    "2e4deb5a-8f5e-4839-8d4a-05aa1722266f": {
+      "validity_score": 5,
+      "feasibility_score": 5,
+      "novelty_score": 5,
+      "reasoning": "Evaluation failed: Invalid control character at: line 5 column 518 (char 590)",
+      "overall_plausible": true,
+      "confidence": 0.0,
+      "error": "Invalid control character at: line 5 column 518 (char 590)"
+    },
+    "075138d3-cc3b-4836-9be4-c182055342c7": {
+      "validity_score": 5,
+      "feasibility_score": 5,
+      "novelty_score": 5,
+      "reasoning": "Evaluation failed: Invalid control character at: line 5 column 416 (char 488)",
+      "overall_plausible": true,
+      "confidence": 0.0,
+      "error": "Invalid control character at: line 5 column 416 (char 488)"
+    },
+    "e5ecda61ba2da5be636139c6ebbde0786e0818804906cd93462aac6f93cbe09a": {
+      "validity_score": 10,
+      "feasibility_score": 9,
+      "novelty_score": 8,
+      "reasoning": "The hypothesis follows established principles in neuroscience, psychology, and mathematics. It proposes a novel experimental and data-analytical framework called representational similarity analysis (RSA) that aims to quantitatively relate the three major branches of systems neuroscience: brain-activity measurement, behavioral measurement, and computational modeling. The methodology is feasible as it builds on existing techniques in multi-channel measures of neural activity, computational models, and multidimensional scaling. However, the novelty lies in its application to bridge the divides between different modalities of brain-activity measurement, subjects, and species. While the claims are not extraordinary, they do require significant advancements in integrating data from all three branches, contributing to a more unified systems neuroscience.",
+      "overall_plausible": true,
+      "confidence": 0.95
+    },
+    "5df96683-1884-4429-8ec4-bc0c154ad2ae": {
+      "validity_score": 10,
+      "feasibility_score": 9,
+      "novelty_score": 7,
+      "reasoning": "The hypothesis follows established principles of electrochemistry and materials science, as it investigates the impact of an additive on Li-ion cell performance. The additive is expected to improve cycle life, a known challenge in energy storage research. The mechanism behind this improvement can be plausibly explained by alterations in the electrolyte properties or interfacial reactions. The methodology involves systematic optimization, which is a well-established approach in materials science and engineering. While the specific additive X might require some characterization to fully understand its effects, it seems reasonable given the context of Li-ion cell research. The claims are not too extraordinary but do require further investigation to confirm the significance of the improvements.",
+      "overall_plausible": true,
+      "confidence": 0.85
+    },
+    "8a927a89-9d7e-4ebe-a854-ad780657c8cc": {
+      "validity_score": 5,
+      "feasibility_score": 5,
+      "novelty_score": 5,
+      "reasoning": "Evaluation failed: Invalid control character at: line 5 column 418 (char 491)",
+      "overall_plausible": true,
+      "confidence": 0.0,
+      "error": "Invalid control character at: line 5 column 418 (char 491)"
+    },
+    "1a433111-9dd1-4a9f-85ef-747e5c835513": {
+      "validity_score": 10,
+      "feasibility_score": 9,
+      "novelty_score": 7,
+      "reasoning": "The hypothesis follows established principles in drug discovery and molecular biology, as it suggests that optimizing the 3D conformation of a ligand can affect its binding affinity to a target protein. This is based on our understanding of how molecular interactions occur at the atomic level. The claim of a 2-3 orders of magnitude improvement in binding affinity is significant but not implausible, given advancements in computational drug design and experimental techniques such as X-ray crystallography and NMR spectroscopy.",
+      "overall_plausible": true,
+      "confidence": 0.95
+    },
+    "33c2be95-f9a5-47d7-a70b-aee299920f2e": {
+      "validity_score": 5,
+      "feasibility_score": 5,
+      "novelty_score": 5,
+      "reasoning": "Evaluation failed: Invalid control character at: line 5 column 398 (char 470)",
+      "overall_plausible": true,
+      "confidence": 0.0,
+      "error": "Invalid control character at: line 5 column 398 (char 470)"
+    },
+    "256de6ae09d0d3a858823af09e5c281d6c3456f3b3f10b948c52a4d4c83d7548": {
+      "validity_score": 10,
+      "feasibility_score": 8,
+      "novelty_score": 7,
+      "reasoning": "The hypothesis falls within the established field of AI research and privacy-preserving machine learning. The underlying concept of randomized response is a well-known statistical technique used for confidentiality protection in surveys. In this context, it's plausible to apply this method to machine learning data, as long as the noise added doesn't compromise the model's performance too much. The feasibility score is reduced slightly due to potential computational challenges that may arise from adding noise and maintaining consistent learning results. The novelty score reflects the originality of applying randomized response specifically to private machine learning, which builds upon existing knowledge in both statistics and AI.",
+      "overall_plausible": true,
+      "confidence": 0.95
+    },
+    "cbf7aa27-cd35-4b71-9c50-02758663b2d7": {
+      "validity_score": 10,
+      "feasibility_score": 9,
+      "novelty_score": 8,
+      "reasoning": "The hypothesis follows established principles in materials science and catalysis, focusing on the influence of catalyst support interactions on reaction selectivity. This is a well-established area of research with sound underlying theories (e.g., Brønsted-Evans-Polanyi principle). The mechanism proposed is plausible as catalyst supports can indeed affect reaction selectivity through various factors such as acid-base properties, electronic effects, and dispersion. However, the feasibility score is slightly lower due to potential challenges in systematically optimizing composition for significant improvements, which may require advanced computational modeling or experimental techniques.",
+      "overall_plausible": true,
+      "confidence": 0.95
+    }
+  }
+}

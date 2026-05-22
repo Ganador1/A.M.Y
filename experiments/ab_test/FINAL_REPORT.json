@@ -1,0 +1,153 @@
+{
+  "date": "2026-05-21",
+  "baseline": {
+    "avg": 49.64730069937366,
+    "by_dim": {
+      "provenance_integrity": 2.857142857142857,
+      "tool_diversity": 7.809523809523809,
+      "falsifiability": 0.8571428571428571,
+      "explicit_limitations": 2.857142857142857,
+      "numerical_claims_grounded": 4.285714285714286,
+      "citation_accuracy": 10.0,
+      "abstract_uniqueness": 7.552062604135567,
+      "statistical_rigor": 3.4285714285714284,
+      "reproducibility_info": 10.0
+    },
+    "papers": [
+      {
+        "name": "Computational_Analysis_of_Climate_Dynamics_and_Environmental_20260505_235312.md",
+        "total": 44.64749064919825
+      },
+      {
+        "name": "Computational_Analysis_of_DNA_Sequence_and_Protein_Analysis_20260505_235253.md",
+        "total": 41.38073697175871
+      },
+      {
+        "name": "Computational_Analysis_of_Molecular_Structure_and_Energetics_20260505_235326.md",
+        "total": 32.14005909817854
+      },
+      {
+        "name": "Computational_Analysis_of_Quantum_Mechanics_and_Energy_Level_20260505_235304.md",
+        "total": 36.75702408098052
+      },
+      {
+        "name": "Computational_Analysis_of_Statistical_Analysis_and_Inference_20260505_235317.md",
+        "total": 35.6932959798587
+      },
+      {
+        "name": "Computational_Analysis_of_Stellar_Physics_and_Cosmological_A_20260510_202434.md",
+        "total": 78.19264305077284
+      },
+      {
+        "name": "Computational_Analysis_of_Stellar_Physics_and_Cosmological_A_20260510_202809.md",
+        "total": 78.71985506486807
+      }
+    ]
+  },
+  "real_improved": {
+    "avg": 66.92543035785461,
+    "by_dim": {
+      "provenance_integrity": 10.0,
+      "tool_diversity": 5.388888888888888,
+      "falsifiability": 5.0,
+      "explicit_limitations": 3.6666666666666665,
+      "numerical_claims_grounded": 11.041666666666666,
+      "citation_accuracy": 10.0,
+      "abstract_uniqueness": 6.578208135632384,
+      "statistical_rigor": 5.25,
+      "reproducibility_info": 10.0
+    },
+    "papers": [
+      {
+        "name": "Computational_Verification_in_Atomic_Energy_Levels_and_Black_20260521_154033.md",
+        "total": 66.69637969309022,
+        "per_dim": {
+          "provenance_integrity": 10.0,
+          "tool_diversity": 5.0,
+          "falsifiability": 3.0,
+          "explicit_limitations": 4.0,
+          "numerical_claims_grounded": 15.0,
+          "citation_accuracy": 10.0,
+          "abstract_uniqueness": 6.196379693090219,
+          "statistical_rigor": 3.5,
+          "reproducibility_info": 10.0
+        }
+      },
+      {
+        "name": "Computational_Verification_in_Cosmological_Distances_and_Sta_20260521_154033.md",
+        "total": 63.5745417022591,
+        "per_dim": {
+          "provenance_integrity": 10.0,
+          "tool_diversity": 4.0,
+          "falsifiability": 3.0,
+          "explicit_limitations": 4.0,
+          "numerical_claims_grounded": 13.5,
+          "citation_accuracy": 10.0,
+          "abstract_uniqueness": 6.5745417022590935,
+          "statistical_rigor": 2.5,
+          "reproducibility_info": 10.0
+        }
+      },
+      {
+        "name": "Computational_Verification_in_DNA_Composition_and_Protein_Pr_20260521_154033.md",
+        "total": 68.65228015228016,
+        "per_dim": {
+          "provenance_integrity": 10.0,
+          "tool_diversity": 5.0,
+          "falsifiability": 6.0,
+          "explicit_limitations": 4.0,
+          "numerical_claims_grounded": 9.0,
+          "citation_accuracy": 10.0,
+          "abstract_uniqueness": 6.152280152280152,
+          "statistical_rigor": 8.5,
+          "reproducibility_info": 10.0
+        }
+      },
+      {
+        "name": "Computational_Verification_in_Molecular_Structure_and_Energe_20260521_154032.md",
+        "total": 64.56360230815767,
+        "per_dim": {
+          "provenance_integrity": 10.0,
+          "tool_diversity": 6.666666666666666,
+          "falsifiability": 6.0,
+          "explicit_limitations": 4.0,
+          "numerical_claims_grounded": 10.0,
+          "citation_accuracy": 10.0,
+          "abstract_uniqueness": 6.8969356414909955,
+          "statistical_rigor": 1.0,
+          "reproducibility_info": 10.0
+        }
+      },
+      {
+        "name": "Computational_Verification_in_Prime_Distribution_and_Number__20260521_154033.md",
+        "total": 67.11687622722106,
+        "per_dim": {
+          "provenance_integrity": 10.0,
+          "tool_diversity": 5.0,
+          "falsifiability": 9.0,
+          "explicit_limitations": 2.0,
+          "numerical_claims_grounded": 7.5,
+          "citation_accuracy": 10.0,
+          "abstract_uniqueness": 7.616876227221054,
+          "statistical_rigor": 6.0,
+          "reproducibility_info": 10.0
+        }
+      },
+      {
+        "name": "Computational_Verification_in_Statistical_Distributions_and__20260521_154033.md",
+        "total": 70.94890206411945,
+        "per_dim": {
+          "provenance_integrity": 10.0,
+          "tool_diversity": 6.666666666666666,
+          "falsifiability": 3.0,
+          "explicit_limitations": 4.0,
+          "numerical_claims_grounded": 11.25,
+          "citation_accuracy": 10.0,
+          "abstract_uniqueness": 6.032235397452789,
+          "statistical_rigor": 10.0,
+          "reproducibility_info": 10.0
+        }
+      }
+    ]
+  }
+}

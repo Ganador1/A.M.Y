@@ -1,0 +1,15 @@
+# Dashboard provisioning configuration for ATLAS Security Dashboards
+
+apiVersion: 1
+
+providers:
+  - name: 'ATLAS Security'
+    orgId: 1
+    folder: 'Security'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /app/grafana/dashboards
+      foldersFromFilesStructure: false

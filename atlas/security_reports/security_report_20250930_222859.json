@@ -1,0 +1,20 @@
+{
+  "timestamp": "20250930_222859",
+  "project_root": ".",
+  "bandit": {
+    "success": false,
+    "error": "Bandit not installed"
+  },
+  "safety": {
+    "success": false,
+    "error": "Safety not installed"
+  },
+  "semgrep": {
+    "success": false,
+    "error": "Semgrep not installed"
+  },
+  "secrets": {
+    "success": false,
+    "error": "Detect-secrets not installed"
+  }
+}

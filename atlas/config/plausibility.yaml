@@ -1,0 +1,28 @@
+# Configuración de pesos y parámetros para plausibility scoring
+component_weights:
+  title_length: 1.0
+  description_length: 1.0
+  variables_coverage: 1.0
+  quant_elements: 1.0
+  assumptions_present: 1.0
+  duplication_penalty: 1.0  # se aplica como multiplicador directo
+
+# Pesos por dominio (normalizados aproximadamente). Dominios no listados => 1.0
+# Ajustan el composite final multiplicando.
+domain_weights:
+  biology: 1.05
+  chemistry: 1.00
+  physics: 1.02
+  materials: 1.03
+  medicine: 1.04
+
+# Ajuste por evidencia: factor base multiplicado por (1 + alpha * log(1 + evidence_count))
+evidence_adjustment:
+  enabled: true
+  alpha: 0.15
+  support_score_weight: 0.5  # mezcla media soporte y counts
+
+# Umbral para marcar hipótesis como altamente plausibles
+thresholds:
+  high: 0.75
+  medium: 0.5

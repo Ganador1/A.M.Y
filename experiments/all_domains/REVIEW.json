@@ -1,0 +1,703 @@
+{
+  "n_papers": 23,
+  "avg_rubric": 71.00126651762183,
+  "avg_reflection": 100.0,
+  "avg_novelty": 4.586956521739131,
+  "verdict_counts": {
+    "STRONG": 2,
+    "GOOD": 21,
+    "WEAK": 0
+  },
+  "papers": [
+    {
+      "paper": "AM_Process_Parameter_Audit_Effects_of_Scan_Speed_and_Laser_P_20260521_195526.md",
+      "domain": "statistics",
+      "rubric_score": 73.5347870918979,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 7.6,
+        "falsifiability": 3.0,
+        "explicit_limitations": 8.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.434787091897888,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Bell-State_Preparation_as_Quantum_Hardware_Calibration_Contr_20260521_195710.md",
+      "domain": "physics",
+      "rubric_score": 77.90353171127306,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 10.0,
+        "falsifiability": 3.0,
+        "explicit_limitations": 10.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.403531711273064,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Biophysical_Hypotheses_on_Membrane_Protein_Stability_A_Liter_20260521_195405.md",
+      "domain": "physics",
+      "rubric_score": 72.48890639296158,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 8.5,
+        "falsifiability": 3.0,
+        "explicit_limitations": 6.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.488906392961572,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Clinical_Entity_Extraction_with_ClinicalBERT_Quantitative_Be_20260521_195237.md",
+      "domain": "biology",
+      "rubric_score": 69.41897609235617,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 7.6,
+        "falsifiability": 3.0,
+        "explicit_limitations": 4.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.318976092356175,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Computational_Cosmology_Distance-Redshift_Relations_and_Stel_20260521_154957.md",
+      "domain": "physics",
+      "rubric_score": 68.51977852114372,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 7.0,
+        "falsifiability": 3.0,
+        "explicit_limitations": 4.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.019778521143723,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 1,
+        "max_elo": 1500.0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Computational_Studies_of_Prime_Counting_and_Twin_Prime_Densi_20260521_155003.md",
+      "domain": "mathematics",
+      "rubric_score": 80.45341347492563,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 8.0,
+        "falsifiability": 12.0,
+        "explicit_limitations": 2.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.453413474925625,
+        "statistical_rigor": 6.0,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 1,
+        "testable_hypothesis_count": 1,
+        "known_control_count": 2,
+        "max_elo": 1552.1,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 4,
+        "novelty_score": 35.0
+      },
+      "verdict": "STRONG"
+    },
+    {
+      "paper": "Cross-Level_Comparison_IUPAC_vs_Hartree-Fock_vs_DFT_vs_EMT_20260521_155003.md",
+      "domain": "chemistry",
+      "rubric_score": 72.17569896417092,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 9.0,
+        "falsifiability": 6.0,
+        "explicit_limitations": 4.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.175698964170918,
+        "statistical_rigor": 1.0,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 1,
+        "known_control_count": 1,
+        "max_elo": 1524.3,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 2,
+        "novelty_score": 25.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Drug_Repurposing_Hypotheses_Vorinostat_for_Liver_Fibrosis_Re_20260521_195356.md",
+      "domain": "biology",
+      "rubric_score": 71.95827483452052,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 8.5,
+        "falsifiability": 3.0,
+        "explicit_limitations": 6.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 6.958274834520517,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Empirical_Tests_of_Goldbach_and_Twin-Prime_Conjectures_20260521_155003.md",
+      "domain": "mathematics",
+      "rubric_score": 74.50909304803525,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 6.0,
+        "falsifiability": 6.0,
+        "explicit_limitations": 4.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.509093048035245,
+        "statistical_rigor": 6.0,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 1,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 1,
+        "max_elo": 1527.7,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 2,
+        "novelty_score": 30.0
+      },
+      "verdict": "STRONG"
+    },
+    {
+      "paper": "GC-Content_and_Hydropathy_in_Designed_Sequences_A_Reproducib_20260521_195505.md",
+      "domain": "biology",
+      "rubric_score": 67.22297406038874,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 8.0,
+        "falsifiability": 3.0,
+        "explicit_limitations": 2.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 6.722974060388739,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "GNoME_Stability_Predictions_Cross-Check_Against_Reference_Ox_20260521_195256.md",
+      "domain": "physics",
+      "rubric_score": 65.9355526645111,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 6.4,
+        "falsifiability": 3.0,
+        "explicit_limitations": 2.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.035552664511115,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Implant_Material_Hypotheses_Ti6Al4V_Setup_and_Stability_Cros_20260521_195515.md",
+      "domain": "engineering",
+      "rubric_score": 71.65038942688906,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 10.0,
+        "falsifiability": 3.0,
+        "explicit_limitations": 4.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.150389426889056,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Lithium-Ion_Cathode_Stability_Hypotheses_Cross-Tool_Audit_20260521_195455.md",
+      "domain": "biology",
+      "rubric_score": 71.80051187126386,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 8.8,
+        "falsifiability": 3.0,
+        "explicit_limitations": 6.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 6.5005118712638765,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Meta-Research_Audit_Validating_Hypotheses_with_Multi-Source__20260521_195717.md",
+      "domain": "statistics",
+      "rubric_score": 66.51193788898435,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 7.0,
+        "falsifiability": 3.0,
+        "explicit_limitations": 2.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.011937888984345,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Process_Configuration_in_Additive_Manufacturing_Setup_Verifi_20260521_195305.md",
+      "domain": "engineering",
+      "rubric_score": 62.41774572711956,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 8.5,
+        "falsifiability": 3.0,
+        "explicit_limitations": 4.0,
+        "numerical_claims_grounded": 7.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.4177457271195575,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 1,
+        "max_elo": 1500.0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Quantitative_EEG_Band_Powers_A_Reproducible_Spectral_Decompo_20260521_195247.md",
+      "domain": "biology",
+      "rubric_score": 71.25396777358029,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 7.6,
+        "falsifiability": 3.0,
+        "explicit_limitations": 6.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.1539677735802885,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 1,
+        "max_elo": 1500.0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Quantitative_Properties_of_DNA_Sequences_and_Protein_Sequenc_20260521_155003.md",
+      "domain": "biology",
+      "rubric_score": 77.42067814163656,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 6.4,
+        "falsifiability": 6.0,
+        "explicit_limitations": 4.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.520678141636559,
+        "statistical_rigor": 8.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 2,
+        "known_control_count": 0,
+        "max_elo": 1500.5,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 2,
+        "novelty_score": 10.5
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Segmentation-Quality_Hypotheses_in_Medical_Imaging_A_Validat_20260521_195555.md",
+      "domain": "statistics",
+      "rubric_score": 72.20327606175327,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 8.5,
+        "falsifiability": 3.0,
+        "explicit_limitations": 6.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.203276061753271,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Statistical_Routines_Distribution_Sampling_and_Effect-Size_I_20260521_155003.md",
+      "domain": "statistics",
+      "rubric_score": 75.68008072069227,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 8.0,
+        "falsifiability": 3.0,
+        "explicit_limitations": 2.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.680080720692279,
+        "statistical_rigor": 10.0,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 1,
+        "known_control_count": 0,
+        "max_elo": 1500.0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 5.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Structural_Verification_of_Reference_Crystals_20260521_155003.md",
+      "domain": "statistics",
+      "rubric_score": 65.33083863063368,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 5.5,
+        "falsifiability": 3.0,
+        "explicit_limitations": 2.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 7.330838630633679,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Tipping-Point_Hypotheses_in_Climate_Science_A_Literature-Gro_20260521_195329.md",
+      "domain": "climate",
+      "rubric_score": 66.62016953365396,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 7.6,
+        "falsifiability": 3.0,
+        "explicit_limitations": 2.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 6.520169533653966,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 1,
+        "max_elo": 1500.0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Tokamak_Confinement_Time_Hypotheses_A_Literature-Grounded_Qu_20260521_195616.md",
+      "domain": "physics",
+      "rubric_score": 67.83170107049776,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 8.8,
+        "falsifiability": 3.0,
+        "explicit_limitations": 2.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 6.531701070497756,
+        "statistical_rigor": 2.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 0,
+        "max_elo": 0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    },
+    {
+      "paper": "Verification_of_Rydberg_Scaling_and_Quantum_Mechanical_Calcu_20260521_154957.md",
+      "domain": "physics",
+      "rubric_score": 70.18684620241287,
+      "rubric_per_dim": {
+        "provenance_integrity": 10.0,
+        "tool_diversity": 8.0,
+        "falsifiability": 3.0,
+        "explicit_limitations": 4.0,
+        "numerical_claims_grounded": 15.0,
+        "citation_accuracy": 10.0,
+        "abstract_uniqueness": 6.686846202412864,
+        "statistical_rigor": 3.5,
+        "reproducibility_info": 10.0
+      },
+      "reflection_score": 100.0,
+      "reflection_pass": true,
+      "reflection_issues": [],
+      "novelty": {
+        "candidate_novelty_count": 0,
+        "testable_hypothesis_count": 0,
+        "known_control_count": 1,
+        "max_elo": 1500.0,
+        "has_falsifiable_predictions": false,
+        "has_quantitative_predictions": false,
+        "n_hypotheses": 1,
+        "novelty_score": 0.0
+      },
+      "verdict": "GOOD"
+    }
+  ]
+}

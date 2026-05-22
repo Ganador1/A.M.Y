@@ -1,0 +1,35 @@
+{
+  "total_papers": 500,
+  "successful_classifications": 496,
+  "errors": 4,
+  "error_rate": 0.008,
+  "plausibility_distribution": {
+    "plausible": 495,
+    "implausible": 1,
+    "plausible_rate": 0.9979838709677419
+  },
+  "confidence_stats": {
+    "mean": 0.8309274193548387,
+    "min": 0.5,
+    "max": 0.98,
+    "distribution": {
+      "high_conf_0.8+": 380,
+      "medium_conf_0.5-0.8": 116,
+      "low_conf_<0.5": 0
+    }
+  },
+  "score_averages": {
+    "validity": 0.8865927419354839,
+    "feasibility": 0.8800403225806451,
+    "novelty": 0.7492943548387098
+  },
+  "performance_metrics": {
+    "total_time_minutes": 473.0371667146683,
+    "avg_time_per_paper": 56.76446000576019,
+    "papers_per_hour": 63.419963823045066
+  },
+  "model_info": {
+    "model_name": "mistral:7b",
+    "classification_timestamp": "2025-09-16T05:55:25.845178"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "train": {
+    "auc": 0.9451445515196442,
+    "accuracy": 0.9166666666666666,
+    "f1": 0.8148148148148148,
+    "brier": 0.0891820282088491
+  },
+  "cv": [
+    {
+      "auc": 0.9799107142857142,
+      "accuracy": 0.9444444444444444,
+      "f1": 0.875,
+      "brier": 0.04261473939951725
+    },
+    {
+      "auc": 0.9642857142857143,
+      "accuracy": 0.8888888888888888,
+      "f1": 0.7777777777777778,
+      "brier": 0.07348273009895485
+    },
+    {
+      "auc": 0.9821428571428572,
+      "accuracy": 0.8888888888888888,
+      "f1": 0.75,
+      "brier": 0.03955586597932729
+    },
+    {
+      "auc": 0.7881773399014779,
+      "accuracy": 0.8888888888888888,
+      "f1": 0.6666666666666666,
+      "brier": 0.14001538278769565
+    },
+    {
+      "auc": 0.8669950738916257,
+      "accuracy": 0.3611111111111111,
+      "f1": 0.34285714285714286,
+      "brier": 0.24619563485465237
+    }
+  ],
+  "n": 180,
+  "features": [
+    "assumptions_present",
+    "description_length",
+    "domain_ai",
+    "domain_biology",
+    "domain_chemistry",
+    "domain_energy",
+    "domain_materials",
+    "domain_medical",
+    "domain_physics",
+    "duplication_penalty",
+    "evidence_count_norm",
+    "has_expected_outcome",
+    "heuristic_composite",
+    "quant_elements",
+    "refinement_count_norm",
+    "text_length_ratio",
+    "title_length",
+    "variables_coverage"
+  ]
+}

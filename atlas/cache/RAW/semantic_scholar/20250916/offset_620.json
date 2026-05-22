@@ -1,0 +1,3597 @@
+{
+  "total": 91322,
+  "offset": 620,
+  "next": 720,
+  "data": [
+    {
+      "paperId": "c494098fac21cbd5b9b878b3b67e3de55157a5f4",
+      "title": "The Materialist View of Homeopathy: An Alternative Hypothesis and the Connection with Hormesis",
+      "year": 2018,
+      "citationCount": 6,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1055/s-0037-1617760?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1055/s-0037-1617760, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "48743887",
+          "name": "R. P. Upadhyay"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "f2f0495275bd8eef8057fd1070410beaf3ece52b",
+      "title": "The Use, Profile, Uptake, Characteristics and Attributes of Users of Homeopathy: Initial Findings from a Student Teaching Tele-Healthcare Clinic Based in North America",
+      "year": 2024,
+      "citationCount": 1,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.21926/obm.icm.2404069?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.21926/obm.icm.2404069, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": null,
+      "authors": [
+        {
+          "authorId": "2264057891",
+          "name": "Alastair C. Gray"
+        },
+        {
+          "authorId": "2185847778",
+          "name": "Parker Pracjek"
+        },
+        {
+          "authorId": "14433037",
+          "name": "Christine D. Luketic"
+        },
+        {
+          "authorId": "2185856566",
+          "name": "Denise Straiges"
+        }
+      ],
+      "abstract": "Research into the uptake profile and usage of Homeopathy has hitherto tended to be buried amongst complementary medicine research. Despite high levels of uptake of homeopathy, and robust numbers of over-the-counter sales of homeopathic products the current evidence evaluating the uptake of homeopathy remains limited on several fronts. The aim of this study is to explore the basic demographic features and characteristics of users of homeopathy services. The setting is a student teaching tele-health facility based in NA. Concurrent intake forms from 303 participants were analyzed. Intake forms were entered into a coding frame instrument designed and developed to explore health care information. A majority of participants (70%) who attend this clinic are female. The average age is 31 years old. Almost half of the participants in this clinic were using other additional complementary therapies in the management of their conditions. Almost the same number of participants (134) were only using homeopathy. The majority had some prior use of homeopathic products (91.6%), but 52.8% of participants had never worked with a professional homeopath. Twenty-four conditions are listed by participants as chief health complaints. Findings are in alignment with what is already known about the uptake in complementary medicine. Findings also reveal that the users of Homeopathy are seeking an ‘alternative’ to conventional medicine rather than only using Homeopathy as ‘complementary’ medicine. A proportion of participants in this clinical setting find homeopathy through over-the-counter sales and are, for a period, self-prescribing in chronic conditions. Further comparative research is needed to compare this to other complementary medicine avenues as well as conventional medicine settings. Conclusion: This in-depth empirical study of the users of homeopathy at one clinical facility represents initial, novel measured preliminary insights into the participants features and characteristics."
+    },
+    {
+      "paperId": "9b8f476d0e850074133484870956239663f58e33",
+      "title": "The Role of Complementary and Alternative Medicine in the Healthcare System: A German Paradox",
+      "year": 2017,
+      "citationCount": 14,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1159/000475549?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1159/000475549, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "34941032",
+          "name": "E. Jansen"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "6cce8c167cfbd9ab5d243fddd6a41d36216d766f",
+      "title": "Complementary and alternative medicine use among the cancer patients in Northern India",
+      "year": 2016,
+      "citationCount": 32,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.4103/2278-330x.179689",
+        "status": "GOLD",
+        "license": "CCBYNCND",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC4845611, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2281335568",
+          "name": "Dinesh Kumar"
+        },
+        {
+          "authorId": "46356846",
+          "name": "N. Goel"
+        },
+        {
+          "authorId": "7003491",
+          "name": "A. Pandey"
+        },
+        {
+          "authorId": "3458103",
+          "name": "S. Sarpal"
+        }
+      ],
+      "abstract": "Background: Cancer has emerged as a major public health problem. People often turn to complementary and alternative medicine (CAM) when they have a long-lasting problem. CAM is a group of diverse medical and healthcare systems, practices, and products that are not generally considered part of conventional medicine. The present study was conducted to find prevalence rate of CAM use among cancer patients undergoing allopathic treatment in a health facility and to compare the CAM usage patterns among different subgroups of patients at different stages. Further to investigate some psychosocial, cultural, and demographiccorrelates/predictors of CAM use. Materials and Methods: Present hospital-based cross sectional study was conducted among cancer patients attending Radiotherapy Outpatient Department (OPD) of a Government Medical College and Hospital (GMCH). A total of 1,117 cancer patients participated in the study. Statistical methods like normal test of proportions, Chi-square (c2) test, logistic regression analysis for estimation of risk factors of CAM use were applied to carry out the data analyses using Statistical Package for Social Sciences (SPSS)-16 software package. Results: The most common CAM therapy in use was found to be ayurvedic treatment reported by 187 (16.7%) patients. Overall CAM use was found to be 38.7%. Sixty percent of patients who were aware of CAM were not using CAM, only 40% aware were using CAM. Low socioeconomic status contributed maximum to proportions of CAM use; wherein out of all users, 175 (40.5%) patients were using CAM. Maximum degree of relief was found due to homeopathic treatment (78.4%). Reasons of using CAM therapies reported by the users were mainly on the advice of family members or friends (23.1%). Conclusions: There is an urgent need of conducting further in-depth epidemiological studies to evaluate the efficacy of various CAM therapies in use for cancer. The high utilization of CAM among cancer patients and nondisclosure proportions suggests prioritizing research investigating reasons to use CAM and efficacy and safety of CAM use."
+    },
+    {
+      "paperId": "e763e4a0cdd115159d98caba07efb45bd2da7ed3",
+      "title": "Use of complementary and alternative medicine by pediatric oncology patients during palliative care",
+      "year": 2016,
+      "citationCount": 26,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s00520-016-3097-2?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s00520-016-3097-2, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "16331649",
+          "name": "Tim Schütze"
+        },
+        {
+          "authorId": "4444111",
+          "name": "A. Längler"
+        },
+        {
+          "authorId": "5032744",
+          "name": "T. Zuzak"
+        },
+        {
+          "authorId": "153083999",
+          "name": "P. Schmidt"
+        },
+        {
+          "authorId": "6347655",
+          "name": "B. Zernikow"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "9f0a95db58c289a69adc7867650ef9ee3987c0e8",
+      "title": "The usage of complementary and alternative medicine in gastrointestinal patients visiting the outpatients’ department of a large tertiary care centre-views from Pakistan",
+      "year": 2016,
+      "citationCount": 11,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.11604/pamj.2016.24.247.9559",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC5075463, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "7401038",
+          "name": "G. Lail"
+        },
+        {
+          "authorId": "4550330",
+          "name": "N. Luck"
+        },
+        {
+          "authorId": "4912545",
+          "name": "A. Tasneem"
+        },
+        {
+          "authorId": "6660915",
+          "name": "A. Rai"
+        },
+        {
+          "authorId": "5992302",
+          "name": "S. Laeeq"
+        },
+        {
+          "authorId": "77810617",
+          "name": "Z. Majid"
+        }
+      ],
+      "abstract": "Introduction The use of complementary and alternative medicine (CAM) has increased over the last few years, and an emergent data suggests that some CAM modalities may be helpful in addressing gastrointestinal (GI) conditions. Our aim was to find out the prevalence of such practices for GI condition amongst patients visiting an OPD of a large tertiary care centre of Karachi, Pakistan. Methods Patients visiting outpatient department of Hepatogastroenterology department at SIUT, Pakistan from March 2014 to March 2015, were included in this cross sectional study. A pre designed questionnaire was used that included the demographic data, primary disease of the patient, CAM modality used, reason for the use of CAM therapy and reasons for stopping it. Frequencies of different variables were computed using SPSS version 18. Results 906 patients were interviewed, out of which 52% (471) were males. The mean age at presentation was 39.81±12.4 years. 234 (25.8%) of the participants used one of the CAM modalities; Herbal medicine being most common one, seen in 122 (52.13%) followed by spiritual 61 (26%), and homeopathy 33 (14%). The duration of therapy was limited to six months in 161(68%), whereas 7 patients (2.9%) had prolonged duration of use of more than five years. Reasons for using CAM therapy included advice by family and friends in 66 patients (28%), personal will in 42 (17.94%), no benefit from allopathic treatment in 34 (14.5%), while high cost was the reason of use in 3(5%) of the patients. The most common reason for discontinuation of CAM was no benefit, seen in 113 patients (48.30%), followed by physician's advice in 32 (17%) patients, and side effects in 19 (8%). On the other hand 44 patients (18.80%) reported benefit from the therapy while 14 (5.9%) were still continuing with CAM modality. Among the CAM users 140 (60.09%) were un-educated or had primary education while CAM nonusers had 328 (47%) were either uneducated or had primary education only correlation reveals P value 0.004. Conclusion Significant numbers of patients used CAM therapy. A lower level of education was associated with increased usage of CAM while cost had no major impact on its usage."
+    },
+    {
+      "paperId": "b8b9dc297f05942d410ed4d7b14d23fa795ac7fd",
+      "title": "Attitudes and Uses of Alternative Medicine by Physicians at a Pediatric Hospital in Mexico",
+      "year": 2016,
+      "citationCount": 4,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "http://www.scirp.org/journal/PaperDownload.aspx?paperID=67541",
+        "status": "GOLD",
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.4236/AASOCI.2016.66019?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.4236/AASOCI.2016.66019, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "143906877",
+          "name": "R. Martínez"
+        },
+        {
+          "authorId": "2111634849",
+          "name": "Cecilia Colunga Rodríguez"
+        },
+        {
+          "authorId": "2059797888",
+          "name": "Marisol Ulloa Carrillo"
+        },
+        {
+          "authorId": "2060182233",
+          "name": "Mercedes Gabriela Orozco Solis"
+        },
+        {
+          "authorId": "2115576608",
+          "name": "Mario Ángel González"
+        },
+        {
+          "authorId": "82558789",
+          "name": "Julio César Vázquez Colunga"
+        },
+        {
+          "authorId": "2073112468",
+          "name": "Claudia Liliana Vázquez Juárez"
+        }
+      ],
+      "abstract": "Background: Several studies have described the \nphysician’s attitudes, perceptions, knowledge and experience about the complementary and alternative medicine (CAM), reporting among their results that these therapies are usually perceived \nas useful, which has favor the increase in its use and recommendation, both personally and in the medical practices. Despite the relevance that CAM has regained in the last years, in Mexico there \nare no studies developed about this topic nor in this population. Methodology: A descriptive and transversal study was developed. The participants answer a survey designed and validated for \nMexican population (α = 0.72). The survey was applied to the doctors in a \npediatric tertiary care hospital, the survey included demographic data, history \nof personal use of CAM, recommendation to patients and attitudes towards CAM. \nAverages, standard deviations and association statistics (χi2) were calculated. Results: A total of 249 physicians were included: \n51% turned to CAM, primarily to treat acute conditions in a complementary \nmanner to conventional treatment. A third of the participants recommended CAM \nto their patients. The use of CAM by the \nphysician was the only factor related to their recommendation of these treatments. The most commonly used and recommended therapies by doctors were \nhomeopathy and herbal medicine. 72% consider it useful to have knowledge in CAM \nand 67% want more information about these \ntherapies. 51% agree that the CAM should be included in the medical career. Conclusions: Half of the respondents use CAM, and one-third recommend. \nThe most used therapies were homeopathy and \nherbal medicine. Most doctors consider the knowledge about CAM useful and want to have more information, but only half of them agreed on its \ninclusion in the career of medicine."
+    },
+    {
+      "paperId": "5ad24f88ec021b05f164199881fb17990b45f098",
+      "title": "Complementary and alternative medicine: attitudes, knowledge and use among surgeons and anaesthesiologists in Hungary",
+      "year": 2016,
+      "citationCount": 22,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "https://bmccomplementalternmed.biomedcentral.com/track/pdf/10.1186/s12906-016-1426-0",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC5100213, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2827334",
+          "name": "S. Soós"
+        },
+        {
+          "authorId": "2098733543",
+          "name": "N. Jeszenői"
+        },
+        {
+          "authorId": "5143066",
+          "name": "K. Darvas"
+        },
+        {
+          "authorId": "3833153",
+          "name": "L. Harsányi"
+        }
+      ],
+      "abstract": "BackgroundDespite their worldwide popularity the question of using non-conventional treatments is a source of controversy among medical professionals. Although these methods may have potential benefits it presents a problem when patients use non-conventional treatments in the perioperative period without informing their attending physician about it and this may cause adverse events and complications. To prevent this, physicians need to have a profound knowledge about non-conventional treatments.MethodsAn anonymous questionnaire was distributed among surgeons and anaesthesiologists working in Hungarian university clinics and in selected city or county hospitals. Questionnaires were distributed by post, online or in person. Altogether 258 questionnaires were received from 22 clinical and hospital departments.ResultsAnaesthesiologists and surgeons use reflexology, Traditional Chinese Medicine, herbal medicine and manual therapy most frequently in their clinical practice. Traditional Chinese Medicine was considered to be the most scientifically sound method, while homeopathy was perceived as the least well-grounded method. Neural therapy was the least well-known method among our subjects.Among the subjects of our survey only 3.1 % of perioperative care physicians had some qualifications in non-conventional medicine, 12.4 % considered themselves to be well-informed in this topic and 48.4 % would like to study some complementary method. Women were significantly more interested in alternative treatments than men, p = 0.001427; OR: 2.2765. Anaesthesiologists would be significantly more willing to learn non-conventional methods than surgeons. 86.4 % of the participants thought that non-conventional treatments should be evaluated from the point of view of evidence. Both surgeons and anaesthesiologists accept the application of integrative medicine and they also approve of the idea of teaching these methods at universities.ConclusionsAccording to perioperative care physicians, non-conventional methods should be evaluated based on evidence. They also expressed a willingness to learn about those treatments that meet the criteria of evidence and apply these in their clinical practice."
+    },
+    {
+      "paperId": "680030e15b82818fbd04dfa2aed17657c335b9f8",
+      "title": "[Complementary and alternative medicine use in surgical patients].",
+      "year": 2016,
+      "citationCount": 12,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.1556/650.2016.30543",
+        "status": "GREEN",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1556/650.2016.30543?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1556/650.2016.30543, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2827334",
+          "name": "S. Soós"
+        },
+        {
+          "authorId": "2098733543",
+          "name": "N. Jeszenői"
+        },
+        {
+          "authorId": "5143066",
+          "name": "K. Darvas"
+        },
+        {
+          "authorId": "3833153",
+          "name": "L. Harsányi"
+        }
+      ],
+      "abstract": "INTRODUCTION\nDue to the rise in use of non-conventional therapies, we may consider the application of those in perioperative setting.\n\n\nAIM\nThe aims of the authors were to measure the attitude of patients waiting for elective surgery towards naturopathic methods, to determine their use and factors influencing their usage.\n\n\nMETHOD\nA questionnaire was applied that patients filled in individually and anonymously at the First Department of Surgery of Semmelweis University, between July 1, 2014 and April 30, 2016.\n\n\nRESULTS\n63.6% of the 519 participants (response rate = 21%) were interested in non-conventional therapies, and 26.8% of them applied naturopathy. In this group there were significantly more females (p = 0.022; OR: 1.066-2.3635), patients with university degree (p = 0.000315; OR: 1.3915-3.1132), aged 40-49 (p = 0.012419; OR: 1.1451-3.2405), and patients with hormonal disease (p = 0.039482; OR: 1.0186-5.7242). In terms of lifetime prevalence the most popular methods were traditional Chinese medicine (8.9%), alternative movement and massage therapy (7.5%) and homeopathy (7.3%). Only 12.9% of the patients reported the application of these methods to the physician.\n\n\nCONCLUSION\nSurgical patients are interested in naturopathic methods, and one-fourth of them actually use them even in the perioperative period. Orv. Hetil., 2016, 157(37), 1483-1488."
+    },
+    {
+      "paperId": "3798b799a30e480e4bdd2fcf5a2e38dd6e088e88",
+      "title": "Epidemiology of complementary and alternative medicine therapy use in allogeneic hematopoietic stem cell transplant survivorship patients in Australia",
+      "year": 2016,
+      "citationCount": 7,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.1002/cam4.889",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC5224858, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "38477973",
+          "name": "Julian Lindsay"
+        },
+        {
+          "authorId": "36231475",
+          "name": "M. Kabir"
+        },
+        {
+          "authorId": "50311958",
+          "name": "N. Gilroy"
+        },
+        {
+          "authorId": "40014318",
+          "name": "Gemma Dyer"
+        },
+        {
+          "authorId": "66242569",
+          "name": "L. Brice"
+        },
+        {
+          "authorId": "143620248",
+          "name": "J. Moore"
+        },
+        {
+          "authorId": "51219906",
+          "name": "M. Greenwood"
+        },
+        {
+          "authorId": "2003834216",
+          "name": "M. Hertzberg"
+        },
+        {
+          "authorId": "31453911",
+          "name": "D. Gottlieb"
+        },
+        {
+          "authorId": "6999095",
+          "name": "S. Larsen"
+        },
+        {
+          "authorId": "37343330",
+          "name": "M. Hogg"
+        },
+        {
+          "authorId": "8696343",
+          "name": "Louisa Brown"
+        },
+        {
+          "authorId": "2124047",
+          "name": "Gillian Huang"
+        },
+        {
+          "authorId": "2110400608",
+          "name": "Jeff Tan"
+        },
+        {
+          "authorId": "83347690",
+          "name": "C. Ward"
+        },
+        {
+          "authorId": "5278682",
+          "name": "I. Kerridge"
+        }
+      ],
+      "abstract": "In addition to prescribed conventional medicines, many allogeneic hematopoietic stem cell transplant (HSCT) survivors also use complementary and alternative medical therapies (CAM), however, the frequency and types of CAMs used by allogeneic HSCT survivors remain unclear. Study participants were adults who had undergone an allogeneic HSCT between 1st January 2000 and 31st December 2012. Participants completed a 402‐item questionnaire regarding the use of CAM, medical complications, specialist referrals, medications and therapies, infections, vaccinations, cancer screening, lifestyle, and occupational issues and relationship status following stem cell transplantation. A total of 1475 allogeneic HSCT were performed in the study period. Of the 669 recipients known to be alive at study sampling, 583 were contactable and were sent study packs. Of 432 participants who returned the completed survey (66% of total eligible, 76% of those contacted), 239 (54.1%) HSCT survivors used at least one form of CAM. These included dietary modification (13.6%), vitamin therapy (30%), spiritual or mind–body therapy (17.2%), herbal supplements (13.5%), manipulative and body‐based therapies (26%), Chinese medicine (3.5%), reiki (3%), and homeopathy (3%). These results definitively demonstrate that a large proportion of HSCT survivors are using one or more form of CAM therapy. Given the potential benefits demonstrated by small studies of specific CAM therapies in this patient group, as well as clearly documented therapies with no benefit or even toxicity, this result shows there is a large unmet need for additional studies to ascertain efficacy and safety of CAM therapies in this growing population."
+    },
+    {
+      "paperId": "1efc6be5efc7bb3494c31241c993c33138560e9f",
+      "title": "Complementary and alternative medicine for cancer patients: results of the EPAAC survey on integrative oncology centres in Europe",
+      "year": 2015,
+      "citationCount": 101,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s00520-014-2517-4?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s00520-014-2517-4, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "34214536",
+          "name": "E. Rossi"
+        },
+        {
+          "authorId": "50533274",
+          "name": "A. Vita"
+        },
+        {
+          "authorId": "12943454",
+          "name": "S. Baccetti"
+        },
+        {
+          "authorId": "24741794",
+          "name": "M. Stefano"
+        },
+        {
+          "authorId": "8330998",
+          "name": "F. Voller"
+        },
+        {
+          "authorId": "48061650",
+          "name": "A. Zanobini"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "c1e7627b24b83aecc4bedec919b818205a09b9d6",
+      "title": "Use of complementary and alternative medicine in patients with health complaints attributed to former dental amalgam fillings",
+      "year": 2015,
+      "citationCount": 9,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4722717",
+        "status": "GREEN",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC4722717, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4463320",
+          "name": "A. Kristoffersen"
+        },
+        {
+          "authorId": "5513996",
+          "name": "F. Musial"
+        },
+        {
+          "authorId": "6540930",
+          "name": "H. Hamre"
+        },
+        {
+          "authorId": "40487205",
+          "name": "L. Björkman"
+        },
+        {
+          "authorId": "3570592",
+          "name": "T. Stub"
+        },
+        {
+          "authorId": "4427691",
+          "name": "Anita Salamonsen"
+        },
+        {
+          "authorId": "4214321",
+          "name": "T. Alræk"
+        }
+      ],
+      "abstract": "BackgroundThe dental filling material amalgam is generally well tolerated. However, a small proportion of dental patients experience health complaints which they attribute to amalgam. The symptom pattern is often similar to patients with medically unexplained physical symptoms (MUPS) and the health complaints may persist after amalgam removal. Among patients with MUPS, the use of complementary and alternative medicine (CAM) seems to be high. The aim of this survey was to describe the prevalence and range of CAM use among people with health complaints attributed to dental amalgam fillings in which the health problems persist after the removal of all amalgam fillings. Specific attention was paid to (1) self-reported effects of CAM, (2) differences in CAM use dependent on self-reported health, and (3) gender differences in self-reported CAM use.MethodsA survey was distributed to all members of The Norwegian dental patient association (NDPA) (n = 999), the response rate was 36.4 %. The anonymous questionnaire asked for socio-demographic data, health complaints related to former amalgam fillings, subjectively perceived health status, symptoms, and experience with therapeutic interventions, mostly from the spectrum of CAM. Only participants who had all their fillings removed, which was the vast majority, were analysed.ResultsA total of 88.9 % of included respondents had used at least one CAM modality, with a higher proportion of men (95.7 %) compared to women (86.2 %, p = 0.015). The most frequently used therapies were dietary supplements, vitamins and minerals recommended by a therapist (used by 66.7 %) followed by self-prescribed dietary supplements, vitamins and minerals (59.0 %), homeopathy (54.0 %), acupuncture (48.8 %) and special diets (47.5 %). Use of CAM was similar for participants reporting normal to good health compared to participants reporting poor health. For all but two CAM modalities, the self-reported treatment effect was better in the group reporting normal to good health compared to the group reporting poor health.ConclusionsCAM was widely used by participants in our study, a finding similar to findings from studies of MUPS patients. To date, health problems associated with the use of dental amalgam is not an accepted diagnosis in the healthcare system. Consequently, people suffering from such complaints experience a lack of adequate treatment and support within conventional health care, which might have contributed to the high number of CAM users in this study."
+    },
+    {
+      "paperId": "cef82ab9151a8638a2172db7d70df575edc536e5",
+      "title": "Complementary and alternative medicine for the prevention and treatment of migraine headache: an overview of systematic reviews",
+      "year": 2015,
+      "citationCount": 6,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1111/FCT.12185?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1111/FCT.12185, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5923316",
+          "name": "P. Posadzki"
+        },
+        {
+          "authorId": "7790344",
+          "name": "A. Al-Bedah"
+        },
+        {
+          "authorId": "49067440",
+          "name": "M. Khalil"
+        },
+        {
+          "authorId": "4484974",
+          "name": "M. Alqaed"
+        },
+        {
+          "authorId": "152522673",
+          "name": "Myeong Soo Lee"
+        },
+        {
+          "authorId": "1846334",
+          "name": "E. Ernst"
+        },
+        {
+          "authorId": "3007050",
+          "name": "J. Car"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "97166b4ad07bda9eaa871ac684bac884b945d6b0",
+      "title": "Homeopathy - A Safe, Much Less Expensive, Non-Invasive, Viable Alternative for the Treatment of Patients Suffering from Loss of Lumbar Lordosis",
+      "year": 2016,
+      "citationCount": 3,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "http://society.kisti.re.kr/sv/SV_svpsbs03V.do?method=download&cn1=JAKO201606776005612",
+        "status": "GOLD",
+        "license": "CCBYNC",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC5234356, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "123432802",
+          "name": "S. Haque"
+        },
+        {
+          "authorId": "4696895",
+          "name": "D. Das"
+        },
+        {
+          "authorId": "1974015",
+          "name": "S. Bhattacharya"
+        },
+        {
+          "authorId": "31456046",
+          "name": "T. Sarkar"
+        },
+        {
+          "authorId": "102046720",
+          "name": "A. Khuda-Bukhsh"
+        }
+      ],
+      "abstract": "Objectives: Loss of lumbar lordosis causing pain and curvature of the vertebral skeleton to one side is a relatively uncommon disease. To our knowledge, successful treatment of loss of lumbar lordosis with any potentized homeopathic drug diluted above Avogadro’s limit (that is, above a potency of 12C) has not been documented so far. In this communication, we intend to document a relatively rare case of loss of lumbar lordosis with osteophytic lippings, disc desiccation, and protrusion, causing a narrowing of secondary spinal canal and a bilateral neural foramina, leading to vertebral column curvature with acute pain in an adolescent boy. Methods: The patient had undergone treatment with orthodox Western medicines, but did not get any relief from, or cure of, the ailment; finally, surgery was recommended. The patient’s family brought the patient to the Khuda-Bukhsh Homeopathic Benevolent Foundation where a charitable clinic is run every Friday with the active participation of four qualified homeopathic doctors. A holistic method of homeopathic treatment was adopted by taking into consideration all symptoms and selecting the proper remedy by consulting the homeopathic repertory, mainly of Kent. Results: The symptoms were effectively treated with different potencies of a single homeopathic drug, Calcarea phos. X-ray and magnetic resonance imaging (MRI) supported recovery and a change in the skeletal curvature that was accompanied by removal of pain and other acute symptoms of the ailment. Conclusion: Homeopathy can be a safe, much less expensive, non-invasive, and viable alternative for the treatment of such cases."
+    },
+    {
+      "paperId": "f4fc8d0c577c1fba145c10d7524500f1b461ad03",
+      "title": "General Practitioners Using Complementary and Alternative Medicine Differ From General Practitioners Using Conventional Medicine in Their View of the Risks of Electromagnetic Fields",
+      "year": 2015,
+      "citationCount": 5,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://journals.sagepub.com/doi/pdf/10.1177/2150131914546332",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1177/2150131914546332?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1177/2150131914546332, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4852691",
+          "name": "B. Kowall"
+        },
+        {
+          "authorId": "4075448",
+          "name": "J. Breckenkamp"
+        },
+        {
+          "authorId": "1398916289",
+          "name": "G. Berg-Beckhoff"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "90cd114a8fcfbd90de6d783e6e64f924f2e1cbcb",
+      "title": "Role of Gymnema sylvestre as Alternative Medicine",
+      "year": 2015,
+      "citationCount": 7,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.4172/2167-1206.1000172",
+        "status": "HYBRID",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.4172/2167-1206.1000172?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.4172/2167-1206.1000172, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1706522",
+          "name": "Lalit Kishore"
+        },
+        {
+          "authorId": null,
+          "name": "Navpreet Kaur"
+        },
+        {
+          "authorId": "47609080",
+          "name": "Randhir Singh"
+        }
+      ],
+      "abstract": "Context: Gymnema sylvestre R.Br, belonging to the family Asclepiadaceae, has been employed to control diabetes, obesity, atherosclerosis etc., by traditional medicinal practitioners of India for nearly two millennia. The active principals from the leaf extracts is assumed to be gymnemic acid and its derivatives which are of triterpenoids in chemical nature have the ability to renew the islet cell mass for the possible cure of diabetes. Objective: The present review deals with botanical description, chemical constituents, and pharmacological effect of the plant using herbal and homeopathic medicine from the past to recent developments. Methods: Scientific databases including SCOPUS, PUBMED, SCIELO, NISCAIR, and Google Scholar were used to retrieve articles and only relevant studies published in English were considered. Results: This paper gives an overview of G. sylvestre from antiquity to till date. There is sufficient evidence of pharmacological and phytochemical studies to draw a definite conclusion about the efficacy of the gymnemic acid for the treatment of diabetes and obesity but, there is still inadequate literature related to other activities. The reported studies on the effect of G. sylvestre as homeopathic medicine are not sufficient. Therefore further studies are needed to explore the role of G. sylvestre in homeopathy. Conclusion: There is still a dire need to explore the mechanism of action of G. sylvestre, toxicity profile and to determine its role as alternative medicine."
+    },
+    {
+      "paperId": "867cec954ddd1ae0eab507d94b2b0c09e183eaf5",
+      "title": "Complementary and Alternative Medicine (CAM) Use among PatientsPresenting in Out-patient Department at Tertiary Care Teaching Hospital inSouthern Rajasthan, India - A Questionnaire Based Study",
+      "year": 2015,
+      "citationCount": 5,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.4172/2327-5162.1000187",
+        "status": "HYBRID",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.4172/2327-5162.1000187?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.4172/2327-5162.1000187, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "145972489",
+          "name": "A. Agrawal"
+        }
+      ],
+      "abstract": "Abstract Study background: Use of CAM is increasing not only in adult population, but also in pediatric age groups. Concurrent use of CAM with conventional medicine is also widespread and poses a potential risk of drug interaction. Studies regarding CAM use have been done in other countries, but only few have been reported in India and very few have observed CAM use among patients attending outpatient department of a general hospital. Objective: To find out the pattern of CAM use in patients as well as their attitude and perception regarding CAM therapies. Methods: A cross sectional, observational, questionnaire based study was conducted from May 2013 to May 2014 and included 1000 patients attending OPD of different departments of hospital. A pre-decided questionnaire was provided to them which included thirteen questions for assessment of pattern of CAM use and attitude of patients towards CAM therapy. All data collected were analyzed using appropriate statistical tests. Results: Ayurveda (56%) was the most commonly used CAM therapy followed by homeopathy (34%). 76% patients did not inform their physicians about CAM use. 57.2% patients started using CAM on advice of a relative or friend. 'No or less adverse effects' (69.6%) was the most common reason for CAM preference over conventional medicines. 59% patients were ignorant about the fact that CAM and conventional medicines can interact, and 65.5% patients believed that CAM therapy do not cause any adverse effect. Conclusion: Disclosure rate to concerned physicians about CAM use is low. Patients are largely unaware about the fact that CAM medicines can cause adverse effects and can interact when combined with conventional medicines"
+    },
+    {
+      "paperId": "a407f9d8aec91b4b3bec2086f761aac67ed04c0f",
+      "title": "Complementary and alternative medicine (CAM) use in an Italian cohort of pediatric headache patients: the tip of the iceberg",
+      "year": 2014,
+      "citationCount": 59,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s10072-014-1756-y?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s10072-014-1756-y, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "17004086",
+          "name": "D. Libera"
+        },
+        {
+          "authorId": "2246106459",
+          "name": "B. Colombo"
+        },
+        {
+          "authorId": "2069787555",
+          "name": "Giulia Pavan"
+        },
+        {
+          "authorId": "143818396",
+          "name": "G. Comi"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "06ac380a465800713c1dee8671b930628a3f4536",
+      "title": "Prevalence and associated factors with homeopathy use in Brazil: a population-based study.",
+      "year": 2022,
+      "citationCount": 5,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "https://www.scielo.br/j/csp/a/CxVmqNzYJHVZjmVHp7SqxMb/?lang=en&format=pdf",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1590/0102-311xen261821?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1590/0102-311xen261821, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1398133360",
+          "name": "Alexandre Faisal-Cury"
+        },
+        {
+          "authorId": "2048086150",
+          "name": "Daniel Maurício de Oliveira Rodrigues"
+        }
+      ],
+      "abstract": "Despite the controversy about its efficacy, homeopathy is considered a medical practice alternative to the conventional medical model. Prevalence of homeopathy use varies greatly among countries and the literature has conflicting evidence about the relation between sociodemographic factors and health conditions associated with homeopathy use. We aim to estimate the prevalence of homeopathy use and its association with self-perceived health status, depression, and sociodemographic factors. We used data from 90,846 participants in the 2019 Brazilian National Survey of Health (PNS 2019), a population-based study with complex and probabilistic sampling. Sociodemographic and clinical data and information on homeopathy use during the last 12 months were collected. The Patient Health Questionnaire-9 (PHQ-9) was used to assess depression. All variables were categorized. Logistic regression models were built to obtain crude and adjusted odds ratios (OR) and 95% confidence intervals (95%CI). The prevalence of homeopathy use was 0.99% (95%CI: 0.98-1.00). In the adjusted analysis, the following variables were associated with higher use of homeopathy: female gender, age above 51 years, white ethnicity, higher socioeconomic and educational attainment, residence in Southern/Southeastern Brazil, poorer self-reported health status, and depression. Brazil shows increased offer of complementary medicine, including homeopathy. Nevertheless, the use of homeopathy treatment is very low and clearly associated with a higher socioeconomic status, poorer self-reported health status, and depression."
+    },
+    {
+      "paperId": "077cf577d3d2983124793ca4caf4bbb6833509d7",
+      "title": "Complementary and alternative medicine in inflammatory bowel diseases: what is the future in the field of herbal medicine?",
+      "year": 2014,
+      "citationCount": 37,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1586/17474124.2014.917954?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1586/17474124.2014.917954, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "7668334",
+          "name": "D. Gilardi"
+        },
+        {
+          "authorId": "8935273",
+          "name": "G. Fiorino"
+        },
+        {
+          "authorId": "6308349",
+          "name": "M. Genua"
+        },
+        {
+          "authorId": "36090667",
+          "name": "M. Allocca"
+        },
+        {
+          "authorId": "2379943",
+          "name": "S. Danese"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "e733df3501523ae6e8932e482c9684a8b1ed1d13",
+      "title": "Role of Complementary and Alternative Medicine in Controlling Dyslipidemia",
+      "year": 2014,
+      "citationCount": 22,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://downloads.hindawi.com/journals/ecam/2014/215731.pdf",
+        "status": "HYBRID",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC4024410, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5962832",
+          "name": "W. Qidwai"
+        },
+        {
+          "authorId": "145311752",
+          "name": "F. Jahan"
+        },
+        {
+          "authorId": "31434831",
+          "name": "K. Nanji"
+        }
+      ],
+      "abstract": "This special issue focuses on the role of complementary and alternative medicine (CAM) in controlling dyslipidemia. Complementary and alternative medicine (CAM), also known as nonconventional medicine, includes a wide and heterogeneous array of health care practices (such as herbal medicine, acupuncture, yoga, meditation, and homeopathic medicine) that are not part of a health care system. \n \nThe popularity of CAM has dramatically increased in many developed countries since the 1990s. This could be attributed to the aging of population, prevalence of chronic diseases, and concern about the adverse reaction of chemical drugs. All these aspects have contributed greatly to the worldwide popularity of CAM. In the United States, consumers spend over $34 billion per year on CAM therapies spent outside the conventional health care financing system. This out-of-pocket expenditure is evidence of the belief that CAM therapies have benefits that outweigh their costs. CAM is generally more popular in most developed countries, especially in North America, Europe, and Australia. According to the 2007 National Health Interview Survey on more than 32,800 Americans, 38.2% of adults and 12% of children used some form of CAM within the previous 12 months. \n \nDyslipidemia is an independent preventable risk factor of coronary heart disease and has been shown to increase the risk of cardiovascular mortality manyfold. Therefore, the study on various indicators and risk factors of dyslipidemia appears to be significant for future health outcomes. It is critically important to recognize the need for treatment of dyslipidemia and to institute necessary therapies to reduce the long-term risks of disease recurrence or modify the metabolic derangements that promote atherosclerosis. Drugs used in dyslipidemia may cause adverse effects if used for longer duration. Therefore patients use CAM to reduce lipids without any major side effect. \n \nThe exact reasons for the popularity of CAM are complex; as they change with time and space, they vary from individual to individual and from therapy to therapy. In general, there are a broad range of positive motivations to the present popularity of CAM. \n \nAlthough the use and expenditure of CAM have been increased radically, the potential role of CAM in modern clinical practice and health care system seems to be limited. As the efficacy and safety have been the major concerns in the recognition of CAM and integrating it into the conventional medicine, hence, there is an urgent need to provide evidence regarding the merits of the numerous techniques of CAM. The best way to achieve this is through rigorous research. Since then, in CAM, simple answers or broad generalizations are not possible. Each of the numerous techniques has to be evaluated separately. It is necessary to bring the practice of CAM in line with evidence. The wide dissemination of its findings is also important to include CAM into the modern clinical practice. \n \nStudies have reported that CAM can be ineffective for a specific condition, but still they could be used as they do not harm the patients. Some argue that CAM should be used regardless of the results of placebo-controlled clinical trials, particularly when its use is not associated with serious risks. \n \nThe main purpose of this issue is to illustrate the inevitability of researches in the field of CAM to integrate it into the modern clinical practice. Altogether, 14 manuscripts were submitted for publication, out of which 11 manuscripts got accepted. The articles in this issue represent a wide range of therapeutic approaches of CAM in preventing dyslipidemia. \n \nThis special issue includes a review that discusses the progress and perspective of studies on dyslipidemia with single Chinese herb and its monomers or effective extracts during the past 10 years. The review concludes that traditional Chinese medicine (TCM) has some beneficial effects on the treatment of patients with dyslipidemia and has less adverse effects as compared to chemical agents. However, future clinical trials are needed to be confirmed about the effects of TCM. \n \nThis edition also includes a randomized, double-blind, placebo-controlled clinical trial on 50 hyperlipidemic patients. The results of this trial show that daily consumption of the fruit extract of Vaccinium arctostaphylos significantly reduces the serum levels of total cholesterol, LDL-C, and triglyceride (TG) and oxidative stress in hyperlipidemic patients. Therefore, this extract could be considered as a potential agent for treatment of dyslipidemia. \n \nAnother study in this issue is on Chaihu-Shugan-San (CSS), an ancient classical formula composed of seven Chinese herbs, which found that integrated recipe might work as a significant anti-inflammatory effect in Kupffer cells. In addition, another study conducted by Han et al. on the molecular docking of echinocystic acid (EA) (isolated from G. sinensis fruits) and the effects of it on the possible targets in in vitro rat liver microsomes has been added. \n \nThis review also includes a research paper which concluded that preventive acupuncture and moxibustion can significantly decrease the plasma TG and LDL, increase the plasma HDL, and prevent fat accumulation during climacteric period in rats. Moreover, a paper included is on intestinal transportations of main chemical compositions of Polygoni Multiflori Radix (PMR, originated from the root of Polygonum multiflorum Thunb.). This has been used in the treatment of hyperlipidemia in some countries for centuries. Another paper using the same herb PMR has been added to this special issue which discusses the mechanisms of the water extracts of Polygoni Multiflori Radix (PMR) and its processed products (PMRP) on liver lipid metabolism. Moreover, another paper was included in this review on propolis, which is a brownish resinous material collected by worker bees from the leaf buds of numerous plants that have strong pharmacological and biological properties. \n \nAnother study analyzed the effects of acupuncture on interleukin, IL-17expression in fat excess liver on adult mice, and provided some basic evidences that the inflammatory damage of hyperlipidemic fatty liver could be restricted through acupuncture. A study in this review investigates the beneficial effects of ethanol extract of Gastrodia elata Blume (EGB) on lipid metabolism and endothelial dysfunction in a high-fructose (HF) diet animal model."
+    },
+    {
+      "paperId": "ae58d56f77c1195377a086d3ce7da789a43c33ae",
+      "title": "Impact of complementary and alternative medicine on the quality of life in inflammatory bowel disease: results from a French national survey",
+      "year": 2014,
+      "citationCount": 42,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1097/MEG.0000000000000040?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1097/MEG.0000000000000040, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5222192",
+          "name": "V. Abitbol"
+        },
+        {
+          "authorId": "3902116",
+          "name": "P. Lahmek"
+        },
+        {
+          "authorId": "39825337",
+          "name": "A. Buisson"
+        },
+        {
+          "authorId": "12937720",
+          "name": "A. Olympie"
+        },
+        {
+          "authorId": "8273545",
+          "name": "C. Poupardin"
+        },
+        {
+          "authorId": "46741253",
+          "name": "S. Chaussade"
+        },
+        {
+          "authorId": "7411009",
+          "name": "B. Lesgourgues"
+        },
+        {
+          "authorId": "3846511",
+          "name": "S. Nahon"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "2dcbbc291dc34fb005e4176ef537c7677a9c29f5",
+      "title": "Complementary and Alternative Medicine in Midwifery",
+      "year": 2014,
+      "citationCount": 12,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.5812/nms.19449",
+        "status": "GOLD",
+        "license": "CCBYNC",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC4228532, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5224785",
+          "name": "M. Abedzadeh Kalahroudi"
+        }
+      ],
+      "abstract": "Implication for health policy/practice/research/medical education: Midwives should be informed of complementary and alternative medicine methods and be able to guide women with the use of these methods. Copyright © 2014, Kashan University of Medical Sciences; Published by Kashan University of Medical Sciences. This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. The World Health Organization defines “complementary and alternative medicine” (CAM) as a “broad set of health care practices that are not part of that country’s own tradition and are not integrated into the dominant health care system” (1). Complementary therapy is usually used in combination with current treatments, and alternative treatments are used instead of current treatments. Commonly utilized types of CAM include acupuncture, aromatherapy, herbal and homeopathic medicines, meditation, movement therapies, chiropractic and osteopathic manipulation and so on (2). An overview of the recent research around the world showed that in developing country 5-74.8% of people use these therapeutic methods especially for chronic diseases (3). In Iran, some of these methods such as herbal medicine have been used for thousands of years and are rapidly expanding. There is no clear estimation of CAM users in Iran but studies showed that 62.5% of people in Isfahan city and 66.3% in Tehran city use CAM therapy (4, 5). Women use CAM more than men. Many women prefer to use CAM during pregnancy because of fewer side effects compared to chemical drugs. Studies have shown that 73% of pregnant mothers in Australia (6) and 83.7% in Mashhad city used CAM during pregnancy (7). Today, around the worldwide, midwives use complementary therapies in their profession more than the other medical practitioners. A literature review estimated that between 65% 100% of midwives have used one or more complementary therapies. Common types of CAM that are recommended by midwives were: massage therapy, herbal medicines, relaxation techniques, nutritional supplements, aromatherapy, homeopathy and acupuncture (8). However, one survey in Iran found that CAM methods are prescribed by 37.3% of obstetricians with the most common methods being acupressure, massage and herbal therapy (9). Another study also showed that 44% of midwifery students had recommended CAM therapies to others (10). These methods can be used for treatment of nausea and vomiting, back pain, anxiety, postpartum depression, anemia, striae gravidarum, insomnia, hemorrhoid, vaginal infection, mal-presentation, augmentation and induction of labor, perineal care, retained placenta and lactation problems (8, 11, 12). Since midwives are care providers to women during puberty and reproductive periods, especially at pregnancy and also during menopause and post-menopausal periods, therefore use of complementary and alternative therapies gives an opportunity to midwives for providing holistic care and enables them to respond to the community and women’s needs. Hence, all midwives who are interested in/or are practicing CAM for their clients should be empowered in this field through participating in educational programs to acquire the necessary skills. In midwifery training programs, evidence based CAM therapy should be included. Midwives not only need to know the strengths and limitations of CAM methods, but also they should be able to talk to women about the effectiveness and possible risks of these procedures. Given the widespread use of CAM in the midwifery field, it is necessary for medical organizations to prepare relevant guidelines for using these medicines in midwifery practice, especially for maternity care. It seems that further research to evaluate the prevalence, safety, efficacy and economic benefits of these methods are required."
+    },
+    {
+      "paperId": "cfc460b537f4c5d1bde8bea54860192e2571d4f9",
+      "title": "Relevance of the use of Alternative Medicine for Bronchial Asthma : A review",
+      "year": 2014,
+      "citationCount": 10,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": null,
+      "authors": [
+        {
+          "authorId": "144761590",
+          "name": "S. Kala"
+        },
+        {
+          "authorId": "144782211",
+          "name": "Vijaya Kumar"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "bd8e665b59abfac76d766f7167beddc38455a452",
+      "title": "Homeopathic remedies and liver injury: Authors’ reply to central council for research in homeopathy",
+      "year": 2023,
+      "citationCount": 2,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.1097/hc9.0000000000000170",
+        "status": "GOLD",
+        "license": "CCBYNCND",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC10234464, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3334470",
+          "name": "C. Philips"
+        },
+        {
+          "authorId": "2159649322",
+          "name": "A. Theruvath"
+        }
+      ],
+      "abstract": "We welcome the Central Council for Research in Homeopathy (CCRH) opinions on our study.[1] At the outset, their arguments are fallacious and mostly: (1) strawman in nature, “where the real subject of the argument was not addressed or refuted, but instead replaced with a false one,” and (2) cherry-picked or “suppressing evidence by pointing to individual data that seem to confirm a particular position while ignoring significant portions of related and similar data that may contradict that position.”[2] The World Health Organization (WHO) has, in fact, discussed safety issues in Homeopathy, which include toxic plant materials, chemical and heavy metal contamination, and alcohol content, all of which were directly or indirectly the cause of Hom-DILI shown with precision in our study. The WHO states that the Indian Homeopathic Pharmacopoeia and standards for manufacturing have significant deficiencies that underestimate safety, leading to clinically relevant adverse events, which our study confirmed.[3] The meta-analysis that the CCRH cites to demonstrate the safety of Homeopathic medicines is not a meta-analysis but an opinionated narration without insightful comparisons. Nonetheless, realistic metaanalyses have shown that Homeopathic-formulations were associated with severe adverse events, including organ failure and death.[4] This is due to contamination, adulteration, and use of alcohol tinctures, intentionally or unintentionally done to enhance Homeopathy, with disastrous consequences to patients, shown in our study. The CCRH authors intentionally failed to mention that the NHS has warned of adverse Homeopathy events due to toxic ingredients, which supports our study conclusions. All patients with Hom-DILI consumed formulations prescribed and dispensed by registered Homeopathic practitioners and manufactured at authorized pharmacies or by legit companies, which we have mentioned in our study. Our study was not done in haste, but with prudence, following the scientific method to diagnose Hom-DILI after excluding all competing causes. The AYUSH pharmacovigilance program is not designed to capture serious adverse events, such as Hom-DILI. It is mostly contrived for alternative medicine practitioners, is not scientifically astute, and encompasses pseudo-scientific principles that are not globally accepted or validated for identifying DILI. To conclude, the rebuttal lacks scientific inquiry or rational arguments. It aims to gaslight the readers into believing that Homeopathy is a safe practice by blaming a centuries-old alternative medical system’s failure on “malpractice of the manufacturer and practitioner” and “noncompliance of the patient.” Regardless, we demonstrate that realistic Homeopathy practice and proper compliance resulted in severe liver injury and death of some patients in our study."
+    },
+    {
+      "paperId": "93ed5e4e0b3174702a5dbfc20a47efba5941752a",
+      "title": "Mood disorders and complementary and alternative medicine: a literature review",
+      "year": 2013,
+      "citationCount": 138,
+      "influentialCitationCount": 7,
+      "openAccessPdf": {
+        "url": "https://www.dovepress.com/getfile.php?fileID=16076",
+        "status": "GOLD",
+        "license": "CCBYNC",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC3660126, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "12383712",
+          "name": "N. A. Qureshi"
+        },
+        {
+          "authorId": "1403668591",
+          "name": "A. Al-Bedah"
+        }
+      ],
+      "abstract": "Mood disorders are a major public health problem and are associated with considerable burden of disease, suicides, physical comorbidities, high economic costs, and poor quality of life. Approximately 30%–40% of patients with major depression have only a partial response to available pharmacological and psychotherapeutic interventions. Complementary and alternative medicine (CAM) has been used either alone or in combination with conventional therapies in patients with mood disorders. This review of the literature examines evidence-based data on the use of CAM in mood disorders. A search of the PubMed, Medline, Google Scholar, and Quertile databases using keywords was conducted, and relevant articles published in the English language in the peer-reviewed journals over the past two decades were retrieved. Evidence-based data suggest that light therapy, St John’s wort, Rhodiola rosea, omega-3 fatty acids, yoga, acupuncture, mindfulness therapies, exercise, sleep deprivation, and S-adenosylmethionine are effective in the treatment of mood disorders. Clinical trials of vitamin B complex, vitamin D, and methylfolate found that, while these were useful in physical illness, results were equivocal in patients with mood disorders. Studies support the adjunctive role of omega-3 fatty acids, eicosapentaenoic acid, and docosahexaenoic acid in unipolar and bipolar depression, although manic symptoms are not affected and higher doses are required in patients with resistant bipolar depression and rapid cycling. Omega-3 fatty acids are useful in pregnant women with major depression, and have no adverse effects on the fetus. Choline, inositol, 5-hydroxy-L-tryptophan, and N-acetylcysteine are effective adjuncts in bipolar patients. Dehydroepiandrosterone is effective both in bipolar depression and depression in the setting of comorbid physical disease, although doses should be titrated to avoid adverse effects. Ayurvedic and homeopathic therapies have the potential to improve symptoms of depression, although larger controlled trials are needed. Mind-body-spirit and integrative medicine approaches can be used effectively in mild to moderate depression and in treatment-resistant depression. Currently, although CAM therapies are not the primary treatment of mood disorders, level 1 evidence could emerge in the future showing that such treatments are effective."
+    },
+    {
+      "paperId": "07097e4bdaae7cd90a19264ff184ca173c607020",
+      "title": "Complementary and alternative medicine use and benefit finding among cancer patients.",
+      "year": 2013,
+      "citationCount": 86,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc3842868?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/acm.2012.0964?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/acm.2012.0964, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4409718",
+          "name": "S. Garland"
+        },
+        {
+          "authorId": "144439434",
+          "name": "D. Valentine"
+        },
+        {
+          "authorId": "39336570",
+          "name": "K. Desai"
+        },
+        {
+          "authorId": "2117890116",
+          "name": "Susan Q. Li"
+        },
+        {
+          "authorId": "115741714",
+          "name": "C. Langer"
+        },
+        {
+          "authorId": "32630696",
+          "name": "T. Evans"
+        },
+        {
+          "authorId": "145173340",
+          "name": "J. Mao"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "2d45df6af51250637658268d672fb9fbab1cdf27",
+      "title": "Complementary and Alternative Medicine Use by Pediatric Specialty Outpatients",
+      "year": 2013,
+      "citationCount": 101,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "https://pediatrics.aappublications.org/content/pediatrics/131/2/225.full.pdf",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1542/peds.2012-1220?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1542/peds.2012-1220, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "144635641",
+          "name": "D. Adams"
+        },
+        {
+          "authorId": "5193864",
+          "name": "S. Dagenais"
+        },
+        {
+          "authorId": "39092273",
+          "name": "T. Clifford"
+        },
+        {
+          "authorId": "6883750",
+          "name": "L. Baydala"
+        },
+        {
+          "authorId": "153361542",
+          "name": "W. King"
+        },
+        {
+          "authorId": "1419508773",
+          "name": "M. Hervas-Malo"
+        },
+        {
+          "authorId": "1825473",
+          "name": "D. Moher"
+        },
+        {
+          "authorId": "3352983",
+          "name": "S. Vohra"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "25627eba6c4ffcef3a204f7af0c94fcdbbadd660",
+      "title": "Self-Reported Use of Complementary and Alternative Medicine among the Health Care Consumers at a Tertiary Care Center in Ajman, United Arab Emirates",
+      "year": 2013,
+      "citationCount": 48,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc3728866",
+        "status": "GREEN",
+        "license": "CCBYNCSA",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC3728866, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "40618192",
+          "name": "E. Mathew"
+        },
+        {
+          "authorId": "6774238",
+          "name": "J. Muttappallymyalil"
+        },
+        {
+          "authorId": "4062239",
+          "name": "J. Sreedharan"
+        },
+        {
+          "authorId": "81535320",
+          "name": "L. John"
+        },
+        {
+          "authorId": "145735132",
+          "name": "J. John"
+        },
+        {
+          "authorId": "2115933445",
+          "name": "M. Mehboob"
+        },
+        {
+          "authorId": "2142533254",
+          "name": "A. Mathew"
+        }
+      ],
+      "abstract": "Background: Complementary and alternative medicine (CAM) covers a wide range of approaches, including herbal medicine, manual healing techniques, traditional therapies and mind-body interventions. CAM is widely used throughout the world to treat a variety of illnesses and to maintain health. Aim: Complementary and alternative medicine (CAM) is popular across the world, and is widely practiced. Utilization pattern and reasons for use and non-use among patients attending a tertiary care center are assessed in this study. Subjects and Methods: One hundred and thirty-five patients of different nationalities, above the age of 18 years, Gulf Medical College Hospital and Research Centre, Ajman, UAE, were interviewed using an open-ended structured questionnaire. In addition to socio-demographic characteristics, the acceptability, utilization pattern and reasons for use and non-use were elicited from the participants after obtaining consent from them. PASW 18 version was used to perform Chi-square test and descriptive statistics. Results: Among the 135 participants were 20-81 years old, those from the Far East used most 85.7% (6/7), then Pakistan 38.5% (15/39) and India 23% (16/70). The most common system used was homeopathy. Physicians advised 28.2% (11/39) of users, whereas others used non-medical information. Around 71.8% (28/39) reported good outcome for themselves and family; however, only 10% (4/39) recommended it to others. Most of the users, 75% (101/135), were not sure whether CAM was based on scientific evidence, while 18% (24/135) felt it was. Good previous experience and less treatment complications were the most common reasons for using CAM and non-use due to lack of knowledge or need. Conclusion: About one-third of the seekers of modern medicine care also use CAM, and mostly without physician advice; hence, the importance of discussing the same while taking the clinical history. In view of the belief that CAM has fewer side-effects, there is even more need for physician-initiated discussion."
+    },
+    {
+      "paperId": "04521ddbc9e8fa50d109a627d1cb098ce5c29e76",
+      "title": "Complementary/alternative Medicine Use among Cancer Patients in Malaysia",
+      "year": 2013,
+      "citationCount": 34,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.5829/IDOSI.WJMS.2013.8.2.7358?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.5829/IDOSI.WJMS.2013.8.2.7358, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1401710400",
+          "name": "R. A. Al-Naggar"
+        },
+        {
+          "authorId": "3739360",
+          "name": "Y. Bobryshev"
+        },
+        {
+          "authorId": "6236348",
+          "name": "M. Abdulghani"
+        },
+        {
+          "authorId": "113074140",
+          "name": "Subramariam Rammohan"
+        },
+        {
+          "authorId": "30335666",
+          "name": "M. Osman"
+        },
+        {
+          "authorId": "117821351",
+          "name": "Samiah Yasmin"
+        },
+        {
+          "authorId": "40555199",
+          "name": "Abdul Kadir"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "a92918f20566033c7c2ed0952aff8231b4791961",
+      "title": "Integrating Complementary and Alternative Medicine with Primary Health Care",
+      "year": 2013,
+      "citationCount": 20,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.1155/2013/948308",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC3728503, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "7036399",
+          "name": "A. Shirwaikar"
+        },
+        {
+          "authorId": "5897190",
+          "name": "R. Govindarajan"
+        },
+        {
+          "authorId": "145542677",
+          "name": "A. Rawat"
+        }
+      ],
+      "abstract": "Complementary/alternative medicine (CAM) has been described as “diagnosis, treatment, and/or prevention which complements mainstream medicine by contributing to a common whole, satisfying a demand not met by orthodoxy, or diversifying the conceptual frameworks of medicine” [1]. Approximately, 1500 articles on CAM are published annually in the literature covered by MEDLINE [2]. In the United Kingdom, the market for herbal and homoeopathic remedies and aromatherapy oils increased by 41% between 1992 and 1996 [3]. In Germany, a herbal remedy (St. John's wort) is now the most frequently prescribed drug for depression. In the USA, the sales of St. John's wort rose by 2800% between 1997 and 1998, and the total market for medicinal botanicals was worth US$ 3.87 billion in 1998 [4]. Most experts agree that the interest in and practice of CAM are driven mainly by consumer pressure. A 1990 national survey of alternative medicine prevalence in US, costs, and patterns of use [5] demonstrated that alternative medicine has a substantial presence in the US health care system. Data from a survey in 1994 [6] and a public opinion poll in 1997 [7] confirmed the extensive use of alternative medical therapies in the United States. An increasing number of US insurers and managed care organizations now offer alternative medicine programs and benefits [8]. The majority of US medical schools now offer courses on alternative medicine [9]. In western Europe and Australia, 20–70% of the population regularly use complementary and alternative medicine [10, 11]. In the USA, it was estimated in 1992 that at least one in three Americans utilized one of those methods, and the number of annual visits to providers of alternative medicine exceeds the number of visits to all primary care physicians [12]. These therapies include acupuncture, chiropractic, herbal medicine and dietary supplements, nutraceuticals, homeopathy, mind-body techniques, spirituality, and faith healing, massage, and therapeutic touch. In a 1998 follow-up study, the percentage of CAM patients had increased to 42% of the US population [13]. Subsequent analyses showed that 67.6% of respondents had used at least one CAM therapy in their lifetime. This trend suggests a continuing demand for CAM therapies that will affect health care delivery for the foreseeable future [14]. The WHO report of 2002 states that at least 70% of the world population still believes in alternative medicine, and therapies which include homeopathy, Ayurveda, Siddha, Unani, Amchi, acupuncture, aromatherapy, herbal medicine in general, dietary supplements, nutraceuticals, Yoga, mind-body techniques, spirituality and faith healing, and massage. The current trend is indicative of a continuing demand for CAM therapies which will definitely have its impact on health care delivery in the future [15]."
+    },
+    {
+      "paperId": "f04af3dca3909e63b7cd61ff9fe659ecb4fba52b",
+      "title": "Dementia: Treating Patients and Caregivers with Complementary and Alternative Medicine - Results of a Clinical Expert Conference Using the World Café Method",
+      "year": 2013,
+      "citationCount": 15,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1159/000354595?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1159/000354595, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4363707",
+          "name": "M. Teut"
+        },
+        {
+          "authorId": "2278620776",
+          "name": "Susanne Bloedt"
+        },
+        {
+          "authorId": "145560957",
+          "name": "R. Baur"
+        },
+        {
+          "authorId": "14140685",
+          "name": "Frederik Betsch"
+        },
+        {
+          "authorId": "2091047413",
+          "name": "M. Elies"
+        },
+        {
+          "authorId": "2075156246",
+          "name": "Maria Fruehwald"
+        },
+        {
+          "authorId": "2074586310",
+          "name": "Ingo Fuesgen"
+        },
+        {
+          "authorId": "114125057",
+          "name": "Annette Kerckhoff"
+        },
+        {
+          "authorId": "2060997542",
+          "name": "Eckard Krüger"
+        },
+        {
+          "authorId": "2082210011",
+          "name": "Dorothee Schimpf"
+        },
+        {
+          "authorId": "50731055",
+          "name": "Katharina Schnabel"
+        },
+        {
+          "authorId": "144891816",
+          "name": "H. Walach"
+        },
+        {
+          "authorId": "2080633800",
+          "name": "Britta Warme"
+        },
+        {
+          "authorId": "2079743186",
+          "name": "Albercht Warning"
+        },
+        {
+          "authorId": "2066135136",
+          "name": "J. Wilkens"
+        },
+        {
+          "authorId": "3286370",
+          "name": "C. Witt"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "4315541cf5f6a8635364dbf5622b5e556b45131b",
+      "title": "Explaining Health Misinformation Belief through News, Social, and Alternative Health Media Use: The Moderating Roles of Need for Cognition and Faith in Intuition",
+      "year": 2022,
+      "citationCount": 34,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1080/10410236.2021.2010891?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1080/10410236.2021.2010891, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2108186913",
+          "name": "Yuanyuan Wu"
+        },
+        {
+          "authorId": "3387490",
+          "name": "Ozan Kuru"
+        },
+        {
+          "authorId": "2066708428",
+          "name": "Scott W. Campbell"
+        },
+        {
+          "authorId": "2173904",
+          "name": "L. Baruh"
+        }
+      ],
+      "abstract": "ABSTRACT Explaining the spread and impact of health misinformation has garnered considerable attention with the uptake of social media and group messaging applications. This study contributes to that line of work by investigating how reliance on multiple digital media may help support or suppress misinformation belief, and how individual differences in misinformation susceptibility condition this process. Alternative health outlets (AH media), advocating home/homeopathic remedies over conventional medicine can be important sources of misinformation, yet are largely ignored previously. In this study, we first test how reliance on different platforms predicts health misinformation belief. Drawing from the elaboration likelihood model, we further investigate how need for cognition (NFC) and faith in intuition (FI) moderate the relationship between news reliance and susceptibility to misinformation. We conducted a survey in Singapore, Turkey, and the U.S (N = 3,664) to measure how these proposed relationships explain misinformed beliefs about vaccines, genetically modified foods and alternative medicine. We found reliance on online legacy news was negatively associated with the likelihood of believing health misinformation, while the reverse was true for social media and AH media. Additionally, those with both greater NFC and FI were more susceptible to health misinformation when they relied on social media and AH media more. In contrast, neither NFC nor FI moderated the relationship between reliance on online legacy news and health misinformation belief. These findings, mostly consistent across countries, also show that extensive reliance on social media and AH media for news mostly overwhelms the individual differences in predicting misinformation belief."
+    },
+    {
+      "paperId": "204e669fbc78f83155af1d11f526e9394050d749",
+      "title": "Psychotherapy, complementary and alternative medicine and social dysfunction",
+      "year": 2013,
+      "citationCount": 6,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1080/13642537.2013.810658?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1080/13642537.2013.810658, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Psychology"
+      ],
+      "authors": [
+        {
+          "authorId": "49574386",
+          "name": "J. Lees"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "f46377928065aacbab45874b50454bcae76c4eff",
+      "title": "Bmc Complementary and Alternative Medicine a Systematic Review of the Quality of Homeopathic Clinical Trials",
+      "year": null,
+      "citationCount": 55,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": null,
+      "authors": [
+        {
+          "authorId": "2432019",
+          "name": "W. Jonas"
+        },
+        {
+          "authorId": "48525365",
+          "name": "Rachel L. Anderson"
+        },
+        {
+          "authorId": "1890103",
+          "name": "C. Crawford"
+        },
+        {
+          "authorId": "2687589",
+          "name": "J. Lyons"
+        },
+        {
+          "authorId": "2269818573",
+          "name": "Cindy C"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "166407864ce4d9b2d7f2b342eb6e7f2d8bff09b2",
+      "title": "Bmc Complementary and Alternative Medicine Effect of a Homeopathic Drug, Chelidonium, in Amelioration of P-dab Induced Hepatocarcinogenesis in Mice",
+      "year": null,
+      "citationCount": 83,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": null,
+      "authors": [
+        {
+          "authorId": "2150473447",
+          "name": "S. Biswas"
+        },
+        {
+          "authorId": "1422529693",
+          "name": "Anisur Rahman Khuda-Bukhsh"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "1133cfb92da206e3d1cda1cb9d3c8e49652c3d02",
+      "title": "Complementary and alternative medicine treatments in the management of chronic fatigue syndrome: a systematic review of randomized controlled trials",
+      "year": 2013,
+      "citationCount": 3,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s13596-012-0096-9?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s13596-012-0096-9, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "7826353",
+          "name": "Koh-Woon Kim"
+        },
+        {
+          "authorId": "50611558",
+          "name": "Won-Suk Chung"
+        },
+        {
+          "authorId": "6074307",
+          "name": "Mi-yeon Song"
+        },
+        {
+          "authorId": "4948856",
+          "name": "Seok-hee Chung"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "539e9f5a4bbf4face050e559d1fe530b983914bf",
+      "title": "Complementary and alternative medicine: Is it possible to be mainstream?",
+      "year": 2012,
+      "citationCount": 37,
+      "influentialCitationCount": 9,
+      "openAccessPdf": {
+        "url": "https://link.springer.com/content/pdf/10.1007/s11655-012-1126-7.pdf",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s11655-012-1126-7?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s11655-012-1126-7, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "144884111",
+          "name": "Hao Xu"
+        },
+        {
+          "authorId": "2050592",
+          "name": "Ke-Ji Chen"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "ceecd8a1e79f3e594d9abe98ffdabff4c40ba543",
+      "title": "Complementary and Alternative Medicine Provision in Europe – First Results Approaching Reality in an Unclear Field of Practices",
+      "year": 2012,
+      "citationCount": 41,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "https://boris.unibe.ch/16137/1/000343129.pdf",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1159/000343129?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1159/000343129, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "134273656",
+          "name": "K. von Ammon"
+        },
+        {
+          "authorId": "1429466512",
+          "name": "M. Frei-Erb"
+        },
+        {
+          "authorId": "6124168",
+          "name": "F. Cardini"
+        },
+        {
+          "authorId": "15694468",
+          "name": "U. Daig"
+        },
+        {
+          "authorId": "71289037",
+          "name": "S. Dragan"
+        },
+        {
+          "authorId": "50149103",
+          "name": "G. Hegyi"
+        },
+        {
+          "authorId": "117597200",
+          "name": "Paolo Roberti di Sarsina"
+        },
+        {
+          "authorId": "2054963871",
+          "name": "Jan Sörensen"
+        },
+        {
+          "authorId": "6672904",
+          "name": "G. Lewith"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "47bbdc69d0989dd2791067eb681a0e65b9b341d1",
+      "title": "Attitude and practice of patients and doctors towards complementary and alternative medicine.",
+      "year": 2012,
+      "citationCount": 20,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "46659894",
+          "name": "Rabyyan Junaid"
+        },
+        {
+          "authorId": "16243842",
+          "name": "M. Abaas"
+        },
+        {
+          "authorId": "1433003257",
+          "name": "Batool Fatima"
+        },
+        {
+          "authorId": "15498569",
+          "name": "Irma Anis"
+        },
+        {
+          "authorId": "6500494",
+          "name": "Mehwish Hussain"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "f65c670775542ff628f851f81a874c52043763c1",
+      "title": "Self-Medication with Modern and Complementary Alternative Medicines in Patients with Chronic Pain",
+      "year": 2022,
+      "citationCount": 4,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.4103/jrpp.jrpp_14_22",
+        "status": "GOLD",
+        "license": "CCBYNCSA",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC9585802, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2182089747",
+          "name": "Indu Jangra"
+        },
+        {
+          "authorId": "1394008513",
+          "name": "A. Dubey"
+        },
+        {
+          "authorId": "2739799",
+          "name": "Ekta Arora"
+        },
+        {
+          "authorId": "2183128089",
+          "name": "Basit Peerzada"
+        }
+      ],
+      "abstract": "Objective: The study aimed to assess the prevalence, pattern, and determinants of the self-medication practices with modern and/or complementary and alternative medicine (CAM) therapies in patients with chronic pain. Methods: The descriptive cross-sectional study was conducted between August 2021 and January 2022 and assessed a representative sample of chronic pain patients visiting outpatient departments in India by administering a semi-structured questionnaire. The survey questionnaire consisted of forty multiple response items, including ten questions that assessed the subjects' sociodemographic profile, for example, age, sex, education, marital status, employment status, residence, and distance of home from any health care facility. The next part of the questionnaire evaluated the practice and determinants of self-medication for chronic pain with modern or CAM therapies. It included thirty questions assessing the reasons, duration, sources of information, procurement methods, preference for a particular system of medicine, knowledge about risks or drug interactions, rationality, perception of the subject, and communication with the physician, among other aspects of self-medication for pain. Findings: Out of the 325 respondents with chronic pain, those who practiced self-medication (237) were significantly more in number than those who did not (P < 0.05). Among those who self-medicated, the practice was significantly higher in urban participants living closer to healthcare facilities, with better economic backgrounds and higher education (P < 0.05). Modern medicine was the predominant choice of self-treatment for chronic pain compared to various CAM therapies (P < 0.05). Among the alternatives, homeopathic and ayurvedic systems of medicines were preferred. The main reasons for self-medicating were urgency, ease, previous prescriptions, and presumed mildness of the underlying disease. More than one-third of the respondents opined in favor of continuing self-medication in the future. Conclusion: The prevalent practice of self-medication for chronic pain may not be hazardous, but it can turn into a serious problem if not based on correct information. The inherent risks need to be minimized by increasing awareness, health education, and pharmacy regulations."
+    },
+    {
+      "paperId": "b083ff361bf227bc19dcc06371b773a8da25ad92",
+      "title": "CHALLENGES OF COMPLEMENTARY AND ALTERNATIVE MEDICINE IN THE SUS AIMING TO HEALTH PROMOTION",
+      "year": 2012,
+      "citationCount": 11,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": null,
+      "authors": [
+        {
+          "authorId": "80418548",
+          "name": "Paula Cristina Ischkanian"
+        },
+        {
+          "authorId": "1391232796",
+          "name": "M. Pelicioni"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "8c7fc32473d4f2524a17af2bb2a79329e3df221f",
+      "title": "Using Controversies for Knowledge Construction: Thinking and Writing about Alternative Medicine",
+      "year": 2012,
+      "citationCount": 8,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Computer Science",
+        "Psychology"
+      ],
+      "authors": [
+        {
+          "authorId": "3357503",
+          "name": "J. Kimmerle"
+        },
+        {
+          "authorId": "1733473",
+          "name": "Johannes Moskaliuk"
+        },
+        {
+          "authorId": "3316573",
+          "name": "Martina Bientzle"
+        },
+        {
+          "authorId": "36387630",
+          "name": "A. Thiel"
+        },
+        {
+          "authorId": "1687692",
+          "name": "U. Cress"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "de86e7755143bf93357bed8e230bed4f5cfc6fb1",
+      "title": "Attitudes toward complementary and alternative medicine: a national survey among paediatricians in the Netherlands",
+      "year": 2011,
+      "citationCount": 48,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s00431-010-1331-3?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s00431-010-1331-3, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "145549827",
+          "name": "A. Vlieger"
+        },
+        {
+          "authorId": "145018586",
+          "name": "M. V. Vliet"
+        },
+        {
+          "authorId": "115570891",
+          "name": "M. Jong"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "29df96e49bca9b9b32612ebf50fcc2eead2c76a9",
+      "title": "The Manitoba Inflammatory Bowel Disease Cohort Study: a prospective longitudinal evaluation of the use of complementary and alternative medicine services and products",
+      "year": 2011,
+      "citationCount": 69,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1136/gutjnl-2011-300219?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1136/gutjnl-2011-300219, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4258380",
+          "name": "P. Rawsthorne"
+        },
+        {
+          "authorId": "5338375",
+          "name": "I. Clara"
+        },
+        {
+          "authorId": "3949476",
+          "name": "L. Graff"
+        },
+        {
+          "authorId": "13114073",
+          "name": "Kylie I Bernstein"
+        },
+        {
+          "authorId": "49486284",
+          "name": "Rachel Carr"
+        },
+        {
+          "authorId": "152497680",
+          "name": "J. Walker"
+        },
+        {
+          "authorId": "6455068",
+          "name": "J. Ediger"
+        },
+        {
+          "authorId": "4936322",
+          "name": "Linda Rogala"
+        },
+        {
+          "authorId": "34097798",
+          "name": "Norine Miller"
+        },
+        {
+          "authorId": "2938053",
+          "name": "C. Bernstein"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "877c46683338bc177207285c7c864716ec16e32c",
+      "title": "Is propolis safe as an alternative medicine?",
+      "year": 2011,
+      "citationCount": 83,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.4103/0975-7406.90101",
+        "status": "GOLD",
+        "license": "CCBYNCSA",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC3249695, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Business",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "46322006",
+          "name": "M. Miguel"
+        },
+        {
+          "authorId": "29821079",
+          "name": "M. Antunes"
+        }
+      ],
+      "abstract": "Propolis is a resinous substance produced by honeybees as defense against intruders. It has relevant therapeutic properties that have been used since ancient times. Nowadays, propolis is of increasing importance as a therapeutic, alone or included in many medicines and homeopathic products or in cosmetics. Propolis is produced worldwide and honeybees use the flora surrounding their beehives for its production. Therefore its chemical composition may change according to the flora. The phenolic and volatile fractions of propolis have been revised in the present study, as well as some of the biological properties attributed to this natural product. An alert is given about the need to standardize this product, with quality control. This has already been initiated by some authors, mainly in the propolis from the poplar-type. Only this product can constitute a good complementary and alternative medicine under internationally acceptable quality control."
+    },
+    {
+      "paperId": "aeb8ae1fbeb00dec742f4925b59194367e0b1668",
+      "title": "Homeopathy as an alternative in the treatment of reproductive disorders.",
+      "year": 2012,
+      "citationCount": 2,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "145663030",
+          "name": "L. F. Lima"
+        },
+        {
+          "authorId": "95283188",
+          "name": "A. Alves"
+        },
+        {
+          "authorId": "2222064514",
+          "name": "R. Magalhães"
+        },
+        {
+          "authorId": "2105754285",
+          "name": "Pedro Rocha"
+        },
+        {
+          "authorId": "1394775306",
+          "name": "J. Celestino"
+        },
+        {
+          "authorId": "37024439",
+          "name": "J. B. Bruno"
+        },
+        {
+          "authorId": "2079305009",
+          "name": "Ana Paula"
+        },
+        {
+          "authorId": "2067550659",
+          "name": "Ribeiro Rodrigues"
+        },
+        {
+          "authorId": "143789032",
+          "name": "J. R. Figueiredo"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "9732e0162862ca9d128d6e60c5a8ca1c6f0c8025",
+      "title": "Pharmacists' actions when patients use complementary and alternative medicine with medications: A look at Texas-Mexico border cities.",
+      "year": 2011,
+      "citationCount": 19,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1331/JAPhA.2011.10021?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1331/JAPhA.2011.10021, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "47215159",
+          "name": "Carolyn M. Brown"
+        },
+        {
+          "authorId": "133645560",
+          "name": "A. Peña"
+        },
+        {
+          "authorId": "13990316",
+          "name": "K. Reséndiz"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "3ccd59f635c498a1cf33a47fee1957f93781c442",
+      "title": "Adverse events associated with the use of complementary and alternative medicine in children",
+      "year": 2011,
+      "citationCount": 8,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1136/adc.2011.211979?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1136/adc.2011.211979, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "39637089",
+          "name": "G. Seifert"
+        },
+        {
+          "authorId": "1959161",
+          "name": "G. Henze"
+        },
+        {
+          "authorId": "4444111",
+          "name": "A. Längler"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "4157458b437802375e2a734d196dc0f293fe279e",
+      "title": "Usage of complementary and alternative medicine interventions by German older adults.",
+      "year": 2011,
+      "citationCount": 13,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/acm.2011.0154?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/acm.2011.0154, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "114115685",
+          "name": "A. Büssing"
+        },
+        {
+          "authorId": "143822105",
+          "name": "T. Ostermann"
+        },
+        {
+          "authorId": "5924909",
+          "name": "P. Heusser"
+        },
+        {
+          "authorId": "34736141",
+          "name": "P. Matthiessen"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "c1b8cbd747bcaee53fc20ad275ae280c285bd14e",
+      "title": "[Which complementary and alternative medicine modalities are integrated within Israeli healthcare organizations and do they match the public's preferences?].",
+      "year": 2011,
+      "citationCount": 11,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2090124",
+          "name": "Yael Keshet"
+        },
+        {
+          "authorId": "1398128235",
+          "name": "E. Ben-Arye"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "6f0161c94b29cfaf600f0b00adf35bee2694ce2e",
+      "title": "The use of complementary and alternative medicine products in preceding two days among Finnish parents - a population survey",
+      "year": 2011,
+      "citationCount": 39,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "https://bmccomplementmedtherapies.biomedcentral.com/counter/pdf/10.1186/1472-6882-11-107",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC3234193, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1390148961",
+          "name": "K. Hämeen-Anttila"
+        },
+        {
+          "authorId": "4362637",
+          "name": "Ulla R Niskala"
+        },
+        {
+          "authorId": "3937484",
+          "name": "Sanna M. Siponen"
+        },
+        {
+          "authorId": "31289318",
+          "name": "R. Ahonen"
+        }
+      ],
+      "abstract": "BackgroundThe use of complementary and alternative medicines (CAM) has been extensively studied globally among adult and paediatric populations. Parents, as a group, had not been studied to assess their knowledge and attitude to CAM and general medicine use. This study is necessary since parents' attitude to medicine use is known to influence their child's attitude to medicine use later in life. We therefore aim to assess the extent and types of CAM use among Finnish parents, and to determine the factors that promote the CAM use. Also, we aim to determine parents' attitude to general medicine use.MethodsChildren less than 12 years old, as of spring 2007, were identified from the database of the Finnish Population Register Centre and were selected by random sampling. The parents of these children were identified and a questionnaire was sent to them. Only the parent who regularly takes care of the child's medicine was requested to fill the questionnaire. Cross-tabulations and Chi-square test were used to determine the associations between categorical variables. CAMs were defined as natural products that are not registered as medicines, such as homeopathic preparations, dietary food supplements, and traditional medicinal products.ResultsThe response rate of the survey was 67% (n = 4032). The use of CAM was 31% in the preceding two days. The most commonly used CAM products were vitamins and minerals, followed by fish oils and fatty acids. Prescription and OTC medicines were used concomitantly with CAM by one-third of the parents. CAM was frequently used by parents over 30 years (33%), female parents (32%), highly educated parents (35%), and parents with high monthly net income (3000-3999 euros, 34%). The users of CAM had more negative attitudes towards medicines than non-users of CAM.ConclusionsOur findings are in accordance with those of previous studies that women over 30 years of age with a high education and income typically use CAMs. Finnish parents seem to use CAMs as complementary rather than alternative to medicines. Health care professionals should take into consideration both the concomitant use as well as the negative attitudes among CAM users in encounters with the parents."
+    },
+    {
+      "paperId": "0c2b2908a796ab671ebdcbbeb6209c2f76991afd",
+      "title": "Complementary and alternative medicine for patients with chronic fatigue syndrome: A systematic review",
+      "year": 2011,
+      "citationCount": 93,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "https://bmccomplementmedtherapies.biomedcentral.com/counter/pdf/10.1186/1472-6882-11-87",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC3201900, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4701168",
+          "name": "T. Alraek"
+        },
+        {
+          "authorId": "152522673",
+          "name": "Myeong Soo Lee"
+        },
+        {
+          "authorId": "34920732",
+          "name": "T. Choi"
+        },
+        {
+          "authorId": "145758338",
+          "name": "H. Cao"
+        },
+        {
+          "authorId": "4777151",
+          "name": "Jianpin Liu"
+        }
+      ],
+      "abstract": "BackgroundThroughout the world, patients with chronic diseases/illnesses use complementary and alternative medicines (CAM). The use of CAM is also substantial among patients with diseases/illnesses of unknown aetiology. Chronic fatigue syndrome (CFS), also termed myalgic encephalomyelitis (ME), is no exception. Hence, a systematic review of randomised controlled trials of CAM treatments in patients with CFS/ME was undertaken to summarise the existing evidence from RCTs of CAM treatments in this patient population.MethodsSeventeen data sources were searched up to 13th August 2011. All randomised controlled trials (RCTs) of any type of CAM therapy used for treating CFS were included, with the exception of acupuncture and complex herbal medicines; studies were included regardless of blinding. Controlled clinical trials, uncontrolled observational studies, and case studies were excluded.ResultsA total of 26 RCTs, which included 3,273 participants, met our inclusion criteria. The CAM therapy from the RCTs included the following: mind-body medicine, distant healing, massage, tuina and tai chi, homeopathy, ginseng, and dietary supplementation. Studies of qigong, massage and tuina were demonstrated to have positive effects, whereas distant healing failed to do so. Compared with placebo, homeopathy also had insufficient evidence of symptom improvement in CFS. Seventeen studies tested supplements for CFS. Most of the supplements failed to show beneficial effects for CFS, with the exception of NADH and magnesium.ConclusionsThe results of our systematic review provide limited evidence for the effectiveness of CAM therapy in relieving symptoms of CFS. However, we are not able to draw firm conclusions concerning CAM therapy for CFS due to the limited number of RCTs for each therapy, the small sample size of each study and the high risk of bias in these trials. Further rigorous RCTs that focus on promising CAM therapies are warranted."
+    },
+    {
+      "paperId": "937c895e855a7bc47be872fd63e61e0282fa3c46",
+      "title": "Complementary and Alternative Medicine Use in Chronic Liver Disease Patients",
+      "year": 2010,
+      "citationCount": 47,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc3730290?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1097/MCG.0b013e3181b766ed?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1097/MCG.0b013e3181b766ed, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "34358370",
+          "name": "L. Ferrucci"
+        },
+        {
+          "authorId": "101957900",
+          "name": "B. Bell"
+        },
+        {
+          "authorId": "13112424",
+          "name": "K. Dhotre"
+        },
+        {
+          "authorId": "144745301",
+          "name": "M. Manos"
+        },
+        {
+          "authorId": "4625193",
+          "name": "N. Terrault"
+        },
+        {
+          "authorId": "48063961",
+          "name": "A. Zaman"
+        },
+        {
+          "authorId": "145469583",
+          "name": "Rosemary C. Murphy"
+        },
+        {
+          "authorId": "14213932",
+          "name": "Grace R Vanness"
+        },
+        {
+          "authorId": "153932235",
+          "name": "Ann R. Thomas"
+        },
+        {
+          "authorId": "5861388",
+          "name": "S. Bialek"
+        },
+        {
+          "authorId": "1710671",
+          "name": "Mayur M. Desai"
+        },
+        {
+          "authorId": "6343510",
+          "name": "A. Sofair"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "229bcdefa19afece3bd67b28cb6b310542039b29",
+      "title": "A geographic assessment of ‘total’ health care supply in Ontario: complementary and alternative medicine and conventional medicine",
+      "year": 2010,
+      "citationCount": 22,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1111/J.1541-0064.2009.00285.X?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1111/J.1541-0064.2009.00285.X, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "12110598",
+          "name": "Stephen P. Meyer"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "46a217203a9a5f23445c2eaaca44dded8f2960dc",
+      "title": "Medicinal systems of complementary and alternative medicine: a cross-sectional survey at a pediatric emergency department.",
+      "year": 2010,
+      "citationCount": 17,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://www.zora.uzh.ch/id/eprint/45528/1/ZuzakT%2C_2010.pdf",
+        "status": "GREEN",
+        "license": "other-oa",
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/acm.2009.0601?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/acm.2009.0601, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5032744",
+          "name": "T. Zuzak"
+        },
+        {
+          "authorId": "1398175146",
+          "name": "Isabelle Zuzak-Siegrist"
+        },
+        {
+          "authorId": "2060944935",
+          "name": "L. Rist"
+        },
+        {
+          "authorId": "9918949",
+          "name": "G. Staubli"
+        },
+        {
+          "authorId": "1400629612",
+          "name": "A. Simões-Wüst"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "2c17c752e69d382b7ad3289015a3ae0e38f373e5",
+      "title": "Accidental intakes of remedies from complementary and alternative medicine in children—analysis of data from the Swiss Toxicological Information Centre",
+      "year": 2010,
+      "citationCount": 20,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s00431-009-1087-9?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s00431-009-1087-9, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5032744",
+          "name": "T. Zuzak"
+        },
+        {
+          "authorId": "90056045",
+          "name": "C. Rauber-Lüthy"
+        },
+        {
+          "authorId": "1400629612",
+          "name": "A. Simões-Wüst"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "43b6fd9e3052e2e3a30e4c0b395fd7046dd344ac",
+      "title": "Guides. Complementary and Alternative Medicine. Homeopathic Medicine.",
+      "year": 2011,
+      "citationCount": 0,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "20552815",
+          "name": "S. Morgan"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "cf50dc56510eb8b614988a4453394d2f8cac965a",
+      "title": "[Treatment adherence and use of complementary and alternative medicine in patients with inflammatory bowel disease].",
+      "year": 2010,
+      "citationCount": 4,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.1556/oh.2010.28805",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1556/OH.2010.28805?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1556/OH.2010.28805, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3889269",
+          "name": "L. Lakatos"
+        },
+        {
+          "authorId": "4891220",
+          "name": "Z. Czeglédi"
+        },
+        {
+          "authorId": "37104061",
+          "name": "G. Dávid"
+        },
+        {
+          "authorId": "1395174561",
+          "name": "Zsófi Kispál"
+        },
+        {
+          "authorId": "9825640",
+          "name": "L. Kiss"
+        },
+        {
+          "authorId": "4383995",
+          "name": "K. Palatka"
+        },
+        {
+          "authorId": "32260360",
+          "name": "T. Kristof"
+        },
+        {
+          "authorId": "145468169",
+          "name": "T. Molnár"
+        },
+        {
+          "authorId": "50035558",
+          "name": "Á. Salamon"
+        },
+        {
+          "authorId": "2349300",
+          "name": "Pál Demeter"
+        },
+        {
+          "authorId": "5647280",
+          "name": "P. Miheller"
+        },
+        {
+          "authorId": "6847030",
+          "name": "T. Szamosi"
+        },
+        {
+          "authorId": "5543441",
+          "name": "J. Banai"
+        },
+        {
+          "authorId": "143871023",
+          "name": "M. Papp"
+        },
+        {
+          "authorId": "47223598",
+          "name": "L. Bene"
+        },
+        {
+          "authorId": "144253686",
+          "name": "Á. Kovács"
+        },
+        {
+          "authorId": "2295417",
+          "name": "I. Rácz"
+        },
+        {
+          "authorId": "144511369",
+          "name": "P. Lakatos"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "31bb56b6cc3749a26541785137a36cac95bb6d75",
+      "title": "The ethics of complementary and alternative medicine.",
+      "year": 2010,
+      "citationCount": 3,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1542/pir.31-7-e49?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1542/pir.31-7-e49, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2080374591",
+          "name": "B. J. Mears"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "ba3df8418abffb257aa7042c7f0cd40fb6447974",
+      "title": "Complementary and alternative medicine use for vasomotor symptoms among women who have discontinued hormone therapy.",
+      "year": 2009,
+      "citationCount": 48,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "http://www.jognn.org/article/S0884217515301520/pdf",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1111/j.1552-6909.2008.00305.x?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1111/j.1552-6909.2008.00305.x, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "14232820",
+          "name": "Elizabeth Kupferer"
+        },
+        {
+          "authorId": "6057502",
+          "name": "S. Dormire"
+        },
+        {
+          "authorId": "47503317",
+          "name": "H. Becker"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "641d4f64df1a3dda5648123e5fcd62d97fad2c75",
+      "title": "Homeopathy as an alternative for asthma treatment",
+      "year": 2011,
+      "citationCount": 2,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.51910/ijhdr.v10i36.461",
+        "status": "HYBRID",
+        "license": "CCBYNCSA",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.51910/ijhdr.v10i36.461?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.51910/ijhdr.v10i36.461, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5236247",
+          "name": "C. V. Garcia"
+        },
+        {
+          "authorId": "2058389090",
+          "name": "Gabriela Veiga Vieira Mancio Bandeira"
+        },
+        {
+          "authorId": "35291102",
+          "name": "A. Mendez"
+        }
+      ],
+      "abstract": "Background: Asthma is a chronic inflammatory disease characterized by a reversible obstruction and hyperactivity of inferior aerial treat [1]. It is responsible for lifestyle modification and, considering its high frequency, it became an important issue in the budget of health services around the world. Aspects like the lack of definitive results and presence of adverse effects, observed for traditional therapy, as well as the search for better quality of life have increased patientsÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ interest for complementary and alternative medicines (CAM), being homeopathy one of the most cited [2]. In 2001, asthma was between the 10 diagnostics most treated by homeopaths in USA [3]. Aims: In this work, a qualitative research was made focusing the evaluation of the real contribution that homeopathy can represent for asthma patients and the role of pharmacist in this therapy. Methodology: databases such as Medline, Sciencedirect and Bireme were used to find scientific articles, applying the expressions ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œasthmaÃƒÂ¢Ã¢â€šÂ¬Ã‚Â, ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œhomeopathyÃƒÂ¢Ã¢â€šÂ¬Ã‚Â and ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œcomplementary and alternative medicineÃƒÂ¢Ã¢â€šÂ¬Ã‚Â. Results: At least six works demonstrate successful applications of homeopathic treatment in children or adults with asthma. The main benefits cited are the decrease of frequency and gravity of the crises, besides of some cure cases. Conclusions: Data available are still scanty about asthma homeopathic treatment. The few works found showed this kind of therapy is very adequate, mainly because of the emotional component of the disease, but also because it represents to be away from the adverse effects commonly related to the traditional therapy (e. g. corticoids). To ensure a correct therapy is being made, the pharmacist must be present and active in the patientsÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ identification and documentation, giving them right orientations about the use and storage of homeopathic medicines, besides of stimulating a close and confidence relationship with the homeopath. Also, the manufacturing of remedies must be according to the official guidelines in order to guarantee their quality."
+    },
+    {
+      "paperId": "1dfe9971c858a506cfb9f36f9290314980d35911",
+      "title": "Complementary and alternative medicine use among patients undergoing otolaryngologic surgery.",
+      "year": 2009,
+      "citationCount": 17,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1844360",
+          "name": "M. Shakeel"
+        },
+        {
+          "authorId": "2099131703",
+          "name": "J. Newton"
+        },
+        {
+          "authorId": "1398335850",
+          "name": "K. Ah-See"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "4945002d65116c0cb68ff9fcd1dc946e387134d0",
+      "title": "Use of Alternative Medicine for Chronic Hepatitis C-A Hospital BasedStudy from Rawalpindi -",
+      "year": 2009,
+      "citationCount": 9,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "38061597",
+          "name": "S. Gilani"
+        },
+        {
+          "authorId": "1576221205",
+          "name": "Sana Ali"
+        },
+        {
+          "authorId": "83875678",
+          "name": "S. Mir"
+        },
+        {
+          "authorId": "5230697",
+          "name": "T. Mazhar"
+        },
+        {
+          "authorId": "49632089",
+          "name": "Aftab Iqbal"
+        },
+        {
+          "authorId": "83147145",
+          "name": "F. Ahmed"
+        },
+        {
+          "authorId": "5113336",
+          "name": "O. Hyder"
+        },
+        {
+          "authorId": "80038655",
+          "name": "Abeera Zareen"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "40656285ddae76674e389e71c8580ee03a738a27",
+      "title": "Reasons for referrals of children and adolescents to alternative medicine in southern Israel.",
+      "year": 2009,
+      "citationCount": 7,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/acm.2008.0578?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/acm.2008.0578, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "14340019",
+          "name": "Carmit Erez"
+        },
+        {
+          "authorId": "5359130",
+          "name": "H. Reuveni"
+        },
+        {
+          "authorId": "81242378",
+          "name": "T. Freud"
+        },
+        {
+          "authorId": "2278113",
+          "name": "R. Peleg"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "cd450138cea09f8df24bd14af705a68fa990f6ab",
+      "title": "The use of complementary alternative medicine (CAM) in 1 001 German adults: results of a population-based telephone survey.",
+      "year": 2008,
+      "citationCount": 77,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1055/s-2008-1081505?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1055/s-2008-1081505, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "34787066",
+          "name": "B. Bücker"
+        },
+        {
+          "authorId": "115077000",
+          "name": "M. Groenewold"
+        },
+        {
+          "authorId": "7190614",
+          "name": "Y. Schoefer"
+        },
+        {
+          "authorId": "2060187246",
+          "name": "T. Schäfer"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "01f1189a92a129af2ca2146db4b390d6d22b1ebc",
+      "title": "Attitudes towards vaccination: users of complementary and alternative medicine versus non-users.",
+      "year": 2008,
+      "citationCount": 65,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.4414/smw.2008.12423",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.4414/SMW.2008.12423?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.4414/SMW.2008.12423, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5032744",
+          "name": "T. Zuzak"
+        },
+        {
+          "authorId": "1398175146",
+          "name": "Isabelle Zuzak-Siegrist"
+        },
+        {
+          "authorId": "2060944935",
+          "name": "L. Rist"
+        },
+        {
+          "authorId": "9918949",
+          "name": "G. Staubli"
+        },
+        {
+          "authorId": "1400629612",
+          "name": "A. Simões-Wüst"
+        }
+      ],
+      "abstract": "PRINCIPLES\nChildren whose parents use complementary and alternative medicine (CAM) often show a lower rate of vaccination than those of parents favouring conventional medicine. We have investigated whether this applies to the paediatric patients presenting to an emergency department in German-speaking Switzerland, where popularity of CAM is rather high.\n\n\nMETHODS\nA cross-sectional survey was performed of paediatric patients presenting to an urban, tertiary paediatric emergency department. 1,007 (63%) of the distributed 1,600 questionnaires were available for analysis.\n\n\nRESULTS\n12.7% of all respondents reported refusing some basic vaccination: 3.9% because of recommendation of the physician, 8.7% despite their physician's recommendation. Socio-demographic characterisation of the group of patients refusing vaccination showed older age of children, higher proportion of girls, more single-mothers families and decreased household income. Refusal of basic vaccination was significantly more frequent among CAM-users than among non-users (18.2% versus 3.5%, p <0.001). The highest frequencies of refusal were reported by patients who consulted physicians practicing herbal medicine, anthroposophical medicine or homeopathy. Users and non-users of CAM however, showed comparable rates of immunisation in the case of the vaccinations against invasive meningococcal, pneumococcal disease and flu. Surprisingly, the rate for vaccination against tick-borne encephalitis was higher in the CAM-users group than among the non-users (21.2% versus 15.4%, p <0.05).\n\n\nCONCLUSIONS\nA considerable proportion of the study population did not fully accept basic vaccinations. Refusal to follow the basic vaccination schemata was more frequent among CAM-users than non-users and reflected in most cases parental wishes rather than physicians' recommendations."
+    },
+    {
+      "paperId": "34845fcefe8c10e98f2332f5023b23cd12b2dc29",
+      "title": "Alternative Medicine?: A History",
+      "year": 2008,
+      "citationCount": 38,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.5860/choice.45-6816?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.5860/choice.45-6816, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "6966334",
+          "name": "R. Bivins"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "d0919604f2afaa9967f3f8c05e350eff1bd43825",
+      "title": "Complementary and alternative medicine in patients with chronic lymphocytic leukemia",
+      "year": 2008,
+      "citationCount": 22,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s00520-008-0452-y?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s00520-008-0452-y, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3002573",
+          "name": "M. Hensel"
+        },
+        {
+          "authorId": "15172691",
+          "name": "Martin Zoz"
+        },
+        {
+          "authorId": "1698952",
+          "name": "A. Ho"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "e68e710ec77a497f716f217fed726f75a38405b4",
+      "title": "[Physicians attitudes towards complementary and alternative medicine in patients with cancer: preliminary report from pediatric and oncology centers].",
+      "year": 2008,
+      "citationCount": 8,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "6558608",
+          "name": "K. Dulęba"
+        },
+        {
+          "authorId": "46499866",
+          "name": "M. Wysocki"
+        },
+        {
+          "authorId": "4750593",
+          "name": "J. Styczyński"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "b5cae1ff3e90fb023dc4250d9490e5e27a1e2bae",
+      "title": "[Use of complementary and alternative medicine among the patients in primary health care].",
+      "year": 2008,
+      "citationCount": 13,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "15705615",
+          "name": "Tomislav Cizmesija"
+        },
+        {
+          "authorId": "1403632630",
+          "name": "B. Bergman-Marković"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "5d287d575e47817946d15c8fb664f60ccf8180ed",
+      "title": "Relevance of the use of Alternative Medicine for Bronchial Asthma: A review",
+      "year": 2009,
+      "citationCount": 4,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.4103/0975-1483.55754?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.4103/0975-1483.55754, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2066646906",
+          "name": "M. Sasikala"
+        },
+        {
+          "authorId": "40276321",
+          "name": "S. Vijayakumar"
+        },
+        {
+          "authorId": "47674242",
+          "name": "K. Gauthaman"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "8b1200e6e68a692c01f96f1b1a85dd12383c0aca",
+      "title": "Complementary and Alternative Medicine for Menopausal Symptoms: A Review of Randomized, Controlled Trials",
+      "year": 2002,
+      "citationCount": 551,
+      "influentialCitationCount": 17,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.7326/0003-4819-137-10-200211190-00009?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.7326/0003-4819-137-10-200211190-00009, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5610327",
+          "name": "F. Kronenberg"
+        },
+        {
+          "authorId": "1400813362",
+          "name": "A. Fugh-Berman"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "fff2e8b66ae25e771db71030b7d677c1323b2c5e",
+      "title": "Men with cancer: is their use of complementary and alternative medicine a response to needs unmet by conventional care?",
+      "year": 2007,
+      "citationCount": 59,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1365-2354.2007.00786.x",
+        "status": "GOLD",
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1111/J.1365-2354.2007.00786.X?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1111/J.1365-2354.2007.00786.X, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "24311797",
+          "name": "M. Evans"
+        },
+        {
+          "authorId": "12341354",
+          "name": "A. Shaw"
+        },
+        {
+          "authorId": "2055538443",
+          "name": "Deborah Sharp"
+        },
+        {
+          "authorId": "47017807",
+          "name": "E. Thompson"
+        },
+        {
+          "authorId": "152741074",
+          "name": "S. Falk"
+        },
+        {
+          "authorId": "143763690",
+          "name": "P. Turton"
+        },
+        {
+          "authorId": "2054787553",
+          "name": "T. Thompson"
+        }
+      ],
+      "abstract": "This qualitative study aims to investigate why men with cancer choose to use complementary and alternative medicine (CAM), and whether CAM is used to fill 'gaps' in conventional cancer care or as an 'alternative' to conventional treatment. Interviews were carried out with 34 CAM users recruited from a National Health Service (NHS) oncology department, an NHS homeopathic hospital and a private cancer charity offering CAM. Participants used therapies to improve quality of life, to actively 'fight' the disease and possibly prolong life, but rarely as an alternative to conventional treatment. Many were initially sceptical about CAM, but took a 'pragmatic' and 'consumerist' approach to getting their needs met. Gaps in conventional care included: lack of empathy and support during and after treatment, poor continuity of care, and lack of advice on self-help, diet and lifestyle. The skills of CAM therapists may enable them to tap into the underlying needs of men in a way that health professionals do not always have the time or the skills to achieve."
+    },
+    {
+      "paperId": "9db378d3aa21b9d5cd327181cc288fb931651125",
+      "title": "The Persuasive Appeal of Alternative Medicine",
+      "year": 1998,
+      "citationCount": 278,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.7326/0003-4819-129-12-199812150-00011?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.7326/0003-4819-129-12-199812150-00011, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3181410",
+          "name": "T. Kaptchuk"
+        },
+        {
+          "authorId": "4165117",
+          "name": "D. Eisenberg"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "2c83e73ae3e77dfd17eea7101895b962b3c7f532",
+      "title": "Courses involving complementary and alternative medicine at US medical schools.",
+      "year": 1998,
+      "citationCount": 498,
+      "influentialCitationCount": 14,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1001/JAMA.280.9.784?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1001/JAMA.280.9.784, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "34968404",
+          "name": "M. Wetzel"
+        },
+        {
+          "authorId": "4165117",
+          "name": "D. Eisenberg"
+        },
+        {
+          "authorId": "3181410",
+          "name": "T. Kaptchuk"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "2641b4d934945f0f80988eb8c505fafbfd01f6b1",
+      "title": "Use of complementary and alternative medicine by patients with diabetes mellitus.",
+      "year": 2004,
+      "citationCount": 42,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "31882010",
+          "name": "R. Mehrotra"
+        },
+        {
+          "authorId": "87127643",
+          "name": "S. Bajaj"
+        },
+        {
+          "authorId": "2281333772",
+          "name": "D. Kumar"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "56e94a3d701bf3db59b347db3ba81dc96cf25d3a",
+      "title": "Complementary and alternative medicine use in asthma: Who is using what?",
+      "year": 2006,
+      "citationCount": 164,
+      "influentialCitationCount": 5,
+      "openAccessPdf": {
+        "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1440-1843.2006.00861.x",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1111/j.1440-1843.2006.00861.x?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1111/j.1440-1843.2006.00861.x, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "9779712",
+          "name": "C. Slader"
+        },
+        {
+          "authorId": "143828019",
+          "name": "H. Reddel"
+        },
+        {
+          "authorId": "145601376",
+          "name": "C. Jenkins"
+        },
+        {
+          "authorId": "8123281",
+          "name": "C. Armour"
+        },
+        {
+          "authorId": "1390049164",
+          "name": "S. Bosnic‐Anticevich"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "e2bb03fcec38daee21485aa81d6b80ac1cd8429f",
+      "title": "Popularity of complementary and alternative medicine in Japan: a telephone survey.",
+      "year": 2002,
+      "citationCount": 216,
+      "influentialCitationCount": 15,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1054/CTIM.2002.0519?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1054/CTIM.2002.0519, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "46870465",
+          "name": "H. Yamashita"
+        },
+        {
+          "authorId": "4985098",
+          "name": "H. Tsukayama"
+        },
+        {
+          "authorId": "6038632",
+          "name": "C. Sugishita"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "971df97640a183ec4508cecb327e6f36651639b0",
+      "title": "An international survey of the use and attitudes regarding alternative medicine by patients with inflammatory bowel disease",
+      "year": 1999,
+      "citationCount": 152,
+      "influentialCitationCount": 9,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1111/j.1572-0241.1999.01080.x?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1111/j.1572-0241.1999.01080.x, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4258380",
+          "name": "P. Rawsthorne"
+        },
+        {
+          "authorId": "4447374",
+          "name": "F. Shanahan"
+        },
+        {
+          "authorId": "40236402",
+          "name": "Neil C Cronin"
+        },
+        {
+          "authorId": "1786003",
+          "name": "P. Anton"
+        },
+        {
+          "authorId": "4130596",
+          "name": "R. Löfberg"
+        },
+        {
+          "authorId": "28142444",
+          "name": "L. Bohman"
+        },
+        {
+          "authorId": "2938053",
+          "name": "C. Bernstein"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "24a0ac39063e0fc0146a3868ad082c897fdfe449",
+      "title": "[Use and acceptance of classical natural and alternative medicine in Germany--findings of a representative population-based survey].",
+      "year": 2004,
+      "citationCount": 93,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "49203118",
+          "name": "U. Härtel"
+        },
+        {
+          "authorId": "49730418",
+          "name": "E. Volger"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "c553e14ed605239eaf3c7b4609421f85ec75a4a0",
+      "title": "Barriers to acceptance: an exploratory study of complementary/alternative medicine disuse.",
+      "year": 2001,
+      "citationCount": 61,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/10755530152755243?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/10755530152755243, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4653217",
+          "name": "Neeta Jain"
+        },
+        {
+          "authorId": "3657288",
+          "name": "J. Astin"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "4efc8bc87e78f05a868a2a14962b27052268a490",
+      "title": "Use of complementary and alternative medicine among women in New York City: a pilot study.",
+      "year": 2001,
+      "citationCount": 77,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/10755530152755216?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/10755530152755216, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1390148513",
+          "name": "P. Factor-Litvak"
+        },
+        {
+          "authorId": "4974151",
+          "name": "L. Cushman"
+        },
+        {
+          "authorId": "5610327",
+          "name": "F. Kronenberg"
+        },
+        {
+          "authorId": "32878603",
+          "name": "Christine M Wade"
+        },
+        {
+          "authorId": "12129577",
+          "name": "D. Kalmuss"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "595162787989b1d4a172e3d5e7ee9e61ad8b2a58",
+      "title": "Complementary and alternative medicine use in Canada and the United States.",
+      "year": 2002,
+      "citationCount": 155,
+      "influentialCitationCount": 7,
+      "openAccessPdf": {
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1447296",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.2105/AJPH.92.10.1616?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.2105/AJPH.92.10.1616, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Geography",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2344278",
+          "name": "B. Mcfarland"
+        },
+        {
+          "authorId": "36104112",
+          "name": "D. Bigelow"
+        },
+        {
+          "authorId": "32995730",
+          "name": "B. Zani"
+        },
+        {
+          "authorId": "5009383",
+          "name": "J. Newsom"
+        },
+        {
+          "authorId": "2059458169",
+          "name": "Mark Kaplan"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "b4a4c73787f00f8837a270e6ca52e0e9d9a826fa",
+      "title": "The use of complementary and alternative medicine in the general population: results from a longitudinal community study",
+      "year": 2006,
+      "citationCount": 58,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "https://www.zora.uzh.ch/id/eprint/49801/9/Rossler_et_al_The_use_of_complementary_and_alternative_medicine_in_the_general_population-V.pdf",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1017/S0033291706008841?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1017/S0033291706008841, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Psychology",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "143902556",
+          "name": "W. Rössler"
+        },
+        {
+          "authorId": "3906104",
+          "name": "C. Lauber"
+        },
+        {
+          "authorId": "7877679",
+          "name": "J. Angst"
+        },
+        {
+          "authorId": "2764834",
+          "name": "H. Haker"
+        },
+        {
+          "authorId": "145411166",
+          "name": "A. Gamma"
+        },
+        {
+          "authorId": "4396477",
+          "name": "D. Eich"
+        },
+        {
+          "authorId": "2350669",
+          "name": "R. Kessler"
+        },
+        {
+          "authorId": "22680132",
+          "name": "V. Ajdacic-Gross"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "3f6d5c98a6b33350fe63a46ff314e707bc6f141b",
+      "title": "Complementary and Alternative Medicine Use in Patients with Fractures",
+      "year": 2007,
+      "citationCount": 17,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1097/BLO.0b013e3181513e74?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1097/BLO.0b013e3181513e74, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "48738748",
+          "name": "S. Sprague"
+        },
+        {
+          "authorId": "49823558",
+          "name": "K. Lutz"
+        },
+        {
+          "authorId": "1831470",
+          "name": "D. Bryant"
+        },
+        {
+          "authorId": "4318409",
+          "name": "F. Farrokhyar"
+        },
+        {
+          "authorId": "6163042",
+          "name": "M. Zlowodzki"
+        },
+        {
+          "authorId": "2511932",
+          "name": "M. Bhandari"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "4af4b3c76554e9c4971840457ffd8917e64a4785",
+      "title": "[Why do cancer patients use alternative medicine?].",
+      "year": 1991,
+      "citationCount": 56,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "145667487",
+          "name": "R. Morant"
+        },
+        {
+          "authorId": "2313456474",
+          "name": "Jungi Wf"
+        },
+        {
+          "authorId": "14919829",
+          "name": "C. Koehli"
+        },
+        {
+          "authorId": "2259964962",
+          "name": "Hans-Jörg Senn"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "b3a1bdbdcc65667a141cf3949ed44812f68cb1b4",
+      "title": "Complementary and alternative medicine and the need for evidence-based criticism.",
+      "year": 2002,
+      "citationCount": 19,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.1097/00001888-200209000-00006",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1097/00001888-200209000-00006?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1097/00001888-200209000-00006, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3657288",
+          "name": "J. Astin"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "9f5c051f1f3e309ddcbbe8ec3a90b746b3792983",
+      "title": "Use of alternative medicine in major depression.",
+      "year": 1998,
+      "citationCount": 23,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1176/PS.49.11.1397?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1176/PS.49.11.1397, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2241035749",
+          "name": "Benjamin G. Druss"
+        },
+        {
+          "authorId": "3269487",
+          "name": "R. Rohrbaugh"
+        },
+        {
+          "authorId": "2245945386",
+          "name": "T. Kosten"
+        },
+        {
+          "authorId": "2237319839",
+          "name": "Rani A. Hoff"
+        },
+        {
+          "authorId": "2239372387",
+          "name": "Robert A. Rosenheck"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "6e0a125546c259f9bd22dca580fd4e3a924f83e3",
+      "title": "Commentary on terminology and therapeutic principles: challenges in classifying complementary and alternative medicine practices.",
+      "year": 2002,
+      "citationCount": 18,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/10755530260511883?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/10755530260511883, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "15865663",
+          "name": "C. Cassidy"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "6c016f1b46e0046cf367389d57c14b5fdd83ea9a",
+      "title": "Mobility limitations and complementary and alternative medicine: are people with disabilities more likely to pray?",
+      "year": 2003,
+      "citationCount": 20,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1447910",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.2105/AJPH.93.7.1079?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.2105/AJPH.93.7.1079, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5177351",
+          "name": "G. Hendershot"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "975883c04d802dddaa5124136d49a50c67fb3091",
+      "title": "Science, Faith, and Alternative Medicine",
+      "year": 2001,
+      "citationCount": 9,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Sociology"
+      ],
+      "authors": [
+        {
+          "authorId": "11848522",
+          "name": "R. Dworkin"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "72140e08e70381ab6c5fa5b420c8176e8f30e86a",
+      "title": "The use of complementary/alternative medicine for the treatment of asthma in the United States.",
+      "year": 1998,
+      "citationCount": 27,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "145976492",
+          "name": "P. Davis"
+        },
+        {
+          "authorId": "2295414",
+          "name": "E. Gold"
+        },
+        {
+          "authorId": "93032118",
+          "name": "Hackman Rm"
+        },
+        {
+          "authorId": "83751890",
+          "name": "Stern Js"
+        },
+        {
+          "authorId": "145705206",
+          "name": "M. Gershwin"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "f3f8b150e07915862b74c14606a28e7e6f729e8a",
+      "title": "Status of Complementary and Alternative Medicine in the Osteopathic Medical School Curriculum",
+      "year": 2004,
+      "citationCount": 23,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.7556/JAOA.2004.104.3.121?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.7556/JAOA.2004.104.3.121, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5887304",
+          "name": "D. Saxon"
+        },
+        {
+          "authorId": "2084759518",
+          "name": "Godfrey Tunnicliff"
+        },
+        {
+          "authorId": "4227738",
+          "name": "J. Brokaw"
+        },
+        {
+          "authorId": "4642103",
+          "name": "B. Raess"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "acdfdd22f2cd7a99276616925a604fb16adf5b15",
+      "title": "Survey on the Use of Complementary and Alternative Medicine Among Patients with Headache Syndromes",
+      "year": 2002,
+      "citationCount": 14,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1046/j.1468-2982.2002.00414.x?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1046/j.1468-2982.2002.00414.x, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "39359413",
+          "name": "T. Whitmarsh"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "3ae6bbcab5bb710f5b5febfb5d5a64ea0e91d7af",
+      "title": "The deeper significance of complementary and alternative medicine.",
+      "year": 2003,
+      "citationCount": 9,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/107555303322284712?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/107555303322284712, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "8522783",
+          "name": "J. Rhead"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "0bde4f1f47f397d26b4fdf8dc99e35aa1dc8f520",
+      "title": "The Symbolizing Body and the Metaphysics of Alternative Medicine",
+      "year": 1998,
+      "citationCount": 23,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1177/1357034X98004003002?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1177/1357034X98004003002, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Sociology"
+      ],
+      "authors": [
+        {
+          "authorId": "144852246",
+          "name": "A. Scott"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "5d0a1148ad2a968728325b70b6e3fe14c73ac5e8",
+      "title": "Attitudes about complementary and alternative medicine did not predict outcome in a homeopathic proving trial.",
+      "year": 2004,
+      "citationCount": 5,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/1075553041323740?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/1075553041323740, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "153793007",
+          "name": "S. Brien"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "2d30e02989312e65a9ee4e7c297d305e77bd578c",
+      "title": "[Status of alternative medicine in Crohn disease and ulcerative colitis patents: a questionnaire survey].",
+      "year": 2005,
+      "citationCount": 5,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1422606582",
+          "name": "B. Ausfeld-Hafter"
+        },
+        {
+          "authorId": "32270846",
+          "name": "S. Hoffmann"
+        },
+        {
+          "authorId": "5618237",
+          "name": "F. Seibold"
+        },
+        {
+          "authorId": "49536807",
+          "name": "C. Quattropani"
+        },
+        {
+          "authorId": "15444819",
+          "name": "P. Heer"
+        },
+        {
+          "authorId": "4787043",
+          "name": "A. Straumann"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "bace66017256f187ebe10f572c17b90b6e207edf",
+      "title": "Systemic review : The study on alternative medicine for allergic rhinitis in Entrez Pubmed",
+      "year": 2007,
+      "citationCount": 3,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "7951389",
+          "name": "Ja-Hye Kim"
+        },
+        {
+          "authorId": "2149559453",
+          "name": "Sang-ho Shin"
+        },
+        {
+          "authorId": "2143440102",
+          "name": "Mi-Bo Kim"
+        },
+        {
+          "authorId": "35176229",
+          "name": "W. Ko"
+        },
+        {
+          "authorId": "92206717",
+          "name": "H. Yoon"
+        }
+      ],
+      "abstract": null
+    }
+  ]
+}

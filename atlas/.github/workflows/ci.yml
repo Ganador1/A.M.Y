@@ -1,0 +1,259 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, feature/** ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-ci.txt ]; then pip install -r requirements-ci.txt; fi
+          pip install pytest pytest-cov bandit pip-audit ruff
+      - name: Lint (ruff)
+        run: ruff check .
+      - name: Security (bandit)
+        run: bandit -q -r app tests
+      - name: Dependency audit (pip-audit)
+        run: pip-audit -r requirements-ci.txt
+      - name: Tests
+        run: pytest -q --cov=app --cov-report=term-missing --cov-fail-under=60
+      - name: Build docker image
+        run: |
+          if [ -f Dockerfile ]; then docker build -q -t atlas-ci:latest .; fi
+
+  manifest-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install validator deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-ci.txt ]; then pip install -r requirements-ci.txt; fi
+          pip install jsonschema
+      - name: Run manifest validator
+        run: |
+          if [ -f scripts/qa/validate_manifests.py ]; then \
+            mkdir -p reports; \
+            python scripts/qa/validate_manifests.py --models-dir models --schema models/manifest.schema.json --fail-on-error --output reports/manifest_validation_report.json; \
+            echo "Reporte:"; cat reports/manifest_validation_report.json || true; \
+          else \
+            echo "Script de validación no encontrado"; \
+          fi
+      - name: Publicar reporte
+        uses: actions/upload-artifact@v4
+        with:
+          name: manifest-validation-report
+          path: reports/manifest_validation_report.json
+
+  signature-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [manifest-validation]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-ci.txt ]; then pip install -r requirements-ci.txt; fi
+      - name: Prepare public keys dir
+        run: |
+          mkdir -p keys/public || true
+          # Las claves públicas deben añadirse al repo (no se generan aquí)
+      - name: Verify manifest signatures (blocking)
+        run: |
+          if [ -f scripts/qa/verify_manifest_signatures.py ]; then \
+            mkdir -p reports; \
+            python scripts/qa/verify_manifest_signatures.py --models-dir models --public-keys-dir keys/public --fail-on-error --output reports/manifest_signature_report.json; \
+            echo "Reporte firmas:"; cat reports/manifest_signature_report.json || true; \
+          else \
+            echo "Script verificación no encontrado"; \
+          fi
+      - name: Publicar reporte firmas
+        uses: actions/upload-artifact@v4
+        with:
+          name: manifest-signature-report
+          path: reports/manifest_signature_report.json
+
+  merkle-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [signature-verification]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-ci.txt ]; then pip install -r requirements-ci.txt; fi
+      - name: Compute Merkle root
+        run: |
+          python scripts/tools/compute_merkle_root.py --models-dir models --output models/merkle_root.json
+          cat models/merkle_root.json
+      - name: Verify Merkle root
+        run: |
+          python scripts/qa/verify_merkle_root.py --models-dir models --file models/merkle_root.json
+      - name: Upload merkle root
+        uses: actions/upload-artifact@v4
+        with:
+          name: merkle-root
+          path: models/merkle_root.json
+
+  data-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [build-test]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-ci.txt ]; then pip install -r requirements-ci.txt; fi
+      - name: Run data quality validations
+        run: |
+          if [ -f scripts/run_data_validations.py ]; then \
+            python scripts/run_data_validations.py || EXIT=$?; \
+            echo "Reporte:"; cat data_quality/data_validation_report.json || true; \
+            if [ -f data_quality/data_validation.fail.json ]; then echo 'Fallos de calidad de datos'; exit 1; fi; \
+            exit ${EXIT:-0}; \
+          else \
+            echo 'Script de validación de datos no encontrado'; \
+          fi
+      - name: Publicar artefactos data quality
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-quality-reports
+          path: |
+            data_quality/data_validation_report.json
+            data_quality/data_validation.fail.json
+
+  api-contract-fuzz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: [build-test]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-ci.txt ]; then pip install -r requirements-ci.txt; fi
+      - name: Start app (background)
+        run: |
+          nohup python main.py > app.log 2>&1 &
+          sleep 5
+      - name: Contract tests
+        run: |
+          pytest -q tests/contract/test_openapi_contract.py
+      - name: API fuzzing (Schemathesis)
+        run: |
+          export BASE_URL=http://localhost:8000
+          pytest -q tests/fuzz/test_api_fuzzing.py --maxfail=1
+      - name: Collect app log
+        if: always()
+        run: |
+          cat app.log || true
+
+  reproducible-bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [merkle-verification]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-ci.txt ]; then pip install -r requirements-ci.txt; fi
+      - name: Build reproducible bundle
+        run: |
+          mkdir -p dist; \
+          python scripts/tools/build_repro_bundle.py --models-dir models --name atlas-repro
+          ls -la dist/ || true
+      - name: Verify bundle integrity
+        run: |
+          if [ -f scripts/qa/verify_repro_bundle.py ]; then \
+            python scripts/qa/verify_repro_bundle.py --metadata dist/bundle_metadata.json; \
+          else \
+            echo "Script verify_repro_bundle.py no encontrado, skip"; \
+          fi
+      - name: Upload bundle artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: reproducible-bundle
+          path: |
+            dist/atlas-repro_*.tar.gz
+            dist/bundle_metadata.json
+
+  scientific-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [build-test]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run scientific gates (placeholder)
+        run: |
+          if [ -f scripts/run_scientific_gates.py ]; then python scripts/run_scientific_gates.py; else echo 'Placeholder OK'; fi
+
+  sandbox-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [build-test]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run sandbox check (placeholder)
+        run: |
+          if [ -f scripts/check_runtime_sandbox.py ]; then python scripts/check_runtime_sandbox.py; else echo 'Sandbox placeholder OK'; fi

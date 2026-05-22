@@ -1,0 +1,15 @@
+{
+  "data_asset_type": "dataset",
+  "expectation_suite_name": "plausibility_training_basic",
+  "expectations": [
+    {"expectation_type": "expect_table_row_count_to_be_greater_than", "kwargs": {"value": 10}},
+    {"expectation_type": "expect_table_columns_to_match_ordered_list", "kwargs": {"column_list": ["id", "text", "label", "score"]}},
+    {"expectation_type": "expect_column_values_to_not_be_null", "kwargs": {"column": "id"}},
+    {"expectation_type": "expect_column_values_to_not_be_null", "kwargs": {"column": "text"}},
+    {"expectation_type": "expect_column_values_to_be_between", "kwargs": {"column": "score", "min_value": 0.0, "max_value": 1.0}},
+    {"expectation_type": "expect_column_values_to_be_in_set", "kwargs": {"column": "label", "value_set": ["plausible", "implausible"]}}
+  ],
+  "meta": {
+    "notes": "Suite básica para validar dataset de entrenamiento de plausibility"
+  }
+}

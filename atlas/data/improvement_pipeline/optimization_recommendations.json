@@ -1,0 +1,28 @@
+{
+  "hypothesis_generation": [
+    {
+      "parameter": "reg",
+      "current_value": 0.04,
+      "recommended_value": 0.060000000000000005,
+      "expected_improvement": 2.0000000000000004,
+      "confidence": 0.95,
+      "rationale": "High-performing analyses use reg=0.060 vs 0.020 in low-performing ones"
+    },
+    {
+      "parameter": "complexity",
+      "current_value": 6,
+      "recommended_value": 9,
+      "expected_improvement": 2.0,
+      "confidence": 0.95,
+      "rationale": "High-performing analyses use complexity=9.000 vs 3.000 in low-performing ones"
+    },
+    {
+      "parameter": "data_size",
+      "current_value": 1100,
+      "recommended_value": 1600,
+      "expected_improvement": 1.6666666666666667,
+      "confidence": 0.95,
+      "rationale": "High-performing analyses use data_size=1600.000 vs 600.000 in low-performing ones"
+    }
+  ]
+}

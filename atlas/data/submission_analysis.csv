@@ -1,0 +1,4 @@
+id,answer,problem,model
+000aaa,0,What is $1-1$?,deepseek-r1:8b
+111bbb,0,What is $0\times10$?,deepseek-r1:8b
+222ccc,0,Solve $4+x=4$ for $x$.,deepseek-r1:8b

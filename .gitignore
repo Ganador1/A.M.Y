@@ -1,0 +1,113 @@
+# Python / runtime noise
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.DS_Store
+*.egg-info/
+
+# Local virtual environments
+.venv/
+venv/
+env/
+ENV/
+atlas/.venv/
+atlas/.venv_new/
+atlas/.venv_*/
+
+# Local secrets and credentials — keep .env.example only
+.env
+.env.*
+!.env.example
+.secrets.*
+*.key
+*.pem
+**/secrets_*.json
+**/*.secret.json
+
+# Local databases, logs, and runtime state
+logs/
+**/logs/
+*.log
+*.db
+*.sqlite
+*.sqlite3
+*.jsonl
+
+# Large / generated experiment scratch
+data/tmp/
+data/cache/
+data/runtime/
+atlas/data/tmp/
+atlas/data/cache/
+atlas/archive/
+atlas/axiom_data_cache/
+atlas/axiom_pipeline_outputs/
+
+# Artefacts directory — re-runs produce these locally, do not track
+artifacts/
+atlas/reports/
+
+# Bulk-generated papers and provenance — track only the curated showcase
+/data/experiments/
+papers/
+!papers/showcase/
+!papers/showcase/**
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Mac
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+
+# Build artefacts
+build/
+dist/
+*.egg
+htmlcov/
+.coverage
+.tox/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Atlas-specific large caches
+atlas/.pytest_cache/
+atlas/.ruff_cache/
+atlas/.mplconfig/
+atlas/.playwright-mcp/
+atlas/bandit_report.json
+atlas/benchmark_results*.json
+atlas/benchmark_*.log
+
+# Provisional / scratch dirs
+:memory:/
+*.bak
+
+# DO track the top-level experimental harness scripts
+!/experiments/
+!/experiments/**
+
+# Third-party tool repos cloned inside atlas/
+atlas/external_tools/
+
+# Huggingface and ML caches
+**/.cache/huggingface/
+**/huggingface/hub/
+**/.cache/
+
+# Large generated assets
+atlas/static/graphs/
+atlas/data/retraction_watch_*.csv
+atlas/publications/
+atlas/production_results/

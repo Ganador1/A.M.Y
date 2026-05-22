@@ -1,0 +1,1 @@
+"""Excepciones de infraestructura (DB, cache, API, storage)"""

@@ -1,0 +1,796 @@
+{
+  "experiment": "double_blind_peer_review",
+  "session_id": "dblind_20260426_220410",
+  "timestamp": "2026-04-26T22:28:04.992663",
+  "duration_seconds": 1434.0,
+  "reviewer_a_model": "glm-5.1",
+  "reviewer_b_model": "kimi-k2.6",
+  "n_papers": 8,
+  "n_pairs": 4,
+  "rubric_dimensions": [
+    "novelty_claims_justified",
+    "known_facts_correctly_labeled",
+    "methodology_rigor",
+    "discussion_depth",
+    "references_quality",
+    "provenance_verifiability",
+    "domain_appropriateness",
+    "overall_scientific_quality"
+  ],
+  "rubric_scale": [
+    1,
+    7
+  ],
+  "assignments": {
+    "07a0ca6e": {
+      "path": "papers/Computational_Analysis_of_Prime_Gap_Scaling_Anomalies_Relati_20260426_132559.md",
+      "reviewer_a": {
+        "model": "glm-5.1",
+        "order": 7
+      },
+      "reviewer_b": {
+        "model": "kimi-k2.6",
+        "order": 3
+      }
+    },
+    "46685257": {
+      "path": "papers/Computational_Analysis_of_Prime_Gap_Scaling_Anomalies_Relati_20260426_175413.md",
+      "reviewer_a": {
+        "model": "glm-5.1",
+        "order": 0
+      },
+      "reviewer_b": {
+        "model": "kimi-k2.6",
+        "order": 0
+      }
+    },
+    "37f8a88b": {
+      "path": "papers/Verification_of_Rydberg_Formula_Scaling_and_Deviation_Analys_20260426_132641.md",
+      "reviewer_a": {
+        "model": "glm-5.1",
+        "order": 6
+      },
+      "reviewer_b": {
+        "model": "kimi-k2.6",
+        "order": 2
+      }
+    },
+    "a3b1799d": {
+      "path": "papers/Verification_of_Rydberg_Formula_Scaling_and_Deviation_Analys_20260426_175515.md",
+      "reviewer_a": {
+        "model": "glm-5.1",
+        "order": 4
+      },
+      "reviewer_b": {
+        "model": "kimi-k2.6",
+        "order": 6
+      }
+    },
+    "392456de": {
+      "path": "papers/Huckel_Molecular_Orbital_Analysis_of_Conjugated_Pi-Systems_H_20260426_132731.md",
+      "reviewer_a": {
+        "model": "glm-5.1",
+        "order": 1
+      },
+      "reviewer_b": {
+        "model": "kimi-k2.6",
+        "order": 1
+      }
+    },
+    "6c031199": {
+      "path": "papers/Huckel_Molecular_Orbital_Analysis_of_Conjugated_Pi-Systems_H_20260426_175632.md",
+      "reviewer_a": {
+        "model": "glm-5.1",
+        "order": 2
+      },
+      "reviewer_b": {
+        "model": "kimi-k2.6",
+        "order": 4
+      }
+    },
+    "8b8148f6": {
+      "path": "papers/Computational_Verification_of_Prime_Properties_and_Classical_20260426_132813.md",
+      "reviewer_a": {
+        "model": "glm-5.1",
+        "order": 3
+      },
+      "reviewer_b": {
+        "model": "kimi-k2.6",
+        "order": 5
+      }
+    },
+    "bc8960a9": {
+      "path": "papers/Computational_Verification_of_Prime_Properties_and_Classical_20260426_175735.md",
+      "reviewer_a": {
+        "model": "glm-5.1",
+        "order": 5
+      },
+      "reviewer_b": {
+        "model": "kimi-k2.6",
+        "order": 7
+      }
+    }
+  },
+  "reviews": {
+    "46685257_A": {
+      "paper_id": "46685257",
+      "reviewer": "A",
+      "model": "glm-5.1",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 4,
+          "known_facts_correctly_labeled": 6,
+          "methodology_rigor": 3,
+          "discussion_depth": 3,
+          "references_quality": 5,
+          "provenance_verifiability": 4,
+          "domain_appropriateness": 5,
+          "overall_scientific_quality": 3
+        },
+        "concerns": [
+          "The computational range (n up to 10,000) is far too small to draw meaningful conclusions about prime gap scaling behavior. Routine computations extend to 10^7 or beyond.",
+          "The '3 distinct computational methods' are merely parameter variations of similar tools, not methodologically independent approaches.",
+          "No statistical rigor: no confidence intervals, no formal hypothesis testing, no effect size calculations, no comparison against Hardy-Littlewood predictions.",
+          "The single hypothesis (H1) about corrections to Cramér-style predictions is vague and unsupported by the limited data presented.",
+          "The claim about 'potential refinement of the Cramér model for prime spacing in the range [n, n+√n]' is asserted without elaboration, derivation, or empirical support.",
+          "SHA-256 hashes in provenance records appear truncated (16 hex characters instead of the standard 64), undermining verifiability.",
+          "The conjecture engine output (Goldbach, Twin Prime, Collatz) adds no scientific value—these are canonical open problems already extensively studied."
+        ],
+        "strengths": [
+          "Honest about limitations: explicitly labels known facts and conjectures as not novel findings.",
+          "Clear documentation of computational parameters and raw results.",
+          "References are real, relevant, and appropriately chosen (Hardy & Wright, Cramér, Granville, Tao, Pomerance).",
+          "Attempts to provide provenance records with hash verification for reproducibility.",
+          "Correctly identifies bounded verifications as controls rather than novel contributions."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper presents trivial prime gap computations up to n=10,000 with minimal analytical depth. While commendably honest about the non-novelty of its findings, the work lacks the scale, statistical rigor, and domain-specific analysis needed to constitute a meaningful scientific contribution. The single testable hypothesis is vague and unsupported, and the discussion fails to engage substantively with the extensive existing literature on prime gap distributions."
+      },
+      "timestamp": "2026-04-26T22:05:18.475109"
+    },
+    "392456de_A": {
+      "paper_id": "392456de",
+      "reviewer": "A",
+      "model": "glm-5.1",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 2,
+          "known_facts_correctly_labeled": 2,
+          "methodology_rigor": 3,
+          "discussion_depth": 2,
+          "references_quality": 4,
+          "provenance_verifiability": 3,
+          "domain_appropriateness": 4,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The HOMO-LUMO gap scaling law (~1/n) for linear polyenes is a well-known textbook result from Hückel theory dating back to the 1940s-50s, yet it is presented as a novel finding with 'testable hypotheses that extend current theoretical understanding.'",
+          "The paper claims '6 independent analytical methods' but actually uses a single method (molecular_orbital_energy) applied to 6 different chain lengths—these are not independent methods.",
+          "Hypothesis H1 about molecular weight ratios predicting reaction yields with >95% accuracy is completely disconnected from the Hückel MO calculations performed; there is no logical path from the computational results to this prediction.",
+          "Raw numpy type annotations (np.float64) in the results suggest insufficient post-processing and careful data handling.",
+          "The Hückel parameters (α, β values) are never explicitly stated, making reproducibility questionable despite claims otherwise.",
+          "All six provenance records share the same identifier [provenance_record_392456de], which is suspicious and undermines verifiability claims.",
+          "No comparison with known analytical solutions for Hückel theory (which have closed-form expressions) to validate the computational implementation."
+        ],
+        "strengths": [
+          "The computational results themselves appear internally consistent and match expected Hückel theory predictions for linear polyenes.",
+          "References are real, authoritative textbooks in chemistry and quantum mechanics.",
+          "The general approach of systematically studying HOMO-LUMO gap scaling with conjugation length is a legitimate computational exercise, even if the results are not novel."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper presents standard Hückel molecular orbital calculations on linear polyenes of varying chain lengths and reports the well-known 1/n scaling of the HOMO-LUMO gap as if it were a novel finding. The '6 independent methods' are actually a single method applied to 6 different inputs, and the sole hypothesis generated is disconnected from the actual computational work. The results are textbook knowledge presented without adequate acknowledgment of prior work in this area."
+      },
+      "timestamp": "2026-04-26T22:06:41.185000"
+    },
+    "6c031199_A": {
+      "paper_id": "6c031199",
+      "reviewer": "A",
+      "model": "glm-5.1",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 6,
+          "known_facts_correctly_labeled": 6,
+          "methodology_rigor": 3,
+          "discussion_depth": 3,
+          "references_quality": 3,
+          "provenance_verifiability": 5,
+          "domain_appropriateness": 6,
+          "overall_scientific_quality": 3
+        },
+        "concerns": [
+          "The paper reproduces well-known textbook results from Hückel theory without adding new scientific insight. The 1/n scaling of HOMO-LUMO gaps for linear polyenes is derivable analytically from the particle-in-a-box model.",
+          "Methodology is extremely limited: a single computational tool with different input parameters (just varying chain length) does not constitute a rigorous study. The paper acknowledges this but it remains a fundamental weakness.",
+          "The empirical scaling law (11.43/n + 0.27) is presented without comparison to the known analytical result from Hückel theory, which would immediately show whether this adds anything beyond the textbook solution.",
+          "References are general chemistry/physics textbooks rather than specific literature on Hückel MO theory or HOMO-LUMO gap scaling. No journal articles are cited.",
+          "The Hückel parameters (α, β values) used in the computation are not explicitly stated, which affects reproducibility of the specific numerical results.",
+          "No comparison with higher-level methods (DFT, ab initio) or experimental data to contextualize the Hückel results."
+        ],
+        "strengths": [
+          "The paper is commendably honest about not claiming novelty and correctly identifies the HOMO-LUMO gap scaling as a well-known result.",
+          "Provenance information with SHA-256 hashes is provided for computational results.",
+          "The paper acknowledges its own methodological limitations, including the lack of methodological independence.",
+          "The testable prediction (H1) is appropriately qualified with moderate confidence (70%) and a clear validation path."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper presents Hückel MO calculations for linear conjugated systems of varying chain lengths, reproducing the well-known 1/n scaling of HOMO-LUMO gaps. While the paper is honest about not claiming novelty and correctly identifies known results, it lacks methodological rigor (single computational tool, no independent verification), has shallow discussion that doesn't compare the empirical fit to the analytical solution, and cites only general textbooks rather than relevant specific literature. The work essentially verifies textbook calculations without adding sufficient new scientific value to warrant publication."
+      },
+      "timestamp": "2026-04-26T22:07:37.246802"
+    },
+    "8b8148f6_A": {
+      "paper_id": "8b8148f6",
+      "reviewer": "A",
+      "model": "glm-5.1",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 2,
+          "known_facts_correctly_labeled": 4,
+          "methodology_rigor": 2,
+          "discussion_depth": 2,
+          "references_quality": 5,
+          "provenance_verifiability": 2,
+          "domain_appropriateness": 3,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The discussion section for 'Generate conjectures' talks about 'limit calculations confirm the continuity and differentiability properties of the function at the specified point' which is completely unrelated to the actual output about prime conjectures - this appears to be templated/generic text that doesn't match the results.",
+          "The paper claims '1 testable hypotheses that extend current theoretical understanding' but the hypothesis H1 (log-normal tendency of prime gaps) is merely asserted at 72% confidence without any actual statistical testing or evidence presented in the paper.",
+          "Verifying Goldbach's conjecture up to 1000 is trivially small and adds nothing to the existing body of empirical verification (which has been done up to 4×10^18).",
+          "The '5 independent analytical methods' are not truly independent - they are different function calls from the same platform, and several just verify the same types of properties.",
+          "Provenance records are listed as identical placeholders '[provenance_record_8b8148f6]' repeated 5 times, providing no actual traceability.",
+          "The conclusion claims 'novel hypotheses' but the data section explicitly labels all findings as 'KNOWN conjecture, not novel' - there is a direct contradiction.",
+          "Input parameters are vaguely described as 'derived from the research question' rather than being specified, undermining reproducibility."
+        ],
+        "strengths": [
+          "References are real, relevant, and well-chosen for the domain (Hardy & Wright, Cramér, Granville, Tao).",
+          "The data section does correctly label several findings as 'KNOWN conjecture, not novel', showing some awareness of the distinction.",
+          "Basic computational results appear mathematically correct (104729 is indeed the 10000th prime, 1299709 is the 100000th prime)."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper presents trivial computational verifications (e.g., Goldbach up to 1000) dressed up as research, with a discussion section containing irrelevant templated text about limits and differentiability that doesn't match the actual prime-number results. The claimed 'novel hypothesis' about log-normal prime gap distributions is unsupported by any analysis in the paper, and provenance records are non-functional placeholders. The paper appears to be auto-generated without meaningful scientific oversight."
+      },
+      "timestamp": "2026-04-26T22:08:30.678705"
+    },
+    "a3b1799d_A": {
+      "paper_id": "a3b1799d",
+      "reviewer": "A",
+      "model": "glm-5.1",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 5,
+          "known_facts_correctly_labeled": 6,
+          "methodology_rigor": 2,
+          "discussion_depth": 3,
+          "references_quality": 5,
+          "provenance_verifiability": 4,
+          "domain_appropriateness": 6,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The paper presents trivial computation of the Rydberg formula E_n = -13.6/n² for different n values as if it constitutes research, when this is a straightforward application of a 19th-century formula",
+          "The '5 parameter configurations' are merely different inputs to the same calculation, not independent methodological approaches - the paper acknowledges this but still presents it as a multi-configuration study",
+          "The 'deviation analysis' is essentially meaningless: 0% deviation for most cases simply confirms the implementation correctly computes the known formula, and the 0.7353% deviation at n=50 is almost certainly a rounding artifact",
+          "SHA-256 hashes provided are truncated (16 hex characters instead of 64), raising questions about provenance integrity",
+          "The paper lacks any genuine scientific contribution - it verifies a well-known formula using a single computational tool and finds exactly what was expected",
+          "The 'testable prediction' (H1) is trivially obvious and adds no scientific value"
+        ],
+        "strengths": [
+          "Honest in not claiming novelty - explicitly states 'no result currently satisfies the threshold for a novelty claim'",
+          "Correctly labels known results as [KNOWN] and control observations as [CONTROL]",
+          "Discussion correctly identifies that quantum defect theory does not apply to hydrogen and that deviations likely arise from rounding artifacts",
+          "Acknowledges the limitation of using a single computational method without methodological independence",
+          "References are real, legitimate quantum mechanics textbooks"
+        ],
+        "recommendation": "REJECT",
+        "confidence": 7,
+        "summary": "This paper computes the well-known Rydberg formula for hydrogen energy levels at different principal quantum numbers and confirms it matches the expected values. While the authors are commendably honest about the lack of novelty and correctly label known facts, the work constitutes a trivial computational exercise rather than a scientific contribution. Verifying a 19th-century formula with zero deviation for most cases and identifying rounding artifacts at high n does not meet the threshold for publication in any legitimate scientific venue."
+      },
+      "timestamp": "2026-04-26T22:09:19.926353"
+    },
+    "bc8960a9_A": {
+      "paper_id": "bc8960a9",
+      "reviewer": "A",
+      "model": "glm-5.1",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 6,
+          "known_facts_correctly_labeled": 7,
+          "methodology_rigor": 2,
+          "discussion_depth": 3,
+          "references_quality": 5,
+          "provenance_verifiability": 4,
+          "domain_appropriateness": 5,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The paper has no scientific contribution - it verifies Goldbach up to 1000 when this is known to hold up to 4×10^18, and confirms that 104729 is prime, which is a trivial lookup.",
+          "The title claims 'at scale' but the computational ranges are extremely small by modern standards (Goldbach to 1000, twin primes to 5000).",
+          "The '5 computational methods' are actually 3 tools with different parameter configurations, inflating the apparent methodological breadth.",
+          "The conjecture engine output is truncated and adds no value - listing well-known open problems (Goldbach, Twin Prime, Collatz, Riemann) is not a research contribution.",
+          "The paper reads as automated output from a computational platform with minimal human intellectual input or scientific insight.",
+          "The 'testable predictions' H1 and H2 are trivially obvious methodological statements, not scientific hypotheses."
+        ],
+        "strengths": [
+          "The paper is commendably honest in labeling all findings as [KNOWN] and explicitly stating no result meets the threshold for novelty claims.",
+          "References are real, relevant, and properly cited works in number theory.",
+          "Provenance information with SHA-256 hashes is provided for reproducibility.",
+          "The discussion correctly contextualizes that bounded Goldbach verification serves as a pipeline control, not a novel finding."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper verifies trivially known facts (primality of specific integers, Goldbach conjecture up to 1000) and explicitly acknowledges having no novel findings. While the honesty about known results is commendable, the paper lacks any scientific contribution - the computational ranges are far below established verification bounds, and the content appears to be automated platform output rather than a designed scientific study. The misleading 'at scale' title and inflated methodological claims further weaken the submission."
+      },
+      "timestamp": "2026-04-26T22:10:10.709796"
+    },
+    "37f8a88b_A": {
+      "paper_id": "37f8a88b",
+      "reviewer": "A",
+      "model": "glm-5.1",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 2,
+          "known_facts_correctly_labeled": 2,
+          "methodology_rigor": 2,
+          "discussion_depth": 2,
+          "references_quality": 4,
+          "provenance_verifiability": 2,
+          "domain_appropriateness": 3,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The Rydberg formula E_n = -13.6/n² eV is a well-established textbook result from 1913. Verifying it computationally and presenting this as research offers no scientific novelty.",
+          "The 'novel' deviation at n=50 (0.7353%) is almost certainly a numerical rounding artifact, not a meaningful physical finding. The paper does not investigate this properly.",
+          "The hypothesis about quantum defects in hydrogen is physically incorrect. Quantum defects arise from core electron screening in multi-electron atoms; hydrogen has no core electrons, so δ=0 by definition.",
+          "The '5 independent analytical methods' are all the same function (quantum_energy_levels) called with different input parameters. This is not independent verification.",
+          "Provenance records are placeholder identifiers [provenance_record_37f8a88b] with no actual traceability to real experimental data or code.",
+          "The E_n × n² = -13.5800 ± 0.0400 result labeled as [NOVEL] is just numerical rounding error in the computation, not a new scientific finding.",
+          "The discussion section makes generic textbook statements ('convergence toward zero as n→∞') without any domain-specific depth or original analysis."
+        ],
+        "strengths": [
+          "The references are real, authoritative textbooks in quantum mechanics (Griffiths, Sakurai, Bethe & Salpeter, Cohen-Tannoudji).",
+          "The computed numerical values are consistent with the known Rydberg formula.",
+          "The paper structure follows a conventional scientific format."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 7,
+        "summary": "This paper verifies the well-known Rydberg formula (a 1913 textbook result) by computing E_n = -13.6/n² and checking that it matches itself. The claimed 'novel' findings are either numerical rounding artifacts (the 0.7353% deviation at n=50) or physically incorrect (quantum defects in hydrogen, which has no core electrons). The '5 independent methods' are the same function called with different parameters. This work does not constitute a meaningful scientific contribution."
+      },
+      "timestamp": "2026-04-26T22:11:06.314690"
+    },
+    "07a0ca6e_A": {
+      "paper_id": "07a0ca6e",
+      "reviewer": "A",
+      "model": "glm-5.1",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 2,
+          "known_facts_correctly_labeled": 2,
+          "methodology_rigor": 2,
+          "discussion_depth": 2,
+          "references_quality": 4,
+          "provenance_verifiability": 3,
+          "domain_appropriateness": 4,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The [NOVEL] claims about max gap ratios to Cramér bounds are well-known observations in the literature, not novel findings. Granville (1995) and others have extensively discussed how actual gaps compare to Cramér predictions.",
+          "The 'conjecture engine' presents Goldbach's conjecture, the Twin Prime conjecture, and the Collatz conjecture as output, but these are among the most famous unsolved problems in mathematics - presenting them as generated findings is misleading.",
+          "The discussion section for 'Generate conjectures' mentions 'limit calculations confirm the continuity and differentiability properties' which is completely unrelated to the actual output (Goldbach, Twin Prime, Collatz). This appears to be erroneous boilerplate text.",
+          "The scale of computation (up to n=10,000) is far too small to make meaningful claims about prime gap scaling behavior, which is inherently asymptotic. Existing literature examines ranges up to 10^18.",
+          "The '6 independent analytical methods' are not truly independent - three are the same prime_gap_analysis tool at different ranges, two are number_theory_advanced calls, and one is a conjecture generator. Running the same tool at different scales is not independent validation.",
+          "Hypothesis H1 about log-normal tendency is stated at 72% confidence without statistical justification or meaningful supporting evidence from the limited data.",
+          "The 'cross-validation' claim of consistency across 3 independent methods is misleading since the methods are neither independent nor validating the same specific claims."
+        ],
+        "strengths": [
+          "The references listed are real, relevant, and include important works (Cramér 1936, Granville 1995).",
+          "The computational results themselves (prime counts, gap statistics) appear to be numerically correct.",
+          "The general framework of systematic computational verification of theoretical predictions is a sound research approach in principle.",
+          "The paper correctly identifies that actual maximal gaps are well within Cramér bounds, which is consistent with established knowledge."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper presents well-known observations about prime gaps as novel findings, includes erroneous discussion content (irrelevant boilerplate about limits and differentiability), and relies on computations at a scale (n≤10,000) far too small to support its claims about prime gap scaling. The 'novel' findings about max gap ratios relative to Cramér bounds are established knowledge in the literature, and famous conjectures (Goldbach, Twin Prime, Collatz) are presented as if discovered by the system. The paper lacks the depth, novelty, and methodological rigor required for publication."
+      },
+      "timestamp": "2026-04-26T22:12:26.745818"
+    },
+    "46685257_B": {
+      "paper_id": "46685257",
+      "reviewer": "B",
+      "model": "kimi-k2.6",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 4,
+          "known_facts_correctly_labeled": 6,
+          "methodology_rigor": 3,
+          "discussion_depth": 3,
+          "references_quality": 5,
+          "provenance_verifiability": 3,
+          "domain_appropriateness": 6,
+          "overall_scientific_quality": 3
+        },
+        "concerns": [
+          "The core computations are trivial (prime gaps up to 10,000) and do not constitute a novel research contribution in number theory.",
+          "Methodological independence is overstated; the '6 analyses' and '3 distinct tools' appear to be basic scripts run with different input parameters on the same opaque platform, with no algorithmic details provided.",
+          "The alleged scaling anomalies are not statistically significant and likely represent expected finite-size fluctuations rather than genuine deviations from theory.",
+          "SHA-256 provenance hashes are truncated to 16 characters and the provenance records are inaccessible placeholders, undermining reproducibility claims.",
+          "The Cramér model comparison is naive, applying an asymptotic conjecture to very small finite ranges without an appropriate statistical framework or error analysis.",
+          "The conjecture engine output merely lists well-known open problems without adding scientific value, and the Collatz evidence field contains a nonsensical value ('2.9')."
+        ],
+        "strengths": [
+          "The paper correctly identifies known facts and established conjectures, avoiding false claims of novelty for classic results like Goldbach and the Twin Prime Conjecture.",
+          "The single candidate hypothesis is explicitly framed as requiring independent validation before being treated as a novel claim, demonstrating appropriate epistemic caution.",
+          "The numerical data presented is factually correct, and the bibliography points to real, relevant literature in analytic number theory."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper presents trivial, undergraduate-level computations of prime gaps up to 10,000 using opaque software tools, with minimal methodological detail and no meaningful scientific insight. While it correctly labels known results and avoids major overclaims, the work lacks the rigor, depth, and novelty required for publication."
+      },
+      "timestamp": "2026-04-26T22:14:41.351037"
+    },
+    "392456de_B": {
+      "paper_id": "392456de",
+      "reviewer": "B",
+      "model": "kimi-k2.6",
+      "review": {
+        "scores": {},
+        "concerns": [
+          "Review parsing failed after 3 attempts: Could not parse JSON from response: "
+        ],
+        "strengths": [],
+        "recommendation": "INVALID",
+        "confidence": 0,
+        "summary": "Review parsing error. Original model kimi-k2.6 failed.",
+        "_valid": false,
+        "_parse_error": true
+      },
+      "timestamp": "2026-04-26T22:18:47.819462"
+    },
+    "37f8a88b_B": {
+      "paper_id": "37f8a88b",
+      "reviewer": "B",
+      "model": "kimi-k2.6",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 2,
+          "known_facts_correctly_labeled": 2,
+          "methodology_rigor": 2,
+          "discussion_depth": 2,
+          "references_quality": 4,
+          "provenance_verifiability": 2,
+          "domain_appropriateness": 3,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The paper presents trivial textbook calculations of the Rydberg formula as original research, with no meaningful scientific contribution.",
+          "The claim of '5 independent analytical methods' is false; the paper merely runs the same tool (`quantum_energy_levels`) five times with different input parameters.",
+          "The [NOVEL] deviation of 0.7353% at n=50 is clearly a numerical rounding artifact (truncating -0.00544 to -0.0054), not a physical discovery.",
+          "Hypothesis 1 incorrectly proposes quantum defects from 'core electron screening' in hydrogen, which is physically impossible because hydrogen has no core electrons (δ ≡ 0).",
+          "The methodology section contains no substantive detail on algorithms, equations, convergence criteria, or validation procedures.",
+          "Provenance records are unverifiable placeholders (e.g., `[provenance_record_37f8a88b]`) with no actual hashes, URLs, or accessible data.",
+          "The discussion is superficial and reveals a fundamental misunderstanding of atomic physics, particularly regarding quantum defects and the Coulomb nature of hydrogen."
+        ],
+        "strengths": [
+          "The cited references are real, relevant standard textbooks in quantum mechanics and atomic physics.",
+          "The basic numerical results correctly reproduce the standard Rydberg formula for hydrogen energy levels (within rounding errors).",
+          "The paper follows a conventional scientific structure with abstract, methods, results, and discussion sections."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper presents elementary textbook calculations of hydrogen energy levels as novel research, misidentifies rounding artifacts as physical deviations, and fundamentally misunderstands quantum defects in hydrogen. The methodology is not rigorous, the provenance is unverifiable, and the scientific contribution is nonexistent."
+      },
+      "timestamp": "2026-04-26T22:19:22.360029"
+    },
+    "07a0ca6e_B": {
+      "paper_id": "07a0ca6e",
+      "reviewer": "B",
+      "model": "kimi-k2.6",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 2,
+          "known_facts_correctly_labeled": 3,
+          "methodology_rigor": 2,
+          "discussion_depth": 2,
+          "references_quality": 4,
+          "provenance_verifiability": 1,
+          "domain_appropriateness": 3,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The [NOVEL] tags are applied to trivial observations, such as the fact that actual maximum prime gaps are well below Cramér's conjectured bound for small n, which is neither surprising nor new.",
+          "The six claimed independent analytical methods are merely the same tool executed with different input bounds or unrelated tools (e.g., a conjecture engine), and the methods section provides no reproducible details.",
+          "Provenance records are identical placeholders with no actual data, hashes, or links, making verification impossible.",
+          "The discussion contains a nonsensical sentence about limit calculations, continuity, and Taylor approximations that is completely irrelevant to prime number theory.",
+          "The inclusion of the Collatz conjecture and Goldbach verification is irrelevant to the stated topic of prime gap scaling anomalies.",
+          "The single testable hypothesis is vague, unsupported by the data, and its 72% confidence level appears arbitrary."
+        ],
+        "strengths": [
+          "The cited references are real and relevant to prime number theory.",
+          "The basic arithmetic computations (prime counts, mean gaps) appear correct."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper reports elementary prime gap computations and incorrectly labels trivial observations as novel findings. The methodology is non-reproducible, provenance records are non-functional placeholders, and the discussion contains irrelevant and nonsensical content. Overall, the work lacks the rigor and insight required for publication."
+      },
+      "timestamp": "2026-04-26T22:21:05.240296"
+    },
+    "6c031199_B": {
+      "paper_id": "6c031199",
+      "reviewer": "B",
+      "model": "kimi-k2.6",
+      "review": {
+        "scores": {},
+        "concerns": [
+          "Review parsing failed after 3 attempts: Could not parse JSON from response: "
+        ],
+        "strengths": [],
+        "recommendation": "INVALID",
+        "confidence": 0,
+        "summary": "Review parsing error. Original model kimi-k2.6 failed.",
+        "_valid": false,
+        "_parse_error": true
+      },
+      "timestamp": "2026-04-26T22:24:58.079780"
+    },
+    "8b8148f6_B": {
+      "paper_id": "8b8148f6",
+      "reviewer": "B",
+      "model": "kimi-k2.6",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 2,
+          "known_facts_correctly_labeled": 6,
+          "methodology_rigor": 2,
+          "discussion_depth": 2,
+          "references_quality": 4,
+          "provenance_verifiability": 2,
+          "domain_appropriateness": 4,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The computations are extremely trivial (e.g., verifying Goldbach's conjecture only up to 1000, finding the 10,000th prime) and do not constitute research 'at scale'.",
+          "Hypothesis H1 regarding prime gap distributions is entirely unsupported by the results section, which contains no gap distribution data or statistical analysis.",
+          "The discussion contains nonsensical boilerplate text unrelated to the actual computations, such as 'Limit calculations confirm the continuity and differentiability properties...'.",
+          "Provenance records are listed as identical placeholders without accessible identifiers, hashes, or repository links, making independent verification impossible.",
+          "The claim of cross-validation across '3 independent computational methods' is misleading, as the tools merely restate the same elementary facts.",
+          "The conjecture generation tool produced only well-known, unproven conjectures (including the Collatz conjecture, which is unrelated to the stated prime-focused scope) with no novel insight."
+        ],
+        "strengths": [
+          "Known facts and conjectures are explicitly labeled as 'not novel' in the Computational Findings section.",
+          "The cited references are real, relevant to number theory, and appropriately formatted.",
+          "The basic computational results presented are factually correct."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper presents trivial computational verifications using standard software, incorrectly framing them as large-scale research, and proposes an unsupported hypothesis about prime gap distributions without presenting relevant data. While known facts are correctly labeled, the work lacks scientific merit and does not advance mathematical knowledge."
+      },
+      "timestamp": "2026-04-26T22:26:00.707766"
+    },
+    "a3b1799d_B": {
+      "paper_id": "a3b1799d",
+      "reviewer": "B",
+      "model": "kimi-k2.6",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 7,
+          "known_facts_correctly_labeled": 7,
+          "methodology_rigor": 3,
+          "discussion_depth": 3,
+          "references_quality": 5,
+          "provenance_verifiability": 2,
+          "domain_appropriateness": 7,
+          "overall_scientific_quality": 3
+        },
+        "concerns": [
+          "The scientific content is extremely trivial, amounting to a numerical check of the textbook Rydberg formula with no meaningful advance.",
+          "The introduction misleadingly states '5 computational methods' were employed, while the methods section correctly admits only one tool with 5 parameter configurations was used.",
+          "Numerical inconsistency at n=50: reported E_50=-0.0054 eV implies E_n*n^2=-13.5, yet the text states -13.5800±0.0400 and a 0.7353% deviation, suggesting precision issues or sloppy rounding that are not rigorously explained despite claims of machine-epsilon accuracy.",
+          "Provenance SHA-256 hashes are truncated to 16 characters instead of the standard 64, undermining verifiability claims.",
+          "The 'First 7 levels' output is identical across n=5, 10, 20, and 50, suggesting redundant or incorrectly formatted tool output that is presented without critical analysis."
+        ],
+        "strengths": [
+          "The paper is commendably honest about its lack of novelty and explicitly labels results as [KNOWN] or [CONTROL].",
+          "It transparently acknowledges that parameter variations of a single tool do not constitute methodological independence.",
+          "References are real, relevant, and appropriate to the domain.",
+          "The discussion correctly notes that quantum defect theory does not apply to hydrogen and mentions relevant higher-order physical effects."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper offers a trivial computational verification of the hydrogen Rydberg formula using a single tool with five input variations. While it is unusually honest about its absence of novelty and correctly labels known facts, it suffers from numerical inconsistencies, invalid truncated provenance hashes, and a scientific contribution too slight for publication."
+      },
+      "timestamp": "2026-04-26T22:27:04.261547"
+    },
+    "bc8960a9_B": {
+      "paper_id": "bc8960a9",
+      "reviewer": "B",
+      "model": "kimi-k2.6",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 6,
+          "known_facts_correctly_labeled": 7,
+          "methodology_rigor": 3,
+          "discussion_depth": 4,
+          "references_quality": 5,
+          "provenance_verifiability": 3,
+          "domain_appropriateness": 7,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The computational contributions are trivial, verifying Goldbach's conjecture only up to 1000 and checking primality of the 10,000th prime, results that are elementary and already known for decades.",
+          "Provenance SHA-256 hashes are truncated to 16 characters instead of the standard 64, and provenance records are referenced only as anonymized placeholders, preventing independent verification.",
+          "The manuscript misleadingly states 5 computational methods in the Introduction but later clarifies only 3 distinct tools were used, with the remainder being different parameter configurations of the same algorithms.",
+          "The conjecture generation tool merely restates famous open problems (Goldbach, Twin Prime, Collatz, Riemann) without providing any new insights, predictions, or non-trivial hypotheses.",
+          "No source code, algorithmic pseudocode, or detailed runtime parameters are provided, severely limiting reproducibility."
+        ],
+        "strengths": [
+          "The paper is commendably honest about its lack of novelty, consistently labeling known facts and finite-range verifications as non-novel.",
+          "The discussion appropriately contextualizes results against established literature (e.g., Hardy-Littlewood conjectures, verified Goldbach bounds exceeding 4×10^18) and warns against over-interpreting generated conjectures.",
+          "References appear to be genuine, relevant, and from reputable sources in number theory."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper presents an honest but scientifically empty computational verification of elementary number-theoretic facts at an extremely small scale. While the authors correctly disclaim novelty and label known results, the work offers no meaningful contribution, contains truncated provenance hashes that prevent verification, and would not merit publication in any serious mathematical or computational science venue."
+      },
+      "timestamp": "2026-04-26T22:28:04.991086"
+    }
+  },
+  "inter_rater_agreement": {
+    "cohens_kappa_by_dimension": {
+      "novelty_claims_justified": 0.902439024390244,
+      "known_facts_correctly_labeled": 0.8775510204081632,
+      "methodology_rigor": 0.333333333333336,
+      "discussion_depth": 0.8,
+      "references_quality": 0.666666666666664,
+      "provenance_verifiability": 0.26829268292683023,
+      "domain_appropriateness": 0.714285714285714,
+      "overall_scientific_quality": 0.5714285714285758
+    },
+    "pearson_r_by_dimension": {
+      "novelty_claims_justified": 0.9429493604790228,
+      "known_facts_correctly_labeled": 0.9281536361140397,
+      "methodology_rigor": 0.447213595499958,
+      "discussion_depth": 0.8944271909999159,
+      "references_quality": 0.7071067811865475,
+      "provenance_verifiability": 0.49541508402214957,
+      "domain_appropriateness": 0.8703882797784893,
+      "overall_scientific_quality": 0.6324555320336759
+    },
+    "overall_kappa": 0.5714285714285758,
+    "overall_pearson_r": 0.6324555320336759,
+    "recommendation_agreement": 1.0,
+    "n_papers": 8,
+    "n_valid_pairs": 6,
+    "n_invalid_pairs": 2,
+    "invalid_paper_ids": [
+      "392456de",
+      "6c031199"
+    ]
+  },
+  "cohort_comparison": {
+    "n_pairs": 4,
+    "dimension_comparison": {
+      "novelty_claims_justified": {
+        "pre_mean": 2.0,
+        "post_mean": 5.5,
+        "mean_diff": 3.5,
+        "paired_t": 7.0,
+        "cohens_d": 3.5,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "known_facts_correctly_labeled": {
+        "pre_mean": 2.88,
+        "post_mean": 6.38,
+        "mean_diff": 3.5,
+        "paired_t": 6.481,
+        "cohens_d": 3.24,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "methodology_rigor": {
+        "pre_mean": 2.25,
+        "post_mean": 2.75,
+        "mean_diff": 0.5,
+        "paired_t": 2.449,
+        "cohens_d": 1.22,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "discussion_depth": {
+        "pre_mean": 2.0,
+        "post_mean": 3.12,
+        "mean_diff": 1.12,
+        "paired_t": 9.0,
+        "cohens_d": 4.5,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "references_quality": {
+        "pre_mean": 4.12,
+        "post_mean": 4.5,
+        "mean_diff": 0.38,
+        "paired_t": 0.792,
+        "cohens_d": 0.4,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "provenance_verifiability": {
+        "pre_mean": 2.25,
+        "post_mean": 3.75,
+        "mean_diff": 1.5,
+        "paired_t": 7.348,
+        "cohens_d": 3.67,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "domain_appropriateness": {
+        "pre_mean": 3.5,
+        "post_mean": 6.0,
+        "mean_diff": 2.5,
+        "paired_t": 7.071,
+        "cohens_d": 3.54,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "overall_scientific_quality": {
+        "pre_mean": 2.0,
+        "post_mean": 2.62,
+        "mean_diff": 0.62,
+        "paired_t": 2.611,
+        "cohens_d": 1.31,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      }
+    },
+    "overall": {
+      "pre_mean": 2.0,
+      "post_mean": 2.62,
+      "mean_diff": 0.62,
+      "direction": "improved"
+    },
+    "pre_recommendations": [
+      [
+        "REJECT",
+        "REJECT"
+      ],
+      [
+        "REJECT",
+        "REJECT"
+      ],
+      [
+        "REJECT"
+      ],
+      [
+        "REJECT",
+        "REJECT"
+      ]
+    ],
+    "post_recommendations": [
+      [
+        "REJECT",
+        "REJECT"
+      ],
+      [
+        "REJECT",
+        "REJECT"
+      ],
+      [
+        "REJECT"
+      ],
+      [
+        "REJECT",
+        "REJECT"
+      ]
+    ]
+  }
+}

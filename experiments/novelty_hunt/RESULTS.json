@@ -1,0 +1,82 @@
+[
+  {
+    "paper": "Cram\u00e9r_Ratio_Across_Six_Decades_A_High-Range_Empirical_Audit_20260521_201646.md",
+    "rubric": 77.0,
+    "novelty_score": 30.0,
+    "max_elo": 1527.7,
+    "n_candidate_novelty": 1,
+    "n_testable": 0,
+    "has_quantitative": false,
+    "has_falsifiable": false
+  },
+  {
+    "paper": "Twin-Prime_Density_Across_Five_Decades_A_Hardy-Littlewood_Em_20260521_201647.md",
+    "rubric": 77.5,
+    "novelty_score": 0.029999999999972715,
+    "max_elo": 1500.1,
+    "n_candidate_novelty": 0,
+    "n_testable": 0,
+    "has_quantitative": false,
+    "has_falsifiable": false
+  },
+  {
+    "paper": "Cross-Level_Discrepancy_in_H\u2082_Binding_A_Reproducible_Compari_20260521_201642.md",
+    "rubric": 73.1,
+    "novelty_score": 0.0,
+    "max_elo": 0,
+    "n_candidate_novelty": 0,
+    "n_testable": 0,
+    "has_quantitative": false,
+    "has_falsifiable": false
+  },
+  {
+    "paper": "Distance_Ratios_in_Planck18_Empirical_Tests_of_the_Standard__20260521_201647.md",
+    "rubric": 73.5,
+    "novelty_score": 0.0,
+    "max_elo": 0,
+    "n_candidate_novelty": 0,
+    "n_testable": 0,
+    "has_quantitative": false,
+    "has_falsifiable": false
+  },
+  {
+    "paper": "Empirical_Audit_of_Internal_Consistency_in_the_Atlas_Bond-En_20260521_201647.md",
+    "rubric": 61.0,
+    "novelty_score": 0.0,
+    "max_elo": 0,
+    "n_candidate_novelty": 0,
+    "n_testable": 0,
+    "has_quantitative": false,
+    "has_falsifiable": false
+  },
+  {
+    "paper": "Wien_Peak_Wavelength_Across_Spectral_Classes_A_Cross-Star_Au_20260521_201647.md",
+    "rubric": 76.5,
+    "novelty_score": 0.0,
+    "max_elo": 1500.0,
+    "n_candidate_novelty": 0,
+    "n_testable": 0,
+    "has_quantitative": false,
+    "has_falsifiable": false
+  },
+  {
+    "paper": "GC_Content_as_Predictor_of_Sequence_Properties_A_10-Sample_A_20260521_201647.md",
+    "rubric": 68.0,
+    "novelty_score": 0.0,
+    "max_elo": 0,
+    "n_candidate_novelty": 0,
+    "n_testable": 0,
+    "has_quantitative": false,
+    "has_falsifiable": false
+  },
+  {
+    "paper": "HOMO-LUMO_Gap_Scaling_in_Linear_Conjugated_Systems_20260521_201647.md",
+    "rubric": 73.5,
+    "novelty_score": 0.0,
+    "max_elo": 0,
+    "n_candidate_novelty": 0,
+    "n_testable": 0,
+    "has_quantitative": false,
+    "has_falsifiable": false
+  }
+]

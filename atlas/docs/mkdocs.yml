@@ -1,0 +1,11 @@
+site_name: AXIOM Documentation
+theme: material
+nav:
+  - Home: index.md
+  - Guides: guides/
+  - API: api/
+  - Tutorials: tutorials/
+  - Architecture: architecture/
+plugins:
+  - search
+  - mkdocstrings

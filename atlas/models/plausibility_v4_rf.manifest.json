@@ -1,0 +1,58 @@
+{
+  "id": "plausibility_v4_rf",
+  "name": "Plausibility RandomForest",
+  "version": "v4.0.0",
+  "created_at": "2025-09-17T02:55:44Z",
+  "git_commit": "0000000",
+  "description": "RandomForest calibrado para plausibility scoring v4",
+  "tags": [
+    "plausibility",
+    "rf",
+    "v4"
+  ],
+  "parameters": {
+    "n_estimators": 500,
+    "max_depth": null,
+    "random_state": 42
+  },
+  "metrics": {
+    "primary": 0.912,
+    "secondary": {
+      "roc_auc": 0.945,
+      "pr_auc": 0.901
+    },
+    "calibration": {
+      "ece": 0.032,
+      "brier": 0.118
+    }
+  },
+  "artifacts": [
+    {
+      "path": "models/plausibility_v4_rf.pkl",
+      "type": "model",
+      "hash_sha256": "96620b6de5f0467e4d68e66d55233aaab61110ff17c75057c1fc43ccf30d32fe",
+      "size_bytes": 1334275,
+      "format": "pickle"
+    }
+  ],
+  "dataset": {
+    "name": "plausibility_training_corpus",
+    "version": "2025.09",
+    "hash": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc"
+  },
+  "lineage": {
+    "parents": [],
+    "provenance_graph_hash": "c72671ebf27e411821a55a75df7f5075cd862ad8babb4df6aa12090af76ae0c3"
+  },
+  "hashes": {
+    "manifest_sha256": "1de7fa70308bacc46b6dd51b241d84331417afd032a69108e89bd19a666e59c6"
+  },
+  "signatures": [
+    {
+      "alg": "ed25519",
+      "sig": "PsokOd/ivWlb8NjGqCXbzey8PRl3WuweuBjRWrufJ2HNVq7NMNM+ytihRNop+gkhoWUREFf4GZAJKTP4d4EfBA==",
+      "public_key_fingerprint": "25c7a15472815b86addb077aa5797afa6785c4d096adfcbc43fb8d9fcd06d007",
+      "ts": "2025-09-17T04:18:00.278588Z"
+    }
+  ]
+}

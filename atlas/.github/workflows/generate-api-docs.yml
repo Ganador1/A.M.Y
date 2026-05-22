@@ -1,0 +1,48 @@
+name: Generate API Documentation
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday
+
+jobs:
+  generate-api-docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install fastapi pyyaml uvicorn
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Generate API Reference
+      run: |
+        python scripts/docs/generate_api_reference.py
+
+    - name: Upload API Docs
+      uses: actions/upload-artifact@v4
+      with:
+        name: api-documentation
+        path: docs/api/
+    
+    - name: Commit API Docs (if changed)
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs/api/
+        git diff --staged --quiet || git commit -m "🤖 Auto-generate API documentation" && git push
+

@@ -1,0 +1,58 @@
+# Catálogo de modelos disponibles para MultiAgentCoordinator
+# Se puede ampliar dinámicamente. Campo alias permite referenciar variantes.
+models:
+  llama3:8b:
+    provider: ollama
+    family: llama3
+    size: 8b
+    capability: general_planning
+  mistral:7b:
+    provider: ollama
+    family: mistral
+    size: 7b
+    capability: bio_reasoning
+  codellama:7b:
+    provider: ollama
+    family: codellama
+    size: 7b
+    capability: code_generation
+  qwen:7b:
+    provider: ollama
+    family: qwen
+    size: 7b
+    capability: review_analysis
+  deepseek-ai/DeepSeek-V3:
+    provider: huggingface
+    family: deepseek-v3
+    size: 671b-moE
+    capability: frontier_reasoning
+  Qwen/Qwen2.5-72B-Instruct:
+    provider: huggingface
+    family: qwen2.5
+    size: 72b
+    capability: biomedical_hypothesis
+  Qwen/Qwen2.5-Math-72B-Instruct:
+    provider: huggingface
+    family: qwen2.5
+    size: 72b
+    capability: mathematics_reasoning
+  Qwen/Qwen2.5-Math-32B-Instruct:
+    provider: huggingface
+    family: qwen2.5
+    size: 32b
+    capability: scientific_math
+  Qwen/Qwen2.5-Coder-32B-Instruct:
+    provider: huggingface
+    family: qwen2.5
+    size: 32b
+    capability: code_generation
+  meta-llama/Meta-Llama-3.1-405B-Instruct:
+    provider: huggingface
+    family: meta-llama-3.1
+    size: 405b
+    capability: report_synthesis
+  DeepSeek-R1-Distill-Qwen-32B:
+    provider: huggingface
+    family: deepseek-r1
+    size: 32b
+    capability: reflective_reasoning

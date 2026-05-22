@@ -1,0 +1,221 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Evolución de Costos vs ROI",
+      "gridPos": {"h": 8, "w": 24, "x": 0, "y": 0},
+      "targets": [
+        {
+          "expr": "sum(discovery_total_cost)",
+          "legendFormat": "Costo Total",
+          "refId": "A"
+        },
+        {
+          "expr": "avg(discovery_roi_estimate) * 1000",
+          "legendFormat": "ROI (escala)",
+          "refId": "B"
+        }
+      ],
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}, "tooltip": {"mode": "single"}}
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Breakdown de Costos por Categoría",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+      "targets": [
+        {
+          "expr": "sum by (cost_category) (discovery_cost_breakdown{domain=~\"$domain\"})",
+          "legendFormat": "{{cost_category}}",
+          "refId": "A"
+        }
+      ],
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}, "tooltip": {"mode": "single"}}
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "Eficiencia por Dominio Científico",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+      "targets": [
+        {
+          "expr": "avg by (domain) (discovery_efficiency_score{domain=~\"$domain\"})",
+          "legendFormat": "{{domain}}",
+          "refId": "A"
+        }
+      ],
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}, "tooltip": {"mode": "single"}}
+    },
+    {
+      "id": 4,
+      "type": "gauge",
+      "title": "Eficiencia Global Promedio",
+      "gridPos": {"h": 6, "w": 6, "x": 0, "y": 16},
+      "targets": [
+        {
+          "expr": "avg(discovery_efficiency_score) * 100",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false},
+        "orientation": "horizontal",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "min": 0,
+        "max": 100
+      }
+    },
+    {
+      "id": 5,
+      "type": "stat",
+      "title": "ROI Promedio",
+      "gridPos": {"h": 6, "w": 6, "x": 6, "y": 16},
+      "targets": [
+        {
+          "expr": "avg(discovery_roi_estimate)",
+          "refId": "A"
+        }
+      ],
+      "options": {"reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}}
+    },
+    {
+      "id": 6,
+      "type": "stat",
+      "title": "Costo Total Acumulado",
+      "gridPos": {"h": 6, "w": 6, "x": 12, "y": 16},
+      "targets": [
+        {
+          "expr": "sum(discovery_total_cost)",
+          "refId": "A"
+        }
+      ],
+      "options": {"reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}}
+    },
+    {
+      "id": 7,
+      "type": "stat",
+      "title": "Pipelines Optimizados",
+      "gridPos": {"h": 6, "w": 6, "x": 18, "y": 16},
+      "targets": [
+        {
+          "expr": "sum(optimization_applications_total)",
+          "refId": "A"
+        }
+      ],
+      "options": {"reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}}
+    },
+    {
+      "id": 8,
+      "type": "table",
+      "title": "Top 5 Dominios por ROI",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 22},
+      "targets": [
+        {
+          "expr": "topk(5, discovery_roi_estimate{domain=~\"$domain\"}) by (domain)",
+          "legendFormat": "{{domain}}",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "showHeader": true,
+        "sortBy": "desc"
+      }
+    },
+    {
+      "id": 9,
+      "type": "table",
+      "title": "Top 5 Dominios por Eficiencia",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 22},
+      "targets": [
+        {
+          "expr": "topk(5, discovery_efficiency_score{domain=~\"$domain\"}) by (domain)",
+          "legendFormat": "{{domain}}",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "showHeader": true,
+        "sortBy": "desc"
+      }
+    },
+    {
+      "id": 10,
+      "type": "bargauge",
+      "title": "Distribución de Categorías de Eficiencia",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 30},
+      "targets": [
+        {
+          "expr": "count by (efficiency_category) (discovery_efficiency_category{domain=~\"$domain\"})",
+          "legendFormat": "{{efficiency_category}}",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false},
+        "showUnfilled": true
+      }
+    },
+    {
+      "id": 11,
+      "type": "piechart",
+      "title": "Distribución de Estrategias de Optimización",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 30},
+      "targets": [
+        {
+          "expr": "count by (strategy) (optimization_strategy_applications{domain=~\"$domain\"})",
+          "legendFormat": "{{strategy}}",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "pieType": "pie",
+        "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}
+      }
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": ["axiom", "optimization", "cost-metrics", "discovery-roi"],
+  "templating": {
+    "list": [
+      {
+        "name": "domain",
+        "type": "query",
+        "label": "Dominio Científico",
+        "datasource": {"type": "prometheus", "uid": "prometheus"},
+        "query": "label_values(discovery_efficiency_score, domain)",
+        "refresh": 2,
+        "multi": true,
+        "includeAll": true,
+        "allValue": ".*"
+      },
+      {
+        "name": "time_range",
+        "type": "interval",
+        "label": "Rango Temporal",
+        "datasource": {"type": "prometheus", "uid": "prometheus"},
+        "query": "1h,6h,12h,24h,7d,30d",
+        "refresh": 2,
+        "multi": false,
+        "includeAll": false
+      }
+    ]
+  },
+  "time": {"from": "now-24h", "to": "now"},
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "AXIOM - Métricas de Optimización y Costos",
+  "uid": "axiom-optimization-cost-metrics",
+  "version": 1
+}

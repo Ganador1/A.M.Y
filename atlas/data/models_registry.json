@@ -1,0 +1,10 @@
+[
+  {
+    "name": "test-model",
+    "version": "1.0",
+    "task": "classification",
+    "uri": null,
+    "created_at": "2025-09-12T20:04:53.076966",
+    "metadata": {}
+  }
+]

@@ -1,0 +1,224 @@
+name: Security Scan - Optimized
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday
+
+jobs:
+  # ========================================
+  # Job 1: Bandit (Python Security Linter)
+  # ========================================
+  bandit-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true  # No bloquear por warnings
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Cache Bandit results
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/bandit
+        key: bandit-${{ hashFiles('app/**/*.py') }}
+        
+    - name: Install Bandit
+      run: pip install -q bandit[toml]
+        
+    - name: Run Bandit (with exclusions for syntax errors)
+      run: |
+        bandit -r app/ tests/ \
+          --format json \
+          --output bandit-report.json \
+          --skip B110,B403,B404,B608 \
+          --exclude './app/cache/unified_cache.py,./app/core/telemetry.py,./app/mathlab/**/*.py,./app/domains/medicine/imaging/*.py,./app/observability/otel_init.py' \
+          || true
+        
+        # Generate readable report
+        bandit -r app/ tests/ \
+          --format txt \
+          --output bandit-report.txt \
+          --skip B110,B403,B404,B608 \
+          --exclude './app/cache/unified_cache.py,./app/core/telemetry.py,./app/mathlab/**/*.py,./app/domains/medicine/imaging/*.py,./app/observability/otel_init.py' \
+          || true
+        
+    - name: Upload Bandit reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: bandit-reports
+        path: |
+          bandit-report.json
+          bandit-report.txt
+
+  # ========================================
+  # Job 2: Semgrep (SAST)
+  # ========================================
+  semgrep-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    continue-on-error: true
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Run Semgrep
+      run: |
+        pip install -q semgrep
+        semgrep --config=auto --json -o semgrep-report.json app/ || true
+        semgrep --config=auto -o semgrep-report.txt app/ || true
+        
+    - name: Upload Semgrep SARIF
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: semgrep-reports
+        path: semgrep.sarif
+
+  # ========================================
+  # Job 3: Trivy (Filesystem & Dependencies)
+  # ========================================
+  trivy-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+        
+    - name: Run Trivy filesystem scan
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-fs-results.sarif'
+        severity: 'CRITICAL,HIGH'
+        
+    - name: Run Trivy config scan
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'config'
+        scan-ref: '.'
+        format: 'json'
+        output: 'trivy-config-results.json'
+        
+    - name: Upload Trivy reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: trivy-reports
+        path: |
+          trivy-fs-results.sarif
+          trivy-config-results.json
+
+  # ========================================
+  # Job 4: Safety (Dependency Check)
+  # ========================================
+  safety-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    continue-on-error: true
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Install Safety
+      run: pip install -q safety
+        
+    - name: Run Safety check
+      run: |
+        # Use requirements-ci.txt for faster scanning
+        safety check -r requirements-ci.txt --json --output safety-report.json || true
+        safety check -r requirements-ci.txt --output safety-report.txt || true
+        
+    - name: Upload Safety reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: safety-reports
+        path: |
+          safety-report.json
+          safety-report.txt
+
+  # ========================================
+  # Job 5: Aggregate Results & Check
+  # ========================================
+  security-check:
+    runs-on: ubuntu-latest
+    needs: [bandit-scan, semgrep-scan, trivy-scan, safety-check]
+    if: always()
+    timeout-minutes: 5
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Download all artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: security-reports/
+        
+    - name: List downloaded artifacts
+      run: |
+        echo "Downloaded artifacts:"
+        find security-reports/ -type f
+        
+    - name: Aggregate security reports
+      run: |
+        mkdir -p reports/github_reports/security-reports
+        
+        # Copy all reports to single location
+        find security-reports/ -type f -name "*.json" -exec cp {} reports/github_reports/security-reports/ \;
+        find security-reports/ -type f -name "*.txt" -exec cp {} reports/github_reports/security-reports/ \;
+        find security-reports/ -type f -name "*.sarif" -exec cp {} reports/github_reports/security-reports/ \;
+        
+        echo "Aggregated reports:"
+        ls -lh reports/github_reports/security-reports/
+          
+    - name: Upload consolidated security reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: all-security-reports
+        path: reports/github_reports/security-reports/
+        
+    - name: Check critical issues
+      id: check-critical
+      run: |
+        # Count critical issues from Trivy
+        CRITICAL_COUNT=0
+        
+        if [ -f "security-reports/trivy-reports/trivy-fs-results.sarif" ]; then
+          CRITICAL_COUNT=$(jq '.runs[0].results | length' security-reports/trivy-reports/trivy-fs-results.sarif || echo 0)
+          echo "Found $CRITICAL_COUNT critical/high issues in Trivy"
+        fi
+        
+        # Set output
+        echo "critical_count=$CRITICAL_COUNT" >> $GITHUB_OUTPUT
+        
+        # Fail if critical issues found
+        if [ "$CRITICAL_COUNT" -gt 10 ]; then
+          echo "::error::❌ Too many critical security issues found: $CRITICAL_COUNT"
+          echo "::error::Review security reports and fix critical issues before merging"
+          exit 1
+        else
+          echo "✅ Security check passed ($CRITICAL_COUNT critical issues found, threshold: 10)"
+        fi

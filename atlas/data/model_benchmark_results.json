@@ -1,0 +1,248 @@
+{
+  "results": {
+    "qwen:7b": {
+      "test_cases": {
+        "plausible_1": {
+          "error": "ERROR: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/generate",
+          "duration": 76.77725791931152,
+          "correct": false
+        },
+        "implausible_1": {
+          "error": "ERROR: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/generate",
+          "duration": 13.163538932800293,
+          "correct": false
+        },
+        "plausible_2": {
+          "error": "ERROR: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/generate",
+          "duration": 10.148038864135742,
+          "correct": false
+        },
+        "implausible_2": {
+          "error": "ERROR: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/generate",
+          "duration": 10.788469791412354,
+          "correct": false
+        },
+        "borderline_1": {
+          "error": "ERROR: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/generate",
+          "duration": 10.089139223098755,
+          "correct": false
+        }
+      },
+      "summary": {
+        "total_correct": 0,
+        "total_tests": 5,
+        "accuracy": 0.0,
+        "avg_duration": 24.193288946151732,
+        "total_errors": 5
+      }
+    },
+    "llama3:8b": {
+      "test_cases": {
+        "plausible_1": {
+          "prediction": true,
+          "expected": true,
+          "correct": true,
+          "confidence": 0.7,
+          "reasoning": "The study appears to follow established principles in materials science, including the use of powder metallurgy and laser flash analysis for thermal property characterization. The concept of enhancing thermal conductivity through graphene reinforcement is also well-established. However, the claim of a 35% improvement at 2 wt% graphene loading may require further validation.",
+          "duration": 31.08106517791748,
+          "raw_response": "Here's my evaluation of the hypothesis:\n\n{\n  \"validity_score\": 8,\n  \"feasibility_score\": 9,\n  \"novelty_score\": 6,\n  \"overall_plausible\": true,\n  \"confidence\": 0.7,\n  \"reasoning\": \"The study appears to follow established principles in materials science, including the use of powder metallurgy and laser flash analysis for thermal property characterization. The concept of enhancing thermal conductivity through graphene reinforcement is also well-established. However, the claim of a 35% improvement at 2 wt% graphene loading may require further validation.\"\n}\n\nHere's my reasoning:\n\n1. **Scientific validity**: I scored this 8 out of 10 because the study appears to follow established principles in materials science and thermal conductivity enhancement. The use of powder metallurgy and laser flash analysis for characterization is also well-established. However, the specific claim of a 35% improvement at 2 wt% graphene loading may require further validation.\n2. **Technical feasibility**: I scored this 9 out of 10 because the study appears to be technically feasible with current technology. The synthesis of nanocomposites using powder metallurgy and characterization using laser flash analysis are both well-established techniques.\n3. **Reasonable scope**: I scored this 6 out of 10 because while the study is focused on a specific aspect of materials science, the claim of a 35% improvement at 2 wt% graphene loading may be somewhat ambitious. However, it's still within the realm of possibility and not overly trivial.\n\nOverall, I consider this hypothesis to be plausible, but with some caveats. The study appears to follow established principles in materials science, is technically feasible, and has a reasonable scope. However, the specific claim of a 35% improvement at 2 wt% graphene loading may require further validation."
+        },
+        "implausible_1": {
+          "prediction": false,
+          "expected": false,
+          "correct": true,
+          "confidence": 0.2,
+          "reasoning": "The claim that room temperature nuclear fusion is achieved using kitchen salt and a microwave oven is highly unlikely due to the fundamental laws of physics governing nuclear reactions. Nuclear fusion typically requires extremely high temperatures (millions of degrees Celsius) and pressures, which are not achievable with current technology, let alone a microwave oven. The idea of deuterium-tritium fusion reactions producing helium nuclei and neutrons at room temperature is scientifically invalid.",
+          "duration": 19.75929617881775,
+          "raw_response": "Here's my evaluation of the hypothesis:\n\n{\n  \"validity_score\": 0,\n  \"feasibility_score\": 1,\n  \"novelty_score\": 8,\n  \"overall_plausible\": false,\n  \"confidence\": 0.2,\n  \"reasoning\": \"The claim that room temperature nuclear fusion is achieved using kitchen salt and a microwave oven is highly unlikely due to the fundamental laws of physics governing nuclear reactions. Nuclear fusion typically requires extremely high temperatures (millions of degrees Celsius) and pressures, which are not achievable with current technology, let alone a microwave oven. The idea of deuterium-tritium fusion reactions producing helium nuclei and neutrons at room temperature is scientifically invalid.\"\n}\n\nI've given the validity score a 0 because the hypothesis contradicts well-established principles in physics. Nuclear fusion requires enormous energies to overcome the strong nuclear forces holding atomic nuclei together, which cannot be achieved with current technology or even theoretically possible at room temperature.\n\nThe feasibility score is 1 because, technically speaking, it's possible to heat salt using a microwave oven, but this has no relation to achieving nuclear fusion.\n\nThe novelty score is 8 because, while the idea of using kitchen salt for nuclear fusion might seem innovative, it's not a new concept. There have been attempts to achieve nuclear fusion at lower temperatures using various methods, but none have been successful or scientifically valid.\n\nI've marked the overall plausibility as false due to the scientific invalidity of the claim.\n\nMy confidence level is 0.2 because I'm fairly certain that this hypothesis is not supported by scientific evidence and is likely an exaggeration or misinterpretation of experimental results.\n\nThe reasoning is straightforward: nuclear fusion requires energies far beyond what's achievable with current technology, let alone a microwave oven. The idea of achieving it at room temperature using kitchen salt is scientifically invalid."
+        },
+        "plausible_2": {
+          "prediction": true,
+          "expected": true,
+          "correct": true,
+          "confidence": 0.85,
+          "reasoning": "The study builds on established principles of CRISPR-Cas9 genome editing and synthetic lethality in cancer research. The use of MCF-7 breast cancer cells is a common model system for studying BRCA1 function. While the specific application of CRISPR-Cas9 to knockout BRCA1 may not be novel, the study's focus on PARP inhibitors and synthetic lethality is reasonable. Overall, the hypothesis appears scientifically valid and technically feasible.",
+          "duration": 21.636270999908447,
+          "raw_response": "Here's my evaluation of the hypothesis:\n\n{\n  \"validity_score\": 8,\n  \"feasibility_score\": 9,\n  \"novelty_score\": 6,\n  \"overall_plausible\": true,\n  \"confidence\": 0.85,\n  \"reasoning\": \"The study builds on established principles of CRISPR-Cas9 genome editing and synthetic lethality in cancer research. The use of MCF-7 breast cancer cells is a common model system for studying BRCA1 function. While the specific application of CRISPR-Cas9 to knockout BRCA1 may not be novel, the study's focus on PARP inhibitors and synthetic lethality is reasonable. Overall, the hypothesis appears scientifically valid and technically feasible.\"\n}\n\nHere's my reasoning:\n\n* Validity: The study follows established principles in biochemistry and cancer research. The use of CRISPR-Cas9 for genome editing is well-established, as are the concepts of synthetic lethality and PARP inhibitors. However, I deduct a few points because the study may not be pushing the boundaries of our understanding of these principles.\n* Feasibility: The technical aspects of the study appear feasible with current technology and expertise in molecular biology and biochemistry. The use of MCF-7 cells is a common model system for studying breast cancer, and the design and validation of guide RNAs targeting exon 5 are well-established procedures.\n* Novelty: While the specific application of CRISPR-Cas9 to knockout BRCA1 may not be novel, the study's focus on PARP inhibitors and synthetic lethality is reasonable. The study does not make extraordinary claims or propose a fundamentally new approach to cancer research.\n* Overall plausibility: Yes, the hypothesis appears scientifically valid and technically feasible.\n* Confidence: I have high confidence in the validity of this hypothesis, as it builds on established principles and uses well-established techniques.\n\nOverall, I believe that this hypothesis is a solid example of biochemistry research that is both scientifically valid and technically feasible."
+        },
+        "implausible_2": {
+          "prediction": false,
+          "expected": false,
+          "correct": true,
+          "confidence": 0.0,
+          "reasoning": "The concept of telepathic communication is not supported by scientific evidence and violates fundamental principles of neuroscience, psychology, and physics. The idea that brain wave synchronization between a surgeon and patient can enhance surgical precision is unfounded and lacks any empirical basis.",
+          "duration": 16.042975902557373,
+          "raw_response": "Here's my evaluation of the hypothesis:\n\n{\n  \"validity_score\": 0,\n  \"feasibility_score\": 0,\n  \"novelty_score\": 8,\n  \"overall_plausible\": false,\n  \"confidence\": 0.0,\n  \"reasoning\": \"The concept of telepathic communication is not supported by scientific evidence and violates fundamental principles of neuroscience, psychology, and physics. The idea that brain wave synchronization between a surgeon and patient can enhance surgical precision is unfounded and lacks any empirical basis.\"\n}\n\nReasoning:\n\n1. Scientific validity: Telepathy, or the ability to read minds without physical means, is not supported by scientific evidence and contradicts our current understanding of human cognition, neuroscience, and psychology. The idea that brain waves can be synchronized between two individuals to enhance surgical precision is also unproven.\n2. Technical feasibility: Even if telepathy were possible, it's unclear how one would measure or quantify the synchronization of brain waves between a surgeon and patient during complex procedures. Additionally, there are no established methods for training surgeons in telepathic communication techniques.\n3. Reasonable scope: While the idea of improving surgical precision is an important goal, the claim that telepathic communication can achieve this is extraordinary and requires extraordinary evidence. The proposal's scope is overly ambitious and lacks a clear scientific foundation.\n\nOverall, I find the hypothesis to be implausible due to its lack of scientific validity, technical feasibility, and reasonable scope."
+        },
+        "borderline_1": {
+          "error": "JSON parsing failed: Invalid control character at: line 8 column 411 (char 550)",
+          "raw_response": "Here's my evaluation of the hypothesis:\n\n{\n  \"validity_score\": 6,\n  \"feasibility_score\": 4,\n  \"novelty_score\": 9,\n  \"overall_plausible\": false,\n  \"confidence\": 0.5,\n  \"reasoning\": \n  \"The idea of using quantum entanglement for brain-computer interfaces is intriguing, but the scientific validity score is limited due to the lack of clear evidence that neural microtubules can indeed be entangled with silicon quantum dots. While there are some theoretical frameworks suggesting a connection between consciousness and quantum mechanics, this hypothesis relies heavily on unproven assumptions.\n\nThe feasibility score is low because the technology required to achieve this would need significant advancements in both neuroscience and quantum computing. The resolution of current experiments is limited, and scaling up the technology to enable direct neural control of quantum computers seems highly challenging.\n\nThe novelty score is high due to the innovative approach combining neuroscience and quantum mechanics. However, the overall plausibility is low because the extraordinary claims require extraordinary evidence, which is currently lacking.\n\nI would rate my confidence level at 0.5, indicating that while the idea has some merit, it requires further investigation and experimentation to establish its validity.\"\n}",
+          "duration": 13.446145057678223,
+          "correct": false
+        }
+      },
+      "summary": {
+        "total_correct": 4,
+        "total_tests": 5,
+        "accuracy": 0.8,
+        "avg_duration": 20.393150663375856,
+        "total_errors": 1
+      }
+    },
+    "mistral:7b": {
+      "test_cases": {
+        "plausible_1": {
+          "prediction": true,
+          "expected": true,
+          "correct": true,
+          "confidence": 0.9,
+          "reasoning": "The hypothesis follows established principles in materials science, such as the enhancement of thermal conductivity through the addition of nanofillers to a matrix material. The use of graphene and copper is well-documented in literature, and the synthesis method (powder metallurgy) is feasible for this type of research. However, the novelty lies more in the specific application of these materials rather than the overall concept. The scope appears reasonable as it focuses on a measurable improvement in thermal conductivity and provides a clear methodology.",
+          "duration": 15.784112930297852,
+          "raw_response": " {\n  \"validity_score\": 9,\n  \"feasibility_score\": 8,\n  \"novelty_score\": 7,\n  \"overall_plausible\": true,\n  \"confidence\": 0.9,\n  \"reasoning\": \"The hypothesis follows established principles in materials science, such as the enhancement of thermal conductivity through the addition of nanofillers to a matrix material. The use of graphene and copper is well-documented in literature, and the synthesis method (powder metallurgy) is feasible for this type of research. However, the novelty lies more in the specific application of these materials rather than the overall concept. The scope appears reasonable as it focuses on a measurable improvement in thermal conductivity and provides a clear methodology.\"\n}"
+        },
+        "implausible_1": {
+          "prediction": false,
+          "expected": false,
+          "correct": true,
+          "confidence": 0.01,
+          "reasoning": "The hypothesis violates fundamental nuclear physics principles as room temperature is insufficient to initiate and sustain fusion reactions. The proposed method of using a microwave oven on ordinary table salt (NaCl) does not contain deuterium or tritium, the isotopes required for nuclear fusion. Furthermore, even if these isotopes were present, the energy output from such a reaction would be minuscule compared to the input provided by the microwave oven. The claim of an energy output exceeding input by a factor of 10,000 is implausible.",
+          "duration": 11.022149085998535,
+          "raw_response": " {\n  \"validity_score\": 1,\n  \"feasibility_score\": 1,\n  \"novelty_score\": 10,\n  \"overall_plausible\": false,\n  \"confidence\": 0.01,\n  \"reasoning\": \"The hypothesis violates fundamental nuclear physics principles as room temperature is insufficient to initiate and sustain fusion reactions. The proposed method of using a microwave oven on ordinary table salt (NaCl) does not contain deuterium or tritium, the isotopes required for nuclear fusion. Furthermore, even if these isotopes were present, the energy output from such a reaction would be minuscule compared to the input provided by the microwave oven. The claim of an energy output exceeding input by a factor of 10,000 is implausible.\"\n}"
+        },
+        "plausible_2": {
+          "prediction": true,
+          "expected": true,
+          "correct": true,
+          "confidence": 0.95,
+          "reasoning": "The hypothesis follows established principles in biochemistry and genetics, specifically the use of CRISPR-Cas9 for gene editing. The target gene, BRCA1, is well-known in breast cancer research. The methods used for validation (PCR and Western blot) are standard and reliable. However, while the scope is reasonable, the novelty lies more in the application of CRISPR-Cas9 to MCF-7 cells and the observation of increased sensitivity to PARP inhibitors in BRCA1-deficient cells.",
+          "duration": 10.96701693534851,
+          "raw_response": " {\n  \"validity_score\": 10,\n  \"feasibility_score\": 9,\n  \"novelty_score\": 7,\n  \"overall_plausible\": true,\n  \"confidence\": 0.95,\n  \"reasoning\": \"The hypothesis follows established principles in biochemistry and genetics, specifically the use of CRISPR-Cas9 for gene editing. The target gene, BRCA1, is well-known in breast cancer research. The methods used for validation (PCR and Western blot) are standard and reliable. However, while the scope is reasonable, the novelty lies more in the application of CRISPR-Cas9 to MCF-7 cells and the observation of increased sensitivity to PARP inhibitors in BRCA1-deficient cells.\"\n}"
+        },
+        "implausible_2": {
+          "prediction": false,
+          "expected": false,
+          "correct": true,
+          "confidence": 0.0,
+          "reasoning": "The hypothesis proposes a connection between telepathic communication and surgical precision, which contradicts our current understanding of human physiology and psychology. Telepathy, as it is commonly understood, has no scientific basis and is not feasible with any known technology. The claim that traditional medical training is obsolete is unsubstantiated and overreaching. While the novelty of the idea is high due to its departure from established practices, the lack of a plausible scientific foundation makes it implausible.",
+          "duration": 10.133142948150635,
+          "raw_response": " {\n  \"validity_score\": 1,\n  \"feasibility_score\": 1,\n  \"novelty_score\": 9,\n  \"overall_plausible\": false,\n  \"confidence\": 0.0,\n  \"reasoning\": \"The hypothesis proposes a connection between telepathic communication and surgical precision, which contradicts our current understanding of human physiology and psychology. Telepathy, as it is commonly understood, has no scientific basis and is not feasible with any known technology. The claim that traditional medical training is obsolete is unsubstantiated and overreaching. While the novelty of the idea is high due to its departure from established practices, the lack of a plausible scientific foundation makes it implausible.\"\n}"
+        },
+        "borderline_1": {
+          "prediction": false,
+          "expected": false,
+          "correct": true,
+          "confidence": 0.7,
+          "reasoning": "The hypothesis presents a novel approach to brain-computer interfaces by utilizing quantum entanglement between neural microtubules and silicon quantum dots. However, the scientific validity is questionable as the existence of quantum entanglement within biological systems, particularly neural microtubules, is still a topic of ongoing research and debate. The feasibility score is relatively low due to the technical challenges associated with establishing and maintaining quantum entanglement between such disparate materials. While the novelty of the approach is high, the overall plausibility is questionable given the current state of scientific understanding.",
+          "duration": 11.240121126174927,
+          "raw_response": " {\n  \"validity_score\": 6,\n  \"feasibility_score\": 4,\n  \"novelty_score\": 9,\n  \"overall_plausible\": false,\n  \"confidence\": 0.7,\n  \"reasoning\": \"The hypothesis presents a novel approach to brain-computer interfaces by utilizing quantum entanglement between neural microtubules and silicon quantum dots. However, the scientific validity is questionable as the existence of quantum entanglement within biological systems, particularly neural microtubules, is still a topic of ongoing research and debate. The feasibility score is relatively low due to the technical challenges associated with establishing and maintaining quantum entanglement between such disparate materials. While the novelty of the approach is high, the overall plausibility is questionable given the current state of scientific understanding.\"\n}"
+        }
+      },
+      "summary": {
+        "total_correct": 5,
+        "total_tests": 5,
+        "accuracy": 1.0,
+        "avg_duration": 11.829308605194091,
+        "total_errors": 0
+      }
+    },
+    "codellama:7b": {
+      "test_cases": {
+        "plausible_1": {
+          "prediction": true,
+          "expected": true,
+          "correct": true,
+          "confidence": 0.95,
+          "reasoning": "The hypothesis is based on established principles of materials science and engineering, with a clear understanding of the experimental methods used to measure thermal conductivity. The results are consistent with the expected enhancement in thermal conductivity due to the reinforcement of copper matrix composites with graphene nanoplatelets. The study demonstrates a significant improvement in thermal conductivity at 2 wt% graphene loading, which is attributed to efficient heat transfer pathways and strong interfacial bonding.",
+          "duration": 38.57204723358154,
+          "raw_response": "\n{\n  \"validity_score\": 9,\n  \"feasibility_score\": 8,\n  \"novelty_score\": 7,\n  \"overall_plausible\": true,\n  \"confidence\": 0.95,\n  \"reasoning\": \"The hypothesis is based on established principles of materials science and engineering, with a clear understanding of the experimental methods used to measure thermal conductivity. The results are consistent with the expected enhancement in thermal conductivity due to the reinforcement of copper matrix composites with graphene nanoplatelets. The study demonstrates a significant improvement in thermal conductivity at 2 wt% graphene loading, which is attributed to efficient heat transfer pathways and strong interfacial bonding.\"\n}"
+        },
+        "implausible_1": {
+          "prediction": true,
+          "expected": false,
+          "correct": false,
+          "confidence": 0.95,
+          "reasoning": "The hypothesis appears to be well-supported by existing scientific principles and methods. The use of kitchen salt as a fuel source is reasonable given its abundance and low cost. However, the claim of achieving world energy crisis solution through room temperature nuclear fusion is ambitious and requires further evidence.",
+          "duration": 36.58676886558533,
+          "raw_response": "\n{\n  \"validity_score\": 10,\n  \"feasibility_score\": 9,\n  \"novelty_score\": 8,\n  \"overall_plausible\": true,\n  \"confidence\": 0.95,\n  \"reasoning\": \"The hypothesis appears to be well-supported by existing scientific principles and methods. The use of kitchen salt as a fuel source is reasonable given its abundance and low cost. However, the claim of achieving world energy crisis solution through room temperature nuclear fusion is ambitious and requires further evidence.\"\n}"
+        },
+        "plausible_2": {
+          "prediction": true,
+          "expected": true,
+          "correct": true,
+          "confidence": 0.95,
+          "reasoning": "This hypothesis is well-supported by established principles of molecular biology and genetics, and the proposed method for generating BRCA1 knockout variants in MCF-7 breast cancer cells has been shown to be technically feasible through prior research. The scope of this hypothesis is reasonable given the current state of technology and our understanding of the BRCA1 gene.",
+          "duration": 63.30468392372131,
+          "raw_response": "\n{\n\"validity_score\": 9,\n\"feasibility_score\": 8,\n\"novelty_score\": 7,\n\"overall_plausible\": true,\n\"confidence\": 0.95,\n\"reasoning\": \"This hypothesis is well-supported by established principles of molecular biology and genetics, and the proposed method for generating BRCA1 knockout variants in MCF-7 breast cancer cells has been shown to be technically feasible through prior research. The scope of this hypothesis is reasonable given the current state of technology and our understanding of the BRCA1 gene.\"\n}"
+        },
+        "implausible_2": {
+          "prediction": true,
+          "expected": false,
+          "correct": false,
+          "confidence": 0.95,
+          "reasoning": "The hypothesis is based on the idea of telepathic communication between surgeons and patients, which has been shown to be a viable method in some studies. The study uses established computational methods for training surgeons in telepathic communication techniques and measures surgical precision during complex procedures. While the claim of 95% reduction in complications is impressive, it is important to note that this may be due to other factors such as improved patient education or better surgical technique rather than the specific effect of telepathic communication. Additionally, the study does not provide sufficient evidence to support the claim of brain wave synchronization between surgeon and patient correlating with improved outcomes.",
+          "duration": 53.49509787559509,
+          "raw_response": "\n{\n  \"validity_score\": 9,\n  \"feasibility_score\": 8,\n  \"novelty_score\": 7,\n  \"overall_plausible\": true,\n  \"confidence\": 0.95,\n  \"reasoning\": \"The hypothesis is based on the idea of telepathic communication between surgeons and patients, which has been shown to be a viable method in some studies. The study uses established computational methods for training surgeons in telepathic communication techniques and measures surgical precision during complex procedures. While the claim of 95% reduction in complications is impressive, it is important to note that this may be due to other factors such as improved patient education or better surgical technique rather than the specific effect of telepathic communication. Additionally, the study does not provide sufficient evidence to support the claim of brain wave synchronization between surgeon and patient correlating with improved outcomes.\"\n}"
+        },
+        "borderline_1": {
+          "prediction": true,
+          "expected": false,
+          "correct": false,
+          "confidence": 0.95,
+          "reasoning": "The proposed hypothesis leverages quantum entanglement between neural microtubules and silicon quantum dots to develop a brain-computer interface that could enable direct neural control of quantum computers. While the idea is novel and has the potential to revolutionize neuroscience research, it also requires significant advancements in technology and understanding of the underlying principles. The feasibility of this hypothesis depends on the development of new materials and technologies that can support the proposed concept.",
+          "duration": 59.791486978530884,
+          "raw_response": "\n{\n  \"validity_score\": 8,\n  \"feasibility_score\": 9,\n  \"novelty_score\": 10,\n  \"overall_plausible\": true,\n  \"confidence\": 0.95,\n  \"reasoning\": \"The proposed hypothesis leverages quantum entanglement between neural microtubules and silicon quantum dots to develop a brain-computer interface that could enable direct neural control of quantum computers. While the idea is novel and has the potential to revolutionize neuroscience research, it also requires significant advancements in technology and understanding of the underlying principles. The feasibility of this hypothesis depends on the development of new materials and technologies that can support the proposed concept.\"\n}"
+        }
+      },
+      "summary": {
+        "total_correct": 2,
+        "total_tests": 5,
+        "accuracy": 0.4,
+        "avg_duration": 50.35001697540283,
+        "total_errors": 0
+      }
+    }
+  },
+  "winner": "mistral:7b",
+  "test_cases_used": [
+    {
+      "paper_id": "plausible_1",
+      "domain": "materials_science",
+      "title": "Enhanced Thermal Conductivity in Graphene-Copper Nanocomposites",
+      "abstract": "This study investigates the thermal conductivity enhancement in copper matrix composites reinforced with graphene nanoplatelets. We synthesize nanocomposites using powder metallurgy and characterize thermal properties using laser flash analysis. Results show 35% improvement in thermal conductivity at 2 wt% graphene loading, attributed to efficient heat transfer pathways and strong interfacial bonding.",
+      "expected_plausible": true,
+      "reasoning": "Factible, metodología clara, resultados razonables"
+    },
+    {
+      "paper_id": "implausible_1",
+      "domain": "physics",
+      "title": "Room Temperature Nuclear Fusion Using Kitchen Salt",
+      "abstract": "We demonstrate nuclear fusion at room temperature using ordinary table salt (NaCl) and a standard microwave oven. By heating salt for 30 seconds at maximum power, we observe deuterium-tritium fusion reactions producing helium nuclei and neutrons. Energy output exceeds input by factor of 10,000. This revolutionary method could solve world energy crisis.",
+      "expected_plausible": false,
+      "reasoning": "Viola leyes físicas fundamentales, claims extraordinarios sin evidencia"
+    },
+    {
+      "paper_id": "plausible_2",
+      "domain": "biochemistry",
+      "title": "CRISPR-Cas9 Mediated Knockout of BRCA1 in Breast Cancer Cell Lines",
+      "abstract": "We employed CRISPR-Cas9 genome editing to generate BRCA1 knockout variants in MCF-7 breast cancer cells. Guide RNAs targeting exon 5 were designed and validated. Successful knockouts were confirmed by PCR and Western blot. BRCA1-deficient cells showed increased sensitivity to PARP inhibitors, consistent with synthetic lethality principles.",
+      "expected_plausible": true,
+      "reasoning": "Metodología establecida, objetivos claros, resultados esperados"
+    },
+    {
+      "paper_id": "implausible_2",
+      "domain": "medicine",
+      "title": "Telepathic Communication Enhances Surgical Precision",
+      "abstract": "We trained 50 surgeons in telepathic communication techniques and measured surgical precision during complex procedures. Surgeons who achieved telepathic connection with patients showed 95% reduction in complications. Brain wave synchronization between surgeon and patient correlates with improved outcomes. Traditional medical training is obsolete.",
+      "expected_plausible": false,
+      "reasoning": "No base científica, metodología imposible, claims infundados"
+    },
+    {
+      "paper_id": "borderline_1",
+      "domain": "neuroscience",
+      "title": "Novel Brain-Computer Interface Using Quantum Entanglement",
+      "abstract": "We propose a brain-computer interface leveraging quantum entanglement between neural microtubules and silicon quantum dots. Preliminary experiments show correlation between conscious thought patterns and quantum state measurements. While current resolution is limited, this approach could enable direct neural control of quantum computers.",
+      "expected_plausible": false,
+      "reasoning": "Muy especulativo, mechanisms no establecidos, pero no imposible"
+    }
+  ]
+}

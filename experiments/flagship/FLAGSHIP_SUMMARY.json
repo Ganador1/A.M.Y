@@ -1,0 +1,53 @@
+{
+  "paper": "Empirical_Behaviour_of_Prime_Gaps_Across_Four_Decades_A_Repr_20260521_155341.md",
+  "rubric_score": 71.0,
+  "rubric_per_dim": {
+    "provenance_integrity": 10.0,
+    "tool_diversity": 7.0,
+    "falsifiability": 9.0,
+    "explicit_limitations": 2.0,
+    "numerical_claims_grounded": 7.0,
+    "citation_accuracy": 10.0,
+    "abstract_uniqueness": 10.0,
+    "statistical_rigor": 6.0,
+    "reproducibility_info": 10.0
+  },
+  "reflection_score": 100.0,
+  "reflection_pass": true,
+  "n_tool_calls": 14,
+  "n_experiments": 14,
+  "cramer_data": [
+    {
+      "N": 1000,
+      "primes_count": 168,
+      "mean_gap": 5.9581,
+      "max_gap": 20,
+      "ln_pn_max": 6.907755278982137,
+      "cramer_ratio": 0.4191371044702532
+    },
+    {
+      "N": 10000,
+      "primes_count": 1229,
+      "mean_gap": 8.1197,
+      "max_gap": 36,
+      "ln_pn_max": 9.210340371976184,
+      "cramer_ratio": 0.42437631827613126
+    },
+    {
+      "N": 100000,
+      "primes_count": 9592,
+      "mean_gap": 10.4253,
+      "max_gap": 72,
+      "ln_pn_max": 11.512925464970229,
+      "cramer_ratio": 0.5432016873934481
+    },
+    {
+      "N": 1000000,
+      "primes_count": 78498,
+      "mean_gap": 12.7391,
+      "max_gap": 114,
+      "ln_pn_max": 13.815510557964274,
+      "cramer_ratio": 0.5972703738701108
+    }
+  ]
+}

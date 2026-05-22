@@ -1,0 +1,324 @@
+{
+  "total": 8760310,
+  "offset": 20,
+  "next": 30,
+  "data": [
+    {
+      "paperId": "73c02c8a57cc48d6e93114271ca176e13980bb1f",
+      "title": "Principles of Plasma Discharges and Materials Processing",
+      "year": 1994,
+      "citationCount": 6272,
+      "influentialCitationCount": 647,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Chemistry"
+      ],
+      "authors": [
+        {
+          "authorId": "50156959",
+          "name": "M. Lieberman"
+        },
+        {
+          "authorId": "48078805",
+          "name": "A. Lichtenberg"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "7d8ced0b17a12deb6bd64e4f51df4e7396270c45",
+      "title": "Chemical Analysis of Ecological Materials.",
+      "year": 1976,
+      "citationCount": 4987,
+      "influentialCitationCount": 335,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.2307/2258784?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.2307/2258784, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Environmental Science",
+        "Biology"
+      ],
+      "authors": [
+        {
+          "authorId": "143954323",
+          "name": "J. Kenworthy"
+        },
+        {
+          "authorId": "87192791",
+          "name": "S. Allen"
+        },
+        {
+          "authorId": "47846183",
+          "name": "H. Grimshaw"
+        },
+        {
+          "authorId": "153841094",
+          "name": "J. A. Parkinson"
+        },
+        {
+          "authorId": "23750330",
+          "name": "C. Quarmby"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "b0b9b10bfd56eb83e7a58bc1c68482f61fdd579d",
+      "title": "Materials for electrochemical capacitors.",
+      "year": 2008,
+      "citationCount": 14857,
+      "influentialCitationCount": 138,
+      "openAccessPdf": {
+        "url": "https://hal.archives-ouvertes.fr/hal-02417326/file/Simon_25221.pdf",
+        "status": "GREEN",
+        "license": "other-oa",
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/nmat2297?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/nmat2297, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Materials Science",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "40238404",
+          "name": "P. Simon"
+        },
+        {
+          "authorId": "144061594",
+          "name": "Y. Gogotsi"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "3dc5c82b090dcd8e6dbf110200ce334f797b3f37",
+      "title": "Hydrolysis of lignocellulosic materials for ethanol production: a review.",
+      "year": 2002,
+      "citationCount": 5964,
+      "influentialCitationCount": 297,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1016/S0960-8524(01)00212-7?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/S0960-8524(01)00212-7, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Chemistry",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2108582572",
+          "name": "Ye Sun"
+        },
+        {
+          "authorId": "13452615",
+          "name": "Jiayang Cheng"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "a708f7c9bac26de7317646e0c78152a869785ba8",
+      "title": "Concrete: Microstructure, Properties, and Materials",
+      "year": 2005,
+      "citationCount": 4181,
+      "influentialCitationCount": 275,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "91824047",
+          "name": "P. K. Mehta"
+        },
+        {
+          "authorId": "145743976",
+          "name": "P. Monteiro"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "b75c0e2cbfbbe76f6aa98f06218e08c337aa8071",
+      "title": "Average stress in matrix and average elastic energy of materials with misfitting inclusions",
+      "year": 1973,
+      "citationCount": 7873,
+      "influentialCitationCount": 310,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1016/0001-6160(73)90064-3?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/0001-6160(73)90064-3, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "2233815297",
+          "name": "Trevor A. Mori"
+        },
+        {
+          "authorId": "101821421",
+          "name": "K. Tanaka"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "68c94dc5415e9929d98f028524a428dfd223f6f4",
+      "title": "Mechanics of Solid Materials",
+      "year": 1990,
+      "citationCount": 4367,
+      "influentialCitationCount": 331,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1017/CBO9781139167970?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1017/CBO9781139167970, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "145802018",
+          "name": "J. Lemaître"
+        },
+        {
+          "authorId": "101489172",
+          "name": "J. Chaboche"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "89a87593333df5ef83b2dc0c26c36f846f9b5ed6",
+      "title": "American Society for Testing and Materials",
+      "year": 2006,
+      "citationCount": 3794,
+      "influentialCitationCount": 234,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1002/9780470057339.vaa014m?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/9780470057339.vaa014m, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Political Science"
+      ],
+      "authors": [
+        {
+          "authorId": "46725990",
+          "name": "S. Esterby"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "a410517b08273b38193e5566c744d44d3d2998d9",
+      "title": "25th Anniversary Article: MXenes: A New Family of Two‐Dimensional Materials",
+      "year": 2014,
+      "citationCount": 4871,
+      "influentialCitationCount": 26,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1002/adma.201304138?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/adma.201304138, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine",
+        "Chemistry",
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "39812953",
+          "name": "Michael Naguib"
+        },
+        {
+          "authorId": "143617033",
+          "name": "V. Mochalin"
+        },
+        {
+          "authorId": "3093351",
+          "name": "M. Barsoum"
+        },
+        {
+          "authorId": "144061594",
+          "name": "Y. Gogotsi"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "03f8d351cc0fec7e5e9069f41f3a62d740c43704",
+      "title": "A COMPREHENSIVE REVIEW OF ZNO MATERIALS AND DEVICES",
+      "year": 2005,
+      "citationCount": 10571,
+      "influentialCitationCount": 159,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1063/1.1992666?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1063/1.1992666, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Physics"
+      ],
+      "authors": [
+        {
+          "authorId": "1977706",
+          "name": "Ü. Özgür"
+        },
+        {
+          "authorId": "14241536",
+          "name": "Y. Alivov"
+        },
+        {
+          "authorId": "50557866",
+          "name": "C. Liu"
+        },
+        {
+          "authorId": "49610515",
+          "name": "A. Teke"
+        },
+        {
+          "authorId": "7155548",
+          "name": "M. Reshchikov"
+        },
+        {
+          "authorId": "30528084",
+          "name": "S. Doğan"
+        },
+        {
+          "authorId": "38616471",
+          "name": "V. Avrutin"
+        },
+        {
+          "authorId": "71311130",
+          "name": "Sang-Jun Cho"
+        },
+        {
+          "authorId": "1717757",
+          "name": "H. Morkoç"
+        }
+      ],
+      "abstract": null
+    }
+  ]
+}

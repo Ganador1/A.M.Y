@@ -1,0 +1,809 @@
+{
+  "experiment": "double_blind_peer_review",
+  "session_id": "dblind_20260428_214102",
+  "timestamp": "2026-04-28T21:48:23.954862",
+  "duration_seconds": 441.8,
+  "reviewer_a_model": "deepseek-v4-pro:cloud",
+  "reviewer_b_model": "deepseek-v4-flash:cloud",
+  "n_papers": 8,
+  "n_pairs": 4,
+  "rubric_dimensions": [
+    "novelty_claims_justified",
+    "known_facts_correctly_labeled",
+    "methodology_rigor",
+    "discussion_depth",
+    "references_quality",
+    "provenance_verifiability",
+    "domain_appropriateness",
+    "overall_scientific_quality"
+  ],
+  "rubric_scale": [
+    1,
+    7
+  ],
+  "assignments": {
+    "07a0ca6e": {
+      "path": "papers/Computational_Analysis_of_Prime_Gap_Scaling_Anomalies_Relati_20260426_132559.md",
+      "reviewer_a": {
+        "model": "deepseek-v4-pro:cloud",
+        "order": 7
+      },
+      "reviewer_b": {
+        "model": "deepseek-v4-flash:cloud",
+        "order": 3
+      }
+    },
+    "46685257": {
+      "path": "papers/Computational_Analysis_of_Prime_Gap_Scaling_Anomalies_Relati_20260428_213656.md",
+      "reviewer_a": {
+        "model": "deepseek-v4-pro:cloud",
+        "order": 0
+      },
+      "reviewer_b": {
+        "model": "deepseek-v4-flash:cloud",
+        "order": 0
+      }
+    },
+    "37f8a88b": {
+      "path": "papers/Verification_of_Rydberg_Formula_Scaling_and_Deviation_Analys_20260426_132641.md",
+      "reviewer_a": {
+        "model": "deepseek-v4-pro:cloud",
+        "order": 6
+      },
+      "reviewer_b": {
+        "model": "deepseek-v4-flash:cloud",
+        "order": 2
+      }
+    },
+    "a3b1799d": {
+      "path": "papers/Verification_of_Rydberg_Formula_Scaling_and_Deviation_Analys_20260428_213800.md",
+      "reviewer_a": {
+        "model": "deepseek-v4-pro:cloud",
+        "order": 4
+      },
+      "reviewer_b": {
+        "model": "deepseek-v4-flash:cloud",
+        "order": 6
+      }
+    },
+    "392456de": {
+      "path": "papers/Huckel_Molecular_Orbital_Analysis_of_Conjugated_Pi-Systems_H_20260426_132731.md",
+      "reviewer_a": {
+        "model": "deepseek-v4-pro:cloud",
+        "order": 1
+      },
+      "reviewer_b": {
+        "model": "deepseek-v4-flash:cloud",
+        "order": 1
+      }
+    },
+    "6c031199": {
+      "path": "papers/Huckel_Molecular_Orbital_Analysis_of_Conjugated_Pi-Systems_H_20260428_213913.md",
+      "reviewer_a": {
+        "model": "deepseek-v4-pro:cloud",
+        "order": 2
+      },
+      "reviewer_b": {
+        "model": "deepseek-v4-flash:cloud",
+        "order": 4
+      }
+    },
+    "8b8148f6": {
+      "path": "papers/Computational_Verification_of_Prime_Properties_and_Classical_20260426_132813.md",
+      "reviewer_a": {
+        "model": "deepseek-v4-pro:cloud",
+        "order": 3
+      },
+      "reviewer_b": {
+        "model": "deepseek-v4-flash:cloud",
+        "order": 5
+      }
+    },
+    "bc8960a9": {
+      "path": "papers/Computational_Verification_of_Prime_Properties_and_Classical_20260428_214015.md",
+      "reviewer_a": {
+        "model": "deepseek-v4-pro:cloud",
+        "order": 5
+      },
+      "reviewer_b": {
+        "model": "deepseek-v4-flash:cloud",
+        "order": 7
+      }
+    }
+  },
+  "reviews": {
+    "46685257_A": {
+      "paper_id": "46685257",
+      "reviewer": "A",
+      "model": "deepseek-v4-pro:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 2,
+          "known_facts_correctly_labeled": 5,
+          "methodology_rigor": 2,
+          "discussion_depth": 2,
+          "references_quality": 6,
+          "provenance_verifiability": 3,
+          "domain_appropriateness": 7,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The paper lacks novelty; prime gap statistics up to 10000 are well-known and trivial to compute.",
+          "Methodology is insufficiently described; the 'distinct methods' are not truly independent, and no code or algorithms are provided.",
+          "Discussion is superficial, offering no deep analysis or meaningful comparison with existing literature.",
+          "The single hypothesis is vague, unsupported by the limited data, and its confidence level (62%) appears arbitrary.",
+          "The paper appears automatically generated, with placeholder text like '[SYSTEM] [SYSTEM]' and generic structure.",
+          "Provenance records are not accessible, making independent verification impossible."
+        ],
+        "strengths": [
+          "The paper correctly labels well-known conjectures as unproven and not novel.",
+          "References are real and relevant to prime number theory.",
+          "An attempt is made to provide output hashes for provenance."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper reports trivial computational results on prime gaps up to 10000, with no novel findings. The methodology is minimal and not reproducible, the discussion is generic, and the proposed hypothesis is unsupported. While known conjectures are correctly labeled, the overall scientific quality is far below publishable standards."
+      },
+      "timestamp": "2026-04-28T21:41:30.120046"
+    },
+    "392456de_A": {
+      "paper_id": "392456de",
+      "reviewer": "A",
+      "model": "deepseek-v4-pro:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 2,
+          "known_facts_correctly_labeled": 2,
+          "methodology_rigor": 2,
+          "discussion_depth": 2,
+          "references_quality": 3,
+          "provenance_verifiability": 2,
+          "domain_appropriateness": 4,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The paper presents well-known Hückel MO results and scaling laws as novel findings without proper acknowledgment.",
+          "The methodology lacks detail (e.g., α and β parameters, implementation) and is not reproducible from the description.",
+          "The testable hypothesis about molecular weight ratios is unrelated to the Hückel analysis and poorly defined.",
+          "The discussion is generic and merely restates textbook knowledge without deep analysis.",
+          "References are listed but not cited in the text, and no engagement with existing literature on Hückel theory or scaling laws is shown.",
+          "Provenance records are only placeholder links, making verification impossible.",
+          "The paper appears to be automatically generated with little scientific contribution."
+        ],
+        "strengths": [
+          "The computed HOMO-LUMO gaps are numerically consistent with standard Hückel theory.",
+          "The scaling law fit (11.43/n + 0.27) is correctly derived with a high R² value.",
+          "The paper attempts to document computational provenance."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper presents a computational study of Hückel MO theory for conjugated systems, reporting HOMO-LUMO gaps and a scaling law. The results are well-known textbook material, and the paper fails to provide novel insights or rigorous methodology. The discussion is generic, and the testable hypothesis is unrelated. Overall, the paper lacks scientific merit and is not suitable for publication."
+      },
+      "timestamp": "2026-04-28T21:42:22.622131"
+    },
+    "6c031199_A": {
+      "paper_id": "6c031199",
+      "reviewer": "A",
+      "model": "deepseek-v4-pro:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 7,
+          "known_facts_correctly_labeled": 7,
+          "methodology_rigor": 3,
+          "discussion_depth": 2,
+          "references_quality": 4,
+          "provenance_verifiability": 7,
+          "domain_appropriateness": 7,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The paper is a trivial computational exercise, essentially a textbook problem, with no scientific novelty or insight.",
+          "Methodology is not rigorous: only a single computational tool is used with parameter variations, and no independent verification or comparison with literature values is performed.",
+          "Discussion is superficial and lacks depth; it does not explore implications, deviations, or experimental comparisons.",
+          "References are generic textbooks, not specific to the computational work or Hückel theory scaling laws.",
+          "The manuscript contains placeholder text (e.g., '[SYSTEM] [SYSTEM]') indicating it is auto-generated and not polished."
+        ],
+        "strengths": [
+          "The paper correctly identifies that results are not novel and acknowledges known facts, avoiding false claims.",
+          "Provenance records with SHA-256 hashes are provided, supporting reproducibility.",
+          "The authors are transparent about the limitations of the single-method approach."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 7,
+        "summary": "This paper reports a basic computational verification of well-known Hückel molecular orbital results for a few conjugated systems. While it correctly avoids false novelty claims and provides provenance, the methodology lacks rigor, the discussion is superficial, and the work does not constitute a scientific contribution. It is not suitable for publication."
+      },
+      "timestamp": "2026-04-28T21:42:58.916829"
+    },
+    "8b8148f6_A": {
+      "paper_id": "8b8148f6",
+      "reviewer": "A",
+      "model": "deepseek-v4-pro:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 2,
+          "known_facts_correctly_labeled": 6,
+          "methodology_rigor": 2,
+          "discussion_depth": 2,
+          "references_quality": 5,
+          "provenance_verifiability": 2,
+          "domain_appropriateness": 5,
+          "overall_scientific_quality": 1
+        },
+        "concerns": [
+          "The paper claims a novel hypothesis but provides no evidence of novelty; the hypothesis appears generated by an opaque automated tool and is not contextualized within existing literature.",
+          "Methodology is not reproducible: tools are described as black boxes with no details on parameters, algorithms, or code, and provenance records are not actually provided.",
+          "The discussion contains a nonsensical statement about limit calculations and differentiability, indicating a lack of quality control and possible hallucination from the tool.",
+          "The computational results are trivial verifications of known facts (e.g., Goldbach up to 1000) and do not constitute a scientific contribution.",
+          "The paper is poorly written with repetitive phrasing, placeholder-like content, and an overall lack of rigorous scientific analysis."
+        ],
+        "strengths": [
+          "Known conjectures are correctly labeled as known and not claimed as novel.",
+          "The reference list includes real and relevant works in number theory."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper reports trivial computational verifications of well-known prime properties and conjectures, with no novel contribution. The methodology is opaque and irreproducible, the discussion is shallow and contains errors, and the claimed novel hypothesis is unsupported. The paper does not meet the standards of scientific publication."
+      },
+      "timestamp": "2026-04-28T21:43:17.556574"
+    },
+    "a3b1799d_A": {
+      "paper_id": "a3b1799d",
+      "reviewer": "A",
+      "model": "deepseek-v4-pro:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 7,
+          "known_facts_correctly_labeled": 7,
+          "methodology_rigor": 3,
+          "discussion_depth": 5,
+          "references_quality": 5,
+          "provenance_verifiability": 4,
+          "domain_appropriateness": 7,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The paper presents no novel scientific findings; it merely reproduces textbook results.",
+          "The computational methodology is a black box with no description of the underlying algorithm or validation.",
+          "Provenance records are provided only as SHA-256 hashes without accessible data or code, limiting reproducibility.",
+          "The discussion, while noting some domain-specific points, remains shallow and lacks quantitative analysis of deviations.",
+          "The paper reads as an automated verification report rather than a substantive scientific contribution."
+        ],
+        "strengths": [
+          "The paper correctly labels all results as known facts and does not overclaim novelty.",
+          "It acknowledges the limitations of using a single computational method.",
+          "Standard textbook references are appropriately cited."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper is a trivial verification of the Rydberg formula for hydrogen using a single, undescribed computational tool. It offers no new scientific insights, lacks methodological rigor, and provides insufficient provenance for reproducibility. While it correctly avoids novelty claims, the overall scientific quality is too low for publication."
+      },
+      "timestamp": "2026-04-28T21:43:54.865445"
+    },
+    "bc8960a9_A": {
+      "paper_id": "bc8960a9",
+      "reviewer": "A",
+      "model": "deepseek-v4-pro:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 7,
+          "known_facts_correctly_labeled": 7,
+          "methodology_rigor": 3,
+          "discussion_depth": 4,
+          "references_quality": 6,
+          "provenance_verifiability": 3,
+          "domain_appropriateness": 7,
+          "overall_scientific_quality": 3
+        },
+        "concerns": [
+          "The paper presents no novel findings; it is purely a verification exercise of known results.",
+          "Methodology is not reproducible: parameter configurations are not specified, and the computational steps are opaque.",
+          "Provenance records consist only of SHA-256 hashes without accessible data or links, making verification impossible.",
+          "Discussion is largely generic and lacks deep domain-specific analysis or new insights.",
+          "The paper reads as an automated template with placeholder text, undermining its scientific credibility."
+        ],
+        "strengths": [
+          "The paper honestly acknowledges the lack of novelty and correctly labels all findings as known.",
+          "References to real mathematical literature are provided.",
+          "Provenance hashes are included, indicating an attempt at traceability."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper reports a computational verification of well-known prime properties and conjectures, explicitly disclaiming any novelty. While the honesty is commendable, the methodology lacks rigor and reproducibility, and the scientific contribution is negligible. The work does not meet the standards for a research publication."
+      },
+      "timestamp": "2026-04-28T21:44:31.845471"
+    },
+    "37f8a88b_A": {
+      "paper_id": "37f8a88b",
+      "reviewer": "A",
+      "model": "deepseek-v4-pro:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 1,
+          "known_facts_correctly_labeled": 1,
+          "methodology_rigor": 2,
+          "discussion_depth": 2,
+          "references_quality": 5,
+          "provenance_verifiability": 2,
+          "domain_appropriateness": 6,
+          "overall_scientific_quality": 1
+        },
+        "concerns": [
+          "Novelty claims are based on contradictory data (n=50 deviation reported as 0.7353% despite identical actual and predicted values) and unsupported product calculation (E_n × n² = -13.5800 ± 0.0400, which does not match the given numbers).",
+          "Methodology is entirely opaque: no code, no equations, no detailed input parameters, and only vague references to a 'quantum_energy_levels' tool, making reproduction impossible.",
+          "The paper presents well-known textbook results (Rydberg formula energy levels) as if they are novel computational findings, and the 'testable hypothesis' about quantum defect is a standard concept in atomic physics, not a new prediction.",
+          "Provenance records are listed as placeholders with no actual content or links, so results cannot be verified or traced to real experiments.",
+          "Discussion is extremely generic, merely restating basic quantum mechanics without any deep analysis or domain-specific insight.",
+          "The overall paper appears to be automatically generated with fabricated or erroneous data, lacking any scientific contribution."
+        ],
+        "strengths": [
+          "The references are real, standard textbooks in quantum mechanics.",
+          "The paper attempts to document computational experiments, albeit inadequately."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 7,
+        "summary": "This paper claims to verify the Rydberg formula but contains erroneous novelty claims, lacks rigorous methodology, and presents known facts as novel. It does not meet the standards of scientific publication and appears to be automatically generated with fabricated results. Rejection is strongly recommended."
+      },
+      "timestamp": "2026-04-28T21:44:49.358935"
+    },
+    "07a0ca6e_A": {
+      "paper_id": "07a0ca6e",
+      "reviewer": "A",
+      "model": "deepseek-v4-pro:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 2,
+          "known_facts_correctly_labeled": 2,
+          "methodology_rigor": 1,
+          "discussion_depth": 2,
+          "references_quality": 3,
+          "provenance_verifiability": 1,
+          "domain_appropriateness": 6,
+          "overall_scientific_quality": 1
+        },
+        "concerns": [
+          "The paper presents trivial computational results (mean gaps, max gaps) that are well-known and do not constitute novel scientific findings.",
+          "The methodology is not described in any detail; only tool names are given, with no algorithms, parameters, or validation procedures.",
+          "Provenance records are placeholder strings without any accessible data, making the results completely unverifiable.",
+          "The discussion is generic and lacks quantitative analysis or comparison with existing literature beyond superficial mentions.",
+          "Known conjectures (Goldbach, Twin Prime, Collatz) are presented as results without clear labeling, and the single proposed hypothesis is vague and unsupported.",
+          "The paper does not engage with the cited references; they are merely listed without integration into the analysis or interpretation."
+        ],
+        "strengths": [
+          "The topic of prime gaps is of genuine mathematical interest.",
+          "The reference list includes real and relevant foundational works."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 7,
+        "summary": "This paper reports basic computational outputs on prime gaps without any rigorous methodology, meaningful analysis, or verifiable provenance. The claimed novelty is unjustified, and the discussion is superficial. It does not meet the standards of a scientific publication."
+      },
+      "timestamp": "2026-04-28T21:45:33.782015"
+    },
+    "46685257_B": {
+      "paper_id": "46685257",
+      "reviewer": "B",
+      "model": "deepseek-v4-flash:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 1,
+          "known_facts_correctly_labeled": 2,
+          "methodology_rigor": 2,
+          "discussion_depth": 2,
+          "references_quality": 4,
+          "provenance_verifiability": 3,
+          "domain_appropriateness": 3,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "The paper presents trivial prime gap statistics (mean, std dev, most common gaps) as if they are novel findings, but these are well-known and easily computed.",
+          "The 'conjecture engine' outputs famous unsolved problems (Goldbach, Twin Prime, Collatz) which are not novel and not related to the claimed analysis of prime gap scaling anomalies.",
+          "The methodology is vague: it mentions 3 distinct tools but then says 6 analyses, and the descriptions of parameter configurations are not provided.",
+          "The discussion is shallow and generic, lacking deep domain-specific analysis or meaningful interpretation of the results.",
+          "The provenance records all share the same ID (46685257) and are not individually linked to specific experiments, reducing verifiability.",
+          "The paper claims to identify 1 testable hypothesis (H1), but it is vague and not supported by the data presented.",
+          "There are inconsistencies: the abstract says 3 computational methods, but the methods section says 3 tools with 6 analyses, and the results show only a few outputs.",
+          "The paper does not clearly separate known facts from novel claims; for example, the observation that max gaps are within Cramér bound is a known result.",
+          "The references are real but not cited in the text in a standard way (e.g., no in-text citations for specific claims)."
+        ],
+        "strengths": [
+          "The paper attempts to document provenance with SHA-256 hashes, which is a good practice for reproducibility.",
+          "The inclusion of multiple computational methods (though poorly described) shows an effort to cross-validate.",
+          "The paper explicitly acknowledges that generated conjectures require independent validation, which is a positive step."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper appears to be an AI-generated or automated output that presents trivial prime gap statistics and well-known conjectures as if they are novel findings. The methodology is vague, the discussion is shallow, and the claimed hypothesis is unsupported. The paper lacks scientific depth and does not contribute meaningful insights to the field. It should be rejected."
+      },
+      "timestamp": "2026-04-28T21:45:45.050432"
+    },
+    "392456de_B": {
+      "paper_id": "392456de",
+      "reviewer": "B",
+      "model": "deepseek-v4-flash:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 1,
+          "known_facts_correctly_labeled": 1,
+          "methodology_rigor": 1,
+          "discussion_depth": 1,
+          "references_quality": 2,
+          "provenance_verifiability": 1,
+          "domain_appropriateness": 1,
+          "overall_scientific_quality": 1
+        },
+        "concerns": [
+          "No detailed methodology; input parameters and computational procedures are not specified.",
+          "Novelty claims are unjustified; the HOMO-LUMO gap scaling law is well-known from Hückel theory.",
+          "The testable hypothesis (H1) about molecular weight ratios and reaction yields is unrelated to the Hückel analysis and appears fabricated.",
+          "Provenance records are placeholders with no actual data or links.",
+          "Discussion is generic and lacks domain-specific analysis; it merely repeats textbook statements.",
+          "References are standard textbooks but not directly relevant to the specific topic or scaling law.",
+          "The paper appears to be a template or automatically generated content with little scientific substance."
+        ],
+        "strengths": [],
+        "recommendation": "REJECT",
+        "confidence": 7,
+        "summary": "This paper presents trivial Hückel molecular orbital calculations for linear conjugated systems, but lacks methodological detail, makes unjustified novelty claims, and includes an unrelated hypothesis. The results are well-known and the discussion is generic. The paper does not meet scientific standards and should be rejected."
+      },
+      "timestamp": "2026-04-28T21:46:03.269003"
+    },
+    "37f8a88b_B": {
+      "paper_id": "37f8a88b",
+      "reviewer": "B",
+      "model": "deepseek-v4-flash:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 1,
+          "known_facts_correctly_labeled": 2,
+          "methodology_rigor": 2,
+          "discussion_depth": 1,
+          "references_quality": 4,
+          "provenance_verifiability": 2,
+          "domain_appropriateness": 3,
+          "overall_scientific_quality": 1
+        },
+        "concerns": [
+          "The claimed 'novel' deviation at n=50 is due to rounding to four decimal places, not a physical effect.",
+          "The paper presents trivial verification of the Rydberg formula as if it were a novel finding.",
+          "The methodology is trivial: simply running a pre-existing function without any independent validation or error analysis.",
+          "The discussion is generic and lacks domain-specific depth; it does not go beyond textbook statements.",
+          "Provenance records are all identical identifiers, making verification impossible.",
+          "The paper contains placeholders like [SYSTEM] and [NOVEL] indicating it may be auto-generated or incomplete.",
+          "The testable hypothesis (H1) is a standard textbook exercise, not a novel extension.",
+          "The results for n=1,5,10,20,50 are exactly the Rydberg formula values, so there is no deviation to analyze."
+        ],
+        "strengths": [],
+        "recommendation": "REJECT",
+        "confidence": 7,
+        "summary": "This paper presents a trivial computational verification of the Rydberg formula for hydrogen energy levels, with no scientific novelty or rigorous methodology. The claimed deviations are artifacts of rounding, and the discussion is generic. The paper appears to be auto-generated or templated, lacking substantive contribution. It is not of publishable quality."
+      },
+      "timestamp": "2026-04-28T21:46:20.712126"
+    },
+    "07a0ca6e_B": {
+      "paper_id": "07a0ca6e",
+      "reviewer": "B",
+      "model": "deepseek-v4-flash:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 1,
+          "known_facts_correctly_labeled": 2,
+          "methodology_rigor": 1,
+          "discussion_depth": 1,
+          "references_quality": 4,
+          "provenance_verifiability": 1,
+          "domain_appropriateness": 3,
+          "overall_scientific_quality": 1
+        },
+        "concerns": [
+          "The paper claims novelty for basic prime gap statistics that are well-known and not anomalous.",
+          "Methodology is not reproducible: input parameters are not specified, only 'derived from the research question'.",
+          "The 'Generate conjectures' tool outputs known unsolved problems (Goldbach, twin prime, Collatz) which are not novel findings.",
+          "Discussion mixes unrelated topics (e.g., Goldbach verification and limit calculations) and lacks depth.",
+          "Provenance records are all identical placeholders, not actual verifiable records.",
+          "The paper claims 1 testable hypothesis but it is vague and not supported by the data presented.",
+          "The Cramér bound checks are standard and not anomalous; the ratios are expected.",
+          "The paper incorrectly labels known facts as novel (e.g., max gap ratios).",
+          "Domain appropriateness is weak: Collatz and Goldbach are not directly related to prime gap scaling anomalies."
+        ],
+        "strengths": [
+          "The references are real and relevant to the topic.",
+          "The paper attempts to use multiple computational methods, though details are lacking."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper presents trivial prime gap statistics and known conjectures as novel findings, with no reproducible methodology, vague discussion, and unverifiable provenance. It does not meet the standards for a scientific publication and should be rejected."
+      },
+      "timestamp": "2026-04-28T21:46:41.039718"
+    },
+    "6c031199_B": {
+      "paper_id": "6c031199",
+      "reviewer": "B",
+      "model": "deepseek-v4-flash:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 7,
+          "known_facts_correctly_labeled": 7,
+          "methodology_rigor": 3,
+          "discussion_depth": 2,
+          "references_quality": 4,
+          "provenance_verifiability": 2,
+          "domain_appropriateness": 7,
+          "overall_scientific_quality": 2
+        },
+        "concerns": [
+          "Misleading claim of '6 parameter configurations' when only system size varies; no independent parameter variations.",
+          "Computational method lacks detail: no specification of Hückel parameters (e.g., resonance integral β, Coulomb integral α) or matrix construction.",
+          "Provenance records are referenced but not accessible; only SHA-256 hashes provided without actual data or repository link.",
+          "Discussion is superficial: does not compare scaling law fit to known analytical results or discuss deviations, limitations, or implications.",
+          "Scaling law fit (11.43/n + 0.27) is presented without justification or comparison to theoretical predictions for linear polyenes.",
+          "No error analysis, sensitivity tests, or validation against independent methods or literature values.",
+          "References are limited to general textbooks; no primary literature on Hückel theory or scaling laws."
+        ],
+        "strengths": [
+          "Honest about lack of novelty; explicitly states no claims are novel.",
+          "Results are consistent with known trends in Hückel theory.",
+          "Provides SHA-256 hashes for provenance, indicating some attempt at reproducibility."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 6,
+        "summary": "This paper presents a basic Hückel MO analysis of linear conjugated systems, reproducing the well-known inverse-length scaling of the HOMO-LUMO gap. While the paper is honest about its lack of novelty, it suffers from insufficient methodological detail, shallow discussion, and incomplete provenance. It does not provide new scientific insights and is not suitable for publication."
+      },
+      "timestamp": "2026-04-28T21:47:14.293521"
+    },
+    "8b8148f6_B": {
+      "paper_id": "8b8148f6",
+      "reviewer": "B",
+      "model": "deepseek-v4-flash:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 2,
+          "known_facts_correctly_labeled": 5,
+          "methodology_rigor": 2,
+          "discussion_depth": 1,
+          "references_quality": 4,
+          "provenance_verifiability": 2,
+          "domain_appropriateness": 4,
+          "overall_scientific_quality": 1
+        },
+        "concerns": [
+          "The paper presents trivial computational results (e.g., 10000th prime, Goldbach up to 1000) that are well-known and not novel.",
+          "The claimed hypothesis (H1) is vague, lacks rigorous statistical testing, and is not supported by the presented data.",
+          "The discussion is generic and often misapplied (e.g., 'Limit calculations confirm continuity' in the context of conjecture generation).",
+          "Methodology is insufficiently described; no parameters, code, or detailed steps are provided for reproducibility.",
+          "Provenance records are all identical and not linked to actual data, undermining verifiability.",
+          "The paper appears to be an automated or template-generated output with little scientific contribution.",
+          "References are not properly integrated into the text; many are not cited in support of specific claims."
+        ],
+        "strengths": [
+          "The paper correctly labels known conjectures as 'KNOWN' in the results section.",
+          "The references include relevant and authoritative sources in number theory."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 7,
+        "summary": "This paper presents trivial computational verifications of well-known prime properties and conjectures, with no novel findings or rigorous methodology. The discussion is generic and often irrelevant, and the claimed hypothesis is unsupported. The paper lacks scientific depth and reproducibility, making it unsuitable for publication."
+      },
+      "timestamp": "2026-04-28T21:47:28.179338"
+    },
+    "a3b1799d_B": {
+      "paper_id": "a3b1799d",
+      "reviewer": "B",
+      "model": "deepseek-v4-flash:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 7,
+          "known_facts_correctly_labeled": 7,
+          "methodology_rigor": 2,
+          "discussion_depth": 2,
+          "references_quality": 4,
+          "provenance_verifiability": 2,
+          "domain_appropriateness": 7,
+          "overall_scientific_quality": 1
+        },
+        "concerns": [
+          "The results show identical 'First 7 levels' for different n values (n=5,10,20,50), which is inconsistent and indicates a misunderstanding of the output.",
+          "The methodology is not described in sufficient detail; the algorithm and code are not provided, making reproduction difficult.",
+          "Provenance records are referenced but not actually accessible in the paper, so verifiability is low.",
+          "The deviation analysis is trivial and the 0.7353% deviation at n=50 is likely due to rounding, not a meaningful finding.",
+          "The paper lacks any novel contribution or deep analysis; it merely reproduces a well-known formula."
+        ],
+        "strengths": [
+          "The paper honestly states that it does not claim novelty and correctly labels known facts.",
+          "It acknowledges the limitation of using a single computational method and the need for independent verification."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 7,
+        "summary": "This paper attempts to verify the Rydberg formula for hydrogen using a computational tool, but the results contain inconsistencies (identical first 7 levels for different principal quantum numbers) and the methodology is insufficiently described. The paper lacks novelty, depth, and rigor, making it unsuitable for publication."
+      },
+      "timestamp": "2026-04-28T21:47:53.839023"
+    },
+    "bc8960a9_B": {
+      "paper_id": "bc8960a9",
+      "reviewer": "B",
+      "model": "deepseek-v4-flash:cloud",
+      "review": {
+        "scores": {
+          "novelty_claims_justified": 7,
+          "known_facts_correctly_labeled": 7,
+          "methodology_rigor": 3,
+          "discussion_depth": 2,
+          "references_quality": 5,
+          "provenance_verifiability": 3,
+          "domain_appropriateness": 7,
+          "overall_scientific_quality": 1
+        },
+        "concerns": [
+          "The paper reports trivial computational experiments (e.g., verifying Goldbach up to 1000, twin primes up to 5000) that do not constitute a scientific contribution.",
+          "Methodology is described vaguely; the [SYSTEM] placeholder and lack of algorithmic details reduce reproducibility.",
+          "Provenance records are referenced but not actually provided (no URLs or repositories), limiting verifiability.",
+          "The 'Generate conjectures' result is incomplete and appears truncated.",
+          "The paper is repetitive and lacks depth in discussion, offering no new insights or analysis.",
+          "The title and abstract imply a large-scale study, but the actual scale is very small."
+        ],
+        "strengths": [
+          "The paper honestly labels all results as known facts and explicitly states no novelty claims.",
+          "It provides SHA-256 hashes for output verification, indicating some attention to provenance.",
+          "The references include relevant and real sources in number theory."
+        ],
+        "recommendation": "REJECT",
+        "confidence": 7,
+        "summary": "This paper presents trivial computational verification of prime properties and classical conjectures at a very small scale. While it correctly labels known facts and avoids false novelty claims, the work lacks scientific depth, methodological rigor, and significance. The results are not publishable as a scientific paper."
+      },
+      "timestamp": "2026-04-28T21:48:23.953273"
+    }
+  },
+  "inter_rater_agreement": {
+    "cohens_kappa_by_dimension": {
+      "novelty_claims_justified": 0.9742489270386264,
+      "known_facts_correctly_labeled": 0.8759689922480621,
+      "methodology_rigor": 0.750000000000001,
+      "discussion_depth": 0.22727272727272774,
+      "references_quality": 0.4805194805194808,
+      "provenance_verifiability": 0.16666666666666607,
+      "domain_appropriateness": 0.3824561403508772,
+      "overall_scientific_quality": 0.1428571428571422
+    },
+    "pearson_r_by_dimension": {
+      "novelty_claims_justified": 0.9894567026084107,
+      "known_facts_correctly_labeled": 0.894907787591326,
+      "methodology_rigor": 0.8017837257372732,
+      "discussion_depth": 0.5625439504630119,
+      "references_quality": 0.6665855192417824,
+      "provenance_verifiability": 0.3061862178478973,
+      "domain_appropriateness": 0.7431491909635303,
+      "overall_scientific_quality": 0.2182178902359924
+    },
+    "overall_kappa": 0.1428571428571422,
+    "overall_pearson_r": 0.2182178902359924,
+    "recommendation_agreement": 1.0,
+    "n_papers": 8,
+    "n_valid_pairs": 8,
+    "n_invalid_pairs": 0,
+    "invalid_paper_ids": []
+  },
+  "cohort_comparison": {
+    "n_pairs": 4,
+    "dimension_comparison": {
+      "novelty_claims_justified": {
+        "pre_mean": 1.5,
+        "post_mean": 5.62,
+        "mean_diff": 4.12,
+        "paired_t": 2.967,
+        "cohens_d": 1.48,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "known_facts_correctly_labeled": {
+        "pre_mean": 2.62,
+        "post_mean": 6.12,
+        "mean_diff": 3.5,
+        "paired_t": 3.031,
+        "cohens_d": 1.52,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "methodology_rigor": {
+        "pre_mean": 1.62,
+        "post_mean": 2.62,
+        "mean_diff": 1.0,
+        "paired_t": 4.899,
+        "cohens_d": 2.45,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "discussion_depth": {
+        "pre_mean": 1.5,
+        "post_mean": 2.62,
+        "mean_diff": 1.12,
+        "paired_t": 3.0,
+        "cohens_d": 1.5,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "references_quality": {
+        "pre_mean": 3.75,
+        "post_mean": 4.75,
+        "mean_diff": 1.0,
+        "paired_t": 2.828,
+        "cohens_d": 1.41,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "provenance_verifiability": {
+        "pre_mean": 1.62,
+        "post_mean": 3.38,
+        "mean_diff": 1.75,
+        "paired_t": 3.656,
+        "cohens_d": 1.83,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "domain_appropriateness": {
+        "pre_mean": 4.0,
+        "post_mean": 6.5,
+        "mean_diff": 2.5,
+        "paired_t": 3.062,
+        "cohens_d": 1.53,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      },
+      "overall_scientific_quality": {
+        "pre_mean": 1.12,
+        "post_mean": 1.88,
+        "mean_diff": 0.75,
+        "paired_t": 5.196,
+        "cohens_d": 2.6,
+        "direction": "improved",
+        "n_valid_pairs": 4,
+        "n_excluded_pairs": 0
+      }
+    },
+    "overall": {
+      "pre_mean": 1.12,
+      "post_mean": 1.88,
+      "mean_diff": 0.75,
+      "direction": "improved"
+    },
+    "pre_recommendations": [
+      [
+        "REJECT",
+        "REJECT"
+      ],
+      [
+        "REJECT",
+        "REJECT"
+      ],
+      [
+        "REJECT",
+        "REJECT"
+      ],
+      [
+        "REJECT",
+        "REJECT"
+      ]
+    ],
+    "post_recommendations": [
+      [
+        "REJECT",
+        "REJECT"
+      ],
+      [
+        "REJECT",
+        "REJECT"
+      ],
+      [
+        "REJECT",
+        "REJECT"
+      ],
+      [
+        "REJECT",
+        "REJECT"
+      ]
+    ]
+  }
+}

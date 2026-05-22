@@ -1,0 +1,991 @@
+{
+  "total": 8760310,
+  "offset": 0,
+  "next": 20,
+  "data": [
+    {
+      "paperId": "4e065bbd2c5125cc07beaf1dd5bfd20215d57485",
+      "title": "Advanced capabilities for materials modelling with Quantum ESPRESSO",
+      "year": 2017,
+      "citationCount": 5010,
+      "influentialCitationCount": 105,
+      "openAccessPdf": {
+        "url": "https://air.unimi.it/bitstream/2434/547667/4/Giannozzi_2017_J._Phys.%253A_Condens._Matter_29_465901.pdf",
+        "status": "GREEN",
+        "license": "other-oa",
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/1709.10010, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine",
+        "Physics",
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "48865239",
+          "name": "P. Giannozzi"
+        },
+        {
+          "authorId": "3367202",
+          "name": "O. Andreussi"
+        },
+        {
+          "authorId": "47433483",
+          "name": "T. Brumme"
+        },
+        {
+          "authorId": "12625838",
+          "name": "O. Bunău"
+        },
+        {
+          "authorId": "2669224",
+          "name": "M. Buongiorno Nardelli"
+        },
+        {
+          "authorId": "145379213",
+          "name": "M. Calandra"
+        },
+        {
+          "authorId": "2990747",
+          "name": "R. Car"
+        },
+        {
+          "authorId": "1726076",
+          "name": "C. Cavazzoni"
+        },
+        {
+          "authorId": "3106173",
+          "name": "D. Ceresoli"
+        },
+        {
+          "authorId": "49903149",
+          "name": "M. Cococcioni"
+        },
+        {
+          "authorId": "9322708",
+          "name": "N. Colonna"
+        },
+        {
+          "authorId": "2705401",
+          "name": "I. Carnimeo"
+        },
+        {
+          "authorId": "2490225",
+          "name": "A. Dal Corso"
+        },
+        {
+          "authorId": "7186312",
+          "name": "Stefano de Gironcoli"
+        },
+        {
+          "authorId": "2841068",
+          "name": "P. Delugas"
+        },
+        {
+          "authorId": "1917589",
+          "name": "R. Distasio"
+        },
+        {
+          "authorId": "144055784",
+          "name": "A. Ferretti"
+        },
+        {
+          "authorId": "46465866",
+          "name": "A. Floris"
+        },
+        {
+          "authorId": "4695051",
+          "name": "G. Fratesi"
+        },
+        {
+          "authorId": "5768527",
+          "name": "G. Fugallo"
+        },
+        {
+          "authorId": "34902510",
+          "name": "R. Gebauer"
+        },
+        {
+          "authorId": "3377936",
+          "name": "U. Gerstmann"
+        },
+        {
+          "authorId": "2165640",
+          "name": "F. Giustino"
+        },
+        {
+          "authorId": "25856274",
+          "name": "T. Gorni"
+        },
+        {
+          "authorId": "73651626",
+          "name": "J. Jia"
+        },
+        {
+          "authorId": "11234718",
+          "name": "M. Kawamura"
+        },
+        {
+          "authorId": "81950966",
+          "name": "H. Ko"
+        },
+        {
+          "authorId": "2590715",
+          "name": "A. Kokalj"
+        },
+        {
+          "authorId": "2375280342",
+          "name": "E. Küçükbenli"
+        },
+        {
+          "authorId": "34633264",
+          "name": "M. Lazzeri"
+        },
+        {
+          "authorId": "13419138",
+          "name": "M. Marsili"
+        },
+        {
+          "authorId": "2292631",
+          "name": "N. Marzari"
+        },
+        {
+          "authorId": "3850147",
+          "name": "F. Mauri"
+        },
+        {
+          "authorId": "46672592",
+          "name": "N. L. Nguyen"
+        },
+        {
+          "authorId": "48832636",
+          "name": "H. Nguyen"
+        },
+        {
+          "authorId": "2374245006",
+          "name": "A. Otero-de-la-Roza"
+        },
+        {
+          "authorId": "5353305",
+          "name": "L. Paulatto"
+        },
+        {
+          "authorId": "2218871766",
+          "name": "S. Poncé"
+        },
+        {
+          "authorId": "48842736",
+          "name": "D. Rocca"
+        },
+        {
+          "authorId": "49336200",
+          "name": "R. Sabatini"
+        },
+        {
+          "authorId": "38766794",
+          "name": "B. Santra"
+        },
+        {
+          "authorId": "2628718",
+          "name": "M. Schlipf"
+        },
+        {
+          "authorId": "2438205",
+          "name": "A. Seitsonen"
+        },
+        {
+          "authorId": "7008129",
+          "name": "A. Smogunov"
+        },
+        {
+          "authorId": "3486911",
+          "name": "I. Timrov"
+        },
+        {
+          "authorId": "6129490",
+          "name": "T. Thonhauser"
+        },
+        {
+          "authorId": "6596200",
+          "name": "P. Umari"
+        },
+        {
+          "authorId": "3480581",
+          "name": "N. Vast"
+        },
+        {
+          "authorId": "2145414201",
+          "name": "X. Wu"
+        },
+        {
+          "authorId": "49552733",
+          "name": "S. Baroni"
+        }
+      ],
+      "abstract": "Quantum ESPRESSO is an integrated suite of open-source computer codes for quantum simulations of materials using state-of-the-art electronic-structure techniques, based on density-functional theory, density-functional perturbation theory, and many-body perturbation theory, within the plane-wave pseudopotential and projector-augmented-wave approaches. Quantum ESPRESSO owes its popularity to the wide variety of properties and processes it allows to simulate, to its performance on an increasingly broad array of hardware architectures, and to a community of researchers that rely on its capabilities as a core open-source development platform to implement their ideas. In this paper we describe recent extensions and improvements, covering new methodologies and property calculators, improved parallelization, code modularization, and extended interoperability both within the distribution and with external software."
+    },
+    {
+      "paperId": "e4a20ef52960856754a2e60da733ca07ef368135",
+      "title": "2D materials and van der Waals heterostructures",
+      "year": 2016,
+      "citationCount": 5680,
+      "influentialCitationCount": 21,
+      "openAccessPdf": {
+        "url": "https://science.sciencemag.org/content/sci/353/6298/aac9439.full.pdf",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/1608.03059, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Physics",
+        "Medicine",
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "49912197",
+          "name": "K. Novoselov"
+        },
+        {
+          "authorId": "145492146",
+          "name": "A. Mishchenko"
+        },
+        {
+          "authorId": "2084556446",
+          "name": "A. Carvalho"
+        },
+        {
+          "authorId": "153552667",
+          "name": "A. C. Neto"
+        }
+      ],
+      "abstract": "BACKGROUND Materials by design is an appealing idea that is very hard to realize in practice. Combining the best of different ingredients in one ultimate material is a task for which we currently have no general solution. However, we do have some successful examples to draw upon: Composite materials and III-V heterostructures have revolutionized many aspects of our lives. Still, we need a general strategy to solve the problem of mixing and matching crystals with different properties, creating combinations with predetermined attributes and functionalities. ADVANCES Two-dimensional (2D) materials offer a platform that allows creation of heterostructures with a variety of properties. One-atom-thick crystals now comprise a large family of these materials, collectively covering a very broad range of properties. The first material to be included was graphene, a zero-overlap semimetal. The family of 2D crystals has grown to includes metals (e.g., NbSe2), semiconductors (e.g., MoS2), and insulators [e.g., hexagonal boron nitride (hBN)]. Many of these materials are stable at ambient conditions, and we have come up with strategies for handling those that are not. Surprisingly, the properties of such 2D materials are often very different from those of their 3D counterparts. Furthermore, even the study of familiar phenomena (like superconductivity or ferromagnetism) in the 2D case, where there is no long-range order, raises many thought-provoking questions. A plethora of opportunities appear when we start to combine several 2D crystals in one vertical stack. Held together by van der Waals forces (the same forces that hold layered materials together), such heterostructures allow a far greater number of combinations than any traditional growth method. As the family of 2D crystals is expanding day by day, so too is the complexity of the heterostructures that could be created with atomic precision. When stacking different crystals together, the synergetic effects become very important. In the first-order approximation, charge redistribution might occur between the neighboring (and even more distant) crystals in the stack. Neighboring crystals can also induce structural changes in each other. Furthermore, such changes can be controlled by adjusting the relative orientation between the individual elements. Such heterostructures have already led to the observation of numerous exciting physical phenomena. Thus, spectrum reconstruction in graphene interacting with hBN allowed several groups to study the Hofstadter butterfly effect and topological currents in such a system. The possibility of positioning crystals in very close (but controlled) proximity to one another allows for the study of tunneling and drag effects. The use of semiconducting monolayers leads to the creation of optically active heterostructures. The extended range of functionalities of such heterostructures yields a range of possible applications. Now the highest-mobility graphene transistors are achieved by encapsulating graphene with hBN. Photovoltaic and light-emitting devices have been demonstrated by combining optically active semiconducting layers and graphene as transparent electrodes. OUTLOOK Currently, most 2D heterostructures are composed by direct stacking of individual monolayer flakes of different materials. Although this method allows ultimate flexibility, it is slow and cumbersome. Thus, techniques involving transfer of large-area crystals grown by chemical vapor deposition (CVD), direct growth of heterostructures by CVD or physical epitaxy, or one-step growth in solution are being developed. Currently, we are at the same level as we were with graphene 10 years ago: plenty of interesting science and unclear prospects for mass production. Given the fast progress of graphene technology over the past few years, we can expect similar advances in the production of the heterostructures, making the science and applications more achievable. Production of van der Waals heterostructures. Owing to a large number of 2D crystals available today, many functional van der Waals heterostructures can be created. What started with mechanically assembled stacks (top) has now evolved to large-scale growth by CVD or physical epitaxy (bottom). The physics of two-dimensional (2D) materials and heterostructures based on such crystals has been developing extremely fast. With these new materials, truly 2D physics has begun to appear (for instance, the absence of long-range order, 2D excitons, commensurate-incommensurate transition, etc.). Novel heterostructure devices—such as tunneling transistors, resonant tunneling diodes, and light-emitting diodes—are also starting to emerge. Composed from individual 2D crystals, such devices use the properties of those materials to create functionalities that are not accessible in other heterostructures. Here we review the properties of novel 2D crystals and examine how their properties are used in new heterostructure devices."
+    },
+    {
+      "paperId": "8f59711d6873d164307cfd907ee370820137e027",
+      "title": "Mechanics of Materials",
+      "year": 2019,
+      "citationCount": 3437,
+      "influentialCitationCount": 281,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/073025a0?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/073025a0, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": null,
+      "authors": [
+        {
+          "authorId": "2244947896",
+          "name": "Adrian Burden"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "75da087d1cd7693c8306c32f2331251f2ed8d097",
+      "title": "Combining theory and experiment in electrocatalysis: Insights into materials design",
+      "year": 2017,
+      "citationCount": 8564,
+      "influentialCitationCount": 30,
+      "openAccessPdf": {
+        "url": "https://backend.orbit.dtu.dk/ws/files/131069434/aad4998_Review_Article_Manuscript.pdf",
+        "status": "GREEN",
+        "license": "other-oa",
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1126/science.aad4998?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1126/science.aad4998, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine",
+        "Chemistry"
+      ],
+      "authors": [
+        {
+          "authorId": "4761605",
+          "name": "Z. Seh"
+        },
+        {
+          "authorId": "6615634",
+          "name": "J. Kibsgaard"
+        },
+        {
+          "authorId": "7540680",
+          "name": "Colin F. Dickens"
+        },
+        {
+          "authorId": "6804631",
+          "name": "I. Chorkendorff"
+        },
+        {
+          "authorId": "1397051203",
+          "name": "J. Nørskov"
+        },
+        {
+          "authorId": "4493322",
+          "name": "T. Jaramillo"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "c5b1324b388e12d6c856460b955b3124d075e386",
+      "title": "QUANTUM ESPRESSO: a modular and open-source software project for quantum simulations of materials",
+      "year": 2009,
+      "citationCount": 23580,
+      "influentialCitationCount": 324,
+      "openAccessPdf": {
+        "url": "https://infoscience.epfl.ch/record/141807/files/quantum_espresso.pdf",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/0906.2569, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Physics",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "48865239",
+          "name": "P. Giannozzi"
+        },
+        {
+          "authorId": "49552733",
+          "name": "S. Baroni"
+        },
+        {
+          "authorId": "7524156",
+          "name": "N. Bonini"
+        },
+        {
+          "authorId": "145379213",
+          "name": "M. Calandra"
+        },
+        {
+          "authorId": "2990747",
+          "name": "R. Car"
+        },
+        {
+          "authorId": "1726076",
+          "name": "C. Cavazzoni"
+        },
+        {
+          "authorId": "3106173",
+          "name": "D. Ceresoli"
+        },
+        {
+          "authorId": "4740485",
+          "name": "G. Chiarotti"
+        },
+        {
+          "authorId": "49903149",
+          "name": "M. Cococcioni"
+        },
+        {
+          "authorId": "6317344",
+          "name": "I. Dabo"
+        },
+        {
+          "authorId": "2490225",
+          "name": "A. Dal Corso"
+        },
+        {
+          "authorId": "7186312",
+          "name": "Stefano de Gironcoli"
+        },
+        {
+          "authorId": "2781672",
+          "name": "S. Fabris"
+        },
+        {
+          "authorId": "4695051",
+          "name": "G. Fratesi"
+        },
+        {
+          "authorId": "34902510",
+          "name": "R. Gebauer"
+        },
+        {
+          "authorId": "3377936",
+          "name": "U. Gerstmann"
+        },
+        {
+          "authorId": "6537222",
+          "name": "C. Gougoussis"
+        },
+        {
+          "authorId": "2590715",
+          "name": "A. Kokalj"
+        },
+        {
+          "authorId": "34633264",
+          "name": "M. Lazzeri"
+        },
+        {
+          "authorId": "1402979955",
+          "name": "L. Martin-Samos"
+        },
+        {
+          "authorId": "2292631",
+          "name": "N. Marzari"
+        },
+        {
+          "authorId": "3850147",
+          "name": "F. Mauri"
+        },
+        {
+          "authorId": "3678986",
+          "name": "R. Mazzarello"
+        },
+        {
+          "authorId": "6201414",
+          "name": "S. Paolini"
+        },
+        {
+          "authorId": "5613409",
+          "name": "Alfredo Pasquarello"
+        },
+        {
+          "authorId": "5353305",
+          "name": "L. Paulatto"
+        },
+        {
+          "authorId": "144297690",
+          "name": "C. Sbraccia"
+        },
+        {
+          "authorId": "1956633",
+          "name": "S. Scandolo"
+        },
+        {
+          "authorId": "6948814",
+          "name": "G. Sclauzero"
+        },
+        {
+          "authorId": "2438205",
+          "name": "A. Seitsonen"
+        },
+        {
+          "authorId": "7008129",
+          "name": "A. Smogunov"
+        },
+        {
+          "authorId": "6596200",
+          "name": "P. Umari"
+        },
+        {
+          "authorId": "2380855",
+          "name": "R. Wentzcovitch"
+        }
+      ],
+      "abstract": "QUANTUM ESPRESSO is an integrated suite of computer codes for electronic-structure calculations and materials modeling, based on density-functional theory, plane waves, and pseudopotentials (norm-conserving, ultrasoft, and projector-augmented wave). The acronym ESPRESSO stands for opEn Source Package for Research in Electronic Structure, Simulation, and Optimization. It is freely available to researchers around the world under the terms of the GNU General Public License. QUANTUM ESPRESSO builds upon newly-restructured electronic-structure codes that have been developed and tested by some of the original authors of novel electronic-structure algorithms and applied in the last twenty years by some of the leading materials modeling groups worldwide. Innovation and efficiency are still its main focus, with special attention paid to massively parallel architectures, and a great effort being devoted to user friendliness. QUANTUM ESPRESSO is evolving towards a distribution of independent and interoperable codes in the spirit of an open-source project, where researchers active in the field of electronic-structure calculations are encouraged to participate in the project by contributing their own codes or by implementing their own ideas into existing codes."
+    },
+    {
+      "paperId": "3211538093dba303115d3ab6ef7719b53aac8aad",
+      "title": "First principles phonon calculations in materials science",
+      "year": 2015,
+      "citationCount": 8610,
+      "influentialCitationCount": 115,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.1016/j.scriptamat.2015.07.021",
+        "status": "HYBRID",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/1506.08498, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Materials Science",
+        "Physics"
+      ],
+      "authors": [
+        {
+          "authorId": "78788607",
+          "name": "A. Togo"
+        },
+        {
+          "authorId": "46487378",
+          "name": "I. Tanaka"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "978f76c3683a56931114f026a9e3c2b82a3f20e0",
+      "title": "Materials science and engineering",
+      "year": 2023,
+      "citationCount": 1128,
+      "influentialCitationCount": 85,
+      "openAccessPdf": {
+        "url": "https://digital.library.unt.edu/ark:/67531/metadc1402933/m2/1/high_res_d/10194532.pdf",
+        "status": "GREEN",
+        "license": "other-oa",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.2355/isijinternational1966.26.93?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.2355/isijinternational1966.26.93, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2248494208",
+          "name": "R. W. Cahn"
+        }
+      ],
+      "abstract": "induced strain hardening gradient"
+    },
+    {
+      "paperId": "65e78813e291f628e3344c4ce36553187468304d",
+      "title": "Compositional engineering of perovskite materials for high-performance solar cells",
+      "year": 2015,
+      "citationCount": 5597,
+      "influentialCitationCount": 38,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/nature14133?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/nature14133, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Chemistry",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5868628",
+          "name": "N. Jeon"
+        },
+        {
+          "authorId": "3583781",
+          "name": "J. Noh"
+        },
+        {
+          "authorId": "24310590",
+          "name": "Woon Seok Yang"
+        },
+        {
+          "authorId": "31090451",
+          "name": "Young Chan Kim"
+        },
+        {
+          "authorId": "7195477",
+          "name": "Seungchan Ryu"
+        },
+        {
+          "authorId": "48356470",
+          "name": "Jangwon Seo"
+        },
+        {
+          "authorId": "4576645",
+          "name": "S. Seok"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "98476502ec663771d41d2f8c948fd176257f17bd",
+      "title": "Commentary: The Materials Project: A materials genome approach to accelerating materials innovation",
+      "year": 2013,
+      "citationCount": 9780,
+      "influentialCitationCount": 329,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.1063/1.4812323",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1063/1.4812323?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1063/1.4812323, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "2541031",
+          "name": "Anubhav Jain"
+        },
+        {
+          "authorId": "2381325",
+          "name": "S. Ong"
+        },
+        {
+          "authorId": "2757400",
+          "name": "G. Hautier"
+        },
+        {
+          "authorId": "2154939138",
+          "name": "Wei Chen"
+        },
+        {
+          "authorId": "145129526",
+          "name": "W. Richards"
+        },
+        {
+          "authorId": "8773266",
+          "name": "S. Dacek"
+        },
+        {
+          "authorId": "1918932",
+          "name": "S. Cholia"
+        },
+        {
+          "authorId": "1716449",
+          "name": "D. Gunter"
+        },
+        {
+          "authorId": "120316650",
+          "name": "D. Skinner"
+        },
+        {
+          "authorId": "2807088",
+          "name": "G. Ceder"
+        },
+        {
+          "authorId": "20988776",
+          "name": "K. Persson"
+        }
+      ],
+      "abstract": "Accelerating the discovery of advanced materials is essential for human welfare and sustainable, clean energy. In this paper, we introduce the Materials Project (www.materialsproject.org), a core program of the Materials Genome Initiative that uses high-throughput computing to uncover the properties of all known inorganic materials. This open dataset can be accessed through multiple channels for both interactive exploration and data mining. The Materials Project also seeks to create open-source platforms for developing robust, sophisticated materials analyses. Future efforts will enable users to perform ‘‘rapid-prototyping’’ of new materials in silico, and provide researchers with new avenues for cost-effective, data-driven materials design. © 2013 Author(s). All article content, except where otherwise noted, is licensed under a Creative Commons Attribution 3.0 Unported License."
+    },
+    {
+      "paperId": "f998070801b5be3242ec415d32f9039ee51d98b5",
+      "title": "Li-ion battery materials: present and future",
+      "year": 2015,
+      "citationCount": 5895,
+      "influentialCitationCount": 77,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.1016/j.mattod.2014.10.040",
+        "status": "HYBRID",
+        "license": "CCBYNCND",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/J.MATTOD.2014.10.040?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/J.MATTOD.2014.10.040, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "46381392",
+          "name": "Naoki Nitta"
+        },
+        {
+          "authorId": "145186647",
+          "name": "Feixiang Wu"
+        },
+        {
+          "authorId": "1741823",
+          "name": "Jung Tae Lee"
+        },
+        {
+          "authorId": "145406504",
+          "name": "G. Yushin"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "ed7ed324a82f6e2117dc6645db9919f993735841",
+      "title": "Electrospinning and Electrospun Nanofibers: Methods, Materials, and Applications.",
+      "year": 2019,
+      "citationCount": 3522,
+      "influentialCitationCount": 53,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc6589095?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1021/acs.chemrev.8b00593?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1021/acs.chemrev.8b00593, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Chemistry",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "9176264",
+          "name": "Jiajia Xue"
+        },
+        {
+          "authorId": "145559968",
+          "name": "Tong Wu"
+        },
+        {
+          "authorId": "47414936",
+          "name": "Yunqian Dai"
+        },
+        {
+          "authorId": "46267791",
+          "name": "Younan Xia"
+        }
+      ],
+      "abstract": "Electrospinning is a versatile and viable technique for generating ultrathin fibers. Remarkable progress has been made with regard to the development of electrospinning methods and engineering of electrospun nanofibers to suit or enable various applications. We aim to provide a comprehensive overview of electrospinning, including the principle, methods, materials, and applications. We begin with a brief introduction to the early history of electrospinning, followed by discussion of its principle and typical apparatus. We then discuss its renaissance over the past two decades as a powerful technology for the production of nanofibers with diversified compositions, structures, and properties. Afterward, we discuss the applications of electrospun nanofibers, including their use as \"smart\" mats, filtration membranes, catalytic supports, energy harvesting/conversion/storage components, and photonic and electronic devices, as well as biomedical scaffolds. We highlight the most relevant and recent advances related to the applications of electrospun nanofibers by focusing on the most representative examples. We also offer perspectives on the challenges, opportunities, and new directions for future development. At the end, we discuss approaches to the scale-up production of electrospun nanofibers and briefly discuss various types of commercial products based on electrospun nanofibers that have found widespread use in our everyday life."
+    },
+    {
+      "paperId": "268b8f10a45e71f63daab6403bb453da31ae28a7",
+      "title": "This PDF file includes: Materials and Methods",
+      "year": 2009,
+      "citationCount": 9877,
+      "influentialCitationCount": 659,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": null,
+      "authors": [],
+      "abstract": null
+    },
+    {
+      "paperId": "06d3f738d2aebd691f0ff47cfce1fb80aea8dd1a",
+      "title": "Ferroelectric Materials and Their Applications",
+      "year": 2023,
+      "citationCount": 1033,
+      "influentialCitationCount": 26,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/c2009-0-12800-3?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/c2009-0-12800-3, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Materials Science",
+        "Physics"
+      ],
+      "authors": [
+        {
+          "authorId": "47103900",
+          "name": "Yuhuan Xu"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "4e6fb75f2f4785fbaa189ede88c9940690b8c1d5",
+      "title": "Understanding TiO2 photocatalysis: mechanisms and materials.",
+      "year": 2014,
+      "citationCount": 4980,
+      "influentialCitationCount": 36,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1021/cr5001892?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1021/cr5001892, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine",
+        "Chemistry"
+      ],
+      "authors": [
+        {
+          "authorId": "2770329",
+          "name": "J. Schneider"
+        },
+        {
+          "authorId": "144077336",
+          "name": "M. Matsuoka"
+        },
+        {
+          "authorId": "145564359",
+          "name": "M. Takeuchi"
+        },
+        {
+          "authorId": "2108108331",
+          "name": "Jinlong Zhang"
+        },
+        {
+          "authorId": "9797466",
+          "name": "Y. Horiuchi"
+        },
+        {
+          "authorId": "48755107",
+          "name": "M. Anpo"
+        },
+        {
+          "authorId": "3896287",
+          "name": "D. Bahnemann"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "8b921bd9847192f82eaf08b6e23b3ab70a70bfc6",
+      "title": "Electronic Processes In Non-Crystalline Materials",
+      "year": 1940,
+      "citationCount": 8555,
+      "influentialCitationCount": 476,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1063/1.3071145?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1063/1.3071145, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "50692208",
+          "name": "N. Mott"
+        },
+        {
+          "authorId": "47276351",
+          "name": "E. Davis"
+        },
+        {
+          "authorId": "38957397",
+          "name": "K. Weiser"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "734aed3182966c229c19832ec5b3f1a347ec10b9",
+      "title": "Pseudocapacitive oxide materials for high-rate electrochemical energy storage",
+      "year": 2014,
+      "citationCount": 4383,
+      "influentialCitationCount": 30,
+      "openAccessPdf": {
+        "url": "https://hal.archives-ouvertes.fr/hal-01171774/file/Simon_13900.pdf.pdf",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1039/C3EE44164D?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1039/C3EE44164D, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "14697300",
+          "name": "V. Augustyn"
+        },
+        {
+          "authorId": "40238404",
+          "name": "P. Simon"
+        },
+        {
+          "authorId": "49048766",
+          "name": "B. Dunn"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "c38a2d9cc69b78219754a3703782f4753d1e0890",
+      "title": "Introduction to Magnetic Materials",
+      "year": 1972,
+      "citationCount": 6949,
+      "influentialCitationCount": 355,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1002/9780470386323?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/9780470386323, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "16685326",
+          "name": "B. Cullity"
+        },
+        {
+          "authorId": "144911650",
+          "name": "C. Graham"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "c292e473b3825eeb9db03c70b2e1c033aea190d5",
+      "title": "Machine learning for molecular and materials science",
+      "year": 2018,
+      "citationCount": 3108,
+      "influentialCitationCount": 24,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/s41586-018-0337-2?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/s41586-018-0337-2, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Chemistry",
+        "Materials Science",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3300287",
+          "name": "K. Butler"
+        },
+        {
+          "authorId": "48592354",
+          "name": "D. Davies"
+        },
+        {
+          "authorId": "2527511",
+          "name": "H. Cartwright"
+        },
+        {
+          "authorId": "2385206",
+          "name": "O. Isayev"
+        },
+        {
+          "authorId": "144485183",
+          "name": "A. Walsh"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "d710ffac78c85f41583582131c2fc4364f070e32",
+      "title": "Toxic Potential of Materials at the Nanolevel",
+      "year": 2006,
+      "citationCount": 8795,
+      "influentialCitationCount": 271,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1126/SCIENCE.1114397?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1126/SCIENCE.1114397, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2306041",
+          "name": "A. Nel"
+        },
+        {
+          "authorId": "145320410",
+          "name": "T. Xia"
+        },
+        {
+          "authorId": "3698328",
+          "name": "L. Mädler"
+        },
+        {
+          "authorId": "2108724247",
+          "name": "Ning Li"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "5875d4727f636faf123d161338b97ca2c2d0f02e",
+      "title": "Solutions Manual and Supplementary Materials for Econometric Analysis of Cross Section and Panel Data",
+      "year": 2003,
+      "citationCount": 14958,
+      "influentialCitationCount": 174,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Computer Science",
+        "Engineering",
+        "Economics"
+      ],
+      "authors": [
+        {
+          "authorId": "1823130",
+          "name": "J. Wooldridge"
+        }
+      ],
+      "abstract": null
+    }
+  ]
+}

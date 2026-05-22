@@ -1,0 +1,62 @@
+{
+  "model_prediction": {
+    "accuracy_mean": 0.78,
+    "accuracy_std": 0.11635489477654791,
+    "completion_time_mean": 0.0,
+    "completion_time_std": 0.0,
+    "error_rate": 0.0,
+    "coherence_mean": 0.0,
+    "relevance_mean": 0.0,
+    "scientific_validity_mean": 0.0,
+    "total_analyses": 40,
+    "improvement_trend": 0.0
+  },
+  "hypothesis_generation": {
+    "accuracy_mean": 0.85,
+    "accuracy_std": 0.0,
+    "completion_time_mean": 0.0,
+    "completion_time_std": 0.0,
+    "error_rate": 0.0,
+    "coherence_mean": 0.765,
+    "relevance_mean": 0.0,
+    "scientific_validity_mean": 0.0,
+    "total_analyses": 6,
+    "improvement_trend": 0.0
+  },
+  "evidence_synthesis": {
+    "accuracy_mean": 0.8,
+    "accuracy_std": 0.0,
+    "completion_time_mean": 0.0,
+    "completion_time_std": 0.0,
+    "error_rate": 0.0,
+    "coherence_mean": 0.76,
+    "relevance_mean": 0.0,
+    "scientific_validity_mean": 0.0,
+    "total_analyses": 6,
+    "improvement_trend": 0.0
+  },
+  "literature_search": {
+    "accuracy_mean": 1.0,
+    "accuracy_std": 0.0,
+    "completion_time_mean": 0.0,
+    "completion_time_std": 0.0,
+    "error_rate": 0.0,
+    "coherence_mean": 1.0,
+    "relevance_mean": 0.0,
+    "scientific_validity_mean": 0.0,
+    "total_analyses": 6,
+    "improvement_trend": 0.0
+  },
+  "peer_review": {
+    "accuracy_mean": 0.85,
+    "accuracy_std": 0.0,
+    "completion_time_mean": 0.0,
+    "completion_time_std": 0.0,
+    "error_rate": 0.0,
+    "coherence_mean": 0.8245,
+    "relevance_mean": 0.0,
+    "scientific_validity_mean": 0.85,
+    "total_analyses": 6,
+    "improvement_trend": 0.0
+  }
+}

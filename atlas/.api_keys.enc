@@ -1,0 +1,8 @@
+{
+  "HUGGINGFACE": {
+    "key": "api_key_huggingface",
+    "encrypted_value": "Z0FBQUFBQm82R2JYZWxYSGpjU1hYcW1PMFBMUVVLRzdOQS1BbGRDelBwZi1Ka3ZvbVJCclA5ZDFpelUyZ0poZ2FzemxuQ1hOV3BaYmFPb3F3Sm5mVHNtUngzSmh0azExcUNqYVRfYkRQLWV2MmNCeGtlV0hhZkItZUx5SVVvWWJYU1BKaFMzOUMtZmI=",
+    "algorithm": "fernet",
+    "created_at": "/Users/giovanniarangio/atlas"
+  }
+}

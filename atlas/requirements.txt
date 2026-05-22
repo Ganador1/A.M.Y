@@ -1,0 +1,6 @@
+-r requirements-core.txt
+-r requirements-scientific.txt
+-r requirements-bio.txt
+-r requirements-quantum.txt
+-r requirements-ml.txt
+# Dev dependencies are optional, use requirements-dev.txt for them

@@ -1,0 +1,3728 @@
+{
+  "total": 626666,
+  "offset": 320,
+  "next": 420,
+  "data": [
+    {
+      "paperId": "4cee1a03d5d0ad4d5ee358f27548753725e93b60",
+      "title": "The Role of Next-Generation Sequencing in Precision Medicine: A Review of Outcomes in Oncology",
+      "year": 2018,
+      "citationCount": 127,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "https://www.mdpi.com/2075-4426/8/3/30/pdf?version=1537177197",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC6164147, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "51286881",
+          "name": "Margaret Morash"
+        },
+        {
+          "authorId": "144187477",
+          "name": "Hannah Mitchell"
+        },
+        {
+          "authorId": "145305292",
+          "name": "H. Beltran"
+        },
+        {
+          "authorId": "150097652",
+          "name": "O. Elemento"
+        },
+        {
+          "authorId": "145236681",
+          "name": "Jyotishman Pathak"
+        }
+      ],
+      "abstract": "Precision medicine seeks to use genomic data to help provide the right treatment to the right patient at the right time. Next-generation sequencing technology allows for the rapid and accurate sequencing of many genes at once. This technology is becoming more common in oncology, though the clinical benefit of incorporating it into precision medicine strategies remains under significant debate. In this manuscript, we discuss the early findings of the impact of next-generation sequencing on cancer patient outcomes. We investigate why not all patients with genomic variants linked to a specific therapy receive that therapy and describe current barriers. Finally, we explore the current state of health insurance coverage for individual genome sequencing and targeted therapies for cancer. Based on our analysis, we recommend increased transparency around the determination of “actionable mutations” and a heightened focus on investigating the variations in health insurance coverage across patients receiving sequencing-matched therapies."
+    },
+    {
+      "paperId": "d94c71346f66c81a21b1407299d93d60ae28dbc1",
+      "title": "Radiometabolic treatment of bone-metastasizing cancer: from 186rhenium to 223radium.",
+      "year": 2014,
+      "citationCount": 27,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/cbr.2013.1549?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/cbr.2013.1549, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2504054",
+          "name": "G. Rubini"
+        },
+        {
+          "authorId": "31816701",
+          "name": "A. Nicoletti"
+        },
+        {
+          "authorId": "5837182",
+          "name": "D. Rubini"
+        },
+        {
+          "authorId": "9860389",
+          "name": "A. Asabella"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "a2adba90885678cb08bbfb77f1051644b3de4257",
+      "title": "Circulating Cell Free Tumor DNA Detection as a Routine Tool for Lung Cancer Patient Management",
+      "year": 2017,
+      "citationCount": 88,
+      "influentialCitationCount": 5,
+      "openAccessPdf": {
+        "url": "https://www.mdpi.com/1422-0067/18/2/264/pdf?version=1486359612",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC5343800, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "39363323",
+          "name": "J. Vendrell"
+        },
+        {
+          "authorId": "1387475003",
+          "name": "F. T. Mau-Them"
+        },
+        {
+          "authorId": "26376145",
+          "name": "Benoît Béganton"
+        },
+        {
+          "authorId": "6096326",
+          "name": "S. Godreuil"
+        },
+        {
+          "authorId": "6541653",
+          "name": "P. Coopman"
+        },
+        {
+          "authorId": "3767469",
+          "name": "J. Solassol"
+        }
+      ],
+      "abstract": "Circulating tumoral DNA (ctDNA), commonly named “liquid biopsy”, has emerged as a new promising noninvasive tool to detect biomarker in several cancers including lung cancer. Applications involving molecular analysis of ctDNA in lung cancer have increased and encompass diagnosis, response to treatment, acquired resistance and prognosis prediction, while bypassing the problem of tumor heterogeneity. ctDNA may then help perform dynamic genetic surveillance in the era of precision medicine through indirect tumoral genomic information determination. The aims of this review were to examine the recent technical developments that allowed the detection of genetic alterations of ctDNA in lung cancer. Furthermore, we explored clinical applications in patients with lung cancer including treatment efficiency monitoring, acquired therapy resistance mechanisms and prognosis value."
+    },
+    {
+      "paperId": "5d9cc57cb9cb7c3ee97c0b2ef24241be40e7820a",
+      "title": "Database of genomic biomarkers for cancer drugs and clinical targetability in solid tumors.",
+      "year": 2015,
+      "citationCount": 126,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "https://cancerdiscovery.aacrjournals.org/content/candisc/5/2/118.full.pdf",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1158/2159-8290.CD-14-1118?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1158/2159-8290.CD-14-1118, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3353615",
+          "name": "R. Dienstmann"
+        },
+        {
+          "authorId": "1906837",
+          "name": "I. S. Jang"
+        },
+        {
+          "authorId": "2126910",
+          "name": "B. Bot"
+        },
+        {
+          "authorId": "144682786",
+          "name": "S. Friend"
+        },
+        {
+          "authorId": "1684985",
+          "name": "J. Guinney"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "325028ca06415c2e7c90e63d755b0abd551c9046",
+      "title": "Personalized Targeted Therapy for Lung Cancer",
+      "year": 2012,
+      "citationCount": 63,
+      "influentialCitationCount": 6,
+      "openAccessPdf": {
+        "url": "https://www.mdpi.com/1422-0067/13/9/11471/pdf?version=1403144805",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC3472758, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "14677063",
+          "name": "Ke-hua Wu"
+        },
+        {
+          "authorId": "39675949",
+          "name": "L. House"
+        },
+        {
+          "authorId": "2116007038",
+          "name": "Wanqing Liu"
+        },
+        {
+          "authorId": "153091255",
+          "name": "W. Cho"
+        }
+      ],
+      "abstract": "Lung cancer has long been recognized as an extremely heterogeneous disease, since its development is unique in every patient in terms of clinical characterizations, prognosis, response and tolerance to treatment. Personalized medicine refers to the use of markers to predict which patient will most likely benefit from a treatment. In lung cancer, the well-developed epidermal growth factor receptor (EGFR) and the newly emerging EML4-anaplastic lymphoma kinase (ALK) are important therapeutic targets. This review covers the basic mechanism of EGFR and EML4-ALK activation, the predictive biomarkers, the mechanism of resistance, and the current targeted tyrosine kinase inhibitors. The efficacy of EGFR and ALK targeted therapies will be discussed in this review by summarizing the prospective clinical trials, which were performed in biomarker-based selected patients. In addition, the revolutionary sequencing and systems strategies will also be included in this review since these technologies will provide a comprehensive understanding in the molecular characterization of cancer, allow better stratification of patients for the most appropriate targeted therapies, eventually resulting in a more promising personalized treatment. The relatively low incidence of EGFR and ALK in non-Asian patients and the lack of response in mutant patients limit the application of the therapies targeting EGFR or ALK. Nevertheless, it is foreseeable that the sequencing and systems strategies may offer a solution for those patients."
+    },
+    {
+      "paperId": "b9d3bad71865f377938456892ae73f0731cb3743",
+      "title": "Precision Therapy of Head and Neck Squamous Cell Carcinoma",
+      "year": 2018,
+      "citationCount": 46,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc5960884?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1177/0022034518769645?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1177/0022034518769645, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2243540028",
+          "name": "Peter J. Polverini"
+        },
+        {
+          "authorId": "152472678",
+          "name": "N. D’Silva"
+        },
+        {
+          "authorId": "2251781730",
+          "name": "Yu Lei"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "59e23a4d21c0cd45bcea45888f2d5d3fb192a889",
+      "title": "Immediate hormonal therapy compared with observation after radical prostatectomy and pelvic lymphadenectomy in men with node-positive prostate cancer.",
+      "year": 1999,
+      "citationCount": 771,
+      "influentialCitationCount": 12,
+      "openAccessPdf": {
+        "url": "https://www.nejm.org/doi/pdf/10.1056/NEJM199912093412401?articleTools=true",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1056/NEJM199912093412401?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1056/NEJM199912093412401, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1946990",
+          "name": "E. Messing"
+        },
+        {
+          "authorId": "6306217",
+          "name": "J. Manola"
+        },
+        {
+          "authorId": "10144696",
+          "name": "M. Sarosdy"
+        },
+        {
+          "authorId": "87522547",
+          "name": "G. Wilding"
+        },
+        {
+          "authorId": "145288523",
+          "name": "E. Crawford"
+        },
+        {
+          "authorId": "4558063",
+          "name": "D. Trump"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "cfb03697447e1a5c877eee7f73bde0fd084d9020",
+      "title": "New Generation of Multifunctional Nanoparticles for Cancer Imaging and Therapy",
+      "year": 2009,
+      "citationCount": 398,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1002/adfm.200801655?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/adfm.200801655, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "4146514",
+          "name": "Kyeongsoon Park"
+        },
+        {
+          "authorId": "2108129001",
+          "name": "Seulki Lee"
+        },
+        {
+          "authorId": "37505414",
+          "name": "E. Kang"
+        },
+        {
+          "authorId": "3715294",
+          "name": "Kwangmeyung Kim"
+        },
+        {
+          "authorId": "2323052",
+          "name": "Kuiwon Choi"
+        },
+        {
+          "authorId": "145567322",
+          "name": "I. Kwon"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "d29236855aee6f37a74c6e655a739cc50cd66c10",
+      "title": "Adoptive T cell therapy for cancer in the clinic.",
+      "year": 2007,
+      "citationCount": 571,
+      "influentialCitationCount": 21,
+      "openAccessPdf": {
+        "url": "http://www.jci.org/articles/view/32446/files/pdf",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1172/JCI32446?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1172/JCI32446, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5153116",
+          "name": "C. June"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "78c5eca927ab7e9d56d9edb17c38eb7a238020f1",
+      "title": "EANM guidelines for radionuclide therapy of bone metastases with beta-emitting radionuclides",
+      "year": 2018,
+      "citationCount": 53,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "https://link.springer.com/content/pdf/10.1007%2Fs00259-018-3947-x.pdf",
+        "status": "HYBRID",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC5978928, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1402799054",
+          "name": "D. Handkiewicz-Junak"
+        },
+        {
+          "authorId": "2103436",
+          "name": "T. Poeppel"
+        },
+        {
+          "authorId": "116430336",
+          "name": "L. Bodei"
+        },
+        {
+          "authorId": "6396582",
+          "name": "C. Aktolun"
+        },
+        {
+          "authorId": "5069925",
+          "name": "S. Ezziddin"
+        },
+        {
+          "authorId": "3370303",
+          "name": "F. Giammarile"
+        },
+        {
+          "authorId": "1399153801",
+          "name": "R. Delgado-Bolton"
+        },
+        {
+          "authorId": "2022534",
+          "name": "M. Gabriel"
+        }
+      ],
+      "abstract": "The skeleton is the most common metastatic site in patients with advanced cancer. Pain is a major healthcare problem in patients with bone metastases. Bone-seeking radionuclides that selectively accumulate in the bone are used to treat cancer-induced bone pain and to prolong survival in selected groups of cancer patients. The goals of these guidelines are to assist nuclear medicine practitioners in: (a) evaluating patients who might be candidates for radionuclide treatment of bone metastases using beta-emitting radionuclides such as strontium-89 (89Sr), samarium-153 (153Sm) lexidronam (153Sm-EDTMP), and phosphorus-32 (32P) sodium phosphate; (b) performing the treatments; and ©) understanding and evaluating the treatment outcome and side effects."
+    },
+    {
+      "paperId": "43fa7b83b8fef0db193357344c8725950356c9c8",
+      "title": "Molecular mechanisms of resistance to cetuximab and panitumumab in colorectal cancer.",
+      "year": 2010,
+      "citationCount": 690,
+      "influentialCitationCount": 25,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1200/JCO.2009.24.6116?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1200/JCO.2009.24.6116, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1831351",
+          "name": "A. Bardelli"
+        },
+        {
+          "authorId": "145100265",
+          "name": "S. Siena"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "d6dc8cffffc7c00bddfd8f3de7124619d57e0590",
+      "title": "Use of alternative medicine by women with early-stage breast cancer.",
+      "year": 1999,
+      "citationCount": 666,
+      "influentialCitationCount": 41,
+      "openAccessPdf": {
+        "url": "https://www.nejm.org/doi/pdf/10.1056/NEJM199906033402206?articleTools=true",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1056/NEJM199906033402206?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1056/NEJM199906033402206, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3924882",
+          "name": "H. Burstein"
+        },
+        {
+          "authorId": "48633098",
+          "name": "S. Gelber"
+        },
+        {
+          "authorId": "4171756",
+          "name": "E. Guadagnoli"
+        },
+        {
+          "authorId": "2090390",
+          "name": "J. Weeks"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "9f03c170e48e9a4bab374bcec12d54528f060435",
+      "title": "Metabolomics Applications in Precision Medicine: An Oncological Perspective",
+      "year": 2017,
+      "citationCount": 81,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc5652075?pdf=render",
+        "status": "GREEN",
+        "license": "CCBYNC",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC5652075, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1401535900",
+          "name": "L. Puchades-Carrasco"
+        },
+        {
+          "authorId": "2264576059",
+          "name": "A. Pineda-Lucena"
+        }
+      ],
+      "abstract": "Nowadays, cancer therapy remains limited by the conventional one-size-fits-all approach. In this context, treatment decisions are based on the clinical stage of disease but fail to ascertain the individual´s underlying biology and its role in driving malignancy. The identification of better therapies for cancer treatment is thus limited by the lack of sufficient data regarding the characterization of specific biochemical signatures associated with each particular cancer patient or group of patients. Metabolomics approaches promise a better understanding of cancer, a disease characterized by significant alterations in bioenergetic metabolism, by identifying changes in the pattern of metabolite expression in addition to changes in the concentration of individual metabolites as well as alterations in biochemical pathways. These approaches hold the potential of identifying novel biomarkers with different clinical applications, including the development of more specific diagnostic methods based on the characterization of metabolic subtypes, the monitoring of currently used cancer therapeutics to evaluate the response and the prognostic outcome with a given therapy, and the evaluation of the mechanisms involved in disease relapse and drug resistance. This review discusses metabolomics applications in different oncological processes underlining the potential of this omics approach to further advance the implementation of precision medicine in the oncology area."
+    },
+    {
+      "paperId": "226bf8c40b71e5bc720bbd6f3c0af8dc12a7ffcc",
+      "title": "Spore Powder of Ganoderma lucidum Improves Cancer-Related Fatigue in Breast Cancer Patients Undergoing Endocrine Therapy: A Pilot Clinical Trial",
+      "year": 2011,
+      "citationCount": 109,
+      "influentialCitationCount": 6,
+      "openAccessPdf": {
+        "url": "https://downloads.hindawi.com/journals/ecam/2012/809614.pdf",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC3236089, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "47941307",
+          "name": "Hong Zhao"
+        },
+        {
+          "authorId": "8326506",
+          "name": "Qingyuan Zhang"
+        },
+        {
+          "authorId": "2146089289",
+          "name": "Ling Zhao"
+        },
+        {
+          "authorId": "143713763",
+          "name": "Xu Huang"
+        },
+        {
+          "authorId": "2110186204",
+          "name": "Jincai Wang"
+        },
+        {
+          "authorId": "47736704",
+          "name": "Xinmei Kang"
+        }
+      ],
+      "abstract": "The fatigue prevalence in breast cancer survivors is high during the endocrine treatment. However, there are few evidence-based interventions to manage this symptom. The aim of this study was to investigate the effectiveness of spore powder of Ganoderma lucidum for cancer-related fatigue in breast cancer patients undergoing endocrine therapy. Spore powder of Ganoderma lucidum is a kind of Basidiomycete which is a widely used traditional medicine in China. 48 breast cancer patients with cancer-related fatigue undergoing endocrine therapy were randomized into the experimental or control group. FACT-F, HADS, and EORTC QLQ-C30 questionnaires data were collected at baseline and 4 weeks after treatment. The concentrations of TNF-α, IL-6, and liver-kidney functions were measured before and after intervention. The experimental group showed statistically significant improvements in the domains of physical well-being and fatigue subscale after intervention. These patients also reported less anxiety and depression and better quality of life. Immune markers of CRF were significantly lower and no serious adverse effects occurred during the study. This pilot study suggests that spore powder of Ganoderma lucidum may have beneficial effects on cancer-related fatigue and quality of life in breast cancer patients undergoing endocrine therapy without any significant adverse effect."
+    },
+    {
+      "paperId": "ead10bebdf9d6fe2ab32d501827c1beea47b3507",
+      "title": "The International Society for Sexual Medicine's Process of Care for the Assessment and Management of Testosterone Deficiency in Adult Men.",
+      "year": 2015,
+      "citationCount": 142,
+      "influentialCitationCount": 10,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1111/jsm.12952?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1111/jsm.12952, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "31685009",
+          "name": "J. Dean"
+        },
+        {
+          "authorId": "145854163",
+          "name": "C. McMahon"
+        },
+        {
+          "authorId": "4960338",
+          "name": "A. Guay"
+        },
+        {
+          "authorId": "5350814",
+          "name": "A. Morgentaler"
+        },
+        {
+          "authorId": "4488532",
+          "name": "S. Althof"
+        },
+        {
+          "authorId": "39147470",
+          "name": "E. Becher"
+        },
+        {
+          "authorId": "4333179",
+          "name": "T. Bivalacqua"
+        },
+        {
+          "authorId": "4263313",
+          "name": "A. Burnett"
+        },
+        {
+          "authorId": "144641377",
+          "name": "J. Buvat"
+        },
+        {
+          "authorId": "8460650",
+          "name": "Amr El Meliegy"
+        },
+        {
+          "authorId": "143991330",
+          "name": "W. Hellstrom"
+        },
+        {
+          "authorId": "5210615",
+          "name": "E. Jannini"
+        },
+        {
+          "authorId": "143876778",
+          "name": "M. Maggi"
+        },
+        {
+          "authorId": "3027007",
+          "name": "A. Mccullough"
+        },
+        {
+          "authorId": "5208887",
+          "name": "L. O. Torres"
+        },
+        {
+          "authorId": "3250733",
+          "name": "M. Zitzmann"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "3378e474cb60ed885e91a955c016efb44bdc7a57",
+      "title": "Applications of gold nanoparticles in cancer nanotechnology.",
+      "year": 2008,
+      "citationCount": 740,
+      "influentialCitationCount": 14,
+      "openAccessPdf": {
+        "url": "https://www.dovepress.com/getfile.php?fileID=3421",
+        "status": "GOLD",
+        "license": "CCBYNC",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.2147/NSA.S3788?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.2147/NSA.S3788, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "117194104",
+          "name": "W. Cai"
+        },
+        {
+          "authorId": "2072687871",
+          "name": "Ting Gao"
+        },
+        {
+          "authorId": "47654875",
+          "name": "H. Hong"
+        },
+        {
+          "authorId": "46968929",
+          "name": "Jiangtao Sun"
+        }
+      ],
+      "abstract": "It has been almost 4 decades since the \"war on cancer\" was declared. It is now generally believed that personalized medicine is the future for cancer patient management. Possessing unprecedented potential for early detection, accurate diagnosis, and personalized treatment of cancer, nanoparticles have been extensively studied over the last decade. In this review, we will summarize the current state-of-the-art of gold nanoparticles in biomedical applications targeting cancer. Gold nanospheres, nanorods, nanoshells, nanocages, and surface enhanced Raman scattering nanoparticles will be discussed in detail regarding their uses in in vitro assays, ex vivo and in vivo imaging, cancer therapy, and drug delivery. Multifunctionality is the key feature of nanoparticle-based agents. Targeting ligands, imaging labels, therapeutic drugs, and other functionalities can all be integrated to allow for targeted molecular imaging and molecular therapy of cancer. Big strides have been made and many proof-of-principle studies have been successfully performed. The future looks brighter than ever yet many hurdles remain to be conquered. A multifunctional platform based on gold nanoparticles, with multiple receptor targeting, multimodality imaging, and multiple therapeutic entities, holds the promise for a \"magic gold bullet\" against cancer."
+    },
+    {
+      "paperId": "09478d5ab6cadec1143a98c3cce5597d31169d6d",
+      "title": "Polymer nanocomposites in medicine",
+      "year": 2016,
+      "citationCount": 92,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1080/10601325.2016.1110459?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1080/10601325.2016.1110459, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Materials Science"
+      ],
+      "authors": [
+        {
+          "authorId": "47884309",
+          "name": "D. Feldman"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "88e47b91655ac6d477037c32baf9b13b8ee2252b",
+      "title": "Apoptosis-inducing and antiproliferative effect by inhibition of miR-182-5p through the regulation of CASP9 expression in human breast cancer",
+      "year": 2017,
+      "citationCount": 60,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "https://www.nature.com/articles/cgt201679.pdf",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/cgt.2016.79?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/cgt.2016.79, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Biology",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "33477327",
+          "name": "Mohammadreza Sharifi"
+        },
+        {
+          "authorId": "5297148",
+          "name": "A. Moridnia"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "77850a7581ef589b2873dbc21a19798a559e41fc",
+      "title": "Advances in the Research and Development of Natural Health Products as Main Stream Cancer Therapeutics",
+      "year": 2015,
+      "citationCount": 51,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "https://downloads.hindawi.com/journals/ecam/2015/751348.pdf",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC4391654, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5212333",
+          "name": "Pamela Ovadje"
+        },
+        {
+          "authorId": "47610315",
+          "name": "Alessia Roma"
+        },
+        {
+          "authorId": "5088417",
+          "name": "Matthew Steckle"
+        },
+        {
+          "authorId": "35713242",
+          "name": "Leah Nicoletti"
+        },
+        {
+          "authorId": "5257994",
+          "name": "J. Arnason"
+        },
+        {
+          "authorId": "16099761",
+          "name": "S. Pandey"
+        }
+      ],
+      "abstract": "Natural health products (NHPs) are defined as natural extracts containing polychemical mixtures; they play a leading role in the discovery and development of drugs, for disease treatment. More than 50% of current cancer therapeutics are derived from natural sources. However, the efficacy of natural extracts in treating cancer has not been explored extensively. Scientific research into the validity and mechanism of action of these products is needed to develop NHPs as main stream cancer therapy. The preclinical and clinical validation of NHPs would be essential for this development. This review summarizes some of the recent advancements in the area of NHPs with anticancer effects. This review also focuses on various NHPs that have been studied to scientifically validate their claims as anticancer agents. Furthermore, this review emphasizes the efficacy of these NHPs in targeting the multiple vulnerabilities of cancer cells for a more selective efficacious treatment. The studies reviewed here have paved the way for the introduction of more NHPs from traditional medicine to the forefront of modern medicine, in order to provide alternative, safer, and cheaper complementary treatments for cancer therapy and possibly improve the quality of life of cancer patients."
+    },
+    {
+      "paperId": "502fbcc97f46a68f5e192f5bd993d812957a2ec7",
+      "title": "Side effects of adjuvant treatment of breast cancer.",
+      "year": 2001,
+      "citationCount": 707,
+      "influentialCitationCount": 21,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1056/NEJM200106283442607?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1056/NEJM200106283442607, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2060735",
+          "name": "C. Shapiro"
+        },
+        {
+          "authorId": "79593532",
+          "name": "A. Recht"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "5f2c94d48dace962f05ffa9d2b8c215e50bf6472",
+      "title": "Cetuximab in Refractory Skin Cancer Treatment",
+      "year": 2012,
+      "citationCount": 54,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://www.jcancer.org/v03p0257.pdf",
+        "status": "GOLD",
+        "license": "CCBYNC",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC3376776, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "6695740",
+          "name": "S. Kalapurakal"
+        },
+        {
+          "authorId": "97740997",
+          "name": "J. Malone"
+        },
+        {
+          "authorId": "144541070",
+          "name": "K. Robbins"
+        },
+        {
+          "authorId": "6163448",
+          "name": "L. Buescher"
+        },
+        {
+          "authorId": "36349666",
+          "name": "J. Godwin"
+        },
+        {
+          "authorId": "120087762",
+          "name": "Krishna Rao"
+        }
+      ],
+      "abstract": "Objectives: Non-melanoma skin cancer is the most common malignancy in US, with an annual incidence of in excess of 1.5 million cases. In the majority of cases, locoregional treatment is curative and systemic therapy is not indicated. Platinum-based chemotherapy regimens have been used most commonly in refractory cases. The use of cetuximab, a monoclonal antibody targeting epidermal growth factor receptor [EGFR], has been reported for skin cancer treatment. This current study evaluated eight cases of locally advanced and refractory basal cell or squamous cell cancers which were treated with cetuximab. Methods: This is a retrospective study on eight patients who had received cetuximab for treatment of cutaneous carcinoma since 2007 at Southern Illinois University School of Medicine (SIU-SOM) Medical Oncology clinic. Results: Three of the four patients with basal cell carcinoma and two of the four patients with squamous cell carcinoma maintained remission on treatment.. The main side effect was acneiform rash which required termination of treatment for one patient and dose reduction in another. Conclusion: The study indicates that cetuximab may have a beneficial role for patients with non-melanoma cutaneous carcinomas that are refractory to standard therapy."
+    },
+    {
+      "paperId": "619850039f4a4ac0c08356d6de0207158a587b4c",
+      "title": "Targeted photodynamic therapy — a promising strategy of tumor treatment",
+      "year": 2011,
+      "citationCount": 228,
+      "influentialCitationCount": 7,
+      "openAccessPdf": {
+        "url": "https://link.springer.com/content/pdf/10.1039/c0pp00147c.pdf",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1039/c0pp00147c?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1039/c0pp00147c, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Chemistry",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5962792",
+          "name": "A. Bugaj"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "1b1b6f972d465db5be45f52636969fb0c10bad10",
+      "title": "Nanomedicine against multidrug resistance in cancer treatment.",
+      "year": 2012,
+      "citationCount": 49,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.2217/nnm.12.11?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.2217/nnm.12.11, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2110619798",
+          "name": "Jie Gao"
+        },
+        {
+          "authorId": "4632993",
+          "name": "S. Feng"
+        },
+        {
+          "authorId": "46791280",
+          "name": "Ya-jun Guo"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "6006223c48115459fed7ff506d655b59efc4ee88",
+      "title": "Targeting the PI3K/Akt signaling pathway in gastric carcinoma: A reality for personalized medicine?",
+      "year": 2015,
+      "citationCount": 149,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.3748/wjg.v21.i43.12261",
+        "status": "HYBRID",
+        "license": "CCBYNC",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.3748/wjg.v21.i43.12261?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.3748/wjg.v21.i43.12261, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2145893012",
+          "name": "S. Singh"
+        },
+        {
+          "authorId": "8740821",
+          "name": "W. Yap"
+        },
+        {
+          "authorId": "5060438",
+          "name": "F. Arfuso"
+        },
+        {
+          "authorId": "9620657",
+          "name": "S. Kar"
+        },
+        {
+          "authorId": "2144446727",
+          "name": "Chao Wang"
+        },
+        {
+          "authorId": "50435945",
+          "name": "Wanpei Cai"
+        },
+        {
+          "authorId": "32408049",
+          "name": "A. Dharmarajan"
+        },
+        {
+          "authorId": "1854091",
+          "name": "G. Sethi"
+        },
+        {
+          "authorId": "2109180696",
+          "name": "A. Kumar"
+        }
+      ],
+      "abstract": "Frequent activation of phosphatidylinositol-3 kinases (PI3K)/Akt/mTOR signaling pathway in gastric cancer (GC) is gaining immense popularity with identification of mutations and/or amplifications of PIK3CA gene or loss of function of PTEN, a tumor suppressor protein, to name a few; both playing a crucial role in regulating this pathway. These aberrations result in dysregulation of this pathway eventually leading to gastric oncogenesis, hence, there is a need for targeted therapy for more effective anticancer treatment. Several inhibitors are currently in either preclinical or clinical stages for treatment of solid tumors like GC. With so many inhibitors under development, further studies on predictive biomarkers are needed to measure the specificity of any therapeutic intervention. Herein, we review the common dysregulation of PI3K/Akt/mTOR pathway in GC and the various types of single or dual pathway inhibitors under development that might have a superior role in GC treatment. We also summarize the recent developments in identification of predictive biomarkers and propose use of predictive biomarkers to facilitate more personalized cancer therapy with effective PI3K/Akt/mTOR pathway inhibition."
+    },
+    {
+      "paperId": "1724a3814d1ab5cb9cbfbb73a9c2529f5c5e2fcf",
+      "title": "Predictive and prognostic molecular markers for cancer medicine",
+      "year": 2010,
+      "citationCount": 202,
+      "influentialCitationCount": 6,
+      "openAccessPdf": {
+        "url": "https://journals.sagepub.com/doi/pdf/10.1177/1758834009360519",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1177/1758834009360519?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1177/1758834009360519, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "21710159",
+          "name": "Sunali Y Mehta"
+        },
+        {
+          "authorId": "5229683",
+          "name": "A. Shelling"
+        },
+        {
+          "authorId": "4134109",
+          "name": "A. Muthukaruppan"
+        },
+        {
+          "authorId": "4112014",
+          "name": "A. Lasham"
+        },
+        {
+          "authorId": "5535773",
+          "name": "C. Blenkiron"
+        },
+        {
+          "authorId": "3927379",
+          "name": "G. Laking"
+        },
+        {
+          "authorId": "2532299",
+          "name": "C. Print"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "338d31e1b523fe3805eb710df8888ec5d5a93130",
+      "title": "Genetic Diversity of Pancreatic Ductal Adenocarcinoma and Opportunities for Precision Medicine.",
+      "year": 2016,
+      "citationCount": 102,
+      "influentialCitationCount": 7,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc5010785?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1053/j.gastro.2015.08.056?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1053/j.gastro.2015.08.056, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Biology",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2727601",
+          "name": "E. Knudsen"
+        },
+        {
+          "authorId": "1382512190",
+          "name": "E. O’Reilly"
+        },
+        {
+          "authorId": "38005239",
+          "name": "J. Brody"
+        },
+        {
+          "authorId": "4191848",
+          "name": "A. Witkiewicz"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "9382f4593f3baeb515033146af65f554337ca52c",
+      "title": "Bacteria as vectors for gene therapy of cancer",
+      "year": 2010,
+      "citationCount": 168,
+      "influentialCitationCount": 5,
+      "openAccessPdf": {
+        "url": "https://www.tandfonline.com/doi/pdf/10.4161/bbug.1.6.13146?needAccess=true",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.4161/bbug.1.6.13146?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.4161/bbug.1.6.13146, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine",
+        "Biology"
+      ],
+      "authors": [
+        {
+          "authorId": "4645197",
+          "name": "C. Baban"
+        },
+        {
+          "authorId": "145896895",
+          "name": "M. Cronin"
+        },
+        {
+          "authorId": "1382651833",
+          "name": "D. O'Hanlon"
+        },
+        {
+          "authorId": "1396655684",
+          "name": "G. O'sullivan"
+        },
+        {
+          "authorId": "3191509",
+          "name": "M. Tangney"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "0b30ad3cd61ace2abb8a6a5accbc64f879c2e21e",
+      "title": "Childhood acute lymphoblastic leukemia: Integrating genomics into therapy",
+      "year": 2015,
+      "citationCount": 66,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/cncr.29573",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1002/cncr.29573?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/cncr.29573, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3873470",
+          "name": "S. Tasian"
+        },
+        {
+          "authorId": "2239234526",
+          "name": "M. Loh"
+        },
+        {
+          "authorId": "4463822",
+          "name": "S. Hunger"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "90d86045934ffe916a1a51770f60a8707262e18a",
+      "title": "Folic Acid-conjugated Graphene Oxide loaded with Photosensitizers for Targeting Photodynamic Therapy",
+      "year": 2011,
+      "citationCount": 491,
+      "influentialCitationCount": 7,
+      "openAccessPdf": {
+        "url": "https://www.thno.org/v01p0240.pdf",
+        "status": "GOLD",
+        "license": "CCBYNCND",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC3092447, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2107818631",
+          "name": "P. Huang"
+        },
+        {
+          "authorId": "93374683",
+          "name": "Chengqiao Xu"
+        },
+        {
+          "authorId": "46698162",
+          "name": "Jing Lin"
+        },
+        {
+          "authorId": "2117935511",
+          "name": "Can Wang"
+        },
+        {
+          "authorId": "1842994",
+          "name": "Xiansong Wang"
+        },
+        {
+          "authorId": "50445538",
+          "name": "Chunlei Zhang"
+        },
+        {
+          "authorId": "2614801",
+          "name": "Xuejiao Zhou"
+        },
+        {
+          "authorId": "47508471",
+          "name": "Shouwu Guo"
+        },
+        {
+          "authorId": "144558034",
+          "name": "D. Cui"
+        }
+      ],
+      "abstract": "Photodynamic therapy (PDT) has emerged as an alternative and promising noninvasive treatment for cancer as well as non-cancer diseases, which involves the uptake of photosensitizers (PSs) by cancer cells followed by irradiation. The use of nanomaterials as carriers of PSs is a very promising approach to improve the development of PDT in clinical medicine. In this study, a novel folic acid-conjugated graphene oxide (GO) was strategically designed and prepared as targeting drug delivery system to achieve higher specificity. The second generation photosensitizer (PS) Chlorin e6 (Ce6) was effectively loaded into the system via hydrophobic interactions and π-π stacking. The nanocarriers can significantly increase the accumulation of Ce6 in tumor cells and lead to a remarkable photodynamic efficacy on MGC803 cells upon irradiation. These suggested that folic acid-conjugated GO loaded Ce6 had great potential as effective drug delivery system in targeting PDT."
+    },
+    {
+      "paperId": "9798237142ab26500d501ab48d06bf1805f03927",
+      "title": "From bench to bedside: the growing use of translational research in cancer medicine.",
+      "year": 2010,
+      "citationCount": 109,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "10288659",
+          "name": "Erin M. Goldblatt"
+        },
+        {
+          "authorId": "2115703560",
+          "name": "Wen-Hwa Lee"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "9dade9d3f5d4d2d501143d5f358f6d70b27889ae",
+      "title": "Anticancer activities and mechanisms of heat-clearing and detoxicating traditional Chinese herbal medicine",
+      "year": 2017,
+      "citationCount": 81,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://cmjournal.biomedcentral.com/track/pdf/10.1186/s13020-017-0140-2",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC5506596, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2108094432",
+          "name": "Yulin Zhang"
+        },
+        {
+          "authorId": "7668636",
+          "name": "Yeer Liang"
+        },
+        {
+          "authorId": "2232213673",
+          "name": "Chengwei He"
+        }
+      ],
+      "abstract": "In traditional Chinese medicine (TCM) theory, pathogenic heat and toxins, which are akin to the inflammatory factors, are the causes of cancer and could promote its virulent development. Therefore, heat-clearing and detoxicating (HCD) herbs are essential components of TCM formulas for cancer treatment. An increasing interest has been focused on the study of HCD herbs and accumulated evidences have shown that HCD herbs or HCD herbs-based formulas exhibited remarkable anticancer effects when used alone or combined with other therapeutic approaches. Some of the HCD herb-derived products have been tested in clinical trials. Studies revealed that extracts or pure compounds of the HCD herbs showed a broad anticancer spectrum against both solid and hematologic malignancies without significant toxic effects. Notably, some HCD herbs or formulas could strongly enhance the anticancer activities of chemo- or radio-therapy and alleviate their side effects. The anticancer activities of HCD herb exacts or the pure compounds were reported to be through multiple cellular or molecular mechanisms, such as induction of cancer cell apoptosis, differentiation and cell cycle arrest, inhibition of cancer cell growth, invasion and metastasis, and inhibition of tumor angiogenesis. In this review, we provide comprehensive analysis and summary of research progress and future prospects in this field to facilitate the further study and application of HCD herbs."
+    },
+    {
+      "paperId": "bee13d51dfa9b9d405df0cd8fd6c196450ad2190",
+      "title": "Tamoxifen in the treatment of breast cancer.",
+      "year": 1988,
+      "citationCount": 750,
+      "influentialCitationCount": 27,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.7326/0003-4819-109-3-219?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.7326/0003-4819-109-3-219, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5432451",
+          "name": "S. Legha"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "51652fc5bb3d99e02d7d8df93a8be1cd52f844eb",
+      "title": "Small-Molecule Inhibitors of the Receptor Tyrosine Kinases: Promising Tools for Targeted Cancer Therapies",
+      "year": 2014,
+      "citationCount": 196,
+      "influentialCitationCount": 5,
+      "openAccessPdf": {
+        "url": "https://www.mdpi.com/1422-0067/15/8/13768/pdf?version=1407490592",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC4159824, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Biology",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1399370712",
+          "name": "M. Hojjat-Farsangi"
+        }
+      ],
+      "abstract": "Chemotherapeutic and cytotoxic drugs are widely used in the treatment of cancer. In spite of the improvements in the life quality of patients, their effectiveness is compromised by several disadvantages. This represents a demand for developing new effective strategies with focusing on tumor cells and minimum side effects. Targeted cancer therapies and personalized medicine have been defined as a new type of emerging treatments. Small molecule inhibitors (SMIs) are among the most effective drugs for targeted cancer therapy. The growing number of approved SMIs of receptor tyrosine kinases (RTKs) i.e., tyrosine kinase inhibitors (TKIs) in the clinical oncology imply the increasing attention and application of these therapeutic tools. Most of the current approved RTK–TKIs in preclinical and clinical settings are multi-targeted inhibitors with several side effects. Only a few specific/selective RTK–TKIs have been developed for the treatment of cancer patients. Specific/selective RTK–TKIs have shown less deleterious effects compared to multi-targeted inhibitors. This review intends to highlight the importance of specific/selective TKIs for future development with less side effects and more manageable agents. This article provides an overview of: (1) the characteristics and function of RTKs and TKIs; (2) the recent advances in the improvement of specific/selective RTK–TKIs in preclinical or clinical settings; and (3) emerging RTKs for targeted cancer therapies by TKIs."
+    },
+    {
+      "paperId": "13cfdb6ba01bea4312b19baa2ae1a546635ab73b",
+      "title": "Personalized Medicine: Marking a New Epoch in Cancer Patient Management",
+      "year": 2010,
+      "citationCount": 156,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://aacrjournals.org/mcr/article-pdf/8/9/1175/3146749/1175.pdf",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1158/1541-7786.MCR-10-0264?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1158/1541-7786.MCR-10-0264, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "6168026",
+          "name": "M. Diamandis"
+        },
+        {
+          "authorId": "12268115",
+          "name": "N. White"
+        },
+        {
+          "authorId": "4006320",
+          "name": "G. Yousef"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "8e584f3649459f3a40660bb5d7cf9ab78de5859f",
+      "title": "Comprehensive consensus based guidelines on intrathecal drug delivery systems in the treatment of pain caused by cancer pain.",
+      "year": 2011,
+      "citationCount": 156,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3742862",
+          "name": "T. Deer"
+        },
+        {
+          "authorId": "2110970702",
+          "name": "H. Smith"
+        },
+        {
+          "authorId": "4704174",
+          "name": "A. Burton"
+        },
+        {
+          "authorId": "3539030",
+          "name": "J. Pope"
+        },
+        {
+          "authorId": "3814106",
+          "name": "D. Doleys"
+        },
+        {
+          "authorId": "48496855",
+          "name": "R. Levy"
+        },
+        {
+          "authorId": "5008254",
+          "name": "P. Staats"
+        },
+        {
+          "authorId": "1717440",
+          "name": "M. Wallace"
+        },
+        {
+          "authorId": "6792438",
+          "name": "L. Webster"
+        },
+        {
+          "authorId": "5843044",
+          "name": "R. Rauck"
+        },
+        {
+          "authorId": "4523401",
+          "name": "M. Cousins"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "e7f9516fae4b4e315c686803e0a4c5ebaab7e9bc",
+      "title": "A review of dosimetry studies on external-beam radiation treatment with respect to second cancer induction",
+      "year": 2008,
+      "citationCount": 414,
+      "influentialCitationCount": 13,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc4009374?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1088/0031-9155/53/13/R01?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1088/0031-9155/53/13/R01, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Physics",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "48670013",
+          "name": "X. Xu"
+        },
+        {
+          "authorId": "6773106",
+          "name": "B. Bednarz"
+        },
+        {
+          "authorId": "3483797",
+          "name": "H. Paganetti"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "b4b115b5bec1ccfeb64ff01a61336459346e28bb",
+      "title": "Influence of cigarette smoking on the efficacy of radiation therapy in head and neck cancer.",
+      "year": 1993,
+      "citationCount": 564,
+      "influentialCitationCount": 19,
+      "openAccessPdf": {
+        "url": "https://www.nejm.org/doi/pdf/10.1056/NEJM199301213280302?articleTools=true",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1056/NEJM199301213280302?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1056/NEJM199301213280302, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "35333349",
+          "name": "G. Browman"
+        },
+        {
+          "authorId": "152509442",
+          "name": "G. Wong"
+        },
+        {
+          "authorId": "14582518",
+          "name": "I. Hodson"
+        },
+        {
+          "authorId": "5310837",
+          "name": "J. Sathya"
+        },
+        {
+          "authorId": "2227589532",
+          "name": "Rosemary Russell"
+        },
+        {
+          "authorId": "2227641744",
+          "name": "Lisa McAlpine"
+        },
+        {
+          "authorId": "3819898",
+          "name": "P. Skingley"
+        },
+        {
+          "authorId": "1992579918",
+          "name": "M. Levine"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "5eac2aa0df00f79a956cbd68d6f2cf7cf62362f8",
+      "title": "The emperor of all maladies: A biography of cancer",
+      "year": 2011,
+      "citationCount": 448,
+      "influentialCitationCount": 33,
+      "openAccessPdf": {
+        "url": "http://www.jci.org/articles/view/45710/files/pdf",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1172/JCI45710?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1172/JCI45710, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3907851",
+          "name": "S. Riddell"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "a6f9ca4e968882cc6e6ce7682546709fe14e6d75",
+      "title": "Chatbot for Health Care and Oncology Applications Using Artificial Intelligence and Machine Learning: Systematic Review",
+      "year": 2021,
+      "citationCount": 336,
+      "influentialCitationCount": 7,
+      "openAccessPdf": {
+        "url": "https://cancer.jmir.org/2021/4/e27850/PDF",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC8669585, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Psychology",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "70986845",
+          "name": "Lu Xu"
+        },
+        {
+          "authorId": "49076259",
+          "name": "Leslie Sanders"
+        },
+        {
+          "authorId": "2158259399",
+          "name": "Kay Li"
+        },
+        {
+          "authorId": "2070775504",
+          "name": "J. Chow"
+        }
+      ],
+      "abstract": "Background Chatbot is a timely topic applied in various fields, including medicine and health care, for human-like knowledge transfer and communication. Machine learning, a subset of artificial intelligence, has been proven particularly applicable in health care, with the ability for complex dialog management and conversational flexibility. Objective This review article aims to report on the recent advances and current trends in chatbot technology in medicine. A brief historical overview, along with the developmental progress and design characteristics, is first introduced. The focus will be on cancer therapy, with in-depth discussions and examples of diagnosis, treatment, monitoring, patient support, workflow efficiency, and health promotion. In addition, this paper will explore the limitations and areas of concern, highlighting ethical, moral, security, technical, and regulatory standards and evaluation issues to explain the hesitancy in implementation. Methods A search of the literature published in the past 20 years was conducted using the IEEE Xplore, PubMed, Web of Science, Scopus, and OVID databases. The screening of chatbots was guided by the open-access Botlist directory for health care components and further divided according to the following criteria: diagnosis, treatment, monitoring, support, workflow, and health promotion. Results Even after addressing these issues and establishing the safety or efficacy of chatbots, human elements in health care will not be replaceable. Therefore, chatbots have the potential to be integrated into clinical practice by working alongside health practitioners to reduce costs, refine workflow efficiencies, and improve patient outcomes. Other applications in pandemic support, global health, and education are yet to be fully explored. Conclusions Further research and interdisciplinary collaboration could advance this technology to dramatically improve the quality of care for patients, rebalance the workload for clinicians, and revolutionize the practice of medicine."
+    },
+    {
+      "paperId": "7e9beb49f0fa27aefd9eae3479a41da503b2b9d9",
+      "title": "Personalized medicine and inhibition of EGFR signaling in lung cancer.",
+      "year": 2009,
+      "citationCount": 174,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc3390194?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1056/NEJMe0905763?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1056/NEJMe0905763, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2482051",
+          "name": "A. Gazdar"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "0153214a486568c5217d0528a486fee329081688",
+      "title": "Smart Polymeric Nanoparticles for Cancer Gene Delivery",
+      "year": 2014,
+      "citationCount": 141,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.1021/mp500656v",
+        "status": "BRONZE",
+        "license": "publisher-specific-oa",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC4319689, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Biology",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "39952619",
+          "name": "Guimei Lin"
+        },
+        {
+          "authorId": "2146242982",
+          "name": "Hong Zhang"
+        },
+        {
+          "authorId": "12047255",
+          "name": "Leaf Huang"
+        }
+      ],
+      "abstract": "The massive amount of human genetic information already available has accelerated the identification of target genes, making gene and nucleic acid therapy the next generation of medicine. Nanoparticle (NP)-based anticancer gene therapy treatment has received significant interest in this evolving field. Recent advances in vector technology have improved gene transfection efficiencies of nonviral vectors to a level similar to viruses. This review serves as an introduction to surface modifications of NPs based on polymeric structural improvements and target moieties. A discussion regarding the future perspective of multifunctional NPs in cancer therapy is also included."
+    },
+    {
+      "paperId": "8b28d2e37e7dfa95790ca203ea4245b596be18b0",
+      "title": "Evidence‐based review of treatment options for patients with glottic cancer",
+      "year": 2011,
+      "citationCount": 95,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "http://deepblue.lib.umich.edu/bitstream/2027.42/87151/1/21528_ftp.pdf",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1002/hed.21528?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/hed.21528, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "35085251",
+          "name": "D. Hartl"
+        },
+        {
+          "authorId": "5381943",
+          "name": "A. Ferlito"
+        },
+        {
+          "authorId": "6222483",
+          "name": "D. Brasnu"
+        },
+        {
+          "authorId": "2368036",
+          "name": "J. Langendijk"
+        },
+        {
+          "authorId": "49163442",
+          "name": "A. Rinaldo"
+        },
+        {
+          "authorId": "2039952",
+          "name": "C. Silver"
+        },
+        {
+          "authorId": "143922568",
+          "name": "G. Wolf"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "7b0d07939f13bb40059c69a9bf9419ae5e27ed39",
+      "title": "Massage Therapy versus Simple Touch to Improve Pain and Mood in Patients with Advanced Cancer",
+      "year": 2008,
+      "citationCount": 259,
+      "influentialCitationCount": 21,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc2631433?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.7326/0003-4819-149-6-200809160-00003?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.7326/0003-4819-149-6-200809160-00003, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "144914009",
+          "name": "J. Kutner"
+        },
+        {
+          "authorId": "1410176579",
+          "name": "Marlaine C. Smith"
+        },
+        {
+          "authorId": "40600106",
+          "name": "L. Corbin"
+        },
+        {
+          "authorId": "38797380",
+          "name": "Linnea Hemphill"
+        },
+        {
+          "authorId": "21116463",
+          "name": "K. Benton"
+        },
+        {
+          "authorId": "10143250",
+          "name": "B. Mellis"
+        },
+        {
+          "authorId": "5296634",
+          "name": "B. Beaty"
+        },
+        {
+          "authorId": "1879516",
+          "name": "S. Felton"
+        },
+        {
+          "authorId": "5589541",
+          "name": "Traci E. Yamashita"
+        },
+        {
+          "authorId": "5784673",
+          "name": "L. Bryant"
+        },
+        {
+          "authorId": "83343547",
+          "name": "D. Fairclough"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "ad2c2e78717f52d4d235e0a6949133e8ef9fbbe6",
+      "title": "Emerging Biomarkers and New Understanding of Traditional Markers in Personalized Therapy for Breast Cancer",
+      "year": 2008,
+      "citationCount": 253,
+      "influentialCitationCount": 8,
+      "openAccessPdf": {
+        "url": "https://aacrjournals.org/clincancerres/article-pdf/14/24/8019/1978104/8019.pdf",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1158/1078-0432.CCR-08-0974?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1158/1078-0432.CCR-08-0974, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "112927420",
+          "name": "M. Dowsett"
+        },
+        {
+          "authorId": "5568145",
+          "name": "A. Dunbier"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "eb30d794cc29bf2ccd557b8142ec3041da61a659",
+      "title": "Adjuvant psychological therapy for patients with cancer: a prospective randomised trial.",
+      "year": 1992,
+      "citationCount": 506,
+      "influentialCitationCount": 13,
+      "openAccessPdf": {
+        "url": "https://www.bmj.com/content/bmj/304/6828/675.full.pdf",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1136/bmj.304.6828.675?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1136/bmj.304.6828.675, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "103806422",
+          "name": "S. Greer"
+        },
+        {
+          "authorId": "6070319",
+          "name": "S. Moorey"
+        },
+        {
+          "authorId": "1772275255",
+          "name": "J. Baruch"
+        },
+        {
+          "authorId": "1837932",
+          "name": "M. Watson"
+        },
+        {
+          "authorId": "33334322",
+          "name": "B. Robertson"
+        },
+        {
+          "authorId": "2054648951",
+          "name": "A. Mason"
+        },
+        {
+          "authorId": "46869157",
+          "name": "L. Rowden"
+        },
+        {
+          "authorId": "46265050",
+          "name": "M. Law"
+        },
+        {
+          "authorId": "33580245",
+          "name": "J. Bliss"
+        },
+        {
+          "authorId": "2249800394",
+          "name": "Dr Greer Baij"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "a156e9623db116935e1f9257ba82fa10e8e6a240",
+      "title": "Complementary and Alternative Medicine Use, Spending, and Quality of Life in Early Stage Breast Cancer",
+      "year": 2010,
+      "citationCount": 68,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1097/NNR.0b013e3181c3bd26?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1097/NNR.0b013e3181c3bd26, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "145533047",
+          "name": "G. Wyatt"
+        },
+        {
+          "authorId": "145488746",
+          "name": "A. Sikorskii"
+        },
+        {
+          "authorId": "35128531",
+          "name": "C. Wills"
+        },
+        {
+          "authorId": "1503483709",
+          "name": "Hong Su An"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "bcff74ea4ef6a7117a463b710b6794985d32dd8d",
+      "title": "Testicular cancer: a reflection on 50 years of discovery.",
+      "year": 2014,
+      "citationCount": 138,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1200/JCO.2014.56.0896?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1200/JCO.2014.56.0896, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "35398614",
+          "name": "N. Hanna"
+        },
+        {
+          "authorId": "4624547",
+          "name": "L. Einhorn"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "57a01a9684892b21008fbf9c873ed6adcecc944a",
+      "title": "Tamoxifen: a most unlikely pioneering medicine",
+      "year": 2003,
+      "citationCount": 751,
+      "influentialCitationCount": 27,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/nrd1031?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/nrd1031, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2071624143",
+          "name": "V. Jordan"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "9fc7db9ced455e50edb3a8e9297e16fa3a268389",
+      "title": "The thrombogenic effect of anticancer drug therapy in women with stage II breast cancer.",
+      "year": 1988,
+      "citationCount": 446,
+      "influentialCitationCount": 12,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1056/NEJM198802183180703?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1056/NEJM198802183180703, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2238073533",
+          "name": "Mark N. Levine"
+        },
+        {
+          "authorId": "2239428084",
+          "name": "Michael Gent"
+        },
+        {
+          "authorId": "2246166574",
+          "name": "Jack Hirsh"
+        },
+        {
+          "authorId": "2245188594",
+          "name": "Andrew Arnold"
+        },
+        {
+          "authorId": "2253312565",
+          "name": "Michael D. Goodyear"
+        },
+        {
+          "authorId": "2251852334",
+          "name": "William Hryniuk"
+        },
+        {
+          "authorId": "2253307983",
+          "name": "Sonja De Pauw"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "fc2864905bf1f765fca17260e7f9035d663f12e6",
+      "title": "Precision therapy for lymphoma—current state and future directions",
+      "year": 2014,
+      "citationCount": 186,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/nrclinonc.2014.137?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/nrclinonc.2014.137, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "5576147",
+          "name": "A. Intlekofer"
+        },
+        {
+          "authorId": "47766139",
+          "name": "A. Younes"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "63c48132ac4bbeb4ce0816958e2f5be9780534cd",
+      "title": "Hydrogen sulfide in biochemistry and medicine.",
+      "year": 2012,
+      "citationCount": 368,
+      "influentialCitationCount": 7,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc3342665?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/ars.2012.4612?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/ars.2012.4612, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Biology",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4802704",
+          "name": "B. Predmore"
+        },
+        {
+          "authorId": "88462068",
+          "name": "D. Lefer"
+        },
+        {
+          "authorId": "5490465",
+          "name": "G. Gojon"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "993c3ffb759d1673a2e60341e8246b8237b065d7",
+      "title": "Complementary and alternative medicine use among newly diagnosed prostate cancer patients",
+      "year": 2010,
+      "citationCount": 34,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s00520-010-1055-y?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s00520-010-1055-y, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "144996314",
+          "name": "C. McDermott"
+        },
+        {
+          "authorId": "30755024",
+          "name": "D. Blough"
+        },
+        {
+          "authorId": "8513805",
+          "name": "C. Fedorenko"
+        },
+        {
+          "authorId": "34732556",
+          "name": "N. Arora"
+        },
+        {
+          "authorId": "2916713",
+          "name": "S. Zeliadt"
+        },
+        {
+          "authorId": "34589097",
+          "name": "Megan E. Fairweather"
+        },
+        {
+          "authorId": "1399180135",
+          "name": "I. Oakley-Girvan"
+        },
+        {
+          "authorId": "1933419796",
+          "name": "S. Eeden"
+        },
+        {
+          "authorId": "143843249",
+          "name": "S. Ramsey"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "e4b7c0434bbaef002342ab7c515970e792cc4caa",
+      "title": "Evolving technology for thermal therapy of cancer",
+      "year": 2005,
+      "citationCount": 203,
+      "influentialCitationCount": 7,
+      "openAccessPdf": {
+        "url": "https://www.tandfonline.com/doi/pdf/10.1080/02656730500331868?needAccess=true",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1080/02656730500331868?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1080/02656730500331868, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "34826225",
+          "name": "P. Stauffer"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "19139181ed3c1d2a8184abe739789bbbe25384f1",
+      "title": "Antitumor effects of traditional Chinese medicine targeting the cellular apoptotic pathway",
+      "year": 2015,
+      "citationCount": 55,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "https://www.dovepress.com/getfile.php?fileID=25155",
+        "status": "GOLD",
+        "license": "CCBYNC",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC4445699, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4687825",
+          "name": "Huanli Xu"
+        },
+        {
+          "authorId": "2145734309",
+          "name": "Xin Zhao"
+        },
+        {
+          "authorId": "144428695",
+          "name": "Xiaohui Liu"
+        },
+        {
+          "authorId": "6004003",
+          "name": "Ping-xiang Xu"
+        },
+        {
+          "authorId": "47969293",
+          "name": "Keming Zhang"
+        },
+        {
+          "authorId": "4331695",
+          "name": "Xiukun Lin"
+        }
+      ],
+      "abstract": "Defects in apoptosis are common phenomena in many types of cancer and are also a critical step in tumorigenesis. Targeting the apoptotic pathway has been considered an intriguing strategy for cancer therapy. Traditional Chinese medicine (TCM) has been used in the People’s Republic of China for thousands of years, and many of the medicines have been confirmed to be effective in the treatment of a number of tumors. With increasing cancer rates worldwide, the antitumor effects of TCMs have attracted more and more attention globally. Many of the TCMs have been shown to have antitumor activity through multiple targets, and apoptosis pathway-related targets have been extensively studied and defined to be promising. This review focuses on several antitumor TCMs, especially those with clinical efficacy, based on their effects on the apoptotic signaling pathway. The problems with and prospects of development of TCMs as anticancer agents are also presented."
+    },
+    {
+      "paperId": "b6ea55976f229ec83937242214463bb05255647d",
+      "title": "Patterns of the Use of Complementary and Alternative Medicine in Women With Metastatic Cancer",
+      "year": 2010,
+      "citationCount": 40,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1097/NCC.0b013e3181c295ac?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1097/NCC.0b013e3181c295ac, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "143886292",
+          "name": "Y. Yıldırım"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "8ad35c39b7607c5225eb55698861be77b3a8d6b6",
+      "title": "Cancer patients' attitudes towards Chinese medicine: a Hong Kong survey",
+      "year": 2009,
+      "citationCount": 51,
+      "influentialCitationCount": 5,
+      "openAccessPdf": {
+        "url": "https://cmjournal.biomedcentral.com/counter/pdf/10.1186/1749-8546-4-25",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC2805668, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "21447376",
+          "name": "Y. Lam"
+        },
+        {
+          "authorId": "31958113",
+          "name": "Chung-wah Cheng"
+        },
+        {
+          "authorId": "145858387",
+          "name": "Heng Peng"
+        },
+        {
+          "authorId": "2064184995",
+          "name": "C. Law"
+        },
+        {
+          "authorId": "2146351214",
+          "name": "Xianzhang Huang"
+        },
+        {
+          "authorId": "153315157",
+          "name": "Z. Bian"
+        }
+      ],
+      "abstract": "BackgroundThis article reports a survey conducted in Hong Kong on the cancer patients' attitudes towards Chinese medicine treatment.MethodsCancer patients from three Chinese medicine clinics and one oncology clinic were interviewed with a structured questionnaire.ResultsOf a total of 786 participants included in the study, 42.9% used Western medicine only; 57.1% used at least one form of Chinese medicine; 5 participants used Chinese medicine only; and 56.5% used Chinese medicine before/during/after Western medicine treatment. Commonly used Western medicine and Chinese medicine treatments included chemotherapy (63.7%), radiotherapy (62.0%), surgery (57.6%), Chinese herbal medicine (53.9%) and Chinese dietary therapy (9.5%). Participants receiving chemotherapy used Chinese medicine (63.3%) more than those receiving any other Western medicine treatments. Spearman correlation coefficients showed that the selection of Chinese medicine was associated with the cancer type (rs = -1.36; P < 0.001), stage (rs = 0.178; P < 0.001), duration (rs = -0.074; P = 0.037), whether receiving chemotherapy (rs = 0.165; P < 0.001) and palliative therapy (rs = 0.087; P = 0.015). Nearly two-thirds of the participants (N = 274) did not tell their physicians about using Chinese medicine. Over two-thirds of all participants (68.2%) believed that integrated Chinese and Western medicine was effective.ConclusionChinese medicine is commonly used among Hong Kong cancer patients. The interviewed cancer patients in Hong Kong considered integrative Chinese and Western medicine is an effective cancer treatment."
+    },
+    {
+      "paperId": "e19b19a68be976f06c2468405cb7f25b13c183cc",
+      "title": "Menopausal Estrogen Replacement Therapy and Breast Cancer",
+      "year": 1991,
+      "citationCount": 376,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1001/ARCHINTE.1991.00400010089011?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1001/ARCHINTE.1991.00400010089011, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3203161",
+          "name": "W. Dupont"
+        },
+        {
+          "authorId": "1772708",
+          "name": "D. Page"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "d0b7652bc2c1b03bbba5d8c4ceac813f456fb786",
+      "title": "Apigenin and Breast Cancers: From Chemistry to Medicine.",
+      "year": 2015,
+      "citationCount": 78,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.2174/1871520615666150304120643?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.2174/1871520615666150304120643, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2049188",
+          "name": "S. Nabavi"
+        },
+        {
+          "authorId": "5133900",
+          "name": "S. Habtemariam"
+        },
+        {
+          "authorId": "6776572",
+          "name": "M. Daglia"
+        },
+        {
+          "authorId": "30099015",
+          "name": "S. Nabavi"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "f721df23dce01ec8308ba89eabea1f2dda70bc87",
+      "title": "The use of complementary and alternative medicine among Chinese women with breast cancer.",
+      "year": 2008,
+      "citationCount": 146,
+      "influentialCitationCount": 16,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc6461147?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/acm.2008.0039?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/acm.2008.0039, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2117099379",
+          "name": "Zhi Chen"
+        },
+        {
+          "authorId": "144800997",
+          "name": "K. Gu"
+        },
+        {
+          "authorId": "1738282",
+          "name": "Ying Zheng"
+        },
+        {
+          "authorId": "144546730",
+          "name": "W. Zheng"
+        },
+        {
+          "authorId": "143844117",
+          "name": "W. Lu"
+        },
+        {
+          "authorId": "2363552",
+          "name": "X. Shu"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "edc83a3a60793b811afee07dfbf29d31f5006658",
+      "title": "Contemporary unorthodox treatments in cancer medicine. A study of patients, treatments, and practitioners.",
+      "year": 1984,
+      "citationCount": 410,
+      "influentialCitationCount": 5,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.7326/0003-4819-101-1-105?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.7326/0003-4819-101-1-105, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1750881062",
+          "name": "B. R. Cassileth"
+        },
+        {
+          "authorId": "40249612",
+          "name": "E. Lusk"
+        },
+        {
+          "authorId": "7224568",
+          "name": "T. Strouse"
+        },
+        {
+          "authorId": "4659154",
+          "name": "B. J. Bodenheimer"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "fc131f927f279cb7c138c8c619ae29de7974a490",
+      "title": "Induced pluripotent stem cells in medicine and biology",
+      "year": 2013,
+      "citationCount": 255,
+      "influentialCitationCount": 7,
+      "openAccessPdf": {
+        "url": "https://dev.biologists.org/content/develop/140/12/2457.full.pdf",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1242/dev.092551?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1242/dev.092551, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine",
+        "Biology"
+      ],
+      "authors": [
+        {
+          "authorId": "1712020",
+          "name": "Kazutoshi Takahashi"
+        },
+        {
+          "authorId": "3036590",
+          "name": "S. Yamanaka"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "27f83ef8e209cb4dcf1d79382dee3295691407c5",
+      "title": "The role of imaging in the detection of prostate cancer local recurrence after radiation therapy and surgery",
+      "year": 2008,
+      "citationCount": 88,
+      "influentialCitationCount": 8,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1097/MOU.0b013e3282f13ac3?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1097/MOU.0b013e3282f13ac3, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "9808790",
+          "name": "D. Pucar"
+        },
+        {
+          "authorId": "4923588",
+          "name": "T. Sella"
+        },
+        {
+          "authorId": "2066705",
+          "name": "H. Schöder"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "91a72a3cc3e9322c51680086514be23596a75496",
+      "title": "Pharmacologic treatment of cancer pain.",
+      "year": 1996,
+      "citationCount": 458,
+      "influentialCitationCount": 9,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1056/NEJM199610103351507?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1056/NEJM199610103351507, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2067841496",
+          "name": "M. Levy"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "865c4e1899a4cc09114f75b917063ea9a493a5ba",
+      "title": "Therapeutic Touch Has Significant Effects on Mouse Breast Cancer Metastasis and Immune Responses but Not Primary Tumor Size",
+      "year": 2015,
+      "citationCount": 34,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "https://downloads.hindawi.com/journals/ecam/2015/926565.pdf",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC4465772, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "6999945",
+          "name": "G. Gronowicz"
+        },
+        {
+          "authorId": "4746461",
+          "name": "E. Secor"
+        },
+        {
+          "authorId": "32922787",
+          "name": "John Flynn"
+        },
+        {
+          "authorId": "2343386282",
+          "name": "Evan R. Jellison"
+        },
+        {
+          "authorId": "31832944",
+          "name": "L. Kuhn"
+        }
+      ],
+      "abstract": "Evidence-based integrative medicine therapies have been introduced to promote wellness and offset side-effects from cancer treatment. Energy medicine is an integrative medicine technique using the human biofield to promote well-being. The biofield therapy chosen for study was Therapeutic Touch (TT). Breast cancer tumors were initiated in mice by injection of metastatic 66cl4 mammary carcinoma cells. The control group received only vehicle. TT or mock treatments were performed twice a week for 10 minutes. Two experienced TT practitioners alternated treatments. At 26 days, metastasis to popliteal lymph nodes was determined by clonogenic assay. Changes in immune function were measured by analysis of serum cytokines and by fluorescent activated cells sorting (FACS) of immune cells from the spleen and lymph nodes. No significant differences were found in body weight gain or tumor size. Metastasis was significantly reduced in the TT-treated mice compared to mock-treated mice. Cancer significantly elevated eleven cytokines. TT significantly reduced IL-1-a, MIG, IL-1b, and MIP-2 to control/vehicle levels. FACS demonstrated that TT significantly reduced specific splenic lymphocyte subsets and macrophages were significantly elevated with cancer. Human biofield therapy had no significant effect on primary tumor but produced significant effects on metastasis and immune responses in a mouse breast cancer model."
+    },
+    {
+      "paperId": "5e2942d4a61726465153a456123865c9c241c6cd",
+      "title": "Complementary medicine in palliative care and cancer symptom management.",
+      "year": 2006,
+      "citationCount": 177,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1097/00130404-200609000-00011?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1097/00130404-200609000-00011, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4534410",
+          "name": "P. Mansky"
+        },
+        {
+          "authorId": "47920944",
+          "name": "D. Wallerstedt"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "009cb86abd6ab9fd4c7bee614d4689a9e8563236",
+      "title": "Biomarkers for the clinical management of breast cancer: International perspective",
+      "year": 2013,
+      "citationCount": 186,
+      "influentialCitationCount": 11,
+      "openAccessPdf": {
+        "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/ijc.27997",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1002/ijc.27997?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/ijc.27997, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3699326",
+          "name": "N. Patani"
+        },
+        {
+          "authorId": "47250827",
+          "name": "L. Martin"
+        },
+        {
+          "authorId": "112927420",
+          "name": "M. Dowsett"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "b79e07f69878add97de19faf20f650fd88078371",
+      "title": "Traditional Chinese medicine in cancer care: perspectives and experiences of patients and professionals in China.",
+      "year": 2006,
+      "citationCount": 159,
+      "influentialCitationCount": 8,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.1111/j.1365-2354.2006.00685.x",
+        "status": "GOLD",
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1111/J.1365-2354.2006.00685.X?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1111/J.1365-2354.2006.00685.X, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2157442556",
+          "name": "W. Xu"
+        },
+        {
+          "authorId": "145975954",
+          "name": "A. Towers"
+        },
+        {
+          "authorId": "2107774609",
+          "name": "P. Li"
+        },
+        {
+          "authorId": "153506909",
+          "name": "J. Collet"
+        }
+      ],
+      "abstract": "Although traditional Chinese medicine (TCM) is widely used in Chinese cancer centres, it is a brand new area for formal scientific evaluation. As the first step of developing a research programme on clinical evaluation of TCM for cancer patients, we conducted a qualitative study to explore the perspectives and experiences of Chinese cancer patients and TCM professionals. Twenty-eight persons participated in two cancer patient focus groups and one professional focus group. Semi-structured interviews were audiotaped, transcribed and translated. Textual transcripts and field notes underwent inductive thematic analysis. We found that patients' decision to use TCM for cancer is a self-help process with a deep cultural grounding, which is related to the traditional Chinese philosophy of life. Participants perceived TCM to be an effective and harmless therapy. They highly valued the fact that TCM is tailored to patients, and believed it was the basis of an optimal and safe treatment. Participants also highlighted the long-term positive effects, the benefit of group interventions and the low cost as important features of TCM. Subjects believed that conducting clinical research would be crucial for the recognition and dissemination of TCM in Western countries. The findings of this study are expected to contribute to the knowledge base on the current TCM use for cancer in China, and to provide useful information for developing future clinical research in this area in Western countries."
+    },
+    {
+      "paperId": "cdb11a77e4a3ac86844e5306cb946fb1cd35f0f4",
+      "title": "The coming decade in precision oncology: six riddles",
+      "year": 2022,
+      "citationCount": 141,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/s41568-022-00529-3?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/s41568-022-00529-3, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1405077795",
+          "name": "A. Wahida"
+        },
+        {
+          "authorId": "104088409",
+          "name": "L. Buschhorn"
+        },
+        {
+          "authorId": "6431750",
+          "name": "S. Fröhling"
+        },
+        {
+          "authorId": "2260322",
+          "name": "P. Jost"
+        },
+        {
+          "authorId": "4399118",
+          "name": "A. Schneeweiss"
+        },
+        {
+          "authorId": "2638155",
+          "name": "P. Lichter"
+        },
+        {
+          "authorId": "49319257",
+          "name": "R. Kurzrock"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "96b26285692a11d900a748882f12accf4241df8e",
+      "title": "The role of music therapy in palliative medicine and supportive care.",
+      "year": 2011,
+      "citationCount": 32,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1053/j.seminoncol.2011.03.010?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1053/j.seminoncol.2011.03.010, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "38433136",
+          "name": "Lisa M. Gallagher"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "e1cf4d4b6f9be0a47c0fea361b73acb63cb64bb2",
+      "title": "The use of complementary and alternative medicine by cancer patients",
+      "year": 2007,
+      "citationCount": 123,
+      "influentialCitationCount": 5,
+      "openAccessPdf": {
+        "url": "https://issoonline.biomedcentral.com/counter/pdf/10.1186/1477-7800-4-10",
+        "status": "HYBRID",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC1872026, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2298270530",
+          "name": "Mariama Adams"
+        },
+        {
+          "authorId": "2298266190",
+          "name": "Andrew Paul Jewell"
+        }
+      ],
+      "abstract": "The use of Complementary and Alternative Medicine (CAM) among cancer patients is widespread and appears to be increasing. However, it is not clear whether patients use CAM as an 'alternative' to standard oncology care or as an adjunct to the conventional treatment they receive. This study reviews the role of CAM therapies in the management of cancer, from the view of both patients and health professionals and it highlights issues relating to the efficacy of CAM used by cancer patients. Most patients use CAM to 'complement' the conventional therapies of radiotherapy, chemotherapy, hormone therapy and surgery. Health professionals in general have expressed positive views when CAM is used 'complementarily' and not as an 'Alternative'. Results so far published have shown that CAM can contribute to improving the quality of life of cancer patients and their general well-being."
+    },
+    {
+      "paperId": "9fcd65e568a21ba0c0d7e30c292f7af54e650a82",
+      "title": "Precision medicine in pediatric oncology",
+      "year": 2018,
+      "citationCount": 32,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://molcellped.springeropen.com/track/pdf/10.1186/s40348-018-0084-3",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC6119176, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "49260308",
+          "name": "S. Burdach"
+        },
+        {
+          "authorId": "145655243",
+          "name": "M. Westhoff"
+        },
+        {
+          "authorId": "46215113",
+          "name": "M. Steinhauser"
+        },
+        {
+          "authorId": "143640879",
+          "name": "K. Debatin"
+        }
+      ],
+      "abstract": "Outcome in treatment of childhood cancers has improved dramatically since the 1970s. This success was largely achieved by the implementation of cooperative clinical research trial groups that standardized and developed treatment of childhood cancer. Nevertheless, outcome in certain types of malignancies is still unfavorable. Intensification of conventional chemotherapy and radiotherapy improved outcome only marginally at the cost of acute and long-term side effects. Hence, it is necessary to develop targeted therapy strategies.Here, we review the developments and perspectives in precision medicine in pediatric oncology with a special focus on targeted drug therapies like kinase inhibitors and inducers of apoptosis, the impact of cancer genome sequencing and immunotherapy."
+    },
+    {
+      "paperId": "846de8ebb9a72e1869a20292d101e47fbb22ff06",
+      "title": "Clinical Efficacy of Traditional Chinese Medicine as a Concomitant Therapy for Nasopharyngeal Carcinoma: A Systematic Review and Meta-Analysis",
+      "year": 2009,
+      "citationCount": 58,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1080/07357900802392683?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1080/07357900802392683, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2248038302",
+          "name": "William C. S. Cho"
+        },
+        {
+          "authorId": "2247882509",
+          "name": "Hai-yong Chen"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "5039ce6be7799b725905ebf195906cc220418a9d",
+      "title": "Use of alternative medicine by children with cancer in Washington state.",
+      "year": 2001,
+      "citationCount": 122,
+      "influentialCitationCount": 3,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1006/PMED.2001.0911?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1006/PMED.2001.0911, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4033325",
+          "name": "M. Neuhouser"
+        },
+        {
+          "authorId": "47132860",
+          "name": "R. Patterson"
+        },
+        {
+          "authorId": "2142503769",
+          "name": "Stephen M. Schwartz"
+        },
+        {
+          "authorId": "2352777781",
+          "name": "Monique M. Hedderson"
+        },
+        {
+          "authorId": "2149655928",
+          "name": "Deborah J. Bowen"
+        },
+        {
+          "authorId": "4241940",
+          "name": "L. Standish"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "fd865ac1c086cf8719fcfaff451b8f39469e1679",
+      "title": "2016 Chinese expert consensus and guidelines for the diagnosis and treatment of papillary thyroid microcarcinoma",
+      "year": 2017,
+      "citationCount": 88,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "http://www.cancerbiomed.org/index.php/cocr/article/download/1043/1157",
+        "status": "GOLD",
+        "license": "CCBYNC",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC5570598, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "145146764",
+          "name": "M. Gao"
+        },
+        {
+          "authorId": "90730400",
+          "name": "M. Ge"
+        },
+        {
+          "authorId": "2236592383",
+          "name": "Q. Ji"
+        },
+        {
+          "authorId": "38460413",
+          "name": "R. Cheng"
+        },
+        {
+          "authorId": "7183023",
+          "name": "Hankui Lu"
+        },
+        {
+          "authorId": "1820765",
+          "name": "H. Guan"
+        },
+        {
+          "authorId": "2148992643",
+          "name": "Li Gao"
+        },
+        {
+          "authorId": "2149261202",
+          "name": "Zhuming Guo"
+        },
+        {
+          "authorId": "2110813263",
+          "name": "Tao Huang"
+        },
+        {
+          "authorId": "2107914415",
+          "name": "Xiaoming Huang"
+        },
+        {
+          "authorId": "2116432766",
+          "name": "Xiaoming Li"
+        },
+        {
+          "authorId": "5853013",
+          "name": "Yansong Lin"
+        },
+        {
+          "authorId": "6735027",
+          "name": "Qinjiang Liu"
+        },
+        {
+          "authorId": "2059139092",
+          "name": "Xin Ni"
+        },
+        {
+          "authorId": "50326250",
+          "name": "Yi Pan"
+        },
+        {
+          "authorId": "14765452",
+          "name": "J. Qin"
+        },
+        {
+          "authorId": "50500210",
+          "name": "Z. Shan"
+        },
+        {
+          "authorId": "15702910",
+          "name": "Hui-Dong Sun"
+        },
+        {
+          "authorId": "2108076522",
+          "name": "Xudong Wang"
+        },
+        {
+          "authorId": "115788751",
+          "name": "Zhengang Xu"
+        },
+        {
+          "authorId": "144837155",
+          "name": "Yang Yu"
+        },
+        {
+          "authorId": "4169147",
+          "name": "Daiwei Zhao"
+        },
+        {
+          "authorId": "47899411",
+          "name": "N. Zhang"
+        },
+        {
+          "authorId": "145721483",
+          "name": "Sheng Zhang"
+        },
+        {
+          "authorId": "2158585948",
+          "name": "Ying Zheng"
+        },
+        {
+          "authorId": "115816438",
+          "name": "Jingqiang Zhu"
+        },
+        {
+          "authorId": "120510372",
+          "name": "Dapeng Li"
+        },
+        {
+          "authorId": "2056497",
+          "name": "Xiangqian Zheng"
+        },
+        {
+          "authorId": "2235390024",
+          "name": "Chinese Association Of Thyroid Oncology Cato Chine"
+        }
+      ],
+      "abstract": "Ming Gao1, Minghua Ge2, Qinghai Ji3, Ruochuan Cheng4, Hankui Lu5, Haixia Guan6, Li Gao7, Zhuming Guo8, Tao Huang9, Xiaoming Huang10, Xiaoming Li11, Yansong Lin12, Qinjiang Liu13, Xin Ni14, Yi Pan15, Jianwu Qin16, Zhongyan Shan6, Hui Sun17, Xudong Wang1, Zhengang Xu18, Yang Yu1, Daiwei Zhao19, Naisong Zhang20, Sheng Zhang21, Ying Zheng22, Jingqiang Zhu23, Dapeng Li1, Xiangqian Zheng1, Chinese Association of Thyroid Oncology, (CATO), Chinese Anti-Cancer Association 1Department of Head and Neck Tumor, Tianjin Medical University Cancer Institute and Hospital; National Clinical Research Center for Cancer, Key Laboratory of Cancer Prevention and Therapy, Tianjin; Tianjin’s Clinical Research Center for Cancer, Tianjin 300060, China; 2Department of Head and Neck, Zhejiang Cancer Hospital, Hangzhou 310022, China; 3Department of Head and Neck Tumor, Fudan University Shanghai Cancer Center, Shanghai 200433, China; 4Department of General Surgery, First Affiliated Hospital of Kunming Medical University, Kunming 650032, China; 5Department of Nuclear Medicine, The Sixth Affiliated Hospital of Shanghai Jiao Tong University, Shanghai 200025, China; 6Department of Endocrinology, The First Hospital of China Medical University, Shenyang 110001, China; 7Department of Head and Neck, Sir Run Run Shaw Hospital, Zhejiang University School of Medicine, Hangzhou 310020, China; 8Sun Yat-sen University Cancer Center, Guangzhou 510060, China; 9Department of Thyroid and Breast, Union Hospital Tongji Medical College Huazhong University of Science and Technology, Wuhan 430030, China; 10Department of Otolaryngology, Sun Yat-sen Memorial Hospital, Sun Yat-sen University, Guangzhou 510120, China; 11Department of Head and Neck, Bethune International Peace Hospital, Shijiazhuang 050082, China; 12Department of Nuclear Medicine, Peking Union Medical College Hospital, Beijing 100730, China; 13Department of Head and Neck, Gansu Provincial Cancer Hospital, Lanzhou 730050, China; 14Department of Head and Neck, Beijing Children’s Hospital, Capital Medical University, Beijing 100045, China; 15Department of Pathology, Tianjin Medical University Cancer Institute and Hospital, National Clinical Research Center for Cancer, Key Laboratory of Cancer Prevention and Therapy, Tianjin; Tianjin’s Clinical Research Center for Cancer, Tianjing 300060, China; 16Department of Thyroid, Head and Neck, Henan Cancer Hospital, Zhengzhou 450008, China; 17Department of Thyroid, Sino Japanese Union Hospital of Jilin University, Changchun 130033, China; 18Department of Head and Neck, Cancer Hospital Chinese Academy of Medical Sciences, Beijing 100021, China; 19Department of General Surgery, The Second Affiliated Hospital of Guizhou Medical University, Kaili 556099, China; 20Department of Head and Neck, Beijing Cancer Hospital, Beijing 100142, China; 21Departments of Ultrasonography. Tianjin Medical University Cancer Institute and Hospital, National Clinical Research Center for Cancer, Key Laboratory of Cancer Prevention and Therapy, Tianjin; Tianjin’s Clinical Research Center for Cancer, Tianjin 300060, China; 22Department of Head and Neck, Jilin Tumor Hospital, Changchun 130012, China; 23Department of Thyroid and Breast, West China School of Medicine, West China Hospital, Sichuan University, Chengdu 610047, China"
+    },
+    {
+      "paperId": "d5b0f94fac14971eb9e282e052b6b5919191c552",
+      "title": "Beyond BRAF: where next for melanoma therapy?",
+      "year": 2014,
+      "citationCount": 119,
+      "influentialCitationCount": 5,
+      "openAccessPdf": {
+        "url": "https://www.nature.com/articles/bjc2014476.pdf",
+        "status": "HYBRID",
+        "license": "CCBYNCSA",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC4453440, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4672042",
+          "name": "Inna V. Fedorenko"
+        },
+        {
+          "authorId": "4951089",
+          "name": "G. Gibney"
+        },
+        {
+          "authorId": "3180251",
+          "name": "V. Sondak"
+        },
+        {
+          "authorId": "4657023",
+          "name": "K. Smalley"
+        }
+      ],
+      "abstract": "In recent years, melanoma has become a poster-child for the development of oncogene-directed targeted therapies. This approach, which has been exemplified by the development of small-molecule BRAF inhibitors and the BRAF/MEK inhibitor combination for BRAF-mutant melanoma, has brought new hope to patients. Despite these successes, treatment failure seems near inevitable in the majority of cases—even in individuals treated with the BRAF/MEK inhibitor doublet. In the current review, we discuss the future of combination strategies for patients with BRAF-mutant melanoma as well as the emerging therapeutic options for patients with NRAS-mutant and BRAF/NRAS-wild-type melanoma. We also outline some of the newest developments in the in-depth personalisation of therapy that should allow melanoma treatment to continue shaping the field precision cancer medicine."
+    },
+    {
+      "paperId": "6628f19fd330505d64dde96cf39ea419a7fc1234",
+      "title": "Potential synergism of natural products in the treatment of cancer",
+      "year": 2006,
+      "citationCount": 264,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1002/PTR.1841?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/PTR.1841, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "6872469",
+          "name": "S. Hemaiswarya"
+        },
+        {
+          "authorId": "1916635",
+          "name": "M. Doble"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "46b720fe8dc5f5b0958add6c2d8d787069607e97",
+      "title": "Use of Iscador, an extract of European mistletoe (Viscum album), in cancer treatment: prospective nonrandomized and randomized matched-pair studies nested within a cohort study.",
+      "year": 2001,
+      "citationCount": 191,
+      "influentialCitationCount": 11,
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1405048901",
+          "name": "R. Grossarth-Maticek"
+        },
+        {
+          "authorId": "5536097",
+          "name": "H. Kiene"
+        },
+        {
+          "authorId": "2156854010",
+          "name": "Stephan Baumgartner"
+        },
+        {
+          "authorId": "5301071",
+          "name": "R. Ziegler"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "410416ff18302728fa7e2594b7eff0fcb3852430",
+      "title": "Combining epigenetic drugs with other therapies for solid tumours — past lessons and future promise",
+      "year": 2019,
+      "citationCount": 331,
+      "influentialCitationCount": 6,
+      "openAccessPdf": {
+        "url": "https://hal.archives-ouvertes.fr/hal-02371032/file/Morel%20D_Jeffery%20D_2019.pdf",
+        "status": "GREEN",
+        "license": "other-oa",
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/s41571-019-0267-4?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/s41571-019-0267-4, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "31542421",
+          "name": "D. Morel"
+        },
+        {
+          "authorId": "4733515",
+          "name": "Daniel Jeffery"
+        },
+        {
+          "authorId": "5040373",
+          "name": "S. Aspeslagh"
+        },
+        {
+          "authorId": "4466921",
+          "name": "G. Almouzni"
+        },
+        {
+          "authorId": "1397863391",
+          "name": "S. Postel-Vinay"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "efa5ecd4b25708ec0a71132af09ea43a19d3081f",
+      "title": "Milk thistle: is there a role for its use as an adjunct therapy in patients with cancer?",
+      "year": 2003,
+      "citationCount": 45,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1089/107555303765551633?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1089/107555303765551633, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3465157",
+          "name": "E. Ladas"
+        },
+        {
+          "authorId": "34678282",
+          "name": "K. Kelly"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "7133841a50fabc2e350017434401995ddfd37f9d",
+      "title": "Vitamin C and Cancer: Medicine or Politics?",
+      "year": 1991,
+      "citationCount": 74,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "https://link.springer.com/content/pdf/bfm:978-1-349-09606-0/1",
+        "status": "GREEN",
+        "license": "other-oa",
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/978-1-349-09606-0?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/978-1-349-09606-0, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Psychology"
+      ],
+      "authors": [
+        {
+          "authorId": "48384475",
+          "name": "Evelleen Richards"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "1778730b2f2786e9c28e2d39eb3172a5b1c2625c",
+      "title": "Unconventional therapy for prostate cancer: good, bad or questionable?",
+      "year": 2003,
+      "citationCount": 56,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/nrc1210?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/nrc1210, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1787779",
+          "name": "P. Nelson"
+        },
+        {
+          "authorId": "145099766",
+          "name": "B. Montgomery"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "d9724e59e9aa2f404f44528d9d544d3becc630ae",
+      "title": "Use of alternative medicine by patients with cancer in a rural area of Switzerland.",
+      "year": 2003,
+      "citationCount": 59,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "https://doi.org/10.4414/smw.2003.10160",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.4414/SMW.2003.10160?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.4414/SMW.2003.10160, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "13964294",
+          "name": "Fleur van der Weg"
+        },
+        {
+          "authorId": "46749575",
+          "name": "R. Streuli"
+        }
+      ],
+      "abstract": "BACKGROUND\nMany cancer patients use alternative therapies in addition to conventional treatment. In a survey among such patients, we assessed the prevalence of and the motivation for alternative therapy use in a rural area of Switzerland.\n\n\nMETHODS\nFrom 1st February to 30th November 2001, we interviewed 108 patients treated in the oncology outpatient clinic of the Langenthal District General Hospital, Switzerland, using a structured questionnaire. 77% of the patients were female. 49% of the patients (i.e., 64% of the female patients) suffered from breast cancer.\n\n\nRESULTS\n42 (39%) of all patients had used an alternative therapy in addition to conventional treatment at least once. Mistletoe preparations were by far the most popular with a prevalence of 74%. Homeopathy (24%) and cancer diets (12%) were used less often. 79% of the patients seeking help from alternative treatment informed their treating oncologist and/or medical practitioner accordingly. 57% of the doctors encouraged their patients to continue the alternative treatment, none discouraged the patient to do so. The main reasons for the use of alternative therapy were: the desire to feel more hopeful (83%); \"to do as much as possible myself to cure the disease\" (83%); and to harness mental energy (62%). Only 19% of the patients hoped to be cured of cancer by alternative therapy.\n\n\nCONCLUSIONS\nThe motivation to seek help from alternative treatment is not based on a distrust of conventional care. Maintaining hope and taking an active role in self-care are the main stimuli for using alternative medicine."
+    },
+    {
+      "paperId": "ec3e6b4b9c58d05feda9c236bb991cd2ff00a0f9",
+      "title": "Medical Qigong for cancer patients: pilot study of impact on quality of life, side effects of treatment and inflammation.",
+      "year": 2008,
+      "citationCount": 87,
+      "influentialCitationCount": 9,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1142/S0192415X08005904?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1142/S0192415X08005904, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "37099981",
+          "name": "B. Oh"
+        },
+        {
+          "authorId": "2345717",
+          "name": "P. Butow"
+        },
+        {
+          "authorId": "47145214",
+          "name": "B. Mullan"
+        },
+        {
+          "authorId": "35059242",
+          "name": "S. Clarke"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "3308bdaee47d3e919ce6c97710df01196d16d185",
+      "title": "Nanotechnology in cancer prevention, detection and treatment: bright future lies ahead",
+      "year": 2007,
+      "citationCount": 112,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1504/WRSTSD.2007.013584?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1504/WRSTSD.2007.013584, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Computer Science"
+      ],
+      "authors": [
+        {
+          "authorId": "82484946",
+          "name": "G. Mansoori"
+        },
+        {
+          "authorId": "2211089",
+          "name": "P. Mohazzabi"
+        },
+        {
+          "authorId": "79408645",
+          "name": "P. McCormack"
+        },
+        {
+          "authorId": "144915308",
+          "name": "S. Jabbari"
+        },
+        {
+          "authorId": "2139738965",
+          "name": "Ali Mansoori"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "0564ebb9ade6b539ff75116c5a6c48ec0914db9f",
+      "title": "Molecular testing in breast cancer.",
+      "year": 2014,
+      "citationCount": 73,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "https://www.annualreviews.org/doi/pdf/10.1146/annurev-med-070912-143853",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1146/annurev-med-070912-143853?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1146/annurev-med-070912-143853, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "1864577",
+          "name": "C. Paoletti"
+        },
+        {
+          "authorId": "2364848",
+          "name": "D. Hayes"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "b730b35abe36ecaa2bf9cc6d497915b21a16cdc9",
+      "title": "Breast cancer screening: its impact on clinical medicine",
+      "year": 1990,
+      "citationCount": 49,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1971409",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/bjc.1990.55?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/bjc.1990.55, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "120470430",
+          "name": "H. D. Koning"
+        },
+        {
+          "authorId": "120147739",
+          "name": "G. V. Oortmarssen"
+        },
+        {
+          "authorId": "2080262413",
+          "name": "BM van Ineveld"
+        },
+        {
+          "authorId": "83603834",
+          "name": "P. V. D. Maas"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "31af1c281cfe02864d82e6577bd9bb1797a3b8ca",
+      "title": "Perceived Quality of Life and Coping for Swedish Women With Breast Cancer Who Choose Complementary Medicine",
+      "year": 2001,
+      "citationCount": 38,
+      "influentialCitationCount": 4,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1097/00002820-200110000-00012?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1097/00002820-200110000-00012, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "32130590",
+          "name": "M. Carlsson"
+        },
+        {
+          "authorId": "143638315",
+          "name": "M. Arman"
+        },
+        {
+          "authorId": "3948718",
+          "name": "M. Backman"
+        },
+        {
+          "authorId": "4046092",
+          "name": "E. Hamrin"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "d6e62b763a4d704f9addd4634dfecbe68e96fb15",
+      "title": "Qigong for cancer treatment: A systematic review of controlled clinical trials",
+      "year": 2007,
+      "citationCount": 99,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "https://www.tandfonline.com/doi/pdf/10.1080/02841860701261584?needAccess=true",
+        "status": "BRONZE",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1080/02841860701261584?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1080/02841860701261584, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "8683244",
+          "name": "Myeong Soo Lee"
+        },
+        {
+          "authorId": "87757148",
+          "name": "Kevin W Chen"
+        },
+        {
+          "authorId": "47592723",
+          "name": "K. Sancier"
+        },
+        {
+          "authorId": "2083098703",
+          "name": "E. Ernst"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "d994f4368d7bf2e54a4b99cf7b17b2e22f61dcf0",
+      "title": "Patient-Physician Communication Regarding Use of Complementary Therapies During Cancer Treatment",
+      "year": 2006,
+      "citationCount": 114,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1300/J077v23n04_03?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1300/J077v23n04_03, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "152642275",
+          "name": "C. S. Roberts"
+        },
+        {
+          "authorId": "145238835",
+          "name": "F. Baker"
+        },
+        {
+          "authorId": "3300568",
+          "name": "D. Hann"
+        },
+        {
+          "authorId": "7890598",
+          "name": "J. Runfola"
+        },
+        {
+          "authorId": "2065152198",
+          "name": "Cathy Witt"
+        },
+        {
+          "authorId": "2069594976",
+          "name": "Jamie Mcdonald"
+        },
+        {
+          "authorId": "32392930",
+          "name": "M. Livingston"
+        },
+        {
+          "authorId": "7691812",
+          "name": "Jane Ruiterman"
+        },
+        {
+          "authorId": "8394082",
+          "name": "Rosemarie Ampela"
+        },
+        {
+          "authorId": "7301723",
+          "name": "Okrae C. K. Kaw"
+        },
+        {
+          "authorId": "47129524",
+          "name": "C. Blanchard"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "0863906e98918618f13badf31ab43e8f7475b745",
+      "title": "Role of rehabilitation medicine in the care of the patient with breast cancer",
+      "year": 1971,
+      "citationCount": 38,
+      "influentialCitationCount": 0,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1002/1097-0142(197112)28:6<1666::AID-CNCR2820280652>3.0.CO;2-N?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/1097-0142(197112)28:6<1666::AID-CNCR2820280652>3.0.CO;2-N, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "3634078",
+          "name": "J. Healey"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "e693988be7684480d7301f98f9666f4e29ae3411",
+      "title": "Targeted therapy in nuclear medicine--current status and future prospects.",
+      "year": 2007,
+      "citationCount": 108,
+      "influentialCitationCount": 7,
+      "openAccessPdf": {
+        "url": "http://www.annalsofoncology.org/article/S0923753419411320/pdf",
+        "status": "BRONZE",
+        "license": "publisher-specific-oa",
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1093/ANNONC/MDM111?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1093/ANNONC/MDM111, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "145747644",
+          "name": "W. Oyen"
+        },
+        {
+          "authorId": "145747644",
+          "name": "W. Oyen"
+        },
+        {
+          "authorId": "116430336",
+          "name": "L. Bodei"
+        },
+        {
+          "authorId": "116430336",
+          "name": "L. Bodei"
+        },
+        {
+          "authorId": "3370303",
+          "name": "F. Giammarile"
+        },
+        {
+          "authorId": "3370303",
+          "name": "F. Giammarile"
+        },
+        {
+          "authorId": "2169201570",
+          "name": "H. Maecke"
+        },
+        {
+          "authorId": "4764254",
+          "name": "J. Tennvall"
+        },
+        {
+          "authorId": "4764254",
+          "name": "J. Tennvall"
+        },
+        {
+          "authorId": "4671461",
+          "name": "M. Luster"
+        },
+        {
+          "authorId": "4671461",
+          "name": "M. Luster"
+        },
+        {
+          "authorId": "50701398",
+          "name": "B. Brans"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "8d0dda36478c21d3105f6345490a81654b1cbec3",
+      "title": "Laetrile treatment for cancer.",
+      "year": 2006,
+      "citationCount": 67,
+      "influentialCitationCount": 5,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1002/14651858.cd005476.pub2?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/14651858.cd005476.pub2, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "47337801",
+          "name": "S. Milazzo"
+        },
+        {
+          "authorId": "2083098743",
+          "name": "E. Ernst"
+        },
+        {
+          "authorId": "144791164",
+          "name": "S. Lejeune"
+        },
+        {
+          "authorId": "46349028",
+          "name": "K. Schmidt"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "01cc425dab7439b5e5c1372047762dd58cd6997e",
+      "title": "Cancer Treatment, Symptom Monitoring, and Self-care in Adults: Pilot Study",
+      "year": 2006,
+      "citationCount": 60,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1097/00002820-200609000-00001?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1097/00002820-200609000-00001, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "34729369",
+          "name": "P. Williams"
+        },
+        {
+          "authorId": "3177590",
+          "name": "U. Piamjariyakul"
+        },
+        {
+          "authorId": "83813741",
+          "name": "K. Ducey"
+        },
+        {
+          "authorId": "40520712",
+          "name": "J. Badura"
+        },
+        {
+          "authorId": "2097100831",
+          "name": "Kristin D Boltz"
+        },
+        {
+          "authorId": "49135446",
+          "name": "Karmen Olberding"
+        },
+        {
+          "authorId": "145843104",
+          "name": "A. Wingate"
+        },
+        {
+          "authorId": "2109227884",
+          "name": "Arthur R. Williams"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "53675333898b0a87758eda49231ad16f5510a4d8",
+      "title": "The role of nuclear medicine in monitoring treatment in skeletal malignancy.",
+      "year": 2001,
+      "citationCount": 70,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1053/SNUC.2001.23527?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1053/SNUC.2001.23527, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "40292777",
+          "name": "G. Cook"
+        },
+        {
+          "authorId": "2106073242",
+          "name": "G. Cook"
+        },
+        {
+          "authorId": "5310809",
+          "name": "I. Fogelman"
+        },
+        {
+          "authorId": "5310809",
+          "name": "I. Fogelman"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "1d81b1c3cc813122fe377a8ef86b69dd03419dcd",
+      "title": "Image-guided radiotherapy: from current concept to future perspectives",
+      "year": 2012,
+      "citationCount": 456,
+      "influentialCitationCount": 13,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/nrclinonc.2012.194?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/nrclinonc.2012.194, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "49754705",
+          "name": "D. Jaffray"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "8a7b67d453b4b09a47e7a2259c7c6fea2b864c49",
+      "title": "Managing the care of patients with bisphosphonate-associated osteonecrosis: an American Academy of Oral Medicine position paper.",
+      "year": 2005,
+      "citationCount": 492,
+      "influentialCitationCount": 23,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.14219/JADA.ARCHIVE.2005.0108?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.14219/JADA.ARCHIVE.2005.0108, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "4263142",
+          "name": "C. Migliorati"
+        },
+        {
+          "authorId": "15152141",
+          "name": "J. Casiglia"
+        },
+        {
+          "authorId": "1720072",
+          "name": "J. Epstein"
+        },
+        {
+          "authorId": "144221367",
+          "name": "P. Jacobsen"
+        },
+        {
+          "authorId": "37178276",
+          "name": "M. Siegel"
+        },
+        {
+          "authorId": "49828578",
+          "name": "S. Woo"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "3fe40da76a874bf152bb96a6a3c0aad022e84673",
+      "title": "Nanotheranostics for personalized medicine",
+      "year": 2013,
+      "citationCount": 148,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc3696508?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1586/erm.13.15?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1586/erm.13.15, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "2111251461",
+          "name": "Tae Hyung Kim"
+        },
+        {
+          "authorId": "2108128987",
+          "name": "Seulki Lee"
+        },
+        {
+          "authorId": "13747599",
+          "name": "Xiaoyuan Chen"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "d78bc90c7e4d3f6f726c2a568c0e7a69e165f3d0",
+      "title": "The functions and clinical application potential of exosomes derived from adipose mesenchymal stem cells: a comprehensive review",
+      "year": 2019,
+      "citationCount": 206,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "https://stemcellres.biomedcentral.com/track/pdf/10.1186/s13287-019-1358-y",
+        "status": "GOLD",
+        "license": "CCBY",
+        "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC6686455, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Biology",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "145461019",
+          "name": "Pengyu Hong"
+        },
+        {
+          "authorId": "2145058486",
+          "name": "Haoxiao Yang"
+        },
+        {
+          "authorId": "2109035507",
+          "name": "Yue Wu"
+        },
+        {
+          "authorId": "2115467807",
+          "name": "Kun Li"
+        },
+        {
+          "authorId": "4798238",
+          "name": "Zhangui Tang"
+        }
+      ],
+      "abstract": "Exosomes are extracellular membranous nanovesicles that mediate local and systemic intercellular communication by transporting proteins or nucleic acids (DNA and RNA) into target cells, thus altering the behaviors of recipient cells. Recent studies have revealed that these vesicles play a critical role in many biological functions, such as cell proliferation, immune regulation, nerve regeneration, and cancer. Adipose-derived stem cells (ADSCs) are now considered a multipotent and abundant tool in the field of cell therapy and regenerative medicine. ADSCs can produce and secrete many exosomes, which inherit multiple functions of cells. Therefore, in this review, we will introduce the characteristics of exosomes derived from ADSCs (ADSC-Exos), describe their functions in different biological processes, summarize the latest research achievements, describe their limitations in cell-free therapy, and provide further insights into their clinical application potential for the treatment of certain diseases."
+    },
+    {
+      "paperId": "77cc7e8f007560e4dce9efcf2d6e140c86e82021",
+      "title": "A Review: The Pharmacology of Isoliquiritigenin",
+      "year": 2015,
+      "citationCount": 231,
+      "influentialCitationCount": 1,
+      "openAccessPdf": {
+        "url": "",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1002/ptr.5348?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1002/ptr.5348, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "143815142",
+          "name": "F. Peng"
+        },
+        {
+          "authorId": "14150317",
+          "name": "Qiaohui Du"
+        },
+        {
+          "authorId": "144343071",
+          "name": "Cheng Peng"
+        },
+        {
+          "authorId": "2218387614",
+          "name": "Neng Wang"
+        },
+        {
+          "authorId": "5989429",
+          "name": "Hailin Tang"
+        },
+        {
+          "authorId": "145104390",
+          "name": "Xiaoming Xie"
+        },
+        {
+          "authorId": "1745803",
+          "name": "Jiangang Shen"
+        },
+        {
+          "authorId": "2108518155",
+          "name": "Jianping Chen"
+        }
+      ],
+      "abstract": null
+    },
+    {
+      "paperId": "d10e6d352c23a6e46e232ff2d41e7a5240c18a08",
+      "title": "Dithiocarbamate-based coordination compounds as potent proteasome inhibitors in human cancer cells.",
+      "year": 2012,
+      "citationCount": 112,
+      "influentialCitationCount": 2,
+      "openAccessPdf": {
+        "url": "https://europepmc.org/articles/pmc3651834?pdf=render",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.2174/138955712802762040?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.2174/138955712802762040, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "fieldsOfStudy": [
+        "Chemistry",
+        "Medicine"
+      ],
+      "authors": [
+        {
+          "authorId": "10705655",
+          "name": "D. Buac"
+        },
+        {
+          "authorId": "3544362",
+          "name": "Sara M. Schmitt"
+        },
+        {
+          "authorId": "13001684",
+          "name": "George J Ventro"
+        },
+        {
+          "authorId": "8548557",
+          "name": "F. Kona"
+        },
+        {
+          "authorId": "143705902",
+          "name": "Q. Dou"
+        }
+      ],
+      "abstract": null
+    }
+  ]
+}

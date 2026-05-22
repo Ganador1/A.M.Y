@@ -1,0 +1,46 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: atlas-data-validation
+  labels:
+    app: atlas
+    component: data-validation
+spec:
+  # Ejecuta cada noche a las 02:15
+  schedule: "15 2 * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: data-validation
+              image: ghcr.io/your-org/atlas:latest
+              imagePullPolicy: IfNotPresent
+              command: ["bash","-lc"]
+              args:
+                - >-
+                  echo "[CronJob] Iniciando validación de datos" && \
+                  python scripts/run_data_validations.py --fail-on-error && \
+                  echo "[CronJob] Validación completada" || \
+                  (echo "[CronJob] FALLÓ validación" >&2; exit 1)
+              env:
+                - name: ATLAS_ENV
+                  value: "cron"
+              securityContext:
+                allowPrivilegeEscalation: false
+                runAsNonRoot: true
+                runAsUser: 1000
+                runAsGroup: 1000
+                readOnlyRootFilesystem: true
+              resources:
+                requests:
+                  cpu: "100m"
+                  memory: "128Mi"
+                limits:
+                  cpu: "500m"
+                  memory: "512Mi"
+          # Opcional: tolerations / nodeSelector según endurecimiento futuro

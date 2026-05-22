@@ -1,0 +1,34 @@
+📖 Cargados 500 candidatos de data/plausibility_training_v4_candidates.jsonl
+🤖 Iniciando evaluación automática con Ollama: mistral:7b
+🌐 Ollama URL: http://localhost:11434
+⏱️  Delay entre requests: 0.5s
+📊 Registros a evaluar: 500
+[1/500] Evaluando 1321c114... ✅ (conf: 0.85)
+[2/500] Evaluando a8a1242e... ✅ (conf: 0.95)
+[3/500] Evaluando ee782810... ✅ (conf: 0.85)
+[4/500] Evaluando 116dd233... ✅ (conf: 0.85)
+[5/500] Evaluando 4e625a35... ✅ (conf: 0.85)
+[6/500] Evaluando 8cc2daac... ✅ (conf: 0.85)
+[7/500] Evaluando 14408006... ✅ (conf: 0.85)
+[8/500] Evaluando 0a866a3f... ✅ (conf: 0.90)
+[9/500] Evaluando 8d708e38... ✅ (conf: 0.85)
+[10/500] Evaluando 32782ad9... ✅ (conf: 0.85)
+[11/500] Evaluando 080b779f... ✅ (conf: 0.85)
+[12/500] Evaluando 3a46c4ec... ✅ (conf: 0.85)
+[13/500] Evaluando 075138d3... ✅ (conf: 0.85)
+[14/500] Evaluando 50f03ec3... ✅ (conf: 0.85)
+[15/500] Evaluando bb24e5b3... ✅ (conf: 0.85)
+[16/500] Evaluando 0c48646d... ✅ (conf: 0.85)
+[17/500] Evaluando 4107e98d... ✅ (conf: 0.85)
+[18/500] Evaluando 792902be... ✅ (conf: 0.85)
+[19/500] Evaluando 31792ade... ✅ (conf: 0.85)
+[20/500] Evaluando 96112f6a... ✅ (conf: 0.85)
+[21/500] Evaluando 4d85fcf8... ✅ (conf: 0.85)
+[22/500] Evaluando 507ab4a2... ✅ (conf: 0.80)
+[23/500] Evaluando 12813821... ✅ (conf: 0.85)
+[24/500] Evaluando f0fabac3... ✅ (conf: 0.85)
+[25/500] Evaluando c110897c... ✅ (conf: 0.85)
+[26/500] Evaluando de390e85... ✅ (conf: 0.80)
+[27/500] Evaluando dc544c93... ✅ (conf: 0.85)
+[28/500] Evaluando 5371fe59... ✅ (conf: 0.85)
+[29/500] Evaluando 02e0752d... 

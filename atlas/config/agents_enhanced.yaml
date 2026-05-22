@@ -1,0 +1,330 @@
+# Enhanced Agent Configuration for AXIOM Atlas
+# Integrates cloud APIs and specialized scientific models
+#
+# Migration path: Gradually replace agents.yaml with this configuration
+# Fallback: Local models if APIs unavailable
+
+# ============================================================================
+# ENHANCED ROLES (with cloud models)
+# ============================================================================
+roles:
+  # -------------------------------------------------------------------------
+  # ORCHESTRATOR: High-level planning and goal decomposition
+  # -------------------------------------------------------------------------
+  orchestrator:
+    description: "Strategic planning and scientific goal decomposition"
+    # Option 1: Groq Cloud (RECOMMENDED - ultra-fast, free tier)
+    model: llama-3.1-70b-versatile
+    provider: groq
+    params:
+      temperature: 0.3
+      max_new_tokens: 1024
+    # Option 2: Local fallback
+    fallback_model: llama3:8b
+    fallback_provider: ollama
+
+  # -------------------------------------------------------------------------
+  # SCIENTIFIC REASONER: Deep scientific knowledge (NEW ROLE)
+  # -------------------------------------------------------------------------
+  scientific_reasoner:
+    description: "Scientific reasoning with knowledge from 48M papers"
+    # Option 1: Galactica (if available via HuggingFace)
+    model: galactica-30b
+    provider: huggingface
+    params:
+      temperature: 0.4
+      max_new_tokens: 1024
+    # Option 2: BioMedLM (lighter, biomedicine focused)
+    fallback_model: biomedlm-2.7b
+    fallback_provider: huggingface
+    # Option 3: Local fallback
+    fallback_model_2: mistral:7b
+    fallback_provider_2: ollama
+
+  # -------------------------------------------------------------------------
+  # BIO HYPOTHESIS: Biological hypothesis generation
+  # -------------------------------------------------------------------------
+  bio_hypothesis:
+    description: "Biological hypothesis generation with PubMed knowledge"
+    # Option 1: BioGPT (RECOMMENDED - specialized, 15M PubMed abstracts)
+    model: biogpt
+    provider: huggingface
+    params:
+      temperature: 0.65
+      max_new_tokens: 800
+    # Option 2: Local fallback
+    fallback_model: mistral:7b
+    fallback_provider: ollama
+
+  # -------------------------------------------------------------------------
+  # PHYSCHEM CODER: Computational experiment design
+  # -------------------------------------------------------------------------
+  physchem_coder:
+    description: "Computational chemistry/physics experiment design"
+    # Option 1: Groq with large model
+    model: llama-3.1-70b-versatile
+    provider: groq
+    params:
+      temperature: 0.4
+      max_new_tokens: 1200
+    # Option 2: Code-specialized model
+    fallback_model: codellama:13b
+    fallback_provider: ollama
+    # Option 3: Original fallback
+    fallback_model_2: codellama:7b
+    fallback_provider_2: ollama
+
+  # -------------------------------------------------------------------------
+  # REVIEWER: Critical evaluation and evidence synthesis
+  # -------------------------------------------------------------------------
+  reviewer:
+    description: "Critical review and evidence-based evaluation"
+    # Option 1: Together AI with large reasoning model
+    model: qwen-2.5-72b-instruct
+    provider: together
+    params:
+      temperature: 0.35
+      max_new_tokens: 1024
+    # Option 2: Groq fallback
+    fallback_model: llama-3.1-70b-versatile
+    fallback_provider: groq
+    # Option 3: Local fallback
+    fallback_model_2: qwen:7b
+    fallback_provider_2: ollama
+
+  # -------------------------------------------------------------------------
+  # PUBLISHER: Report generation and synthesis
+  # -------------------------------------------------------------------------
+  publisher:
+    description: "Scientific report synthesis and publication"
+    # Option 1: Groq for fast generation
+    model: llama-3.1-70b-versatile
+    provider: groq
+    params:
+      temperature: 0.65
+      max_new_tokens: 1500
+    # Option 2: Local fallback
+    fallback_model: llama3:8b
+    fallback_provider: ollama
+
+# ============================================================================
+# SPECIALIZED ROLES (domain-specific)
+# ============================================================================
+specialized_roles:
+  # -------------------------------------------------------------------------
+  # CHEMISTRY SPECIALIST
+  # -------------------------------------------------------------------------
+  chemistry_specialist:
+    description: "Computational chemistry and molecular analysis"
+    model: llama-3.1-70b-versatile
+    provider: groq
+    params:
+      temperature: 0.5
+      max_new_tokens: 1024
+    system_prompt: "You are a computational chemistry expert. Focus on molecular mechanisms, reaction pathways, and structure-property relationships."
+
+  # -------------------------------------------------------------------------
+  # MATHEMATICS SPECIALIST
+  # -------------------------------------------------------------------------
+  mathematics_specialist:
+    description: "Mathematical conjecture generation and proof sketching"
+    model: llama-3.1-70b-versatile
+    provider: groq
+    params:
+      temperature: 0.4
+      max_new_tokens: 1200
+    system_prompt: "You are a research mathematician. Generate rigorous conjectures with clear assumptions and testable predictions."
+
+  # -------------------------------------------------------------------------
+  # MEDICAL SPECIALIST
+  # -------------------------------------------------------------------------
+  medical_specialist:
+    description: "Clinical hypothesis and medical research"
+    model: biogpt
+    provider: huggingface
+    params:
+      temperature: 0.6
+      max_new_tokens: 800
+    system_prompt: "You are a medical researcher. Generate clinically relevant, testable hypotheses with clear patient outcomes."
+
+# ============================================================================
+# PROVIDER CONFIGURATIONS
+# ============================================================================
+providers:
+  groq:
+    api_url: https://api.groq.com/openai/v1
+    api_key_env: GROQ_API_KEY  # Set in .env
+    timeout: 30
+    retry_attempts: 3
+    rate_limit: 30  # requests per minute
+    models:
+      - llama-3.1-70b-versatile
+      - llama-3.1-8b-instant
+      - mixtral-8x7b-32768
+      - llama-3-70b-groq-tool-use
+
+  together:
+    api_url: https://api.together.xyz/v1
+    api_key_env: TOGETHER_API_KEY  # Set in .env
+    timeout: 30
+    retry_attempts: 3
+    models:
+      - qwen-2.5-72b-instruct
+      - mixtral-8x22b-instruct
+      - llama-3.1-405b-instruct
+
+  huggingface:
+    api_url: https://api-inference.huggingface.co/models
+    api_key_env: HUGGINGFACE_API_KEY  # Optional for public models
+    timeout: 60
+    retry_attempts: 3
+    models:
+      - microsoft/biogpt
+      - allenai/scibert_scivocab_uncased
+      - facebook/galactica-30b
+      - stanford/biomedlm-2.7b
+
+  ollama:
+    api_url: https://api.ollama.com
+    api_key_env: OLLAMA_API_KEY
+    timeout: 120
+    models:
+      - llama3:8b
+      - mistral:7b
+      - codellama:7b
+      - codellama:13b
+      - qwen:7b
+      - gemini-3-flash-preview:cloud
+
+# ============================================================================
+# ROUTING STRATEGY
+# ============================================================================
+routing:
+  # Priority order for model selection
+  strategy: tiered_fallback  # Options: tiered_fallback, load_balanced, fastest_first
+
+  # Tier definitions
+  tiers:
+    - name: specialized
+      priority: 1
+      providers: [huggingface]
+      use_for: [bio_hypothesis, medical_specialist]
+
+    - name: cloud_large
+      priority: 2
+      providers: [groq, together]
+      use_for: [orchestrator, reviewer, physchem_coder, publisher]
+
+    - name: local
+      priority: 3
+      providers: [ollama]
+      use_for: []  # Fallback only
+
+  # Failure handling
+  fallback:
+    enabled: true
+    max_retries: 2
+    timeout_threshold: 30  # seconds
+    error_codes_to_retry: [429, 500, 502, 503, 504]
+
+# ============================================================================
+# DOMAIN-SPECIFIC OVERRIDES
+# ============================================================================
+domain_overrides:
+  biology:
+    bio_hypothesis:
+      model: biogpt
+      provider: huggingface
+    scientific_reasoner:
+      model: galactica-30b
+      provider: huggingface
+
+  chemistry:
+    physchem_coder:
+      model: llama-3.1-70b-versatile
+      provider: groq
+      params:
+        temperature: 0.45
+
+  mathematics:
+    orchestrator:
+      params:
+        temperature: 0.25  # Lower for mathematical rigor
+
+  medicine:
+    bio_hypothesis:
+      model: biogpt
+      provider: huggingface
+      params:
+        temperature: 0.55  # Conservative for medical
+
+# ============================================================================
+# PERFORMANCE TUNING
+# ============================================================================
+performance:
+  # Caching
+  cache_enabled: true
+  cache_ttl: 3600  # 1 hour
+
+  # Batching
+  batch_enabled: false  # Future: batch multiple requests
+  batch_size: 10
+
+  # Monitoring
+  telemetry_enabled: true
+  log_latency: true
+  log_token_usage: true
+
+# ============================================================================
+# COST MANAGEMENT
+# ============================================================================
+cost_management:
+  # Free tier limits (conservative estimates)
+  groq_daily_limit: 1000  # requests
+  together_monthly_budget: 25  # dollars (free credits)
+  huggingface_rate_limit: 100  # requests per hour
+
+  # Alert thresholds
+  alert_on_limit: 0.8  # Alert at 80% of limit
+  fallback_on_limit: true  # Use local models if limits reached
+
+# ============================================================================
+# EXPERIMENTAL FEATURES
+# ============================================================================
+experimental:
+  # Ensemble voting (combine multiple models)
+  ensemble_enabled: false
+  ensemble_models: [groq/llama-3.1-70b, huggingface/biogpt]
+  ensemble_voting_strategy: weighted  # Options: majority, weighted, best_confidence
+
+  # Dynamic model selection based on performance
+  adaptive_routing: false
+  performance_tracking: true
+
+# ============================================================================
+# NOTES
+# ============================================================================
+#
+# Migration Guide:
+# 1. Get API keys:
+#    - Groq: https://console.groq.com (FREE)
+#    - Together AI: https://api.together.xyz (FREE credits)
+#    - HuggingFace: https://huggingface.co/settings/tokens (optional)
+#
+# 2. Add to .env:
+#    GROQ_API_KEY=gsk_...
+#    TOGETHER_API_KEY=...
+#    HUGGINGFACE_API_KEY=...
+#
+# 3. Test with: python examples/test_groq_hypothesis_generation.py
+#
+# 4. Gradually migrate from agents.yaml to agents_enhanced.yaml
+#
+# 5. Monitor performance and adjust routing strategy
+#
+# Expected improvements:
+# - 8-10x larger models (70B vs 8B)
+# - Specialized scientific knowledge (papers)
+# - Ultra-low latency (Groq: <100ms)
+# - Zero cost (free tiers)
+# - Automatic fallback to local models

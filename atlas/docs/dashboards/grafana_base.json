@@ -1,0 +1,103 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Duración media de fase (s)",
+      "gridPos": {"h": 9, "w": 12, "x": 0, "y": 0},
+      "targets": [
+        {
+          "expr": "sum(rate(atlas_phase_duration_seconds_sum[5m])) / sum(rate(atlas_phase_duration_seconds_count[5m]))",
+          "legendFormat": "avg duration",
+          "refId": "A"
+        }
+      ],
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}, "tooltip": {"mode": "single"}}
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Ratio de éxito por fase",
+      "gridPos": {"h": 9, "w": 12, "x": 12, "y": 0},
+      "targets": [
+        {
+          "expr": "atlas_phase_success_ratio{phase=~\"$phase\"}",
+          "legendFormat": "{{phase}}",
+          "refId": "A"
+        }
+      ],
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}, "tooltip": {"mode": "single"}}
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "Fallos por fase (rate/min)",
+      "gridPos": {"h": 8, "w": 24, "x": 0, "y": 9},
+      "targets": [
+        {
+          "expr": "sum by (phase) (rate(atlas_phase_failures_total{phase=~\"$phase\"}[1m]))",
+          "legendFormat": "{{phase}}",
+          "refId": "A"
+        }
+      ],
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}, "tooltip": {"mode": "single"}}
+    },
+    {
+      "id": 4,
+      "type": "stat",
+      "title": "Ciclos activos",
+      "gridPos": {"h": 5, "w": 6, "x": 0, "y": 17},
+      "targets": [
+        {
+          "expr": "sum(atlas_phase_active)",
+          "refId": "A"
+        }
+      ],
+      "options": {"reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}}
+    },
+    {
+      "id": 5,
+      "type": "stat",
+      "title": "Feedback total",
+      "gridPos": {"h": 5, "w": 6, "x": 6, "y": 17},
+      "targets": [
+        {"expr": "sum(atlas_feedback_total)", "refId": "A"}
+      ],
+      "options": {"reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}}
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": ["axiom", "observability"],
+  "templating": {
+    "list": [
+      {
+        "name": "phase",
+        "type": "query",
+        "label": "Fase",
+        "datasource": {"type": "prometheus", "uid": "prometheus"},
+        "query": "label_values(atlas_phase_success_ratio, phase)",
+        "refresh": 2,
+        "multi": true,
+        "includeAll": true,
+        "allValue": ".*"
+      }
+    ]
+  },
+  "time": {"from": "now-6h", "to": "now"},
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "AXIOM - Observabilidad Base",
+  "uid": "axiom-obsv-base",
+  "version": 1
+}
+
+

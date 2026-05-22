@@ -1,0 +1,73 @@
+{
+  "artifacts": [
+    {
+      "name": "model_rf",
+      "path": "models/plausibility_v4_rf.pkl",
+      "exists": true,
+      "hash": "5c3af4d4f7e708b9720b7a547bd5196f",
+      "producer": "pipeline_metadata_v4",
+      "git_commit": "unknown",
+      "params": {
+        "temporal_year_mode": "external_empty"
+      }
+    },
+    {
+      "name": "cv_metrics",
+      "path": "models/plausibility_v4_cv_metrics.json",
+      "exists": true,
+      "hash": "8449f51ad369dce4c90599c1cc4813f9",
+      "producer": "pipeline_metadata_v4",
+      "git_commit": "unknown",
+      "params": {}
+    },
+    {
+      "name": "heuristics_params",
+      "path": "data/heuristics_tuned_v4.json",
+      "exists": false,
+      "hash": null,
+      "producer": "pipeline_metadata_v4",
+      "git_commit": "unknown",
+      "params": {}
+    },
+    {
+      "name": "weak_labels",
+      "path": "data/plausibility_training_v4_weak_labels.parquet",
+      "exists": true,
+      "hash": "60f564cbc225010b829aef9c4edda6e4",
+      "producer": "pipeline_metadata_v4",
+      "git_commit": "unknown",
+      "params": {}
+    },
+    {
+      "name": "embeddings",
+      "path": "data/plausibility_training_v4_embeddings.parquet",
+      "exists": true,
+      "hash": "ea7f0cc38be5c8f2c2f4f5cf8a5d70fb",
+      "producer": "pipeline_metadata_v4",
+      "git_commit": "unknown",
+      "params": {}
+    },
+    {
+      "name": "pipeline_metadata",
+      "path": "models/pipeline_metadata_v4.json",
+      "exists": true,
+      "hash": "7f0a97a0c99fa0dcf6fc2de7e0527eeb",
+      "producer": "pipeline_metadata_v4",
+      "git_commit": "unknown",
+      "params": {}
+    },
+    {
+      "name": "weak_labels_ensemble",
+      "path": "data/plausibility_training_v4_weak_labels_ensemble.parquet",
+      "exists": true,
+      "hash": "88ba8df85af1b9b1b23dea96f8da81dc",
+      "producer": "weak_label_ensemble_v4",
+      "git_commit": null,
+      "params": {
+        "w_base": 0.5,
+        "w_no_cits": 0.5,
+        "thr_full": 0.10615003564779489
+      }
+    }
+  ]
+}

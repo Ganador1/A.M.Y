@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: axiom-config
+  namespace: axiom-system
+  labels:
+    app: axiom
+data:
+  ENVIRONMENT: "production"
+  SECRET_KEY: "your-super-secret-key-change-in-production"
+  ALLOWED_HOSTS: "*"
+  LOG_LEVEL: "INFO"
+  MONITORING_ENABLED: "true"
+  CACHE_TTL_SECONDS: "3600"
+  DATABASE_MAX_CONNECTIONS: "20"
+  SECURITY_RATE_LIMIT_REQUESTS: "100"

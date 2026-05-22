@@ -1,0 +1,196 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Tasa de Éxito de Pipelines por Dominio",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+      "targets": [
+        {
+          "expr": "avg by (domain) (pipeline_success_rate{domain=~\"$domain\"})",
+          "legendFormat": "{{domain}}",
+          "refId": "A"
+        }
+      ],
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}, "tooltip": {"mode": "single"}}
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Costo Total por Descubrimiento",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+      "targets": [
+        {
+          "expr": "sum by (domain) (discovery_total_cost{domain=~\"$domain\"})",
+          "legendFormat": "{{domain}}",
+          "refId": "A"
+        }
+      ],
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}, "tooltip": {"mode": "single"}}
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "ROI Estimado por Dominio Científico",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+      "targets": [
+        {
+          "expr": "avg by (domain) (discovery_roi_estimate{domain=~\"$domain\"})",
+          "legendFormat": "{{domain}}",
+          "refId": "A"
+        }
+      ],
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}, "tooltip": {"mode": "single"}}
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "Puntuación de Eficiencia",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+      "targets": [
+        {
+          "expr": "avg by (domain) (discovery_efficiency_score{domain=~\"$domain\"})",
+          "legendFormat": "{{domain}}",
+          "refId": "A"
+        }
+      ],
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}, "tooltip": {"mode": "single"}}
+    },
+    {
+      "id": 5,
+      "type": "bargauge",
+      "title": "Distribución de Costos por Categoría",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 16},
+      "targets": [
+        {
+          "expr": "sum by (cost_category) (discovery_cost_breakdown{domain=~\"$domain\"})",
+          "legendFormat": "{{cost_category}}",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false},
+        "showUnfilled": true
+      }
+    },
+    {
+      "id": 6,
+      "type": "stat",
+      "title": "Pipelines Activos",
+      "gridPos": {"h": 4, "w": 6, "x": 12, "y": 16},
+      "targets": [
+        {
+          "expr": "sum(pipelines_active_total)",
+          "refId": "A"
+        }
+      ],
+      "options": {"reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}}
+    },
+    {
+      "id": 7,
+      "type": "stat",
+      "title": "Tasa de Éxito Global",
+      "gridPos": {"h": 4, "w": 6, "x": 18, "y": 16},
+      "targets": [
+        {
+          "expr": "avg(pipeline_success_rate) * 100",
+          "refId": "A"
+        }
+      ],
+      "options": {"reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}}
+    },
+    {
+      "id": 8,
+      "type": "piechart",
+      "title": "Distribución por Dominio Científico",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 20},
+      "targets": [
+        {
+          "expr": "count by (domain) (pipeline_executions_total{domain=~\"$domain\"})",
+          "legendFormat": "{{domain}}",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "pieType": "pie",
+        "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false}
+      }
+    },
+    {
+      "id": 9,
+      "type": "table",
+      "title": "Top Pipelines por Eficiencia",
+      "gridPos": {"h": 10, "w": 12, "x": 0, "y": 24},
+      "targets": [
+        {
+          "expr": "topk(5, discovery_efficiency_score{domain=~\"$domain\"}) by (pipeline_id, domain)",
+          "legendFormat": "{{pipeline_id}} - {{domain}}",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "showHeader": true,
+        "sortBy": "desc"
+      }
+    },
+    {
+      "id": 10,
+      "type": "heatmap",
+      "title": "Actividad Temporal por Dominio",
+      "gridPos": {"h": 10, "w": 12, "x": 12, "y": 28},
+      "targets": [
+        {
+          "expr": "sum by (domain) (rate(pipeline_executions_total{domain=~\"$domain\"}[5m]))",
+          "legendFormat": "{{domain}}",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "color": {"mode": "spectrum", "scheme": "Oranges"}
+      }
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": ["axiom", "scientific", "cross-domain", "discovery-metrics"],
+  "templating": {
+    "list": [
+      {
+        "name": "domain",
+        "type": "query",
+        "label": "Dominio Científico",
+        "datasource": {"type": "prometheus", "uid": "prometheus"},
+        "query": "label_values(pipeline_success_rate, domain)",
+        "refresh": 2,
+        "multi": true,
+        "includeAll": true,
+        "allValue": ".*"
+      },
+      {
+        "name": "time_range",
+        "type": "interval",
+        "label": "Rango Temporal",
+        "datasource": {"type": "prometheus", "uid": "prometheus"},
+        "query": "1h,6h,12h,24h,7d,30d",
+        "refresh": 2,
+        "multi": false,
+        "includeAll": false
+      }
+    ]
+  },
+  "time": {"from": "now-24h", "to": "now"},
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "AXIOM - Métricas Cross-Domain Científicas",
+  "uid": "axiom-cross-domain-scientific",
+  "version": 1
+}

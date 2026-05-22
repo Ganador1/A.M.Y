@@ -1,0 +1,101 @@
+{
+  "session_id": "dblind_20260426_220410",
+  "timestamp": "2026-04-26T22:28:04.998495",
+  "n_papers": 8,
+  "n_pairs": 4,
+  "reviewer_models": [
+    "glm-5.1",
+    "kimi-k2.6"
+  ],
+  "agreement": {
+    "overall_kappa": 0.5714285714285758,
+    "overall_pearson_r": 0.6324555320336759,
+    "agreement_level": "moderate",
+    "agreement_description": "Moderate agreement — reviewers agree on general trends",
+    "recommendation_agreement": 1.0,
+    "n_valid_pairs": 6,
+    "n_invalid_pairs": 2,
+    "invalid_paper_ids": [
+      "392456de",
+      "6c031199"
+    ]
+  },
+  "effect_sizes": {
+    "novelty_claims_justified": {
+      "d": 3.5,
+      "magnitude": "large",
+      "direction": "improved"
+    },
+    "known_facts_correctly_labeled": {
+      "d": 3.24,
+      "magnitude": "large",
+      "direction": "improved"
+    },
+    "methodology_rigor": {
+      "d": 1.22,
+      "magnitude": "large",
+      "direction": "improved"
+    },
+    "discussion_depth": {
+      "d": 4.5,
+      "magnitude": "large",
+      "direction": "improved"
+    },
+    "references_quality": {
+      "d": 0.4,
+      "magnitude": "small",
+      "direction": "improved"
+    },
+    "provenance_verifiability": {
+      "d": 3.67,
+      "magnitude": "large",
+      "direction": "improved"
+    },
+    "domain_appropriateness": {
+      "d": 3.54,
+      "magnitude": "large",
+      "direction": "improved"
+    },
+    "overall_scientific_quality": {
+      "d": 1.31,
+      "magnitude": "large",
+      "direction": "improved"
+    }
+  },
+  "findings": {
+    "improved_dimensions": [
+      "novelty_claims_justified",
+      "known_facts_correctly_labeled",
+      "methodology_rigor",
+      "discussion_depth",
+      "references_quality",
+      "provenance_verifiability",
+      "domain_appropriateness",
+      "overall_scientific_quality"
+    ],
+    "worsened_dimensions": [],
+    "unchanged_dimensions": [],
+    "n_improved": 8,
+    "n_worsened": 0,
+    "n_unchanged": 0
+  },
+  "novelty_analysis": {
+    "novelty_claims_justified": {
+      "pre_gate": 2.0,
+      "post_gate": 5.5,
+      "direction": "improved"
+    },
+    "known_facts_correctly_labeled": {
+      "pre_gate": 2.88,
+      "post_gate": 6.38,
+      "direction": "improved"
+    }
+  },
+  "overall_quality": {
+    "pre_gate_mean": 2.0,
+    "post_gate_mean": 2.62,
+    "difference": 0.62,
+    "direction": "improved"
+  },
+  "conclusion": "Inter-rater agreement was Moderate agreement — reviewers agree on general trends (κ = 0.571). Post-gate papers scored higher on overall scientific quality (Δ = +0.62). Dimensions that improved: novelty claims justified, known facts correctly labeled, methodology rigor, discussion depth, references quality, provenance verifiability, domain appropriateness, overall scientific quality. Notably, novelty-related dimensions improved: novelty claims justified, known facts correctly labeled. These results should be interpreted with caution given the small sample size and the use of LLM agents as proxy reviewers."
+}

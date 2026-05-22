@@ -1,0 +1,28 @@
+{
+  "facts": {
+    "test|is|working": {
+      "subject": "test",
+      "predicate": "is",
+      "object": "working",
+      "confidence": 0.9,
+      "source": "",
+      "sources": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "created_at": 1776996467.400576,
+      "last_updated": 1777229106.861475,
+      "times_seen": 11
+    }
+  },
+  "updated_at": 1777229106.861537
+}

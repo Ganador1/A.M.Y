@@ -1,0 +1,16 @@
+{
+  "auc": 0.28521126760563376,
+  "accuracy": 0.23333333333333334,
+  "f1": 0.35514018691588783,
+  "brier": 0.359523651388889,
+  "n": 180,
+  "domain_counts": {
+    "materials_science": 85,
+    "drug_discovery": 30,
+    "energy_storage": 60,
+    "neuroscience": 5
+  },
+  "domain_entropy_norm": 0.8069598157981728,
+  "domain_unique": 4,
+  "domain_total_labeled": 180
+}

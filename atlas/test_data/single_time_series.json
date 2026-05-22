@@ -1,0 +1,2942 @@
+{
+  "metadata": {
+    "dataset_name": "serie_temporal_ejemplo_2023",
+    "description": "Datos sintéticos de series temporales con tendencia, estacionalidad y anomalías",
+    "time_unit": "daily",
+    "n_points": 365,
+    "start_date": "2023-01-01T00:00:00",
+    "end_date": "2023-12-31T00:00:00",
+    "components": {
+      "trend": "lineal_creciente",
+      "seasonality": [
+        "semanal",
+        "mensual"
+      ],
+      "noise": "normal_distribution",
+      "anomalies": "puntuales"
+    },
+    "generated_at": "2025-09-19T13:13:53.520578"
+  },
+  "data": [
+    {
+      "timestamp": "2023-01-01T00:00:00",
+      "value": 112.48357076505616,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 1,
+      "week_of_year": 52
+    },
+    {
+      "timestamp": "2023-01-02T00:00:00",
+      "value": 125.001509425568,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 1,
+      "week_of_year": 1
+    },
+    {
+      "timestamp": "2023-01-03T00:00:00",
+      "value": 132.4219060600165,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 1,
+      "week_of_year": 1
+    },
+    {
+      "timestamp": "2023-01-04T00:00:00",
+      "value": 125.20716983231658,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 1,
+      "week_of_year": 1
+    },
+    {
+      "timestamp": "2023-01-05T00:00:00",
+      "value": 97.94176550652183,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 1,
+      "week_of_year": 1
+    },
+    {
+      "timestamp": "2023-01-06T00:00:00",
+      "value": 85.704383345244,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 1,
+      "week_of_year": 1
+    },
+    {
+      "timestamp": "2023-01-07T00:00:00",
+      "value": 96.99795602027748,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 1,
+      "week_of_year": 1
+    },
+    {
+      "timestamp": "2023-01-08T00:00:00",
+      "value": 106.80553520151801,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 1,
+      "week_of_year": 1
+    },
+    {
+      "timestamp": "2023-01-09T00:00:00",
+      "value": 114.4417752848115,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 1,
+      "week_of_year": 2
+    },
+    {
+      "timestamp": "2023-01-10T00:00:00",
+      "value": 121.5937159903443,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 1,
+      "week_of_year": 2
+    },
+    {
+      "timestamp": "2023-01-11T00:00:00",
+      "value": 104.1078390655416,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 1,
+      "week_of_year": 2
+    },
+    {
+      "timestamp": "2023-01-12T00:00:00",
+      "value": 85.32434840818703,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 1,
+      "week_of_year": 2
+    },
+    {
+      "timestamp": "2023-01-13T00:00:00",
+      "value": 76.91778646714754,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 1,
+      "week_of_year": 2
+    },
+    {
+      "timestamp": "2023-01-14T00:00:00",
+      "value": 69.23294312235298,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 1,
+      "week_of_year": 2
+    },
+    {
+      "timestamp": "2023-01-15T00:00:00",
+      "value": 85.44008867625061,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 1,
+      "week_of_year": 2
+    },
+    {
+      "timestamp": "2023-01-16T00:00:00",
+      "value": 106.94607112403483,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 1,
+      "week_of_year": 3
+    },
+    {
+      "timestamp": "2023-01-17T00:00:00",
+      "value": 109.0485310302307,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 1,
+      "week_of_year": 3
+    },
+    {
+      "timestamp": "2023-01-18T00:00:00",
+      "value": 105.78378653923117,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 1,
+      "week_of_year": 3
+    },
+    {
+      "timestamp": "2023-01-19T00:00:00",
+      "value": 83.63708984134827,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 1,
+      "week_of_year": 3
+    },
+    {
+      "timestamp": "2023-01-20T00:00:00",
+      "value": 71.9683974058787,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 1,
+      "week_of_year": 3
+    },
+    {
+      "timestamp": "2023-01-21T00:00:00",
+      "value": 92.18611968975266,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 1,
+      "week_of_year": 3
+    },
+    {
+      "timestamp": "2023-01-22T00:00:00",
+      "value": 101.55017932304861,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 1,
+      "week_of_year": 3
+    },
+    {
+      "timestamp": "2023-01-23T00:00:00",
+      "value": 120.97294208407966,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 1,
+      "week_of_year": 4
+    },
+    {
+      "timestamp": "2023-01-24T00:00:00",
+      "value": 119.73878326392703,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 1,
+      "week_of_year": 4
+    },
+    {
+      "timestamp": "2023-01-25T00:00:00",
+      "value": 115.63933769688133,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 1,
+      "week_of_year": 4
+    },
+    {
+      "timestamp": "2023-01-26T00:00:00",
+      "value": 103.74507003433006,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 1,
+      "week_of_year": 4
+    },
+    {
+      "timestamp": "2023-01-27T00:00:00",
+      "value": 88.58063707569772,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 1,
+      "week_of_year": 4
+    },
+    {
+      "timestamp": "2023-01-28T00:00:00",
+      "value": 101.74961280369966,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 1,
+      "week_of_year": 4
+    },
+    {
+      "timestamp": "2023-01-29T00:00:00",
+      "value": 113.82456881913967,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 1,
+      "week_of_year": 4
+    },
+    {
+      "timestamp": "2023-01-30T00:00:00",
+      "value": 131.92666987476522,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 1,
+      "week_of_year": 5
+    },
+    {
+      "timestamp": "2023-01-31T00:00:00",
+      "value": 134.73178342424777,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 1,
+      "week_of_year": 5
+    },
+    {
+      "timestamp": "2023-02-01T00:00:00",
+      "value": 136.23702522871744,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 2,
+      "week_of_year": 5
+    },
+    {
+      "timestamp": "2023-02-02T00:00:00",
+      "value": 109.18150246159398,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 2,
+      "week_of_year": 5
+    },
+    {
+      "timestamp": "2023-02-03T00:00:00",
+      "value": 92.36899112126758,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 2,
+      "week_of_year": 5
+    },
+    {
+      "timestamp": "2023-02-04T00:00:00",
+      "value": 104.5080603154033,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 2,
+      "week_of_year": 5
+    },
+    {
+      "timestamp": "2023-02-05T00:00:00",
+      "value": 108.51116636552948,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 2,
+      "week_of_year": 5
+    },
+    {
+      "timestamp": "2023-02-06T00:00:00",
+      "value": 129.66122745824373,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 2,
+      "week_of_year": 6
+    },
+    {
+      "timestamp": "2023-02-07T00:00:00",
+      "value": 120.9103274217493,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 2,
+      "week_of_year": 6
+    },
+    {
+      "timestamp": "2023-02-08T00:00:00",
+      "value": 111.43102034474295,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 2,
+      "week_of_year": 6
+    },
+    {
+      "timestamp": "2023-02-09T00:00:00",
+      "value": 99.93074716753074,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 2,
+      "week_of_year": 6
+    },
+    {
+      "timestamp": "2023-02-10T00:00:00",
+      "value": 90.18278564535159,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 2,
+      "week_of_year": 6
+    },
+    {
+      "timestamp": "2023-02-11T00:00:00",
+      "value": 89.79264195673693,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 2,
+      "week_of_year": 6
+    },
+    {
+      "timestamp": "2023-02-12T00:00:00",
+      "value": 102.87005018277084,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 2,
+      "week_of_year": 6
+    },
+    {
+      "timestamp": "2023-02-13T00:00:00",
+      "value": 116.80884340817497,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 2,
+      "week_of_year": 7
+    },
+    {
+      "timestamp": "2023-02-14T00:00:00",
+      "value": 114.4123843723734,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 2,
+      "week_of_year": 7
+    },
+    {
+      "timestamp": "2023-02-15T00:00:00",
+      "value": 107.441091103015,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 2,
+      "week_of_year": 7
+    },
+    {
+      "timestamp": "2023-02-16T00:00:00",
+      "value": 91.87501799287452,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 2,
+      "week_of_year": 7
+    },
+    {
+      "timestamp": "2023-02-17T00:00:00",
+      "value": 89.56368622312002,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 2,
+      "week_of_year": 7
+    },
+    {
+      "timestamp": "2023-02-18T00:00:00",
+      "value": 91.17810504154541,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 2,
+      "week_of_year": 7
+    },
+    {
+      "timestamp": "2023-02-19T00:00:00",
+      "value": 97.95503162113619,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 2,
+      "week_of_year": 7
+    },
+    {
+      "timestamp": "2023-02-20T00:00:00",
+      "value": 85.99331323259828,
+      "is_anomaly": true,
+      "day_of_week": 0,
+      "month": 2,
+      "week_of_year": 8
+    },
+    {
+      "timestamp": "2023-02-21T00:00:00",
+      "value": 128.49396590879442,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 2,
+      "week_of_year": 8
+    },
+    {
+      "timestamp": "2023-02-22T00:00:00",
+      "value": 118.53349443385903,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 2,
+      "week_of_year": 8
+    },
+    {
+      "timestamp": "2023-02-23T00:00:00",
+      "value": 109.98643085496931,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 2,
+      "week_of_year": 8
+    },
+    {
+      "timestamp": "2023-02-24T00:00:00",
+      "value": 103.5817741477576,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 2,
+      "week_of_year": 8
+    },
+    {
+      "timestamp": "2023-02-25T00:00:00",
+      "value": 109.12966105611049,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 2,
+      "week_of_year": 8
+    },
+    {
+      "timestamp": "2023-02-26T00:00:00",
+      "value": 117.87983383209074,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 2,
+      "week_of_year": 8
+    },
+    {
+      "timestamp": "2023-02-27T00:00:00",
+      "value": 137.8400783731946,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 2,
+      "week_of_year": 9
+    },
+    {
+      "timestamp": "2023-02-28T00:00:00",
+      "value": 146.22439591114625,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 2,
+      "week_of_year": 9
+    },
+    {
+      "timestamp": "2023-03-01T00:00:00",
+      "value": 139.54566763409227,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 3,
+      "week_of_year": 9
+    },
+    {
+      "timestamp": "2023-03-02T00:00:00",
+      "value": 115.40997051193904,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 3,
+      "week_of_year": 9
+    },
+    {
+      "timestamp": "2023-03-03T00:00:00",
+      "value": 106.11286463862426,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 3,
+      "week_of_year": 9
+    },
+    {
+      "timestamp": "2023-03-04T00:00:00",
+      "value": 105.00011709000228,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 3,
+      "week_of_year": 9
+    },
+    {
+      "timestamp": "2023-03-05T00:00:00",
+      "value": 119.41682913103838,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 3,
+      "week_of_year": 9
+    },
+    {
+      "timestamp": "2023-03-06T00:00:00",
+      "value": 143.97298240733772,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 3,
+      "week_of_year": 10
+    },
+    {
+      "timestamp": "2023-03-07T00:00:00",
+      "value": 149.13690124363347,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 3,
+      "week_of_year": 10
+    },
+    {
+      "timestamp": "2023-03-08T00:00:00",
+      "value": 129.53966225006715,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 3,
+      "week_of_year": 10
+    },
+    {
+      "timestamp": "2023-03-09T00:00:00",
+      "value": 115.79186774637894,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 3,
+      "week_of_year": 10
+    },
+    {
+      "timestamp": "2023-03-10T00:00:00",
+      "value": 99.94565593024382,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 3,
+      "week_of_year": 10
+    },
+    {
+      "timestamp": "2023-03-11T00:00:00",
+      "value": 97.00364558990823,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 3,
+      "week_of_year": 10
+    },
+    {
+      "timestamp": "2023-03-12T00:00:00",
+      "value": 116.03774725831127,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 3,
+      "week_of_year": 10
+    },
+    {
+      "timestamp": "2023-03-13T00:00:00",
+      "value": 136.14100092359635,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 3,
+      "week_of_year": 11
+    },
+    {
+      "timestamp": "2023-03-14T00:00:00",
+      "value": 131.00947788455704,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 3,
+      "week_of_year": 11
+    },
+    {
+      "timestamp": "2023-03-15T00:00:00",
+      "value": 127.42038353994043,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 3,
+      "week_of_year": 11
+    },
+    {
+      "timestamp": "2023-03-16T00:00:00",
+      "value": 88.77179401953244,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 3,
+      "week_of_year": 11
+    },
+    {
+      "timestamp": "2023-03-17T00:00:00",
+      "value": 95.2153498826353,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 3,
+      "week_of_year": 11
+    },
+    {
+      "timestamp": "2023-03-18T00:00:00",
+      "value": 95.89625056361305,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 3,
+      "week_of_year": 11
+    },
+    {
+      "timestamp": "2023-03-19T00:00:00",
+      "value": 110.52335482509089,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 3,
+      "week_of_year": 11
+    },
+    {
+      "timestamp": "2023-03-20T00:00:00",
+      "value": 129.43383501686,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 3,
+      "week_of_year": 12
+    },
+    {
+      "timestamp": "2023-03-21T00:00:00",
+      "value": 124.57270431034013,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 3,
+      "week_of_year": 12
+    },
+    {
+      "timestamp": "2023-03-22T00:00:00",
+      "value": 124.55733732118561,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 3,
+      "week_of_year": 12
+    },
+    {
+      "timestamp": "2023-03-23T00:00:00",
+      "value": 112.27046538420551,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 3,
+      "week_of_year": 12
+    },
+    {
+      "timestamp": "2023-03-24T00:00:00",
+      "value": 109.37309987486707,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 3,
+      "week_of_year": 12
+    },
+    {
+      "timestamp": "2023-03-25T00:00:00",
+      "value": 105.61950169414558,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 3,
+      "week_of_year": 12
+    },
+    {
+      "timestamp": "2023-03-26T00:00:00",
+      "value": 122.12462500620656,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 3,
+      "week_of_year": 12
+    },
+    {
+      "timestamp": "2023-03-27T00:00:00",
+      "value": 141.47949278308633,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 3,
+      "week_of_year": 13
+    },
+    {
+      "timestamp": "2023-03-28T00:00:00",
+      "value": 154.39324852210908,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 3,
+      "week_of_year": 13
+    },
+    {
+      "timestamp": "2023-03-29T00:00:00",
+      "value": 142.31269917549815,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 3,
+      "week_of_year": 13
+    },
+    {
+      "timestamp": "2023-03-30T00:00:00",
+      "value": 121.98480295106413,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 3,
+      "week_of_year": 13
+    },
+    {
+      "timestamp": "2023-03-31T00:00:00",
+      "value": 117.2998043798178,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 3,
+      "week_of_year": 13
+    },
+    {
+      "timestamp": "2023-04-01T00:00:00",
+      "value": 119.57403282265429,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 4,
+      "week_of_year": 13
+    },
+    {
+      "timestamp": "2023-04-02T00:00:00",
+      "value": 139.62470096000231,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 4,
+      "week_of_year": 13
+    },
+    {
+      "timestamp": "2023-04-03T00:00:00",
+      "value": 146.5365440311251,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 4,
+      "week_of_year": 14
+    },
+    {
+      "timestamp": "2023-04-04T00:00:00",
+      "value": 151.49986800384772,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 4,
+      "week_of_year": 14
+    },
+    {
+      "timestamp": "2023-04-05T00:00:00",
+      "value": 139.23261590445483,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 4,
+      "week_of_year": 14
+    },
+    {
+      "timestamp": "2023-04-06T00:00:00",
+      "value": 115.10365157588927,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 4,
+      "week_of_year": 14
+    },
+    {
+      "timestamp": "2023-04-07T00:00:00",
+      "value": 111.4458394590623,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 4,
+      "week_of_year": 14
+    },
+    {
+      "timestamp": "2023-04-08T00:00:00",
+      "value": 113.36228299256693,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 4,
+      "week_of_year": 14
+    },
+    {
+      "timestamp": "2023-04-09T00:00:00",
+      "value": 125.90335957361266,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 4,
+      "week_of_year": 14
+    },
+    {
+      "timestamp": "2023-04-10T00:00:00",
+      "value": 138.57132623653766,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 4,
+      "week_of_year": 15
+    },
+    {
+      "timestamp": "2023-04-11T00:00:00",
+      "value": 134.8942320059119,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 4,
+      "week_of_year": 15
+    },
+    {
+      "timestamp": "2023-04-12T00:00:00",
+      "value": 127.63039485218849,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 4,
+      "week_of_year": 15
+    },
+    {
+      "timestamp": "2023-04-13T00:00:00",
+      "value": 109.54056071324361,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 4,
+      "week_of_year": 15
+    },
+    {
+      "timestamp": "2023-04-14T00:00:00",
+      "value": 95.65130413053278,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 4,
+      "week_of_year": 15
+    },
+    {
+      "timestamp": "2023-04-15T00:00:00",
+      "value": 102.34689435640003,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 4,
+      "week_of_year": 15
+    },
+    {
+      "timestamp": "2023-04-16T00:00:00",
+      "value": 120.86640813022659,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 4,
+      "week_of_year": 15
+    },
+    {
+      "timestamp": "2023-04-17T00:00:00",
+      "value": 144.40696226895426,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 4,
+      "week_of_year": 16
+    },
+    {
+      "timestamp": "2023-04-18T00:00:00",
+      "value": 140.6315971269741,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 4,
+      "week_of_year": 16
+    },
+    {
+      "timestamp": "2023-04-19T00:00:00",
+      "value": 131.54558646254523,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 4,
+      "week_of_year": 16
+    },
+    {
+      "timestamp": "2023-04-20T00:00:00",
+      "value": 114.20384452028453,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 4,
+      "week_of_year": 16
+    },
+    {
+      "timestamp": "2023-04-21T00:00:00",
+      "value": 96.1273658996486,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 4,
+      "week_of_year": 16
+    },
+    {
+      "timestamp": "2023-04-22T00:00:00",
+      "value": 111.63513652414936,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 4,
+      "week_of_year": 16
+    },
+    {
+      "timestamp": "2023-04-23T00:00:00",
+      "value": 130.0250971862593,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 4,
+      "week_of_year": 16
+    },
+    {
+      "timestamp": "2023-04-24T00:00:00",
+      "value": 160.04208088841946,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 4,
+      "week_of_year": 17
+    },
+    {
+      "timestamp": "2023-04-25T00:00:00",
+      "value": 152.94560468216164,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 4,
+      "week_of_year": 17
+    },
+    {
+      "timestamp": "2023-04-26T00:00:00",
+      "value": 146.77881808742578,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 4,
+      "week_of_year": 17
+    },
+    {
+      "timestamp": "2023-04-27T00:00:00",
+      "value": 129.70820430084316,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 4,
+      "week_of_year": 17
+    },
+    {
+      "timestamp": "2023-04-28T00:00:00",
+      "value": 114.89107865487247,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 4,
+      "week_of_year": 17
+    },
+    {
+      "timestamp": "2023-04-29T00:00:00",
+      "value": 131.6305214172229,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 4,
+      "week_of_year": 17
+    },
+    {
+      "timestamp": "2023-04-30T00:00:00",
+      "value": 146.2334488630794,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 4,
+      "week_of_year": 17
+    },
+    {
+      "timestamp": "2023-05-01T00:00:00",
+      "value": 222.55882235160857,
+      "is_anomaly": true,
+      "day_of_week": 0,
+      "month": 5,
+      "week_of_year": 18
+    },
+    {
+      "timestamp": "2023-05-02T00:00:00",
+      "value": 157.97485521875907,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 5,
+      "week_of_year": 18
+    },
+    {
+      "timestamp": "2023-05-03T00:00:00",
+      "value": 158.34358442994125,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 5,
+      "week_of_year": 18
+    },
+    {
+      "timestamp": "2023-05-04T00:00:00",
+      "value": 126.1944486386459,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 5,
+      "week_of_year": 18
+    },
+    {
+      "timestamp": "2023-05-05T00:00:00",
+      "value": 124.19296735488759,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 5,
+      "week_of_year": 18
+    },
+    {
+      "timestamp": "2023-05-06T00:00:00",
+      "value": 134.6563078203485,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 5,
+      "week_of_year": 18
+    },
+    {
+      "timestamp": "2023-05-07T00:00:00",
+      "value": 132.75287293348057,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 5,
+      "week_of_year": 18
+    },
+    {
+      "timestamp": "2023-05-08T00:00:00",
+      "value": 148.74053552413318,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 5,
+      "week_of_year": 19
+    },
+    {
+      "timestamp": "2023-05-09T00:00:00",
+      "value": 154.11636560123333,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 5,
+      "week_of_year": 19
+    },
+    {
+      "timestamp": "2023-05-10T00:00:00",
+      "value": 138.50968700758136,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 5,
+      "week_of_year": 19
+    },
+    {
+      "timestamp": "2023-05-11T00:00:00",
+      "value": 114.28329377660401,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 5,
+      "week_of_year": 19
+    },
+    {
+      "timestamp": "2023-05-12T00:00:00",
+      "value": 110.14196155581605,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 5,
+      "week_of_year": 19
+    },
+    {
+      "timestamp": "2023-05-13T00:00:00",
+      "value": 107.22541810199561,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 5,
+      "week_of_year": 19
+    },
+    {
+      "timestamp": "2023-05-14T00:00:00",
+      "value": 129.7709691152115,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 5,
+      "week_of_year": 19
+    },
+    {
+      "timestamp": "2023-05-15T00:00:00",
+      "value": 138.07121928404027,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 5,
+      "week_of_year": 20
+    },
+    {
+      "timestamp": "2023-05-16T00:00:00",
+      "value": 154.33614235663632,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 5,
+      "week_of_year": 20
+    },
+    {
+      "timestamp": "2023-05-17T00:00:00",
+      "value": 132.34256967596914,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 5,
+      "week_of_year": 20
+    },
+    {
+      "timestamp": "2023-05-18T00:00:00",
+      "value": 118.21392569755704,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 5,
+      "week_of_year": 20
+    },
+    {
+      "timestamp": "2023-05-19T00:00:00",
+      "value": 114.39094581155032,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 5,
+      "week_of_year": 20
+    },
+    {
+      "timestamp": "2023-05-20T00:00:00",
+      "value": 109.7045558916941,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 5,
+      "week_of_year": 20
+    },
+    {
+      "timestamp": "2023-05-21T00:00:00",
+      "value": 134.59883813455897,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 5,
+      "week_of_year": 20
+    },
+    {
+      "timestamp": "2023-05-22T00:00:00",
+      "value": 157.81843721328684,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 5,
+      "week_of_year": 21
+    },
+    {
+      "timestamp": "2023-05-23T00:00:00",
+      "value": 149.42684644914286,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 5,
+      "week_of_year": 21
+    },
+    {
+      "timestamp": "2023-05-24T00:00:00",
+      "value": 149.93184299340348,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 5,
+      "week_of_year": 21
+    },
+    {
+      "timestamp": "2023-05-25T00:00:00",
+      "value": 135.27234869308006,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 5,
+      "week_of_year": 21
+    },
+    {
+      "timestamp": "2023-05-26T00:00:00",
+      "value": 129.24572095041495,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 5,
+      "week_of_year": 21
+    },
+    {
+      "timestamp": "2023-05-27T00:00:00",
+      "value": 124.9798129697274,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 5,
+      "week_of_year": 21
+    },
+    {
+      "timestamp": "2023-05-28T00:00:00",
+      "value": 141.8725022629435,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 5,
+      "week_of_year": 21
+    },
+    {
+      "timestamp": "2023-05-29T00:00:00",
+      "value": 168.0411327132117,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 5,
+      "week_of_year": 22
+    },
+    {
+      "timestamp": "2023-05-30T00:00:00",
+      "value": 171.69902355120644,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 5,
+      "week_of_year": 22
+    },
+    {
+      "timestamp": "2023-05-31T00:00:00",
+      "value": 161.1389302428721,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 5,
+      "week_of_year": 22
+    },
+    {
+      "timestamp": "2023-06-01T00:00:00",
+      "value": 144.31955875598823,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 6,
+      "week_of_year": 22
+    },
+    {
+      "timestamp": "2023-06-02T00:00:00",
+      "value": 127.99501448313887,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 6,
+      "week_of_year": 22
+    },
+    {
+      "timestamp": "2023-06-03T00:00:00",
+      "value": 135.64777581316076,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 6,
+      "week_of_year": 22
+    },
+    {
+      "timestamp": "2023-06-04T00:00:00",
+      "value": 150.46436073777448,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 6,
+      "week_of_year": 22
+    },
+    {
+      "timestamp": "2023-06-05T00:00:00",
+      "value": 159.6472901416464,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 6,
+      "week_of_year": 23
+    },
+    {
+      "timestamp": "2023-06-06T00:00:00",
+      "value": 174.77474360025263,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 6,
+      "week_of_year": 23
+    },
+    {
+      "timestamp": "2023-06-07T00:00:00",
+      "value": 155.223992151455,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 6,
+      "week_of_year": 23
+    },
+    {
+      "timestamp": "2023-06-08T00:00:00",
+      "value": 127.72711650555229,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 6,
+      "week_of_year": 23
+    },
+    {
+      "timestamp": "2023-06-09T00:00:00",
+      "value": 124.37535853710185,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 6,
+      "week_of_year": 23
+    },
+    {
+      "timestamp": "2023-06-10T00:00:00",
+      "value": 118.44600595554674,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 6,
+      "week_of_year": 23
+    },
+    {
+      "timestamp": "2023-06-11T00:00:00",
+      "value": 141.47488618589267,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 6,
+      "week_of_year": 23
+    },
+    {
+      "timestamp": "2023-06-12T00:00:00",
+      "value": 157.8449321061424,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 6,
+      "week_of_year": 24
+    },
+    {
+      "timestamp": "2023-06-13T00:00:00",
+      "value": 151.03991185567182,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 6,
+      "week_of_year": 24
+    },
+    {
+      "timestamp": "2023-06-14T00:00:00",
+      "value": 148.76802447617987,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 6,
+      "week_of_year": 24
+    },
+    {
+      "timestamp": "2023-06-15T00:00:00",
+      "value": 128.71590018200192,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 6,
+      "week_of_year": 24
+    },
+    {
+      "timestamp": "2023-06-16T00:00:00",
+      "value": 120.43466215339352,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 6,
+      "week_of_year": 24
+    },
+    {
+      "timestamp": "2023-06-17T00:00:00",
+      "value": 130.59100156660406,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 6,
+      "week_of_year": 24
+    },
+    {
+      "timestamp": "2023-06-18T00:00:00",
+      "value": 136.83673563008222,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 6,
+      "week_of_year": 24
+    },
+    {
+      "timestamp": "2023-06-19T00:00:00",
+      "value": 151.60521419255585,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 6,
+      "week_of_year": 25
+    },
+    {
+      "timestamp": "2023-06-20T00:00:00",
+      "value": 156.75428279880552,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 6,
+      "week_of_year": 25
+    },
+    {
+      "timestamp": "2023-06-21T00:00:00",
+      "value": 148.48647539179643,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 6,
+      "week_of_year": 25
+    },
+    {
+      "timestamp": "2023-06-22T00:00:00",
+      "value": 137.1442792906491,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 6,
+      "week_of_year": 25
+    },
+    {
+      "timestamp": "2023-06-23T00:00:00",
+      "value": 130.77995879059583,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 6,
+      "week_of_year": 25
+    },
+    {
+      "timestamp": "2023-06-24T00:00:00",
+      "value": 136.63919209323652,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 6,
+      "week_of_year": 25
+    },
+    {
+      "timestamp": "2023-06-25T00:00:00",
+      "value": 157.2128393221026,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 6,
+      "week_of_year": 25
+    },
+    {
+      "timestamp": "2023-06-26T00:00:00",
+      "value": 170.7445935239866,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 6,
+      "week_of_year": 26
+    },
+    {
+      "timestamp": "2023-06-27T00:00:00",
+      "value": 183.4827721995461,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 6,
+      "week_of_year": 26
+    },
+    {
+      "timestamp": "2023-06-28T00:00:00",
+      "value": 165.39094409368616,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 6,
+      "week_of_year": 26
+    },
+    {
+      "timestamp": "2023-06-29T00:00:00",
+      "value": 163.88047123375915,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 6,
+      "week_of_year": 26
+    },
+    {
+      "timestamp": "2023-06-30T00:00:00",
+      "value": 143.08032794573805,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 6,
+      "week_of_year": 26
+    },
+    {
+      "timestamp": "2023-07-01T00:00:00",
+      "value": 139.58433330117063,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 7,
+      "week_of_year": 26
+    },
+    {
+      "timestamp": "2023-07-02T00:00:00",
+      "value": 153.78099208612005,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 7,
+      "week_of_year": 26
+    },
+    {
+      "timestamp": "2023-07-03T00:00:00",
+      "value": 176.4138869440513,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 7,
+      "week_of_year": 27
+    },
+    {
+      "timestamp": "2023-07-04T00:00:00",
+      "value": 175.6220009300464,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 7,
+      "week_of_year": 27
+    },
+    {
+      "timestamp": "2023-07-05T00:00:00",
+      "value": 168.0718530769877,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 7,
+      "week_of_year": 27
+    },
+    {
+      "timestamp": "2023-07-06T00:00:00",
+      "value": 147.87758438316754,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 7,
+      "week_of_year": 27
+    },
+    {
+      "timestamp": "2023-07-07T00:00:00",
+      "value": 132.5562081993821,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 7,
+      "week_of_year": 27
+    },
+    {
+      "timestamp": "2023-07-08T00:00:00",
+      "value": 130.7324687759724,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 7,
+      "week_of_year": 27
+    },
+    {
+      "timestamp": "2023-07-09T00:00:00",
+      "value": 141.2586708558984,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 7,
+      "week_of_year": 27
+    },
+    {
+      "timestamp": "2023-07-10T00:00:00",
+      "value": 160.60185708682778,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 7,
+      "week_of_year": 28
+    },
+    {
+      "timestamp": "2023-07-11T00:00:00",
+      "value": 169.56177362419274,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 7,
+      "week_of_year": 28
+    },
+    {
+      "timestamp": "2023-07-12T00:00:00",
+      "value": 154.4052263065056,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 7,
+      "week_of_year": 28
+    },
+    {
+      "timestamp": "2023-07-13T00:00:00",
+      "value": 128.98015476964116,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 7,
+      "week_of_year": 28
+    },
+    {
+      "timestamp": "2023-07-14T00:00:00",
+      "value": 124.88257367498478,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 7,
+      "week_of_year": 28
+    },
+    {
+      "timestamp": "2023-07-15T00:00:00",
+      "value": 129.86138582071183,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 7,
+      "week_of_year": 28
+    },
+    {
+      "timestamp": "2023-07-16T00:00:00",
+      "value": 139.64539065781,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 7,
+      "week_of_year": 28
+    },
+    {
+      "timestamp": "2023-07-17T00:00:00",
+      "value": 161.39067972354118,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 7,
+      "week_of_year": 29
+    },
+    {
+      "timestamp": "2023-07-18T00:00:00",
+      "value": 166.09503628772137,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 7,
+      "week_of_year": 29
+    },
+    {
+      "timestamp": "2023-07-19T00:00:00",
+      "value": 150.9418468999391,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 7,
+      "week_of_year": 29
+    },
+    {
+      "timestamp": "2023-07-20T00:00:00",
+      "value": 103.05631696444533,
+      "is_anomaly": true,
+      "day_of_week": 3,
+      "month": 7,
+      "week_of_year": 29
+    },
+    {
+      "timestamp": "2023-07-21T00:00:00",
+      "value": 135.43497466423554,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 7,
+      "week_of_year": 29
+    },
+    {
+      "timestamp": "2023-07-22T00:00:00",
+      "value": 144.22784742834477,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 7,
+      "week_of_year": 29
+    },
+    {
+      "timestamp": "2023-07-23T00:00:00",
+      "value": 162.0835256620818,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 7,
+      "week_of_year": 29
+    },
+    {
+      "timestamp": "2023-07-24T00:00:00",
+      "value": 167.88240879728056,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 7,
+      "week_of_year": 30
+    },
+    {
+      "timestamp": "2023-07-25T00:00:00",
+      "value": 176.12811436274222,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 7,
+      "week_of_year": 30
+    },
+    {
+      "timestamp": "2023-07-26T00:00:00",
+      "value": 174.53756377538997,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 7,
+      "week_of_year": 30
+    },
+    {
+      "timestamp": "2023-07-27T00:00:00",
+      "value": 158.84955678409176,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 7,
+      "week_of_year": 30
+    },
+    {
+      "timestamp": "2023-07-28T00:00:00",
+      "value": 149.35499190717684,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 7,
+      "week_of_year": 30
+    },
+    {
+      "timestamp": "2023-07-29T00:00:00",
+      "value": 170.82608622883365,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 7,
+      "week_of_year": 30
+    },
+    {
+      "timestamp": "2023-07-30T00:00:00",
+      "value": 170.5467602457737,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 7,
+      "week_of_year": 30
+    },
+    {
+      "timestamp": "2023-07-31T00:00:00",
+      "value": 189.06296682463463,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 7,
+      "week_of_year": 31
+    },
+    {
+      "timestamp": "2023-08-01T00:00:00",
+      "value": 191.64577987928678,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 8,
+      "week_of_year": 31
+    },
+    {
+      "timestamp": "2023-08-02T00:00:00",
+      "value": 178.54128449911337,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 8,
+      "week_of_year": 31
+    },
+    {
+      "timestamp": "2023-08-03T00:00:00",
+      "value": 155.22849384924487,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 8,
+      "week_of_year": 31
+    },
+    {
+      "timestamp": "2023-08-04T00:00:00",
+      "value": 148.36222192476396,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 8,
+      "week_of_year": 31
+    },
+    {
+      "timestamp": "2023-08-05T00:00:00",
+      "value": 142.93007356236026,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 8,
+      "week_of_year": 31
+    },
+    {
+      "timestamp": "2023-08-06T00:00:00",
+      "value": 159.4765762143609,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 8,
+      "week_of_year": 31
+    },
+    {
+      "timestamp": "2023-08-07T00:00:00",
+      "value": 172.05463716764822,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 8,
+      "week_of_year": 32
+    },
+    {
+      "timestamp": "2023-08-08T00:00:00",
+      "value": 176.98259416165374,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 8,
+      "week_of_year": 32
+    },
+    {
+      "timestamp": "2023-08-09T00:00:00",
+      "value": 175.69052805527923,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 8,
+      "week_of_year": 32
+    },
+    {
+      "timestamp": "2023-08-10T00:00:00",
+      "value": 136.008978905387,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 8,
+      "week_of_year": 32
+    },
+    {
+      "timestamp": "2023-08-11T00:00:00",
+      "value": 136.8315837534976,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 8,
+      "week_of_year": 32
+    },
+    {
+      "timestamp": "2023-08-12T00:00:00",
+      "value": 128.42807268200139,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 8,
+      "week_of_year": 32
+    },
+    {
+      "timestamp": "2023-08-13T00:00:00",
+      "value": 149.39732620217615,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 8,
+      "week_of_year": 32
+    },
+    {
+      "timestamp": "2023-08-14T00:00:00",
+      "value": 172.89456944738404,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 8,
+      "week_of_year": 33
+    },
+    {
+      "timestamp": "2023-08-15T00:00:00",
+      "value": 172.12639441968793,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 8,
+      "week_of_year": 33
+    },
+    {
+      "timestamp": "2023-08-16T00:00:00",
+      "value": 156.5161336789165,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 8,
+      "week_of_year": 33
+    },
+    {
+      "timestamp": "2023-08-17T00:00:00",
+      "value": 142.2929993649623,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 8,
+      "week_of_year": 33
+    },
+    {
+      "timestamp": "2023-08-18T00:00:00",
+      "value": 140.12021234953625,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 8,
+      "week_of_year": 33
+    },
+    {
+      "timestamp": "2023-08-19T00:00:00",
+      "value": 138.898350378867,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 8,
+      "week_of_year": 33
+    },
+    {
+      "timestamp": "2023-08-20T00:00:00",
+      "value": 161.45366146569884,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 8,
+      "week_of_year": 33
+    },
+    {
+      "timestamp": "2023-08-21T00:00:00",
+      "value": 178.55546795246678,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 8,
+      "week_of_year": 34
+    },
+    {
+      "timestamp": "2023-08-22T00:00:00",
+      "value": 181.29683014927295,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 8,
+      "week_of_year": 34
+    },
+    {
+      "timestamp": "2023-08-23T00:00:00",
+      "value": 186.77327945844144,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 8,
+      "week_of_year": 34
+    },
+    {
+      "timestamp": "2023-08-24T00:00:00",
+      "value": 164.05235988967848,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 8,
+      "week_of_year": 34
+    },
+    {
+      "timestamp": "2023-08-25T00:00:00",
+      "value": 141.90219972182896,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 8,
+      "week_of_year": 34
+    },
+    {
+      "timestamp": "2023-08-26T00:00:00",
+      "value": 158.49570197812588,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 8,
+      "week_of_year": 34
+    },
+    {
+      "timestamp": "2023-08-27T00:00:00",
+      "value": 171.211137637199,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 8,
+      "week_of_year": 34
+    },
+    {
+      "timestamp": "2023-08-28T00:00:00",
+      "value": 195.33961299002007,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 8,
+      "week_of_year": 35
+    },
+    {
+      "timestamp": "2023-08-29T00:00:00",
+      "value": 191.47002048553907,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 8,
+      "week_of_year": 35
+    },
+    {
+      "timestamp": "2023-08-30T00:00:00",
+      "value": 184.0942597911457,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 8,
+      "week_of_year": 35
+    },
+    {
+      "timestamp": "2023-08-31T00:00:00",
+      "value": 169.46623267249353,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 8,
+      "week_of_year": 35
+    },
+    {
+      "timestamp": "2023-09-01T00:00:00",
+      "value": 159.67862942920536,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 9,
+      "week_of_year": 35
+    },
+    {
+      "timestamp": "2023-09-02T00:00:00",
+      "value": 152.08616141191607,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 9,
+      "week_of_year": 35
+    },
+    {
+      "timestamp": "2023-09-03T00:00:00",
+      "value": 170.6351861284873,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 9,
+      "week_of_year": 35
+    },
+    {
+      "timestamp": "2023-09-04T00:00:00",
+      "value": 183.9344906197226,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 9,
+      "week_of_year": 36
+    },
+    {
+      "timestamp": "2023-09-05T00:00:00",
+      "value": 185.13433957058734,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 9,
+      "week_of_year": 36
+    },
+    {
+      "timestamp": "2023-09-06T00:00:00",
+      "value": 184.5915294829485,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 9,
+      "week_of_year": 36
+    },
+    {
+      "timestamp": "2023-09-07T00:00:00",
+      "value": 158.66365723529785,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 9,
+      "week_of_year": 36
+    },
+    {
+      "timestamp": "2023-09-08T00:00:00",
+      "value": 137.87834066600712,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 9,
+      "week_of_year": 36
+    },
+    {
+      "timestamp": "2023-09-09T00:00:00",
+      "value": 151.21741797836862,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 9,
+      "week_of_year": 36
+    },
+    {
+      "timestamp": "2023-09-10T00:00:00",
+      "value": 171.75138027208277,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 9,
+      "week_of_year": 36
+    },
+    {
+      "timestamp": "2023-09-11T00:00:00",
+      "value": 181.16899588118497,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 9,
+      "week_of_year": 37
+    },
+    {
+      "timestamp": "2023-09-12T00:00:00",
+      "value": 171.9004521867481,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 9,
+      "week_of_year": 37
+    },
+    {
+      "timestamp": "2023-09-13T00:00:00",
+      "value": 166.311449472965,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 9,
+      "week_of_year": 37
+    },
+    {
+      "timestamp": "2023-09-14T00:00:00",
+      "value": 158.20507528591438,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 9,
+      "week_of_year": 37
+    },
+    {
+      "timestamp": "2023-09-15T00:00:00",
+      "value": 138.4320354562393,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 9,
+      "week_of_year": 37
+    },
+    {
+      "timestamp": "2023-09-16T00:00:00",
+      "value": 149.37141842674166,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 9,
+      "week_of_year": 37
+    },
+    {
+      "timestamp": "2023-09-17T00:00:00",
+      "value": 168.33571035740366,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 9,
+      "week_of_year": 37
+    },
+    {
+      "timestamp": "2023-09-18T00:00:00",
+      "value": 177.43054872004146,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 9,
+      "week_of_year": 38
+    },
+    {
+      "timestamp": "2023-09-19T00:00:00",
+      "value": 187.81405822287473,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 9,
+      "week_of_year": 38
+    },
+    {
+      "timestamp": "2023-09-20T00:00:00",
+      "value": 163.4040754273512,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 9,
+      "week_of_year": 38
+    },
+    {
+      "timestamp": "2023-09-21T00:00:00",
+      "value": 159.4984188964013,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 9,
+      "week_of_year": 38
+    },
+    {
+      "timestamp": "2023-09-22T00:00:00",
+      "value": 154.85624347061975,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 9,
+      "week_of_year": 38
+    },
+    {
+      "timestamp": "2023-09-23T00:00:00",
+      "value": 155.92665224301277,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 9,
+      "week_of_year": 38
+    },
+    {
+      "timestamp": "2023-09-24T00:00:00",
+      "value": 187.93028566016991,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 9,
+      "week_of_year": 38
+    },
+    {
+      "timestamp": "2023-09-25T00:00:00",
+      "value": 189.9277410549552,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 9,
+      "week_of_year": 39
+    },
+    {
+      "timestamp": "2023-09-26T00:00:00",
+      "value": 200.06016401295122,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 9,
+      "week_of_year": 39
+    },
+    {
+      "timestamp": "2023-09-27T00:00:00",
+      "value": 193.0139525772189,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 9,
+      "week_of_year": 39
+    },
+    {
+      "timestamp": "2023-09-28T00:00:00",
+      "value": 182.704515838804,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 9,
+      "week_of_year": 39
+    },
+    {
+      "timestamp": "2023-09-29T00:00:00",
+      "value": 157.55415645835402,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 9,
+      "week_of_year": 39
+    },
+    {
+      "timestamp": "2023-09-30T00:00:00",
+      "value": 174.03991841311517,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 9,
+      "week_of_year": 39
+    },
+    {
+      "timestamp": "2023-10-01T00:00:00",
+      "value": 183.1413352488476,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 10,
+      "week_of_year": 39
+    },
+    {
+      "timestamp": "2023-10-02T00:00:00",
+      "value": 192.69511773243477,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 10,
+      "week_of_year": 40
+    },
+    {
+      "timestamp": "2023-10-03T00:00:00",
+      "value": 202.35852616440346,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 10,
+      "week_of_year": 40
+    },
+    {
+      "timestamp": "2023-10-04T00:00:00",
+      "value": 188.587319028144,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 10,
+      "week_of_year": 40
+    },
+    {
+      "timestamp": "2023-10-05T00:00:00",
+      "value": 165.46542656343283,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 10,
+      "week_of_year": 40
+    },
+    {
+      "timestamp": "2023-10-06T00:00:00",
+      "value": 156.1787939222636,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 10,
+      "week_of_year": 40
+    },
+    {
+      "timestamp": "2023-10-07T00:00:00",
+      "value": 155.9949840709328,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 10,
+      "week_of_year": 40
+    },
+    {
+      "timestamp": "2023-10-08T00:00:00",
+      "value": 232.49066364933302,
+      "is_anomaly": true,
+      "day_of_week": 6,
+      "month": 10,
+      "week_of_year": 40
+    },
+    {
+      "timestamp": "2023-10-09T00:00:00",
+      "value": 189.45377915617925,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 10,
+      "week_of_year": 41
+    },
+    {
+      "timestamp": "2023-10-10T00:00:00",
+      "value": 196.81099985314137,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 10,
+      "week_of_year": 41
+    },
+    {
+      "timestamp": "2023-10-11T00:00:00",
+      "value": 171.1003954590437,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 10,
+      "week_of_year": 41
+    },
+    {
+      "timestamp": "2023-10-12T00:00:00",
+      "value": 170.22799410557033,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 10,
+      "week_of_year": 41
+    },
+    {
+      "timestamp": "2023-10-13T00:00:00",
+      "value": 139.03770605545427,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 10,
+      "week_of_year": 41
+    },
+    {
+      "timestamp": "2023-10-14T00:00:00",
+      "value": 152.39439743955208,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 10,
+      "week_of_year": 41
+    },
+    {
+      "timestamp": "2023-10-15T00:00:00",
+      "value": 172.65228530215012,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 10,
+      "week_of_year": 41
+    },
+    {
+      "timestamp": "2023-10-16T00:00:00",
+      "value": 188.07229816516525,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 10,
+      "week_of_year": 42
+    },
+    {
+      "timestamp": "2023-10-17T00:00:00",
+      "value": 189.08935897654925,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 10,
+      "week_of_year": 42
+    },
+    {
+      "timestamp": "2023-10-18T00:00:00",
+      "value": 182.30739320089486,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 10,
+      "week_of_year": 42
+    },
+    {
+      "timestamp": "2023-10-19T00:00:00",
+      "value": 165.7122055456601,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 10,
+      "week_of_year": 42
+    },
+    {
+      "timestamp": "2023-10-20T00:00:00",
+      "value": 156.7291135587463,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 10,
+      "week_of_year": 42
+    },
+    {
+      "timestamp": "2023-10-21T00:00:00",
+      "value": 170.15117096292633,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 10,
+      "week_of_year": 42
+    },
+    {
+      "timestamp": "2023-10-22T00:00:00",
+      "value": 185.64447814280555,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 10,
+      "week_of_year": 42
+    },
+    {
+      "timestamp": "2023-10-23T00:00:00",
+      "value": 198.21603771701368,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 10,
+      "week_of_year": 43
+    },
+    {
+      "timestamp": "2023-10-24T00:00:00",
+      "value": 212.0065450030727,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 10,
+      "week_of_year": 43
+    },
+    {
+      "timestamp": "2023-10-25T00:00:00",
+      "value": 199.8977489238901,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 10,
+      "week_of_year": 43
+    },
+    {
+      "timestamp": "2023-10-26T00:00:00",
+      "value": 186.39022225640193,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 10,
+      "week_of_year": 43
+    },
+    {
+      "timestamp": "2023-10-27T00:00:00",
+      "value": 175.57391911617682,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 10,
+      "week_of_year": 43
+    },
+    {
+      "timestamp": "2023-10-28T00:00:00",
+      "value": 172.63597771361097,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 10,
+      "week_of_year": 43
+    },
+    {
+      "timestamp": "2023-10-29T00:00:00",
+      "value": 189.67287849866054,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 10,
+      "week_of_year": 43
+    },
+    {
+      "timestamp": "2023-10-30T00:00:00",
+      "value": 211.475585218436,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 10,
+      "week_of_year": 44
+    },
+    {
+      "timestamp": "2023-10-31T00:00:00",
+      "value": 213.8823377563117,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 10,
+      "week_of_year": 44
+    },
+    {
+      "timestamp": "2023-11-01T00:00:00",
+      "value": 198.78095639260275,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 11,
+      "week_of_year": 44
+    },
+    {
+      "timestamp": "2023-11-02T00:00:00",
+      "value": 180.70017092540135,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 11,
+      "week_of_year": 44
+    },
+    {
+      "timestamp": "2023-11-03T00:00:00",
+      "value": 174.04587024498926,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 11,
+      "week_of_year": 44
+    },
+    {
+      "timestamp": "2023-11-04T00:00:00",
+      "value": 166.791457379796,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 11,
+      "week_of_year": 44
+    },
+    {
+      "timestamp": "2023-11-05T00:00:00",
+      "value": 186.3055868885587,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 11,
+      "week_of_year": 44
+    },
+    {
+      "timestamp": "2023-11-06T00:00:00",
+      "value": 196.42560633355137,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 11,
+      "week_of_year": 45
+    },
+    {
+      "timestamp": "2023-11-07T00:00:00",
+      "value": 198.57498739233557,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 11,
+      "week_of_year": 45
+    },
+    {
+      "timestamp": "2023-11-08T00:00:00",
+      "value": 192.91981341825962,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 11,
+      "week_of_year": 45
+    },
+    {
+      "timestamp": "2023-11-09T00:00:00",
+      "value": 173.07352273312543,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 11,
+      "week_of_year": 45
+    },
+    {
+      "timestamp": "2023-11-10T00:00:00",
+      "value": 161.4225463489519,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 11,
+      "week_of_year": 45
+    },
+    {
+      "timestamp": "2023-11-11T00:00:00",
+      "value": 167.37302464280896,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 11,
+      "week_of_year": 45
+    },
+    {
+      "timestamp": "2023-11-12T00:00:00",
+      "value": 176.64348074662524,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 11,
+      "week_of_year": 45
+    },
+    {
+      "timestamp": "2023-11-13T00:00:00",
+      "value": 196.0781053116844,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 11,
+      "week_of_year": 46
+    },
+    {
+      "timestamp": "2023-11-14T00:00:00",
+      "value": 195.8996819721554,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 11,
+      "week_of_year": 46
+    },
+    {
+      "timestamp": "2023-11-15T00:00:00",
+      "value": 189.57097396368124,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 11,
+      "week_of_year": 46
+    },
+    {
+      "timestamp": "2023-11-16T00:00:00",
+      "value": 171.61766651958496,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 11,
+      "week_of_year": 46
+    },
+    {
+      "timestamp": "2023-11-17T00:00:00",
+      "value": 163.89850949341505,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 11,
+      "week_of_year": 46
+    },
+    {
+      "timestamp": "2023-11-18T00:00:00",
+      "value": 172.43579872088776,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 11,
+      "week_of_year": 46
+    },
+    {
+      "timestamp": "2023-11-19T00:00:00",
+      "value": 183.325150412694,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 11,
+      "week_of_year": 46
+    },
+    {
+      "timestamp": "2023-11-20T00:00:00",
+      "value": 215.8801143967281,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 11,
+      "week_of_year": 47
+    },
+    {
+      "timestamp": "2023-11-21T00:00:00",
+      "value": 206.5696302908766,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 11,
+      "week_of_year": 47
+    },
+    {
+      "timestamp": "2023-11-22T00:00:00",
+      "value": 196.8924460041271,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 11,
+      "week_of_year": 47
+    },
+    {
+      "timestamp": "2023-11-23T00:00:00",
+      "value": 193.36462520917829,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 11,
+      "week_of_year": 47
+    },
+    {
+      "timestamp": "2023-11-24T00:00:00",
+      "value": 182.38509000509242,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 11,
+      "week_of_year": 47
+    },
+    {
+      "timestamp": "2023-11-25T00:00:00",
+      "value": 186.7293141222161,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 11,
+      "week_of_year": 47
+    },
+    {
+      "timestamp": "2023-11-26T00:00:00",
+      "value": 203.30781893827503,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 11,
+      "week_of_year": 47
+    },
+    {
+      "timestamp": "2023-11-27T00:00:00",
+      "value": 216.23473644446636,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 11,
+      "week_of_year": 48
+    },
+    {
+      "timestamp": "2023-11-28T00:00:00",
+      "value": 215.72782832761135,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 11,
+      "week_of_year": 48
+    },
+    {
+      "timestamp": "2023-11-29T00:00:00",
+      "value": 209.4009433585367,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 11,
+      "week_of_year": 48
+    },
+    {
+      "timestamp": "2023-11-30T00:00:00",
+      "value": 187.51020308735463,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 11,
+      "week_of_year": 48
+    },
+    {
+      "timestamp": "2023-12-01T00:00:00",
+      "value": 183.82658824528252,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 12,
+      "week_of_year": 48
+    },
+    {
+      "timestamp": "2023-12-02T00:00:00",
+      "value": 180.66105047609537,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 12,
+      "week_of_year": 48
+    },
+    {
+      "timestamp": "2023-12-03T00:00:00",
+      "value": 191.27037626747904,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 12,
+      "week_of_year": 48
+    },
+    {
+      "timestamp": "2023-12-04T00:00:00",
+      "value": 207.65740265618916,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 12,
+      "week_of_year": 49
+    },
+    {
+      "timestamp": "2023-12-05T00:00:00",
+      "value": 213.37507373948102,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 12,
+      "week_of_year": 49
+    },
+    {
+      "timestamp": "2023-12-06T00:00:00",
+      "value": 195.90075020645122,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 12,
+      "week_of_year": 49
+    },
+    {
+      "timestamp": "2023-12-07T00:00:00",
+      "value": 135.61781664640975,
+      "is_anomaly": true,
+      "day_of_week": 3,
+      "month": 12,
+      "week_of_year": 49
+    },
+    {
+      "timestamp": "2023-12-08T00:00:00",
+      "value": 168.70989043155336,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 12,
+      "week_of_year": 49
+    },
+    {
+      "timestamp": "2023-12-09T00:00:00",
+      "value": 171.45407721847758,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 12,
+      "week_of_year": 49
+    },
+    {
+      "timestamp": "2023-12-10T00:00:00",
+      "value": 182.56059877748802,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 12,
+      "week_of_year": 49
+    },
+    {
+      "timestamp": "2023-12-11T00:00:00",
+      "value": 198.00545661942533,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 12,
+      "week_of_year": 50
+    },
+    {
+      "timestamp": "2023-12-12T00:00:00",
+      "value": 205.4390277106444,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 12,
+      "week_of_year": 50
+    },
+    {
+      "timestamp": "2023-12-13T00:00:00",
+      "value": 186.710722122472,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 12,
+      "week_of_year": 50
+    },
+    {
+      "timestamp": "2023-12-14T00:00:00",
+      "value": 170.47922209901049,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 12,
+      "week_of_year": 50
+    },
+    {
+      "timestamp": "2023-12-15T00:00:00",
+      "value": 164.42344631074766,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 12,
+      "week_of_year": 50
+    },
+    {
+      "timestamp": "2023-12-16T00:00:00",
+      "value": 172.48394940761222,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 12,
+      "week_of_year": 50
+    },
+    {
+      "timestamp": "2023-12-17T00:00:00",
+      "value": 192.70838398183497,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 12,
+      "week_of_year": 50
+    },
+    {
+      "timestamp": "2023-12-18T00:00:00",
+      "value": 216.35181221892992,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 12,
+      "week_of_year": 51
+    },
+    {
+      "timestamp": "2023-12-19T00:00:00",
+      "value": 219.44486843026692,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 12,
+      "week_of_year": 51
+    },
+    {
+      "timestamp": "2023-12-20T00:00:00",
+      "value": 205.9012887432324,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 12,
+      "week_of_year": 51
+    },
+    {
+      "timestamp": "2023-12-21T00:00:00",
+      "value": 191.57016137463162,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 12,
+      "week_of_year": 51
+    },
+    {
+      "timestamp": "2023-12-22T00:00:00",
+      "value": 178.01626746064696,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 12,
+      "week_of_year": 51
+    },
+    {
+      "timestamp": "2023-12-23T00:00:00",
+      "value": 188.76430853646409,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 12,
+      "week_of_year": 51
+    },
+    {
+      "timestamp": "2023-12-24T00:00:00",
+      "value": 204.72379982607143,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 12,
+      "week_of_year": 51
+    },
+    {
+      "timestamp": "2023-12-25T00:00:00",
+      "value": 224.73732537912542,
+      "is_anomaly": false,
+      "day_of_week": 0,
+      "month": 12,
+      "week_of_year": 52
+    },
+    {
+      "timestamp": "2023-12-26T00:00:00",
+      "value": 223.77025315958667,
+      "is_anomaly": false,
+      "day_of_week": 1,
+      "month": 12,
+      "week_of_year": 52
+    },
+    {
+      "timestamp": "2023-12-27T00:00:00",
+      "value": 220.17550625465617,
+      "is_anomaly": false,
+      "day_of_week": 2,
+      "month": 12,
+      "week_of_year": 52
+    },
+    {
+      "timestamp": "2023-12-28T00:00:00",
+      "value": 207.94331996582486,
+      "is_anomaly": false,
+      "day_of_week": 3,
+      "month": 12,
+      "week_of_year": 52
+    },
+    {
+      "timestamp": "2023-12-29T00:00:00",
+      "value": 188.54364504105484,
+      "is_anomaly": false,
+      "day_of_week": 4,
+      "month": 12,
+      "week_of_year": 52
+    },
+    {
+      "timestamp": "2023-12-30T00:00:00",
+      "value": 194.18737363015825,
+      "is_anomaly": false,
+      "day_of_week": 5,
+      "month": 12,
+      "week_of_year": 52
+    },
+    {
+      "timestamp": "2023-12-31T00:00:00",
+      "value": 210.1420260221433,
+      "is_anomaly": false,
+      "day_of_week": 6,
+      "month": 12,
+      "week_of_year": 52
+    }
+  ]
+}

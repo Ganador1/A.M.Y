@@ -1,0 +1,75 @@
+# PRODUCTION CONFIGURATION - Ollama Cloud
+# Updated: 2026-04-07
+# Baseline validated locally against the active Ollama daemon.
+# Chosen for stable non-empty responses on /api/generate in this environment.
+
+domain_overrides: {}
+roles:
+  orchestrator:
+    description: Planificación estratégica y descomposición de tareas científicas
+    model: nemotron-3-super:cloud
+    provider: ollama
+    params:
+      max_new_tokens: 2048
+      temperature: 0.3
+  
+  bio_hypothesis:
+    description: Generación de hipótesis biológicas y científicas
+    model: nemotron-3-super:cloud
+    provider: ollama
+    params:
+      max_new_tokens: 2048
+      temperature: 0.4
+  
+  physchem_coder:
+    description: Diseño de experimentos computacionales
+    model: qwen3-coder-next:cloud
+    provider: ollama
+    params:
+      max_new_tokens: 2048
+      temperature: 0.2
+  
+  reviewer:
+    description: Evaluación crítica reflexiva y peer review
+    model: mistral-large-3:675b-cloud
+    provider: ollama
+    params:
+      max_new_tokens: 2048
+      temperature: 0.2
+  
+  publisher:
+    description: Síntesis y generación de reportes científicos
+    model: mistral-large-3:675b-cloud
+    provider: ollama
+    params:
+      max_new_tokens: 2048
+      temperature: 0.4
+
+# BACKUP CONFIGURATION (baseline_local - for offline/development)
+# Uncomment to fallback to local Ollama models:
+# roles:
+#   orchestrator:
+#     model: deepseek-r1:8b
+#     params:
+#       max_new_tokens: 640
+#       temperature: 0.45
+#   bio_hypothesis:
+#     model: mistral:7b
+#     params:
+#       max_new_tokens: 800
+#       temperature: 0.75
+#   physchem_coder:
+#     model: llama2:7b
+#     params:
+#       max_new_tokens: 900
+#       temperature: 0.55
+#   reviewer:
+#     model: deepseek-r1:8b
+#     params:
+#       max_new_tokens: 640
+#       temperature: 0.5
+#   publisher:
+#     model: llama2:7b
+#     params:
+#       max_new_tokens: 900
+#       temperature: 0.75

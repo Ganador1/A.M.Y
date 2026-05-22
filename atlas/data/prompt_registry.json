@@ -1,0 +1,50 @@
+[
+  {
+    "name": "peer_review",
+    "version": "v1",
+    "template": "Review: {{ text }}",
+    "variables": [
+      "text"
+    ],
+    "metadata": {},
+    "created_at": "2025-09-14T19:31:09.042994"
+  },
+  {
+    "name": "peer_review",
+    "version": "v2",
+    "template": "Critique: {{ text }}",
+    "variables": [
+      "text"
+    ],
+    "metadata": {},
+    "created_at": "2025-09-14T19:31:09.042994"
+  },
+  {
+    "name": "hypothesis_generation",
+    "version": "v1",
+    "template": "You are a scientific hypothesis generator. Given a domain, research question and optional context, produce ONE concise, testable hypothesis.\nDomain: {{ domain }}\nResearch Question: {{ research_question }}\nContext: {{ context_data }}\nReturn JSON with keys: title, description, variables (list), assumptions (list), expected_outcome, confidence_score (0-1).",
+    "variables": [
+      "domain",
+      "research_question",
+      "context_data"
+    ],
+    "metadata": {
+      "description": "Default hypothesis generation template"
+    },
+    "created_at": "2025-09-14T19:46:12.767132"
+  },
+  {
+    "name": "hypothesis_generation",
+    "version": "v2",
+    "template": "You are a scientific hypothesis generator. Craft ONE precise, testable hypothesis.\nRequirements:\n- Provide exactly 3 to 5 key experimental variables (diverse, non-overlapping).\n- Be concise yet scientifically rigorous.\n- Avoid generic variable names; be specific.\nDomain: {{ domain }}\nResearch Question: {{ research_question }}\nContext: {{ context_data }}\nReturn JSON keys: title, description, variables (list length 3-5), assumptions (list), expected_outcome, confidence_score (0-1).",
+    "variables": [
+      "domain",
+      "research_question",
+      "context_data"
+    ],
+    "metadata": {
+      "description": "Hypothesis generation v2 - enforces 3-5 variables"
+    },
+    "created_at": "2025-09-14T20:01:45.295863"
+  }
+]

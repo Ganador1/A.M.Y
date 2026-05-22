@@ -1,0 +1,1103 @@
+{
+  "agent": {
+    "agent:axiom_scientific_pipeline": {
+      "type": "prov:Agent",
+      "name": "AXIOM Scientific Pipeline"
+    }
+  },
+  "entity": {
+    "entity:plausibility_training_v4_enriched.jsonl:1": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched.jsonl",
+      "path": "data/plausibility_training_v4_enriched.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073206_93316efe"
+    },
+    "entity:plausibility_training_v4_enriched_with_year.jsonl:2": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched_with_year.jsonl",
+      "path": "data/plausibility_training_v4_enriched_with_year.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073206_93316efe"
+    },
+    "entity:plausibility_training_v4_embeddings.parquet:3": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_embeddings.parquet",
+      "path": "data/plausibility_training_v4_embeddings.parquet",
+      "exists": true,
+      "sha256": "2e9c7a9dcfbef4c3e4a7fcfee2907f2a53bb798936d8063a0d9aadb7a2367823",
+      "version_id": "v_20250917_073206_2e9c7a9d"
+    },
+    "entity:plausibility_training_v4_weak_labels.parquet:4": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_weak_labels.parquet",
+      "path": "data/plausibility_training_v4_weak_labels.parquet",
+      "exists": true,
+      "sha256": "3a478506786589b6fe1ec8416a006fd9e8c063de905d255b978b505c6bf84091",
+      "version_id": "v_20250917_073206_3a478506"
+    },
+    "entity:plausibility_v4_rf.pkl:5": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_rf.pkl",
+      "path": "models/plausibility_v4_rf.pkl",
+      "exists": true,
+      "sha256": "96620b6de5f0467e4d68e66d55233aaab61110ff17c75057c1fc43ccf30d32fe",
+      "version_id": "v_20250917_073206_96620b6d"
+    },
+    "entity:plausibility_v4_cv_metrics.json:6": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_cv_metrics.json",
+      "path": "models/plausibility_v4_cv_metrics.json",
+      "exists": true,
+      "sha256": "2b89314721ab3fa83fcc98ff2b7395e7f4adb4e4c7ebe2746962bafa868091f5",
+      "version_id": "v_20250917_073206_2b893147"
+    },
+    "entity:pipeline_metadata_v4.json:7": {
+      "type": "prov:Entity",
+      "name": "pipeline_metadata_v4.json",
+      "path": "models/pipeline_metadata_v4.json",
+      "exists": true,
+      "sha256": "85a3d1e526afd475a39986c9d6c01a0c9ae4d27640024ab6437dfdab97c2a423",
+      "version_id": "v_20250917_073206_85a3d1e5"
+    },
+    "entity:artifact_map.json:8": {
+      "type": "prov:Entity",
+      "name": "artifact_map.json",
+      "path": "models/artifact_map.json",
+      "exists": true,
+      "sha256": "a927cf175a7c1028de445e1f80feddd580ecc9e4e37be076d6f34ea430bdc0dc",
+      "version_id": "v_20250917_073206_a927cf17"
+    },
+    "entity:plausibility_training_v4_enriched.jsonl:9": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched.jsonl",
+      "path": "data/plausibility_training_v4_enriched.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073207_93316efe"
+    },
+    "entity:plausibility_training_v4_enriched_with_year.jsonl:10": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched_with_year.jsonl",
+      "path": "data/plausibility_training_v4_enriched_with_year.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073206_93316efe"
+    },
+    "entity:plausibility_training_v4_embeddings.parquet:11": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_embeddings.parquet",
+      "path": "data/plausibility_training_v4_embeddings.parquet",
+      "exists": true,
+      "sha256": "2e9c7a9dcfbef4c3e4a7fcfee2907f2a53bb798936d8063a0d9aadb7a2367823",
+      "version_id": "v_20250917_073206_2e9c7a9d"
+    },
+    "entity:plausibility_training_v4_weak_labels.parquet:12": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_weak_labels.parquet",
+      "path": "data/plausibility_training_v4_weak_labels.parquet",
+      "exists": true,
+      "sha256": "3a478506786589b6fe1ec8416a006fd9e8c063de905d255b978b505c6bf84091",
+      "version_id": "v_20250917_073206_3a478506"
+    },
+    "entity:plausibility_v4_rf.pkl:13": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_rf.pkl",
+      "path": "models/plausibility_v4_rf.pkl",
+      "exists": true,
+      "sha256": "96620b6de5f0467e4d68e66d55233aaab61110ff17c75057c1fc43ccf30d32fe",
+      "version_id": "v_20250917_073206_96620b6d"
+    },
+    "entity:plausibility_v4_cv_metrics.json:14": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_cv_metrics.json",
+      "path": "models/plausibility_v4_cv_metrics.json",
+      "exists": true,
+      "sha256": "2b89314721ab3fa83fcc98ff2b7395e7f4adb4e4c7ebe2746962bafa868091f5",
+      "version_id": "v_20250917_073206_2b893147"
+    },
+    "entity:pipeline_metadata_v4.json:15": {
+      "type": "prov:Entity",
+      "name": "pipeline_metadata_v4.json",
+      "path": "models/pipeline_metadata_v4.json",
+      "exists": true,
+      "sha256": "85a3d1e526afd475a39986c9d6c01a0c9ae4d27640024ab6437dfdab97c2a423",
+      "version_id": "v_20250917_073206_85a3d1e5"
+    },
+    "entity:artifact_map.json:16": {
+      "type": "prov:Entity",
+      "name": "artifact_map.json",
+      "path": "models/artifact_map.json",
+      "exists": true,
+      "sha256": "a927cf175a7c1028de445e1f80feddd580ecc9e4e37be076d6f34ea430bdc0dc",
+      "version_id": "v_20250917_073206_a927cf17"
+    },
+    "entity:plausibility_training_v4_enriched.jsonl:17": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched.jsonl",
+      "path": "data/plausibility_training_v4_enriched.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073207_93316efe"
+    },
+    "entity:plausibility_training_v4_enriched_with_year.jsonl:18": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched_with_year.jsonl",
+      "path": "data/plausibility_training_v4_enriched_with_year.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073206_93316efe"
+    },
+    "entity:plausibility_training_v4_embeddings.parquet:19": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_embeddings.parquet",
+      "path": "data/plausibility_training_v4_embeddings.parquet",
+      "exists": true,
+      "sha256": "2e9c7a9dcfbef4c3e4a7fcfee2907f2a53bb798936d8063a0d9aadb7a2367823",
+      "version_id": "v_20250917_073206_2e9c7a9d"
+    },
+    "entity:plausibility_training_v4_weak_labels.parquet:20": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_weak_labels.parquet",
+      "path": "data/plausibility_training_v4_weak_labels.parquet",
+      "exists": true,
+      "sha256": "3a478506786589b6fe1ec8416a006fd9e8c063de905d255b978b505c6bf84091",
+      "version_id": "v_20250917_073206_3a478506"
+    },
+    "entity:plausibility_v4_rf.pkl:21": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_rf.pkl",
+      "path": "models/plausibility_v4_rf.pkl",
+      "exists": true,
+      "sha256": "96620b6de5f0467e4d68e66d55233aaab61110ff17c75057c1fc43ccf30d32fe",
+      "version_id": "v_20250917_073206_96620b6d"
+    },
+    "entity:plausibility_v4_cv_metrics.json:22": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_cv_metrics.json",
+      "path": "models/plausibility_v4_cv_metrics.json",
+      "exists": true,
+      "sha256": "2b89314721ab3fa83fcc98ff2b7395e7f4adb4e4c7ebe2746962bafa868091f5",
+      "version_id": "v_20250917_073206_2b893147"
+    },
+    "entity:pipeline_metadata_v4.json:23": {
+      "type": "prov:Entity",
+      "name": "pipeline_metadata_v4.json",
+      "path": "models/pipeline_metadata_v4.json",
+      "exists": true,
+      "sha256": "85a3d1e526afd475a39986c9d6c01a0c9ae4d27640024ab6437dfdab97c2a423",
+      "version_id": "v_20250917_073206_85a3d1e5"
+    },
+    "entity:artifact_map.json:24": {
+      "type": "prov:Entity",
+      "name": "artifact_map.json",
+      "path": "models/artifact_map.json",
+      "exists": true,
+      "sha256": "a927cf175a7c1028de445e1f80feddd580ecc9e4e37be076d6f34ea430bdc0dc",
+      "version_id": "v_20250917_073206_a927cf17"
+    },
+    "entity:plausibility_training_v4_enriched.jsonl:25": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched.jsonl",
+      "path": "data/plausibility_training_v4_enriched.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073207_93316efe"
+    },
+    "entity:plausibility_training_v4_enriched_with_year.jsonl:26": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched_with_year.jsonl",
+      "path": "data/plausibility_training_v4_enriched_with_year.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073206_93316efe"
+    },
+    "entity:plausibility_training_v4_embeddings.parquet:27": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_embeddings.parquet",
+      "path": "data/plausibility_training_v4_embeddings.parquet",
+      "exists": true,
+      "sha256": "2e9c7a9dcfbef4c3e4a7fcfee2907f2a53bb798936d8063a0d9aadb7a2367823",
+      "version_id": "v_20250917_073206_2e9c7a9d"
+    },
+    "entity:plausibility_training_v4_weak_labels.parquet:28": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_weak_labels.parquet",
+      "path": "data/plausibility_training_v4_weak_labels.parquet",
+      "exists": true,
+      "sha256": "3a478506786589b6fe1ec8416a006fd9e8c063de905d255b978b505c6bf84091",
+      "version_id": "v_20250917_073206_3a478506"
+    },
+    "entity:plausibility_v4_rf.pkl:29": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_rf.pkl",
+      "path": "models/plausibility_v4_rf.pkl",
+      "exists": true,
+      "sha256": "96620b6de5f0467e4d68e66d55233aaab61110ff17c75057c1fc43ccf30d32fe",
+      "version_id": "v_20250917_073206_96620b6d"
+    },
+    "entity:plausibility_v4_cv_metrics.json:30": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_cv_metrics.json",
+      "path": "models/plausibility_v4_cv_metrics.json",
+      "exists": true,
+      "sha256": "2b89314721ab3fa83fcc98ff2b7395e7f4adb4e4c7ebe2746962bafa868091f5",
+      "version_id": "v_20250917_073206_2b893147"
+    },
+    "entity:pipeline_metadata_v4.json:31": {
+      "type": "prov:Entity",
+      "name": "pipeline_metadata_v4.json",
+      "path": "models/pipeline_metadata_v4.json",
+      "exists": true,
+      "sha256": "85a3d1e526afd475a39986c9d6c01a0c9ae4d27640024ab6437dfdab97c2a423",
+      "version_id": "v_20250917_073206_85a3d1e5"
+    },
+    "entity:artifact_map.json:32": {
+      "type": "prov:Entity",
+      "name": "artifact_map.json",
+      "path": "models/artifact_map.json",
+      "exists": true,
+      "sha256": "a927cf175a7c1028de445e1f80feddd580ecc9e4e37be076d6f34ea430bdc0dc",
+      "version_id": "v_20250917_073206_a927cf17"
+    },
+    "entity:plausibility_training_v4_enriched.jsonl:33": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched.jsonl",
+      "path": "data/plausibility_training_v4_enriched.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073207_93316efe"
+    },
+    "entity:plausibility_training_v4_enriched_with_year.jsonl:34": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched_with_year.jsonl",
+      "path": "data/plausibility_training_v4_enriched_with_year.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073206_93316efe"
+    },
+    "entity:plausibility_training_v4_embeddings.parquet:35": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_embeddings.parquet",
+      "path": "data/plausibility_training_v4_embeddings.parquet",
+      "exists": true,
+      "sha256": "2e9c7a9dcfbef4c3e4a7fcfee2907f2a53bb798936d8063a0d9aadb7a2367823",
+      "version_id": "v_20250917_073206_2e9c7a9d"
+    },
+    "entity:plausibility_training_v4_weak_labels.parquet:36": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_weak_labels.parquet",
+      "path": "data/plausibility_training_v4_weak_labels.parquet",
+      "exists": true,
+      "sha256": "3a478506786589b6fe1ec8416a006fd9e8c063de905d255b978b505c6bf84091",
+      "version_id": "v_20250917_073206_3a478506"
+    },
+    "entity:plausibility_v4_rf.pkl:37": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_rf.pkl",
+      "path": "models/plausibility_v4_rf.pkl",
+      "exists": true,
+      "sha256": "96620b6de5f0467e4d68e66d55233aaab61110ff17c75057c1fc43ccf30d32fe",
+      "version_id": "v_20250917_073206_96620b6d"
+    },
+    "entity:plausibility_v4_cv_metrics.json:38": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_cv_metrics.json",
+      "path": "models/plausibility_v4_cv_metrics.json",
+      "exists": true,
+      "sha256": "2b89314721ab3fa83fcc98ff2b7395e7f4adb4e4c7ebe2746962bafa868091f5",
+      "version_id": "v_20250917_073206_2b893147"
+    },
+    "entity:pipeline_metadata_v4.json:39": {
+      "type": "prov:Entity",
+      "name": "pipeline_metadata_v4.json",
+      "path": "models/pipeline_metadata_v4.json",
+      "exists": true,
+      "sha256": "85a3d1e526afd475a39986c9d6c01a0c9ae4d27640024ab6437dfdab97c2a423",
+      "version_id": "v_20250917_073206_85a3d1e5"
+    },
+    "entity:artifact_map.json:40": {
+      "type": "prov:Entity",
+      "name": "artifact_map.json",
+      "path": "models/artifact_map.json",
+      "exists": true,
+      "sha256": "a927cf175a7c1028de445e1f80feddd580ecc9e4e37be076d6f34ea430bdc0dc",
+      "version_id": "v_20250917_073206_a927cf17"
+    },
+    "entity:plausibility_training_v4_enriched.jsonl:41": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched.jsonl",
+      "path": "data/plausibility_training_v4_enriched.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073207_93316efe"
+    },
+    "entity:plausibility_training_v4_enriched_with_year.jsonl:42": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched_with_year.jsonl",
+      "path": "data/plausibility_training_v4_enriched_with_year.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073206_93316efe"
+    },
+    "entity:plausibility_training_v4_embeddings.parquet:43": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_embeddings.parquet",
+      "path": "data/plausibility_training_v4_embeddings.parquet",
+      "exists": true,
+      "sha256": "2e9c7a9dcfbef4c3e4a7fcfee2907f2a53bb798936d8063a0d9aadb7a2367823",
+      "version_id": "v_20250917_073206_2e9c7a9d"
+    },
+    "entity:plausibility_training_v4_weak_labels.parquet:44": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_weak_labels.parquet",
+      "path": "data/plausibility_training_v4_weak_labels.parquet",
+      "exists": true,
+      "sha256": "3a478506786589b6fe1ec8416a006fd9e8c063de905d255b978b505c6bf84091",
+      "version_id": "v_20250917_073206_3a478506"
+    },
+    "entity:plausibility_v4_rf.pkl:45": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_rf.pkl",
+      "path": "models/plausibility_v4_rf.pkl",
+      "exists": true,
+      "sha256": "96620b6de5f0467e4d68e66d55233aaab61110ff17c75057c1fc43ccf30d32fe",
+      "version_id": "v_20250917_073206_96620b6d"
+    },
+    "entity:plausibility_v4_cv_metrics.json:46": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_cv_metrics.json",
+      "path": "models/plausibility_v4_cv_metrics.json",
+      "exists": true,
+      "sha256": "2b89314721ab3fa83fcc98ff2b7395e7f4adb4e4c7ebe2746962bafa868091f5",
+      "version_id": "v_20250917_073206_2b893147"
+    },
+    "entity:pipeline_metadata_v4.json:47": {
+      "type": "prov:Entity",
+      "name": "pipeline_metadata_v4.json",
+      "path": "models/pipeline_metadata_v4.json",
+      "exists": true,
+      "sha256": "85a3d1e526afd475a39986c9d6c01a0c9ae4d27640024ab6437dfdab97c2a423",
+      "version_id": "v_20250917_073206_85a3d1e5"
+    },
+    "entity:artifact_map.json:48": {
+      "type": "prov:Entity",
+      "name": "artifact_map.json",
+      "path": "models/artifact_map.json",
+      "exists": true,
+      "sha256": "a927cf175a7c1028de445e1f80feddd580ecc9e4e37be076d6f34ea430bdc0dc",
+      "version_id": "v_20250917_073206_a927cf17"
+    },
+    "entity:plausibility_training_v4_enriched.jsonl:49": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched.jsonl",
+      "path": "data/plausibility_training_v4_enriched.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073207_93316efe"
+    },
+    "entity:plausibility_training_v4_enriched_with_year.jsonl:50": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched_with_year.jsonl",
+      "path": "data/plausibility_training_v4_enriched_with_year.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073206_93316efe"
+    },
+    "entity:plausibility_training_v4_embeddings.parquet:51": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_embeddings.parquet",
+      "path": "data/plausibility_training_v4_embeddings.parquet",
+      "exists": true,
+      "sha256": "2e9c7a9dcfbef4c3e4a7fcfee2907f2a53bb798936d8063a0d9aadb7a2367823",
+      "version_id": "v_20250917_073206_2e9c7a9d"
+    },
+    "entity:plausibility_training_v4_weak_labels.parquet:52": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_weak_labels.parquet",
+      "path": "data/plausibility_training_v4_weak_labels.parquet",
+      "exists": true,
+      "sha256": "3a478506786589b6fe1ec8416a006fd9e8c063de905d255b978b505c6bf84091",
+      "version_id": "v_20250917_073206_3a478506"
+    },
+    "entity:plausibility_v4_rf.pkl:53": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_rf.pkl",
+      "path": "models/plausibility_v4_rf.pkl",
+      "exists": true,
+      "sha256": "83361476a78590795c46a6197270c521529f1ddf50a440c7681d17773a0fdf85",
+      "version_id": "v_20250917_073227_83361476"
+    },
+    "entity:plausibility_v4_cv_metrics.json:54": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_cv_metrics.json",
+      "path": "models/plausibility_v4_cv_metrics.json",
+      "exists": true,
+      "sha256": "2b89314721ab3fa83fcc98ff2b7395e7f4adb4e4c7ebe2746962bafa868091f5",
+      "version_id": "v_20250917_073206_2b893147"
+    },
+    "entity:pipeline_metadata_v4.json:55": {
+      "type": "prov:Entity",
+      "name": "pipeline_metadata_v4.json",
+      "path": "models/pipeline_metadata_v4.json",
+      "exists": true,
+      "sha256": "85a3d1e526afd475a39986c9d6c01a0c9ae4d27640024ab6437dfdab97c2a423",
+      "version_id": "v_20250917_073206_85a3d1e5"
+    },
+    "entity:artifact_map.json:56": {
+      "type": "prov:Entity",
+      "name": "artifact_map.json",
+      "path": "models/artifact_map.json",
+      "exists": true,
+      "sha256": "a927cf175a7c1028de445e1f80feddd580ecc9e4e37be076d6f34ea430bdc0dc",
+      "version_id": "v_20250917_073206_a927cf17"
+    },
+    "entity:plausibility_training_v4_enriched.jsonl:57": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched.jsonl",
+      "path": "data/plausibility_training_v4_enriched.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073207_93316efe"
+    },
+    "entity:plausibility_training_v4_enriched_with_year.jsonl:58": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_enriched_with_year.jsonl",
+      "path": "data/plausibility_training_v4_enriched_with_year.jsonl",
+      "exists": true,
+      "sha256": "93316efe530659c04bc46a19a9d39b15916e804b8c144b4a411b469b04ef73cc",
+      "version_id": "v_20250917_073206_93316efe"
+    },
+    "entity:plausibility_training_v4_embeddings.parquet:59": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_embeddings.parquet",
+      "path": "data/plausibility_training_v4_embeddings.parquet",
+      "exists": true,
+      "sha256": "2e9c7a9dcfbef4c3e4a7fcfee2907f2a53bb798936d8063a0d9aadb7a2367823",
+      "version_id": "v_20250917_073206_2e9c7a9d"
+    },
+    "entity:plausibility_training_v4_weak_labels.parquet:60": {
+      "type": "prov:Entity",
+      "name": "plausibility_training_v4_weak_labels.parquet",
+      "path": "data/plausibility_training_v4_weak_labels.parquet",
+      "exists": true,
+      "sha256": "3a478506786589b6fe1ec8416a006fd9e8c063de905d255b978b505c6bf84091",
+      "version_id": "v_20250917_073206_3a478506"
+    },
+    "entity:plausibility_v4_rf.pkl:61": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_rf.pkl",
+      "path": "models/plausibility_v4_rf.pkl",
+      "exists": true,
+      "sha256": "83361476a78590795c46a6197270c521529f1ddf50a440c7681d17773a0fdf85",
+      "version_id": "v_20250917_073227_83361476"
+    },
+    "entity:plausibility_v4_cv_metrics.json:62": {
+      "type": "prov:Entity",
+      "name": "plausibility_v4_cv_metrics.json",
+      "path": "models/plausibility_v4_cv_metrics.json",
+      "exists": true,
+      "sha256": "2b89314721ab3fa83fcc98ff2b7395e7f4adb4e4c7ebe2746962bafa868091f5",
+      "version_id": "v_20250917_073206_2b893147"
+    },
+    "entity:pipeline_metadata_v4.json:63": {
+      "type": "prov:Entity",
+      "name": "pipeline_metadata_v4.json",
+      "path": "models/pipeline_metadata_v4.json",
+      "exists": true,
+      "sha256": "78bdd625f20787eac009de8066fc4398db7782f04c17f43fdba254ce931eb13f",
+      "version_id": "v_20250917_073229_78bdd625"
+    },
+    "entity:artifact_map.json:64": {
+      "type": "prov:Entity",
+      "name": "artifact_map.json",
+      "path": "models/artifact_map.json",
+      "exists": true,
+      "sha256": "f1304fab3ae0de1d8484ec6a2f046a4965def5923df3ffd1e1c12634fd10aabc",
+      "version_id": "v_20250917_073229_f1304fab"
+    }
+  },
+  "activity": {
+    "activity:update_dataset.py:1": {
+      "type": "prov:Activity",
+      "name": "update_dataset.py",
+      "startedAtTime": "2025-09-17T10:31:56.305970Z",
+      "endedAtTime": "2025-09-17T10:32:06.960849Z",
+      "returncode": 0
+    },
+    "activity:enrich_dataset_v4.py:2": {
+      "type": "prov:Activity",
+      "name": "enrich_dataset_v4.py",
+      "startedAtTime": "2025-09-17T10:32:06.989577Z",
+      "endedAtTime": "2025-09-17T10:32:07.374862Z",
+      "returncode": 0
+    },
+    "activity:generate_embeddings_v4.py:3": {
+      "type": "prov:Activity",
+      "name": "generate_embeddings_v4.py",
+      "startedAtTime": "2025-09-17T10:32:07.383053Z",
+      "endedAtTime": "2025-09-17T10:32:23.121394Z",
+      "returncode": 0
+    },
+    "activity:build_faiss_index_v4.py:4": {
+      "type": "prov:Activity",
+      "name": "build_faiss_index_v4.py",
+      "startedAtTime": "2025-09-17T10:32:23.139362Z",
+      "endedAtTime": "2025-09-17T10:32:23.531618Z",
+      "returncode": 0
+    },
+    "activity:cluster_embeddings_v4.py:5": {
+      "type": "prov:Activity",
+      "name": "cluster_embeddings_v4.py",
+      "startedAtTime": "2025-09-17T10:32:23.539383Z",
+      "endedAtTime": "2025-09-17T10:32:24.665747Z",
+      "returncode": 0
+    },
+    "activity:weak_label_v4.py:6": {
+      "type": "prov:Activity",
+      "name": "weak_label_v4.py",
+      "startedAtTime": "2025-09-17T10:32:24.673481Z",
+      "endedAtTime": "2025-09-17T10:32:24.938009Z",
+      "returncode": 0
+    },
+    "activity:train_plausibility_model_v4.py:7": {
+      "type": "prov:Activity",
+      "name": "train_plausibility_model_v4.py",
+      "startedAtTime": "2025-09-17T10:32:24.945317Z",
+      "endedAtTime": "2025-09-17T10:32:27.616513Z",
+      "returncode": 0
+    },
+    "activity:pipeline_metadata_v4.py:8": {
+      "type": "prov:Activity",
+      "name": "pipeline_metadata_v4.py",
+      "startedAtTime": "2025-09-17T10:32:27.624641Z",
+      "endedAtTime": "2025-09-17T10:32:29.355817Z",
+      "returncode": 0
+    }
+  },
+  "wasGeneratedBy": [
+    {
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:1",
+      "activity": "activity:update_dataset.py:1"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:2",
+      "activity": "activity:update_dataset.py:1"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:3",
+      "activity": "activity:update_dataset.py:1"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:4",
+      "activity": "activity:update_dataset.py:1"
+    },
+    {
+      "entity": "entity:plausibility_v4_rf.pkl:5",
+      "activity": "activity:update_dataset.py:1"
+    },
+    {
+      "entity": "entity:plausibility_v4_cv_metrics.json:6",
+      "activity": "activity:update_dataset.py:1"
+    },
+    {
+      "entity": "entity:pipeline_metadata_v4.json:7",
+      "activity": "activity:update_dataset.py:1"
+    },
+    {
+      "entity": "entity:artifact_map.json:8",
+      "activity": "activity:update_dataset.py:1"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:9",
+      "activity": "activity:enrich_dataset_v4.py:2"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:10",
+      "activity": "activity:enrich_dataset_v4.py:2"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:11",
+      "activity": "activity:enrich_dataset_v4.py:2"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:12",
+      "activity": "activity:enrich_dataset_v4.py:2"
+    },
+    {
+      "entity": "entity:plausibility_v4_rf.pkl:13",
+      "activity": "activity:enrich_dataset_v4.py:2"
+    },
+    {
+      "entity": "entity:plausibility_v4_cv_metrics.json:14",
+      "activity": "activity:enrich_dataset_v4.py:2"
+    },
+    {
+      "entity": "entity:pipeline_metadata_v4.json:15",
+      "activity": "activity:enrich_dataset_v4.py:2"
+    },
+    {
+      "entity": "entity:artifact_map.json:16",
+      "activity": "activity:enrich_dataset_v4.py:2"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:17",
+      "activity": "activity:generate_embeddings_v4.py:3"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:18",
+      "activity": "activity:generate_embeddings_v4.py:3"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:19",
+      "activity": "activity:generate_embeddings_v4.py:3"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:20",
+      "activity": "activity:generate_embeddings_v4.py:3"
+    },
+    {
+      "entity": "entity:plausibility_v4_rf.pkl:21",
+      "activity": "activity:generate_embeddings_v4.py:3"
+    },
+    {
+      "entity": "entity:plausibility_v4_cv_metrics.json:22",
+      "activity": "activity:generate_embeddings_v4.py:3"
+    },
+    {
+      "entity": "entity:pipeline_metadata_v4.json:23",
+      "activity": "activity:generate_embeddings_v4.py:3"
+    },
+    {
+      "entity": "entity:artifact_map.json:24",
+      "activity": "activity:generate_embeddings_v4.py:3"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:25",
+      "activity": "activity:build_faiss_index_v4.py:4"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:26",
+      "activity": "activity:build_faiss_index_v4.py:4"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:27",
+      "activity": "activity:build_faiss_index_v4.py:4"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:28",
+      "activity": "activity:build_faiss_index_v4.py:4"
+    },
+    {
+      "entity": "entity:plausibility_v4_rf.pkl:29",
+      "activity": "activity:build_faiss_index_v4.py:4"
+    },
+    {
+      "entity": "entity:plausibility_v4_cv_metrics.json:30",
+      "activity": "activity:build_faiss_index_v4.py:4"
+    },
+    {
+      "entity": "entity:pipeline_metadata_v4.json:31",
+      "activity": "activity:build_faiss_index_v4.py:4"
+    },
+    {
+      "entity": "entity:artifact_map.json:32",
+      "activity": "activity:build_faiss_index_v4.py:4"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:33",
+      "activity": "activity:cluster_embeddings_v4.py:5"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:34",
+      "activity": "activity:cluster_embeddings_v4.py:5"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:35",
+      "activity": "activity:cluster_embeddings_v4.py:5"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:36",
+      "activity": "activity:cluster_embeddings_v4.py:5"
+    },
+    {
+      "entity": "entity:plausibility_v4_rf.pkl:37",
+      "activity": "activity:cluster_embeddings_v4.py:5"
+    },
+    {
+      "entity": "entity:plausibility_v4_cv_metrics.json:38",
+      "activity": "activity:cluster_embeddings_v4.py:5"
+    },
+    {
+      "entity": "entity:pipeline_metadata_v4.json:39",
+      "activity": "activity:cluster_embeddings_v4.py:5"
+    },
+    {
+      "entity": "entity:artifact_map.json:40",
+      "activity": "activity:cluster_embeddings_v4.py:5"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:41",
+      "activity": "activity:weak_label_v4.py:6"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:42",
+      "activity": "activity:weak_label_v4.py:6"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:43",
+      "activity": "activity:weak_label_v4.py:6"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:44",
+      "activity": "activity:weak_label_v4.py:6"
+    },
+    {
+      "entity": "entity:plausibility_v4_rf.pkl:45",
+      "activity": "activity:weak_label_v4.py:6"
+    },
+    {
+      "entity": "entity:plausibility_v4_cv_metrics.json:46",
+      "activity": "activity:weak_label_v4.py:6"
+    },
+    {
+      "entity": "entity:pipeline_metadata_v4.json:47",
+      "activity": "activity:weak_label_v4.py:6"
+    },
+    {
+      "entity": "entity:artifact_map.json:48",
+      "activity": "activity:weak_label_v4.py:6"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:49",
+      "activity": "activity:train_plausibility_model_v4.py:7"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:50",
+      "activity": "activity:train_plausibility_model_v4.py:7"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:51",
+      "activity": "activity:train_plausibility_model_v4.py:7"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:52",
+      "activity": "activity:train_plausibility_model_v4.py:7"
+    },
+    {
+      "entity": "entity:plausibility_v4_rf.pkl:53",
+      "activity": "activity:train_plausibility_model_v4.py:7"
+    },
+    {
+      "entity": "entity:plausibility_v4_cv_metrics.json:54",
+      "activity": "activity:train_plausibility_model_v4.py:7"
+    },
+    {
+      "entity": "entity:pipeline_metadata_v4.json:55",
+      "activity": "activity:train_plausibility_model_v4.py:7"
+    },
+    {
+      "entity": "entity:artifact_map.json:56",
+      "activity": "activity:train_plausibility_model_v4.py:7"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:57",
+      "activity": "activity:pipeline_metadata_v4.py:8"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:58",
+      "activity": "activity:pipeline_metadata_v4.py:8"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:59",
+      "activity": "activity:pipeline_metadata_v4.py:8"
+    },
+    {
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:60",
+      "activity": "activity:pipeline_metadata_v4.py:8"
+    },
+    {
+      "entity": "entity:plausibility_v4_rf.pkl:61",
+      "activity": "activity:pipeline_metadata_v4.py:8"
+    },
+    {
+      "entity": "entity:plausibility_v4_cv_metrics.json:62",
+      "activity": "activity:pipeline_metadata_v4.py:8"
+    },
+    {
+      "entity": "entity:pipeline_metadata_v4.json:63",
+      "activity": "activity:pipeline_metadata_v4.py:8"
+    },
+    {
+      "entity": "entity:artifact_map.json:64",
+      "activity": "activity:pipeline_metadata_v4.py:8"
+    }
+  ],
+  "used": [
+    {
+      "activity": "activity:enrich_dataset_v4.py:2",
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:9"
+    },
+    {
+      "activity": "activity:enrich_dataset_v4.py:2",
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:10"
+    },
+    {
+      "activity": "activity:enrich_dataset_v4.py:2",
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:11"
+    },
+    {
+      "activity": "activity:enrich_dataset_v4.py:2",
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:12"
+    },
+    {
+      "activity": "activity:enrich_dataset_v4.py:2",
+      "entity": "entity:plausibility_v4_rf.pkl:13"
+    },
+    {
+      "activity": "activity:enrich_dataset_v4.py:2",
+      "entity": "entity:plausibility_v4_cv_metrics.json:14"
+    },
+    {
+      "activity": "activity:enrich_dataset_v4.py:2",
+      "entity": "entity:pipeline_metadata_v4.json:15"
+    },
+    {
+      "activity": "activity:enrich_dataset_v4.py:2",
+      "entity": "entity:artifact_map.json:16"
+    },
+    {
+      "activity": "activity:generate_embeddings_v4.py:3",
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:17"
+    },
+    {
+      "activity": "activity:generate_embeddings_v4.py:3",
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:18"
+    },
+    {
+      "activity": "activity:generate_embeddings_v4.py:3",
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:19"
+    },
+    {
+      "activity": "activity:generate_embeddings_v4.py:3",
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:20"
+    },
+    {
+      "activity": "activity:generate_embeddings_v4.py:3",
+      "entity": "entity:plausibility_v4_rf.pkl:21"
+    },
+    {
+      "activity": "activity:generate_embeddings_v4.py:3",
+      "entity": "entity:plausibility_v4_cv_metrics.json:22"
+    },
+    {
+      "activity": "activity:generate_embeddings_v4.py:3",
+      "entity": "entity:pipeline_metadata_v4.json:23"
+    },
+    {
+      "activity": "activity:generate_embeddings_v4.py:3",
+      "entity": "entity:artifact_map.json:24"
+    },
+    {
+      "activity": "activity:build_faiss_index_v4.py:4",
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:25"
+    },
+    {
+      "activity": "activity:build_faiss_index_v4.py:4",
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:26"
+    },
+    {
+      "activity": "activity:build_faiss_index_v4.py:4",
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:27"
+    },
+    {
+      "activity": "activity:build_faiss_index_v4.py:4",
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:28"
+    },
+    {
+      "activity": "activity:build_faiss_index_v4.py:4",
+      "entity": "entity:plausibility_v4_rf.pkl:29"
+    },
+    {
+      "activity": "activity:build_faiss_index_v4.py:4",
+      "entity": "entity:plausibility_v4_cv_metrics.json:30"
+    },
+    {
+      "activity": "activity:build_faiss_index_v4.py:4",
+      "entity": "entity:pipeline_metadata_v4.json:31"
+    },
+    {
+      "activity": "activity:build_faiss_index_v4.py:4",
+      "entity": "entity:artifact_map.json:32"
+    },
+    {
+      "activity": "activity:cluster_embeddings_v4.py:5",
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:33"
+    },
+    {
+      "activity": "activity:cluster_embeddings_v4.py:5",
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:34"
+    },
+    {
+      "activity": "activity:cluster_embeddings_v4.py:5",
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:35"
+    },
+    {
+      "activity": "activity:cluster_embeddings_v4.py:5",
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:36"
+    },
+    {
+      "activity": "activity:cluster_embeddings_v4.py:5",
+      "entity": "entity:plausibility_v4_rf.pkl:37"
+    },
+    {
+      "activity": "activity:cluster_embeddings_v4.py:5",
+      "entity": "entity:plausibility_v4_cv_metrics.json:38"
+    },
+    {
+      "activity": "activity:cluster_embeddings_v4.py:5",
+      "entity": "entity:pipeline_metadata_v4.json:39"
+    },
+    {
+      "activity": "activity:cluster_embeddings_v4.py:5",
+      "entity": "entity:artifact_map.json:40"
+    },
+    {
+      "activity": "activity:weak_label_v4.py:6",
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:41"
+    },
+    {
+      "activity": "activity:weak_label_v4.py:6",
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:42"
+    },
+    {
+      "activity": "activity:weak_label_v4.py:6",
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:43"
+    },
+    {
+      "activity": "activity:weak_label_v4.py:6",
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:44"
+    },
+    {
+      "activity": "activity:weak_label_v4.py:6",
+      "entity": "entity:plausibility_v4_rf.pkl:45"
+    },
+    {
+      "activity": "activity:weak_label_v4.py:6",
+      "entity": "entity:plausibility_v4_cv_metrics.json:46"
+    },
+    {
+      "activity": "activity:weak_label_v4.py:6",
+      "entity": "entity:pipeline_metadata_v4.json:47"
+    },
+    {
+      "activity": "activity:weak_label_v4.py:6",
+      "entity": "entity:artifact_map.json:48"
+    },
+    {
+      "activity": "activity:train_plausibility_model_v4.py:7",
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:49"
+    },
+    {
+      "activity": "activity:train_plausibility_model_v4.py:7",
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:50"
+    },
+    {
+      "activity": "activity:train_plausibility_model_v4.py:7",
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:51"
+    },
+    {
+      "activity": "activity:train_plausibility_model_v4.py:7",
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:52"
+    },
+    {
+      "activity": "activity:train_plausibility_model_v4.py:7",
+      "entity": "entity:plausibility_v4_rf.pkl:53"
+    },
+    {
+      "activity": "activity:train_plausibility_model_v4.py:7",
+      "entity": "entity:plausibility_v4_cv_metrics.json:54"
+    },
+    {
+      "activity": "activity:train_plausibility_model_v4.py:7",
+      "entity": "entity:pipeline_metadata_v4.json:55"
+    },
+    {
+      "activity": "activity:train_plausibility_model_v4.py:7",
+      "entity": "entity:artifact_map.json:56"
+    },
+    {
+      "activity": "activity:pipeline_metadata_v4.py:8",
+      "entity": "entity:plausibility_training_v4_enriched.jsonl:57"
+    },
+    {
+      "activity": "activity:pipeline_metadata_v4.py:8",
+      "entity": "entity:plausibility_training_v4_enriched_with_year.jsonl:58"
+    },
+    {
+      "activity": "activity:pipeline_metadata_v4.py:8",
+      "entity": "entity:plausibility_training_v4_embeddings.parquet:59"
+    },
+    {
+      "activity": "activity:pipeline_metadata_v4.py:8",
+      "entity": "entity:plausibility_training_v4_weak_labels.parquet:60"
+    },
+    {
+      "activity": "activity:pipeline_metadata_v4.py:8",
+      "entity": "entity:plausibility_v4_rf.pkl:61"
+    },
+    {
+      "activity": "activity:pipeline_metadata_v4.py:8",
+      "entity": "entity:plausibility_v4_cv_metrics.json:62"
+    },
+    {
+      "activity": "activity:pipeline_metadata_v4.py:8",
+      "entity": "entity:pipeline_metadata_v4.json:63"
+    },
+    {
+      "activity": "activity:pipeline_metadata_v4.py:8",
+      "entity": "entity:artifact_map.json:64"
+    }
+  ],
+  "wasAssociatedWith": [
+    {
+      "activity": "activity:update_dataset.py:1",
+      "agent": "agent:axiom_scientific_pipeline"
+    },
+    {
+      "activity": "activity:enrich_dataset_v4.py:2",
+      "agent": "agent:axiom_scientific_pipeline"
+    },
+    {
+      "activity": "activity:generate_embeddings_v4.py:3",
+      "agent": "agent:axiom_scientific_pipeline"
+    },
+    {
+      "activity": "activity:build_faiss_index_v4.py:4",
+      "agent": "agent:axiom_scientific_pipeline"
+    },
+    {
+      "activity": "activity:cluster_embeddings_v4.py:5",
+      "agent": "agent:axiom_scientific_pipeline"
+    },
+    {
+      "activity": "activity:weak_label_v4.py:6",
+      "agent": "agent:axiom_scientific_pipeline"
+    },
+    {
+      "activity": "activity:train_plausibility_model_v4.py:7",
+      "agent": "agent:axiom_scientific_pipeline"
+    },
+    {
+      "activity": "activity:pipeline_metadata_v4.py:8",
+      "agent": "agent:axiom_scientific_pipeline"
+    }
+  ],
+  "prefix": {
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "graph_sha256": "09417f4072a101ce4e02ca09208c9faf627ef78325e1005359f96aa16a9a3dc6",
+  "generatedAt": "2025-09-17T10:32:29.364151Z"
+}

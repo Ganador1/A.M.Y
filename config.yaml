@@ -1,0 +1,134 @@
+# A.M.Y Configuration
+# ────────────────────
+
+# The mission A.M.Y will autonomously pursue
+mission:
+  goal: "Investigar propiedades estadísticas y distribucionales de los gaps entre números primos"
+  description: "Disenar experimentos computacionales para caracterizar la distribucion de gaps primos y evaluar hipotesis de normalidad"
+  urgency: medium  # low, medium, high — affects heartbeat frequency
+
+# LLM Backend — Ollama Cloud with GLM 5.1
+llm:
+  # Provider: ollama_cloud (uses https://ollama.com/api)
+  provider: "ollama_cloud"
+  base_url: "https://ollama.com/api"
+
+  # Main reasoning model (for deep thinking, reflection, hypothesis generation)
+  reasoner:
+    model: "glm-5.1"
+    temperature: 0.7
+    max_tokens: 4096
+    num_ctx: 8192  # Reduced context for faster response under rate limits
+
+  # Fast model (for quick classifications, summaries, routine tasks)
+  fast:
+    model: "glm-5.1"
+    temperature: 0.3
+    max_tokens: 1024
+    num_ctx: 8192
+
+  # Dual API keys for parallel load balancing (set in .env)
+  # OLLAMA_CLOUD_API_KEY_1=...
+  # OLLAMA_CLOUD_API_KEY_2=...
+
+# Hardware — Apple Silicon M4 with MPS Metal
+hardware:
+  device: "mps"           # Apple Metal Performance Shaders
+  dtype: "float16"        # MPS supports fp16 natively
+  platform: "darwin_arm64"
+  # MPS-specific optimizations
+  mps_fallback_to_cpu: true  # Fallback for unsupported MPS ops
+
+# Heartbeat — the cognitive cycle
+heartbeat:
+  # Base interval in seconds between cognitive cycles
+  base_interval_seconds: 30
+  # When deeply focused, cycle faster
+  focused_interval_seconds: 5
+  # When idle/reflecting, cycle slower
+  idle_interval_seconds: 120
+  # Maximum cycles before forced reflection
+  max_cycles_before_reflection: 20
+
+# Memory
+memory:
+  # ChromaDB for vector search
+  vector_db_path: "./data/chromadb"
+  # Knowledge graph persistence
+  knowledge_graph_path: "./data/knowledge_graph.json"
+  # Episodic memory log
+  episodic_log_path: "./data/episodic_memory.jsonl"
+  # Maximum episodic memories before consolidation
+  max_episodic_before_consolidation: 1000
+  # Confidence threshold for keeping beliefs
+  belief_confidence_threshold: 0.3
+
+# Skills
+skills:
+  library_path: "./data/skill_library"
+  # Max skills to retrieve for context
+  max_retrieval: 5
+
+# Research
+research:
+  # Papers per search
+  max_papers_per_search: 10
+  # Sources
+  sources:
+    - arxiv
+    - pubmed
+    - semantic_scholar
+  # Auto-download PDFs
+  download_pdfs: false
+
+# Curiosity / Intrinsic Motivation
+curiosity:
+  # Weight of epistemic value vs pragmatic value (0-1)
+  # Higher = more exploratory, lower = more goal-focused  
+  epistemic_weight: 0.4
+  # Threshold of "surprise" to trigger deeper investigation
+  surprise_threshold: 0.7
+  # Decay rate for curiosity about already-explored topics
+  novelty_decay: 0.95
+
+# Communication
+communication:
+  # How to notify the user
+  method: "file"  # file, webhook, email, terminal
+  # Only report if breakthrough confidence > threshold
+  breakthrough_threshold: 0.5
+  # Report file path
+  report_path: "./reports/"
+  # Maximum reports per day (avoid spam)
+  max_reports_per_day: 10
+
+# Sandbox (for running experiments safely)
+sandbox:
+  enabled: true
+  # Docker is available and should be used for real isolation.
+  use_docker: true
+  # Maximum execution time per experiment (seconds)
+  max_execution_time: 300
+  # Maximum memory per experiment
+  max_memory_mb: 2048
+  # Allowed languages in sandbox
+  allowed_languages:
+    - python
+    - r
+
+# Atlas paper quality gate
+atlas_quality_gate:
+  # Drafts below these evidence thresholds are saved under papers/quarantine/
+  # and are not treated as accepted science by AMY.
+  min_support_score: 0.35
+  min_tool_realism_score: 0.60
+  max_failure_count: 5
+  verify_citations: true
+
+# Logging
+logging:
+  level: INFO
+  # Stream of consciousness log (every thought)
+  thought_log_path: "./logs/stream_of_consciousness.jsonl"
+  # Action log (every action taken)
+  action_log_path: "./logs/actions.jsonl"

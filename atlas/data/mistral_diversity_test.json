@@ -1,0 +1,113 @@
+{
+  "results": [
+    {
+      "id": "clearly_plausible",
+      "expected": true,
+      "predicted": true,
+      "correct": true,
+      "confidence": 0.95,
+      "reasoning": "The hypothesis is based on established materials science principles involving the reinforcement of polymers with carbon fibers. The methodology used (ASTM standards for tensile strength and flexural modulus measurements) is well-known and feasible. Preliminary results showing a 40% increase in tensile strength at 20% fiber loading are reasonable, although further investigation would be needed to confirm these findings. The novelty of the hypothesis lies in the specific focus on carbon fiber reinforcement in epoxy resin, which has been studied extensively but may still offer new insights.",
+      "duration": 22.977566957473755
+    },
+    {
+      "id": "moderately_plausible",
+      "expected": true,
+      "predicted": true,
+      "correct": true,
+      "confidence": 0.75,
+      "reasoning": "The hypothesis is plausible as it utilizes established biomarker research in Alzheimer's disease and proposes a novel method for detection (saliva analysis). The use of mass spectrometry is feasible and commonly used in biomedical research. The initial data showing a 3-fold elevation of specific tau isoforms in pre-clinical stages, while not extraordinary, requires further validation with larger sample sizes and control groups to confirm its significance.",
+      "duration": 10.450103044509888
+    },
+    {
+      "id": "borderline_implausible",
+      "expected": false,
+      "predicted": false,
+      "correct": true,
+      "confidence": 0.6,
+      "reasoning": "The hypothesis presents a novel approach to achieving room temperature superconductivity using graphene quantum dots in specific geometric patterns. While the idea itself is innovative and could potentially revolutionize energy transmission, the feasibility of this claim is questionable due to the current understanding of superconductivity which requires extremely low temperatures (typically below 100K or -173°C). The preliminary experiments showing resistance dropping to zero at 25°C are extraordinary and would represent a significant breakthrough in physics if confirmed. However, without further evidence or detailed methodology, it is difficult to assess the validity of these results.",
+      "duration": 12.148648023605347
+    },
+    {
+      "id": "clearly_implausible_1",
+      "expected": false,
+      "predicted": false,
+      "correct": true,
+      "confidence": 0.95,
+      "reasoning": "The hypothesis violates the fundamental principle of conservation of energy in physics, as it claims a perpetual motion machine with 150% efficiency. This is impossible according to thermodynamics. Furthermore, the methodology proposed for creating continuous motion without input remains unclear and implausible. The laboratory tests mentioned do not provide evidence to support the extraordinary claim.",
+      "duration": 8.964235782623291
+    },
+    {
+      "id": "clearly_implausible_2",
+      "expected": false,
+      "predicted": false,
+      "correct": true,
+      "confidence": 0.85,
+      "reasoning": "The hypothesis presents a novel concept that pushes the boundaries of current technology and medicine, making it highly innovative (novelty_score: 0.95). However, the claim of telepathic communication for remote surgery directly challenges fundamental neuroscience principles regarding human consciousness and brain-computer interfaces (BCIs) (validity_score: 1). While BCIs have been developed to assist individuals with disabilities, they are still limited in their ability to interpret complex thoughts or intentions. The feasibility of this hypothesis is questionable (feasibility_score: 0.2), as the technology required for such precise and reliable thought decoding and transmission remains largely speculative and far from practical implementation. The success rate claim of 99% for complex cardiac procedures is extraordinary, especially considering the current limitations in robotic surgery and the unproven nature of this telepathic BCI (overall_plausible: false).",
+      "duration": 15.498451948165894
+    },
+    {
+      "id": "clearly_implausible_3",
+      "expected": false,
+      "predicted": false,
+      "correct": true,
+      "confidence": 0.99,
+      "reasoning": "The hypothesis is implausible due to several reasons: 1) It violates fundamental physics as it suggests that human consciousness can be harnessed as an energy source, which has no scientific basis. 2) The claim of splitting water molecules more efficiently through meditative thoughts contradicts established chemical principles and the laws of thermodynamics. 3) The extraordinary energy output (500km per liter of water) is unreasonable and lacks any supporting evidence. 4) The methodology proposed is not feasible as it involves an unexplained and unproven mechanism for harnessing human consciousness. 5) No scientific basis or experimental data are provided to support the claims.",
+      "duration": 12.410938739776611
+    }
+  ],
+  "test_hypotheses": [
+    {
+      "id": "clearly_plausible",
+      "domain": "materials_science",
+      "title": "Carbon Fiber Reinforcement in Polymer Composites",
+      "abstract": "We investigate the mechanical properties of epoxy resin reinforced with 10-30% carbon fiber. Tensile strength and flexural modulus are measured using ASTM standards. Preliminary results show 40% increase in tensile strength at 20% fiber loading.",
+      "expected": true,
+      "type": "Claramente plausible"
+    },
+    {
+      "id": "moderately_plausible",
+      "domain": "medicine",
+      "title": "Novel Biomarker for Early Alzheimer's Detection in Saliva",
+      "abstract": "We propose that tau protein fragments in saliva correlate with early-stage Alzheimer's disease. Using mass spectrometry, we analyze saliva samples from 100 patients and 100 controls. Initial data suggests 3-fold elevation of specific tau isoforms in pre-clinical stages.",
+      "expected": true,
+      "type": "Moderadamente plausible"
+    },
+    {
+      "id": "borderline_implausible",
+      "domain": "physics",
+      "title": "Room Temperature Superconductor Using Graphene Quantum Dots",
+      "abstract": "We claim to achieve room temperature superconductivity by arranging graphene quantum dots in specific geometric patterns. Resistance drops to zero at 25°C in our preliminary experiments. This breakthrough could revolutionize energy transmission worldwide.",
+      "expected": false,
+      "type": "Borderline implausible - claims extraordinarios"
+    },
+    {
+      "id": "clearly_implausible_1",
+      "domain": "physics",
+      "title": "Perpetual Motion Machine Using Magnetic Levitation",
+      "abstract": "Our design uses permanent magnets arranged in a specific configuration to create continuous motion without energy input. The rotating mechanism generates more energy than it consumes, violating conservation of energy. We achieve 150% efficiency in laboratory tests.",
+      "expected": false,
+      "type": "Claramente implausible - viola termodinámica"
+    },
+    {
+      "id": "clearly_implausible_2",
+      "domain": "medicine",
+      "title": "Telepathic Brain Implant for Remote Surgery",
+      "abstract": "We developed a brain-computer interface that enables surgeons to perform operations through telepathic communication. Neural implants read surgeon's thoughts and transmit them to robotic surgical instruments 1000km away. Success rate is 99% for complex cardiac procedures.",
+      "expected": false,
+      "type": "Claramente implausible - telepathy pseudocientífica"
+    },
+    {
+      "id": "clearly_implausible_3",
+      "domain": "chemistry",
+      "title": "Water-Powered Car Engine Using Consciousness Energy",
+      "abstract": "Our revolutionary engine splits water molecules using focused human consciousness as the energy source. Meditative thoughts from the driver catalyze H2O decomposition more efficiently than electrolysis. Vehicle range exceeds 500km per liter of water.",
+      "expected": false,
+      "type": "Claramente implausible - pseudociencia + consciousness"
+    }
+  ],
+  "summary": {
+    "total_correct": 6,
+    "total_tests": 6,
+    "accuracy": 1.0
+  }
+}

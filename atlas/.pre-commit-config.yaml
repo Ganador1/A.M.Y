@@ -1,0 +1,15 @@
+repos:
+  - repo: local
+    hooks:
+      - id: check-bare-except
+        name: Check for bare except clauses
+        entry: python scripts/qa/check_bare_except.py
+        language: system
+        types: [python]
+        files: ^app/.*\.py$
+      - id: check-raise-exception
+        name: Check for raise Exception usage
+        entry: python scripts/qa/check_raise_exception.py
+        language: system
+        types: [python]
+        files: ^app/.*\.py$

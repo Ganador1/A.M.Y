@@ -1,0 +1,162 @@
+{
+  "gbm_innovative_treatment_research": {
+    "description": "Comprehensive research methodology for investigating innovative treatments for glioblastoma multiforme, covering immunotherapy (CAR-T, dendritic cell vaccines, checkpoint inhibitors with neoadjuvant timing), oncolytic viruses (adenovirus DNX-2401, HSV, PVSRIPO), novel drug delivery (nanoparticles, CED, focused ultrasound BBB disruption), targeted molecular therapies (EGFR/IDH/BRAF/metabolic), and combination strategies (TME modulation, synthetic lethality, multi-modal approaches). Key patterns: local delivery outperforms systemic, single modalities insufficient due to heterogeneity, neoadjuvant timing superior, combination approaches are the critical frontier.",
+    "code_file": "data/skill_library/gbm_innovative_treatment_research.py",
+    "created_at": 1776026881.330498,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "innovative_cancer_treatment_research": {
+    "description": "Systematic methodology for investigating innovative/emerging treatments for aggressive cancers. Covers 5 key domains: (1) immunotherapy approaches, (2) oncolytic/biological therapies, (3) novel drug delivery systems, (4) targeted molecular therapies, and (5) tumor microenvironment and combination strategies. Incorporates meta-patterns: local delivery typically outperforms systemic for BBB-protected tumors, single-modality approaches show limited efficacy due to heterogeneity, neoadjuvant/perioperative timing of immunotherapy shows superior outcomes, and combination/multi-modal approaches are essential.",
+    "code_file": "data/skill_library/innovative_cancer_treatment_research.py",
+    "created_at": 1776028570.846011,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "investigate_innovative_cancer_treatments": {
+    "description": "Systematic research methodology for investigating innovative/emerging treatments for aggressive cancers with poor prognosis. Covers: (1) immunotherapy approaches (CAR-T, dendritic cell vaccines, checkpoint inhibitors, bispecific antibodies), (2) oncolytic virus therapy (HSV, adenovirus, poliovirus platforms), (3) novel drug delivery systems (nanoparticles, convection-enhanced delivery, BBB disruption), (4) targeted molecular therapies (actionable mutations, signaling pathway inhibitors, metabolic vulnerabilities), (5) tumor microenvironment modulation and combination strategies. Key methodology: search for each modality with year-specific clinical trial results, identify cross-cutting patterns, assess regulatory status, and evaluate combination potential. Critical insight patterns to look for: local vs systemic delivery efficacy, neoadjuvant timing advantages, single-modality limitations from heterogeneity, and synthetic lethality opportunities.",
+    "code_file": "data/skill_library/investigate_innovative_cancer_treatments.py",
+    "created_at": 1776032156.845902,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "glioblastoma_innovative_treatment_landscape": {
+    "description": "Comprehensive knowledge map of innovative GBM treatments as of 2024, including immunotherapy (CAR-T, DCVax-L, checkpoint inhibitors), oncolytic viruses, novel delivery systems, targeted molecular therapies, and combination strategies. Key principles: (1) Local delivery consistently outperforms systemic for BBB penetration, (2) Single-modality approaches show limited efficacy due to heterogeneity, (3) Neoadjuvant perioperative immunotherapy timing shows superior outcomes, (4) DCVax-L has most robust positive signal (median OS 23.4mo), (5) Checkpoint inhibitor monotherapy insufficient (CheckMate-143 negative), (6) Combination approaches targeting multiple pathways simultaneously are the emerging paradigm.",
+    "code_file": "data/skill_library/glioblastoma_innovative_treatment_landscape.py",
+    "created_at": 1776029084.2646852,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "systematic_innovative_therapy_research": {
+    "description": "A structured methodology for investigating innovative/emerging treatments for complex diseases. Decomposes investigation into therapeutic modality categories, identifies cross-cutting patterns across modalities, evaluates evidence quality hierarchically, and synthesizes findings into actionable clinical insights with confidence-weighted conclusions.",
+    "code_file": "data/skill_library/systematic_innovative_therapy_research.py",
+    "created_at": 1776029577.704473,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "systematic_medical_treatment_research": {
+    "description": "A structured methodology for investigating innovative treatments for intractable cancers. Covers: (1) Decomposing into therapeutic modality categories, (2) Prioritizing clinical trial evidence by phase, (3) Identifying cross-cutting patterns (delivery mechanism, timing, combination potential), (4) Tiering findings by evidence strength, (5) Synthesizing actionable conclusions. Key insight: for cancers with biological barriers (BBB, TME), local delivery + neoadjuvant timing + multi-modal approaches consistently show superior signals over single-agent systemic approaches.",
+    "code_file": "data/skill_library/systematic_medical_treatment_research.py",
+    "created_at": 1776030074.84848,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "gbm_innovative_treatment_analysis": {
+    "description": "Comprehensive framework for analyzing innovative glioblastoma multiforme treatments. Covers 8 domains: CAR-T cell therapy, focused ultrasound BBB disruption, personalized neoantigen vaccines, glioma stem cell targeting, metabolic therapy, oncolytic virus therapy, drug repurposing, and rational combination design. Key principle: effective GBM treatment requires simultaneous targeting of multiple vulnerabilities (BBB penetration, metabolic dependencies, immune evasion, and cancer stem cells).",
+    "code_file": "data/skill_library/gbm_innovative_treatment_analysis.py",
+    "created_at": 1776039158.8475049,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "unnamed": {
+    "description": "",
+    "code_file": "data/skill_library/unnamed.py",
+    "created_at": 1776030430.883168,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "systematic_medical_literature_review": {
+    "description": "A structured methodology for investigating innovative treatments for complex diseases. Covers: (1) Decomposing the disease into therapeutic domains, (2) Searching for each domain with precise queries including year ranges and specific modalities, (3) Identifying cross-cutting patterns (delivery challenges, timing advantages, combination necessity), (4) Tracking evidence hierarchy (phase III > phase II > case studies), (5) Synthesizing comparative effectiveness across modalities, (6) Identifying regulatory milestones and breakthrough designations. Key pattern: for CNS diseases, local delivery consistently outperforms systemic; for heterogeneous tumors, combination approaches are essential; neoadjuvant timing of immunotherapy shows superior outcomes.",
+    "code_file": "data/skill_library/systematic_medical_literature_review.py",
+    "created_at": 1776034203.395723,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "systematic_medical_therapy_research": {
+    "description": "A structured approach for investigating innovative treatments for any disease/condition. Decomposes the topic into therapeutic modalities (immunotherapy, gene therapy, targeted molecular, drug delivery, combination strategies), researches each systematically, identifies cross-cutting patterns (delivery method efficacy, timing advantages, combination necessity), and synthesizes into tiered actionable findings with evidence quality ratings.",
+    "code_file": "data/skill_library/systematic_medical_therapy_research.py",
+    "created_at": 1776034523.411764,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "systematic_medical_literature_synthesis": {
+    "description": "A structured methodology for researching innovative treatments for aggressive cancers. Involves: (1) Decomposing the disease into therapeutic challenge domains (BBB penetration, heterogeneity, immunosuppression, recurrence), (2) Researching each modality category in parallel sub-goals, (3) Identifying cross-cutting patterns (local delivery superiority, neoadjuvant timing advantage, combination necessity), (4) Tracking clinical trial phases and regulatory status, (5) Synthesizing confidence-weighted findings into actionable knowledge. Key GBM findings: DCVax-L shows strongest immunotherapy signal (mOS 23.4mo), neoadjuvant anti-PD-1 doubles survival vs adjuvant-only, local delivery (CED, intratumoral) consistently outperforms systemic, single-modality approaches fail due to heterogeneity, and combination strategies targeting multiple pathways simultaneously represent the most promising direction.",
+    "code_file": "data/skill_library/systematic_medical_literature_synthesis.py",
+    "created_at": 1776032451.326806,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "systematic_medical_innovation_research": {
+    "description": "A structured methodology for investigating innovative treatments for any complex disease. Involves: (1) decomposing into 5 orthogonal research axes (immunotherapy, viral/gene therapy, drug delivery, targeted molecular, microenvironment/combinations), (2) researching each with specific queries emphasizing recent clinical trial results, (3) identifying cross-cutting patterns and principles, (4) synthesizing into actionable findings with confidence ratings. Key patterns identified: local delivery > systemic for BBB-protected organs; neoadjuvant timing > adjuvant for immunotherapy; combination approaches essential for heterogeneous tumors; single-modality approaches consistently underperform.",
+    "code_file": "data/skill_library/systematic_medical_innovation_research.py",
+    "created_at": 1776035157.8641841,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "investigate_innovative_treatments": {
+    "description": "Systematic research methodology for investigating innovative/emerging treatments for any disease. Covers immunotherapy, gene therapy, drug delivery, targeted molecular approaches, and combination strategies. Produces confidence-weighted knowledge with pattern identification across clinical trial outcomes.",
+    "code_file": "data/skill_library/investigate_innovative_treatments.py",
+    "created_at": 1776033444.2335591,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "gbm_innovative_treatments_synthesis": {
+    "description": "Comprehensive knowledge base on innovative glioblastoma multiforme treatments researched in 2024-2025, covering five domains: immunotherapy (CAR-T, DCVax-L, checkpoint inhibitors), oncolytic virus therapy (DNX-2401, PVSRIPO, Toca 511), novel drug delivery (nanoparticles, CED, BBB disruption), targeted molecular therapy (EGFR, IDH, BRAF, metabolic), and combination strategies (TME modulation, synthetic lethality, neoadjuvant approaches). Key cross-cutting findings: (1) Local delivery consistently outperforms systemic for BBB penetration, (2) Single modality approaches show limited efficacy due to heterogeneity, (3) Neoadjuvant perioperative immunotherapy timing shows superior outcomes, (4) DCVax-L shows most robust positive signal with median OS 23.4 months in phase III.",
+    "code_file": "data/skill_library/gbm_innovative_treatments_synthesis.py",
+    "created_at": 1776033775.958026,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "systematic_medical_literature_investigation": {
+    "description": "A structured methodology for investigating innovative treatments for complex diseases. Decomposes the research into five complementary domains: (1) immunotherapy approaches with clinical trial results, (2) viral/biological therapies and regulatory status, (3) drug delivery system innovations, (4) targeted molecular therapies and mutation-specific approaches, (5) tumor microenvironment and combination strategies. Each domain is researched independently then synthesized to identify cross-cutting patterns such as: local delivery superiority over systemic, neoadjuvant timing advantages, single-modality limitations, and emerging combination approaches.",
+    "code_file": "data/skill_library/systematic_medical_literature_investigation.py",
+    "created_at": 1776035687.497337,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "gbm_innovative_treatments_comprehensive_synthesis": {
+    "description": "Complete synthesis of innovative GBM treatment landscape covering 5 domains: (1) Immunotherapy - DCVax-L most promising (median OS 23.4mo phase III), CAR-T shows local delivery promise, checkpoint inhibitors limited as monotherapy but neoadjuvant timing improves outcomes; (2) Oncolytic viruses - DNX-2401 and PVSRIPO in trials, local delivery critical; (3) Drug delivery - CED and focused ultrasound outperform systemic delivery for BBB penetration; (4) Targeted therapy - vorasidenib FDA-approved for IDH-mutant glioma, EGFR/BRAF approaches ongoing; (5) Combination strategies - multi-modal approaches essential due to tumor heterogeneity, local+systemic delivery combinations most promising. Key cross-cutting insights: local delivery consistently superior to systemic, single-modality approaches insufficient, neoadjuvant immunotherapy timing shows superior outcomes.",
+    "code_file": "data/skill_library/gbm_innovative_treatments_comprehensive_synthesis.py",
+    "created_at": 1776035377.2448,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "glioblastoma_innovative_treatments_synthesis": {
+    "description": "Comprehensive synthesis of innovative GBM treatment research (2023-2024). Covers immunotherapy (CAR-T targeting IL13R\u03b12/EGFRvIII/GD2/B7-H3 with locoregional delivery showing 2-10x survival benefit; DCVax-L with strongest positive signal at 23.4mo median OS phase III; neoadjuvant anti-PD-1 showing 2.2x survival improvement vs adjuvant-only), oncolytic viruses (DNX-2401 adenovirus, PVSRIPO poliovirus, G207 HSV - all showing durable responders in phase I/II), drug delivery (CED, FUS-mediated BBB disruption, polymeric nanoparticles achieving 5-10x CNS concentrations), targeted therapy (vorasidenib FDA-approved for IDH-mutant glioma, amivantamab for EGFRvIII, BRAF/MEK for V600E, PARP inhibitors as radiosensitizers), and combination strategies (multi-modal approaches required due to heterogeneity; local delivery consistently outperforms systemic; neoadjuvant timing critical for immunotherapy). Key patterns: single-modality approaches fail due to adaptive resistance; BBB penetration requires local/innovative delivery; tumor heterogeneity demands combination targeting.",
+    "code_file": "data/skill_library/glioblastoma_innovative_treatments_synthesis.py",
+    "created_at": 1776035453.513066,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "gbm_integrated_treatment_framework": {
+    "description": "Comprehensive synthesis of innovative GBM treatment approaches combining biomarker-guided patient stratification, phased combination therapy sequencing, BBB penetration optimization, adaptive resistance management, and TME modulation. Includes evidence-based recommendations for clinical translation.",
+    "code_file": "data/skill_library/gbm_integrated_treatment_framework.py",
+    "created_at": 1776038363.836193,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "gbm_innovative_treatment_framework": {
+    "description": "Comprehensive framework for innovative glioblastoma multiforme treatment strategies, integrating combination therapy design, temporal sequencing, resistance management, biomarker guidance, and translational considerations",
+    "code_file": "data/skill_library/gbm_innovative_treatment_framework.py",
+    "created_at": 1776039663.6447942,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  },
+  "gbm_integrated_therapeutic_framework": {
+    "description": "Comprehensive 4-phase adaptive protocol for innovative GBM treatment combining focused ultrasound BBB opening, metabolic targeting, immune activation, epigenetic reprogramming, and neural-synapse disruption with AI-guided biomarker feedback loops",
+    "code_file": "data/skill_library/gbm_integrated_therapeutic_framework.py",
+    "created_at": 1776040131.246999,
+    "times_used": 0,
+    "success_count": 0,
+    "failure_count": 0
+  }
+}

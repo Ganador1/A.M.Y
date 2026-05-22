@@ -1,0 +1,6 @@
+{
+  "size": 500,
+  "dim": 768,
+  "metric": "cosine_via_IP",
+  "embedding_method": "distilbert_mean_pool"
+}
