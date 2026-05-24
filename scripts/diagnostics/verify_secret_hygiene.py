@@ -15,7 +15,7 @@ import argparse
 import sys
 
 
-ROOT = Path(__file__).parent.resolve()
+ROOT = Path(__file__).resolve().parents[2]
 
 SENSITIVE_FILE_PATTERNS = (
     ".env",
@@ -23,6 +23,10 @@ SENSITIVE_FILE_PATTERNS = (
     ".secrets.*",
     "*.key",
     "*.pem",
+    "secret.yml",
+    "secret.yaml",
+    "**/secret.yml",
+    "**/secret.yaml",
     "secrets_*.json",
     "*.secret.json",
 )
@@ -30,8 +34,12 @@ SENSITIVE_FILE_PATTERNS = (
 SAFE_EXAMPLE_PATTERNS = (
     ".env.example",
     ".env.template",
+    "secret.example.yml",
+    "secret.example.yaml",
     "**/.env.example",
     "**/.env.template",
+    "**/secret.example.yml",
+    "**/secret.example.yaml",
     "**/config/.env.example",
 )
 
@@ -43,6 +51,12 @@ IGNORE_POLICY_PATTERNS = (
     ".secrets.*",
     "*.key",
     "*.pem",
+    "secret.yml",
+    "secret.yaml",
+    "**/secret.yml",
+    "**/secret.yaml",
+    "!**/secret.example.yml",
+    "!**/secret.example.yaml",
     "**/secrets_*.json",
     "**/*.secret.json",
 )

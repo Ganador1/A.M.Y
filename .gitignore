@@ -27,6 +27,12 @@ atlas/.venv_*/
 *.pem
 **/secrets_*.json
 **/*.secret.json
+secret.yml
+secret.yaml
+**/secret.yml
+**/secret.yaml
+!**/secret.example.yml
+!**/secret.example.yaml
 
 # Local databases, logs, and runtime state
 logs/

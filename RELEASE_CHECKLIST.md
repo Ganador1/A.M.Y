@@ -1,4 +1,4 @@
-# Release Checklist — A.M.Y v0.9.0
+# Release Checklist — A.M.Y v1.0.0
 
 ## Pre-Release Validation
 
@@ -13,7 +13,7 @@
 ### Scientific Rigor
 - [x] Reproducibility test passes (3 identical runs)
 - [x] Syntax validation test passes
-- [x] Atlas tools validated across 8 domains
+- [x] Atlas tools validated across 23 domains
 - [x] No invented numbers in generated papers
 - [x] Real citations required for claims
 - [x] Falsification attempted before confirmation
@@ -32,12 +32,12 @@
 - [x] SCIENCE_MANIFESTO.md with rigor principles
 - [x] CHANGELOG.md with version history
 - [x] CONTRIBUTING.md exists
-- [x] CODE_OF_CONDUCT.md exists
+- [x] Public documentation links resolve
 - [x] LICENSE exists
 
 ### Integration
 - [x] Atlas subproject accessible
-- [x] 84+ tools registered in DynamicToolRegistry
+- [x] 94 tools registered in DynamicToolRegistry
 - [x] Literature search functional (with known async issue)
 - [x] Peer review pipeline documented
 - [x] Tool validation results recorded
@@ -56,7 +56,7 @@
 - [x] Max cycles before reflection: 20
 - [x] Experiment timeout prevents infinite loops
 
-## Known Issues for v0.9.0
+## Known Issues for v1.0.0
 
 | Issue | Severity | Workaround | Target Fix |
 |-------|----------|------------|------------|
@@ -83,6 +83,8 @@
 
 ---
 
-**Release Date Target:** 2026-05-01  
-**Current Version:** v0.9.0-pre  
-**Next Milestone:** v1.0.0 (Production Release)
+**Release Date:** 2026-05-21
+
+**Current Version:** v1.0.0
+
+**Next Milestone:** v1.1.0

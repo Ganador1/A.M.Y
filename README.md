@@ -1,4 +1,4 @@
-# A.M.Y — Autonomous Mind Yield
+# A.M.Y
 
 > An artificial mind that never sleeps. Thinks, researches, experiments, learns, and evolves autonomously.
 
@@ -41,7 +41,7 @@ A.M.Y is not a chatbot. It is not an agent that waits for your question. It is a
 | **NELL** | Tom Mitchell et al. (CMU) | 24 / 7 continual learning with a growing knowledge base. |
 | **Sakana AI Scientist v2** | arXiv:2504.08066 | End-to-end paper generation with internal reviewing. |
 | **Google AI Co-Scientist** | DeepMind 2025 | Multi-agent reflection + Elo tournament for hypothesis ranking. |
-| **OpenAI GPT-5 Science** | arXiv:2511.16072 | Human-AI collaboration patterns documented as case studies. |
+| **Human-AI Science Case Studies** | arXiv:2511.16072 | Human-AI collaboration patterns documented as case studies. |
 
 ## What A.M.Y can produce (today)
 
@@ -62,7 +62,7 @@ A.M.Y is not a chatbot. It is not an agent that waits for your question. It is a
 | Highest-scoring paper | 80.45 (Prime Counting and Twin Prime Density) |
 | Lowest-scoring paper | 62.42 (AM Process Configuration) |
 
-See [`experiments/all_domains/REVIEW.json`](experiments/all_domains/REVIEW.json) for the full breakdown and [`experiments/flagship/papers/`](experiments/flagship/papers/) for a deep-dive paper modelled on the arXiv:2511.16072 GPT-5 case study (rubric 71, reflection 100, 14 verifiable tool calls).
+See [`experiments/all_domains/REVIEW.json`](experiments/all_domains/REVIEW.json) for the full breakdown and [`experiments/flagship/papers/`](experiments/flagship/papers/) for a deep-dive paper modelled on the arXiv:2511.16072 case-study format (rubric 71, reflection 100, 14 verifiable tool calls).
 
 ## How A.M.Y thinks — the cognitive cycle in depth
 
@@ -248,8 +248,8 @@ The full 23-domain batch lives in `experiments/all_domains/papers/` and is repro
 
 - **`ab_test/`** — baseline vs improved rubric comparison. Reports +17.28 points on average (+34.8%) after wiring the Reflection and Ranking agents.
 - **`all_domains/`** — one paper per Atlas domain (23 / 23 covered).
-- **`flagship/`** — the GPT-5-style deep dive.
-- **`multimodel/`** — same topic run with seven Ollama Cloud models (glm-5.1, glm-4.7, qwen3-next:80b, deepseek-v3.2, minimax-m2.5, kimi-k2.5, gpt-oss:120b). Spread across models was small (50-52 rubric), which surfaced an honest finding: the paper enhancer is template-driven today, and the model only affects ranking judgements when LLM-judge is on.
+- **`flagship/`** — the flagship deep dive.
+- **`multimodel/`** — same topic run across seven model configurations. Spread across models was small (50-52 rubric), which surfaced an honest finding: the paper enhancer is template-driven today, and the model only affects ranking judgements when LLM-judge is on.
 - **`novelty_hunt/`** — eight papers on diverse cross-scale topics designed to surface novelty signals.
 
 Every harness emits a `RESULTS.json` you can re-score yourself. Nothing in this README is unverifiable from the repository.
@@ -371,7 +371,7 @@ cp .env.example .env
 
 ## Comparison with state-of-the-art (May 2026)
 
-| Aspect | Sakana AI Scientist v2 | Google Co-Scientist | OpenAI GPT-5 paper | **A.M.Y** |
+| Aspect | Sakana AI Scientist v2 | Google Co-Scientist | Human-AI science case study | **A.M.Y** |
 |---|---|---|---|---|
 | Domains autonomously covered | 1 (ML) | ~2 (bio + chem) | 6 (assisted) | **23 (autonomous)** |
 | Papers in one run | 1 / 30 min | 1 / 60 min (assisted) | manual | **23 / 7 min** |
@@ -443,8 +443,7 @@ A.M.Y stands on the shoulders of an enormous open-source community. None of this
 - **Tom Mitchell and the NELL team** - continual learning at scale
 - **Sakana AI** - AI Scientist v2; the agentic tree search pattern
 - **Google DeepMind** - the Co-Scientist multi-agent design and Elo tournament
-- **OpenAI** - the GPT-5 science acceleration case studies that informed the flagship paper structure
+- **arXiv:2511.16072 authors** - the science acceleration case studies that informed the flagship paper structure
 
 ### License
 Apache License 2.0. See LICENSE. The project is dedicated to expanding human knowledge in a transparent, reproducible, and auditable way. Use it well.
-
