@@ -1,0 +1,151 @@
+name: CD (Release)
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to release (e.g. v1.0.0). Required for manual runs."
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    name: Pre-release verification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install minimal deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            "pytest>=8.0" \
+            "pytest-asyncio>=0.23" \
+            "pyyaml>=6.0" \
+            "rich>=13.0" \
+            "python-dotenv>=1.0.0" \
+            "structlog>=24.1.0"
+
+      - name: Run hermetic test suite
+        run: |
+          python -m pytest \
+            tests/test_public_release_hygiene.py \
+            tests/test_science_gates.py \
+            tests/test_scientific_hardening.py \
+            -q --tb=short
+
+      - name: Verify secret hygiene
+        run: python scripts/diagnostics/verify_secret_hygiene.py --strict
+
+  build:
+    name: Build distribution
+    needs: verify
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.resolve.outputs.tag }}
+      version: ${{ steps.resolve.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve tag/version
+        id: resolve
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ inputs.tag }}"
+          else
+            TAG="${GITHUB_REF#refs/tags/}"
+          fi
+          VERSION="${TAG#v}"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Releasing tag=$TAG version=$VERSION"
+
+      - name: Verify pyproject version matches tag
+        run: |
+          python -c "
+          import sys, tomllib
+          from pathlib import Path
+          data = tomllib.loads(Path('pyproject.toml').read_text())
+          declared = data['project']['version']
+          expected = '${{ steps.resolve.outputs.version }}'
+          if declared != expected:
+              sys.exit(f'pyproject.toml version {declared!r} != tag version {expected!r}')
+          print(f'OK: pyproject version matches tag ({declared})')
+          "
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install build tooling
+        run: python -m pip install --upgrade pip build
+
+      - name: Build sdist + wheel
+        run: python -m build --sdist --wheel --outdir dist/
+
+      - name: Show artifacts
+        run: ls -lah dist/
+
+      - name: Upload artifacts for release job
+        uses: actions/upload-artifact@v4
+        with:
+          name: amy-release-${{ steps.resolve.outputs.tag }}
+          path: dist/*
+          if-no-files-found: error
+
+  release:
+    name: Publish GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: amy-release-${{ needs.build.outputs.tag }}
+          path: dist/
+
+      - name: Extract changelog section
+        id: notes
+        run: |
+          python <<'PY' > release_notes.md
+          import re, sys
+          from pathlib import Path
+          version = "${{ needs.build.outputs.version }}"
+          text = Path("CHANGELOG.md").read_text(encoding="utf-8")
+          pattern = re.compile(rf"^## \[{re.escape(version)}\][^\n]*\n(.*?)(?=^## \[|\Z)", re.S | re.M)
+          m = pattern.search(text)
+          if m:
+              print(m.group(1).strip())
+          else:
+              print(f"Release {version}\n\nSee CHANGELOG.md for details.")
+          PY
+          echo "Generated release_notes.md:"
+          cat release_notes.md
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ needs.build.outputs.tag }}
+        run: |
+          gh release create "$TAG" \
+            --title "A.M.Y $TAG" \
+            --notes-file release_notes.md \
+            dist/*
