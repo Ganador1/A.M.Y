@@ -7,9 +7,10 @@ import asyncio
 import sys
 import json
 from datetime import datetime
+from pathlib import Path
 
-# Add project path
-sys.path.insert(0, '/Volumes/Ganador disk/atlas')
+# Add project path dynamically
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 async def main():
     print("=" * 70)

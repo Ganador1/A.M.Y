@@ -14,7 +14,7 @@ import re
 from pathlib import Path
 from datetime import datetime
 
-PAPERS_DIR = Path("/Volumes/Ganador disk/A.M.Y/papers")
+PAPERS_DIR = Path(__file__).resolve().parent.parent.parent / "papers"
 
 def analyze_papers():
     """Analiza todos los papers generados por A.M.Y."""
@@ -68,7 +68,7 @@ def analyze_papers():
         print(f"   • {domain}: {count} papers")
     
     # Guardar reporte
-    report_path = Path("/Volumes/Ganador disk/A.M.Y/amy_paper_analysis.json")
+    report_path = Path(__file__).resolve().parent.parent.parent / "amy_paper_analysis.json"
     with open(report_path, "w") as f:
         json.dump(results, f, indent=2, default=str)
     print(f"\n💾 Reporte guardado en: {report_path}")

@@ -6,7 +6,8 @@ Tests core functionality with minimal dependencies.
 
 import asyncio
 import sys
-sys.path.insert(0, "/Volumes/Ganador disk/atlas")
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 async def test_quick():
     """Run quick validation tests."""

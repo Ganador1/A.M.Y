@@ -355,7 +355,7 @@ async def run_amy_prime_push():
 
 ### Reproduction
 ```bash
-cd "/Volumes/Ganador disk/A.M.Y" && source .venv/bin/activate && python run_amy_prime_push.py
+cd "{Path(__file__).parent.parent.parent.resolve()}" && source .venv/bin/activate && python {Path(__file__).name}
 ```
 """
     paper_path.write_text(paper_text + provenance, encoding="utf-8")
