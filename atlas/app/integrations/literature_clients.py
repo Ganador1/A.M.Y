@@ -52,10 +52,14 @@ class HttpClient:
             headers=self.headers,
             timeout=DEFAULT_TIMEOUT,
             event_hooks={
-                "request": [self._inject_trace_id]
+                "request": [self._inject_trace_id, self._verify_ssrf]
             },
         )
         self.offline = os.getenv("AXIOM_DISABLE_NET", "0").lower() in {"1", "true", "yes"}
+
+    def _verify_ssrf(self, request: httpx.Request) -> None:
+        from app.security.ssrf_guard import validate_url_safety
+        validate_url_safety(str(request.url))
 
     def _inject_trace_id(self, request: httpx.Request) -> None:
         tid = get_current_trace_id() or ensure_trace_id()
@@ -63,6 +67,7 @@ class HttpClient:
             request.headers[TRACE_HEADER] = tid
 
     def get(self, url: str, params: Optional[Dict[str, Any]] = None) -> Optional[Dict[str, Any]]:
+        from app.security.ssrf_guard import SSRFError
         if self.offline:
             return {"error": "network_disabled", "url": url, "params": params or {}}
         params = params or {}
@@ -79,12 +84,15 @@ class HttpClient:
                     time.sleep(DEFAULT_BACKOFF * attempt)
                     continue
                 return {"error": f"HTTP {resp.status_code}", "body": resp.text}
+            except SSRFError as e:
+                return {"error": f"SSRF Protection blocked request: {e}", "url": url}
             except Exception as e:
                 last_exc = e
                 time.sleep(DEFAULT_BACKOFF * attempt)
         return {"error": str(last_exc) if last_exc else "request_failed"}
 
     def post(self, url: str, json_body: Optional[Dict[str, Any]] = None) -> Optional[Dict[str, Any]]:
+        from app.security.ssrf_guard import SSRFError
         if self.offline:
             return {"error": "network_disabled", "url": url, "payload": json_body or {}}
         json_body = json_body or {}
@@ -101,6 +109,8 @@ class HttpClient:
                     time.sleep(DEFAULT_BACKOFF * attempt)
                     continue
                 return {"error": f"HTTP {resp.status_code}", "body": resp.text}
+            except SSRFError as e:
+                return {"error": f"SSRF Protection blocked request: {e}", "url": url}
             except Exception as e:
                 last_exc = e
                 time.sleep(DEFAULT_BACKOFF * attempt)

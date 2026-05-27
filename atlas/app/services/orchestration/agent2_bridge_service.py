@@ -115,7 +115,12 @@ class Agent2BridgeService:
     def __init__(self):
         self.base_url = settings.agent2_base_url or "http://localhost:8000"
         self.timeout = httpx.Timeout(30.0)
-        self.client = httpx.AsyncClient(timeout=self.timeout)
+        
+        def _verify_ssrf(request: httpx.Request):
+            from app.security.ssrf_guard import validate_url_safety
+            validate_url_safety(str(request.url), allow_private_ips=True)
+            
+        self.client = httpx.AsyncClient(timeout=self.timeout, event_hooks={"request": [_verify_ssrf]})
         self.available_services: Dict[str, Agent2ServiceStatus] = {}
         self.service_discovery: Optional[Agent2ServiceDiscovery] = None
         self.initialized: bool = False
@@ -139,7 +144,10 @@ class Agent2BridgeService:
     async def check_service_health(self, service_name: str, endpoint: str) -> Agent2ServiceStatus:
         """Check the health status of an Agent 2 service"""
         try:
-            async with httpx.AsyncClient(timeout=5.0) as client:
+            def _verify_ssrf(request: httpx.Request):
+                from app.security.ssrf_guard import validate_url_safety
+                validate_url_safety(str(request.url), allow_private_ips=True)
+            async with httpx.AsyncClient(timeout=5.0, event_hooks={"request": [_verify_ssrf]}) as client:
                 response = await client.get(f"{endpoint}/health")
                 if response.status_code == 200:
                     return Agent2ServiceStatus(

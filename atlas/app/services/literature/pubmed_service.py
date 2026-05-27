@@ -38,12 +38,16 @@ class PubMedService:
         self.client = httpx.AsyncClient(
             timeout=30.0,
             event_hooks={
-                "request": [self._inject_trace_id_async]
+                "request": [self._inject_trace_id_async, self._verify_ssrf]
             },
         )
         self.rate_limit_delay = 0.5  # NCBI rate limit
         self.last_request_time = 0
         logger.info("✅ PubMedService initialized")
+
+    def _verify_ssrf(self, request: httpx.Request) -> None:
+        from app.security.ssrf_guard import validate_url_safety
+        validate_url_safety(str(request.url))
 
     async def _inject_trace_id_async(self, request: httpx.Request) -> None:
         tid = get_current_trace_id() or ensure_trace_id()

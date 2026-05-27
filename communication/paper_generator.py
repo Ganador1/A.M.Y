@@ -217,7 +217,7 @@ class PaperGenerator:
             f"title: {title}\n"
             f"generated_at: {ts}\n"
             f"body_sha256: {body_hash}\n"
-            "homepage: https://github.com/Ganador-net/amy\n"
+            "homepage: https://github.com/Ganador1/amy\n"
             "self_review: This document carries a Self-Review (Reflection Agent) section above.\n"
             "verification: Each cited experiment_id resolves to data/experiments/<id>/provenance.json with a SHA-256 hash of the full tool output.\n"
             "-->\n"
@@ -819,6 +819,17 @@ class PaperGenerator:
         try:
             from cognition.reasoning import _clean_json, _extract_content
 
+            if not getattr(self.reasoning, "client", None):
+                return await self._generate_from_structured_fallback(
+                    topic=topic,
+                    knowledge_facts=knowledge_facts,
+                    recent_thoughts=recent_thoughts,
+                    breakthrough_content=breakthrough_content,
+                    tool_sections=tool_sections,
+                    experiment_ids=experiment_ids,
+                    literature_papers=literature_papers,
+                )
+
             response = await self.reasoning.client.chat(
                 model=self.reasoning.reasoner_model,
                 messages=messages,
@@ -852,6 +863,106 @@ class PaperGenerator:
         except Exception as e:
             log.error("paper_generator.llm_error", error=str(e))
             return {"error": str(e)}
+
+    async def _generate_from_structured_fallback(
+        self,
+        topic: str,
+        knowledge_facts: list[dict],
+        recent_thoughts: list[str],
+        breakthrough_content: str = "",
+        tool_sections: list[dict] | None = None,
+        experiment_ids: list[str] | None = None,
+        literature_papers: list[dict] | None = None,
+    ) -> dict:
+        """Generate a deterministic paper when no model client is available."""
+        title = topic.strip() or "A.M.Y Computational Research Report"
+        facts = knowledge_facts or []
+        tool_sections = tool_sections or []
+        experiment_ids = experiment_ids or []
+        literature_papers = literature_papers or []
+
+        tool_count = len(tool_sections)
+        experiment_count = len(experiment_ids)
+        abstract = (
+            f"This manuscript reports a deterministic computational verification study on {title}. "
+            f"The workflow used {tool_count} computational evidence section(s) and cites "
+            f"{experiment_count} provenance-tracked experiment record(s). Claims are limited to "
+            "the recorded tool outputs and are intended as reproducible calibration evidence, "
+            "not as a peer-reviewed discovery claim."
+        )
+
+        facts_text = "\n".join(
+            f"- {fact.get('subject', '')} {fact.get('predicate', '')} {fact.get('object', '')} "
+            f"(confidence={float(fact.get('confidence', 0.0)):.0%})"
+            for fact in facts[:20]
+        ) or "No additional semantic facts were available beyond the recorded tool outputs."
+        thoughts_text = "\n".join(f"- {thought}" for thought in recent_thoughts[-8:])
+        if not thoughts_text:
+            thoughts_text = "- No recent synthesis thoughts were available."
+
+        sections = [
+            {
+                "heading": "Introduction",
+                "content": (
+                    f"The study addresses {title}. A.M.Y generated this report from recorded "
+                    "computational observations, preserving the distinction between calibration "
+                    "results and novel scientific claims."
+                ),
+            },
+            {
+                "heading": "Methods",
+                "content": (
+                    "A.M.Y executed Atlas scientific tools, stored each successful output with "
+                    "SHA-256 provenance, and then synthesized the resulting evidence into an "
+                    "IMRaD manuscript. The synthesis used deterministic fallback writing because "
+                    "no model-backed writing client was available in this runtime."
+                ),
+            },
+            {
+                "heading": "Results",
+                "content": "\n\n".join(
+                    section.get("content", "") for section in tool_sections
+                ) or "No tool output was available for the Results section.",
+            },
+            {
+                "heading": "Discussion",
+                "content": (
+                    f"Recent synthesis context:\n{thoughts_text}\n\n"
+                    f"Recorded facts:\n{facts_text}\n\n"
+                    f"Breakthrough or summary signal: {breakthrough_content or 'none recorded'}.\n\n"
+                    "These results support only the narrow computational checks shown above. "
+                    "Alternative explanations include tool implementation assumptions, finite "
+                    "sample limitations, and environment-specific execution behavior."
+                ),
+            },
+            {
+                "heading": "Conclusion",
+                "content": (
+                    "A.M.Y produced a reproducible computational report with explicit provenance. "
+                    "The result is suitable for audit and follow-up testing, but it should not be "
+                    "treated as an independently peer-reviewed scientific result."
+                ),
+            },
+        ]
+
+        references = []
+        for paper in literature_papers[:6]:
+            title_part = paper.get("title", "Untitled")
+            authors = paper.get("authors", "")
+            year = paper.get("year", "")
+            venue = paper.get("venue", "")
+            if isinstance(authors, list):
+                authors = ", ".join(str(author) for author in authors[:3])
+            references.append(f"{authors} ({year}). {title_part}. {venue}.")
+
+        return await self.generate_paper(
+            title=title,
+            abstract=abstract,
+            sections=sections,
+            references=references,
+            knowledge_facts=knowledge_facts,
+            experiment_ids=experiment_ids,
+        )
 
 
 def _safe_para(text: str) -> str:

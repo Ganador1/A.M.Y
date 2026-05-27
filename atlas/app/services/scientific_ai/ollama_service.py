@@ -108,12 +108,18 @@ class OllamaHypothesisService:
 
     def _get_sync_client(self) -> httpx.Client:
         if self._sync_client is None or self._sync_client.is_closed:
-            self._sync_client = httpx.Client(base_url=self.base_url, headers=self._headers, timeout=180.0)
+            def _verify_ssrf(request: httpx.Request):
+                from app.security.ssrf_guard import validate_url_safety
+                validate_url_safety(str(request.url), allow_private_ips=True)
+            self._sync_client = httpx.Client(base_url=self.base_url, headers=self._headers, timeout=180.0, event_hooks={"request": [_verify_ssrf]})
         return self._sync_client
 
     async def _get_async_client(self) -> httpx.AsyncClient:
         if self._async_client is None or self._async_client.is_closed:
-            self._async_client = httpx.AsyncClient(base_url=self.base_url, headers=self._headers, timeout=180.0)
+            def _verify_ssrf(request: httpx.Request):
+                from app.security.ssrf_guard import validate_url_safety
+                validate_url_safety(str(request.url), allow_private_ips=True)
+            self._async_client = httpx.AsyncClient(base_url=self.base_url, headers=self._headers, timeout=180.0, event_hooks={"request": [_verify_ssrf]})
         return self._async_client
 
     def _check_rate_limit(self) -> bool:

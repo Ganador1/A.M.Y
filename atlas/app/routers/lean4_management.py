@@ -18,10 +18,11 @@ Fecha: Septiembre 2025
 """
 
 from typing import Dict, Any, Optional
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel, Field
 
 from app.core.bootstrap_logging import logger
+from app.security import require_scopes
 from app.services.lean4_installer import lean4_installer
 from app.services.theorem_proving.lean4_integration import Lean4Service
 from app.exceptions.domain.medicine import MedicalError
@@ -34,7 +35,11 @@ from app.types.lean4_management_types import (
     GetSystemInformationResult,
 )
 
-router = APIRouter(prefix="/api/lean4", tags=["lean4"])
+router = APIRouter(
+    prefix="/api/lean4",
+    tags=["lean4"],
+    dependencies=[Depends(require_scopes(["system:admin"]))],
+)
 
 # Global service instances
 lean4_service = Lean4Service()

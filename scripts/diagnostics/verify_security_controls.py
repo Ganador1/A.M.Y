@@ -7,7 +7,7 @@ from pathlib import Path
 import sys
 
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parents[2]
 
 REQUIRED_CONTROLS = [
     (
@@ -51,8 +51,13 @@ REQUIRED_CONTROLS = [
         ("_atlas_misuse_decision", "_core_safety_decision", "atlas_registry.execute_tool"),
     ),
     (
+        "Atlas numeric tool literal parser",
+        ROOT / "atlas" / "app" / "run_agent_with_tools_legacy.py",
+        ("_parse_numeric_array_literal", "ast.literal_eval"),
+    ),
+    (
         "guardrail regression tests",
-        ROOT / "test_security_guardrails.py",
+        ROOT / "tests" / "test_security_guardrails.py",
         (
             "test_direct_atlas_registry_blocks_dangerous_input",
             "test_sandbox_blocks_local_secret_file_reads",
@@ -66,12 +71,12 @@ REQUIRED_CONTROLS = [
     ),
     (
         "Atlas misuse regression tests",
-        ROOT / "test_atlas_misuse_guard.py",
+        ROOT / "tests" / "test_atlas_misuse_guard.py",
         ("test_autonomous_research_agent_blocks_misuse_before_tool_discovery", "test_risk_policy_blocks_misuse_context"),
     ),
     (
         "secret hygiene verifier",
-        ROOT / "verify_secret_hygiene.py",
+        ROOT / "scripts" / "diagnostics" / "verify_secret_hygiene.py",
         ("scan_secret_hygiene", "SECRET HYGIENE CHECK", "ignored_by_policy"),
     ),
     (

@@ -115,7 +115,12 @@ class AlphaFold3ProteinStructureService:
             headers = {}
             if self.alphafold_api_key:
                 headers["Authorization"] = f"Bearer {self.alphafold_api_key}"
-            self._httpx = httpx.AsyncClient(timeout=self.api_timeout, headers=headers)
+                
+            def _verify_ssrf(request: httpx.Request):
+                from app.security.ssrf_guard import validate_url_safety
+                validate_url_safety(str(request.url))
+                
+            self._httpx = httpx.AsyncClient(timeout=self.api_timeout, headers=headers, event_hooks={"request": [_verify_ssrf]})
         return self._httpx
 
     def _generate_structure_id(self, sequence: str) -> str:

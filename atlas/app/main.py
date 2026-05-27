@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+
 from fastapi import FastAPI
 
 # Import domain routers
@@ -16,7 +18,34 @@ from app.routers.router_registry import register_routers
 from app.routers.health_checks import router as health_checks_router
 from app.routers.lean4_management import router as lean4_router
 
-app = FastAPI(title="AXIOM API", version="4.1")
+
+def _env_flag(name: str, default: bool = False) -> bool:
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _is_production_mode() -> bool:
+    return os.getenv("ATLAS_ENV", os.getenv("ENVIRONMENT", "development")).strip().lower() in {
+        "prod",
+        "production",
+    }
+
+
+def _docs_url(path: str) -> str | None:
+    if _is_production_mode() and not _env_flag("ATLAS_ENABLE_PUBLIC_DOCS", False):
+        return None
+    return path
+
+
+app = FastAPI(
+    title="A.M.Y API",
+    version="4.1",
+    docs_url=_docs_url("/docs"),
+    redoc_url=_docs_url("/redoc"),
+    openapi_url=_docs_url("/openapi.json"),
+)
 
 # Mount domain routers (preserve existing domain endpoints)
 app.include_router(mathematics_router)
@@ -32,5 +61,8 @@ app.include_router(lean4_router)
 
 # Activate automatic router registration for granular /api/* routers
 register_routers(app)
+
+from app.middleware.setup import configure_security_middleware
+configure_security_middleware(app)
 
 __all__ = ["app"]

@@ -77,10 +77,15 @@ def get_structural_http_client() -> httpx.AsyncClient:
     """Get or create the global async HTTP client for structural databases."""
     global _structural_http_client
     if _structural_http_client is None:
+        def _verify_ssrf(request: httpx.Request):
+            from app.security.ssrf_guard import validate_url_safety
+            validate_url_safety(str(request.url))
+            
         _structural_http_client = httpx.AsyncClient(
             timeout=30.0,
             limits=httpx.Limits(max_connections=50, max_keepalive_connections=20),
-            follow_redirects=True
+            follow_redirects=True,
+            event_hooks={"request": [_verify_ssrf]}
         )
     return _structural_http_client
 

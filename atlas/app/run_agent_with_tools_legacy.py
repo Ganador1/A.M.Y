@@ -18,6 +18,7 @@ import json
 import math
 import re
 import time
+import ast
 from typing import List, Dict, Any, Callable, Optional
 from dataclasses import dataclass
 
@@ -2226,13 +2227,24 @@ Space: {space}
                 return f"Unknown operation: {operation}. Available: is_prime, nth_prime, prime_range, prime_count"
         except Exception as e:
             return f"Error: {str(e)}"
+
+    @staticmethod
+    def _parse_numeric_array_literal(array_text: str) -> np.ndarray:
+        """Parse numeric list/tuple input without executing Python code."""
+        value = ast.literal_eval(array_text.strip())
+        if not isinstance(value, (list, tuple)):
+            raise ValueError("expected a numeric list or tuple literal")
+        data = np.array(value, dtype=float)
+        if data.size == 0:
+            raise ValueError("numeric array cannot be empty")
+        return data
     
     def _numpy_statistics(self, query: str) -> str:
         """Compute statistics using NumPy."""
         try:
             parts = query.split(":", 1)
             operation = parts[0].strip()
-            data = np.array(eval(parts[1].strip()))
+            data = self._parse_numeric_array_literal(parts[1])
             
             if operation == "mean":
                 return f"Mean: {np.mean(data):.6f}"
@@ -2278,8 +2290,8 @@ Space: {space}
             # Try different input formats
             if ";" in query:
                 parts = query.split(";")
-                arr1 = np.array(eval(parts[0].strip()))
-                arr2 = np.array(eval(parts[1].strip()))
+                arr1 = self._parse_numeric_array_literal(parts[0])
+                arr2 = self._parse_numeric_array_literal(parts[1])
             elif query.startswith("correlation:"):
                 # Format: correlation:[1,2,3],[4,5,6]
                 data = query.replace("correlation:", "").strip()
@@ -2287,8 +2299,8 @@ Space: {space}
                 import re
                 arrays = re.findall(r'\[[\d.,\s-]+\]', data)
                 if len(arrays) >= 2:
-                    arr1 = np.array(eval(arrays[0]))
-                    arr2 = np.array(eval(arrays[1]))
+                    arr1 = self._parse_numeric_array_literal(arrays[0])
+                    arr2 = self._parse_numeric_array_literal(arrays[1])
                 else:
                     return "Error: Need two arrays. Format: correlation:[1,2,3],[4,5,6]"
             else:
@@ -2349,17 +2361,17 @@ Space: {space}
             test_type = parts[0].strip().lower()
             
             if test_type == "ttest":
-                data1 = np.array(eval(parts[1].strip()))
-                data2 = np.array(eval(parts[2].strip()))
+                data1 = self._parse_numeric_array_literal(parts[1])
+                data2 = self._parse_numeric_array_literal(parts[2])
                 t_stat, p_value = stats.ttest_ind(data1, data2)
                 return f"T-test: t-statistic={t_stat:.4f}, p-value={p_value:.4f}"
             elif test_type == "kstest":
-                data = np.array(eval(parts[1].strip()))
+                data = self._parse_numeric_array_literal(parts[1])
                 dist = parts[2].strip() if len(parts) > 2 else "norm"
                 stat, p_value = stats.kstest(data, dist)
                 return f"KS-test ({dist}): statistic={stat:.4f}, p-value={p_value:.4f}"
             elif test_type == "shapiro":
-                data = np.array(eval(parts[1].strip()))
+                data = self._parse_numeric_array_literal(parts[1])
                 stat, p_value = stats.shapiro(data)
                 return f"Shapiro-Wilk test: statistic={stat:.4f}, p-value={p_value:.4f}"
             elif test_type == "pearson":
@@ -2382,8 +2394,8 @@ Space: {space}
                     else:
                         return "Error: Pearson test requires two arrays. Format: pearson:[arr1]:[arr2] or pearson:[arr1],[arr2]"
                 
-                data1 = np.array(eval(arr1_str))
-                data2 = np.array(eval(arr2_str))
+                data1 = self._parse_numeric_array_literal(arr1_str)
+                data2 = self._parse_numeric_array_literal(arr2_str)
                 
                 if len(data1) != len(data2):
                     return f"Error: Arrays must have equal length. Got {len(data1)} and {len(data2)}"
@@ -2392,8 +2404,8 @@ Space: {space}
                 significance = "significant" if p_value < 0.05 else "not significant"
                 return f"Pearson correlation: r={r:.4f}, p-value={p_value:.4f} ({significance})"
             elif test_type == "spearman":
-                data1 = np.array(eval(parts[1].strip()))
-                data2 = np.array(eval(parts[2].strip()))
+                data1 = self._parse_numeric_array_literal(parts[1])
+                data2 = self._parse_numeric_array_literal(parts[2])
                 rho, p_value = stats.spearmanr(data1, data2)
                 return f"Spearman correlation: rho={rho:.4f}, p-value={p_value:.4f}"
             else:

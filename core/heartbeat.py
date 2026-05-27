@@ -15,6 +15,7 @@ Each "beat" is one cycle of cognition:
 6. REPORT    — if breakthrough detected, communicate
 """
 import asyncio
+import json
 import time
 from dataclasses import dataclass, field
 from enum import Enum
@@ -615,7 +616,8 @@ class Heartbeat:
             return blocked
         from communication.paper_generator import PaperGenerator
 
-        topic = thought.get("paper_topic", self.ctx.current_goal)
+        action_details = thought.get("action_details", {})
+        topic = thought.get("paper_topic", action_details.get("paper_topic", self.ctx.current_goal))
         log.info("heartbeat.writing_paper", topic=topic[:80])
 
         # Gather knowledge context
@@ -666,9 +668,9 @@ class Heartbeat:
                 tool_content_lines.append(f"- Result: {result_str}")
                 tool_content_lines.append("")
                 
-                # Create experiment ID for provenance
-                exp_id = f"atlas_{tool_name}_{int(tr.get('timestamp', 0))}"
-                experiment_ids.append(exp_id)
+                exp_id = tr.get("experiment_id")
+                if exp_id:
+                    experiment_ids.append(exp_id)
             
             tool_sections.append({
                 "heading": "Computational Verification",
@@ -754,6 +756,10 @@ class Heartbeat:
 
     async def _act_run_scientific_tool(self, thought: dict) -> dict:
         """Execute a specific Atlas scientific tool (SymPy, NumPy, BioPython, etc.)."""
+        blocked = self._safety_block_for_thought("run_scientific_tool", thought)
+        if blocked:
+            return blocked
+
         from core.atlas_tools import assess_tool_output, get_atlas_tools
         if self._atlas_tools is None:
             self._atlas_tools = get_atlas_tools()
@@ -771,7 +777,9 @@ class Heartbeat:
         log.info("heartbeat.running_scientific_tool", tool=tool_name, domain=domain, input_preview=tool_input[:60])
 
         try:
+            started = time.monotonic()
             result = await self._atlas_tools.run_scientific_tool(tool_name, tool_input, domain)
+            duration_seconds = time.monotonic() - started
             assessment = assess_tool_output(result, tool_name=tool_name)
             if not assessment["usable"]:
                 log.warning(
@@ -790,11 +798,29 @@ class Heartbeat:
                 }
             log.info("heartbeat.scientific_tool_done", tool=tool_name, result_preview=str(result)[:80])
 
+            from core.provenance import get_provenance_manager
+            provenance_record = get_provenance_manager().record_execution(
+                tool_name=tool_name,
+                tool_input=tool_input,
+                tool_output=str(result),
+                success=True,
+                duration_seconds=duration_seconds,
+                domain=domain,
+            )
+            experiment_id = provenance_record["experiment_id"]
+
             # Record in episodic memory
             await self.episodic_memory.record(
                 event_type="scientific_tool_execution",
                 content=f"Tool {tool_name}: {tool_input[:80]}",
-                metadata={"tool_name": tool_name, "domain": domain, "input": tool_input, "result": str(result)[:500]},
+                metadata={
+                    "tool_name": tool_name,
+                    "domain": domain,
+                    "input": tool_input,
+                    "result": str(result)[:500],
+                    "experiment_id": experiment_id,
+                    "provenance_path": f"data/experiments/{experiment_id}/provenance.json",
+                },
             )
 
             # Feed result into world model
@@ -809,11 +835,19 @@ class Heartbeat:
                 "input": tool_input,
                 "result": result,
                 "timestamp": time.time(),
+                "experiment_id": experiment_id,
             })
             # Keep only last 20 results
             self._tool_results_history = self._tool_results_history[-20:]
 
-            return {"type": "run_scientific_tool", "tool_name": tool_name, "success": True, "result": result}
+            return {
+                "type": "run_scientific_tool",
+                "tool_name": tool_name,
+                "success": True,
+                "result": result,
+                "experiment_id": experiment_id,
+                "provenance_path": f"data/experiments/{experiment_id}/provenance.json",
+            }
         except Exception as e:
             log.error("heartbeat.scientific_tool_error", tool=tool_name, error=str(e))
             return {"type": "run_scientific_tool", "tool_name": tool_name, "success": False, "error": str(e)}
@@ -1103,12 +1137,14 @@ class Heartbeat:
     async def _advance_to_next_mission(self, last_thought: dict):
         """
         Called when A.M.Y declares the current mission complete.
-
-        Uses the reasoning engine to generate a deeper follow-up mission
-        based on what was learned — the key to true autonomy.
-        LLM decides the next frontier to explore.
+        In Satisfaction Mode, she stops and hibernates to prevent infinite API usage.
         """
-        log.info("heartbeat.generating_next_mission")
+        print("\n" + "="*80)
+        print("🎯 MISIÓN COMPLETADA CON ÉXITO. HIBERNANDO.")
+        print("="*80 + "\n")
+
+        await self.stop()
+        return
 
         # Build context from what was learned
         known_facts = []

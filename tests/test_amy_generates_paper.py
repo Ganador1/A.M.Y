@@ -172,6 +172,7 @@ async def main():
     
     # Run 2 tool executions + 1 paper write
     print("\n[2/5] Executing Atlas tools via A.M.Y heartbeat...")
+    paper_written = False
     for cycle in range(3):
         print(f"\n  --- Cycle {cycle + 1} ---")
         await heartbeat._perceive()
@@ -189,11 +190,12 @@ async def main():
             print(f"  {icon} {tool_name}: {result_preview}")
         elif action_type == "write_paper":
             result = action_result.get("result", {})
-            if "error" not in result:
+            if "error" not in result and result.get("publication_status") == "published":
                 md_path = result.get("markdown_path", "N/A")
                 word_count = result.get("word_count", 0)
                 print(f"  ✅ Paper written: {md_path}")
                 print(f"     Words: {word_count}")
+                paper_written = True
                 
                 # Show the paper content
                 if md_path and os.path.exists(md_path):
@@ -226,7 +228,8 @@ async def main():
     print(f"\n{'=' * 70}")
     print("  DONE")
     print(f"{'=' * 70}")
+    return 0 if paper_written and len(tool_history) >= 2 else 1
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    sys.exit(asyncio.run(main()))

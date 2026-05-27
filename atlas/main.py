@@ -31,50 +31,58 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Configuración centralizada de middleware
-MIDDLEWARE_CONFIG = {
-    "cors": {
-        "allow_origins": ["*"],
-        "allow_credentials": True,
-        "allow_methods": ["*"],
-        "allow_headers": ["*"],
-    },
-    "trusted_hosts": {
-        "allowed_hosts": ["*"],  # Configurar en producción
-    },
-    "rate_limiting": {
-        "requests_per_minute": 1000,
+def _env_flag(name: str, default: bool = False) -> bool:
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _is_production_mode() -> bool:
+    return os.getenv("ATLAS_ENV", os.getenv("ENVIRONMENT", "development")).strip().lower() in {
+        "prod",
+        "production",
     }
-}
+
+
+def _csv_env(name: str, default: list[str]) -> list[str]:
+    raw = os.getenv(name)
+    if not raw:
+        return default
+    return [item.strip() for item in raw.split(",") if item.strip()]
+
+
+def _docs_url(path: str) -> str | None:
+    if _is_production_mode() and not _env_flag("ATLAS_ENABLE_PUBLIC_DOCS", False):
+        return None
+    return path
+
+
+def _cors_origins() -> list[str]:
+    return _csv_env(
+        "ATLAS_CORS_ORIGINS",
+        [
+            "http://localhost",
+            "http://127.0.0.1",
+            "http://localhost:8000",
+            "http://127.0.0.1:8000",
+        ],
+    )
+
+
+def _trusted_hosts() -> list[str]:
+    return _csv_env(
+        "ATLAS_ALLOWED_HOSTS",
+        ["localhost", "127.0.0.1", "0.0.0.0"],
+    )
+
+
+# Configuración centralizada de middleware
+from app.middleware.setup import configure_security_middleware
 
 def configure_middleware(app: FastAPI):
     """Configurar middleware de la aplicación de forma centralizada"""
-    
-    # Import middleware classes
-    from app.middleware.main import RequestSizeMiddleware, RateLimitMiddleware
-    from app.middleware.security_headers import SecurityHeadersMiddleware
-    
-    # Security headers (first for all responses)
-    app.add_middleware(SecurityHeadersMiddleware)
-    
-    # Request size limiting (prevent large payloads)
-    max_size = int(os.getenv("MAX_REQUEST_SIZE_MB", "10")) * 1024 * 1024
-    app.add_middleware(RequestSizeMiddleware, max_request_bytes=max_size)
-    
-    # Rate limiting (prevent abuse)
-    app.add_middleware(RateLimitMiddleware)
-
-    # CORS middleware
-    app.add_middleware(
-        CORSMiddleware,
-        **MIDDLEWARE_CONFIG["cors"]
-    )
-
-    # Trusted Host middleware
-    app.add_middleware(
-        TrustedHostMiddleware,
-        allowed_hosts=MIDDLEWARE_CONFIG["trusted_hosts"]["allowed_hosts"]
-    )
+    configure_security_middleware(app)
 
     # Custom middleware para logging y métricas
     @app.middleware("http")
@@ -263,11 +271,12 @@ async def perform_periodic_health_checks():
 
 # Crear aplicación FastAPI
 app = FastAPI(
-    title="AXIOM ATLAS",
-    description="Advanced AI-driven Scientific Research Platform",
+    title="A.M.Y API",
+    description="A.M.Y autonomous scientific research platform",
     version="2.0.0",
-    docs_url="/docs",
-    redoc_url="/redoc",
+    docs_url=_docs_url("/docs"),
+    redoc_url=_docs_url("/redoc"),
+    openapi_url=_docs_url("/openapi.json"),
     lifespan=lifespan
 )
 
@@ -280,7 +289,7 @@ async def health_check():
     """Health check endpoint mejorado"""
     return {
         "status": "healthy",
-        "service": "AXIOM ATLAS",
+        "service": "A.M.Y",
         "version": "2.0.0",
         "timestamp": time.time(),
         "architecture": "modular_refactored",
@@ -298,7 +307,7 @@ async def health_check():
 async def detailed_status():
     """Status endpoint detallado"""
     return {
-        "service": "AXIOM ATLAS",
+        "service": "A.M.Y",
         "version": "2.0.0",
         "architecture": "modular_refactored",
         "health": "healthy",
@@ -320,7 +329,7 @@ async def detailed_status():
 async def get_metrics():
     """Metrics endpoint"""
     return {
-        "platform": "AXIOM ATLAS v2.0.0",
+        "platform": "A.M.Y v2.0.0",
         "architecture": "Modular Refactored",
         "improvements": {
             "startup_time_reduction": "60-80%",
@@ -344,9 +353,9 @@ async def get_metrics():
 async def root():
     """Root endpoint"""
     return {
-        "message": "Welcome to AXIOM ATLAS v2.0.0",
-        "description": "Advanced AI-driven Scientific Research Platform",
-        "docs": "/docs",
+        "message": "Welcome to A.M.Y v2.0.0",
+        "description": "Autonomous scientific research platform",
+        "docs": _docs_url("/docs"),
         "health": "/health",
         "status": "/status",
         "architecture": "Modular Refactored"
@@ -365,6 +374,6 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=8000,
         log_level="info",
-        reload=True,
+        reload=_env_flag("ATLAS_DEV_RELOAD", False) and not _is_production_mode(),
         access_log=True
     )

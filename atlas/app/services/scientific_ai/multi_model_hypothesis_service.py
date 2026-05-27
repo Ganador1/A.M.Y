@@ -144,7 +144,12 @@ class MultiModelHypothesisService:
 
     def __init__(self):
         """Inicializar servicio multi-modelo"""
-        self.client = httpx.AsyncClient(timeout=DEFAULT_TIMEOUT)
+        def _verify_ssrf(request: httpx.Request):
+            from app.security.ssrf_guard import validate_url_safety
+            # Allow LLM endpoint defaults depending on the user environment configuration
+            validate_url_safety(str(request.url), allow_private_ips=True)
+            
+        self.client = httpx.AsyncClient(timeout=DEFAULT_TIMEOUT, event_hooks={"request": [_verify_ssrf]})
         self._enabled_models: List[ModelConfig] = []
         self._initialize_models()
         logger.info(f"MultiModelHypothesisService initialized with {len(self._enabled_models)} models")

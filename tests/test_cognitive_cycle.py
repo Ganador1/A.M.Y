@@ -133,18 +133,18 @@ class MockReasoningEngine:
             },
             {
                 "observation": "97 is confirmed prime",
-                "thought": "Now let me validate the hypothesis about prime gaps not being normally distributed",
-                "hypothesis": "Prime gaps are not normally distributed",
+                "thought": "Now let me compare small and large prime-gap samples with a statistical test",
+                "hypothesis": "Larger observed prime gaps differ from small early gaps",
                 "action_type": "run_scientific_tool",
                 "action_details": {
-                    "tool_name": "validate_hypothesis",
-                    "tool_input": "mathematics:prime gaps are not normally distributed",
-                    "domain": "research",
+                    "tool_name": "hypothesis_tester",
+                    "tool_input": "ttest: [2,4,2,4,6]: [8,10,12,14,16]",
+                    "domain": "statistics",
                 },
                 "new_facts": [
                     {"subject": "97", "predicate": "is_prime", "object": "True", "confidence": 1.0}
                 ],
-                "content": "Validating normality hypothesis",
+                "content": "Running statistical comparison on prime gap samples",
                 "surprise_assessment": 0.4,
                 "progress_toward_goal": 0.8,
             },
@@ -292,10 +292,10 @@ async def test_full_cognitive_cycle():
         print("  ✅ sympy_prime_analysis executed")
         tool_passed += 1
     
-    # Check validate_hypothesis
+    # Check hypothesis_tester
     hyp_result = [r for r in tool_results if r["cycle"] == 4]
     if hyp_result and hyp_result[0]["success"]:
-        print("  ✅ validate_hypothesis executed")
+        print("  ✅ hypothesis_tester executed")
         tool_passed += 1
     
     # Check numpy_statistics

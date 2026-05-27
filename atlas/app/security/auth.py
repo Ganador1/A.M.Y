@@ -4,23 +4,70 @@ Provides JWT-based authentication and authorization with dev/prod mode toggle
 """
 
 import os
+import secrets
 from typing import Dict, Any, Optional, Callable, List
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 import jwt
 from datetime import datetime
 
-# Import settings for configuration
+WEAK_SECRET_SENTINELS = {
+    "",
+    "changeme",
+    "change-me",
+    "secret",
+    "dev-" + "secret-key-change-in-production",
+}
+
+
+def _env_flag(name: str, default: bool = False) -> bool:
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _is_production_mode() -> bool:
+    return os.getenv("ATLAS_ENV", os.getenv("ENVIRONMENT", "development")).strip().lower() in {
+        "prod",
+        "production",
+    }
+
+
+def _resolve_enable_auth(settings_obj: Any = None) -> bool:
+    explicit = os.getenv("ENABLE_AUTH") or os.getenv("ENABLE_AUTH_ROUTES")
+    if explicit is not None:
+        explicit_enabled = explicit.strip().lower() in {"1", "true", "yes", "on"}
+        if _is_production_mode() and not explicit_enabled:
+            return False if _env_flag("ATLAS_ALLOW_AUTH_DISABLED_IN_PRODUCTION", False) else True
+        return explicit_enabled
+
+    configured = getattr(settings_obj, "enable_auth_routes", None)
+    if configured is not None and bool(configured):
+        return True
+    if _is_production_mode() and not _env_flag("ATLAS_ALLOW_AUTH_DISABLED_IN_PRODUCTION", False):
+        return True
+    return bool(configured) if configured is not None else False
+
+
+def _resolve_secret_key(settings_obj: Any = None) -> str:
+    configured = os.getenv("SECRET_KEY") or getattr(settings_obj, "secret_key", None)
+    if configured and str(configured) not in WEAK_SECRET_SENTINELS:
+        return str(configured)
+    if _is_production_mode():
+        raise RuntimeError("SECRET_KEY must be explicitly configured in production")
+    return secrets.token_urlsafe(32)
+
+
+# Import settings for configuration.
 try:
     from app.config import settings
-    ENABLE_AUTH = getattr(settings, 'enable_auth_routes', os.getenv('ENABLE_AUTH', 'false').lower() == 'true')
-    SECRET_KEY = getattr(settings, 'secret_key', os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production'))
-    ALGORITHM = "HS256"
 except Exception:
-    # Fallback if settings not available
-    ENABLE_AUTH = os.getenv('ENABLE_AUTH', 'false').lower() == 'true'
-    SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
-    ALGORITHM = "HS256"
+    settings = None  # type: ignore
+
+ENABLE_AUTH = _resolve_enable_auth(settings)
+SECRET_KEY = _resolve_secret_key(settings)
+ALGORITHM = "HS256"
 
 # Security scheme
 security = HTTPBearer(auto_error=False)
