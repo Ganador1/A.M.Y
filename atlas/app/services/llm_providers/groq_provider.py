@@ -65,7 +65,19 @@ class GroqProvider(BaseService):
                 "success": False,
                 "error": "Groq provider not enabled - missing API key"
             }
-
+        # --- Security Guard: Prompt Injection & Misuse Check ---
+        try:
+            from app.security.misuse_guard import require_safe_operation
+            require_safe_operation(
+                operation="groq_generation",
+                content=prompt,
+                domain="llm_inference",
+                tool_name="GroqProvider"
+            )
+        except Exception as e:
+            logger.warning(f"Groq request blocked by security guard: {e}")
+            return {"success": False, "error": f"Security Guard blocked prompt: {e}"}
+        # -------------------------------------------------------
         model = model or self.default_model
 
         headers = {

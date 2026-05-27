@@ -138,6 +138,19 @@ MISUSE_RULES: tuple[MisuseRule, ...] = (
             r"\b(election|voting|ballot|polling)\b.{0,200}\b(rig|manipulate|attack|hack|fraud|tamper|tampering|fake|forge|stuff)\b",
         ),
     ),
+    MisuseRule(
+        rule_id="PROMPT_INJECTION_AND_JAILBREAK",
+        reason="Attempt to override instructions, inject malicious prompts, or perform a jailbreak",
+        patterns=(
+            r"\b(ignore|disregard|forget)\b.{0,50}\b(all )?(previous|system|above) (instructions|directions|prompts|rules|guidelines)\b",
+            r"\b(you are now)\b.{0,50}\b(DAN|Developer Mode|unrestricted|unbound|free)\b",
+            r"\b(print|output|show|reveal|display|leak)\b.{0,50}\b(your )?(initial|system)?\s*(prompt|instructions|rules|directives)\b",
+            r"\b(new rules|new instructions):\s",
+            r"\b(translate|write) this into\b.{0,50}\b(instructions|system prompt)\b",
+        ),
+        risk_level="high",
+        action="block",
+    ),
 )
 
 

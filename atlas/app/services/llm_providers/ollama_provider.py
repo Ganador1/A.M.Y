@@ -49,6 +49,22 @@ class OllamaProvider(BaseService):
         if not self.enabled:
             return {"error": "OllamaProvider disabled"}
 
+        # --- Security Guard: Prompt Injection & Misuse Check ---
+        try:
+            from app.security.misuse_guard import require_safe_operation
+            require_safe_operation(
+                operation="ollama_generation",
+                content=prompt,
+                domain="llm_inference",
+                tool_name="OllamaProvider"
+            )
+        except Exception as e:
+            if type(e).__name__ == "HTTPException":
+                raise e # FastAPI will handle it and return 403/Forbidden mapping
+            logger.warning(f"Ollama request blocked by security guard: {e}")
+            return {"error": f"Security Guard blocked prompt: {e}"}
+        # -------------------------------------------------------
+
         target_model = model or self.default_model
         # Modelos GLM (y otros thinking models) requieren think=False para poblar
         # el campo 'response'; si think=True solo llenan 'thinking' y response queda vacío

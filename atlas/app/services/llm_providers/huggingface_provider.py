@@ -384,6 +384,24 @@ class HuggingFaceProvider:
         Returns:
             Respuesta con texto generado
         """
+        # --- Security Guard: Prompt Injection & Misuse Check ---
+        try:
+            from app.security.misuse_guard import require_safe_operation
+            require_safe_operation(
+                operation="hf_generation",
+                content=request.inputs,
+                domain="llm_inference",
+                tool_name="HuggingFaceProvider"
+            )
+        except Exception as e:
+            from app.core.bootstrap_logging import logger
+            logger.warning(f"HF request blocked by security guard: {e}")
+            return HFInferenceResponse(
+                generated_text="",
+                error=f"Security Guard blocked prompt: {e}"
+            )
+        # -------------------------------------------------------
+
         start_time = time.time()
         self.metrics["total_requests"] += 1
 
@@ -575,6 +593,24 @@ class HuggingFaceProvider:
         Returns:
             Respuesta con texto generado
         """
+        # --- Security Guard: Prompt Injection & Misuse Check ---
+        try:
+            from app.security.misuse_guard import require_safe_operation
+            require_safe_operation(
+                operation="hf_agent_generation",
+                content=prompt,
+                domain=domain or "llm_inference",
+                tool_name="HuggingFaceProvider"
+            )
+        except Exception as e:
+            from app.core.bootstrap_logging import logger
+            logger.warning(f"HF request blocked by security guard (agent role {agent_role}): {e}")
+            return HFInferenceResponse(
+                generated_text="",
+                error=f"Security Guard blocked prompt: {e}"
+            )
+        # -------------------------------------------------------
+
         model_id = self.get_optimal_model(domain=domain or "general", agent_role=agent_role)
 
         request = HFInferenceRequest(
