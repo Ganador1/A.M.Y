@@ -217,7 +217,7 @@ class AtlasTools:
             self._worker = None
 
     async def _send_request(self, request: dict, timeout: float = 120.0) -> dict:
-        """Envía un request al worker y espera respuesta."""
+        """Envía un request al worker y espera respuesta, ignorando lineas basura."""
         if self._worker is None or self._worker.stdin.is_closing():
             self._worker = None
             await self._ensure_worker()
@@ -225,10 +225,33 @@ class AtlasTools:
             line = json.dumps(request) + "\n"
             self._worker.stdin.write(line.encode())
             await self._worker.stdin.drain()
-            response = await asyncio.wait_for(
-                self._worker.stdout.readline(), timeout=timeout
-            )
-            return json.loads(response.decode().strip())
+            
+            # Bucle para saltar logs u otras líneas hasta encontrar la respuesta al request
+            start_time = asyncio.get_event_loop().time()
+            while True:
+                time_left = timeout - (asyncio.get_event_loop().time() - start_time)
+                if time_left <= 0:
+                    raise asyncio.TimeoutError("Timeout waiting for valid worker response")
+                    
+                response_bytes = await asyncio.wait_for(
+                    self._worker.stdout.readline(), timeout=time_left
+                )
+                if not response_bytes:
+                    error_output = await self._worker.stderr.read() if self._worker.stderr else b""
+                    print(f"\n[DEBUG] Worker closed. Error output: {error_output.decode()}\n")
+                    return {"id": request.get("id"), "error": "Worker closed output stream"}
+                    
+                response_str = response_bytes.decode().strip()
+                if not response_str:
+                    continue
+                    
+                try:
+                    parsed = json.loads(response_str)
+                    if "id" in parsed and parsed["id"] == request.get("id"):
+                        return parsed
+                except json.JSONDecodeError:
+                    # Ignore non-JSON lines printed by native libraries (brian2, matplotlib, yt, warnings, etc.)
+                    continue
 
     async def search_literature(
         self,

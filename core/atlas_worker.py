@@ -128,7 +128,10 @@ class AtlasWorker:
 
     def run(self):
         """Lee requests de stdin, escribe responses a stdout."""
-        for line in sys.stdin:
+        while True:
+            line = sys.stdin.readline()
+            if not line:
+                break
             line = line.strip()
             if not line:
                 continue
