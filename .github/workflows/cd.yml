@@ -36,7 +36,11 @@ jobs:
             "pyyaml>=6.0" \
             "rich>=13.0" \
             "python-dotenv>=1.0.0" \
-            "structlog>=24.1.0"
+            "structlog>=24.1.0" \
+            "numpy>=1.26" \
+            "scipy>=1.12" \
+            "sympy>=1.12" \
+            "networkx>=3.2"
 
       - name: Run hermetic test suite
         run: |
@@ -44,6 +48,8 @@ jobs:
             tests/test_public_release_hygiene.py \
             tests/test_science_gates.py \
             tests/test_scientific_hardening.py \
+            tests/test_atlas_real_tools.py \
+            tests/test_atlas_no_mocks.py \
             -q --tb=short
 
       - name: Verify secret hygiene
