@@ -106,6 +106,16 @@ CASES = [
     # Number theory
     ("number_theory_advanced", "goldbach:20", ["ALL VERIFIED", "10 = 3 + 7"], "Goldbach 20"),
     ("number_theory_advanced", "twin_primes:100", ["(71, 73)"], "twin primes ≤100"),
+    # prime_gap_analysis must tolerate the messy inputs the LLM produces in
+    # live runs (range:2,100000 / max_prime:N / 'primes up to N'), not just
+    # a bare integer.
+    ("prime_gap_analysis", "10000", ["Prime gap analysis up to 10000"], "bare int"),
+    ("prime_gap_analysis", "range:2,100000",
+     ["Prime gap analysis up to 100000"], "LLM 'range:2,100000' form"),
+    ("prime_gap_analysis", "max_prime:100000",
+     ["Prime gap analysis up to 100000"], "LLM 'max_prime:N' form"),
+    ("prime_gap_analysis", "primes up to 50000",
+     ["Prime gap analysis up to 50000"], "natural-language limit"),
     # Sequences / provers
     ("sequence_analyzer", "generate:fibonacci:10", ["55"], "Fibonacci 10"),
     ("conjecture_engine", "evaluate:collatz:27", ["111", "9232"], "Collatz 27"),

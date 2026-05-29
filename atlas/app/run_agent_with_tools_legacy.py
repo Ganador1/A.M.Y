@@ -2334,6 +2334,30 @@ a₀ coefficient: {a0}
         except Exception as e:
             return f"Error: {str(e)}"
     
+    @staticmethod
+    def _parse_int_limit(query: str):
+        """Extract an integer limit from the many shapes an LLM produces.
+
+        Real probes showed the model passing things like 'range:2,100000',
+        'max_prime:100000', 'limit:10000', '10_000', 'primes up to 50000'.
+        Rather than reject all of these with an int() crash, we robustly
+        pull out the LARGEST integer in the string and use it as the upper
+        bound (the lower bound for prime ranges is always 2). Returns None
+        if no integer is present.
+        """
+        import re as _re
+        # Normalize underscore digit grouping (10_000 → 10000).
+        cleaned = query.replace("_", "")
+        # Collapse *well-formed* thousands separators (1,234,567) but NOT
+        # ad-hoc comma lists like 'range:2,100000' (groups must be 3 digits).
+        cleaned = _re.sub(r"(?<=\d),(?=\d{3}(?:\D|$))", "", cleaned)
+        tokens = _re.findall(r"\d+", cleaned)
+        candidates = [int(t) for t in tokens] if tokens else []
+        if not candidates:
+            return None
+        # The upper bound is the largest integer mentioned.
+        return max(candidates)
+
     def _prime_gap_analysis(self, query: str) -> str:
         """Analyze prime gaps up to a given limit.
 
@@ -2342,7 +2366,11 @@ a₀ coefficient: {a0}
         downstream consumers do not silently treat truncated data as full.
         """
         try:
-            requested_limit = int(query.strip())
+            requested_limit = self._parse_int_limit(query)
+            if requested_limit is None:
+                return ("Error: could not parse a limit from "
+                        f"{query!r}. Provide a single integer like '10000' "
+                        "(the upper bound on primes to analyze).")
             HARD_CAP = 10_000_000
             if requested_limit > HARD_CAP:
                 limit = HARD_CAP
