@@ -260,13 +260,18 @@ class AtlasTools:
         max_results: int = 8,
     ) -> dict:
         """
-        Busca literatura científica real usando las fuentes de Atlas:
-        arXiv, PubMed, Semantic Scholar, OpenAlex.
+        Busca literatura científica real, en paralelo, sobre fuentes abiertas:
+        OpenAlex, Crossref, Europe PMC, PubMed, DOAJ, CORE.
 
-        Returns: {"papers": [...], "support_score": float, "sources": [...]}
+        Sustituye la antigua ruta por subprocess al LiteratureService de Atlas,
+        que consultaba ~14 fuentes en serie con reintentos y excedía el timeout
+        de 90s (arXiv colgaba, Semantic Scholar devolvía 429). El cliente nuevo
+        (core.literature_search) las consulta concurrentemente con un deadline
+        global, así que responde en ~2-4s.
+
+        Returns: {"papers": [...], "support_score": float, "sources_succeeded": [...]}
         """
-        if not self.available:
-            return {"papers": [], "error": "Atlas no disponible"}
+        # Safety / misuse checks run BEFORE any network call.
         misuse_decision = _evaluate_atlas_misuse_or_fail_closed(
             operation="search_literature",
             content=query,
@@ -289,7 +294,25 @@ class AtlasTools:
                 "error": "Blocked by safety policy",
                 "safety_decision": decision,
             }
-        # Literature search usa su propio subprocess (no el worker)
+
+        # Primary path: fast concurrent open-source search (no Atlas venv needed).
+        try:
+            from core.literature_search import search_literature_async
+
+            result = await search_literature_async(query, max_results=max_results)
+            # Only fall through to the legacy path if we got literally nothing
+            # AND the Atlas worker is available to try.
+            if result.get("papers") or not self.available:
+                return result
+            log.info("atlas_tools.literature_fallback_to_atlas",
+                     reason="no papers from open sources")
+        except Exception as e:  # noqa: BLE001
+            log.warning("atlas_tools.literature_primary_failed", error=str(e)[:200])
+            if not self.available:
+                return {"papers": [], "support_score": 0.0,
+                        "error": f"literature search failed: {type(e).__name__}"}
+
+        # Legacy fallback: Atlas LiteratureService via subprocess (slow).
         payload = {"query": query, "domain": domain, "max_results": max_results}
         return await asyncio.get_event_loop().run_in_executor(
             None, self._run_literature_search, payload

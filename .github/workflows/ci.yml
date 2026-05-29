@@ -80,6 +80,7 @@ jobs:
             tests/test_atlas_real_tools.py \
             tests/test_atlas_no_mocks.py \
             tests/test_atlas_tools_end_to_end.py \
+            tests/test_literature_search.py \
             -q --tb=short
 
       - name: Verify every Atlas tool computes (no mocks, deterministic)
