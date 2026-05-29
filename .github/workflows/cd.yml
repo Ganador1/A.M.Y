@@ -50,7 +50,11 @@ jobs:
             tests/test_scientific_hardening.py \
             tests/test_atlas_real_tools.py \
             tests/test_atlas_no_mocks.py \
+            tests/test_atlas_tools_end_to_end.py \
             -q --tb=short
+
+      - name: Verify every Atlas tool computes (no mocks, deterministic)
+        run: python scripts/diagnostics/verify_atlas_tools.py
 
       - name: Verify secret hygiene
         run: python scripts/diagnostics/verify_secret_hygiene.py --strict

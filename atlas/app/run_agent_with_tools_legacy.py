@@ -2376,16 +2376,44 @@ a₀ coefficient: {a0}
         except Exception as e:
             return f"Error: {str(e)}"
     
+    @staticmethod
+    def _extract_two_arrays(payload: str):
+        """Pull two numeric arrays out of a string, tolerant of separators.
+
+        Accepts any of:
+            [1,2,3]:[4,5,6]
+            [1,2,3];[4,5,6]
+            [1,2,3],[4,5,6]
+            1,2,3;4,5,6
+        Returns (np.ndarray, np.ndarray). Raises ValueError on failure.
+        """
+        import re as _re
+        bracketed = _re.findall(r"\[[^\]]*\]", payload)
+        if len(bracketed) >= 2:
+            a = DynamicToolRegistry._parse_numeric_array_literal(bracketed[0])
+            b = DynamicToolRegistry._parse_numeric_array_literal(bracketed[1])
+            return a, b
+        # No brackets: split on ';' first, then ':'
+        for sep in (";", ":"):
+            if sep in payload:
+                left, _, right = payload.partition(sep)
+                a = DynamicToolRegistry._parse_numeric_array_literal(
+                    "[" + left.strip().strip("[]") + "]")
+                b = DynamicToolRegistry._parse_numeric_array_literal(
+                    "[" + right.strip().strip("[]") + "]")
+                return a, b
+        raise ValueError("expected two numeric arrays, e.g. '[1,2,3]:[4,5,6]'")
+
     def _hypothesis_tester(self, query: str) -> str:
-        """Perform hypothesis testing."""
+        """Perform hypothesis testing (real scipy.stats, no mock)."""
         try:
             from scipy import stats
             parts = query.split(":")
             test_type = parts[0].strip().lower()
-            
+            payload = query[len(parts[0]) + 1:]  # everything after the first ':'
+
             if test_type == "ttest":
-                data1 = self._parse_numeric_array_literal(parts[1])
-                data2 = self._parse_numeric_array_literal(parts[2])
+                data1, data2 = self._extract_two_arrays(payload)
                 t_stat, p_value = stats.ttest_ind(data1, data2)
                 return f"T-test: t-statistic={t_stat:.4f}, p-value={p_value:.4f}"
             elif test_type == "kstest":
@@ -2427,8 +2455,7 @@ a₀ coefficient: {a0}
                 significance = "significant" if p_value < 0.05 else "not significant"
                 return f"Pearson correlation: r={r:.4f}, p-value={p_value:.4f} ({significance})"
             elif test_type == "spearman":
-                data1 = self._parse_numeric_array_literal(parts[1])
-                data2 = self._parse_numeric_array_literal(parts[2])
+                data1, data2 = self._extract_two_arrays(payload)
                 rho, p_value = stats.spearmanr(data1, data2)
                 return f"Spearman correlation: rho={rho:.4f}, p-value={p_value:.4f}"
             else:
