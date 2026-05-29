@@ -40,7 +40,8 @@ jobs:
             "numpy>=1.26" \
             "scipy>=1.12" \
             "sympy>=1.12" \
-            "networkx>=3.2"
+            "networkx>=3.2" \
+            "httpx>=0.27"
 
       - name: Run hermetic test suite
         run: |
