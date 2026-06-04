@@ -63,9 +63,12 @@ def _summarize_result(res) -> str:
     return str(res)[:160]
 
 
-async def probe(cycles: int, goal: str | None, open_ended: bool, verbose: bool) -> int:
-    with open("config.yaml") as f:
+async def probe(cycles: int, goal: str | None, open_ended: bool, verbose: bool,
+                config_path: str = "config.yaml", cycle_timeout: float = 150.0) -> int:
+    with open(config_path) as f:
         config = yaml.safe_load(f)
+    print(f"  config: {config_path}")
+    print(f"  reasoner model: {config['llm']['reasoner']['model']}")
 
     if open_ended:
         config["mission"]["goal"] = OPEN_ENDED_GOAL
@@ -102,8 +105,13 @@ async def probe(cycles: int, goal: str | None, open_ended: bool, verbose: bool) 
         n_tools_before = len(hb._tool_results_history)
 
         try:
-            await hb._beat()
+            # Hard per-cycle deadline so a slow/queued LLM call can't hang the
+            # whole run — the cycle is skipped and we move on. Newer cloud
+            # models (e.g. minimax-m3) have very variable latency.
+            await asyncio.wait_for(hb._beat(), timeout=cycle_timeout)
             err = None
+        except asyncio.TimeoutError:
+            err = f"cycle timeout >{cycle_timeout}s (LLM too slow this cycle)"
         except Exception as e:  # keep probing even if one cycle fails
             err = f"{type(e).__name__}: {e}"
 
@@ -168,8 +176,13 @@ def main() -> int:
     ap.add_argument("--no-goal", action="store_true",
                     help="open-ended mission to observe autonomous goal formation")
     ap.add_argument("--verbose", action="store_true")
+    ap.add_argument("--config", type=str, default="config.yaml")
+    ap.add_argument("--cycle-timeout", type=float, default=150.0,
+                    help="hard per-cycle deadline in seconds")
     args = ap.parse_args()
-    return asyncio.run(probe(args.cycles, args.goal, args.no_goal, args.verbose))
+    return asyncio.run(
+        probe(args.cycles, args.goal, args.no_goal, args.verbose, args.config,
+              args.cycle_timeout))
 
 
 if __name__ == "__main__":

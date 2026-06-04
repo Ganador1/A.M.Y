@@ -70,10 +70,31 @@ class OllamaCloudClient:
             keys_loaded=len(self._keys),
         )
 
+    def _read_timeout(self) -> float:
+        # Per-byte read timeout. Ollama Cloud latency for newer models is very
+        # spiky (2s one call, >120s the next when queued). Override with
+        # config["read_timeout"] or env OLLAMA_READ_TIMEOUT.
+        return float(
+            self.config.get("read_timeout")
+            or os.environ.get("OLLAMA_READ_TIMEOUT", "120")
+        )
+
+    def _total_timeout(self) -> float:
+        # Hard WALL-CLOCK cap on a single request. httpx's read timeout only
+        # fires between bytes, so a model that *streams* its 'thinking' slowly
+        # (e.g. minimax-m3) never trips it and can run for many minutes. This
+        # total cap guarantees a single chat() call cannot hang a cognitive
+        # cycle. Override with config["total_timeout"] / OLLAMA_TOTAL_TIMEOUT.
+        return float(
+            self.config.get("total_timeout")
+            or os.environ.get("OLLAMA_TOTAL_TIMEOUT", "90")
+        )
+
     async def _get_http(self) -> httpx.AsyncClient:
         if self._http is None or self._http.is_closed:
-            # 120s read timeout — necesario cuando Ollama Cloud está bajo carga
-            self._http = httpx.AsyncClient(timeout=httpx.Timeout(120.0, connect=10.0))
+            self._http = httpx.AsyncClient(
+                timeout=httpx.Timeout(self._read_timeout(), connect=10.0)
+            )
         return self._http
 
     def _pick_key(self) -> tuple[int, str]:
@@ -193,17 +214,25 @@ class OllamaCloudClient:
         return result.get("embeddings", [])
 
     async def _do_request(self, endpoint: str, payload: dict, api_key: str) -> dict:
-        """Execute a single HTTP request to Ollama Cloud."""
+        """Execute a single HTTP request to Ollama Cloud.
+
+        Wrapped in a hard wall-clock timeout so a slowly-streaming model can
+        never hang a cognitive cycle (httpx's read timeout only fires between
+        bytes and is defeated by continuous 'thinking' token streams).
+        """
         http = await self._get_http()
         url = f"{self.base_url}{endpoint}"
 
-        response = await http.post(
-            url,
-            json=payload,
-            headers={
-                "Authorization": f"Bearer {api_key}",
-                "Content-Type": "application/json",
-            },
+        response = await asyncio.wait_for(
+            http.post(
+                url,
+                json=payload,
+                headers={
+                    "Authorization": f"Bearer {api_key}",
+                    "Content-Type": "application/json",
+                },
+            ),
+            timeout=self._total_timeout(),
         )
 
         if response.status_code != 200:

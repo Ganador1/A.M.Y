@@ -1,0 +1,94 @@
+# A.M.Y Configuration — gpt-oss:120b on Ollama Cloud
+# ───────────────────────────────────────────────────
+# Benchmarked fastest-tier cloud model for the agentic loop: ~2s latency,
+# valid JSON action decisions, 120B params. High token budgets per request.
+
+# The mission A.M.Y will autonomously pursue
+mission:
+  goal: "Investigar si la distribucion de gaps entre numeros primos consecutivos sigue una ley exponencial o desviaciones sistematicas de ella"
+  description: "Disenar y ejecutar experimentos computacionales reales para caracterizar la distribucion de gaps primos, ajustar modelos (exponencial, Gauss, ley de potencia) y producir un paper con evidencia reproducible"
+  urgency: high
+
+# LLM Backend — Ollama Cloud with gpt-oss:120b
+llm:
+  provider: "ollama_cloud"
+  base_url: "https://ollama.com/api"
+  # Hard wall-clock cap per request so a slow/queued call can't hang a cycle.
+  total_timeout: 90
+  read_timeout: 90
+
+  # Main reasoning model — high token budget for deep reasoning + long papers.
+  reasoner:
+    model: "gpt-oss:120b"
+    temperature: 0.7
+    max_tokens: 16384   # generous: room for long reasoning and full paper drafts
+    num_ctx: 65536      # large context window
+
+  # Fast model for quick classifications / summaries.
+  fast:
+    model: "gpt-oss:20b"
+    temperature: 0.3
+    max_tokens: 4096
+    num_ctx: 32768
+
+hardware:
+  device: "mps"
+  dtype: "float16"
+  platform: "darwin_arm64"
+  mps_fallback_to_cpu: true
+
+heartbeat:
+  base_interval_seconds: 30
+  focused_interval_seconds: 5
+  idle_interval_seconds: 120
+  max_cycles_before_reflection: 20
+
+memory:
+  vector_db_path: "./data/chromadb"
+  knowledge_graph_path: "./data/knowledge_graph.json"
+  episodic_log_path: "./data/episodic_memory.jsonl"
+  max_episodic_before_consolidation: 1000
+  belief_confidence_threshold: 0.3
+
+skills:
+  library_path: "./data/skill_library"
+  max_retrieval: 5
+
+research:
+  max_papers_per_search: 10
+  sources:
+    - arxiv
+    - pubmed
+    - semantic_scholar
+  download_pdfs: false
+
+curiosity:
+  epistemic_weight: 0.4
+  surprise_threshold: 0.7
+  novelty_decay: 0.95
+
+communication:
+  method: "file"
+  breakthrough_threshold: 0.5
+  report_path: "./reports/"
+  max_reports_per_day: 10
+
+sandbox:
+  enabled: true
+  use_docker: true
+  max_execution_time: 300
+  max_memory_mb: 2048
+  allowed_languages:
+    - python
+    - r
+
+atlas_quality_gate:
+  min_support_score: 0.35
+  min_tool_realism_score: 0.60
+  max_failure_count: 5
+  verify_citations: true
+
+logging:
+  level: INFO
+  thought_log_path: "./logs/stream_of_consciousness.jsonl"
+  action_log_path: "./logs/actions.jsonl"
