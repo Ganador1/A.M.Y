@@ -206,6 +206,7 @@ class ToolDescriptor:
     function: Callable
     input_format: str
     output_format: str
+    evidence_grade: str = "heuristic"
 
 
 class DynamicToolRegistry:

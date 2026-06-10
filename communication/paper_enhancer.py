@@ -701,8 +701,81 @@ class PaperEnhancer:
             except Exception as exc:
                 log.warning("paper_enhancer.ranking_failed", error=str(exc))
 
-        # 2. ENHANCE DISCUSSION — Replace generic text with domain-specific analysis
-        enhanced_discussion = self._build_discussion(domain_key, successful, domain_data, hypotheses)
+        # 1c. EVOLVE TOP HYPOTHESES — Co-Scientist Evolution agent (§3.3.5),
+        #     the engine the anchored head-to-head validated: evolved candidates
+        #     beat non-evolved ones 72-94% under an independent LLM judge.
+        #     Opt-in via AMY_USE_EVOLUTION=1. The evolved children are ADDED
+        #     (paper: new entrants, parents unchanged) and the pool re-ranked,
+        #     so the manuscript foregrounds whichever genuinely ranks best.
+        import os as _os2
+        if (len(hypotheses) >= 1
+                and _os2.getenv("AMY_USE_EVOLUTION", "").lower() in ("1", "true", "yes")):
+            try:
+                from cognition.evolution_agent import evolve_hypothesis
+                feedback = _os2.getenv("AMY_METAREVIEW_FEEDBACK") or None
+                children = []
+                top = hypotheses[0]
+                child1 = await evolve_hypothesis(
+                    top, strategy="grounding", domain=domain_key,
+                    results=successful, feedback=feedback)
+                children.append(child1)
+                if len(hypotheses) >= 2:
+                    child2 = await evolve_hypothesis(
+                        top, strategy="combination", domain=domain_key,
+                        results=successful, second_parent=hypotheses[1],
+                        feedback=feedback)
+                    children.append(child2)
+                evolved_pool = hypotheses + children
+                from cognition.ranking_agent import run_tournament
+                seed = hash(topic) & 0xFFFFFF
+                ranked2 = run_tournament(evolved_pool, rounds=2, seed=seed)
+                hypotheses = [
+                    {
+                        "hypothesis": r.hypothesis,
+                        "confidence": r.confidence,
+                        "novelty_status": r.novelty_status,
+                        "elo": round(r.elo, 1),
+                        "tournament_record": f"{r.wins}W-{r.losses}L-{r.draws}D",
+                        **r.extra,
+                    }
+                    for r in ranked2
+                ]
+                n_llm = sum(1 for c in children if c.get("evolver") == "llm")
+                log.info("paper_enhancer.hypotheses_evolved",
+                         children=len(children), llm_children=n_llm,
+                         top_is_evolved="strategy" in hypotheses[0])
+            except Exception as exc:
+                log.warning("paper_enhancer.evolution_failed", error=str(exc))
+
+        # 2. ENHANCE DISCUSSION
+        #    Preferred path (AMY_USE_LLM_ENHANCER=1): an LLM writes the Discussion
+        #    grounded in the real tool outputs + provenance — this is the Sakana
+        #    AI Scientist v2 manuscript write-up step (arXiv:2504.08066), and it
+        #    replaces the static DOMAIN_INSIGHTS template assembly. The downstream
+        #    NumericVerifier still re-checks every number against provenance.
+        #    Falls back to the deterministic template on any error / no API key.
+        enhanced_discussion = None
+        try:
+            from communication.llm_enhancer import (
+                llm_enhancer_enabled,
+                generate_discussion_llm,
+            )
+            if llm_enhancer_enabled():
+                # belief_confidence is left to its env channel (AMY_BELIEF_CONFIDENCE,
+                # set by the learning-ablation `weights`/`both` arms) — generate_
+                # discussion_llm reads it directly, so no plumbing is needed here.
+                enhanced_discussion = await generate_discussion_llm(
+                    domain_key, topic, successful, hypotheses
+                )
+                if enhanced_discussion:
+                    log.info("paper_enhancer.discussion_llm", chars=len(enhanced_discussion))
+        except Exception as exc:
+            log.warning("paper_enhancer.discussion_llm_failed", error=str(exc))
+
+        if not enhanced_discussion:
+            enhanced_discussion = self._build_discussion(
+                domain_key, successful, domain_data, hypotheses
+            )
         
         # 3. GENERATE REFERENCES — Real academic citations
         references = generate_references(domain_key, successful)
@@ -1127,7 +1200,15 @@ class PaperEnhancer:
                 )
             conclusion += "**Future work** should focus on:\n"
             for i, h in enumerate(candidate_hypotheses[:3]):
-                conclusion += f"{i+1}. Testing Hypothesis {i+1} via {h['method'][:80]}...\n"
+                # Evolved/ranked hypotheses may carry the test under a different
+                # key (or embed it in the text via 'Testable via:'); fall back
+                # gracefully so a missing 'method' never aborts enhancement.
+                method = (h.get("method") or h.get("test_procedure") or "")
+                if not method and "testable via:" in h.get("hypothesis", "").lower():
+                    method = h["hypothesis"].split("Testable via:", 1)[-1].strip()
+                if not method:
+                    method = "a targeted follow-up experiment with explicit controls"
+                conclusion += f"{i+1}. Testing Hypothesis {i+1} via {method[:80]}...\n"
         elif known_controls:
             conclusion += (
                 f"The analysis produced {len(known_controls)} verification controls or "

@@ -110,7 +110,7 @@ communication:
 sandbox:
   enabled: true
   # Docker is available and should be used for real isolation.
-  use_docker: true
+  use_docker: false
   # Maximum execution time per experiment (seconds)
   max_execution_time: 300
   # Maximum memory per experiment

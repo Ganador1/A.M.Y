@@ -196,7 +196,7 @@ class ClinicalBERTService(BaseService):
                     'total_entities': total_entities,
                     'entity_types_found': entity_types_found,
                     'text_length': len(text),
-                    'analysis_method': 'mock' if not TRANSFORMERS_AVAILABLE else 'clinical_bert'
+                    'analysis_method': 'keyword_fallback'  # extraction is keyword-based here regardless of transformers; see personalized/clinicalbert_service.py for the real scispaCy/HF NER path
                 }
             }
             
@@ -242,7 +242,7 @@ class ClinicalBERTService(BaseService):
                         'all_scores': scores,
                         'classification_type': classification_type,
                         'text_length': len(text),
-                        'analysis_method': 'mock' if not TRANSFORMERS_AVAILABLE else 'clinical_bert'
+                        'analysis_method': 'keyword_fallback'  # extraction is keyword-based here regardless of transformers; see personalized/clinicalbert_service.py for the real scispaCy/HF NER path
                     }
                 }
             else:
@@ -302,7 +302,7 @@ class ClinicalBERTService(BaseService):
                     'similarity_category': similarity_category,
                     'text1_length': len(text1),
                     'text2_length': len(text2),
-                    'analysis_method': 'mock' if not TRANSFORMERS_AVAILABLE else 'clinical_bert'
+                    'analysis_method': 'keyword_fallback'  # extraction is keyword-based here regardless of transformers; see personalized/clinicalbert_service.py for the real scispaCy/HF NER path
                 }
             }
             
@@ -372,7 +372,7 @@ class ClinicalBERTService(BaseService):
                     'common_entities': common_entities,
                     'dominant_specialty': dominant_specialty,
                     'specialty_scores': specialty_scores,
-                    'analysis_method': 'mock' if not TRANSFORMERS_AVAILABLE else 'clinical_bert'
+                    'analysis_method': 'keyword_fallback'  # extraction is keyword-based here regardless of transformers; see personalized/clinicalbert_service.py for the real scispaCy/HF NER path
                 }
             }
             

@@ -96,7 +96,8 @@ class MathVisualizationService:
                 # Generar datos
                 x = np.linspace(x_range[0], x_range[1], 1000)
                 try:
-                    y = eval(function_expr.replace("x", "x"))
+                    safe_env = {"__builtins__": {}, "np": np, "sin": np.sin, "cos": np.cos, "tan": np.tan, "exp": np.exp, "sqrt": np.sqrt, "pi": np.pi, "e": np.e}
+                    y = eval(function_expr.replace("x", "x"), safe_env, {"x": x})
                 except MathematicsError:
                     y = x**2  # Fallback
                 
@@ -136,8 +137,9 @@ class MathVisualizationService:
                 
                 t = np.linspace(t_range[0], t_range[1], 1000)
                 try:
-                    x = eval(x_expr.replace("t", "t"))
-                    y = eval(y_expr.replace("t", "t"))
+                    safe_env = {"__builtins__": {}, "np": np, "sin": np.sin, "cos": np.cos, "tan": np.tan, "exp": np.exp, "sqrt": np.sqrt, "pi": np.pi, "e": np.e}
+                    x = eval(x_expr.replace("t", "t"), safe_env, {"t": t})
+                    y = eval(y_expr.replace("t", "t"), safe_env, {"t": t})
                 except MathematicsError:
                     x = t
                     y = t**2
@@ -171,7 +173,8 @@ class MathVisualizationService:
                 
                 theta = np.linspace(theta_range[0], theta_range[1], 1000)
                 try:
-                    r = eval(r_expr.replace("theta", "theta"))
+                    safe_env = {"__builtins__": {}, "np": np, "sin": np.sin, "cos": np.cos, "tan": np.tan, "exp": np.exp, "sqrt": np.sqrt, "pi": np.pi, "e": np.e}
+                    r = eval(r_expr.replace("theta", "theta"), safe_env, {"theta": theta})
                 except MathematicsError:
                     r = np.ones_like(theta)
                 
@@ -244,7 +247,8 @@ class MathVisualizationService:
                 X, Y = np.meshgrid(x, y)
                 
                 try:
-                    Z = eval(function_expr.replace("x", "X").replace("y", "Y"))
+                    safe_env = {"__builtins__": {}, "np": np, "sin": np.sin, "cos": np.cos, "tan": np.tan, "exp": np.exp, "sqrt": np.sqrt, "pi": np.pi, "e": np.e}
+                    Z = eval(function_expr.replace("x", "X").replace("y", "Y"), safe_env, {"X": X, "Y": Y})
                 except MathematicsError:
                     Z = X**2 + Y**2
                 
@@ -278,9 +282,10 @@ class MathVisualizationService:
                 
                 t = np.linspace(t_range[0], t_range[1], 1000)
                 try:
-                    x = eval(x_expr.replace("t", "t"))
-                    y = eval(y_expr.replace("t", "t"))
-                    z = eval(z_expr.replace("t", "t"))
+                    safe_env = {"__builtins__": {}, "np": np, "sin": np.sin, "cos": np.cos, "tan": np.tan, "exp": np.exp, "sqrt": np.sqrt, "pi": np.pi, "e": np.e}
+                    x = eval(x_expr.replace("t", "t"), safe_env, {"t": t})
+                    y = eval(y_expr.replace("t", "t"), safe_env, {"t": t})
+                    z = eval(z_expr.replace("t", "t"), safe_env, {"t": t})
                 except MathematicsError:
                     x = t
                     y = t**2
@@ -356,7 +361,8 @@ class MathVisualizationService:
                 for i, param_val in enumerate(param_values):
                     x = np.linspace(x_range[0], x_range[1], 100)
                     try:
-                        y = eval(function_expr.replace(parameter_name, str(param_val)).replace("x", "x"))
+                        safe_env = {"__builtins__": {}, "np": np, "sin": np.sin, "cos": np.cos, "tan": np.tan, "exp": np.exp, "sqrt": np.sqrt, "pi": np.pi, "e": np.e}
+                        y = eval(function_expr.replace(parameter_name, str(param_val)).replace("x", "x"), safe_env, {"x": x})
                     except MathematicsError:
                         y = param_val * x**2
                     
@@ -619,8 +625,9 @@ class MathVisualizationService:
                 X, Y = np.meshgrid(x, y)
                 
                 try:
-                    U = eval(function_x.replace("x", "X").replace("y", "Y"))
-                    V = eval(function_y.replace("x", "X").replace("y", "Y"))
+                    safe_env = {"__builtins__": {}, "np": np, "sin": np.sin, "cos": np.cos, "tan": np.tan, "exp": np.exp, "sqrt": np.sqrt, "pi": np.pi, "e": np.e}
+                    U = eval(function_x.replace("x", "X").replace("y", "Y"), safe_env, {"X": X, "Y": Y})
+                    V = eval(function_y.replace("x", "X").replace("y", "Y"), safe_env, {"X": X, "Y": Y})
                 except MathematicsError:
                     U = Y
                     V = -X

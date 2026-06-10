@@ -215,6 +215,77 @@ def test_paper_generator_cites_real_full_provenance_output_hash():
     assert "0/10" not in markdown
 
 
+def test_paper_generator_watermark_does_not_claim_embedded_self_review_by_default():
+    markdown = PaperGenerator(enhance=False)._append_watermark("Body", "Test Paper")
+
+    assert "Self-Review (Reflection Agent) section above" not in markdown
+    assert "self_review: external_sidecar_when_available" in markdown
+
+
+def test_paper_generator_detects_machine_learning_domain():
+    markdown = PaperGenerator(enhance=False)._build_markdown(
+        "Information Bottleneck Benchmark for a ReLU Neural Network",
+        "Abstract.",
+        [{"heading": "Methods", "content": "Held-out label-shuffled representation learning benchmark."}],
+        [],
+        [],
+        ["machine-learning_example_20260527"],
+    )
+
+    assert "ACM CCS" in markdown
+    assert "information bottleneck" in markdown.lower()
+
+
+def test_objective_scorer_accepts_hyphenated_experiment_ids():
+    from experiments.ab_test.scoring.score_paper import score_paper
+
+    exp_id = "machine-learning_test_tool_20260527_120000"
+    exp_dir = Path("data/experiments") / exp_id
+    paper_path = Path("papers/test_hyphenated_score.md")
+    shutil.rmtree(exp_dir, ignore_errors=True)
+    paper_path.unlink(missing_ok=True)
+
+    output = json.dumps({"accuracy": 0.8123, "p": 0.0123, "summary": "held-out benchmark"})
+    output_hash = hashlib.sha256(output.encode("utf-8")).hexdigest()
+    exp_dir.mkdir(parents=True, exist_ok=True)
+    (exp_dir / "output.txt").write_text(output, encoding="utf-8")
+    (exp_dir / "provenance.json").write_text(
+        json.dumps(
+            {
+                "experiment_id": exp_id,
+                "tool": {"name": "test_tool", "output_hash": output_hash, "success": True},
+                "domain": "machine-learning",
+            }
+        ),
+        encoding="utf-8",
+    )
+    paper_path.write_text(
+        (
+            "# Test\n\n"
+            "**Classification:** Machine learning\n\n"
+            "## Abstract\n\naccuracy 0.8123.\n\n"
+            "## Discussion\n\nThis study does not claim causality. "
+            "The result reports p=0.0123 and 95% CI [0.7, 0.9].\n\n"
+            "### Testable Predictions\n\n"
+            "H1. Testable via rerun: accuracy should remain positive; confidence: 70%.\n\n"
+            "## Data Availability\n\n"
+            f"- {exp_id}: `data/experiments/{exp_id}/provenance.json` "
+            f"(output SHA-256: `{output_hash}`)\n"
+        ),
+        encoding="utf-8",
+    )
+
+    try:
+        score = score_paper(paper_path)
+        assert score.domain == "machine-learning"
+        assert score.provenance_integrity == 10.0
+        assert score.numerical_claims_grounded > 0
+        assert score.falsifiability > 0
+    finally:
+        shutil.rmtree(exp_dir, ignore_errors=True)
+        paper_path.unlink(missing_ok=True)
+
+
 def test_paper_generator_rejects_publication_when_provenance_hash_is_missing():
     title = "Test Missing Provenance Gate"
 
@@ -659,6 +730,71 @@ def test_molecular_orbital_detector_reports_gap_fit_as_observation_or_candidate(
     assert any(f.get("novelty_status") in {"finite_computational_observation", "candidate_novelty"} for f in result["findings"])
 
 
+def test_learned_belief_confidence_changes_the_discussion_prompt():
+    """The learning-ablation `weights` arm must have a REAL causal path.
+
+    `_apply_weight_update` re-estimates belief confidences and the harness
+    exports the mean via ``AMY_BELIEF_CONFIDENCE``. This guards that the LLM
+    enhancer actually READS that signal and that low vs. high learned
+    confidence produce materially different Discussion prompts — otherwise the
+    `weights`/`both` arms would be causally identical to `none`/`feedback` and
+    the ablation grid would report a phantom comparison.
+    """
+    import os
+    from communication import llm_enhancer
+
+    results = [{
+        "tool": "prime_gap_analysis",
+        "description": "Prime gap analysis up to 1000000",
+        "result": "Number of primes: 78498. Largest gap: 114. Mean gap: 12.74",
+        "experiment_id": "E1",
+    }]
+
+    class _CapturingClient:
+        """Offline stand-in: records the prompt instead of calling a model."""
+        def __init__(self):
+            self.prompt = None
+
+        async def chat(self, model, messages, temperature, max_tokens, **kwargs):
+            # **kwargs absorbs think/num_ctx/format_json etc. so the mock stays
+            # robust to the real OllamaCloudClient.chat signature evolving.
+            self.prompt = messages[-1]["content"]
+            return {"message": {"content": "x" * 200}}  # passes the >120 guard
+
+    def _prompt_for(env_value=None, arg_value=None):
+        os.environ.pop("AMY_BELIEF_CONFIDENCE", None)
+        os.environ.pop("AMY_METAREVIEW_FEEDBACK", None)
+        if env_value is not None:
+            os.environ["AMY_BELIEF_CONFIDENCE"] = env_value
+        client = _CapturingClient()
+        try:
+            asyncio.run(llm_enhancer.generate_discussion_llm(
+                "mathematics", "Prime gaps", results, hypotheses=[],
+                client=client, model="fake", belief_confidence=arg_value,
+            ))
+        finally:
+            os.environ.pop("AMY_BELIEF_CONFIDENCE", None)
+        return client.prompt
+
+    baseline = _prompt_for(env_value=None)
+    low = _prompt_for(env_value="0.20")
+    high = _prompt_for(env_value="0.90")
+    arg_wins = _prompt_for(env_value="0.20", arg_value=0.95)
+    junk = _prompt_for(env_value="not-a-number")
+
+    # Unset -> no calibration block (matches the `none`/`feedback` baseline).
+    assert "Calibration:" not in baseline
+    # The learned confidence is genuinely read and reaches the prompt.
+    assert "Calibration:" in low and "0.20" in low and "LOW:" in low
+    assert "Calibration:" in high and "0.90" in high and "HIGH:" in high
+    # Low vs. high are materially different -> `weights` arm is not a no-op.
+    assert low != high
+    # Explicit arg wins over the env channel (mirrors the `feedback` param).
+    assert "0.95" in arg_wins and "HIGH:" in arg_wins
+    # A malformed signal degrades gracefully: no crash, no injection.
+    assert "Calibration:" not in junk
+
+
 def main():
     tests = [
         test_audit_recognizes_modern_provenance_paths_and_hashes,
@@ -688,6 +824,7 @@ def main():
         test_prime_gap_detector_does_not_call_small_finite_cramer_gap_novel,
         test_quantum_detector_treats_rounded_high_n_deviation_as_precision_control,
         test_molecular_orbital_detector_reports_gap_fit_as_observation_or_candidate,
+        test_learned_belief_confidence_changes_the_discussion_prompt,
     ]
     try:
         for test in tests:

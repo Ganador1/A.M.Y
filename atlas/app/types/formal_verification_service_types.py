@@ -27,7 +27,11 @@ class VerifyWithSympyResult(TypedDict, total=False):
 
 
 class VerifyWithLeanResult(TypedDict, total=False):
-    """Verify using Lean theorem prover (placeholder for future implementation)"""
+    """Result of verifying a theorem with the Lean 4 kernel.
+
+    Returns valid=False with a `reason` when Lean is unavailable or the proof
+    is rejected — it does not assert validity for unchecked statements.
+    """
     success: bool
     message: str
     data: Dict[str, Any]  # TODO: Specify data structure

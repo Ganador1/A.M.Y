@@ -2,7 +2,7 @@
 """Test literature_search across multiple domains."""
 import sys, os, json, asyncio
 
-ATLAS_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "atlas")
+ATLAS_ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "atlas")
 sys.path.insert(0, ATLAS_ROOT)
 os.chdir(ATLAS_ROOT)
 os.environ["ENABLE_REDIS_CACHE"] = "false"

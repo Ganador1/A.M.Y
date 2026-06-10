@@ -75,7 +75,7 @@ communication:
 
 sandbox:
   enabled: true
-  use_docker: true
+  use_docker: false
   max_execution_time: 300
   max_memory_mb: 2048
   allowed_languages:

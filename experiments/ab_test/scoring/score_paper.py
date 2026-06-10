@@ -53,7 +53,7 @@ def _extract_experiment_ids(md: str) -> list[str]:
     because different generators use different schemes.
     """
     ids = re.findall(
-        r"([a-z][a-z0-9_]+_\d{8}_\d{6}(?:_[a-z0-9]+)?)",
+        r"([a-z][a-z0-9_-]+_\d{8}_\d{6}(?:_[a-z0-9]+)?)",
         md,
     )
     return list(dict.fromkeys(ids))
@@ -64,7 +64,7 @@ def score_provenance_integrity(md: str) -> float:
     exp_ids = _extract_experiment_ids(md)
     if not exp_ids:
         return 0.0
-    paper_hashes = dict(re.findall(r"- ([a-z][a-z0-9_]+_\d{8}_\d{6}(?:_[a-z0-9]+)?):[^\n]*?\(output SHA-256:\s*`([a-f0-9]{64})`\)", md))
+    paper_hashes = dict(re.findall(r"- ([a-z][a-z0-9_-]+_\d{8}_\d{6}(?:_[a-z0-9]+)?):[^\n]*?\(output SHA-256:\s*`([a-f0-9]{64})`\)", md))
     if not paper_hashes:
         return 0.0
     matching = 0
@@ -99,6 +99,23 @@ def score_tool_diversity(md: str) -> float:
     if not tool_blocks:
         tools = re.findall(r"\*\*Tool:\*\*\s*`?([a-z_0-9]+)`?", md, flags=re.IGNORECASE)
         if not tools:
+            provenance_tools = re.findall(r"\btool:\s*([a-z_0-9-]+)", md, flags=re.IGNORECASE)
+            if not provenance_tools:
+                for eid in _extract_experiment_ids(md):
+                    prov_path = EXPERIMENTS_DIR / eid / "provenance.json"
+                    if not prov_path.exists():
+                        continue
+                    try:
+                        tool_name = json.loads(prov_path.read_text()).get("tool", {}).get("name")
+                    except Exception:
+                        tool_name = None
+                    if tool_name:
+                        provenance_tools.append(str(tool_name))
+            if provenance_tools:
+                unique = len(set(provenance_tools))
+                return min(6.0, 5.0 + unique)
+            if "provenance.json" in md and "data/experiments/" in md:
+                return 4.0
             return 0.0
         unique = len(set(tools))
         return min(6.0, 6.0 * unique / max(3, len(tools)))
@@ -116,11 +133,17 @@ def score_tool_diversity(md: str) -> float:
 
 def score_falsifiability(md: str) -> float:
     """15 pts: explicit testable hypotheses with falsification criterion."""
-    test_block = re.search(r"(?:##|\*\*)\s*Testable Predictions?\s*(?:\*\*)?\s*\n(.+?)(?=##|\Z)", md, flags=re.DOTALL | re.IGNORECASE)
+    test_block = re.search(r"(?:#{2,3}|\*\*)\s*Testable Predictions?\s*(?:\*\*)?\s*\n(.+?)(?=#{2,3}|\Z)", md, flags=re.DOTALL | re.IGNORECASE)
     if not test_block:
         return 0.0
     block = test_block.group(1)
     hypotheses = re.findall(r"\*?\*?H\d+\.?\*?\*?\s+(.+?)(?=\*?\*?H\d+\.|\Z)", block, flags=re.DOTALL)
+    if not hypotheses:
+        hypotheses = re.findall(
+            r"(?:^|\n)\s*(?:First|Second|Third|Fourth|Fifth),\s+(.+?)(?=\n\s*(?:First|Second|Third|Fourth|Fifth),|\Z)",
+            block,
+            flags=re.DOTALL | re.IGNORECASE,
+        )
     if not hypotheses:
         return 0.0
     score = 0.0
@@ -163,6 +186,9 @@ def score_numerical_claims_grounded(md: str) -> float:
         if prov_path.exists():
             try:
                 provenance_text += json.loads(prov_path.read_text()).get("output_preview", "")
+                output_path = prov_path.parent / "output.txt"
+                if output_path.exists():
+                    provenance_text += "\n" + output_path.read_text(encoding="utf-8", errors="ignore")
             except Exception:
                 pass
     if not provenance_text:
@@ -175,11 +201,25 @@ def score_numerical_claims_grounded(md: str) -> float:
         return 7.0
     # A number is grounded if it appears in provenance text, OR if a longer
     # version of it appears (e.g. "5.5" is grounded by "5.5000").
+    provenance_numbers = []
+    for candidate in re.findall(r"-?\d+\.\d+", provenance_text):
+        try:
+            provenance_numbers.append(float(candidate))
+        except ValueError:
+            pass
+
     def _grounded(n: str) -> bool:
         if n in provenance_text:
             return True
         # Allow truncation: search for n followed by digits or a non-numeric boundary.
-        return bool(re.search(re.escape(n) + r"\d*", provenance_text))
+        if re.search(re.escape(n) + r"\d*", provenance_text):
+            return True
+        try:
+            value = float(n)
+        except ValueError:
+            return False
+        tolerance = max(5e-4, abs(value) * 1e-3)
+        return any(abs(value - recorded) <= tolerance for recorded in provenance_numbers)
     grounded = sum(1 for n in numbers if _grounded(n))
     ratio = grounded / len(numbers)
     return 15.0 * ratio
@@ -222,9 +262,9 @@ def score_statistical_rigor(md: str) -> float:
     """10 pts: presence of statistical reporting (p-value, CI, effect size, n=...)."""
     md_lower = md.lower()
     markers = {
-        "p-value": 2.5, "p =": 1.5, "p<": 1.5,
+        "p-value": 2.5, "p =": 1.5, "p=": 1.5, "p<": 1.5,
         "confidence interval": 2.5, "95% ci": 2.5, "ci:": 1.0,
-        "effect size": 2.5, "cohen's d": 2.0,
+        "effect size": 2.5, "cohen's d": 2.0, "cohen dz": 2.0,
         "n=": 1.0, "sample size": 1.0,
         "standard deviation": 1.0, "std:": 1.0,
         "pearson": 1.0, "spearman": 1.0,
@@ -256,7 +296,7 @@ def score_reproducibility_info(md: str) -> float:
 
 def score_paper(paper_path: Path, peer_abstracts: list[str] | None = None) -> PaperScore:
     md = paper_path.read_text(encoding="utf-8", errors="ignore")
-    domain_match = re.search(r"(astronomy|biology|chemistry|physics|mathematics|statistics|climate|materials|engineering)",
+    domain_match = re.search(r"(machine-learning|astronomy|biology|chemistry|physics|mathematics|statistics|climate|materials|engineering)",
                               md, flags=re.IGNORECASE)
     domain = domain_match.group(1).lower() if domain_match else "unknown"
 

@@ -52,10 +52,23 @@ def _provenance_output_hash(experiment_id: str) -> str | None:
 
 
 class PaperGenerator:
-    def __init__(self, reasoning_engine=None, enhance: bool = True):
+    def __init__(
+        self,
+        reasoning_engine=None,
+        enhance: bool = True,
+        include_internal_review: bool = False,
+        output_dir: Path | str | None = None,
+    ):
         self.reasoning = reasoning_engine
         self.enhance = enhance
+        self.include_internal_review = include_internal_review
         self._enhancer = PaperEnhancer()
+        # Where generated papers (and their rejected counterparts) are written.
+        # Defaults to the package-level PAPERS_DIR; pass output_dir to give a
+        # run its own cohort folder (e.g. papers/e2e_v2/).
+        self.papers_dir = Path(output_dir) if output_dir else PAPERS_DIR
+        self.papers_dir.mkdir(parents=True, exist_ok=True)
+        self.rejected_dir = self.papers_dir / "rejected"
 
     async def generate_paper(
         self,
@@ -96,10 +109,11 @@ class PaperGenerator:
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         slug = _sanitize_filename(title)
-        md_path = PAPERS_DIR / f"{slug}_{timestamp}.md"
-        pdf_path = PAPERS_DIR / f"{slug}_{timestamp}.pdf"
+        md_path = self.papers_dir / f"{slug}_{timestamp}.md"
+        pdf_path = self.papers_dir / f"{slug}_{timestamp}.pdf"
+        tex_path = self.papers_dir / f"{slug}_{timestamp}.tex"
 
-        md_content = self._build_markdown(title, abstract, sections, references, knowledge_facts, experiment_ids)
+        md_content = self._build_markdown(title, abstract, sections, references, knowledge_facts, experiment_ids, tool_results)
 
         # Run factual verifiers before saving
         citation_v = CitationVerifier()
@@ -114,8 +128,8 @@ class PaperGenerator:
 
         gate = self._prepublication_gate(md_content, experiment_ids or [])
         if not gate["passed"]:
-            REJECTED_PAPERS_DIR.mkdir(parents=True, exist_ok=True)
-            md_path = REJECTED_PAPERS_DIR / md_path.name
+            self.rejected_dir.mkdir(parents=True, exist_ok=True)
+            md_path = self.rejected_dir / md_path.name
             md_content = self._annotate_rejected_draft(md_content, gate["reasons"])
             md_path.write_text(md_content, encoding="utf-8")
             result = {
@@ -132,27 +146,55 @@ class PaperGenerator:
 
         reflection_summary = self._run_reflection_gate(md_content)
         if reflection_summary is not None:
-            md_content = reflection_summary["annotated_md"]
+            if self.include_internal_review:
+                md_content = reflection_summary["annotated_md"]
             log.info("paper_generator.reflection_done",
                      score=reflection_summary["score"],
                      pass_overall=reflection_summary["pass_overall"],
                      n_high=reflection_summary["n_high"])
 
-        md_content = self._append_watermark(md_content, title)
+        md_content = self._append_watermark(
+            md_content,
+            title,
+            includes_internal_review=self.include_internal_review,
+        )
 
         md_path.write_text(md_content, encoding="utf-8")
         log.info("paper_generator.markdown_written", path=str(md_path), chars=len(md_content))
 
+        review_path = None
+        if reflection_summary is not None and not self.include_internal_review:
+            review_path = md_path.with_suffix(".review.json")
+            review_path.write_text(
+                json.dumps(
+                    {
+                        "score": reflection_summary["score"],
+                        "pass_overall": reflection_summary["pass_overall"],
+                        "n_high": reflection_summary["n_high"],
+                        "n_medium": reflection_summary["n_medium"],
+                        "n_low": reflection_summary["n_low"],
+                        "issues": reflection_summary["issues"],
+                    },
+                    indent=2,
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+            log.info("paper_generator.review_sidecar_written", path=str(review_path))
+
         pdf_ok = await self._render_pdf(md_content, pdf_path, title, abstract, sections, references)
+        tex_ok = await self._render_latex(tex_path, title, abstract, sections, references)
 
         result = {
             "title": title,
             "markdown_path": str(md_path),
             "pdf_path": str(pdf_path) if pdf_ok else None,
+            "latex_path": str(tex_path) if tex_ok else None,
             "word_count": len(md_content.split()),
             "sections": len(sections),
             "publication_status": "published",
             "rejection_reasons": [],
+            "internal_review_path": str(review_path) if review_path else None,
         }
         log.info("paper_generator.paper_complete", **result)
         return result
@@ -186,7 +228,11 @@ class PaperGenerator:
         return {"passed": not reasons, "reasons": reasons}
 
     @staticmethod
-    def _append_watermark(md_content: str, title: str) -> str:
+    def _append_watermark(
+        md_content: str,
+        title: str,
+        includes_internal_review: bool = False,
+    ) -> str:
         """Append a machine-readable watermark identifying this paper as A.M.Y-generated.
 
         The watermark serves two purposes:
@@ -206,6 +252,12 @@ class PaperGenerator:
         body_hash = _hashlib.sha256(md_content.encode("utf-8")).hexdigest()
         ts = _dt.now(_tz.utc).isoformat()
 
+        review_note = (
+            "embedded_in_manuscript"
+            if includes_internal_review
+            else "external_sidecar_when_available"
+        )
+
         watermark = (
             "\n\n---\n\n"
             "## Provenance Watermark\n\n"
@@ -218,7 +270,7 @@ class PaperGenerator:
             f"generated_at: {ts}\n"
             f"body_sha256: {body_hash}\n"
             "homepage: https://github.com/Ganador1/amy\n"
-            "self_review: This document carries a Self-Review (Reflection Agent) section above.\n"
+            f"self_review: {review_note}\n"
             "verification: Each cited experiment_id resolves to data/experiments/<id>/provenance.json with a SHA-256 hash of the full tool output.\n"
             "-->\n"
         )
@@ -268,6 +320,7 @@ class PaperGenerator:
             "n_high": result.annotations["n_high"],
             "n_medium": result.annotations["n_medium"],
             "n_low": result.annotations["n_low"],
+            "issues": result.issues,
         }
 
     @staticmethod
@@ -400,6 +453,17 @@ class PaperGenerator:
                 "hypotheses against published evidence."
             ),
         },
+        "machine-learning": {
+            "classification": "ACM CCS: Computing methodologies > Machine learning; Information theory",
+            "keywords": "machine learning, information bottleneck, representation learning, neural networks, reproducibility",
+            "intro_boilerplate": (
+                "Machine-learning research increasingly depends on reproducible experimental protocols, "
+                "negative controls, and explicit uncertainty reporting. Information-theoretic analyses "
+                "of neural representations are especially sensitive to estimator choice and benchmark "
+                "design, so provenance-backed computational studies must distinguish diagnostic signals "
+                "from broad theoretical claims."
+            ),
+        },
     }
 
     def _detect_domain(self, title: str, sections: list[dict], experiment_ids: list[str] | None) -> str:
@@ -425,6 +489,7 @@ class PaperGenerator:
             "neuroscience": ["neural", "synaptic", "brain", "neuron", "plasticity", "memory"],
             "climate": ["climate", "temperature", "global warming", "co2", "atmospheric"],
             "engineering": ["additive manufacturing", "3d printing", "finite element", "structural"],
+            "machine-learning": ["information bottleneck", "relu", "neural network", "representation learning", "held-out", "label-shuffled"],
         }
         
         scores = {}
@@ -445,6 +510,7 @@ class PaperGenerator:
         references: list[str] | None,
         knowledge_facts: list[dict] | None,
         experiment_ids: list[str] | None,
+        tool_results: list[dict] | None = None,
     ) -> str:
         now = datetime.now().strftime("%B %d, %Y")
         
@@ -487,6 +553,42 @@ class PaperGenerator:
                 clean_content = self._strip_emojis(content)
                 lines.append(f"## {heading}")
                 lines.append("")
+                
+                # If this is the Results section and we have tool_results, format evidence grades
+                if "results" in heading_lower and tool_results:
+                    evidence_grade_tools = []
+                    heuristic_tools = []
+                    
+                    for r in tool_results:
+                        tool_name = r.get("tool", "unknown")
+                        # Real/local/evidence tools
+                        if any(k in tool_name.lower() for k in ["pyscf", "sympy", "scipy", "astropy", "ase", "pymatgen"]):
+                            evidence_grade_tools.append(r)
+                        elif "search" in tool_name.lower() or "literature" in tool_name.lower():
+                            evidence_grade_tools.append(r)
+                        else:
+                            heuristic_tools.append(r)
+                    
+                    if evidence_grade_tools:
+                        lines.append("### Evidence-grade results")
+                        lines.append("")
+                        for r in evidence_grade_tools:
+                            lines.append(f"**Tool:** `{r.get('tool', 'unknown')}`")
+                            lines.append(f"```text\n{str(r.get('result', ''))[:1000]}...\n```")
+                        lines.append("")
+                    
+                    if heuristic_tools:
+                        lines.append("### Heuristic/demo results")
+                        lines.append("")
+                        for r in heuristic_tools:
+                            lines.append(f"**Tool:** `{r.get('tool', 'unknown')}`")
+                            lines.append(f"```text\n{str(r.get('result', ''))[:1000]}...\n```")
+                        lines.append("")
+                    
+                    # Also include the original results text for narrative context
+                    lines.append("### Summary Analysis")
+                    lines.append("")
+                    
                 lines.append(clean_content)
                 lines.append("")
 
@@ -732,6 +834,99 @@ class PaperGenerator:
         except Exception as e:
             log.error("paper_generator.pdf_error", error=str(e))
             return False
+
+    async def _render_latex(
+        self,
+        tex_path: Path,
+        title: str,
+        abstract: str,
+        sections: list[dict],
+        references: list[str] | None,
+    ) -> bool:
+        """Render paper to LaTeX format."""
+        try:
+            lines = [
+                "\\documentclass[11pt,a4paper]{article}",
+                "\\usepackage[utf8]{inputenc}",
+                "\\usepackage[T1]{fontenc}",
+                "\\usepackage{amsmath,amssymb,amsfonts}",
+                "\\usepackage{geometry}",
+                "\\geometry{a4paper, margin=2.5cm}",
+                "\\usepackage{hyperref}",
+                "\\usepackage{graphicx}",
+                "\\usepackage{authblk}",
+                "\\usepackage{xcolor}",
+                "",
+                f"\\title{{{self._escape_latex(title)}}}",
+                "\\author{A.M.Y Computational Research System\\\\",
+                "\\small AXIOM Atlas Platform, Autonomous Computational Research}",
+                "\\date{\\today}",
+                "",
+                "\\begin{document}",
+                "\\maketitle",
+                "",
+                "\\begin{abstract}",
+                self._escape_latex(abstract),
+                "\\end{abstract}",
+                "",
+            ]
+
+            for sec in sections:
+                heading = sec.get("heading", "")
+                content = sec.get("content", "")
+                if heading:
+                    lines.append(f"\\section{{{self._escape_latex(heading)}}}")
+                
+                in_list = False
+                for para in content.split("\n\n"):
+                    para = para.strip()
+                    if not para:
+                        continue
+                    if para.startswith("- ") or para.startswith("* "):
+                        if not in_list:
+                            lines.append("\\begin{itemize}")
+                            in_list = True
+                        for item in para.split("\n"):
+                            item = item.lstrip("-* ").strip()
+                            if item:
+                                lines.append(f"\\item {self._escape_latex(item)}")
+                    else:
+                        if in_list:
+                            lines.append("\\end{itemize}")
+                            in_list = False
+                        lines.append(self._escape_latex(para))
+                        lines.append("")
+                
+                if in_list:
+                    lines.append("\\end{itemize}")
+                    lines.append("")
+                lines.append("")
+
+            if references:
+                lines.append("\\begin{thebibliography}{99}")
+                for i, ref in enumerate(references, 1):
+                    lines.append(f"\\bibitem{{ref{i}}} {self._escape_latex(ref)}")
+                lines.append("\\end{thebibliography}")
+
+            lines.append("\\end{document}")
+            
+            tex_content = "\n".join(lines)
+            tex_path.write_text(tex_content, encoding="utf-8")
+            log.info("paper_generator.latex_written", path=str(tex_path))
+            return True
+        except Exception as e:
+            log.error("paper_generator.latex_error", error=str(e))
+            return False
+
+    @staticmethod
+    def _escape_latex(text: str) -> str:
+        """Escape minimal characters for LaTeX while preserving math."""
+        text = text.replace("%", "\\%").replace("&", "\\&").replace("#", "\\#")
+        
+        # Replace Markdown bold/italic
+        text = re.sub(r"\*\*([^*]+)\*\*", r"\\textbf{\1}", text)
+        text = re.sub(r"\*([^*]+)\*", r"\\textit{\1}", text)
+        return text
 
     async def generate_from_llm(
         self,

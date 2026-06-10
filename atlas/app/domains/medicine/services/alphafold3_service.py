@@ -19,6 +19,7 @@ Consulta la guía: ETHICS_AND_SAFETY.md
 """
 
 import asyncio
+import os
 import requests
 import json
 from typing import Dict, List, Any, Optional, Tuple
@@ -141,26 +142,49 @@ class AlphaFold3ProteinStructureService(BaseService):
     
     async def _simulate_alphafold_prediction(self, sequence: str) -> Dict[str, Any]:
         """
-        Simulate AlphaFold 3 prediction (placeholder for actual API call)
+        DEMO-ONLY mock of an AlphaFold 3 prediction.
+
+        IMPORTANT (public-release honesty): this returns RANDOM, fabricated
+        pLDDT scores and a one-atom placeholder PDB — it does NOT predict any
+        real structure. A genuine implementation (EBI AlphaFold DB + AlphaFold
+        Server API + BioPython/RDKit) lives in
+        ``atlas/app/domains/medicine/personalized/alphafold3_service.py`` and is
+        what the FastAPI router uses; prefer that one.
+
+        To prevent fabricated confidences from silently flowing into downstream
+        ranking (e.g. the autonomous drug-discovery loop), this fails closed by
+        default. Set ``AMY_ALLOW_MOCK_ALPHAFOLD=1`` to opt into demo data, which
+        is then clearly tagged ``"mock": True``.
         """
+        if os.getenv("AMY_ALLOW_MOCK_ALPHAFOLD", "").lower() not in ("1", "true", "yes"):
+            return {
+                "success": False,
+                "error": (
+                    "AlphaFold 3 prediction is not available in this service: it "
+                    "is a demo mock that fabricates random pLDDT scores. Use "
+                    "atlas/app/domains/medicine/personalized/alphafold3_service.py "
+                    "(real EBI AlphaFold DB + AlphaFold Server API), or set "
+                    "AMY_ALLOW_MOCK_ALPHAFOLD=1 to get clearly-labelled demo data."
+                ),
+                "mock": True,
+            }
+
         await asyncio.sleep(2)  # Simulate processing time
-        
-        # Generate mock pLDDT scores (per-residue confidence)
+
+        # DEMO ONLY: random pLDDT scores — NOT a real prediction.
         import random
         plddt_scores = [random.uniform(60, 95) for _ in range(len(sequence))]
-        
-        # Overall confidence based on average pLDDT
         overall_confidence = sum(plddt_scores) / len(plddt_scores)
-        
-        # Mock PDB structure data (simplified)
-        pdb_data = f"""HEADER    PROTEIN                             {datetime.now().strftime('%d-%b-%y')}   AF3P
-TITLE     ALPHAFOLD 3 PREDICTION
+        pdb_data = f"""HEADER    PROTEIN (MOCK/DEMO — NOT A REAL PREDICTION)   {datetime.now().strftime('%d-%b-%y')}   AF3P
+TITLE     ALPHAFOLD 3 MOCK PREDICTION (FABRICATED — DEMO ONLY)
 REMARK 350 CONFIDENCE: {overall_confidence:.2f}
 ATOM      1  CA  ALA A   1      1.000   1.000   1.000  1.00 {plddt_scores[0]:.2f}           C
 END"""
-        
+
         return {
             "success": True,
+            "mock": True,
+            "prediction_method": "mock_demo",
             "structure_id": self._generate_structure_id(sequence),
             "confidence": overall_confidence,
             "plddt_scores": plddt_scores,

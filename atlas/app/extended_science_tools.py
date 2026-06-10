@@ -303,6 +303,7 @@ EXTENDED_TOOLS = [
         "function": astropy_constants,
         "input_format": "constant_name (e.g. 'G', 'c', 'M_sun')",
         "output_format": "value, unit, reference, uncertainty",
+        "evidence_grade": "real_local",
     },
     {
         "name": "astropy_unit_convert",
@@ -311,6 +312,7 @@ EXTENDED_TOOLS = [
         "function": astropy_unit_convert,
         "input_format": "value:from_unit:to_unit",
         "output_format": "converted_value with unit",
+        "evidence_grade": "real_local",
     },
     {
         "name": "astropy_cosmology",
@@ -319,6 +321,7 @@ EXTENDED_TOOLS = [
         "function": astropy_cosmology,
         "input_format": "operation:redshift",
         "output_format": "distance/time with H_0, Omega_m, Omega_L context",
+        "evidence_grade": "real_local",
     },
     {
         "name": "astropy_blackbody",
@@ -327,6 +330,7 @@ EXTENDED_TOOLS = [
         "function": astropy_blackbody,
         "input_format": "temperature_K (e.g. '5778' for Sun)",
         "output_format": "Wien peaks + Stefan-Boltzmann emittance",
+        "evidence_grade": "real_local",
     },
     {
         "name": "pyscf_hf_energy",
@@ -335,6 +339,7 @@ EXTENDED_TOOLS = [
         "function": pyscf_hf_energy,
         "input_format": "'atom1 x y z; atom2 x y z;basis=sto-3g'",
         "output_format": "total energy (Ha), HOMO, LUMO, gap (eV)",
+        "evidence_grade": "real_local",
     },
     {
         "name": "pyscf_dft_energy",
@@ -343,6 +348,7 @@ EXTENDED_TOOLS = [
         "function": pyscf_dft_energy,
         "input_format": "'atom1 x y z; atom2 x y z;basis=sto-3g'",
         "output_format": "total energy (Ha) + convergence",
+        "evidence_grade": "real_local",
     },
     {
         "name": "ase_optimize",
@@ -351,6 +357,7 @@ EXTENDED_TOOLS = [
         "function": ase_optimize,
         "input_format": "molecule_name from ASE collection (H2, H2O, CH4, ...)",
         "output_format": "initial/final energy + optimized positions",
+        "evidence_grade": "real_local",
     },
     {
         "name": "ase_thermochemistry",
@@ -359,6 +366,7 @@ EXTENDED_TOOLS = [
         "function": ase_thermochemistry,
         "input_format": "molecule_name:temperature_K",
         "output_format": "potential energy + Gibbs free energy",
+        "evidence_grade": "real_local",
     },
     {
         "name": "pymatgen_structure",
@@ -367,6 +375,7 @@ EXTENDED_TOOLS = [
         "function": pymatgen_structure,
         "input_format": "material_name (Si, NaCl, TiO2, Cu)",
         "output_format": "composition, lattice constant, volume, density",
+        "evidence_grade": "real_local",
     },
 ]
 
@@ -390,6 +399,7 @@ def register_extended_tools(registry):
             function=spec["function"],
             input_format=spec["input_format"],
             output_format=spec["output_format"],
+            evidence_grade=spec.get("evidence_grade", "heuristic")
         ))
         count += 1
     return count

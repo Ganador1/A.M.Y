@@ -103,6 +103,15 @@ class ToolMapping:
     mapped_parameters: Dict[str, Any]
     confidence: float
     alternative_tools: List[Dict[str, Any]] = field(default_factory=list)
+    # Required tool inputs that could NOT be resolved from the source method.
+    # Non-empty means this step cannot be faithfully reproduced as-is; the
+    # engine must NOT fabricate substitute values to fill these.
+    unresolved_parameters: List[str] = field(default_factory=list)
+
+    @property
+    def is_reproducible(self) -> bool:
+        """True only when every required parameter was resolved from real data."""
+        return not self.unresolved_parameters
 
 
 @dataclass
@@ -422,13 +431,15 @@ class ToolMapper:
             for dom, tools in available_tools.items():
                 for tool in tools:
                     if tool["tool"] == step.tool_hint:
+                        mapped, unresolved = self._extract_parameters(step, tool)
                         return ToolMapping(
                             step_number=step.step_number,
                             tool_domain=dom,
                             tool_name=tool["tool"],
                             method=tool.get("methods", ["default"])[0],
-                            mapped_parameters=self._extract_parameters(step, tool),
-                            confidence=0.9
+                            mapped_parameters=mapped,
+                            confidence=0.9,
+                            unresolved_parameters=unresolved,
                         )
         
         # Otherwise, find best match
@@ -459,28 +470,44 @@ class ToolMapper:
         
         if best_match and best_score > 0.3:
             dom, tool = best_match
+            mapped, unresolved = self._extract_parameters(step, tool)
             return ToolMapping(
                 step_number=step.step_number,
                 tool_domain=dom,
                 tool_name=tool["tool"],
                 method=tool.get("methods", ["default"])[0],
-                mapped_parameters=self._extract_parameters(step, tool),
-                confidence=min(best_score, 1.0)
+                mapped_parameters=mapped,
+                confidence=min(best_score, 1.0),
+                unresolved_parameters=unresolved,
             )
         
         return None
     
-    def _extract_parameters(self, step: MethodStep, tool: ExtractParametersResult) -> ExtractParametersResult:
-        """Extract parameters for tool from step"""
-        params = {}
-        
+    def _extract_parameters(self, step: MethodStep, tool: ExtractParametersResult) -> tuple[dict, list[str]]:
+        """Extract parameters for a tool from a method step.
+
+        Returns ``(params, unresolved)`` where ``unresolved`` lists required
+        tool inputs that could not be derived from the *actual* method.
+
+        IMPORTANT: this never fabricates substitute inputs. The previous
+        implementation injected placeholders (``smiles="C"`` = methane,
+        ``"PLACEHOLDER_PDB"``, a dummy count matrix) when a required parameter
+        was missing — which silently turned a non-reproducible step into a
+        run against fake data and reported it as a "reproduction". Instead we
+        resolve what we genuinely can (e.g. a SMILES from a named chemical via
+        RDKit) and record everything else as unresolved so the caller can skip
+        or flag the step honestly.
+        """
+        params: dict = {}
+        unresolved: list[str] = []
+
         # Copy direct parameters
         params.update(step.parameters)
-        
+
         # Map common parameters
         if "temperature" in step.parameters and "temperature" in tool.get("inputs", []):
             params["temperature"] = step.parameters["temperature"]
-        
+
         if "time" in step.parameters:
             # Convert to appropriate unit
             time_value = step.parameters["time"]
@@ -488,19 +515,56 @@ class ToolMapper:
                 params["time_ns"] = time_value * 3600 * 1e9  # Convert to nanoseconds
             elif "minutes" in step.description:
                 params["time_ns"] = time_value * 60 * 1e9
-        
-        # Add placeholder values for required params
+
+        # Resolve genuinely-derivable required params; record the rest as
+        # unresolved instead of fabricating them.
         for required in tool.get("inputs", []):
-            if required not in params:
-                if required == "smiles" and step.chemicals:
-                    # Try to find SMILES for chemicals (placeholder)
-                    params["smiles"] = "C"  # Methane as placeholder
-                elif required == "pdb_structure":
-                    params["pdb_structure"] = "PLACEHOLDER_PDB"
-                elif required == "count_matrix":
-                    params["count_matrix"] = [[1, 2], [3, 4]]  # Minimal matrix
-        
-        return params
+            if required in params:
+                continue
+            if required == "smiles":
+                resolved = self._resolve_smiles(getattr(step, "chemicals", None))
+                if resolved:
+                    params["smiles"] = resolved
+                else:
+                    unresolved.append("smiles")
+            else:
+                # pdb_structure, count_matrix, etc. cannot be invented faithfully.
+                unresolved.append(required)
+
+        return params, unresolved
+
+    @staticmethod
+    def _resolve_smiles(chemicals) -> Optional[str]:
+        """Resolve a SMILES string from named chemical(s) using real data.
+
+        Uses RDKit if available (canonical SMILES for a known name is not
+        something RDKit does directly, so we accept a SMILES given inline, or a
+        small built-in name→SMILES table for common reagents). Returns None when
+        nothing reliable can be derived — the caller must then treat the input
+        as unresolved rather than guess.
+        """
+        if not chemicals:
+            return None
+        # Common reagents only — deliberately small and explicit. Anything not
+        # here is left unresolved rather than approximated.
+        known = {
+            "water": "O", "methane": "C", "ethanol": "CCO", "methanol": "CO",
+            "benzene": "c1ccccc1", "acetone": "CC(=O)C", "co2": "O=C=O",
+            "carbon dioxide": "O=C=O", "ammonia": "N", "acetic acid": "CC(=O)O",
+        }
+        for chem in (chemicals if isinstance(chemicals, (list, tuple)) else [chemicals]):
+            name = str(chem).strip().lower()
+            if name in known:
+                return known[name]
+            # If the caller already passed a SMILES-looking token, validate it.
+            try:
+                from rdkit import Chem  # type: ignore
+                mol = Chem.MolFromSmiles(str(chem))
+                if mol is not None:
+                    return Chem.MolToSmiles(mol)
+            except Exception:
+                pass
+        return None
 
 
 class PerturbationEngine:
@@ -760,6 +824,29 @@ class ActiveReproducibilityEngine(BaseService):
                 variation_results = []
                 
                 for mapping in variation:
+                    # Honesty gate: never execute a step against fabricated
+                    # inputs. If a required parameter could not be resolved from
+                    # the real method, record the step as unreproducible instead
+                    # of running it with placeholder data.
+                    if not mapping.is_reproducible:
+                        msg = (f"Step {mapping.step_number} not reproducible: "
+                               f"unresolved required parameter(s) "
+                               f"{mapping.unresolved_parameters} — skipped (no "
+                               f"placeholder substitution).")
+                        logger.warning(msg)
+                        if msg not in attempt.issues:
+                            attempt.issues.append(msg)
+                        variation_results.append(ExperimentalResult(
+                            experiment_id=f"skipped_{i}_{mapping.step_number}",
+                            domain=mapping.tool_domain,
+                            tool_name=mapping.tool_name,
+                            method=mapping.method,
+                            inputs=mapping.mapped_parameters,
+                            outputs={},
+                            metrics={},
+                            errors=[f"unresolved_parameters: {mapping.unresolved_parameters}"]
+                        ))
+                        continue
                     try:
                         result = await hub.execute_experiment(
                             domain=mapping.tool_domain,

@@ -28,13 +28,19 @@ from dataclasses import dataclass, field, asdict
 from typing import Callable
 
 
+# Initial Elo for a newly added hypothesis. Matches the Google AI Co-Scientist
+# paper (arXiv:2502.18864, §3.3.3): "We set the initial Elo rating of 1200 for
+# the newly added hypothesis."
+INITIAL_ELO = 1200.0
+
+
 @dataclass
 class HypothesisRecord:
     hypothesis: str
     domain: str = ""
     novelty_status: str = ""
     confidence: float = 0.5
-    elo: float = 1500.0
+    elo: float = INITIAL_ELO
     wins: int = 0
     losses: int = 0
     draws: int = 0
@@ -181,16 +187,23 @@ def select_top_k(hypotheses: list[dict], k: int = 3, seed: int = 42) -> list[dic
 
 # ── LLM-backed judge ──────────────────────────────────────────────────────────
 
-LLM_JUDGE_PROMPT = """You are an impartial scientific reviewer. You will be shown two candidate hypotheses generated from the same computational experiments. Judge which is the better hypothesis to investigate further.
+# Pairwise comparison via simulated scientific debate. This follows the Google
+# AI Co-Scientist Ranking agent (arXiv:2502.18864, §3.3.3), which compares two
+# hypotheses through a debate "focused on novelty, correctness, and testability"
+# and "concludes each comparison with a decision regarding which hypothesis is
+# better." We ask the model to hold a short debate before deciding, which the
+# paper reports mitigates ordering bias and improves discrimination.
+LLM_JUDGE_PROMPT = """You are two impartial scientific reviewers holding a brief debate to decide which of two candidate hypotheses is the better one to investigate further. Both hypotheses were generated from the same computational experiments.
 
-Criteria (in priority order):
-1. Falsifiability — the hypothesis specifies a concrete test or measurement.
-2. Specificity — names quantities, ranges, thresholds, not vague claims.
-3. Novelty — is this a candidate discovery, or is it a known control / textbook result?
-4. Effect size — would the experiment, if successful, change scientific understanding meaningfully?
-5. Reproducibility — could an independent researcher run the test?
+Compare them on three criteria, in priority order (from the AI co-scientist ranking protocol):
+1. Correctness — is the hypothesis scientifically sound and consistent with what the experiments actually show? Penalise claims that overreach the evidence.
+2. Novelty — is this a genuine candidate discovery, or a known control / textbook result restated?
+3. Testability — does it specify a concrete, falsifiable test (named quantities, ranges, thresholds, a procedure an independent researcher could run)?
 
-Output strictly a JSON object: {"winner": "A" or "B", "rationale": "<one-sentence reason>", "score_a": <0-1>, "score_b": <0-1>}.
+First hold a 2-3 turn debate: Reviewer 1 argues for A, Reviewer 2 argues for B, then they reconcile. Then output your decision.
+
+Output STRICTLY a single JSON object and nothing else:
+{{"debate": "<2-3 sentence exchange>", "winner": "A" or "B", "rationale": "<one-sentence reason>", "score_a": <0.0-1.0>, "score_b": <0.0-1.0>}}
 
 Hypothesis A:
 {hyp_a}
@@ -198,6 +211,30 @@ Hypothesis A:
 Hypothesis B:
 {hyp_b}
 """
+
+
+def _build_ranking_client():
+    """Construct an OllamaCloudClient for the LLM judge.
+
+    The client requires a config dict (base_url + keys come from env/.env).
+    Passing nothing raises TypeError, which previously made the LLM judge
+    silently fall back to the heuristic on every call. We load the base_url
+    from config.yaml when available and let the client read API keys from the
+    environment.
+    """
+    from core.ollama_client import OllamaCloudClient
+    cfg = {"base_url": "https://ollama.com/api"}
+    try:
+        import yaml
+        cfg_path = os.path.join(os.path.dirname(__file__), "..", "config.yaml")
+        with open(cfg_path) as f:
+            full = yaml.safe_load(f) or {}
+        llm_cfg = full.get("llm", {})
+        if llm_cfg.get("base_url"):
+            cfg["base_url"] = llm_cfg["base_url"]
+    except Exception:
+        pass
+    return OllamaCloudClient(cfg)
 
 
 async def llm_judge(
@@ -215,9 +252,9 @@ async def llm_judge(
     """
     if client is None:
         try:
-            from core.ollama_client import OllamaCloudClient
-            client = OllamaCloudClient()
+            client = _build_ranking_client()
         except Exception:
+            # No API keys / no config — heuristic is the honest fallback.
             return heuristic_judge(a, b)
 
     if model is None:
@@ -235,10 +272,14 @@ async def llm_judge(
     prompt = LLM_JUDGE_PROMPT.format(hyp_a=a.hypothesis, hyp_b=b.hypothesis)
     messages = [{"role": "user", "content": prompt}]
     try:
+        # think=False: glm-class thinking models burn the whole num_predict on
+        # their hidden trace under format_json and return EMPTY content, which
+        # silently degraded this judge to the heuristic on every call (same
+        # root cause as the evolution-agent incident).
         resp = await asyncio.wait_for(
             client.chat(model=model, messages=messages, temperature=0.0,
-                        max_tokens=400, format_json=True),
-            timeout=30.0,
+                        max_tokens=600, format_json=True, think=False),
+            timeout=45.0,
         )
         content = resp.get("message", {}).get("content", "")
         # Strip code fences if any

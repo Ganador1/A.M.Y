@@ -119,9 +119,17 @@ class OllamaCloudClient:
         stream: bool = False,
         format_json: bool = False,
         num_ctx: int | None = None,
+        think: bool | None = None,
     ) -> dict:
         """
         Send a chat completion request to Ollama Cloud.
+
+        ``think=False`` disables the reasoning trace on thinking models
+        (glm-5.1 etc.). This matters for structured-output calls: a thinking
+        model can burn the entire ``num_predict`` budget on its hidden trace
+        and return an EMPTY ``content`` (we observed eval_count == max_tokens
+        with 9k chars of thinking and 7 chars of content), which downstream
+        JSON parsing reads as a failure.
 
         Returns the full response dict with 'message' containing the assistant reply.
         """
@@ -138,6 +146,8 @@ class OllamaCloudClient:
             payload["options"]["num_ctx"] = num_ctx
         if format_json:
             payload["format"] = "json"
+        if think is not None:
+            payload["think"] = think
 
         # Try with failover
         last_error = None

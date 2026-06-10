@@ -261,34 +261,113 @@ class FormalVerificationService(BaseService):
             return {"valid": False, "steps": [f"SymPy error: {str(e)}"]}
     
     async def _verify_with_lean(self, statement: str, proof: Optional[str]) -> VerifyWithLeanResult:
-        """Verify using Lean theorem prover (placeholder for future implementation)"""
+        """Verify a theorem with the Lean 4 theorem prover.
+
+        This runs the *real* Lean kernel on a generated source file when a Lean
+        toolchain is available on the system. Critically, when Lean is NOT
+        installed, or no proof is supplied, this returns ``valid=False`` with an
+        explicit reason — it never rubber-stamps an unchecked statement as
+        valid. (The previous implementation returned ``valid=True`` regardless,
+        which silently asserted that arbitrary statements were formally proven.)
+        """
+        steps: list[str] = []
+
+        lean_bin = self._find_lean_binary()
+        if not lean_bin:
+            steps.append("Lean toolchain not found on PATH (looked for `lean`/`lake`).")
+            steps.append("Cannot perform formal verification — install Lean 4 to enable this backend.")
+            return {"valid": False, "verified": False, "steps": steps,
+                    "reason": "lean_unavailable"}
+
+        if not proof or not proof.strip():
+            steps.append("No proof term provided.")
+            steps.append("Lean requires an explicit proof; cannot verify the statement alone.")
+            return {"valid": False, "verified": False, "steps": steps,
+                    "reason": "no_proof"}
+
+        # Build a minimal Lean source file. The statement is expected to be a
+        # Lean proposition and the proof a Lean term/tactic block. We import
+        # Mathlib if present; otherwise a bare theorem still type-checks for
+        # core-logic goals.
+        source = self._build_lean_source(statement, proof)
+        steps.append("Generated Lean source file from statement + proof.")
+
         try:
-            # Placeholder for Lean integration
-            # In practice, would use lean4py or similar interface
-            
-            steps = [
-                "Formatted statement for Lean",
-                "Checked proof structure",
-                "Validated with Lean kernel"
-            ]
-            
-            # Simulate Lean verification based on proof presence
-            if proof and len(proof) > 20:
-                steps.extend([
-                    "Proof provided and substantial",
-                    "Lean verification successful"
-                ])
-                return {"valid": True, "steps": steps}
-            else:
-                steps.extend([
-                    "No substantial proof provided",
-                    "Statement structure appears valid"
-                ])
-                return {"valid": True, "steps": steps}
-                
-        except BiologyError as e:
+            ok, detail = await self._run_lean(lean_bin, source)
+        except Exception as e:  # subprocess / IO failure
             logger.error(f"Lean verification error: {e}")
-            return {"valid": False, "steps": [f"Lean error: {str(e)}"]}
+            return {"valid": False, "verified": False,
+                    "steps": steps + [f"Lean execution error: {e}"],
+                    "reason": "lean_error"}
+
+        if ok:
+            steps.append("Lean kernel type-checked the proof with no errors.")
+            steps.append("Theorem verified.")
+            return {"valid": True, "verified": True, "steps": steps}
+        else:
+            steps.append("Lean reported errors while checking the proof:")
+            steps.append(detail.strip()[:2000] if detail else "(no diagnostics captured)")
+            return {"valid": False, "verified": False, "steps": steps,
+                    "reason": "proof_rejected", "diagnostics": detail[:2000] if detail else ""}
+
+    @staticmethod
+    def _find_lean_binary() -> Optional[str]:
+        """Return a usable Lean executable path, or None if Lean isn't installed."""
+        import shutil
+        for name in ("lean", "lake"):
+            path = shutil.which(name)
+            if path:
+                return path
+        return None
+
+    @staticmethod
+    def _build_lean_source(statement: str, proof: str) -> str:
+        """Assemble a Lean 4 source file from a statement and proof.
+
+        If the caller already provides a full theorem declaration, use it as-is;
+        otherwise wrap the statement/proof into a `theorem` declaration.
+        """
+        text = statement.strip()
+        if "theorem" in text or "lemma" in text or "example" in text:
+            # Caller supplied a full declaration; trust it (proof may be inline).
+            body = text
+            if proof and proof.strip() and ":=" not in text:
+                body = f"{text} := by\n  {proof.strip()}"
+        else:
+            body = f"theorem amy_goal : {text} := by\n  {proof.strip()}"
+        # `import Mathlib` is optional — guarded so a non-Mathlib install still
+        # checks core-logic proofs. Lean ignores a failed import only if absent,
+        # so we keep the file minimal and let `_run_lean` surface real errors.
+        return body + "\n"
+
+    @staticmethod
+    async def _run_lean(lean_bin: str, source: str, timeout: float = 60.0) -> tuple[bool, str]:
+        """Run Lean on the given source. Returns (success, diagnostics)."""
+        import asyncio
+        import os
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as tmp:
+            lean_file = os.path.join(tmp, "amy_goal.lean")
+            with open(lean_file, "w", encoding="utf-8") as f:
+                f.write(source)
+
+            # `lean <file>` exits 0 and prints nothing on success; non-zero with
+            # diagnostics on a type error or failed proof.
+            proc = await asyncio.create_subprocess_exec(
+                lean_bin, lean_file,
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE,
+            )
+            try:
+                stdout, stderr = await asyncio.wait_for(proc.communicate(), timeout=timeout)
+            except asyncio.TimeoutError:
+                proc.kill()
+                return False, f"Lean timed out after {timeout}s"
+
+            diagnostics = (stdout.decode("utf-8", "replace") + stderr.decode("utf-8", "replace")).strip()
+            success = proc.returncode == 0 and "error" not in diagnostics.lower()
+            return success, diagnostics
     
     async def generate_counterexample(
         self,
@@ -578,7 +657,7 @@ class FormalVerificationService(BaseService):
                 "status": "healthy",
                 "z3_available": True,
                 "sympy_available": True,
-                "lean_available": False,  # Placeholder
+                "lean_available": self._find_lean_binary() is not None,
                 "cache_size": len(self.verification_cache),
                 "test_verification": test_result.is_valid
             }

@@ -801,29 +801,17 @@ class AdvancedMathNLPService(BaseService):
         expr = problem.parsed_expression
         
         try:
-            # Direct evaluation
-            result = eval(expr, {"__builtins__": {}, "sqrt": lambda x: x**0.5, "pi": 3.14159265359, "e": 2.71828182846})
+            sympy_expr = sp.sympify(expr)
+            result = float(sympy_expr.evalf())
             
             return {
                 "operation": "arithmetic_calculation",
                 "expression": expr,
                 "result": result,
-                "result_type": type(result).__name__
+                "result_type": "float"
             }
-        except MathematicsError:
-            # Fallback to SymPy
-            try:
-                sympy_expr = sp.sympify(expr)
-                result = float(sympy_expr.evalf())
-                
-                return {
-                    "operation": "arithmetic_calculation",
-                    "expression": expr,
-                    "result": result,
-                    "result_type": "float"
-                }
-            except MathematicsError as e2:
-                return {"error": f"Arithmetic calculation failed: {str(e2)}"}
+        except Exception as e:
+            return {"error": f"Arithmetic calculation failed: {str(e)}"}
     
     def _solve_general_problem(self, problem: MathProblem) -> Dict[str, Any]:
         """Solve general mathematical problems"""

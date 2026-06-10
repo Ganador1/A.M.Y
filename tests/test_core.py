@@ -56,51 +56,57 @@ class TestJSONParsing:
 class TestEpisodicMemory:
     """Tests para memoria episódica."""
 
-    def test_add_and_retrieve(self):
+    @pytest.mark.asyncio
+    async def test_add_and_retrieve(self):
         memory = EpisodicMemory({"episodic_log_path": "/tmp/test_episodic.jsonl"})
-        memory.add_event("test_event", {"data": 42})
-        events = memory.get_recent_events(1)
+        await memory.record("test_event", "content", metadata={"data": 42})
+        events = await memory.get_recent(1)
         assert len(events) == 1
-        assert events[0]["type"] == "test_event"
+        assert events[0]["event_type"] == "test_event"
 
-    def test_get_recent_limits(self):
+    @pytest.mark.asyncio
+    async def test_get_recent_limits(self):
         memory = EpisodicMemory({"episodic_log_path": "/tmp/test_episodic2.jsonl"})
         for i in range(5):
-            memory.add_event(f"event_{i}", {"i": i})
-        events = memory.get_recent_events(3)
+            await memory.record(f"event_{i}", f"content {i}", metadata={"i": i})
+        events = await memory.get_recent(3)
         assert len(events) == 3
 
 
 class TestSemanticMemory:
     """Tests para memoria semántica."""
 
-    def test_add_fact(self):
+    @pytest.mark.asyncio
+    async def test_add_fact(self):
         memory = SemanticMemory({"knowledge_graph_path": "/tmp/test_kg.json"})
-        memory.add_fact("primes", "have_property", "infinite", confidence=0.9)
-        facts = memory.query_facts("primes")
+        await memory.add_fact("primes", "have_property", "infinite", confidence=0.9)
+        facts = await memory.query(subject="primes")
         assert len(facts) >= 1
 
-    def test_query_nonexistent(self):
+    @pytest.mark.asyncio
+    async def test_query_nonexistent(self):
         memory = SemanticMemory({"knowledge_graph_path": "/tmp/test_kg2.json"})
-        facts = memory.query_facts("nonexistent")
+        facts = await memory.query(subject="nonexistent")
         assert facts == []
 
 
 class TestSkillLibrary:
     """Tests para la biblioteca de skills."""
 
-    def test_add_and_retrieve(self):
+    @pytest.mark.asyncio
+    async def test_add_and_retrieve(self):
         library = SkillLibrary({"library_path": "/tmp/test_skills"})
-        library.add_skill({
-            "name": "test_skill",
-            "description": "A test skill",
-            "code": "print('hello')",
-        })
-        skills = library.retrieve_skills("test", top_k=1)
+        await library.register_skill(
+            name="test_skill",
+            description="A test skill",
+            code="print('hello')"
+        )
+        skills = await library.retrieve("test")
         assert len(skills) >= 1
         assert skills[0]["name"] == "test_skill"
 
-    def test_retrieve_empty(self):
+    @pytest.mark.asyncio
+    async def test_retrieve_empty(self):
         library = SkillLibrary({"library_path": "/tmp/test_skills_empty"})
-        skills = library.retrieve_skills("nonexistent", top_k=1)
+        skills = await library.retrieve("nonexistent")
         assert skills == []
