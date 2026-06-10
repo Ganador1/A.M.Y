@@ -121,10 +121,12 @@ class ThermalTransportEquations:
         rho = self.material_props.get('density', 7800)               # kg/m³
         cp = self.material_props.get('specific_heat', 500)           # J/(kg·K)
 
-        # Laplaciano de temperatura
-        laplacian = np.zeros_like(temperature)
-        for i in range(3):  # 3D
-            laplacian += np.gradient(np.gradient(temperature, axis=i), axis=i)
+        # Laplaciano de temperatura. The field is a flattened 1-D array over the
+        # raveled grid points, so a 3-axis gradient (the original code) raised an
+        # AxisError and the simulation never actually ran. Compute the Laplacian
+        # along the single point-index axis (∂²T/∂s²) — a real, executable
+        # diffusion term consistent with the rest of the flattened pipeline.
+        laplacian = np.gradient(np.gradient(temperature))
 
         # Ecuación completa
         dT_dt = alpha * laplacian + heat_source / (rho * cp)
@@ -237,18 +239,26 @@ class FluidDynamicsEquations:
         beta = self.material_props.get('thermal_expansion', 1e-4)  # 1/K
 
         # Término convectivo
-        convective_term = np.zeros_like(velocity)
-        for i in range(3):
-            for j in range(3):
-                convective_term[:, i] += velocity[:, j] * np.gradient(velocity[:, i], axis=j)
+        # Convective term v·∇v approximated along the point index (the fields
+        # here are flattened 1-D arrays of grid points, so a per-axis gradient is
+        # not meaningful — the original code crashed with an AxisError on this
+        # shape). Use the directional derivative along the discretisation index.
+        dv_ds = np.gradient(velocity, axis=0)  # (N,3) component-wise d/ds
+        speed = np.linalg.norm(velocity, axis=1, keepdims=True)
+        convective_term = speed * dv_ds
 
-        # Gradiente de presión
-        pressure_gradient = np.zeros_like(velocity)
-        for i in range(3):
-            pressure_gradient[:, i] = np.gradient(pressure, axis=i)
+        # Gradiente de presión (along the point index).
+        pressure_gradient = np.tile(
+            np.gradient(pressure).reshape(-1, 1), (1, 3))
 
-        # Término viscoso (simplificado)
-        viscous_term = mu * np.zeros_like(velocity)  # Placeholder
+        # Término viscoso: μ ∇²v. Approximated as μ·d²v/ds² along the point
+        # index (second finite difference) for each velocity component — a real
+        # diffusion term. Antes era un placeholder forzado a cero.
+        viscous_term = np.zeros_like(velocity)
+        for i in range(3):
+            first = np.gradient(velocity[:, i])          # 1-D along point index
+            second = np.gradient(first)                  # Laplacian proxy
+            viscous_term[:, i] = mu * second
 
         # Fuerza de flotación (Boussinesq)
         gravity = np.array([0, 0, -9.81])
@@ -260,8 +270,9 @@ class FluidDynamicsEquations:
         # Nuevo campo de velocidad
         new_velocity = velocity + dV_dt * time_step
 
-        # Ecuación de continuidad (proyección para presión)
-        divergence = np.sum(np.gradient(new_velocity, axis=0), axis=0)
+        # Ecuación de continuidad (proyección para presión): ∇·v summed over
+        # components, giving one scalar per grid point (shape N, matching p).
+        divergence = np.sum(np.gradient(new_velocity, axis=0), axis=1)
         pressure_correction = -rho / time_step * divergence
 
         new_pressure = pressure + pressure_correction
@@ -369,12 +380,19 @@ class MicrostructureEvolutionModel:
         T_normalized = (T_liquidus - temperature) / (T_liquidus - T_solidus)
         solid_fraction = np.clip(T_normalized, 0, 1)
 
-        # Fracción de fases
+        # Diffusional vs displacive split of the solid fraction by cooling rate
+        # (Koistinen–Marburger-style: faster cooling → more martensite). The
+        # caller (_analyze_microstructure_evolution) may refine this further.
+        cr = np.asarray(cooling_rate, dtype=float)
+        cr_ref = float(np.mean(cr)) + 1e-12
+        martensite_frac = solid_fraction * np.clip(cr / cr_ref - 1.0, 0, 1)
+        austenite_frac = solid_fraction - martensite_frac
+
         phase_fractions = {
             'liquid': 1 - solid_fraction,
             'solid': solid_fraction,
-            'austenite': np.zeros_like(solid_fraction),  # Placeholder
-            'martensite': np.zeros_like(solid_fraction)  # Placeholder
+            'austenite': austenite_frac,
+            'martensite': martensite_frac,
         }
 
         return phase_fractions
@@ -654,32 +672,68 @@ class AdditiveManufacturingService(BaseService):
         max_depth = dimensions['depth']
         keyhole_depth = max_depth if max_depth > 100e-6 else None  # 100 μm threshold
 
+        # Real temperature-dependent surface tension and Langmuir evaporation
+        # via the (previously unused) FluidDynamicsEquations models.
+        molten_T = temperature[molten_mask]
+        surface_tension = float(np.mean(
+            self.fluid_solver.surface_tension_model(molten_T, np.ones_like(molten_T))))
+        evaporation_rate = float(np.mean(self.fluid_solver.evaporation_model(molten_T)))
+
         return MeltPoolDynamics(
             dimensions=dimensions,
-            temperature_distribution=temperature[molten_mask],
+            temperature_distribution=molten_T,
             velocity_field=velocity[molten_mask],
-            surface_tension=1.5,
+            surface_tension=surface_tension,
             viscosity=0.006,
-            evaporation_rate=float(np.mean(temperature[molten_mask]) * 1e-6),  # Placeholder
+            evaporation_rate=evaporation_rate,
             keyhole_depth=keyhole_depth
         )
 
     def _analyze_microstructure_evolution(self, grain_size: np.ndarray,
                                         temperature: np.ndarray,
                                         positions: np.ndarray) -> MicrostructureEvolution:
-        """Analizar evolución microestructural"""
-        # Calcular distribución de tamaño de grano
+        """Analizar evolución microestructural.
+
+        Wires the real ``MicrostructureEvolutionModel`` (phase transformation +
+        porosity formation) instead of returning hardcoded phase fractions and
+        random porosity. The local solidification/cooling rate is derived from
+        the spatial temperature gradient of the simulated field.
+        """
         grain_size_dist = grain_size
 
-        # Fracciones de fase (simplificado)
-        phase_fractions = {
-            'austenite': 0.7,
-            'ferrite': 0.2,
-            'martensite': 0.1
-        }
+        # Local solidification rate proxy from the temperature field's spatial
+        # gradient (steeper gradient near the melt-pool edge → faster solidification).
+        temp_gradient = np.abs(np.gradient(temperature))
+        if isinstance(temp_gradient, list):
+            temp_gradient = temp_gradient[0]
+        solidification_rate = np.clip(temp_gradient, 1e-3, None)
+        cooling_rate = solidification_rate  # same proxy for the phase model
 
-        # Distribución de porosidad
-        porosity_dist = np.random.normal(0.005, 0.002, len(grain_size))
+        # Real phase fractions (Scheil solid fraction + cooling-rate split into
+        # diffusional vs displacive products) via the wired microstructure model.
+        pf = self.microstructure_solver.phase_transformation_model(temperature, cooling_rate)
+        solid = np.asarray(pf['solid'], dtype=float)
+        # Split the solid fraction into austenite/ferrite/martensite by a
+        # cooling-rate criterion (fast cooling → martensite; slow → ferrite).
+        norm_cr = cooling_rate / (np.mean(cooling_rate) + 1e-12)
+        martensite_frac = float(np.mean(solid * np.clip((norm_cr - 1.0), 0, 1)))
+        ferrite_frac = float(np.mean(solid * np.clip((1.0 - norm_cr), 0, 1)))
+        austenite_frac = max(0.0, float(np.mean(solid)) - martensite_frac - ferrite_frac)
+        total = austenite_frac + ferrite_frac + martensite_frac
+        if total > 0:
+            phase_fractions = {
+                'austenite': austenite_frac / total,
+                'ferrite': ferrite_frac / total,
+                'martensite': martensite_frac / total,
+            }
+        else:
+            phase_fractions = {'austenite': 0.0, 'ferrite': 0.0, 'martensite': 0.0,
+                               'liquid': 1.0}
+
+        # Real porosity distribution from the wired model (no random fabrication).
+        porosity_dist = self.microstructure_solver.porosity_formation_model(
+            temperature, solidification_rate)
+        porosity_dist = np.asarray(porosity_dist, dtype=float)
 
         # Densidad de defectos
         defect_density = {
@@ -819,17 +873,45 @@ class AdditiveManufacturingService(BaseService):
         Returns:
             Parámetros optimizados
         """
-        # Implementación simplificada de optimización
-        # En producción, usar algoritmos de optimización avanzados
+        # Real (if simple) grid search over the volumetric-energy-density (VED)
+        # process window, respecting the supplied constraints and steering toward
+        # the target relative density. VED = P / (v · h · t); for most metal
+        # powders a full-density window sits around ~50-80 J/mm³ (Thijs et al.).
+        # The previous version ignored both arguments and returned constants.
+        c = constraints or {}
+        power_range = c.get('laser_power_range', (100.0, 400.0))      # W
+        speed_range = c.get('scan_speed_range', (200.0, 1600.0))      # mm/s
+        layer = float(c.get('layer_thickness', 30.0))                 # μm
+        hatch = float(c.get('hatch_spacing', 100.0))                  # μm
+
+        target_density = float(target_properties.get('relative_density', 0.99))
+        # Higher target density → aim for the upper part of the dense VED window.
+        target_ved = 40.0 + 40.0 * np.clip(target_density, 0.90, 1.0)  # J/mm³
+
+        best = None
+        best_err = np.inf
+        for power in np.linspace(power_range[0], power_range[1], 16):
+            for speed in np.linspace(speed_range[0], speed_range[1], 16):
+                # VED in J/mm³ (layer & hatch from μm → mm).
+                ved = power / (speed * (hatch * 1e-3) * (layer * 1e-3))
+                err = abs(ved - target_ved)
+                if err < best_err:
+                    best_err = err
+                    best = (float(power), float(speed), ved)
 
         optimized_params = {
-            'laser_power': 250.0,      # W
-            'scan_speed': 800.0,       # mm/s
-            'layer_thickness': 30.0,   # μm
-            'hatch_spacing': 100.0     # μm
+            'laser_power': round(best[0], 1),
+            'scan_speed': round(best[1], 1),
+            'layer_thickness': layer,
+            'hatch_spacing': hatch,
+            'volumetric_energy_density': round(best[2], 2),   # J/mm³ (computed)
+            'target_energy_density': round(target_ved, 2),
+            'energy_density_error': round(best_err, 3),
         }
-
-        self.logger.info("🎯 Parámetros del proceso optimizados")
+        self.logger.info(
+            f"🎯 Optimized to VED={optimized_params['volumetric_energy_density']} J/mm³ "
+            f"(target {target_ved:.1f}) → P={optimized_params['laser_power']}W, "
+            f"v={optimized_params['scan_speed']}mm/s")
         return optimized_params
 
     def export_am_results(self, solution: AdditiveManufacturingSolution,
@@ -943,7 +1025,7 @@ if __name__ == "__main__":
 
     print("🔥 Servicio de Manufactura Aditiva inicializado correctamente")
     print("📊 Capacidades disponibles:")
-    print("  - Simulación térmica completa con PINN")
+    print("  - Simulación térmica por diferencias finitas (conducción + láser gaussiano móvil)")
     print("  - Dinámica de fluidos del pool de fusión")
     print("  - Evolución microestructural")
     print("  - Análisis de defectos y calidad")
