@@ -33,6 +33,18 @@ from typing import Callable
 # the newly added hypothesis."
 INITIAL_ELO = 1200.0
 
+# Keys that the tournament OWNS and recomputes every run. They must never be
+# carried into HypothesisRecord.extra: select_top_k builds the output dict with
+# the freshly-computed elo/tournament_record, then does d.update(r.extra) — if
+# extra still held a prior tournament's stale elo/record (e.g. re-ranking an
+# already-ranked pool in the evolution path), it would clobber the fresh values.
+# Excluding them at construction keeps extra free of computed fields for every
+# consumer (including paper_enhancer's `**r.extra` splats).
+_RESERVED_KEYS = (
+    "hypothesis", "text", "domain", "novelty_status", "confidence",
+    "elo", "tournament_record", "wins", "losses", "draws", "matches",
+)
+
 
 @dataclass
 class HypothesisRecord:
@@ -131,8 +143,7 @@ def run_tournament(
                 domain=h.get("domain", ""),
                 novelty_status=h.get("novelty_status", ""),
                 confidence=float(h.get("confidence", 0.5)),
-                extra={k: v for k, v in h.items() if k not in
-                       ("hypothesis", "text", "domain", "novelty_status", "confidence")},
+                extra={k: v for k, v in h.items() if k not in _RESERVED_KEYS},
             ))
 
     rng = random.Random(seed)
@@ -172,15 +183,18 @@ def select_top_k(hypotheses: list[dict], k: int = 3, seed: int = 42) -> list[dic
     ranked = run_tournament(hypotheses, rounds=2, seed=seed)
     out = []
     for r in ranked[:k]:
-        d = {
+        # Apply carried-over extra FIRST, then the freshly-computed fields, so
+        # the current tournament's elo/record always win even if a stale value
+        # slipped into extra (defense-in-depth alongside _RESERVED_KEYS).
+        d = dict(r.extra)
+        d.update({
             "hypothesis": r.hypothesis,
             "domain": r.domain,
             "novelty_status": r.novelty_status,
             "confidence": r.confidence,
             "elo": round(r.elo, 1),
             "tournament_record": f"{r.wins}W-{r.losses}L-{r.draws}D",
-        }
-        d.update(r.extra)
+        })
         out.append(d)
     return out
 
@@ -330,8 +344,7 @@ async def run_tournament_async(
                 domain=h.get("domain", ""),
                 novelty_status=h.get("novelty_status", ""),
                 confidence=float(h.get("confidence", 0.5)),
-                extra={k: v for k, v in h.items() if k not in
-                       ("hypothesis", "text", "domain", "novelty_status", "confidence")},
+                extra={k: v for k, v in h.items() if k not in _RESERVED_KEYS},
             ))
 
     import random as _random
