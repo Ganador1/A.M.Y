@@ -74,6 +74,11 @@ jobs:
           python -c "import pytest, yaml, rich, structlog, numpy, scipy, sympy, networkx, httpx; print('deps ok')"
 
       - name: Run hermetic test suite
+        # CI has no Atlas venv (atlas/.venv_new), so tests that spawn the Atlas
+        # worker cannot run here — `-m "not atlas"` deselects them. The hermetic
+        # tests inside these files (stub-based guardrail/misuse checks, etc.)
+        # still run. The non-atlas part of the suite is also covered by the
+        # broader marker query in the next step.
         run: |
           python -m pytest \
             tests/test_public_release_hygiene.py \
@@ -86,8 +91,14 @@ jobs:
             tests/test_core.py \
             tests/test_security_guardrails.py \
             tests/test_atlas_misuse_guard.py \
-            tests/test_provenance_integration.py \
             tests/test_reproducibility.py \
+            tests/test_sandbox_isolation.py \
+            tests/test_honesty_fixes.py \
+            tests/test_ranking_and_goal.py \
+            tests/test_atlas_bridge_robustness.py \
+            tests/test_robustness_fixes.py \
+            tests/test_integrity_and_bounds.py \
+            -m "not atlas" \
             -q --tb=short -p no:cacheprovider
 
       - name: Verify every Atlas tool computes (no mocks, deterministic)
