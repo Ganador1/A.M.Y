@@ -15,23 +15,49 @@ import structlog
 
 log = structlog.get_logger()
 
-# Per-source rate limit state (shared across all instances)
+# Per-source rate limit state — protected by asyncio.Lock for concurrency safety.
 _last_request: dict[str, float] = {}
 _MIN_INTERVAL: dict[str, float] = {
     "arxiv": 5.0,            # 5s between arXiv requests
     "pubmed": 0.4,           # ~3/s for PubMed
     "semantic_scholar": 2.0, # ~1/s for Semantic Scholar
 }
+_rate_locks: dict[str, asyncio.Lock] = {}
+
+
+def _get_rate_lock(source: str) -> asyncio.Lock:
+    """Return (and lazily create) a per-source asyncio.Lock."""
+    if source not in _rate_locks:
+        _rate_locks[source] = asyncio.Lock()
+    return _rate_locks[source]
 
 
 async def _rate_limit(source: str) -> None:
-    """Async sleep to respect per-source rate limits."""
-    now = time.monotonic()
-    last = _last_request.get(source, 0.0)
-    wait = _MIN_INTERVAL.get(source, 1.0) - (now - last)
-    if wait > 0:
-        await asyncio.sleep(wait)
-    _last_request[source] = time.monotonic()
+    """Async sleep to respect per-source rate limits (concurrency-safe)."""
+    async with _get_rate_lock(source):
+        now = time.monotonic()
+        last = _last_request.get(source, 0.0)
+        wait = _MIN_INTERVAL.get(source, 1.0) - (now - last)
+        if wait > 0:
+            await asyncio.sleep(wait)
+        _last_request[source] = time.monotonic()
+
+
+async def _urlopen_bytes(req, timeout: int = 30) -> bytes:
+    """Perform a blocking urlopen().read() off the event loop.
+
+    urllib is synchronous; calling urlopen directly inside an async method
+    stalls the single asyncio loop that runs the whole mind for the duration
+    of the network round-trip. Running it in a worker thread keeps the loop
+    responsive (heartbeat timers, concurrent sensors).
+    """
+    import urllib.request
+
+    def _do() -> bytes:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return resp.read()
+
+    return await asyncio.to_thread(_do)
 
 
 class WebSensor:
@@ -82,8 +108,7 @@ class WebSensor:
                 url,
                 headers={"User-Agent": "AMY-AutonomousResearch/1.0 (mailto:contact@amy.ai)"},
             )
-            response = urllib.request.urlopen(req, timeout=30)
-            xml_data = response.read()
+            xml_data = await _urlopen_bytes(req, timeout=30)
             root = ET.fromstring(xml_data)
 
             ns = {"atom": "http://www.w3.org/2005/Atom"}
@@ -125,8 +150,7 @@ class WebSensor:
         )
 
         try:
-            response = urllib.request.urlopen(search_url, timeout=30)
-            data = json_module.loads(response.read())
+            data = json_module.loads(await _urlopen_bytes(search_url, timeout=30))
             ids = data.get("esearchresult", {}).get("idlist", [])
 
             if not ids:
@@ -138,17 +162,21 @@ class WebSensor:
                 f"{base}/esummary.fcgi?db=pubmed&id={ids_str}&retmode=json"
                 f"&tool=AMY&email=contact@amy.ai"
             )
-            response = urllib.request.urlopen(summary_url, timeout=30)
-            summaries = json_module.loads(response.read())
+            summaries = json_module.loads(await _urlopen_bytes(summary_url, timeout=30))
 
             results = []
             for pid in ids:
                 info = summaries.get("result", {}).get(pid, {})
+                # esummary has no abstract; the best available descriptive text
+                # is the full title. 'sorttitle' is a lowercased sort key, not a
+                # summary — use the journal+date context instead of that key.
+                source_info = info.get("source", "")
+                pubdate = info.get("pubdate", "")
                 results.append({
                     "source": "pubmed",
                     "title": info.get("title", ""),
-                    "summary": info.get("sorttitle", ""),
-                    "date": info.get("pubdate", ""),
+                    "summary": " ".join(x for x in (source_info, pubdate) if x),
+                    "date": pubdate,
                     "url": f"https://pubmed.ncbi.nlm.nih.gov/{pid}/",
                 })
 
@@ -177,8 +205,7 @@ class WebSensor:
                 url,
                 headers={"User-Agent": "AMY-AutonomousResearch/1.0"},
             )
-            response = urllib.request.urlopen(req, timeout=30)
-            data = json_module.loads(response.read())
+            data = json_module.loads(await _urlopen_bytes(req, timeout=30))
 
             results = []
             for paper in data.get("data", []):
@@ -203,8 +230,8 @@ class WebSensor:
                 url,
                 headers={"User-Agent": "AMY-AutonomousResearch/1.0"},
             )
-            response = urllib.request.urlopen(req, timeout=30)
-            return response.read().decode("utf-8", errors="ignore")[:10000]
+            raw = await _urlopen_bytes(req, timeout=30)
+            return raw.decode("utf-8", errors="ignore")[:10000]
         except Exception as e:
             log.warning("web_sensor.fetch_error", url=url, error=str(e))
             return ""
