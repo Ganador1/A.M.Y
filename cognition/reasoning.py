@@ -292,6 +292,12 @@ class ReasoningEngine:
         # Initialize Ollama Cloud client
         self.client = OllamaCloudClient(config)
 
+    async def close(self):
+        """Release the underlying HTTP client (call on shutdown)."""
+        client = getattr(self, "client", None)
+        if client is not None and hasattr(client, "close"):
+            await client.close()
+
     async def reason(
         self,
         focus: dict,

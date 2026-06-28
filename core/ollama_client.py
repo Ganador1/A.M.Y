@@ -19,8 +19,14 @@ import structlog
 log = structlog.get_logger()
 
 # Load API keys from environment / .env
+_env_loaded = False
+
+
 def _load_env():
-    """Load .env file if it exists."""
+    """Load .env file if it exists. Idempotent — safe to call multiple times."""
+    global _env_loaded
+    if _env_loaded:
+        return
     env_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")
     if os.path.exists(env_path):
         with open(env_path) as f:
@@ -29,8 +35,7 @@ def _load_env():
                 if line and not line.startswith("#") and "=" in line:
                     key, _, value = line.partition("=")
                     os.environ.setdefault(key.strip(), value.strip())
-
-_load_env()
+    _env_loaded = True
 
 
 class OllamaCloudClient:
@@ -43,6 +48,7 @@ class OllamaCloudClient:
     """
 
     def __init__(self, config: dict):
+        _load_env()  # Lazy: only loads .env the first time
         self.base_url = config.get("base_url", "https://ollama.com/api")
         self.config = config
 
@@ -164,13 +170,14 @@ class OllamaCloudClient:
                 return result
             except Exception as e:
                 last_error = e
-                self._key_failures[key_idx] = time.time()
+                self._record_failure(key_idx, e)
                 err_msg = type(e).__name__ + (f': {e}' if str(e) else '')
                 log.warning(
                     "ollama_cloud.key_failed",
                     key_index=key_idx,
                     error=err_msg,
                     attempt=attempt + 1,
+                    retry_after=getattr(e, "retry_after", None),
                 )
                 # Pequeña pausa antes de intentar la siguiente key
                 if attempt < len(self._keys) - 1:
@@ -209,19 +216,29 @@ class OllamaCloudClient:
                 return result
             except Exception as e:
                 last_error = e
-                self._key_failures[key_idx] = time.time()
+                self._record_failure(key_idx, e)
 
         raise RuntimeError(f"All keys failed. Last error: {last_error}")
 
     async def embed(self, model: str, input_text: str | list[str]) -> list[list[float]]:
-        """Generate embeddings."""
+        """Generate embeddings (with the same key failover as chat/generate)."""
         payload = {
             "model": model,
             "input": input_text,
         }
-        key_idx, api_key = self._pick_key()
-        result = await self._do_request("/embed", payload, api_key)
-        return result.get("embeddings", [])
+        last_error = None
+        for attempt in range(len(self._keys)):
+            key_idx, api_key = self._pick_key()
+            try:
+                result = await self._do_request("/embed", payload, api_key)
+                self._key_failures.pop(key_idx, None)
+                return result.get("embeddings", [])
+            except Exception as e:
+                last_error = e
+                self._record_failure(key_idx, e)
+                if attempt < len(self._keys) - 1:
+                    await asyncio.sleep(1)
+        raise RuntimeError(f"All keys failed for embed. Last error: {last_error}")
 
     async def _do_request(self, endpoint: str, payload: dict, api_key: str) -> dict:
         """Execute a single HTTP request to Ollama Cloud.
@@ -247,13 +264,40 @@ class OllamaCloudClient:
 
         if response.status_code != 200:
             body = response.text[:500]
-            raise httpx.HTTPStatusError(
+            err = httpx.HTTPStatusError(
                 f"Ollama Cloud returned {response.status_code}: {body}",
                 request=response.request,
                 response=response,
             )
+            # Surface a server-provided Retry-After (seconds) on 429/503 so the
+            # failover loop can honor it instead of the fixed 120s cooldown.
+            if response.status_code in (429, 503):
+                err.retry_after = self._parse_retry_after(response.headers.get("Retry-After"))
+            raise err
 
         return response.json()
+
+    @staticmethod
+    def _parse_retry_after(value: str | None) -> float | None:
+        """Parse a Retry-After header (delta-seconds form). Returns None if
+        absent/unparseable (HTTP-date form is uncommon here and ignored)."""
+        if not value:
+            return None
+        try:
+            return max(0.0, float(value.strip()))
+        except (ValueError, AttributeError):
+            return None
+
+    def _record_failure(self, key_idx: int, exc: Exception) -> None:
+        """Mark a key failed, extending the cooldown to honor a 429 Retry-After."""
+        retry_after = getattr(exc, "retry_after", None)
+        if retry_after:
+            # Encode the desired ready-time within the fixed-cooldown scheme:
+            # _pick_key compares (now - last_fail) > cooldown, so set last_fail
+            # so the key becomes available exactly retry_after seconds from now.
+            self._key_failures[key_idx] = time.time() + retry_after - self._cooldown_seconds
+        else:
+            self._key_failures[key_idx] = time.time()
 
     async def close(self):
         """Close the HTTP client."""

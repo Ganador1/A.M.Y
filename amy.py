@@ -74,8 +74,20 @@ class AMY:
         # --- Global Workspace (Attention Bus) ---
         self.workspace = GlobalWorkspace()
 
-        # --- Skills ---
-        self.skill_library = SkillLibrary(config["skills"])
+        # --- Skills (optionally with embedding-backed retrieval) ---
+        skill_index = None
+        skills_cfg = config.get("skills", {})
+        if skills_cfg.get("use_embedding_recall", False):
+            from memory.semantic_index import SemanticIndex
+            embed_model = skills_cfg.get("embedding_model", "embeddinggemma")
+
+            async def _embed_one(text: str):
+                vecs = await self.reasoning.client.embed(embed_model, text)
+                return vecs[0] if vecs else []
+
+            skill_index = SemanticIndex(_embed_one, name="amy_skills")
+            log.info("amy.skill_embedding_recall_enabled", model=embed_model)
+        self.skill_library = SkillLibrary(skills_cfg, semantic_index=skill_index)
 
         # --- Senses ---
         self.web_sensor = WebSensor(config.get("research", {}))
@@ -142,6 +154,11 @@ class AMY:
             await self.semantic_memory.flush()
         except Exception as exc:
             log.warning("amy.semantic_flush_failed", error=str(exc))
+        # Release the Ollama HTTP client (was leaked — close() was never called).
+        try:
+            await self.reasoning.close()
+        except Exception as exc:
+            log.warning("amy.reasoning_close_failed", error=str(exc))
         log.info("amy.shutdown_complete")
 
 
