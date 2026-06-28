@@ -211,8 +211,13 @@ class SandboxExecutor:
         # --network=none + dropped caps, or seccomp on the subprocess tier).
         # We still widen it to catch the obvious dynamic-import escapes that
         # previously slipped past (importlib.import_module, runpy, ctypes).
+        # The dynamic-import names are anchored to an import/call context so we
+        # don't false-positive on identifiers that merely contain them (e.g. a
+        # column named runpy_score or a var my_ctypes_helper).
         if not self.allow_subprocess and re.search(
-            r"\b(import\s+subprocess|from\s+subprocess|importlib|import_module|runpy|ctypes"
+            r"(import\s+(subprocess|importlib|runpy|ctypes)"
+            r"|from\s+(subprocess|importlib|runpy|ctypes)\b"
+            r"|importlib\.|\.import_module\(|runpy\.|ctypes\."
             r"|os\.system|popen\(|pty\.|exec\(|eval\(|__import__\()",
             lowered,
         ):
