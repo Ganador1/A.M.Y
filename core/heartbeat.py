@@ -1226,6 +1226,14 @@ class Heartbeat:
             rationale = result.get("rationale", "")
             first_subgoals = result.get("first_subgoals", [])
 
+            if not next_mission:
+                # Valid JSON but no mission proposed. Without this, the method
+                # would no-op while the caller already reset the completion
+                # streak — so A.M.Y would sit on the finished mission, re-detect
+                # "complete" ~3 cycles later, and loop with zero progress.
+                # Route into the same fallback as a hard error.
+                raise ValueError("LLM returned empty next_mission")
+
             if next_mission:
                 log.info(
                     "heartbeat.next_mission_generated",

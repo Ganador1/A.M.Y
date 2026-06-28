@@ -316,13 +316,17 @@ async def search_literature_async(
     headers = {"User-Agent": f"AMY-research/1.0 (mailto:{CONTACT_EMAIL})"}
     async with httpx.AsyncClient(timeout=timeout_cfg, headers=headers,
                                  follow_redirects=True) as client:
-        tasks = {
+        # Map each task to its source name so a task that misses the global
+        # deadline can be reported by name. (The old code read t._lit_name,
+        # which was never set anywhere, so every deadline error collapsed to a
+        # single bogus errors["?"] entry.)
+        task_names: dict[asyncio.Task, str] = {
             asyncio.create_task(
                 _run_one(name, fn, client, query, max_results, per_source_timeout)
-            )
+            ): name
             for name, fn in sources.items()
         }
-        done, pending = await asyncio.wait(tasks, timeout=global_deadline)
+        done, pending = await asyncio.wait(set(task_names), timeout=global_deadline)
         for t in pending:
             t.cancel()
 
@@ -340,7 +344,7 @@ async def search_literature_async(
         elif err:
             errors[name] = err
     for t in pending:
-        errors[getattr(t, "_lit_name", "?")] = "deadline"
+        errors[task_names[t]] = "deadline"
 
     # Deduplicate by DOI, then by normalized title.
     seen_doi: set[str] = set()

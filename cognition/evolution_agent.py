@@ -148,7 +148,13 @@ def deterministic_evolve(parent: dict, strategy: str, second_parent: dict | None
     if strategy == "combination" and second_parent:
         text2 = second_parent.get("hypothesis", "").split("Testable via:")[0].strip().rstrip(".")
         base = text.split("Testable via:")[0].strip().rstrip(".")
-        new_text = (f"{base}; moreover, {text2[0].lower()}{text2[1:]}")
+        if text2:
+            # text2[:1] (not text2[0]) so an empty second hypothesis — or one
+            # that was only a "Testable via:" clause — can't IndexError in this
+            # supposedly-always-safe fallback.
+            new_text = f"{base}; moreover, {text2[:1].lower()}{text2[1:]}"
+        else:
+            new_text = base
     elif strategy == "simplification":
         base = text.split("Testable via:")[0].strip().rstrip(".")
         # Keep the first clause only.
