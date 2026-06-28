@@ -65,3 +65,41 @@ def test_heartbeat_wires_a_consolidator():
     assert "MemoryConsolidation" in src and "_consolidator" in src
     reflect_src = inspect.getsource(Heartbeat._reflect)
     assert "consolidate" in reflect_src, "_reflect does not trigger consolidation"
+
+
+async def test_heartbeat_reflect_runs_consolidation_after_throttle(tmp_path):
+    """Drive the REAL heartbeat _reflect() path (LLM reflection stubbed) and
+    confirm it triggers consolidation on the throttle boundary, populating
+    procedural memory from a successful experiment — the end-to-end behavior the
+    6-min live run was too short to reach (reflection fires every 20 cycles)."""
+    ep, sem, proc = _mem(tmp_path)
+    await ep.record("experiment", "prime sieve",
+                    metadata={"code": "print(1)", "result": {"success": True}})
+
+    hb = Heartbeat.__new__(Heartbeat)
+    hb.config = {}
+    hb.episodic_memory = ep
+    hb.semantic_memory = sem
+    hb.procedural_memory = proc
+    hb.world_model = None
+    hb.goal_stack = None
+
+    # Stub the LLM-backed reflection step; keep the real consolidation wiring.
+    class _Reflect:
+        async def reflect(self, world_model, goal_stack):
+            return None
+    hb.reflection = _Reflect()
+
+    from core.heartbeat import CognitiveContext
+    hb.ctx = CognitiveContext()
+    hb._consolidator = MemoryConsolidation(ep, sem, proc)
+    hb._reflections_since_consolidation = 0
+    hb._reflections_per_consolidation = 2
+
+    # First reflection: below throttle -> no consolidation yet.
+    await hb._reflect()
+    assert len(await proc.list_skills()) == 0
+    # Second reflection: hits the throttle -> consolidation runs.
+    await hb._reflect()
+    skills = await proc.list_skills()
+    assert len(skills) == 1, "consolidation did not run on the throttle boundary"
