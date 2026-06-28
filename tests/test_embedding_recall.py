@@ -7,6 +7,10 @@ behavior, and SkillLibrary semantic retrieval with keyword fallback.
 """
 import pytest
 
+# chromadb is an optional dependency (only needed for embedding recall); skip
+# this whole module where it isn't installed (e.g. the minimal-deps CI lane).
+pytest.importorskip("chromadb")
+
 from memory.semantic_index import SemanticIndex
 from skills.library import SkillLibrary
 
