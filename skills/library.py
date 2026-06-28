@@ -27,13 +27,21 @@ class SkillLibrary:
     """
 
     def __init__(self, config: dict):
-        self.path = Path(config.get("library_path", "./data/skill_library"))
-        self.path.mkdir(parents=True, exist_ok=True)
+        # ":memory:" means an ephemeral, non-persistent library (used by tests).
+        # SkillLibrary is directory-backed, not SQLite, so a literal ":memory:"
+        # path would otherwise create a junk ":memory:/" directory on disk.
+        raw_path = config.get("library_path", "./data/skill_library")
+        self._ephemeral = raw_path == ":memory:"
+        self.path = None if self._ephemeral else Path(raw_path)
+        if self.path is not None:
+            self.path.mkdir(parents=True, exist_ok=True)
         self.max_retrieval = config.get("max_retrieval", 5)
         self.skills: dict[str, dict] = {}
         self._load()
 
     def _load(self):
+        if self._ephemeral:
+            return
         index_file = self.path / "index.json"
         if index_file.exists():
             try:
@@ -43,27 +51,38 @@ class SkillLibrary:
                 self.skills = {}
 
     def _save(self):
+        if self._ephemeral:
+            return
         index_file = self.path / "index.json"
         with open(index_file, "w") as f:
             json.dump(self.skills, f, indent=2)
 
     async def register_skill(self, name: str, description: str, code: str):
         """Register a new skill in the library."""
-        # Save code to its own file
-        code_file = self.path / f"{name}.py"
-        with open(code_file, "w") as f:
-            f.write(code)
+        if self._ephemeral:
+            code_file = f"<memory>/{name}.py"
+        else:
+            # Save code to its own file
+            code_file = self.path / f"{name}.py"
+            with open(code_file, "w") as f:
+                f.write(code)
 
+        # Preserve learned usage stats when re-registering an existing skill
+        # (e.g. consolidation re-extracting the same experiment). Overwriting
+        # them would silently discard the skill's success/failure history.
+        existing = self.skills.get(name)
         self.skills[name] = {
             "description": description,
             "code_file": str(code_file),
-            "created_at": time.time(),
-            "times_used": 0,
-            "success_count": 0,
-            "failure_count": 0,
+            "code": code if self._ephemeral else None,
+            "created_at": existing["created_at"] if existing else time.time(),
+            "updated_at": time.time(),
+            "times_used": existing.get("times_used", 0) if existing else 0,
+            "success_count": existing.get("success_count", 0) if existing else 0,
+            "failure_count": existing.get("failure_count", 0) if existing else 0,
         }
         self._save()
-        log.info("skill_library.registered", name=name)
+        log.info("skill_library.registered", name=name, updated=existing is not None)
 
     async def retrieve(self, query: str) -> list[dict]:
         """
@@ -88,10 +107,13 @@ class SkillLibrary:
 
     async def record_usage(self, name: str, success: bool):
         """Track skill usage and success rate."""
-        if name in self.skills:
-            self.skills[name]["times_used"] += 1
-            if success:
-                self.skills[name]["success_count"] += 1
-            else:
-                self.skills[name]["failure_count"] += 1
-            self._save()
+        if name not in self.skills:
+            # Don't silently drop the reward signal — surface the mismatch.
+            log.warning("skill_library.record_usage_unknown_skill", name=name)
+            return
+        self.skills[name]["times_used"] += 1
+        if success:
+            self.skills[name]["success_count"] += 1
+        else:
+            self.skills[name]["failure_count"] += 1
+        self._save()

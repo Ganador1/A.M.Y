@@ -142,6 +142,11 @@ class AMY:
             await self.semantic_memory.flush()
         except Exception as exc:
             log.warning("amy.semantic_flush_failed", error=str(exc))
+        # Release the Ollama HTTP client (was leaked — close() was never called).
+        try:
+            await self.reasoning.close()
+        except Exception as exc:
+            log.warning("amy.reasoning_close_failed", error=str(exc))
         log.info("amy.shutdown_complete")
 
 
