@@ -109,6 +109,7 @@ _ATLAS_FILES = {
 
 # Files that reach out over the network (literature search, citation verify).
 _NETWORK_FILES = {
+    "test_cognitive_cycle.py",  # runs real _perceive/_think (web + LLM); flakes on rate limits
     "test_connection.py",
     "test_end_to_end_pipeline.py",
     "test_full_mission_simulation.py",
