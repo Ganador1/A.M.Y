@@ -85,10 +85,18 @@ class MetaReviewDigest:
 
 # Map a free-text review message to a stable pattern key so the same recurring
 # weakness aggregates across papers even when the exact wording differs.
+# Needles must match the ACTUAL messages the Reflection Agent emits
+# (cognition/reflection_agent.py), not paraphrases. The two highest-value
+# integrity lessons used to fall through to "other" and be dropped:
+#   - "<n> of <m> numerical claims in Discussion not found in provenance."
+#     → needs "not found in provenance" / "numerical claim"
+#   - "No 'Testable Predictions' section found." → needs "testable prediction"
 _PATTERN_RULES = [
-    ("ungrounded_number", ("not traceable", "unsupported number", "no provenance", "does not trace")),
+    ("ungrounded_number", ("not traceable", "unsupported number", "no provenance",
+                           "does not trace", "not found in provenance", "numerical claim")),
     ("missing_limitations", ("limitation", "does not claim", "not claiming", "overstate")),
-    ("weak_falsifiability", ("falsifia", "test procedure", "testable via", "no explicit test")),
+    ("weak_falsifiability", ("falsifia", "test procedure", "testable via",
+                             "no explicit test", "testable prediction", "lack an explicit test")),
     ("citation_unverified", ("unverified citation", "citation", "reference")),
     ("missing_statistics", ("p-value", "confidence interval", "effect size", "statistic")),
     ("no_alternatives", ("alternative explanation", "competing explanation", "alternative")),

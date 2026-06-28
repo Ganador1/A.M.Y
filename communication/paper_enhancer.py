@@ -752,8 +752,10 @@ class PaperEnhancer:
         #    grounded in the real tool outputs + provenance — this is the Sakana
         #    AI Scientist v2 manuscript write-up step (arXiv:2504.08066), and it
         #    replaces the static DOMAIN_INSIGHTS template assembly. The downstream
-        #    NumericVerifier still re-checks every number against provenance.
-        #    Falls back to the deterministic template on any error / no API key.
+        #    NumericVerifier checks only clinical-style statistics, NOT every
+        #    number — grounding rests on the prompt constraint + low temperature
+        #    (see llm_enhancer docstring). Falls back to the deterministic
+        #    template on any error / no API key.
         enhanced_discussion = None
         try:
             from communication.llm_enhancer import (
@@ -897,14 +899,28 @@ class PaperEnhancer:
 
         domain_data = DOMAIN_INSIGHTS.get(domain, DOMAIN_INSIGHTS["mathematics"])
 
-        # Extract key numerical findings
-        key_findings = []
-        for r in results[:3]:
-            nums = re.findall(r'[-+]?\d*\.\d+', r.get("result", ""))
-            if nums:
-                key_findings.append(f"{r.get('description', 'result')}: {nums[0]}")
-
-        findings_text = "; ".join(key_findings) if key_findings else "computational verification of theoretical predictions"
+        # Headline quantitative claims: we deliberately do NOT pull a bare
+        # decimal out of the raw tool string here. The first decimal in an
+        # output is frequently a runtime/sample-count/temperature, not the
+        # named metric (so `description: nums[0]` mislabeled it), AND any
+        # number surfaced in the abstract — the most-read claim location —
+        # would bypass the provenance/NumericVerifier gate. Instead we state
+        # qualitatively which tools produced quantitative output and direct
+        # the reader to the Results section, where each figure is rendered
+        # verbatim from the hashed tool output it came from.
+        quant_descriptions = [
+            r.get("description", "result")
+            for r in results[:3]
+            if re.search(r'[-+]?\d*\.\d+', r.get("result", ""))
+        ]
+        if quant_descriptions:
+            findings_text = (
+                "; ".join(quant_descriptions)
+                + " (see Results for the provenance-anchored values)"
+            )
+        else:
+            findings_text = "computational verification of theoretical predictions"
+        key_findings = quant_descriptions
 
         candidate_count = sum(
             1 for h in hypotheses
@@ -942,10 +958,10 @@ class PaperEnhancer:
 
         if key_findings:
             findings_phrasings = [
-                f"Key quantitative results include: {findings_text}. ",
-                f"Representative numerical outputs are: {findings_text}. ",
-                f"Among the recorded measurements: {findings_text}. ",
-                f"Selected results from the run: {findings_text}. ",
+                f"Quantitative results are reported for: {findings_text}. ",
+                f"The run produced numerical output for: {findings_text}. ",
+                f"Measured quantities are reported for: {findings_text}. ",
+                f"Quantitative findings cover: {findings_text}. ",
             ]
             abstract += findings_phrasings[rng.randrange(len(findings_phrasings))]
 

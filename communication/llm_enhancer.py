@@ -12,8 +12,14 @@ Design constraints (so this strengthens rather than weakens the project):
 - **Grounding.** The model is given only the actual tool results (descriptions
   + output text, which are the same strings hashed into provenance.json). It is
   instructed to discuss *only* numbers that appear in that context and never to
-  invent values. The downstream `NumericVerifier` still re-checks every number
-  against provenance, so a hallucinated figure is flagged regardless.
+  invent values. NOTE on the downstream check: `NumericVerifier` does NOT
+  re-check *every* number — it pattern-matches only clinical-style statistics
+  (p-values, HR/OR/RR with CI, median survival, 95% CI ranges, clinical-context
+  percentages) and flags those that lack nearby provenance. A hallucinated
+  *non-clinical* quantity (a bare energy, slope, ratio, prime count) is NOT
+  automatically flagged. So grounding here rests primarily on the prompt
+  constraint and low temperature, not on an exhaustive numeric gate; treat the
+  LLM Discussion as provenance-conditioned, not provenance-verified.
 - **Falls back silently.** Any error (no API key, timeout, malformed JSON)
   returns ``None`` so the caller keeps the deterministic template output. The
   template path remains the default; the LLM path is opt-in via
