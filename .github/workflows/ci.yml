@@ -98,6 +98,10 @@ jobs:
             tests/test_atlas_bridge_robustness.py \
             tests/test_robustness_fixes.py \
             tests/test_integrity_and_bounds.py \
+            tests/test_episodic_persistence.py \
+            tests/test_semantic_persistence.py \
+            tests/test_consolidation_wired.py \
+            tests/test_web_sensor_async.py \
             -m "not atlas" \
             -q --tb=short -p no:cacheprovider
 

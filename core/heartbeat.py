@@ -113,6 +113,16 @@ class Heartbeat:
         self._same_hypothesis_count: int = 0
         # Historial de resultados de herramientas científicas para papers
         self._tool_results_history: deque[dict] = deque(maxlen=20)
+        # Memory consolidation (the "sleep on it" pass: episodic → semantic
+        # patterns + procedural skills). Previously defined but never wired in,
+        # so procedural memory stayed permanently empty. Run during reflection,
+        # throttled by _reflections_per_consolidation.
+        from memory.consolidation import MemoryConsolidation
+        self._consolidator = MemoryConsolidation(
+            episodic_memory, semantic_memory, procedural_memory
+        )
+        self._reflections_since_consolidation = 0
+        self._reflections_per_consolidation = config.get("reflections_per_consolidation", 3)
 
     def _sandbox_config(self) -> dict:
         """Return the sandbox config visible to action executors."""
@@ -162,6 +172,15 @@ class Heartbeat:
         """Gracefully stop the heartbeat."""
         log.info("heartbeat.stopping", total_cycles=self.ctx.cycle_number)
         self._running = False
+        # Flush the debounced knowledge graph here too: the mission-complete
+        # path reaches heartbeat.stop() but NOT amy.stop(), so without this the
+        # final <save_interval window of facts would be silently dropped.
+        flush = getattr(self.semantic_memory, "flush", None)
+        if flush is not None:
+            try:
+                await flush()
+            except Exception as exc:
+                log.warning("heartbeat.semantic_flush_failed", error=str(exc))
 
     def _sync_current_goal_from_mission(self):
         """Set ctx.current_goal from the goal stack's active mission if it is
@@ -1138,6 +1157,19 @@ class Heartbeat:
             world_model=self.world_model,
             goal_stack=self.goal_stack,
         )
+
+        # Consolidation pass ("REM sleep"): extract recurring patterns and
+        # successful-experiment skills from episodic memory. Throttled so it
+        # doesn't run on every reflection.
+        self._reflections_since_consolidation += 1
+        if self._reflections_since_consolidation >= self._reflections_per_consolidation:
+            self._reflections_since_consolidation = 0
+            try:
+                await self._consolidator.consolidate()
+                skills = await self.procedural_memory.list_skills()
+                log.info("heartbeat.consolidated", skill_count=len(skills))
+            except Exception as exc:
+                log.warning("heartbeat.consolidation_failed", error=str(exc))
 
     def _adapt_interval(self):
         """

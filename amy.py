@@ -136,6 +136,12 @@ class AMY:
         self.running = False
         await self.heartbeat.stop()
         await self.reflection.consolidate_before_shutdown()
+        # Flush the debounced knowledge graph so changes since the last
+        # interval save are not lost on shutdown.
+        try:
+            await self.semantic_memory.flush()
+        except Exception as exc:
+            log.warning("amy.semantic_flush_failed", error=str(exc))
         log.info("amy.shutdown_complete")
 
 

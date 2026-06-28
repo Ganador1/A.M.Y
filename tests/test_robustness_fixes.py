@@ -106,7 +106,10 @@ async def test_add_fact_tolerates_missing_sources_list(monkeypatch):
             "confidence": 0.8, "source": "old", "times_seen": 1,
         }
     }
-    monkeypatch.setattr(sm, "_save", lambda *a, **k: None)  # avoid disk
+    sm.max_sources_per_fact = 25  # __new__ bypassed __init__
+    async def _noop():
+        return None
+    monkeypatch.setattr(sm, "_maybe_save", _noop)  # avoid disk
     # Must not KeyError on re-observation.
     await sm.add_fact("a", "b", "c", confidence=0.6, source="new")
     assert "new" in sm.facts["a|b|c"]["sources"]
