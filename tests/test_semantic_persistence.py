@@ -57,6 +57,26 @@ async def test_save_is_atomic_no_tmp_left_behind(tmp_path):
     assert not (tmp_path / "kg.json.tmp").exists(), "atomic temp file leaked"
 
 
+async def test_heartbeat_stop_flushes_debounced_facts(tmp_path):
+    # The mission-complete shutdown path goes through heartbeat.stop(), NOT
+    # amy.stop(); a fact added within the debounce window must still be flushed.
+    from core.heartbeat import Heartbeat, CognitiveContext
+
+    m = SemanticMemory(_cfg(tmp_path, knowledge_graph_save_interval=999))
+    path = tmp_path / "kg.json"
+    await m.add_fact("a", "b", "c", 0.8, "s1")  # first save immediate
+    await m.add_fact("d", "e", "f", 0.8, "s1")  # debounced, still in memory only
+    assert "d|e|f" not in json.loads(path.read_text())["facts"]
+
+    hb = Heartbeat.__new__(Heartbeat)
+    hb.ctx = CognitiveContext()
+    hb._running = True
+    hb.semantic_memory = m
+    await hb.stop()  # must flush
+
+    assert "d|e|f" in json.loads(path.read_text())["facts"], "heartbeat.stop did not flush"
+
+
 # ── Corrupt load backs up instead of silently wiping ─────────────────────────
 
 def test_corrupt_graph_is_backed_up_not_silently_wiped(tmp_path):

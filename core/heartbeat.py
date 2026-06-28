@@ -172,6 +172,15 @@ class Heartbeat:
         """Gracefully stop the heartbeat."""
         log.info("heartbeat.stopping", total_cycles=self.ctx.cycle_number)
         self._running = False
+        # Flush the debounced knowledge graph here too: the mission-complete
+        # path reaches heartbeat.stop() but NOT amy.stop(), so without this the
+        # final <save_interval window of facts would be silently dropped.
+        flush = getattr(self.semantic_memory, "flush", None)
+        if flush is not None:
+            try:
+                await flush()
+            except Exception as exc:
+                log.warning("heartbeat.semantic_flush_failed", error=str(exc))
 
     def _sync_current_goal_from_mission(self):
         """Set ctx.current_goal from the goal stack's active mission if it is
