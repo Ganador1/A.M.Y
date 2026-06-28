@@ -42,7 +42,11 @@ def _provenance_output_hash(experiment_id: str) -> str | None:
     prov_path = EXPERIMENTS_DIR / experiment_id / "provenance.json"
     try:
         record = json.loads(prov_path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
+    except OSError as exc:
+        log.warning("provenance.read_error", experiment_id=experiment_id, error=str(exc))
+        return None
+    except json.JSONDecodeError as exc:
+        log.warning("provenance.json_error", experiment_id=experiment_id, error=str(exc))
         return None
 
     output_hash = record.get("tool", {}).get("output_hash")
@@ -920,10 +924,31 @@ class PaperGenerator:
 
     @staticmethod
     def _escape_latex(text: str) -> str:
-        """Escape minimal characters for LaTeX while preserving math."""
-        text = text.replace("%", "\\%").replace("&", "\\&").replace("#", "\\#")
-        
-        # Replace Markdown bold/italic
+        """Escape LaTeX-special characters so the generated .tex compiles.
+
+        Escapes the full special set, not just % & # — scientific prose routinely
+        contains _ ^ ~ $ { } and \\ (subscripts E_n, powers n^2, set braces),
+        and an unescaped one breaks compilation ("Missing $ inserted", undefined
+        control sequence, etc.). Backslash is escaped FIRST so we don't mangle
+        the replacements we introduce, and the markdown bold/italic substitution
+        runs LAST so its own \\textbf{...} braces stay functional.
+        """
+        replacements = [
+            ("\\", r"\textbackslash{}"),  # must be first
+            ("{", r"\{"),
+            ("}", r"\}"),
+            ("$", r"\$"),
+            ("&", r"\&"),
+            ("%", r"\%"),
+            ("#", r"\#"),
+            ("_", r"\_"),
+            ("^", r"\textasciicircum{}"),
+            ("~", r"\textasciitilde{}"),
+        ]
+        for old, new in replacements:
+            text = text.replace(old, new)
+
+        # Replace Markdown bold/italic (after escaping, so these braces survive).
         text = re.sub(r"\*\*([^*]+)\*\*", r"\\textbf{\1}", text)
         text = re.sub(r"\*([^*]+)\*", r"\\textit{\1}", text)
         return text

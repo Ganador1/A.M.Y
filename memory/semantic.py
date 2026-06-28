@@ -61,13 +61,17 @@ class SemanticMemory:
 
         if key in self.facts:
             existing = self.facts[key]
-            # Bayesian update
-            old_conf = existing["confidence"]
+            # Bayesian update. Use .get/.setdefault because _load() ingests the
+            # knowledge-graph JSON verbatim and external/older/hand-edited facts
+            # may follow the documented singular-'source' schema without the
+            # plural 'sources' list (a KeyError here would abort the cognitive
+            # step on re-observation).
+            old_conf = existing.get("confidence", 0.5)
             new_conf = (old_conf + confidence) / 2
             existing["confidence"] = new_conf
             existing["times_seen"] = existing.get("times_seen", 1) + 1
             existing["last_updated"] = time.time()
-            existing["sources"].append(source)
+            existing.setdefault("sources", [existing.get("source", "")]).append(source)
         else:
             self.facts[key] = {
                 "subject": subject,

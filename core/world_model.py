@@ -145,13 +145,15 @@ class WorldModel:
                 else:
                     # Contradiction — this is interesting!
                     existing.times_contradicted += 1
-                    # Move confidence toward the new evidence
-                    existing.confidence = (existing.confidence + new_confidence) / 2
+                    # Capture the prior BEFORE mutating so the audit log reports
+                    # the true before/after, not the post-update value twice.
+                    prior = existing.confidence
+                    existing.confidence = (prior + new_confidence) / 2
                     log.info(
                         "world_model.belief_contradicted",
                         key=key,
-                        old_conf=existing.confidence,
-                        new_conf=new_confidence,
+                        old_conf=prior,
+                        new_conf=existing.confidence,
                     )
             else:
                 self.beliefs[key] = Belief(

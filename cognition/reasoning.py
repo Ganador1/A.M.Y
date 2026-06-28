@@ -123,18 +123,49 @@ def _parse_json_robust(text: str, max_retries: int = 3) -> dict:
             except json.JSONDecodeError:
                 continue
 
-    # Last resort: try to extract any valid JSON object
-    # Find the largest valid JSON substring
-    for end in range(len(text), 0, -1):
-        for start in range(0, end):
-            candidate = text[start:end]
-            if candidate.strip().startswith('{') and candidate.strip().endswith('}'):
-                try:
-                    return json.loads(candidate)
-                except json.JSONDecodeError:
-                    continue
+    # Last resort: extract the first complete balanced-brace {...} object in a
+    # SINGLE O(n) pass. The previous implementation was a brute-force double
+    # loop (O(n^2) slices, each O(n)) running synchronously on the heartbeat's
+    # asyncio event loop — a multi-thousand-char malformed response (exactly
+    # what this fallback is for) could freeze the whole loop for seconds.
+    obj = _first_balanced_object(text)
+    if obj is not None:
+        try:
+            return json.loads(obj)
+        except json.JSONDecodeError:
+            pass
 
     raise json.JSONDecodeError("Could not parse JSON after all strategies", text, 0)
+
+
+def _first_balanced_object(text: str) -> str | None:
+    """Return the first top-level {...} substring with balanced braces, honoring
+    string literals/escapes, in one linear pass. None if there isn't one."""
+    start = text.find("{")
+    if start < 0:
+        return None
+    depth = 0
+    in_str = False
+    escape = False
+    for i in range(start, len(text)):
+        ch = text[i]
+        if in_str:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_str = False
+            continue
+        if ch == '"':
+            in_str = True
+        elif ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                return text[start:i + 1]
+    return None
 
 REASONING_SYSTEM_PROMPT = """You are A.M.Y (Autonomous Mind Yield) — an insatiably curious autonomous research mind.
 You explore science with the restlessness of a great scientist: you form hypotheses, try to BREAK them,

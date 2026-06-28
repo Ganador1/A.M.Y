@@ -17,6 +17,7 @@ Each "beat" is one cycle of cognition:
 import asyncio
 import json
 import time
+from collections import deque
 from dataclasses import dataclass, field
 from enum import Enum
 
@@ -108,10 +109,10 @@ class Heartbeat:
         # Atlas tools (lazy init)
         self._atlas_tools = None
         # Hipótesis recientes enviadas a Atlas (para detectar bucle temático)
-        self._recent_hypotheses: list[str] = []
+        self._recent_hypotheses: deque[str] = deque(maxlen=50)
         self._same_hypothesis_count: int = 0
         # Historial de resultados de herramientas científicas para papers
-        self._tool_results_history: list[dict] = []
+        self._tool_results_history: deque[dict] = deque(maxlen=20)
 
     def _sandbox_config(self) -> dict:
         """Return the sandbox config visible to action executors."""
@@ -125,7 +126,15 @@ class Heartbeat:
         self._running = True
         self.ctx.cycle_number = 0
 
-        log.info("heartbeat.started", interval=self._current_interval)
+        # Sync the cognitive context's goal from the goal stack's mission.
+        # Without this, ctx.current_goal stays "" for the whole (default,
+        # single-mission) run — the reasoner prompt's "## Current Goal" field,
+        # the decompose parent, and the paper-topic fallback all saw an empty
+        # string. The continuous-mission path sets it on rollover, but the
+        # initial mission was never wired through.
+        self._sync_current_goal_from_mission()
+
+        log.info("heartbeat.started", interval=self._current_interval, goal=self.ctx.current_goal[:120])
 
         while self._running:
             cycle_start = time.monotonic()
@@ -153,6 +162,19 @@ class Heartbeat:
         """Gracefully stop the heartbeat."""
         log.info("heartbeat.stopping", total_cycles=self.ctx.cycle_number)
         self._running = False
+
+    def _sync_current_goal_from_mission(self):
+        """Set ctx.current_goal from the goal stack's active mission if it is
+        currently empty. Safe no-op if there is no mission or it is already set."""
+        if self.ctx.current_goal:
+            return
+        gs = getattr(self, "goal_stack", None)
+        mission_id = getattr(gs, "mission_id", None) if gs else None
+        if not mission_id:
+            return
+        mission = gs.goals.get(mission_id)
+        if mission and getattr(mission, "description", ""):
+            self.ctx.current_goal = mission.description
 
     async def _beat(self):
         """
@@ -351,7 +373,7 @@ class Heartbeat:
                 "cycle": self.ctx.cycle_number,
                 "recent_thoughts": self.ctx.thoughts[-5:],
                 "recent_queries": self._recent_queries[-15:],
-                "recent_hypotheses": self._recent_hypotheses[-8:],
+                "recent_hypotheses": list(self._recent_hypotheses)[-8:],
                 "consecutive_same_action": self._consecutive_same_action,
                 "last_action_type": self._last_action_type,
                 "active_sub_goals": sub_goals,
@@ -645,7 +667,7 @@ class Heartbeat:
 
         # ── INTEGRACIÓN: Resultados de herramientas Atlas ─────────────────────
         # Recuperar resultados de herramientas científicas ejecutadas recientemente
-        tool_results = getattr(self, "_tool_results_history", [])
+        tool_results = list(getattr(self, "_tool_results_history", []))
         tool_sections = []
         experiment_ids = []
         
@@ -837,8 +859,6 @@ class Heartbeat:
                 "timestamp": time.time(),
                 "experiment_id": experiment_id,
             })
-            # Keep only last 20 results
-            self._tool_results_history = self._tool_results_history[-20:]
 
             return {
                 "type": "run_scientific_tool",
@@ -884,8 +904,6 @@ class Heartbeat:
             if len(set(hyp_fingerprint.split()) & set(h.split())) / max(len(hyp_fingerprint.split()), 1) > 0.5
         )
         self._recent_hypotheses.append(hyp_fingerprint)
-        if len(self._recent_hypotheses) > 15:
-            self._recent_hypotheses = self._recent_hypotheses[-15:]
 
         if similar_count >= 3:
             log.warning(
@@ -898,10 +916,10 @@ class Heartbeat:
             await self.goal_stack.push_subgoal(
                 parent=self.goal_stack.mission_id or "",
                 description=(
-                    "EXPLORAR NUEVO ÁNGULO: La hipótesis sobre FUS+CSF-1R+NOTCH/Wnt ya fue validada "
-                    "múltiples veces. Investiga un DOMINIO DIFERENTE o una pregunta completamente distinta. "
-                    "Considera: mecanismos de resistencia no explorados, nuevas combinaciones con radioterapia, "
-                    "terapias de ARN, modelos matemáticos predictivos, o análisis de ensayos clínicos fallidos."
+                    "EXPLORAR NUEVO ÁNGULO: La hipótesis actual ya fue validada varias veces. "
+                    "Investiga una pregunta claramente distinta dentro de la misión, o un método "
+                    "complementario: un mecanismo no explorado, una técnica experimental diferente, "
+                    "un modelo predictivo, o un análisis de los casos en que la hipótesis NO se cumple."
                 ),
                 priority=1.0,
             )
@@ -924,7 +942,7 @@ class Heartbeat:
         ]
 
         # ── INTEGRACIÓN: Incluir resultados de herramientas en el peer review ──
-        tool_results = getattr(self, "_tool_results_history", [])
+        tool_results = list(getattr(self, "_tool_results_history", []))
         if tool_results:
             # Agregar resultados de herramientas como facts adicionales
             for tr in tool_results[-5:]:
@@ -1137,14 +1155,18 @@ class Heartbeat:
     async def _advance_to_next_mission(self, last_thought: dict):
         """
         Called when A.M.Y declares the current mission complete.
-        In Satisfaction Mode, she stops and hibernates to prevent infinite API usage.
-        """
-        print("\n" + "="*80)
-        print("🎯 MISIÓN COMPLETADA CON ÉXITO. HIBERNANDO.")
-        print("="*80 + "\n")
 
-        await self.stop()
-        return
+        Behaviour is governed by ``heartbeat.continuous_mission``:
+          * False (Satisfaction Mode) — stop and hibernate to bound API usage.
+          * True  — generate the next, deeper mission from what was learned
+            and keep going (the autonomous "never sleeps" behaviour).
+        """
+        if not self.config.get("continuous_mission", False):
+            log.info("heartbeat.mission_complete_hibernate", goal=self.ctx.current_goal[:120])
+            await self.stop()
+            return
+
+        log.info("heartbeat.mission_complete_chaining", completed_goal=self.ctx.current_goal[:120])
 
         # Build context from what was learned
         known_facts = []
@@ -1203,6 +1225,14 @@ class Heartbeat:
             next_mission = result.get("next_mission", "")
             rationale = result.get("rationale", "")
             first_subgoals = result.get("first_subgoals", [])
+
+            if not next_mission:
+                # Valid JSON but no mission proposed. Without this, the method
+                # would no-op while the caller already reset the completion
+                # streak — so A.M.Y would sit on the finished mission, re-detect
+                # "complete" ~3 cycles later, and loop with zero progress.
+                # Route into the same fallback as a hard error.
+                raise ValueError("LLM returned empty next_mission")
 
             if next_mission:
                 log.info(

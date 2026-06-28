@@ -212,7 +212,9 @@ async def test_end_to_end_pipeline():
     
     # Check that _act_peer_review_paper includes tool results
     # We'll verify the data flow by checking the facts construction
-    tool_results = getattr(heartbeat, "_tool_results_history", [])
+    # _tool_results_history is a bounded deque; wrap in list() before slicing,
+    # exactly as _act_peer_review_paper does in production (deques reject slices).
+    tool_results = list(getattr(heartbeat, "_tool_results_history", []))
     
     # Simulate what _act_peer_review_paper does with facts
     facts = [

@@ -187,14 +187,29 @@ class AtlasTools:
         self.available = ATLAS_VENV_PYTHON.exists() and ATLAS_ROOT.exists()
         self._worker = None
         self._lock = None
+        # Monotonic per-instance request id. Hardcoded ids (ping/list/describe
+        # all used id=0; run_tool used hash(tool_name)) could collide, so a
+        # stale response left in the pipe after a timeout could be mis-matched
+        # to a later request. A strictly increasing id makes every request
+        # uniquely identifiable.
+        self._req_id = 0
         if not self.available:
             log.warning("atlas_tools.unavailable")
 
+    def _next_id(self) -> int:
+        self._req_id += 1
+        return self._req_id
+
     async def _ensure_worker(self):
-        """Inicia el worker persistente si no está activo."""
+        """Inicia el worker persistente si no está activo.
+
+        Leaves self._worker set ONLY if the worker started and passed the ping
+        handshake; otherwise it is torn down and left None so callers can detect
+        the failure (rather than dereferencing a half-dead worker)."""
         if self._worker is not None:
             return
-        self._lock = asyncio.Lock()
+        if self._lock is None:
+            self._lock = asyncio.Lock()
         worker_script = Path(__file__).parent / "atlas_worker.py"
         self._worker = await asyncio.create_subprocess_exec(
             str(ATLAS_VENV_PYTHON), str(worker_script),
@@ -211,47 +226,94 @@ class AtlasTools:
             },
         )
         # Verificar que el worker responda
-        response = await self._send_request({"id": 0, "action": "ping"})
+        response = await self._send_request({"id": self._next_id(), "action": "ping"})
         if response.get("result") != "pong":
             log.warning("atlas_tools.worker_no_pong", response=response)
-            self._worker = None
+            await self._reset_worker()
+
+    async def _reset_worker(self):
+        """Terminate and reap the current worker, then clear the reference.
+
+        Used on a failed handshake or any desync (timeout / closed stream /
+        garbage flood). Without this the old subprocess was dropped with no
+        terminate()/wait() (a leak/zombie) and a stale response could remain in
+        the pipe to be mis-matched to the next request."""
+        proc = self._worker
+        self._worker = None
+        if proc is None or proc.returncode is not None:
+            return
+        try:
+            proc.kill()
+            await asyncio.wait_for(proc.wait(), timeout=5)
+        except Exception:
+            pass
+
+    async def close(self):
+        """Tear down the persistent worker. Call on shutdown."""
+        await self._reset_worker()
 
     async def _send_request(self, request: dict, timeout: float = 120.0) -> dict:
         """Envía un request al worker y espera respuesta, ignorando lineas basura."""
         if self._worker is None or self._worker.stdin.is_closing():
-            self._worker = None
+            await self._reset_worker()
             await self._ensure_worker()
+        # _ensure_worker can fail the handshake and leave the worker None; do
+        # not dereference it (was an AttributeError: NoneType has no 'stdin').
+        if self._worker is None:
+            return {"id": request.get("id"), "error": "Atlas worker unavailable"}
         async with self._lock:
             line = json.dumps(request) + "\n"
             self._worker.stdin.write(line.encode())
             await self._worker.stdin.drain()
-            
-            # Bucle para saltar logs u otras líneas hasta encontrar la respuesta al request
+
+            # Bucle para saltar logs u otras líneas hasta encontrar la respuesta al request.
+            # Max non-JSON lines to skip prevents infinite loop if worker outputs garbage.
+            max_skipped_lines = 500
+            skipped = 0
             start_time = asyncio.get_event_loop().time()
             while True:
                 time_left = timeout - (asyncio.get_event_loop().time() - start_time)
                 if time_left <= 0:
+                    # Desync: the worker may still emit this request's response
+                    # later, poisoning the next call. Reset so the next request
+                    # gets a fresh, in-sync worker.
+                    await self._reset_worker()
                     raise asyncio.TimeoutError("Timeout waiting for valid worker response")
-                    
-                response_bytes = await asyncio.wait_for(
-                    self._worker.stdout.readline(), timeout=time_left
-                )
+
+                try:
+                    response_bytes = await asyncio.wait_for(
+                        self._worker.stdout.readline(), timeout=time_left
+                    )
+                except asyncio.TimeoutError:
+                    await self._reset_worker()
+                    raise
                 if not response_bytes:
                     error_output = await self._worker.stderr.read() if self._worker.stderr else b""
-                    print(f"\n[DEBUG] Worker closed. Error output: {error_output.decode()}\n")
+                    log.warning("atlas_tools.worker_closed", error=error_output.decode()[:500])
+                    # stdout EOF — the worker is dead. Reset so the next call
+                    # respawns instead of re-hitting this empty-readline branch.
+                    await self._reset_worker()
                     return {"id": request.get("id"), "error": "Worker closed output stream"}
-                    
+
                 response_str = response_bytes.decode().strip()
                 if not response_str:
                     continue
-                    
+
                 try:
                     parsed = json.loads(response_str)
                     if "id" in parsed and parsed["id"] == request.get("id"):
                         return parsed
+                    # Valid JSON but wrong id — a stale/mismatched response.
+                    # Count it against the skip cap so an unbounded backlog of
+                    # stale valid responses can't loop forever.
+                    skipped += 1
                 except json.JSONDecodeError:
                     # Ignore non-JSON lines printed by native libraries (brian2, matplotlib, yt, warnings, etc.)
-                    continue
+                    skipped += 1
+                if skipped >= max_skipped_lines:
+                    log.error("atlas_tools.too_many_non_json_lines", skipped=skipped)
+                    await self._reset_worker()
+                    return {"id": request.get("id"), "error": f"Worker emitted {skipped} unmatched lines without a valid response"}
 
     async def search_literature(
         self,
@@ -394,7 +456,7 @@ class AtlasTools:
             return _blocked_message(decision)
         await self._ensure_worker()
         response = await self._send_request({
-            "id": hash(tool_name) & 0xFFFFFFFF,
+            "id": self._next_id(),
             "action": "run_tool",
             "tool_name": tool_name,
             "tool_input": tool_input,
@@ -409,7 +471,7 @@ class AtlasTools:
             return []
         await self._ensure_worker()
         response = await self._send_request({
-            "id": 0,
+            "id": self._next_id(),
             "action": "list_tools",
             "domain": domain,
         })
@@ -428,7 +490,7 @@ class AtlasTools:
             return []
         await self._ensure_worker()
         response = await self._send_request({
-            "id": 0,
+            "id": self._next_id(),
             "action": "describe_tools",
             "domain": domain,
         })
