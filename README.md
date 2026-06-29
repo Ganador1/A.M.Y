@@ -455,6 +455,21 @@ A.M.Y ships with a built-in misuse guard (atlas/app/security/misuse_guard.py) th
 
 The guard is enforced before any tool runs and again before any subprocess starts. If you ship a fork that disables it, you take ownership of that decision; please use a different name so users can tell the projects apart.
 
+### Recommended sandbox profile (unattended / public deployment)
+
+The shipped `config.yaml` defaults to `use_docker: false` for **zero-setup local development**. That tier runs LLM-generated experiment code in a hardened subprocess (throwaway cwd + CPU rlimit) — it bounds accidental repo writes and runaway CPU, but it is **not** a security boundary against a determined adversary. For anything unattended (e.g. 24/7) or untrusted, run with the Docker tier in fail-closed mode:
+
+```yaml
+# overlay these into your config's `sandbox:` block
+sandbox:
+  use_docker: true          # ephemeral container, --network=none, memory cap
+  require_isolation: true   # FAIL CLOSED: refuse to run if Docker is unavailable
+  allow_network: false
+  allow_subprocess: false
+```
+
+Prerequisite: `docker build -t amy-sandbox:latest sandbox/` with the daemon running. With `require_isolation: true`, A.M.Y refuses to execute experiment code rather than silently downgrading to the weaker tier. Use the default (`use_docker: false`) only for trusted local development.
+
 The capabilities A.M.Y orchestrates (PySCF, ASE, RDKit, AstroPy, BioPython, ClinicalBERT, etc.) are independently available in PyPI without guardrails. A.M.Y's contribution is orchestration, provenance, and refusal, not novel offensive capability.
 
 By using A.M.Y you agree to the terms in USE_POLICY.md. To report a vulnerability in the guard or in the system, see SECURITY.md.

@@ -72,9 +72,9 @@ dev = [
 amy = "amy:_cli"
 
 [project.urls]
-Homepage = "https://github.com/Ganador1/amy"
-Documentation = "https://github.com/Ganador1/amy/blob/main/README.md"
-Repository = "https://github.com/Ganador1/amy"
+Homepage = "https://github.com/Ganador1/A.M.Y"
+Documentation = "https://github.com/Ganador1/A.M.Y/blob/main/README.md"
+Repository = "https://github.com/Ganador1/A.M.Y"
 
 [tool.setuptools]
 packages = [

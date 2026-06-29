@@ -33,7 +33,7 @@ El objetivo de A.M.Y no es producir texto plausible. El objetivo es ejecutar her
 ### Instalacion
 
 ```bash
-git clone https://github.com/Ganador1/amy.git
+git clone https://github.com/Ganador1/A.M.Y.git
 cd amy
 
 python -m venv .venv
@@ -116,4 +116,4 @@ Apache-2.0 - ver [LICENSE](LICENSE).
 
 **Autor:** Giovanni Arangio
 
-**Repositorio:** https://github.com/Ganador1/amy
+**Repositorio:** https://github.com/Ganador1/A.M.Y
