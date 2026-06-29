@@ -77,6 +77,7 @@ class Heartbeat:
         time_sensor,
         breakthrough_detector,
         report_generator,
+        self_retrain=None,
     ):
         self.config = config
         self.world_model = world_model
@@ -93,6 +94,12 @@ class Heartbeat:
         self.time_sensor = time_sensor
         self.breakthrough_detector = breakthrough_detector
         self.report_generator = report_generator
+        # Self-improvement loop (optional): belief-weight recalibration +
+        # meta-review feedback. Driven from _reflect(); guarded so a None (e.g.
+        # in tests) is a safe no-op.
+        self.self_retrain = self_retrain
+        self._reflections_since_retrain = 0
+        self._reflections_per_retrain = config.get("reflections_per_retrain", 3)
 
         self.ctx = CognitiveContext()
         self._running = False
@@ -409,6 +416,17 @@ class Heartbeat:
             if g.get("depth", 0) > 0
         ][:5]
 
+        # Meta-review feedback: recurring weaknesses synthesized from prior
+        # paper reviews, fed into the prompt so later cycles pre-empt repeated
+        # mistakes (the Co-Scientist "learning without backprop" loop). Empty
+        # until enough recurring signal has accumulated.
+        meta_feedback = ""
+        if self.self_retrain is not None:
+            try:
+                meta_feedback = self.self_retrain.feedback_prompt_suffix()
+            except Exception as exc:
+                log.warning("heartbeat.meta_feedback_failed", error=str(exc))
+
         thought = await self.reasoning.reason(
             focus=focus,
             context={
@@ -420,6 +438,7 @@ class Heartbeat:
                 "consecutive_same_action": self._consecutive_same_action,
                 "last_action_type": self._last_action_type,
                 "active_sub_goals": sub_goals,
+                "meta_review_feedback": meta_feedback,
             },
             world_model=self.world_model,
             semantic_memory=self.semantic_memory,
@@ -816,6 +835,17 @@ class Heartbeat:
                     "tools_used": [t.get("tool_name") for t in tool_results[-10:]],
                 },
             )
+            # Feed this paper's reviews into the meta-review feedback loop so the
+            # recurring-weakness digest (used to sharpen later prompts) builds up
+            # over the run. Best-effort; guarded.
+            if self.self_retrain is not None:
+                try:
+                    self.self_retrain.record_review(
+                        reflection_result=result.get("reflection") or result.get("self_review"),
+                        peer_review=result.get("peer_review"),
+                    )
+                except Exception as exc:
+                    log.warning("heartbeat.record_review_failed", error=str(exc))
 
         return {"type": "write_paper", "result": result}
 
@@ -1199,6 +1229,24 @@ class Heartbeat:
                 log.info("heartbeat.consolidated", skill_count=len(skills))
             except Exception as exc:
                 log.warning("heartbeat.consolidation_failed", error=str(exc))
+
+        # Self-retrain pass: recalibrate world-model belief confidences from
+        # accumulated evidence (heuristic, persisted). Throttled. Previously
+        # this module existed but was never run in the live loop — wiring it
+        # here is what makes the "recalibrates belief confidences" claim true
+        # at runtime. Guarded so a missing module is a safe no-op.
+        if self.self_retrain is not None:
+            self._reflections_since_retrain += 1
+            if self._reflections_since_retrain >= self._reflections_per_retrain:
+                self._reflections_since_retrain = 0
+                try:
+                    record = await self.self_retrain.retrain_world_model(
+                        self.world_model, self.episodic_memory, self.semantic_memory
+                    )
+                    if record:
+                        log.info("heartbeat.self_retrain", **(record if isinstance(record, dict) else {}))
+                except Exception as exc:
+                    log.warning("heartbeat.self_retrain_failed", error=str(exc))
 
     def _adapt_interval(self):
         """

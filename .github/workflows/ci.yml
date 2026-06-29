@@ -106,6 +106,7 @@ jobs:
             tests/test_embedding_recall.py \
             tests/test_metrics.py \
             tests/test_cli_config.py \
+            tests/test_learning_wired.py \
             -m "not atlas" \
             -q --tb=short -p no:cacheprovider
 

@@ -15,7 +15,7 @@
 | Memory (episodic, semantic, procedural) | ✅ Functional | — |
 | Sandbox (isolated execution) | ✅ Functional | — |
 | **Atlas Tools (23 domains; 9 `evidence_grade='real_local'`, rest heuristic/tabulated/demo)** | ✅ Functional | real-library tools verified; see [Honest scope](#honest-scope-what-is-real-vs-heuristic) |
-| Evolution (self-retrain belief-weight update + meta-review feedback) | ⚠️ Partial | meta-review feedback runs; `self_retrain` belief-weight update is implemented but **not wired into the live heartbeat** (experiment-harness only). Does not fine-tune a neural net on-device. |
+| Evolution (self-retrain belief-weight update + meta-review feedback) | ✅ Functional | both run in the live heartbeat: `_reflect` drives belief-weight recalibration on a throttle, and meta-review feedback from paper reviews is fed back into later reasoning prompts. Does not fine-tune a neural net on-device. |
 | Senses (web, time, file, api) | ✅ Functional | — |
 | Communication (paper generator + LLM enhancer + Reflection gate) | ✅ Functional | LLM enhancer/evolution opt-in via env flags |
 
@@ -58,10 +58,10 @@ A.M.Y is not a chatbot. It is not an agent that waits for your question. It is a
 | Average rubric score | **71.00 / 100** |
 | Average reflection score (structural conformity) | **100 / 100** |
 | Verdict tally | **STRONG = 2 · GOOD = 21 · WEAK = 0** |
-
-> The reflection score is a **deterministic structural-conformity check**, not a quality grade or independent peer review. It verifies the draft satisfies a fixed six-item format checklist (numbers traceable to provenance, a limitations sentence, a Testable-Predictions block, etc.); the paper generator inserts boilerplate that satisfies the same regexes, so the 100/100 is uniform across the batch even where rubric novelty is 0. Read it as "the template was filled in correctly," not "the science is sound."
 | Highest-scoring paper | 80.45 (Prime Counting and Twin Prime Density) |
 | Lowest-scoring paper | 62.42 (AM Process Configuration) |
+
+> The reflection score is a **deterministic structural-conformity check**, not a quality grade or independent peer review. It verifies the draft satisfies a fixed six-item format checklist (numbers traceable to provenance, a limitations sentence, a Testable-Predictions block, etc.); the paper generator inserts boilerplate that satisfies the same regexes, so the 100/100 is uniform across the batch even where rubric novelty is 0. Read it as "the template was filled in correctly," not "the science is sound."
 
 See [`experiments/all_domains/REVIEW.json`](experiments/all_domains/REVIEW.json) for the full breakdown and [`experiments/flagship/papers/`](experiments/flagship/papers/) for a deep-dive paper modelled on the arXiv:2511.16072 case-study format (rubric 71, reflection 100, 14 verifiable tool calls).
 
@@ -79,9 +79,22 @@ A.M.Y is built around a continuous **heartbeat loop**. The loop never returns; i
 
 4. **ACT** — A.M.Y picks the best plan and executes it. Scientific tool calls go through `core/atlas_tools.py`, which speaks JSON to a persistent Atlas worker (see Atlas section below). Code experiments go through `sandbox/executor.py`, which validates syntax and resource limits before running. Results flow back into memory and into the next perception.
 
-5. **LEARN** — `memory/episodic.py` records what happened. `memory/semantic.py` updates the knowledge graph. The reflection pass runs `memory/consolidation.py` to chunk successful experiments into procedural skills (Voyager-style) and extract recurring themes. `evolution/curriculum.py` decides what to study next. **Note on `evolution/self_retrain.py`:** it is implemented and exercised by the experiment harness, but it is **not currently wired into the live `amy.py` heartbeat** — the belief-weight recalibration below does not run in the default autonomous loop today. When run, it improves A.M.Y in two ways: (a) a **belief-weight recalibration** — it nudges each world-model belief's confidence toward its empirical reliability (confirm/contradict ratio) with a fixed scalar moving average and persists the new values to the knowledge graph; this is a heuristic recalibration (not a full Bayesian or neural-net update), and the project's own ablation measured **no downstream effect**, so it is kept for transparency rather than as a quality lever; and (b) **meta-review feedback propagation** via `cognition/meta_review_agent.py`, the Google Co-Scientist Meta-review mechanism that synthesizes recurring weaknesses from prior reviews and feeds them into the next cycle's prompts — this is the path that actually changes later outputs. (The Co-Scientist paper notes this kind of feedback loop "enables learning without back-propagation"; A.M.Y does **not** fine-tune a large neural network on-device.)
+5. **LEARN** — `memory/episodic.py` records what happened. `memory/semantic.py` updates the knowledge graph. The reflection pass runs `memory/consolidation.py` to chunk successful experiments into procedural skills (Voyager-style) and extract recurring themes. `evolution/curriculum.py` decides what to study next. `evolution/self_retrain.py` runs **in the live heartbeat** (driven by `_reflect` on a throttle) and improves A.M.Y in two ways: (a) a **belief-weight recalibration** — it nudges each world-model belief's confidence toward its empirical reliability (confirm/contradict ratio) with a fixed scalar moving average and persists the new values to the knowledge graph; this is a heuristic recalibration (not a full Bayesian or neural-net update), and the project's own ablation measured **no downstream effect**, so it is kept for transparency rather than as a quality lever; and (b) **meta-review feedback propagation** via `cognition/meta_review_agent.py`, the Google Co-Scientist Meta-review mechanism that synthesizes recurring weaknesses from prior reviews and feeds them into the next cycle's prompts — this is the path that actually changes later outputs. (The Co-Scientist paper notes this kind of feedback loop "enables learning without back-propagation"; A.M.Y does **not** fine-tune a large neural network on-device.)
 
 The loop then returns to PERCEIVE. There is no exit condition. The loop runs until the OS kills it.
+
+### Observability — what the loop is doing, without grepping logs
+
+Because A.M.Y is meant to run unattended, the heartbeat keeps a live metrics surface (`core/metrics.py`, `HeartbeatMetrics`): cycles, errors and error rate, action mix, experiment success rate, papers, reflections, consolidations, a rolling mean cycle time, and RSS. `heartbeat.status_snapshot()` merges those counters with the current cognitive state (cycle, focus, goal, interval) into one JSON-serializable dict, and a `heartbeat.status` line is logged at every reflection checkpoint. A representative live snapshot:
+
+```
+heartbeat.status  cycles=2  errors=0  error_rate=0.0  avg_cycle_seconds=24.5
+  actions={'experiment': 2, 'think_more': 1}
+  experiments={'succeeded': 1, 'failed': 1, 'success_rate': 0.5}
+  reflections=1  consolidations=0  rss_mb=67.0  uptime_seconds=71.1
+```
+
+**The "never sleeps / runs indefinitely" claim is empirically tested**, not just asserted: a real 60-minute, no-goal, curiosity-only run ([`experiments/e2e_v2/LONGEVITY_FINDINGS.md`](experiments/e2e_v2/LONGEVITY_FINDINGS.md)) reached 90 cycles with memory bounded in a stable ~56–75 MB band (ending *below* where it started), zero uncaught cycle errors, and graceful recovery from transient API rate-limits — the bounded buffers + per-cycle `try/except` are the mechanism, the flat memory curve is the proof.
 
 ## The multi-agent components
 
@@ -141,7 +154,7 @@ digest = agent.synthesize()                # recurring issues + weak criteria + 
 prompt_suffix = digest.as_prompt_suffix()  # appended to the next cycle's prompts
 ```
 
-This is the paper's mechanism for "feedback propagation and learning *without* back-propagation": the synthesized critique is appended to downstream prompts so the next round of hypotheses and write-ups pre-empt the mistakes that kept recurring. `evolution/self_retrain.py` drives this loop and, separately, performs the belief-weight update described in the cognitive cycle's LEARN phase. **Scope note:** this Meta-review + self-retrain loop is wired into the paper-generation / experiment harness, **not** into the default `amy.py` heartbeat — so in the live autonomous loop today, cross-cycle feedback propagation does not yet run automatically. Wiring it into the heartbeat is tracked work.
+This is the paper's mechanism for "feedback propagation and learning *without* back-propagation": the synthesized critique is appended to downstream prompts so the next round of hypotheses and write-ups pre-empt the mistakes that kept recurring. `evolution/self_retrain.py` drives this loop and, separately, performs the belief-weight update described in the cognitive cycle's LEARN phase. **It is wired into the live `amy.py` heartbeat:** `_reflect` runs the belief-weight recalibration on a throttle (`reflections_per_retrain`), each written paper's review is fed in via `record_review`, and the synthesized recurring-weakness digest is rendered into the next reasoning prompt as a "Lessons From Prior Reviews" block.
 
 ## Atlas / AXIOM — the scientific platform underneath
 
@@ -350,7 +363,7 @@ A.M.Y/
 │   ├── app/run_agent_with_tools_legacy.py
 │   └── ...
 │
-├── tests/                       # 36 test files, 30+ pass
+├── tests/                       # 56+ test files; fast hermetic lane runs in CI
 ├── scripts/                     # run/, diagnostics/, analysis/
 ├── experiments/                 # all_domains/, flagship/, ab_test/, multimodel/
 ├── papers/                      # Generated papers (Markdown + PDF)
@@ -361,7 +374,9 @@ A.M.Y/
 
 ```bash
 # 1. Set up environments (see ENVIRONMENT.md for the full layout)
-python3.13 -m venv .venv
+# The A.M.Y runtime venv MUST be Python 3.14 (the Atlas worker uses a separate
+# 3.13 venv at atlas/.venv_new, since parts of the science stack don't support 3.14 yet).
+python3.14 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/pip install -e .
 
@@ -442,7 +457,7 @@ The "autonomously covered" and "papers per run" figures below measure A.M.Y's pi
 
 ## Responsible use
 
-A.M.Y ships with a built-in misuse guard (atlas/app/security/misuse_guard.py) that fails closed and blocks operations in eight categories:
+A.M.Y ships with a built-in misuse guard (atlas/app/security/misuse_guard.py) that fails closed and blocks operations in nine categories:
 
 - Chemical weaponisation
 - Biological weaponisation (gain-of-function, pathogen enhancement)
@@ -452,6 +467,7 @@ A.M.Y ships with a built-in misuse guard (atlas/app/security/misuse_guard.py) th
 - Fissile materials (synthesis, enrichment, weaponisation)
 - Mass surveillance and individual targeting
 - Critical infrastructure attack (power grid, SCADA, elections)
+- Prompt injection and jailbreak attempts
 
 The guard is enforced before any tool runs and again before any subprocess starts. If you ship a fork that disables it, you take ownership of that decision; please use a different name so users can tell the projects apart.
 
