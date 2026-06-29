@@ -97,6 +97,7 @@ async def test_heartbeat_reflect_runs_consolidation_after_throttle(tmp_path):
     hb._consolidator = MemoryConsolidation(ep, sem, proc)
     hb._reflections_since_consolidation = 0
     hb._reflections_per_consolidation = 2
+    hb.self_retrain = None  # _reflect's self-retrain branch is a no-op when None
 
     # First reflection: below throttle -> no consolidation yet.
     await hb._reflect()

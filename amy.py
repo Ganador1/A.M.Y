@@ -27,6 +27,7 @@ from communication.breakthrough_detector import BreakthroughDetector
 from communication.report_generator import ReportGenerator
 from senses.web_sensor import WebSensor
 from senses.time_sensor import TimeSensor
+from evolution.self_retrain import SelfRetrainModule
 
 log = structlog.get_logger()
 
@@ -99,6 +100,11 @@ class AMY:
         )
         self.report_generator = ReportGenerator(config["communication"])
 
+        # --- Self-improvement (belief recalibration + meta-review feedback) ---
+        # Previously defined but never wired into the live loop; the heartbeat
+        # now drives it during reflection.
+        self.self_retrain = SelfRetrainModule(config.get("evolution", {}))
+
         # --- Heartbeat ---
         heartbeat_config = dict(config["heartbeat"])
         heartbeat_config["sandbox"] = config.get("sandbox", {})
@@ -120,6 +126,7 @@ class AMY:
             time_sensor=self.time_sensor,
             breakthrough_detector=self.breakthrough_detector,
             report_generator=self.report_generator,
+            self_retrain=self.self_retrain,
         )
 
     async def start(self):

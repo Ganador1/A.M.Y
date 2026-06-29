@@ -518,6 +518,11 @@ class ReasoningEngine:
             sg_list = "\n".join(f"  - {sg}" for sg in sub_goals[:5])
             sub_goals_block = f"\n## Active Sub-Goals\n{sg_list}\n"
 
+        # Recurring-weakness guidance synthesized from prior reviews (meta-review
+        # feedback loop). Present only once enough signal has accumulated.
+        meta_feedback = context.get("meta_review_feedback", "")
+        meta_block = f"\n## Lessons From Prior Reviews\n{meta_feedback.strip()}\n" if meta_feedback.strip() else ""
+
         user_msg = (
             f"## Current Focus\n{focus.get('content', 'No specific focus')}\n"
             f"(Source: {focus.get('source', 'unknown')}, Type: {focus.get('type', 'unknown')})\n\n"
@@ -527,6 +532,7 @@ class ReasoningEngine:
             f"## Recent Thoughts (last 5)\n{recent_summary or 'First cycle'}\n"
             f"{queries_block}"
             f"{hyp_block}"
+            f"{meta_block}"
             f"{loop_warning}"
             f"## Cycle\n#{context.get('cycle', 0)}\n\n"
             "What is your next cognitive step?"
