@@ -91,7 +91,9 @@ async def test_heartbeat_reflect_runs_consolidation_after_throttle(tmp_path):
     hb.reflection = _Reflect()
 
     from core.heartbeat import CognitiveContext
+    from core.metrics import HeartbeatMetrics
     hb.ctx = CognitiveContext()
+    hb.metrics = HeartbeatMetrics()  # _reflect records reflection/consolidation metrics
     hb._consolidator = MemoryConsolidation(ep, sem, proc)
     hb._reflections_since_consolidation = 0
     hb._reflections_per_consolidation = 2
@@ -103,3 +105,6 @@ async def test_heartbeat_reflect_runs_consolidation_after_throttle(tmp_path):
     await hb._reflect()
     skills = await proc.list_skills()
     assert len(skills) == 1, "consolidation did not run on the throttle boundary"
+    # Metrics recorded both reflections and exactly one consolidation.
+    assert hb.metrics.reflections == 2
+    assert hb.metrics.consolidations == 1
