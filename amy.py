@@ -162,20 +162,31 @@ class AMY:
         log.info("amy.shutdown_complete")
 
 
-async def main():
-    config = load_config()
-
-    # Override goal from command line if provided
+def _parse_args(argv=None):
     import argparse
     parser = argparse.ArgumentParser(description="A.M.Y — Autonomous Mind Yield")
     parser.add_argument("--goal", type=str, help="The mission goal")
     parser.add_argument("--config", type=str, default="config.yaml", help="Config file path")
-    args = parser.parse_args()
+    return parser.parse_args(argv)
 
-    if args.config != "config.yaml":
-        config = load_config(args.config)
+
+def resolve_config(argv=None) -> dict:
+    """Parse args, then load config from the resolved path exactly once.
+
+    Args are parsed BEFORE loading any config: previously load_config() ran
+    first and unconditionally opened the default config.yaml, so passing
+    --config other.yaml still crashed if config.yaml was absent (and the
+    default was loaded twice). The --goal override is applied here too.
+    """
+    args = _parse_args(argv)
+    config = load_config(args.config)
     if args.goal:
         config["mission"]["goal"] = args.goal
+    return config
+
+
+async def main():
+    config = resolve_config()
 
     amy = AMY(config)
 

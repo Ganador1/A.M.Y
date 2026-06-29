@@ -12,7 +12,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-REPOSITORY_URL = "https://github.com/Ganador1/amy"
+REPOSITORY_URL = "https://github.com/Ganador1/A.M.Y"
 
 
 def _load_secret_hygiene_module():
