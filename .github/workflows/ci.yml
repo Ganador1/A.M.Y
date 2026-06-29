@@ -104,6 +104,7 @@ jobs:
             tests/test_web_sensor_async.py \
             tests/test_rapid_round_fixes.py \
             tests/test_embedding_recall.py \
+            tests/test_metrics.py \
             -m "not atlas" \
             -q --tb=short -p no:cacheprovider
 

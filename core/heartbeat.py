@@ -123,6 +123,27 @@ class Heartbeat:
         )
         self._reflections_since_consolidation = 0
         self._reflections_per_consolidation = config.get("reflections_per_consolidation", 3)
+        # Runtime metrics: a cheap, always-current observability surface so the
+        # loop's health (cycles, errors, action mix, experiment success rate,
+        # memory) is visible without grepping logs. See status_snapshot().
+        from core.metrics import HeartbeatMetrics
+        self.metrics = HeartbeatMetrics()
+
+    def status_snapshot(self) -> dict:
+        """Point-in-time view of what A.M.Y is doing and how it's holding up.
+
+        Combines the live cognitive context (cycle, state, focus, goal) with the
+        accumulated runtime metrics. JSON-serializable; safe to call anytime."""
+        snap = self.metrics.snapshot()
+        snap.update({
+            "running": self._running,
+            "state": self.ctx.state.value if hasattr(self.ctx.state, "value") else str(self.ctx.state),
+            "cycle_number": self.ctx.cycle_number,
+            "current_goal": self.ctx.current_goal[:200],
+            "current_focus": self.ctx.current_focus[:200],
+            "current_interval_seconds": self._current_interval,
+        })
+        return snap
 
     def _sandbox_config(self) -> dict:
         """Return the sandbox config visible to action executors."""
@@ -153,6 +174,7 @@ class Heartbeat:
             try:
                 await self._beat()
             except Exception as e:
+                self.metrics.record_error(str(e))
                 log.error("heartbeat.cycle_error", error=str(e), cycle=self.ctx.cycle_number)
                 # Don't crash — log and continue. A mind doesn't crash from one bad thought.
                 await self.episodic_memory.record(
@@ -163,6 +185,7 @@ class Heartbeat:
 
             # Adaptive timing
             elapsed = time.monotonic() - cycle_start
+            self.metrics.record_cycle(elapsed)
             sleep_time = max(0, self._current_interval - elapsed)
 
             if sleep_time > 0:
@@ -225,6 +248,7 @@ class Heartbeat:
         # ──────────── 4. ACT ────────────
         self.ctx.state = CognitiveState.ACTING
         action_result = await self._act(thought)
+        self.metrics.record_action(thought.get("action_type", "think_more"), action_result)
 
         # ──────────── LOOP DETECTION ────────────
         current_action = thought.get("action_type", "think_more")
@@ -1153,6 +1177,10 @@ class Heartbeat:
         Generates new research directions.
         """
         log.info("heartbeat.reflecting", cycles_since_last=self.ctx.cycles_since_reflection)
+        self.metrics.record_reflection()
+        # Emit a periodic status snapshot — reflection is a natural checkpoint,
+        # so health is visible in the logs/monitoring without extra tooling.
+        log.info("heartbeat.status", **self.metrics.snapshot())
         await self.reflection.reflect(
             world_model=self.world_model,
             goal_stack=self.goal_stack,
@@ -1166,6 +1194,7 @@ class Heartbeat:
             self._reflections_since_consolidation = 0
             try:
                 await self._consolidator.consolidate()
+                self.metrics.record_consolidation()
                 skills = await self.procedural_memory.list_skills()
                 log.info("heartbeat.consolidated", skill_count=len(skills))
             except Exception as exc:
