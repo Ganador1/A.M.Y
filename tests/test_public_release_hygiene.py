@@ -54,7 +54,7 @@ def test_public_metadata_points_to_current_repository_and_license():
     }
 
     public_readme = (ROOT / "README_PUBLIC.md").read_text(encoding="utf-8")
-    assert f"git clone --branch codex/public-release-1.1.0rc1 {REPOSITORY_URL}.git" in public_readme
+    assert f"git clone --branch main {REPOSITORY_URL}.git" in public_readme
     assert "Apache-2.0" in public_readme
     assert "MIT" not in public_readme
     assert "tuusuario" not in public_readme
@@ -76,9 +76,9 @@ def test_public_readme_does_not_link_missing_repository_docs():
     assert missing == []
 
 
-def test_public_entrypoint_titles_are_project_name_only():
-    assert (ROOT / "README.md").read_text(encoding="utf-8").splitlines()[0] == "# A.M.Y"
-    assert (ROOT / "README_PUBLIC.md").read_text(encoding="utf-8").splitlines()[0] == "# A.M.Y"
+def test_public_entrypoints_identify_project_and_getting_started():
+    assert (ROOT / "README.md").read_text(encoding="utf-8").splitlines()[0] == "# A.M.Y — Autonomous Mind Yield"
+    assert (ROOT / "README_PUBLIC.md").read_text(encoding="utf-8").splitlines()[0] == "# Getting started with A.M.Y"
 
 
 def test_secret_hygiene_scans_repository_root_and_no_live_kubernetes_secret_is_tracked():

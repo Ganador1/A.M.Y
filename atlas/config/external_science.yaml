@@ -1,0 +1,37 @@
+paperqa2:
+  enabled: true
+  mode: atlas_fallback
+  max_results: 8
+
+mattergen:
+  enabled: false
+  provider: http
+  base_url_env: MATTERGEN_BASE_URL
+  api_key_env: MATTERGEN_API_KEY
+  auth_header: Authorization
+  auth_prefix: Bearer
+  timeout_seconds: 45
+  endpoints:
+    generate_candidates: /generate
+
+mattersim:
+  enabled: false
+  provider: http
+  base_url_env: MATTERSIM_BASE_URL
+  api_key_env: MATTERSIM_API_KEY
+  auth_header: Authorization
+  auth_prefix: Bearer
+  timeout_seconds: 45
+  endpoints:
+    simulate_candidates: /simulate
+
+alphagenome:
+  enabled: false
+  provider: http
+  base_url_env: ALPHAGENOME_BASE_URL
+  api_key_env: ALPHAGENOME_API_KEY
+  auth_header: Authorization
+  auth_prefix: Bearer
+  timeout_seconds: 60
+  endpoints:
+    predict_variant_effects: /predict

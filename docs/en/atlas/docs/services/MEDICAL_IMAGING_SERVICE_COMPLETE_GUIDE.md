@@ -82,14 +82,12 @@ from app.domains.medicine.imaging.medical_imaging_service import MedicalImagingS
 
 service = MedicalImagingService()
 
-<a id="datos-de-prueba"></a>
 # Datos de prueba
 test_data = {
     'pixel_data': np.random.rand(64, 64, 10).astype(np.float32),
     'spacing': [1.0, 1.0, 1.0]
 }
 
-<a id="segmentación-avanzada"></a>
 # Segmentación avanzada
 result = service.segment_cardiac_chambers(test_data, 'enhanced_threshold')
 print(f"Volúmenes calculados: {result.volume_estimates}")
@@ -108,26 +106,18 @@ The advanced service is fully integrated with the main `MedicalImagingService`:
 ```python
 methods = service.get_available_segmentation_methods()
 print(methods)
-<a id="output"></a>
 # Output:
-<a id=""></a>
 # {
-<a id="basic_methods-threshold-region_growing-deep_learning"></a>
 #     'basic_methods': ['threshold', 'region_growing', 'deep_learning'],
-<a id="advanced_methods-enhanced_threshold-region_growing_enhanced"></a>
 #     'advanced_methods': ['enhanced_threshold', 'region_growing_enhanced'],
-<a id="all_methods-threshold-region_growing-deep_learning"></a>
 #     'all_methods': ['threshold', 'region_growing', 'deep_learning',
-<a id="enhanced_threshold-region_growing_enhanced"></a>
 #                    'enhanced_threshold', 'region_growing_enhanced']
-<a id="-1"></a>
 # }
 ```
 
 <a id="selección-automática"></a>
 #### **Automatic Selection:**
 ```python
-<a id="el-servicio-selecciona-automáticamente-el-mejor-método-disponible"></a>
 # El servicio selecciona automáticamente el mejor método disponible
 result = service.segment_cardiac_chambers(image_data, 'enhanced_threshold')
 ```
@@ -141,19 +131,15 @@ result = service.segment_cardiac_chambers(image_data, 'enhanced_threshold')
 ### **System Requirements**
 
 ```bash
-<a id="python-38"></a>
 # Python 3.8+
 python --version
 
-<a id="dependencias-principales"></a>
 # Dependencias principales
 pip install numpy pydicom SimpleITK scikit-learn
 
-<a id="para-funcionalidades-avanzadas"></a>
 # Para funcionalidades avanzadas
 pip install scipy matplotlib pillow
 
-<a id="para-desarrollo-opcional"></a>
 # Para desarrollo (opcional)
 pip install pytest black flake8 mypy
 ```
@@ -162,16 +148,13 @@ pip install pytest black flake8 mypy
 ### **Framework Installation**
 
 ```bash
-<a id="clonar-el-repositorio"></a>
 # Clonar el repositorio
 git clone https://github.com/your-org/atlas.git
 cd atlas
 
-<a id="instalar-dependencias"></a>
 # Instalar dependencias
 pip install -r requirements.txt
 
-<a id="instalar-en-modo-desarrollo"></a>
 # Instalar en modo desarrollo
 pip install -e .
 ```
@@ -180,7 +163,6 @@ pip install -e .
 ### **Environment Configuration**
 
 ```bash
-<a id="variables-de-entorno-necesarias"></a>
 # Variables de entorno necesarias
 export PYTHONPATH="${PYTHONPATH}:/path/to/atlas"
 export MPLBACKEND="Agg"  # Para matplotlib en servidores
@@ -190,14 +172,12 @@ export MPLBACKEND="Agg"  # Para matplotlib en servidores
 ### **Installation Verification**
 
 ```python
-<a id="verificar-importaciones"></a>
 # Verificar importaciones
 from app.domains.medicine.imaging.medical_imaging_service import MedicalImagingService
 from app.advanced_segmentation_service import AdvancedSegmentationService
 
 print("✅ Todas las importaciones exitosas")
 
-<a id="verificar-funcionalidad-básica"></a>
 # Verificar funcionalidad básica
 service = MedicalImagingService()
 methods = service.get_available_segmentation_methods()
@@ -215,7 +195,6 @@ print(f"✅ {len(methods['all_methods'])} métodos de segmentación disponibles"
 ```python
 from app.domains.medicine.imaging.medical_imaging_service import MedicalImagingService
 
-<a id="crear-instancia-del-servicio"></a>
 # Crear instancia del servicio
 medical_service = MedicalImagingService()
 
@@ -227,12 +206,10 @@ print(f"Formatos soportados: {medical_service.supported_formats}")
 ### **2. Loading Medical Images**
 
 ```python
-<a id="cargar-imagen-dicom"></a>
 # Cargar imagen DICOM
 dicom_data = medical_service.parse_dicom_series("/path/to/dicom/folder")
 print(f"Imagen cargada: {dicom_data['pixel_data'].shape}")
 
-<a id="o-cargar-archivo-único"></a>
 # O cargar archivo único
 single_image = medical_service.load_medical_image("/path/to/image.dcm")
 ```
@@ -241,14 +218,12 @@ single_image = medical_service.load_medical_image("/path/to/image.dcm")
 ### **3. Cardiac Segmentation**
 
 ```python
-<a id="usar-segmentación-avanzada-recomendado"></a>
 # Usar segmentación avanzada (recomendado)
 segmentation_result = medical_service.segment_cardiac_chambers(
     dicom_data,
     segmentation_method='enhanced_threshold'
 )
 
-<a id="ver-resultados"></a>
 # Ver resultados
 print("Volúmenes cardíacos:")
 for region, volume in segmentation_result.volume_estimates.items():
@@ -263,12 +238,10 @@ for region, confidence in segmentation_result.segmentation_confidence.items():
 ### **4. Strain Analysis**
 
 ```python
-<a id="crear-secuencia-de-imágenes-4d-tiempo-x-altura-x-ancho-x-slices"></a>
 # Crear secuencia de imágenes (4D: tiempo x altura x ancho x slices)
 image_sequence = np.random.rand(20, 64, 64, 10)  # 20 frames temporales
 time_points = np.linspace(0, 1, 20)  # Tiempo en segundos
 
-<a id="análisis-de-strain"></a>
 # Análisis de strain
 strain_result = medical_service.analyze_myocardial_strain(
     image_sequence,
@@ -285,7 +258,6 @@ print(f"  Radial: {strain_result.global_radial_strain:.3f}")
 ### **5. Patient-Specific Calibration**
 
 ```python
-<a id="calibrar-modelo-con-datos-paciente-específicos"></a>
 # Calibrar modelo con datos paciente-específicos
 patient_model = medical_service.calibrate_patient_specific_model(
     imaging_data=dicom_data,
@@ -300,7 +272,6 @@ print(f"Modelo calibrado para paciente: {patient_model['patient_id']}")
 ### **6. Generate Clinical Report**
 
 ```python
-<a id="generar-reporte-en-español"></a>
 # Generar reporte en español
 clinical_report = medical_service.generate_clinical_report(patient_model)
 
@@ -584,7 +555,6 @@ def process_cardiac_study(dicom_path: str) -> str:
 
     return clinical_report
 
-<a id="uso"></a>
 # Uso
 report = process_cardiac_study("/path/to/cardiac/dicom/series")
 print(report)
@@ -639,7 +609,6 @@ def compare_segmentation_methods():
 
     return results
 
-<a id="ejecutar-comparación"></a>
 # Ejecutar comparación
 comparison_results = compare_segmentation_methods()
 ```
@@ -698,7 +667,6 @@ def batch_process_studies(studies_directory: str, output_directory: str):
 
     print(f"\\n🎉 Procesamiento completado. {len(study_dirs)} estudios procesados.")
 
-<a id="uso-1"></a>
 # Uso
 batch_process_studies(
     "/path/to/studies/directory",
@@ -715,15 +683,12 @@ batch_process_studies(
 ### **1. Segmentation Method Selection**
 
 ```python
-<a id="para-datos-de-buena-calidad---usar-método-avanzado"></a>
 # Para datos de buena calidad - usar método avanzado
 result = service.segment_cardiac_chambers(data, 'enhanced_threshold')
 
-<a id="para-datos-con-ruidoartifacts---método-básico-puede-ser-más-robusto"></a>
 # Para datos con ruido/artifacts - método básico puede ser más robusto
 result = service.segment_cardiac_chambers(data, 'threshold')
 
-<a id="para-evaluación-automática---dejar-que-el-servicio-elija"></a>
 # Para evaluación automática - dejar que el servicio elija
 result = service.segment_cardiac_chambers(data)  # Usa 'enhanced_threshold' por defecto
 ```
@@ -732,7 +697,6 @@ result = service.segment_cardiac_chambers(data)  # Usa 'enhanced_threshold' por 
 ### **2. Memory Management for Large Datasets**
 
 ```python
-<a id="procesar-en-chunks-para-datasets-grandes"></a>
 # Procesar en chunks para datasets grandes
 def process_large_dataset(image_data, chunk_size=32):
     results = []
@@ -780,7 +744,6 @@ def validate_segmentation_quality(segmentation_result):
 ```python
 import logging
 
-<a id="configurar-logging"></a>
 # Configurar logging
 logging.basicConfig(
     level=logging.INFO,
@@ -829,7 +792,6 @@ def safe_process_medical_image(image_path):
 ### **5. Performance Optimization**
 
 ```python
-<a id="usar-procesamiento-paralelo-para-múltiples-estudios"></a>
 # Usar procesamiento paralelo para múltiples estudios
 from concurrent.futures import ProcessPoolExecutor
 import multiprocessing as mp
@@ -868,15 +830,12 @@ def process_studies_parallel(study_paths, max_workers=None):
 <a id="1-error-de-importación"></a>
 #### **1. Import Error**
 ```python
-<a id="error-modulenotfounderror-no-module-named-appdomainsmedicineimagingmedical_imaging_service"></a>
 # Error: ModuleNotFoundError: No module named 'app.domains.medicine.imaging.medical_imaging_service'
 
-<a id="solución-verificar-pythonpath"></a>
 # Solución: Verificar PYTHONPATH
 import sys
 sys.path.append('/path/to/atlas')
 
-<a id="o-instalar-en-modo-desarrollo"></a>
 # O instalar en modo desarrollo
 pip install -e .
 ```
@@ -884,10 +843,8 @@ pip install -e .
 <a id="2-error-de-memoria-con-imágenes-grandes"></a>
 #### **2. Memory Error with Large Images**
 ```python
-<a id="error-memoryerror"></a>
 # Error: MemoryError
 
-<a id="solución-procesar-en-chunks"></a>
 # Solución: Procesar en chunks
 def process_large_image(image_path, chunk_size=16):
     # Cargar metadatos primero
@@ -902,18 +859,12 @@ def process_large_image(image_path, chunk_size=16):
 <a id="3-resultados-de-segmentación-pobres"></a>
 #### **3. Poor Segmentation Results**
 ```python
-<a id="problema-máscaras-con-artefactos-o-volúmenes-irreales"></a>
 # Problema: Máscaras con artefactos o volúmenes irreales
 
-<a id="soluciones"></a>
 # Soluciones:
-<a id="1-verificar-calidad-de-imagen-de-entrada"></a>
 # 1. Verificar calidad de imagen de entrada
-<a id="2-ajustar-parámetros-de-segmentación"></a>
 # 2. Ajustar parámetros de segmentación
-<a id="3-usar-método-alternativo"></a>
 # 3. Usar método alternativo
-<a id="4-aplicar-post-procesamiento-adicional"></a>
 # 4. Aplicar post-procesamiento adicional
 
 def improve_segmentation_quality(image_data):
@@ -936,21 +887,14 @@ def improve_segmentation_quality(image_data):
 <a id="4-problemas-de-rendimiento"></a>
 #### **4. Performance Problems**
 ```python
-<a id="problema-procesamiento-muy-lento"></a>
 # Problema: Procesamiento muy lento
 
-<a id="soluciones-1"></a>
 # Soluciones:
-<a id="1-usar-procesamiento-paralelo"></a>
 # 1. Usar procesamiento paralelo
-<a id="2-optimizar-tamaños-de-imagen"></a>
 # 2. Optimizar tamaños de imagen
-<a id="3-usar-gpu-si-disponible"></a>
 # 3. Usar GPU si disponible
-<a id="4-implementar-caching"></a>
 # 4. Implementar caching
 
-<a id="configuración-para-gpu"></a>
 # Configuración para GPU
 import torch
 if torch.cuda.is_available():
@@ -961,10 +905,8 @@ if torch.cuda.is_available():
 <a id="5-errores-con-archivos-dicom"></a>
 #### **5. Errors with DICOM Files**
 ```python
-<a id="problema-error-parseando-dicom"></a>
 # Problema: Error parseando DICOM
 
-<a id="diagnóstico"></a>
 # Diagnóstico:
 def diagnose_dicom_issues(dicom_path):
     try:
@@ -993,7 +935,6 @@ def diagnose_dicom_issues(dicom_path):
 ### **Debug Logs**
 
 ```python
-<a id="habilitar-logging-detallado"></a>
 # Habilitar logging detallado
 import logging
 
@@ -1006,7 +947,6 @@ logging.basicConfig(
     ]
 )
 
-<a id="para-el-servicio-específico"></a>
 # Para el servicio específico
 service_logger = logging.getLogger('app.domains.medicine.imaging.medical_imaging_service')
 service_logger.setLevel(logging.DEBUG)
@@ -1021,7 +961,6 @@ service_logger.setLevel(logging.DEBUG)
 ### **Phase 3.1.5: Optical Flow for Real Strain** 📅 Next Week
 
 ```python
-<a id="implementación-planificada"></a>
 # Implementación planificada
 class OpticalFlowService:
     def __init__(self):
@@ -1039,7 +978,6 @@ class OpticalFlowService:
 ### **Phase 3.1.6: Full NIfTI Support** 📅 Following Week
 
 ```python
-<a id="servicio-nifti-completo"></a>
 # Servicio NIfTI completo
 class NIFTIService:
     def load_nifti_with_metadata(self, nifti_path):
@@ -1059,7 +997,6 @@ class NIFTIService:
 ### **Phase 3.1.7: Deep Learning Segmentation** 📅 Next Month
 
 ```python
-<a id="segmentación-con-modelos-pre-entrenados"></a>
 # Segmentación con modelos pre-entrenados
 class DeepLearningSegmentation:
     def __init__(self):

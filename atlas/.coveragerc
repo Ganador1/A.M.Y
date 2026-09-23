@@ -1,0 +1,17 @@
+[run]
+branch = True
+source = app,ingestion
+omit = 
+    */__init__.py
+    */tests/*
+    */alembic/*
+    */examples/*
+
+[report]
+show_missing = True
+skip_covered = True
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.: 
+    raise NotImplementedError
+    pass

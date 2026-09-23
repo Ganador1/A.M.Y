@@ -13,4 +13,4 @@ The public records are privacy-reviewed derivatives, not rewrites of the native 
 
 aggregate.json summarizes the original 20 sessions, including six that failed to close. This numerical replay does not independently verify their complete conversations, model decisions or native-chain chronology. Full historical raw-chain replication is outside this compact privacy-preserving package. No novelty, model superiority or full autonomy claim follows from the data.
 
-For a new native calibration, the full source release includes experiments/multimodel_recovery_20260919, experiments/recovery_campaign_20260919, the runtime and scientific modules, and a frozen public model catalog. See docs/releases/REPRODUCING.md. A new cloud response is not expected to reproduce old model text or outcomes bit-for-bit.
+For a new native calibration, the full source release includes experiments/multimodel_recovery_20260919, experiments/recovery_campaign_20260919, the runtime and scientific modules, and a frozen public model catalog. See docs/REPRODUCIBILITY.md. A new cloud response is not expected to reproduce old model text or outcomes bit-for-bit.

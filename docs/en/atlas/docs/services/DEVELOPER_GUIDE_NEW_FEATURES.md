@@ -33,7 +33,6 @@ This guide documents the new features implemented in Agent 2 (MathLab) following
 <a id="instalación-asistida"></a>
 #### Assisted Installation
 ```python
-<a id="detección-automática-de-so-y-arquitectura"></a>
 # Detección automática de SO y arquitectura
 installer = Lean4InstallerService()
 result = await installer.install_lean4()
@@ -42,7 +41,6 @@ result = await installer.install_lean4()
 <a id="validación-de-configuración"></a>
 #### Configuration Validation
 ```python
-<a id="verificación-completa-del-environment"></a>
 # Verificación completa del environment
 lean4_service = Lean4Service()
 validation = await lean4_service.validate_configuration()
@@ -51,7 +49,6 @@ validation = await lean4_service.validate_configuration()
 <a id="diagnóstico-de-errores"></a>
 #### Error Diagnosis
 ```python
-<a id="clasificación-automática-de-errores"></a>
 # Clasificación automática de errores
 diagnosis = await lean4_service.diagnose_error("lean: command not found")
 ```
@@ -71,7 +68,6 @@ diagnosis = await lean4_service.diagnose_error("lean: command not found")
 <a id="-testing"></a>
 ### 🧪 Testing
 ```bash
-<a id="test-básico-de-funcionalidad"></a>
 # Test básico de funcionalidad
 python tests/test_isolated_validation.py
 ```
@@ -95,7 +91,6 @@ python tests/test_isolated_validation.py
 ```python
 quantifier = MonteCarloDropoutQuantifier()
 result = quantifier.quantify_uncertainty(X, y, n_samples=100)
-<a id="resultado-incluye-mean_prediction-epistemic_uncertainty-confidence_intervals"></a>
 # Resultado incluye: mean_prediction, epistemic_uncertainty, confidence_intervals
 ```
 
@@ -104,7 +99,6 @@ result = quantifier.quantify_uncertainty(X, y, n_samples=100)
 ```python
 ensemble = EnsembleQuantifier()
 result = ensemble.quantify_uncertainty(X, y, n_estimators=10)
-<a id="incluye-ensemble_prediction-ensemble_uncertainty-diversity_metrics"></a>
 # Incluye: ensemble_prediction, ensemble_uncertainty, diversity_metrics
 ```
 
@@ -113,7 +107,6 @@ result = ensemble.quantify_uncertainty(X, y, n_estimators=10)
 ```python
 service = ConformalPredictionService()
 result = service.split_conformal_prediction(X_cal, y_cal, X_test, alpha=0.1)
-<a id="garantiza-cobertura-probabilística"></a>
 # Garantiza cobertura probabilística
 ```
 
@@ -150,7 +143,6 @@ result = await service.simulate_grover_search(
     target_items=[0, 3], 
     database_size=8
 )
-<a id="búsqueda-cuántica-con-speedup-cuadrático"></a>
 # Búsqueda cuántica con speedup cuadrático
 ```
 
@@ -158,7 +150,6 @@ result = await service.simulate_grover_search(
 #### Shor's Algorithm
 ```python
 result = await service.simulate_shor_algorithm(N=15)
-<a id="factorización-cuántica-de-enteros"></a>
 # Factorización cuántica de enteros
 ```
 
@@ -170,7 +161,6 @@ result = await service.simulate_noisy_circuit(
     noise_model="depolarizing",
     noise_strength=0.01
 )
-<a id="análisis-realista-con-modelos-de-ruido"></a>
 # Análisis realista con modelos de ruido
 ```
 
@@ -201,12 +191,10 @@ result = await service.simulate_noisy_circuit(
 <a id="setup-del-environment"></a>
 #### Environment Setup
 ```bash
-<a id="crear-virtualenv"></a>
 # Crear virtualenv
 python3 -m venv test_env
 source test_env/bin/activate
 
-<a id="instalar-dependencias"></a>
 # Instalar dependencias
 pip install pytest numpy scikit-learn networkx
 ```
@@ -214,15 +202,12 @@ pip install pytest numpy scikit-learn networkx
 <a id="ejecutar-tests"></a>
 #### Run Tests
 ```bash
-<a id="tests-aislados-recomendado"></a>
 # Tests aislados (recomendado)
 python tests/test_isolated_validation.py
 
-<a id="validación-rápida"></a>
 # Validación rápida
 python tests/test_quick_validation.py
 
-<a id="con-pytest-requiere-setup-completo"></a>
 # Con pytest (requiere setup completo)
 python -m pytest tests/ -v
 ```
@@ -253,7 +238,6 @@ python -m pytest tests/ -v
 <a id="error-no-module-named-psycopg2"></a>
 #### Error: "No module named 'psycopg2'"
 ```bash
-<a id="solución-usar-tests-aislados"></a>
 # Solución: Usar tests aislados
 python tests/test_isolated_validation.py
 ```
@@ -261,7 +245,6 @@ python tests/test_isolated_validation.py
 <a id="error-command-not-found"></a>
 #### Error: "command not found"
 ```bash
-<a id="verificar-environment"></a>
 # Verificar environment
 source test_env/bin/activate
 export PYTHONPATH=$PYTHONPATH:$(pwd)
@@ -270,7 +253,6 @@ export PYTHONPATH=$PYTHONPATH:$(pwd)
 <a id="error-de-importación-de-módulos"></a>
 #### Module import error
 ```bash
-<a id="instalar-dependencias-específicas"></a>
 # Instalar dependencias específicas
 pip install numpy scikit-learn networkx
 ```
@@ -278,7 +260,6 @@ pip install numpy scikit-learn networkx
 <a id="debug-mode"></a>
 ### Debug Mode
 ```python
-<a id="para-debugging-detallado-habilitar-logging"></a>
 # Para debugging detallado, habilitar logging
 import logging
 logging.basicConfig(level=logging.DEBUG)

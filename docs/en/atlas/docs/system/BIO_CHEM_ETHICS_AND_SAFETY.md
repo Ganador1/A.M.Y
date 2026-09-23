@@ -302,7 +302,6 @@ Open source projects in biology and chemistry face the challenge of **promoting 
 <a id="nivel-1-controles-técnicos"></a>
 #### **Level 1: Technical Controls**
 ```python
-<a id="ejemplo-screening-automático-en-computational_chemistry"></a>
 # Ejemplo: Screening automático en computational_chemistry
 RESTRICTED_PATTERNS = [
     "(?i).*explosive.*",

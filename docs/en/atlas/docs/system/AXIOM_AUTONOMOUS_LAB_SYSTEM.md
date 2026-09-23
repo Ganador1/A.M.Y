@@ -30,7 +30,6 @@ The AXIOM Autonomous Laboratory system has been fully implemented following the 
 - **Integration with FastAPI Security**
 
 ```python
-<a id="scopes-principales"></a>
 # Scopes principales
 SYSTEM_SCOPES = {
     "axiom:hypothesis:read", "axiom:hypothesis:write",
@@ -55,7 +54,6 @@ SYSTEM_SCOPES = {
 - **Validation Agent**: Scientific validation and verification
 
 ```python
-<a id="inicialización-automática-de-agentes"></a>
 # Inicialización automática de agentes
 default_agents = [
     AutonomousAgent(id="research_001", agent_type=AgentType.RESEARCH),
@@ -171,7 +169,6 @@ class WorkflowType(Enum):
 <a id="startup-automático"></a>
 #### Automatic startup
 ```python
-<a id="inicialización-en-appmainpy"></a>
 # Inicialización en app/main.py
 @app.on_event("startup")
 async def startup_event():
@@ -219,7 +216,6 @@ async def startup_event():
 <a id="ejemplo-de-workflow-completo"></a>
 #### Complete Workflow Example
 ```python
-<a id="crear-workflow-de-investigación"></a>
 # Crear workflow de investigación
 workflow = AutonomousWorkflow(
     workflow_id="research_covid_variants",
@@ -239,7 +235,6 @@ workflow = AutonomousWorkflow(
     ]
 )
 
-<a id="ejecutar-workflow"></a>
 # Ejecutar workflow
 result = await orchestrator.execute_workflow(workflow)
 ```

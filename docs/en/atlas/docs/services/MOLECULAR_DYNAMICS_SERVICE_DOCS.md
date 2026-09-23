@@ -252,7 +252,6 @@ Data class that encapsulates the physical parameters of the simulation.
 <a id="investigación-biomolecular"></a>
 ### **Biomolecular Research**
 ```python
-<a id="simulación-de-plegamiento-proteico"></a>
 # Simulación de plegamiento proteico
 result = await service.protein_folding({
     "protein_sequence": "MVLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTPAVHASLDKFLASVSTVLTSKYR",
@@ -264,7 +263,6 @@ result = await service.protein_folding({
 <a id="descubrimiento-de-fármacos"></a>
 ### **Drug Discovery**
 ```python
-<a id="simulación-de-unión-ligando-proteína"></a>
 # Simulación de unión ligando-proteína
 result = await service.ligand_binding({
     "protein_pdb": protein_structure,
@@ -276,7 +274,6 @@ result = await service.ligand_binding({
 <a id="ciencia-de-materiales"></a>
 ### **Materials Science**
 ```python
-<a id="simulación-de-propiedades-térmicas"></a>
 # Simulación de propiedades térmicas
 result = await service.material_properties({
     "material_structure": cif_content,
@@ -291,11 +288,9 @@ result = await service.material_properties({
 <a id="dependencias-requeridas"></a>
 ### **Required Dependencies**
 ```bash
-<a id="instalar-openmm"></a>
 # Instalar OpenMM
 conda install -c conda-forge openmm
 
-<a id="o-usando-pip"></a>
 # O usando pip
 pip install openmm
 ```
@@ -303,11 +298,9 @@ pip install openmm
 <a id="configuración-del-servicio"></a>
 ### **Service Configuration**
 ```python
-<a id="inicialización"></a>
 # Inicialización
 service = MolecularDynamicsService()
 
-<a id="verificación-de-disponibilidad"></a>
 # Verificación de disponibilidad
 if service.openmm_available:
     print("✅ OpenMM disponible para simulaciones")
@@ -335,7 +328,6 @@ if service.openmm_available:
 <a id="registro-de-servicio"></a>
 ### **Service Registration**
 ```python
-<a id="el-servicio-se-registra-automáticamente-en-el-service-registry"></a>
 # El servicio se registra automáticamente en el service registry
 from app.services.service_registry import ServiceRegistry
 registry = ServiceRegistry()

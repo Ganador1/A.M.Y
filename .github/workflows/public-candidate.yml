@@ -1,7 +1,7 @@
 name: Public candidate validation
 on:
   push:
-    branches: ['codex/public-release-*']
+    branches: ['main', 'codex/public-release-*']
   pull_request:
   workflow_dispatch:
 permissions:
@@ -20,7 +20,11 @@ jobs:
       - name: Static correctness
         run: ruff check amy.py core cognition memory senses communication evolution sandbox skills --select E9,F63,F7,F82
       - name: Public regression suite
-        run: python -m pytest tests -q
+        run: python -m pytest tests -m "not network" -q
+      - name: Verify observed climate data and failure boundaries
+        run: |
+          PYTHONPATH=atlas python -m pytest atlas/tests/unit/test_climate_loop.py --confcutdir=atlas/tests/unit -q
+
       - name: Recompute retained numerical evidence
         run: |
           python release_evidence/autocorrelation/verify.py

@@ -72,17 +72,13 @@ Histogram format:
 <a id="ejemplos-de-salida"></a>
 ## Output Examples
 ```
-<a id="help-atlas_phase_success_total-phase-successes-count"></a>
 # HELP atlas_phase_success_total Phase successes count
-<a id="type-atlas_phase_success_total-counter"></a>
 # TYPE atlas_phase_success_total counter
 atlas_phase_success_total 3
 atlas_phase_success_total{phase="analysis"} 1
 atlas_phase_success_total{phase="hypothesis_generation",domain="materials_science"} 2
 
-<a id="help-atlas_active_cycles-active-research-cycles"></a>
 # HELP atlas_active_cycles Active research cycles
-<a id="type-atlas_active_cycles-gauge"></a>
 # TYPE atlas_active_cycles gauge
 atlas_active_cycles 1
 atlas_active_cycles{domain="drug_discovery"} 1
@@ -93,24 +89,19 @@ atlas_active_cycles{domain="drug_discovery"} 1
 ```python
 from app.observability.metrics import phase_timer, inc, observe, gauge_inc
 
-<a id="medir-fase-con-labels"></a>
 # Medir fase con labels
 timer = phase_timer(domain="materials_science")
 timer.start()
-<a id="-trabajo-"></a>
 # ... trabajo ...
 timer.stop("analysis")  # registra histogram (plano + etiquetado) y contadores de éxito
 
-<a id="contadores-explícitos"></a>
 # Contadores explícitos
 inc("atlas_refinement_iterations_total")
 
-<a id="gauge-pej-workers-en-cola"></a>
 # Gauge (p.ej. workers en cola)
 gauge_inc("atlas_active_cycles", 1, labels={"domain": "drug_discovery"})
 gauge_inc("atlas_active_cycles", -1, labels={"domain": "drug_discovery"})
 
-<a id="histograma-custom-si-se-agregaran-nuevos"></a>
 # Histograma custom (si se agregaran nuevos)
 observe("atlas_convergence_time_seconds", 2.34)
 ```

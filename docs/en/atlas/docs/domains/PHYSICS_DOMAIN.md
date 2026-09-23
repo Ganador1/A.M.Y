@@ -102,11 +102,9 @@ For details on endpoints, methods, and examples `curl`, see the guide:
 ## Installation Requirements
 
 ```bash
-<a id="core-dependencies"></a>
 # Core dependencies
 pip install -r requirements-core.txt
 
-<a id="domain-specific-dependencies"></a>
 # Domain-specific dependencies
 pip install -r requirements-physics.txt
 ```
@@ -119,11 +117,9 @@ pip install -r requirements-physics.txt
 ```python
 from app.domains.physics.services.quantum_computing import QuantumComputingService
 
-<a id="initialize-service"></a>
 # Initialize service
 service = QuantumComputingService()
 
-<a id="simulate-quantum-circuit"></a>
 # Simulate quantum circuit
 result = await service.simulate_circuit(circuit_params)
 
@@ -170,15 +166,12 @@ This domain is based on standard tools such as Qiskit, OpenFermion, LAMMPS, and 
 <a id="run-domain-specific-tests"></a>
 ### Run domain-specific tests:
 ```bash
-<a id="unit-tests"></a>
 # Unit tests
 pytest tests/unit/physics/ -v
 
-<a id="integration-tests"></a>
 # Integration tests
 pytest tests/integration/physics/ -v
 
-<a id="with-coverage"></a>
 # With coverage
 pytest tests/physics/ --cov=app/domains/physics --cov-report=html
 ```

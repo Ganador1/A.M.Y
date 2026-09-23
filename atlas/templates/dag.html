@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visualizador DAG del Pipeline</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --card: #1f2937;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #60a5fa;
+      --edge: #64748b;
+      --ok: #22c55e;
+      --warn: #f59e0b;
+      --err: #ef4444;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--text); }
+    header { padding: 16px 20px; background: var(--panel); border-bottom: 1px solid #223; position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 12px; }
+    header h1 { margin: 0; font-size: 18px; letter-spacing: 0.2px; }
+    .pill { padding: 6px 10px; border-radius: 999px; background: #0b1220; color: var(--muted); font-size: 12px; border: 1px solid #1e293b; }
+    .container { display: grid; grid-template-columns: 320px 1fr; min-height: calc(100vh - 60px); }
+    .sidebar { border-right: 1px solid #223; background: var(--panel); padding: 14px; overflow: auto; }
+    .sidebar h2 { font-size: 13px; color: var(--muted); margin: 10px 0 8px; font-weight: 600; }
+    .search { display: flex; gap: 8px; margin-bottom: 10px; }
+    .search input { flex: 1; padding: 8px 10px; border-radius: 8px; border: 1px solid #1f2937; background: #0b1220; color: var(--text); }
+    .list { display: flex; flex-direction: column; gap: 6px; }
+    .node-item { padding: 8px 10px; border-radius: 8px; background: #0b1220; border: 1px solid #1f2937; cursor: pointer; }
+    .node-item small { color: var(--muted); }
+    .node-item:hover { border-color: #334155; background: #0c1424; }
+    .main { padding: 16px; overflow: auto; }
+    .canvas-wrap { background: #0b1220; border: 1px solid #1f2937; border-radius: 10px; min-height: 480px; position: relative; }
+    .toolbar { display: flex; gap: 8px; margin: 10px 0 14px; align-items: center; }
+    button { background: #0b1220; color: var(--text); border: 1px solid #1f2937; border-radius: 8px; padding: 8px 10px; cursor: pointer; }
+    button:hover { border-color: #334155; }
+    .legend { display: flex; gap: 12px; align-items: center; font-size: 12px; color: var(--muted); }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .ok { background: var(--ok); }
+    .warn { background: var(--warn); }
+    .err { background: var(--err); }
+    .card { background: var(--card); border: 1px solid #1f2937; border-radius: 10px; padding: 12px; margin-top: 12px; }
+    pre { white-space: pre-wrap; word-wrap: break-word; }
+    a.inline { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pipeline DAG Viewer</h1>
+    <span class="pill">data/pipeline_dag_v4.json</span>
+    {% if error_msg %}
+      <span class="pill" style="border-color:#7f1d1d; color:#fecaca; background:#1f0b0b">{{ error_msg }}</span>
+    {% endif %}
+  </header>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="search">
+        <input type="search" id="search" placeholder="Buscar nodo… (id, name)" />
+      </div>
+      <h2>Nodos</h2>
+      <div id="nodeList" class="list"></div>
+      <div class="card">
+        <div style="font-size:12px; color:var(--muted);">Consejo</div>
+        <div style="font-size:13px;">Usa el buscador para filtrar. Haz clic en un nodo para centrarlo y ver sus detalles y dependencias.</div>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="toolbar">
+        <button id="fitBtn">Ajustar al lienzo</button>
+        <button id="resetBtn">Reset</button>
+        <div class="legend">
+          <span><span class="dot ok"></span>success</span>
+          <span><span class="dot warn"></span>skipped</span>
+          <span><span class="dot err"></span>failed</span>
+        </div>
+      </div>
+      <div id="canvas" class="canvas-wrap"></div>
+      <div class="card">
+        <strong>Detalle del nodo</strong>
+        <pre id="nodeDetails">Selecciona un nodo para ver sus metadatos…</pre>
+      </div>
+      <div class="card">
+        <strong>JSON (vista rápida)</strong>
+        <pre id="jsonPreview"></pre>
+      </div>
+      <div class="card">
+        <strong>PROV y Reporte del Loop Científico</strong>
+        <div style="font-size:13px; color:var(--muted);">Si existen, están en:
+          <div>data/provenance_report.json</div>
+          <div>reports/scientific_loop_report.json</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script id="dag-data" type="application/json">{{ dag_json | safe }}</script>
+  <script>
+    const raw = document.getElementById('dag-data')?.textContent || '{}';
+    let dag = {};
+    try { dag = JSON.parse(raw); } catch { dag = {}; }
+    const nodes = dag.nodes || [];
+    const edges = dag.edges || [];
+
+    const $ = (s)=>document.querySelector(s);
+    const $$ = (s)=>Array.from(document.querySelectorAll(s));
+
+    // Populate list
+    function renderList(filter=''){
+      const list = $('#nodeList');
+      list.innerHTML='';
+      const q = filter.trim().toLowerCase();
+      const filtered = nodes.filter(n => !q || (String(n.id).toLowerCase().includes(q) || (n.name||'').toLowerCase().includes(q)));
+      for (const n of filtered){
+        const div = document.createElement('div');
+        div.className='node-item';
+        div.innerHTML = `<div><strong>${n.name||n.id}</strong></div><small>${n.id}</small>`;
+        div.onclick = ()=>focusNode(n.id);
+        list.appendChild(div);
+      }
+    }
+
+    // Simple layout: assign x by topo order, y by rank
+    function computeLayout(){
+      const indeg = new Map(nodes.map(n=>[n.id,0]));
+      for(const e of edges){ indeg.set(e.to, (indeg.get(e.to)||0)+1); }
+      const q = nodes.filter(n=> (indeg.get(n.id)||0)===0).map(n=>n.id);
+      const order = [];
+      const adj = new Map();
+      for(const n of nodes){ adj.set(n.id, []); }
+      for(const e of edges){ adj.get(e.from).push(e.to); }
+      while(q.length){
+        const u = q.shift();
+        order.push(u);
+        for(const v of adj.get(u)||[]){
+          indeg.set(v, indeg.get(v)-1);
+          if(indeg.get(v)===0) q.push(v);
+        }
+      }
+      const pos = new Map();
+      const xGap = 220, yGap = 96;
+      const columns = new Map();
+      // assign column index by topological position
+      order.forEach((id, idx)=>{
+        const col = idx;
+        const arr = columns.get(col)||[]; arr.push(id); columns.set(col, arr);
+      });
+      let maxCol = -1;
+      for(const [col, arr] of columns){
+        maxCol = Math.max(maxCol, col);
+        arr.forEach((id, i)=>{
+          pos.set(id, { x: 40 + col*xGap, y: 40 + i*yGap });
+        });
+      }
+      return { pos, width: 100 + (maxCol+1)*xGap, height: Math.max(500, 60 + Math.max(1, nodes.length)*24) };
+    }
+
+    function colorByStatus(s){
+      if(s==='success') return '#22c55e';
+      if(s==='failed') return '#ef4444';
+      if(s==='skipped') return '#f59e0b';
+      return '#60a5fa';
+    }
+
+    let canvas, svg, gNodes, gEdges, layout;
+
+    function initCanvas(){
+      canvas = $('#canvas');
+      canvas.innerHTML='';
+      layout = computeLayout();
+      const { width, height } = layout;
+      svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+      svg.setAttribute('width','100%');
+      svg.setAttribute('height', Math.max(500, height));
+      svg.setAttribute('viewBox', `0 0 ${Math.max(800,width)} ${Math.max(500,height)}`);
+      svg.style.display='block';
+      svg.style.background='transparent';
+      canvas.appendChild(svg);
+
+      gEdges = document.createElementNS('http://www.w3.org/2000/svg','g');
+      gNodes = document.createElementNS('http://www.w3.org/2000/svg','g');
+      svg.appendChild(gEdges);
+      svg.appendChild(gNodes);
+      draw();
+    }
+
+    function draw(){
+      const { pos } = layout;
+      // edges
+      for(const e of edges){
+        const a = pos.get(e.from), b = pos.get(e.to);
+        if(!a||!b) continue;
+        const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+        const d = `M ${a.x+120} ${a.y+24} C ${a.x+160} ${a.y+24}, ${b.x-60} ${b.y+24}, ${b.x} ${b.y+24}`;
+        path.setAttribute('d', d);
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', '#64748b');
+        path.setAttribute('stroke-width', '2');
+        path.setAttribute('opacity', '0.9');
+        gEdges.appendChild(path);
+      }
+      // nodes
+      for(const n of nodes){
+        const p = pos.get(n.id);
+        if(!p) continue;
+        const group = document.createElementNS('http://www.w3.org/2000/svg','g');
+        group.setAttribute('transform', `translate(${p.x},${p.y})`);
+        group.style.cursor='pointer';
+        group.addEventListener('click', ()=>focusNode(n.id));
+
+        const rect = document.createElementNS('http://www.w3.org/2000/svg','rect');
+        rect.setAttribute('rx','10');
+        rect.setAttribute('ry','10');
+        rect.setAttribute('width','120');
+        rect.setAttribute('height','48');
+        rect.setAttribute('fill', '#0b1220');
+        rect.setAttribute('stroke', '#1f2937');
+        rect.setAttribute('stroke-width', '1.5');
+        group.appendChild(rect);
+
+        const badge = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        badge.setAttribute('cx','108');
+        badge.setAttribute('cy','12');
+        badge.setAttribute('r','6');
+        badge.setAttribute('fill', colorByStatus(n.status));
+        group.appendChild(badge);
+
+        const text = document.createElementNS('http://www.w3.org/2000/svg','text');
+        text.setAttribute('x','10');
+        text.setAttribute('y','28');
+        text.setAttribute('fill','#e5e7eb');
+        text.setAttribute('font-size','12');
+        text.setAttribute('font-family','ui-sans-serif, system-ui');
+        text.textContent = n.name || n.id;
+        group.appendChild(text);
+
+        gNodes.appendChild(group);
+      }
+    }
+
+    function focusNode(id){
+      const n = nodes.find(x=>x.id===id);
+      if(!n) return;
+      $('#nodeDetails').textContent = JSON.stringify(n, null, 2);
+      // show neighbors
+      const outs = edges.filter(e=>e.from===id).map(e=>e.to);
+      const ins = edges.filter(e=>e.to===id).map(e=>e.from);
+      const preview = { node: n, incoming: ins, outgoing: outs };
+      $('#jsonPreview').textContent = JSON.stringify(preview, null, 2);
+    }
+
+    $('#search').addEventListener('input', (e)=>renderList(e.target.value));
+    $('#fitBtn').addEventListener('click', ()=>initCanvas());
+    $('#resetBtn').addEventListener('click', ()=>{ $('#search').value=''; renderList(''); });
+
+    // init
+    renderList('');
+    initCanvas();
+  </script>
+</body>
+</html>

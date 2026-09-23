@@ -1,0 +1,212 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "AXIOM Services Dashboard",
+    "tags": ["axiom", "services", "monitoring"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Service Health Status",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "up{job=~\"axiom.*\"}",
+            "legendFormat": "{{job}}"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "thresholds": {
+              "steps": [
+                {"color": "red", "value": 0},
+                {"color": "green", "value": 1}
+              ]
+            }
+          }
+        },
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0}
+      },
+      {
+        "id": 2,
+        "title": "Request Rate by Service",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(axiom_requests_total[5m])",
+            "legendFormat": "{{service}} - {{operation}}"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0}
+      },
+      {
+        "id": 3,
+        "title": "Response Time by Service",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(axiom_response_time_seconds_bucket[5m]))",
+            "legendFormat": "95th percentile - {{service}}"
+          },
+          {
+            "expr": "histogram_quantile(0.50, rate(axiom_response_time_seconds_bucket[5m]))",
+            "legendFormat": "50th percentile - {{service}}"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8}
+      },
+      {
+        "id": 4,
+        "title": "Error Rate by Service",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(axiom_errors_total[5m])",
+            "legendFormat": "{{service}} - {{operation}}"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8}
+      },
+      {
+        "id": 5,
+        "title": "Causal Discovery Service Metrics",
+        "type": "row",
+        "gridPos": {"h": 1, "w": 24, "x": 0, "y": 16}
+      },
+      {
+        "id": 6,
+        "title": "Causal Discovery - Structure Discovery",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(axiom_requests_total{service=\"causal_discovery\", operation=\"discover_structure\"}[5m])",
+            "legendFormat": "Structure Discovery Rate"
+          }
+        ],
+        "gridPos": {"h": 6, "w": 8, "x": 0, "y": 17}
+      },
+      {
+        "id": 7,
+        "title": "Federated Learning Service Metrics",
+        "type": "row",
+        "gridPos": {"h": 1, "w": 24, "x": 0, "y": 23}
+      },
+      {
+        "id": 8,
+        "title": "FL - Active Sessions",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "axiom_active_sessions{service=\"federated_learning\"}",
+            "legendFormat": "Active Sessions"
+          }
+        ],
+        "gridPos": {"h": 6, "w": 8, "x": 0, "y": 24}
+      },
+      {
+        "id": 9,
+        "title": "Synthetic Data Service Metrics",
+        "type": "row",
+        "gridPos": {"h": 1, "w": 24, "x": 0, "y": 30}
+      },
+      {
+        "id": 10,
+        "title": "Synthetic Data - Generation Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(axiom_requests_total{service=\"synthetic_data\", operation=~\"generate.*\"}[5m])",
+            "legendFormat": "{{operation}}"
+          }
+        ],
+        "gridPos": {"h": 6, "w": 8, "x": 0, "y": 31}
+      },
+      {
+        "id": 11,
+        "title": "Multimodal Reasoning Service Metrics",
+        "type": "row",
+        "gridPos": {"h": 1, "w": 24, "x": 0, "y": 37}
+      },
+      {
+        "id": 12,
+        "title": "Multimodal - Document Analysis",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(axiom_requests_total{service=\"multimodal_reasoning\", operation=\"analyze_document\"}[5m])",
+            "legendFormat": "Document Analysis Rate"
+          }
+        ],
+        "gridPos": {"h": 6, "w": 8, "x": 0, "y": 38}
+      },
+      {
+        "id": 13,
+        "title": "Quantum Algorithms Service Metrics",
+        "type": "row",
+        "gridPos": {"h": 1, "w": 24, "x": 0, "y": 44}
+      },
+      {
+        "id": 14,
+        "title": "Quantum - QAOA/VQE Operations",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(axiom_requests_total{service=\"quantum_algorithms\", operation=~\"qaoa|vqe\"}[5m])",
+            "legendFormat": "{{operation}}"
+          }
+        ],
+        "gridPos": {"h": 6, "w": 8, "x": 0, "y": 45}
+      },
+      {
+        "id": 15,
+        "title": "System Resources",
+        "type": "row",
+        "gridPos": {"h": 1, "w": 24, "x": 0, "y": 51}
+      },
+      {
+        "id": 16,
+        "title": "CPU Usage",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "system_cpu_percent",
+            "legendFormat": "CPU %"
+          }
+        ],
+        "gridPos": {"h": 6, "w": 8, "x": 0, "y": 52}
+      },
+      {
+        "id": 17,
+        "title": "Memory Usage",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "system_memory_percent",
+            "legendFormat": "Memory %"
+          }
+        ],
+        "gridPos": {"h": 6, "w": 8, "x": 8, "y": 52}
+      },
+      {
+        "id": 18,
+        "title": "Disk Usage",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "system_disk_usage_percent",
+            "legendFormat": "Disk %"
+          }
+        ],
+        "gridPos": {"h": 6, "w": 8, "x": 16, "y": 52}
+      }
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "refresh": "30s"
+  }
+}

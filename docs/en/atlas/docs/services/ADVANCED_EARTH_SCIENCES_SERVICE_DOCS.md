@@ -41,7 +41,6 @@ from app.services.advanced.advanced_earth_sciences_service import AdvancedEarthS
 
 service = AdvancedEarthSciencesService()
 
-<a id="evaluar-puntos-de-inflexión-para-un-escenario-de-25c"></a>
 # Evaluar puntos de inflexión para un escenario de +2.5°C
 result = await service.assess_tipping_points(
     scenario="SSP3-7.0",

@@ -78,7 +78,6 @@ The system provides **intelligent cloud-native orchestration** that enables:
 <a id="1-load-balancing-inteligente"></a>
 #### **1. Intelligent Load Balancing**
 ```python
-<a id="algoritmo-de-distribución-multi-objetivo"></a>
 # Algoritmo de distribución multi-objetivo:
 
 def intelligent_load_balance(requests, nodes, objectives):
@@ -117,7 +116,6 @@ def intelligent_load_balance(requests, nodes, objectives):
     
     return optimal_assignment
 
-<a id="métricas-de-calidad-específicas-para-ciencia"></a>
 # Métricas de calidad específicas para ciencia
 quality_metrics = {
     'plasma_physics': ['memory_bandwidth', 'network_latency'],
@@ -129,7 +127,6 @@ quality_metrics = {
 <a id="2-auto-scaling-predictivo"></a>
 #### **2. Predictive Auto-scaling**
 ```python
-<a id="predicción-de-demanda-usando-series-temporales--ml"></a>
 # Predicción de demanda usando series temporales + ML:
 
 class PredictiveAutoScaler:
@@ -191,7 +188,6 @@ class PredictiveAutoScaler:
 <a id="3-resource-bin-packing-optimization"></a>
 #### **3. Resource Bin Packing Optimization**
 ```python
-<a id="bin-packing-multi-dimensional-para-recursos-heterogéneos"></a>
 # Bin packing multi-dimensional para recursos heterogéneos:
 
 def optimize_resource_allocation(jobs, available_nodes):
@@ -242,7 +238,6 @@ def optimize_resource_allocation(jobs, available_nodes):
                 
     return allocation
 
-<a id="consideraciones-especiales-para-workloads-científicos"></a>
 # Consideraciones especiales para workloads científicos
 scientific_constraints = {
     'plasma_mhd': {
@@ -266,7 +261,6 @@ scientific_constraints = {
 <a id="4-fault-tolerance-y-recovery"></a>
 #### **4. Fault Tolerance and Recovery**
 ```python
-<a id="sistema-de-fault-tolerance-multi-layer"></a>
 # Sistema de fault tolerance multi-layer:
 
 class FaultToleranceManager:
@@ -369,11 +363,9 @@ class FaultToleranceManager:
 
 **AXIOM META 4 Workflow**:
 ```python
-<a id="1-configurar-burst-scaling-para-emergencia"></a>
 # 1. Configurar burst scaling para emergencia
 scaling_manager = DistributedScalingManager()
 
-<a id="configuración-de-emergencia-iter"></a>
 # Configuración de emergencia ITER
 emergency_config = {
     "workload_type": "plasma_disruption_simulation",
@@ -389,7 +381,6 @@ emergency_config = {
     "geographic_preference": ["us-east", "eu-west"]
 }
 
-<a id="2-trigger-emergency-burst-scaling"></a>
 # 2. Trigger emergency burst scaling
 burst_response = scaling_manager.emergency_burst_scale(
     config=emergency_config,
@@ -397,14 +388,12 @@ burst_response = scaling_manager.emergency_burst_scale(
     estimated_duration="2_hours"
 )
 
-<a id="3-monitor-scaling-progress-en-tiempo-real"></a>
 # 3. Monitor scaling progress en tiempo real
 scaling_progress = scaling_manager.monitor_burst_progress(
     burst_id=burst_response.burst_id,
     real_time_updates=True
 )
 
-<a id="4-optimizar-allocation-durante-scaling"></a>
 # 4. Optimizar allocation durante scaling
 while scaling_progress.status == "scaling":
     current_allocation = scaling_manager.get_current_allocation()
@@ -419,7 +408,6 @@ while scaling_progress.status == "scaling":
     
     time.sleep(30)  # Check cada 30 segundos
 
-<a id="5-full-simulation-cuando-scaling-completo"></a>
 # 5. Full simulation cuando scaling completo
 full_simulation = scaling_manager.submit_job(
     cores=1000,
@@ -443,7 +431,6 @@ full_simulation = scaling_manager.submit_job(
 
 **AXIOM META 4 Workflow**:
 ```python
-<a id="1-configurar-multi-tenancy-científico"></a>
 # 1. Configurar multi-tenancy científico
 multi_tenant_config = scaling_manager.configure_multi_tenant_platform(
     tenants=[
@@ -470,7 +457,6 @@ multi_tenant_config = scaling_manager.configure_multi_tenant_platform(
     preemption_policy="graceful_with_checkpointing"
 )
 
-<a id="2-implementar-scheduling-multi-objetivo"></a>
 # 2. Implementar scheduling multi-objetivo
 scheduler_config = {
     "objectives": {
@@ -486,7 +472,6 @@ scheduler_config = {
     }
 }
 
-<a id="3-jobs-submission-con-tenant-awareness"></a>
 # 3. Jobs submission con tenant awareness
 job_submissions = [
     # Plasma physics - job urgente
@@ -515,7 +500,6 @@ job_submissions = [
     }
 ]
 
-<a id="4-dynamic-resource-allocation-con-fairness"></a>
 # 4. Dynamic resource allocation con fairness
 for job in job_submissions:
     # Evaluar current fairness metrics
@@ -532,7 +516,6 @@ for job in job_submissions:
     # Submit con allocation específica
     job_id = scaling_manager.submit_job_with_allocation(job, allocation_decision)
 
-<a id="5-monitoring-y-cost-accounting"></a>
 # 5. Monitoring y cost accounting
 cost_tracking = scaling_manager.track_multi_tenant_costs(
     billing_model="pay_per_use",
@@ -556,7 +539,6 @@ cost_tracking = scaling_manager.track_multi_tenant_costs(
 
 **AXIOM META 4 Workflow**:
 ```python
-<a id="1-configurar-hybrid-cloud-bursting"></a>
 # 1. Configurar hybrid cloud bursting
 hybrid_config = scaling_manager.configure_cloud_bursting(
     on_premise_cluster={
@@ -587,7 +569,6 @@ hybrid_config = scaling_manager.configure_cloud_bursting(
     bursting_strategy="cost_optimized_with_performance_guarantee"
 )
 
-<a id="2-drug-discovery-job-submission-con-constraints"></a>
 # 2. Drug discovery job submission con constraints
 drug_discovery_jobs = [
     {
@@ -616,7 +597,6 @@ drug_discovery_jobs = [
     }
 ]
 
-<a id="3-intelligent-placement-decisions"></a>
 # 3. Intelligent placement decisions
 for job in drug_discovery_jobs:
     # Evaluar current on-premise load
@@ -652,14 +632,12 @@ for job in drug_discovery_jobs:
             pre_stage_data=True
         )
 
-<a id="4-dynamic-load-balancing-durante-execution"></a>
 # 4. Dynamic load balancing durante execution
 load_balancer = scaling_manager.start_dynamic_load_balancing(
     rebalance_frequency="15_minutes",
     cost_optimization_window="1_hour"
 )
 
-<a id="5-cost-optimization-continuo"></a>
 # 5. Cost optimization continuo
 cost_optimizer = scaling_manager.continuous_cost_optimization(
     optimization_strategies=[

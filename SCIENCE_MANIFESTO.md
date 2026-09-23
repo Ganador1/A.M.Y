@@ -18,7 +18,7 @@ State the hypothesis, admissible inputs, controls, stopping rule, uncertainty, a
 
 Record tool requests, complete returned outputs, source/configuration identities, seeds, model identities as reported, and relevant environment details. Bind reported values to actual experiment IDs. Distinguish facts retrieved from memory from newly measured evidence. Store translations and corrections as new artifacts when changing a historical record would invalidate its hashes.
 
-The implementation supports these practices unevenly across old and new workflows. Inspect the actual run and verifier rather than assuming universal coverage. See [provenance scope](docs/publication/PROVENANCE.md).
+The implementation supports these practices unevenly across old and new workflows. Inspect the actual run and verifier rather than assuming universal coverage. See [provenance scope](docs/EVIDENCE.md).
 
 ## Attribute the work
 
@@ -28,7 +28,7 @@ Separate the human research direction, assistant-written algorithms and repairs,
 
 Publish exact claims at the precision proved. Use downward rounding for displayed lower bounds. Report scope restrictions, shared dependencies between verifiers, and unresolved counterexamples. Internal reflection, Elo rankings, and manuscript rubrics are development tools, not peer review or guarantees against hallucination.
 
-The [results catalog](docs/publication/RESULTS_CATALOG.md) is the current editorial classification. Historical reports can contain stronger claims that this review does not endorse.
+The [results catalog](docs/RESULTS.md) is the current editorial classification. Historical reports can contain stronger claims that this review does not endorse.
 
 ## Responsible research
 

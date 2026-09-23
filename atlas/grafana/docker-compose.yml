@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  grafana:
+    image: grafana/grafana:latest
+    container_name: atlas-grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_ROOT_URL=http://localhost:3000
+      - GF_INSTALL_PLUGINS=frser-sqlite-datasource
+    volumes:
+      - ./grafana/data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/app/grafana/dashboards
+      - ./migrations.db:/app/migrations.db:ro
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+    networks:
+      - atlas-network
+
+networks:
+  atlas-network:
+    driver: bridge

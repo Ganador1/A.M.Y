@@ -162,12 +162,12 @@ pytest tests/biology/ --cov=app/domains/biology --cov-report=html
 - [Neuroscience](../neuroscience/README.md)
 
 ## Contributing
-See [CONTRIBUTING.md](../../CONTRIBUTING.md) in project root.
+See [CONTRIBUTING.md](../../../../CONTRIBUTING.md) in project root.
 
 ## License
-See [LICENSE](../../LICENSE.md).
+See [LICENSE](../../../../LICENSE).
 
 ## Support
-- **Documentation:** [Full docs](../../docs/README.md)
+- **Documentation:** [Full docs](../../../../docs/ENGLISH_MANUALS.md)
 - **Issues:** [GitHub Issues](https://github.com/org/axiom-atlas/issues)
 - **Discussions:** [GitHub Discussions](https://github.com/org/axiom-atlas/discussions)

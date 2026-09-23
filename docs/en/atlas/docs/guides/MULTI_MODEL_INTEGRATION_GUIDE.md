@@ -70,7 +70,6 @@ This guide documents how to integrate the new **MultiModelHypothesisService** wi
 ### **Step 1: Import the Service**
 
 ```python
-<a id="en-appautonomouspipelinesmathematics_looppy"></a>
 # En app/autonomous/pipelines/mathematics_loop.py
 
 from app.services.multi_model_hypothesis_service import (
@@ -189,7 +188,6 @@ async def _generate_enhanced_hypotheses(
 ### **Step 4: Update Telemetry Metrics**
 
 ```python
-<a id="en-la-iteración-registrar-métricas-del-multi-modelo"></a>
 # En la iteración, registrar métricas del multi-modelo
 if enriched_candidates:
     avg_multi_model_confidence = sum(
@@ -438,19 +436,15 @@ async def compare_hypothesis_quality(
 Create a file `.env` with your API keys:
 
 ```bash
-<a id="ollama-local-no-requiere-api-key"></a>
 # Ollama (local, no requiere API key)
 OLLAMA_API_URL=http://localhost:11434
 
-<a id="huggingface-gratis-con-límites"></a>
 # HuggingFace (gratis con límites)
 HUGGINGFACE_API_KEY=hf_xxxxxxxxxxxxxxxxxxxxx
 
-<a id="groq-gratis-muy-rápido"></a>
 # Groq (gratis, muy rápido)
 GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxxx
 
-<a id="together-ai-crédito-inicial-gratis"></a>
 # Together AI (crédito inicial gratis)
 TOGETHER_API_KEY=xxxxxxxxxxxxxxxxxxxxx
 ```
@@ -483,7 +477,6 @@ The multi-model system provides detailed metrics:
 <a id="uso-en-loops"></a>
 ### **Use in Loops:**
 ```python
-<a id="filtrar-hipótesis-de-alta-calidad"></a>
 # Filtrar hipótesis de alta calidad
 high_quality = [
     h for h in enhanced_hypotheses
@@ -522,7 +515,6 @@ num_models=2
 ### **2. Rate Limiting**
 
 ```python
-<a id="entre-generaciones-consecutivas"></a>
 # Entre generaciones consecutivas
 await asyncio.sleep(1)  # Respetar rate limits de APIs
 ```
@@ -593,7 +585,6 @@ except Exception as e:
 ## 📝 Complete Usage Example
 
 ```python
-<a id="examplesmulti_model_autonomous_demopy"></a>
 # examples/multi_model_autonomous_demo.py
 
 import asyncio

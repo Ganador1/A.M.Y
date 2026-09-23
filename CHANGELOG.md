@@ -14,11 +14,13 @@ All notable changes to A.M.Y are documented in this file. The format is based on
 - Failure accounting, tool dispatch rejection and goal completion boundaries.
 - Ambiguous H₂ assessment field associating distance with minimum sampled energy.
 - Placeholder citation DOI and overbroad public reproducibility claims.
+- Observed climate runs now honor the configured dataset, reject missing observations without synthetic replacement, and handle the numerical novelty score correctly.
+- Public documentation, portable test interpreters and retained Atlas configuration, migration and interface assets.
 
 ### Evaluation and limits
 - Five models, 20 sessions, 51 checked measurements; 14 quantitative closures across four different protocol/code versions. Six unsuccessful sessions retained.
 - Final GLM parser batch: 4/4 closures; clarified H₂ follow-up: 2/2 closures. Truncations and recoverable format errors remain.
-- See [release notes](docs/releases/1.1.0rc1.md). No global discovery, universal reliability or external attestation claim.
+- See [results and evidence](docs/RESULTS.md). No global discovery, universal reliability or external attestation claim.
 
 The sections below preserve historical release notes. Their coverage counts and internal rubric scores are not current external scientific validation.
 
@@ -55,8 +57,8 @@ The sections below preserve historical release notes. Their coverage counts and 
 ### Changed — Repository reorganisation
 - Root `.py` count: **71 → 3** (`amy.py`, `conftest.py`, `test_atlas_by_branch.py`).
 - 35 test files moved to [`tests/`](tests/).
-- 35 run / diagnostic / analysis scripts moved to [`scripts/run/`](scripts/run/), [`scripts/diagnostics/`](scripts/diagnostics/), [`scripts/analysis/`](scripts/analysis/).
-- 21 stale JSON / log / PNG artefacts moved to [`artifacts/`](artifacts/) (gitignored).
+- 35 run / diagnostic / analysis scripts moved to [`scripts/run/`](scripts/run/), [`scripts/diagnostics/`](scripts/diagnostics/), `scripts/analysis/` (historical evaluation material).
+- 21 stale JSON / log / PNG artefacts moved to `artifacts/` (historical evaluation material) (gitignored).
 - Deleted obsolete `atlas/.venv` (4.1 GB), `:memory:/`, `config.yaml.bak`, top-level `.DS_Store`.
 
 ### Fixed
@@ -80,10 +82,10 @@ With seven baseline papers and seven regenerated papers under the new pipeline:
 | Statistical rigor | 3.43 | 8.64 | +5.21 (+152%) |
 
 ### Validated — All-23-domain run
-23 papers, one per Atlas domain, generated in ~7 minutes. 0 weak, 21 good, 2 strong. Average rubric 71.00 / 100. See [`experiments/all_domains/REVIEW.json`](experiments/all_domains/REVIEW.json).
+23 papers, one per Atlas domain, generated in ~7 minutes. 0 weak, 21 good, 2 strong. Average rubric 71.00 / 100. See `experiments/all_domains/REVIEW.json` (historical evaluation material).
 
 ### Validated — Flagship paper
-GPT-5-style deep dive on the Cramér–Granville heuristic. 14 tool calls, derived Cramér-ratio table across four decades, all SHA-256 provenance verified. Rubric 71.00, reflection 100, pass. See [`experiments/flagship/papers/`](experiments/flagship/papers/).
+GPT-5-style deep dive on the Cramér–Granville heuristic. 14 tool calls, derived Cramér-ratio table across four decades, all SHA-256 provenance verified. Rubric 71.00, reflection 100, pass. See `experiments/flagship/papers/` (historical evaluation material).
 
 ## [0.9.0] — 2026-04-23 — Pre-release
 

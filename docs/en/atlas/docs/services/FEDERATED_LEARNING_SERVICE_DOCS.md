@@ -46,7 +46,6 @@ Evaluates the resulting model on a centralized validation set (if available).
 <a id="ejemplo-de-configuración"></a>
 ## Configuration Example
 ```python
-<a id="configuración-del-servidor-federado"></a>
 # Configuración del servidor federado
 config = {
     "num_rounds": 5,

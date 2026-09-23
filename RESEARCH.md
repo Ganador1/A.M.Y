@@ -31,4 +31,4 @@ This English overview identifies architectural inspirations. Similar terminology
 
 NetworkX supports graph memory; optional ChromaDB supports vector retrieval. Scientific backends include NumPy, SciPy, SymPy and domain-specific libraries through Atlas. Dependency availability and evidence grade must be checked for each tool. External frameworks mentioned in historical notes are references, not necessarily installed AMY dependencies.
 
-Current experimental claims and publication decisions are maintained in [the results catalog](docs/publication/RESULTS_CATALOG.md), separately from these conceptual foundations.
+Current experimental results and their evidence are maintained in [the results catalog](docs/RESULTS.md), separately from these conceptual foundations.

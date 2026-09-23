@@ -338,7 +338,6 @@ Data class that encapsulates the DFT calculation parameters (exchange-correlatio
 <a id="formatos-de-estructura-soportados"></a>
 ### **Supported Structure Formats**
 ```python
-<a id="diccionario-python"></a>
 # Diccionario Python
 structure = {
     "symbols": ["Si", "Si", "Si", "Si"],
@@ -346,11 +345,9 @@ structure = {
     "cell": [[5.4, 0, 0], [0, 5.4, 0], [0, 0, 5.4]]
 }
 
-<a id="archivo-cif"></a>
 # Archivo CIF
 cif_content = """# CIF file content here"""
 
-<a id="archivo-poscar"></a>
 # Archivo POSCAR
 poscar_content = """System name
 5.4
@@ -381,7 +378,6 @@ Direct
 <a id="investigación-de-semiconductores"></a>
 ### **Semiconductor Research**
 ```python
-<a id="cálculo-de-gap-de-banda-en-gaas"></a>
 # Cálculo de gap de banda en GaAs
 result = await service.run_calculation({
     "calculation_id": calc_id,
@@ -394,7 +390,6 @@ print(f"Band gap: {result['results']['band_gap']:.2f} eV")
 <a id="diseño-de-materiales"></a>
 ### **Materials Design**
 ```python
-<a id="optimización-de-estructura-cristalina"></a>
 # Optimización de estructura cristalina
 result = await service.geometry_optimization({
     "calculation_id": calc_id,
@@ -406,7 +401,6 @@ print(f"Optimized lattice: {result['optimization_results']['final_cell']}")
 <a id="propiedades-electrónicas"></a>
 ### **Electronic Properties**
 ```python
-<a id="análisis-de-densidad-de-estados"></a>
 # Análisis de densidad de estados
 result = await service.calculate_dos({
     "calculation_id": calc_id,
@@ -418,7 +412,6 @@ result = await service.calculate_dos({
 <a id="propiedades-térmicas"></a>
 ### **Thermal Properties**
 ```python
-<a id="cálculo-de-fonones"></a>
 # Cálculo de fonones
 result = await service.phonon_calculation({
     "calculation_id": calc_id,
@@ -432,39 +425,30 @@ result = await service.phonon_calculation({
 <a id="dependencias-principales"></a>
 ### **Main Dependencies**
 ```bash
-<a id="instalar-ase"></a>
 # Instalar ASE
 pip install ase
 
-<a id="instalar-calculadoras-dft-opcional"></a>
 # Instalar calculadoras DFT (opcional)
-<a id="quantum-espresso"></a>
 # Quantum ESPRESSO
 conda install -c conda-forge quantum-espresso
 
-<a id="gpaw"></a>
 # GPAW
 pip install gpaw
 
-<a id="vasp-requiere-licencia"></a>
 # VASP (requiere licencia)
-<a id="contact-vasp-developers"></a>
 # Contact VASP developers
 ```
 
 <a id="configuración-del-servicio"></a>
 ### **Service Configuration**
 ```python
-<a id="inicialización"></a>
 # Inicialización
 service = SolidStatePhysicsService()
 
-<a id="verificación-de-disponibilidad"></a>
 # Verificación de disponibilidad
 if service.ase_available:
     print("✅ ASE disponible para física del estado sólido")
 
-<a id="calculadoras-disponibles"></a>
 # Calculadoras disponibles
 print("Calculadoras DFT:", service.available_calculators)
 ```
@@ -496,7 +480,6 @@ print("Calculadoras DFT:", service.available_calculators)
 <a id="registro-de-servicio"></a>
 ### **Service Registration**
 ```python
-<a id="el-servicio-se-registra-automáticamente"></a>
 # El servicio se registra automáticamente
 from app.services.service_registry import ServiceRegistry
 registry = ServiceRegistry()

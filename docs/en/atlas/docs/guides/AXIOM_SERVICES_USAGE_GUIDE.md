@@ -16,11 +16,9 @@ This guide provides practical examples and detailed documentation for using all 
 <a id="1-iniciar-los-servicios"></a>
 ### 1. Start the Services
 ```bash
-<a id="despliegue-completo"></a>
 # Despliegue completo
 ./scripts/deploy.sh
 
-<a id="o-manualmente"></a>
 # O manualmente
 docker-compose up -d
 ```
@@ -28,11 +26,9 @@ docker-compose up -d
 <a id="2-verificar-estado"></a>
 ### 2. Check Status
 ```bash
-<a id="health-check-general"></a>
 # Health check general
 curl http://localhost:8000/health
 
-<a id="documentación-interactiva"></a>
 # Documentación interactiva
 open http://localhost:8000/docs
 ```
@@ -67,7 +63,6 @@ POST /api/causal-discovery/discover-structure
 import requests
 import pandas as pd
 
-<a id="datos-de-ejemplo"></a>
 # Datos de ejemplo
 data = {
     "data": [
@@ -279,7 +274,6 @@ POST /api/multimodal-reasoning/analyze-document
 ```python
 import base64
 
-<a id="cargar-imagen"></a>
 # Cargar imagen
 with open("document.pdf", "rb") as f:
     document_data = base64.b64encode(f.read()).decode()
@@ -440,17 +434,14 @@ GET /api/monitoring/services/status
 
 **Usage example:**
 ```python
-<a id="verificar-estado-general"></a>
 # Verificar estado general
 response = requests.get("http://localhost:8000/api/monitoring/health")
 health_status = response.json()
 
-<a id="obtener-métricas-específicas"></a>
 # Obtener métricas específicas
 response = requests.get("http://localhost:8000/api/monitoring/metrics?service=all")
 metrics = response.json()
 
-<a id="verificar-servicio-específico"></a>
 # Verificar servicio específico
 response = requests.get("http://localhost:8000/api/monitoring/services/causal_discovery/status")
 service_status = response.json()
@@ -464,23 +455,19 @@ service_status = response.json()
 <a id="variables-de-entorno"></a>
 ### Environment Variables
 ```bash
-<a id="configuración-de-la-aplicación"></a>
 # Configuración de la aplicación
 ENVIRONMENT=production
 LOG_LEVEL=INFO
 WORKERS=4
 
-<a id="base-de-datos"></a>
 # Base de datos
 REDIS_URL=redis://localhost:6379
 MONGODB_URL=mongodb://localhost:27017/axiom
 
-<a id="servicios-externos"></a>
 # Servicios externos
 OPENAI_API_KEY=your_key_here
 ANTHROPIC_API_KEY=your_key_here
 
-<a id="monitoreo"></a>
 # Monitoreo
 PROMETHEUS_URL=http://localhost:9090
 GRAFANA_URL=http://localhost:3000
@@ -491,7 +478,6 @@ GRAFANA_URL=http://localhost:3000
 ```python
 import logging
 
-<a id="configurar-logging-para-servicios-axiom"></a>
 # Configurar logging para servicios AXIOM
 logging.basicConfig(
     level=logging.INFO,
@@ -584,7 +570,6 @@ async def batch_processing():
 <a id="autenticación"></a>
 ### Authentication
 ```python
-<a id="ejemplo-con-token-de-autenticación"></a>
 # Ejemplo con token de autenticación
 headers = {
     "Authorization": "Bearer your_jwt_token_here",
@@ -610,15 +595,12 @@ All services implement automatic validation using Pydantic. Make sure to send da
 <a id="logs-y-debugging"></a>
 ### Logs and Debugging
 ```bash
-<a id="ver-logs-de-todos-los-servicios"></a>
 # Ver logs de todos los servicios
 docker-compose logs -f
 
-<a id="ver-logs-de-un-servicio-específico"></a>
 # Ver logs de un servicio específico
 docker-compose logs -f axiom-api
 
-<a id="ver-logs-en-tiempo-real"></a>
 # Ver logs en tiempo real
 tail -f logs/axiom.log
 ```
@@ -626,19 +608,15 @@ tail -f logs/axiom.log
 <a id="comandos-útiles"></a>
 ### Useful Commands
 ```bash
-<a id="reiniciar-servicios"></a>
 # Reiniciar servicios
 docker-compose restart
 
-<a id="verificar-estado-de-contenedores"></a>
 # Verificar estado de contenedores
 docker-compose ps
 
-<a id="acceder-a-contenedor-para-debugging"></a>
 # Acceder a contenedor para debugging
 docker-compose exec axiom-api bash
 
-<a id="verificar-conectividad"></a>
 # Verificar conectividad
 curl -f http://localhost:8000/health
 ```

@@ -1,0 +1,13 @@
+{% for ref in references %}
+@{{ ref.type }}{{'{'}}{{ ref.key }},
+  title = {{'{'}}{{ ref.title }}{{'}'}},
+  author = {{'{'}}{{ ref.authors }}{{'}'}},
+  {% if ref.journal %}journal = {{'{'}}{{ ref.journal }}{{'}'}},{% endif %}
+  {% if ref.year %}year = {{'{'}}{{ ref.year }}{{'}'}},{% endif %}
+  {% if ref.volume %}volume = {{'{'}}{{ ref.volume }}{{'}'}},{% endif %}
+  {% if ref.pages %}pages = {{'{'}}{{ ref.pages }}{{'}'}},{% endif %}
+  {% if ref.doi %}doi = {{'{'}}{{ ref.doi }}{{'}'}},{% endif %}
+  {% if ref.url %}url = {{'{'}}{{ ref.url }}{{'}'}},{% endif %}
+}
+
+{% endfor %}

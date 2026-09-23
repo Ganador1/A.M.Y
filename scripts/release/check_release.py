@@ -10,14 +10,15 @@ import re
 import tarfile
 import tomllib
 import zipfile
+from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[2]
 PUBLIC_DOCS = [
     'README.md', 'README_PUBLIC.md', 'RESEARCH.md', 'SCIENCE_MANIFESTO.md',
-    'RELEASE_CHECKLIST.md', 'CONTRIBUTING.md', 'ENVIRONMENT.md',
-    'docs/PROJECT_MAP.md', 'docs/releases/1.1.0rc1.md',
-    'docs/releases/MIGRATION_1_1.md', 'docs/publication/RESULTS_CATALOG.md',
-    'docs/publication/PROVENANCE.md', 'docs/publication/PUBLICATION_PLAN.md',
+    'CONTRIBUTING.md', 'ENVIRONMENT.md',
+    'docs/PROJECT_MAP.md', 'docs/REPRODUCIBILITY.md', 'docs/MIGRATION.md',
+    'docs/RESULTS.md', 'docs/EVIDENCE.md', 'docs/research/AUTOCORRELATION.md',
+    'docs/ENGLISH_MANUALS.md', 'atlas/README.md',
     'release_evidence/autocorrelation/README.md', 'release_evidence/runtime/README.md',
 ]
 
@@ -34,8 +35,28 @@ def unsafe_member(name):
             (p.name.startswith('.env.') and p.name != '.env.example'))
 
 
+def nonpublic_member(name):
+    """Reject working notes, generated state and library-shadowing test stubs."""
+    p = PurePosixPath(name)
+    normalized = '/' + str(p).lstrip('/')
+    return (p.name == 'RELEASE_CHECKLIST.md' or
+            any(part in {'.cache', '.pytest_cache', '.amy_artifact_store',
+                         'amx_receipts', 'amy_workspace'} for part in p.parts) or
+            any(prefix in normalized for prefix in (
+                '/docs/releases/', '/docs/publication/', '/sandbox/scripts/',
+                '/guides/archive/', '/guides/paper_')) or
+            (p.parent.name == 'atlas' and
+             (p.name in {'brian2.py', 'libsbml.py', 'seaborn.py'} or
+              p.name.endswith('_shadow_bak.py'))))
+
+
 def check(root=ROOT, dist=None):
     errors = []
+    source_manifest = root / 'PUBLIC_SOURCE_MANIFEST.json'
+    if source_manifest.exists():
+        for row in json.loads(source_manifest.read_text())['files']:
+            if unsafe_member(row['path']) or nonpublic_member(row['path']):
+                errors.append('nonpublic source member: ' + row['path'])
     metadata = tomllib.loads((root / 'pyproject.toml').read_text())['project']
     version = metadata['version']
     runtime = next(n.value.value for n in ast.parse((root / 'amy.py').read_text()).body
@@ -59,7 +80,7 @@ def check(root=ROOT, dist=None):
         for target in re.findall(r'\]\(([^\s)]+)\)', text):
             if target.startswith(('http:', 'https:', '#', 'mailto:')):
                 continue
-            target = target.split('#')[0]
+            target = unquote(target.split('#')[0])
             if target and not (path.parent / target).exists():
                 errors.append(f'broken local link: {name}: {target}')
     evidence = root / 'release_evidence/autocorrelation'
@@ -92,7 +113,7 @@ def check(root=ROOT, dist=None):
             else:
                 continue
             for name in names:
-                if unsafe_member(name):
+                if unsafe_member(name) or nonpublic_member(name):
                     errors.append('unsafe distribution member: ' + name)
             artifacts.append({'name': path.name, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(), 'members': len(names)})
         if not any(a['name'].endswith('.whl') for a in artifacts) or not any(a['name'].endswith('.tar.gz') for a in artifacts):

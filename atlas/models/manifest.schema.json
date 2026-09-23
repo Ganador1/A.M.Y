@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://axiom-meta4.org/schemas/manifest.schema.json",
+  "title": "Artifact Manifest",
+  "type": "object",
+  "required": ["id", "name", "version", "created_at", "git_commit", "metrics", "artifacts"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-zA-Z0-9_.-]+$" },
+    "name": { "type": "string" },
+  "version": { "type": "string", "pattern": "^v?[0-9]+(\\.[0-9]+){0,2}(-[A-Za-z0-9_.]+)?$" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "git_commit": { "type": "string", "pattern": "^[a-f0-9]{7,40}$" },
+    "description": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "dataset": {
+      "type": "object",
+      "required": ["name", "version", "hash"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "hash": { "type": "string" },
+        "dvc_ref": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": { "type": ["number", "string", "boolean", "null"] }
+    },
+    "metrics": {
+      "type": "object",
+      "required": ["primary"],
+      "properties": {
+        "primary": { "type": "number" },
+        "secondary": {
+          "type": "object",
+          "additionalProperties": { "type": "number" }
+        },
+        "calibration": {
+          "type": "object",
+          "properties": {
+            "ece": { "type": "number" },
+            "brier": { "type": "number" }
+          },
+          "additionalProperties": { "type": "number" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "type", "hash_sha256"],
+        "properties": {
+          "path": { "type": "string" },
+          "type": { "type": "string" },
+          "hash_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "size_bytes": { "type": "integer", "minimum": 0 },
+          "format": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "properties": {
+        "parents": { "type": "array", "items": { "type": "string" } },
+        "provenance_graph_hash": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "hashes": {
+      "type": "object",
+      "properties": {
+        "manifest_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "signatures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["alg", "sig", "public_key_fingerprint"],
+        "properties": {
+          "alg": { "type": "string", "enum": ["ed25519"] },
+          "sig": { "type": "string", "pattern": "^[A-Za-z0-9+/=]+$" },
+          "public_key_fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "ts": { "type": "string", "format": "date-time" }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

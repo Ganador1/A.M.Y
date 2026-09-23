@@ -47,11 +47,9 @@ The **Advanced Clinical Validation Service** is a critical component of AXIOM ME
 ```python
 from app.advanced_clinical_validation import AdvancedClinicalValidationService
 
-<a id="inicialización"></a>
 # Inicialización
 service = AdvancedClinicalValidationService()
 
-<a id="validar-análisis-clínico"></a>
 # Validar análisis clínico
 validation_result = service.validate_clinical_analysis(
     patient_data=patient_record,
@@ -680,7 +678,6 @@ def _monitor_quality_alerts(self, quality_metrics: QualityMetrics) -> List[Quali
 <a id="1-validación-de-análisis-de-strain"></a>
 ### 1. Strain Analysis Validation
 ```python
-<a id="caso-paciente-con-sospecha-de-miocardiopatía"></a>
 # Caso: Paciente con sospecha de miocardiopatía
 validation_case = {
     'patient': {
@@ -707,7 +704,6 @@ print(f"Interpretación: {result.clinical_interpretation}")
 <a id="2-evaluación-de-riesgo-post-infarto"></a>
 ### 2. Post-Infarction Risk Assessment
 ```python
-<a id="caso-paciente-post-iam-con-fe-reducida"></a>
 # Caso: Paciente post-IAM con FE reducida
 risk_case = {
     'patient': {

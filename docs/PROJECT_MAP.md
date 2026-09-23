@@ -1,37 +1,32 @@
-# Repository map
+# Project map
 
-## Maintained software
+The repository contains the AMY agent, the Atlas scientific laboratory and the inputs needed to reproduce the bundled results.
 
-| Location | Purpose |
+| Location | What it contains |
 |---|---|
-| `amy.py`, `core/` | Entry point, heartbeat, transport, receipts, execution evidence |
-| `cognition/` | Decisions, reflection, goals, mathematical search orchestration |
-| `memory/`, `skills/`, `senses/` | Persistent context, reusable tools, inputs |
-| `communication/`, `evolution/` | Reporting and bounded adaptation |
-| `sandbox/` | Generated-code execution and isolation |
-| `atlas/app/` | Scientific laboratory and domain services |
-| `tests/`, `benchmarks/` | Regression checks and explicit evaluation protocols |
-| `scripts/run/`, `scripts/verify/` | Launchers and offline verification |
+| `amy.py`, `core/` | Command-line entry point, heartbeat, workspace, transport, receipts and execution evidence |
+| `cognition/` | Reasoning, curiosity, goals, reflection, hypothesis ranking and mathematical search |
+| `memory/` | Episodic records, semantic graph, procedural skills and consolidation |
+| `senses/`, `skills/` | Research inputs and executable actions |
+| `communication/`, `evolution/` | Reports, manuscript support, curricula and belief-confidence updates |
+| `sandbox/` | Isolation and resource limits for generated code |
+| `atlas/app/`, `atlas/config/` | Scientific services, worker integration and default laboratory configuration |
+| `tests/`, `atlas/tests/`, `benchmarks/` | Runtime regressions, optional Atlas integration tests and evaluation protocols |
+| `atlas/alembic/`, `atlas/static/`, `atlas/templates/` | Database migrations and optional standalone application assets |
+| `atlas/scripts/`, `atlas/examples/`, `scripts/examples/` | Development tools, data preparation and runnable usage examples |
+| `experiments/` | Selected reproducible calibration harnesses |
+| `release_evidence/` | Exact witness, numerical inputs/results, certificates and offline verifiers |
+| `scripts/run/`, `scripts/verify/`, `scripts/release/` | Campaign launchers, evidence checks and packaging tools |
 
-## Release and publication
+## Documentation
 
-| Location | Purpose |
-|---|---|
-| `docs/releases/` | Release notes and migration guidance |
-| `docs/publication/` | Claim classification, attribution and publication decisions |
-| `release_evidence/` | Small, explicitly selected evidence for reviewers |
-| `scripts/release/` | Repeatable release validation |
-| `CITATION.cff` | Software citation; no DOI until a real deposit exists |
+- [What AMY is and how it works](../README.md)
+- [Environment setup](../ENVIRONMENT.md)
+- [Scientific tool guide](../ATLAS_TOOL_GUIDE.md)
+- [Reproducible experiments and tests](REPRODUCIBILITY.md)
+- [Results](RESULTS.md) and [evidence scope](EVIDENCE.md)
+- [Upgrading an installation](MIGRATION.md)
+- [English technical reference library](ENGLISH_MANUALS.md)
+- [Version changes](../CHANGELOG.md)
 
-## Research records
-
-`experiments/` contains both harness source and historical runs. `output/` contains audits and generated artifacts. `data/` contains local runtime state. `zenodo_deposits/` contains old proposed deposit packages, not evidence that a deposit was published or approved. Do not upload these trees wholesale.
-
-Original experiment paths and bytes remain in place because hashes and native receipts refer to them. New English publication notes summarize and link selected material; they do not retroactively rewrite recorded prompts, failed results or signed manifests.
-
-The top-level English documentation is the maintained entry point. Legacy Atlas documentation, source comments, research planning notes and original experiment records may remain multilingual; they are not all translated or newly validated by this release. Their existence is not an endorsement of their historical claims.
-
-## Release resources
-
-- [English technical manuals](ENGLISH_MANUALS.md)
-- [Reproduction guide](releases/REPRODUCING.md)
+AMY creates local state and run outputs when it executes. Raw private conversations, caches, internal planning notes and draft publication packages are not part of this source distribution. Configuration defaults are examples to review for a new installation; user credentials belong in an untracked local environment file.

@@ -92,11 +92,9 @@ def _iterative_coupling(self, scales_data: Dict) -> MultiscaleSolution:
 ```python
 from app.multiscale_models import MultiscaleModelsService
 
-<a id="inicialización"></a>
 # Inicialización
 service = MultiscaleModelsService()
 
-<a id="resolver-problema-multi-escala"></a>
 # Resolver problema multi-escala
 result = service.solve_multiscale_problem(
     molecular_data=molecular_conditions,
@@ -355,7 +353,6 @@ def _parallel_processing(self, scales_data: Dict) -> Dict:
 <a id="1-modelado-de-insuficiencia-cardíaca"></a>
 ### 1. Heart Failure Modeling
 ```python
-<a id="configurar-condiciones-patológicas"></a>
 # Configurar condiciones patológicas
 pathological_conditions = {
     'molecular': {'reduced_atp': True, 'calcium_overload': True},
@@ -364,14 +361,12 @@ pathological_conditions = {
     'organ': {'dilated_chambers': True}
 }
 
-<a id="resolver-modelo-multi-escala"></a>
 # Resolver modelo multi-escala
 result = service.solve_multiscale_problem(
     **pathological_conditions,
     coupling_method=CouplingMethod.ITERATIVE
 )
 
-<a id="analizar-mecanismos-de-enfermedad"></a>
 # Analizar mecanismos de enfermedad
 mechanisms = service.analyze_disease_mechanisms(result)
 ```
@@ -379,7 +374,6 @@ mechanisms = service.analyze_disease_mechanisms(result)
 <a id="2-optimización-de-terapias"></a>
 ### 2. Therapy Optimization
 ```python
-<a id="simular-respuesta-a-fármacos"></a>
 # Simular respuesta a fármacos
 therapy_response = service.simulate_therapy_response(
     baseline_conditions=baseline_data,
@@ -387,7 +381,6 @@ therapy_response = service.simulate_therapy_response(
     time_horizon=30  # días
 )
 
-<a id="evaluar-eficacia"></a>
 # Evaluar eficacia
 efficacy_metrics = service.evaluate_therapy_efficacy(therapy_response)
 ```
@@ -395,7 +388,6 @@ efficacy_metrics = service.evaluate_therapy_efficacy(therapy_response)
 <a id="3-diseño-de-dispositivos-médicos"></a>
 ### 3. Medical Device Design
 ```python
-<a id="modelar-interacción-dispositivo-tejido"></a>
 # Modelar interacción dispositivo-tejido
 device_interaction = service.model_device_tissue_interaction(
     device_geometry=device_mesh,
@@ -403,7 +395,6 @@ device_interaction = service.model_device_tissue_interaction(
     coupling_conditions=interface_conditions
 )
 
-<a id="optimizar-diseño"></a>
 # Optimizar diseño
 optimized_design = service.optimize_device_design(device_interaction)
 ```
@@ -476,7 +467,6 @@ optimized_design = service.optimize_device_design(device_interaction)
 <a id="con-strain-analysis-service"></a>
 ### With Strain Analysis Service
 ```python
-<a id="usar-resultados-de-strain-como-condiciones-de-contorno"></a>
 # Usar resultados de strain como condiciones de contorno
 strain_boundary_conditions = strain_service.extract_boundary_conditions(
     strain_result=strain_analysis,
@@ -492,7 +482,6 @@ multiscale_result = service.solve_multiscale_problem(
 <a id="con-plasma-physics-service"></a>
 ### With Plasma Physics Service
 ```python
-<a id="modelar-efectos-de-campos-electromagnéticos"></a>
 # Modelar efectos de campos electromagnéticos
 electromagnetic_effects = plasma_service.calculate_em_effects(
     field_strength=field_data,

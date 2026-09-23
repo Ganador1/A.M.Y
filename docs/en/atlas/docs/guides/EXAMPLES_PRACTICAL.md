@@ -32,7 +32,6 @@ import json
 API_BASE = "http://localhost:8000"
 headers = {"Content-Type": "application/json"}
 
-<a id="paso-1-evaluar-hipótesis-principal"></a>
 # Paso 1: Evaluar hipótesis principal
 hypothesis_data = {
     "hypothesis": "La metformina combinada con inhibidores SGLT2 mejora el control glucémico mejor que monoterapia",
@@ -55,7 +54,6 @@ print(f"🎯 Plausibilidad: {plausibility_result['plausibility_score']:.2f}")
 print(f"📊 Confianza: {plausibility_result['confidence']:.2f}")
 print(f"📚 Evidencia: {plausibility_result['evidence_summary']}")
 
-<a id="paso-2-búsqueda-de-literatura-específica"></a>
 # Paso 2: Búsqueda de literatura específica
 literature_search = {
     "query": "metformin SGLT2 inhibitor combination diabetes HbA1c",
@@ -75,7 +73,6 @@ literature_result = response.json()
 
 print(f"\n📖 Literatura encontrada: {len(literature_result['papers'])} papers")
 
-<a id="paso-3-análisis-de-biomarcadores"></a>
 # Paso 3: Análisis de biomarcadores
 biomarker_analysis = {
     "biomarkers": ["HbA1c", "glucose_fasting", "glucose_postprandial"],
@@ -90,7 +87,6 @@ biomarker_result = response.json()
 
 print(f"\n🧬 Biomarcadores analizados: {len(biomarker_result['results'])}")
 
-<a id="paso-4-evaluación-de-seguridad"></a>
 # Paso 4: Evaluación de seguridad
 safety_assessment = {
     "drug_combinations": ["metformin_sglt2"],
@@ -106,7 +102,6 @@ safety_result = response.json()
 print(f"\n🛡️ Perfil de seguridad: {safety_result['risk_level']}")
 print(f"⚠️ Eventos adversos principales: {safety_result['main_adverse_events']}")
 
-<a id="generar-reporte-final"></a>
 # Generar reporte final
 final_report = {
     "study_title": "Análisis de Eficacia y Seguridad: Metformina + SGLT2",
@@ -128,7 +123,6 @@ print(json.dumps(final_report, indent=2, ensure_ascii=False))
 ### Example 2: Protein Sequence Analysis
 
 ```python
-<a id="análisis-completo-de-una-proteína-de-interés"></a>
 # Análisis completo de una proteína de interés
 protein_data = {
     "sequence": "MKTVRQERLKSIVRILERSKEPVSGAQLAEELSVSRQVIVQDIAYLRSLGYNIVATPRGYVLAGG",
@@ -164,7 +158,6 @@ print(f"💊 Potencial farmacológico: {protein_result['druggability_score']:.2f
 **Context**: Use quantum algorithms to optimize an investment portfolio.
 
 ```python
-<a id="definir-problema-de-optimización"></a>
 # Definir problema de optimización
 portfolio_optimization = {
     "assets": ["AAPL", "GOOGL", "MSFT", "AMZN", "TSLA"],
@@ -197,7 +190,6 @@ for asset, allocation in optimization_result['optimal_allocation'].items():
 ### Example 2: Quantum Molecular Simulation
 
 ```python
-<a id="simulación-de-molécula-de-agua-usando-vqe"></a>
 # Simulación de molécula de agua usando VQE
 molecular_simulation = {
     "molecule": "H2O",
@@ -234,7 +226,6 @@ print(f"📊 Precisión: {simulation_result['accuracy']:.2e}")
 **Context**: Identify promising compounds to inhibit a specific protein.
 
 ```python
-<a id="paso-1-análisis-del-target-proteico"></a>
 # Paso 1: Análisis del target proteico
 target_analysis = {
     "protein_pdb_id": "1HTM",  # HIV protease
@@ -250,7 +241,6 @@ print(f"🎯 Proteína objetivo: {target_result['protein_name']}")
 print(f"📏 Volumen del sitio activo: {target_result['binding_site_volume']:.1f} Ų")
 print(f"💧 Hidrofobicidad: {target_result['hydrophobicity_score']:.2f}")
 
-<a id="paso-2-búsqueda-virtual-de-compuestos"></a>
 # Paso 2: Búsqueda virtual de compuestos
 virtual_screening = {
     "compound_library": "chembl",
@@ -275,7 +265,6 @@ screening_result = response.json()
 print(f"\n🔍 Compuestos evaluados: {screening_result['total_screened']}")
 print(f"⭐ Hits identificados: {len(screening_result['top_hits'])}")
 
-<a id="paso-3-análisis-admet-de-los-mejores-candidatos"></a>
 # Paso 3: Análisis ADMET de los mejores candidatos
 admet_analysis = {
     "compounds": screening_result['top_hits'][:20],
@@ -292,7 +281,6 @@ admet_result = response.json()
 
 print(f"\n💊 Análisis ADMET completado para {len(admet_result['results'])} compuestos")
 
-<a id="paso-4-ranking-final-y-recomendaciones"></a>
 # Paso 4: Ranking final y recomendaciones
 final_ranking = {
     "compounds": screening_result['top_hits'][:20],
@@ -326,7 +314,6 @@ for i, compound in enumerate(ranking_result['ranked_compounds'][:5], 1):
 ### Example 1: Exoplanet Detection and Characterization
 
 ```python
-<a id="análisis-de-curvas-de-luz-para-detección-de-tránsitos"></a>
 # Análisis de curvas de luz para detección de tránsitos
 exoplanet_detection = {
     "light_curve_file": "kepler_star_12345.csv",
@@ -360,7 +347,6 @@ for i, candidate in enumerate(detection_result['candidates'], 1):
     print(f"    Zona habitable: {'Sí' if candidate['habitable_zone'] else 'No'}")
     print(f"    Confianza: {candidate['detection_confidence']:.1%}")
 
-<a id="análisis-de-follow-up-para-el-mejor-candidato"></a>
 # Análisis de follow-up para el mejor candidato
 if detection_result['candidates']:
     best_candidate = detection_result['candidates'][0]
@@ -387,7 +373,6 @@ if detection_result['candidates']:
 ### Example 2: Stellar Variability Analysis
 
 ```python
-<a id="análisis-de-estrellas-variables"></a>
 # Análisis de estrellas variables
 stellar_variability = {
     "star_data": "variable_star_photometry.csv",
@@ -420,7 +405,6 @@ print(f"Características: {', '.join(variability_result['characteristics'])}")
 ### Example 1: Statistical Analysis of Experiments
 
 ```python
-<a id="análisis-completo-de-un-experimento-controlado"></a>
 # Análisis completo de un experimento controlado
 experimental_analysis = {
     "data_file": "experiment_results.csv",
@@ -460,7 +444,6 @@ print(f"  R² = {stats_result['model_r_squared']:.3f}")
 print(f"  R² ajustado = {stats_result['adjusted_r_squared']:.3f}")
 print(f"  RMSE = {stats_result['rmse']:.3f}")
 
-<a id="generar-gráficos-y-visualizaciones"></a>
 # Generar gráficos y visualizaciones
 visualization_request = {
     "analysis_results": stats_result,
@@ -490,7 +473,6 @@ print(f"\n📈 Visualizaciones generadas: {len(viz_result['plot_files'])}")
 ### Example 1: Complete Drug Discovery Pipeline
 
 ```python
-<a id="workflow-integrado-que-combina-múltiples-servicios"></a>
 # Workflow integrado que combina múltiples servicios
 drug_discovery_workflow = {
     "workflow_name": "drug_discovery_pipeline",
@@ -557,7 +539,6 @@ drug_discovery_workflow = {
     }
 }
 
-<a id="ejecutar-workflow"></a>
 # Ejecutar workflow
 response = requests.post(f"{API_BASE}/api/workflows/execute",
                         json=drug_discovery_workflow, headers=headers)
@@ -567,7 +548,6 @@ workflow_id = workflow_result['workflow_id']
 print(f"🔬 Workflow iniciado: {workflow_id}")
 print(f"⏱️ Tiempo estimado: {workflow_result['estimated_duration']} minutos")
 
-<a id="monitorear-progreso"></a>
 # Monitorear progreso
 import time
 while True:
@@ -580,7 +560,6 @@ while True:
         break
     time.sleep(30)
 
-<a id="obtener-resultados-finales"></a>
 # Obtener resultados finales
 response = requests.get(f"{API_BASE}/api/workflows/{workflow_id}/results")
 final_results = response.json()
@@ -589,7 +568,6 @@ print(f"\n\n🎉 WORKFLOW COMPLETADO")
 print(f"Duración total: {final_results['total_duration']} minutos")
 print(f"Candidatos finales identificados: {len(final_results['final_candidates'])}")
 
-<a id="mostrar-top-3-candidatos"></a>
 # Mostrar top 3 candidatos
 for i, candidate in enumerate(final_results['final_candidates'][:3], 1):
     print(f"\n🏆 Candidato #{i}:")
@@ -604,7 +582,6 @@ for i, candidate in enumerate(final_results['final_candidates'][:3], 1):
 ### Example 2: Integrated Multi-Omics Analysis
 
 ```python
-<a id="pipeline-de-análisis-integrativo"></a>
 # Pipeline de análisis integrativo
 multiomics_workflow = {
     "study_name": "cancer_biomarker_discovery",
@@ -680,7 +657,6 @@ print(f"Precisión del modelo: {omics_result['model_accuracy']:.2%}")
 ### ⚡ **Performance Optimization**
 
 ```python
-<a id="configuración-optimizada-para-análisis-grandes"></a>
 # Configuración optimizada para análisis grandes
 performance_config = {
     "parallel_workers": 8,
@@ -690,7 +666,6 @@ performance_config = {
     "use_gpu": True
 }
 
-<a id="aplicar-configuración"></a>
 # Aplicar configuración
 response = requests.post(f"{API_BASE}/api/system/configure",
                         json=performance_config, headers=headers)
@@ -700,7 +675,6 @@ response = requests.post(f"{API_BASE}/api/system/configure",
 ### 🔍 **Debugging and Troubleshooting**
 
 ```python
-<a id="obtener-logs-detallados-de-un-análisis"></a>
 # Obtener logs detallados de un análisis
 debug_request = {
     "job_id": "12345",
@@ -719,4 +693,4 @@ for log_entry in logs['entries']:
 
 ---
 
-*Need help with a specific example? Check the [full documentation](README.md) or open an [issue on GitHub](https://github.com/your-repo/axiom-atlas/issues).*
+*Need help with a specific example? Check the full documentation (reference outside this distribution) or open an [issue on GitHub](https://github.com/your-repo/axiom-atlas/issues).*

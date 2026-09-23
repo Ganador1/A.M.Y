@@ -1,0 +1,152 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - public-release-hardening
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint (ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install validated tooling
+        run: python -m pip install '.[test]' -r scripts/release/requirements-validation.txt
+
+      - name: Ruff correctness gate
+        # Enforce syntax/undefined-name failures now.  Broader style cleanup can
+        # proceed incrementally without making the embedded Atlas tree a blocker.
+        run: |
+          ruff check \
+            amy.py core cognition memory senses communication evolution sandbox skills tests \
+            --select E9,F63,F7,F82 \
+            --output-format=github
+
+  unit-tests:
+    name: Offline regression tests (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install runtime and validated test dependencies
+        run: |
+          python -m pip install '.[test]' -r scripts/release/requirements-validation.txt
+          echo "AMY_ATLAS_PYTHON=$(command -v python)" >> "$GITHUB_ENV"
+
+      - name: Show environment
+        run: |
+          python --version
+          python -c "import pytest, yaml, rich, structlog, numpy, scipy, sympy, networkx, httpx, reportlab, jwt, cryptography; print('deps ok')"
+
+      - name: Run all regression tests without external services
+        # Keep deterministic Atlas and integration coverage. Tests explicitly
+        # marked network require external services and run separately.
+        run: |
+          python -m pytest \
+            tests \
+            -m "not network" \
+            -q --tb=short -p no:cacheprovider
+
+      - name: Run focused Atlas evidence-boundary tests
+        run: |
+          PYTHONPATH=atlas python -m pytest \
+            atlas/tests/unit/orchestration/test_tool_evidence_external_science.py \
+            --confcutdir=atlas/tests/unit/orchestration \
+            -q --tb=short -p no:cacheprovider
+
+      - name: Verify the selected deterministic Atlas tools
+        run: python scripts/diagnostics/verify_atlas_tools.py
+
+      - name: Verify observed climate data and failure boundaries
+        run: |
+          PYTHONPATH=atlas python -m pytest atlas/tests/unit/test_climate_loop.py --confcutdir=atlas/tests/unit -q
+
+      - name: Recompute retained mathematical and numerical evidence
+        run: |
+          python release_evidence/autocorrelation/verify.py
+          python release_evidence/runtime/verify.py
+
+  hygiene:
+    name: Public release hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install runtime and validated test dependencies
+        run: python -m pip install '.[test]' -r scripts/release/requirements-validation.txt
+
+      - name: Run public release hygiene tests
+        run: python -m pytest tests/test_public_release_hygiene.py -q
+
+      - name: Verify secret hygiene
+        run: python scripts/diagnostics/verify_secret_hygiene.py --strict
+
+      - name: Verify public documentation and release metadata
+        run: python scripts/release/check_release.py
+
+  build-check:
+    name: Build wheel + sdist
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install validated build tooling
+        run: python -m pip install '.[test]' -r scripts/release/requirements-validation.txt
+
+      - name: Build distribution artifacts
+        run: python -m build --sdist --wheel --outdir dist/
+
+      - name: Normalize archive ownership and verify distributions
+        run: |
+          for archive in dist/*.tar.gz; do
+            python scripts/release/normalize_archive_metadata.py "$archive"
+          done
+          python scripts/release/check_release.py --dist dist/
+
+      - name: List artifacts
+        run: ls -lah dist/
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: amy-dist-${{ github.sha }}
+          path: dist/*
+          retention-days: 7
+          if-no-files-found: error

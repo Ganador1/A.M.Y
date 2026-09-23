@@ -58,19 +58,13 @@ The service provides **predictive multi-physics simulation** that enables:
 <a id="1-transferencia-de-calor"></a>
 #### **1. Heat Transfer**
 ```python
-<a id="ecuación-de-conducción-de-calor-con-fuente-laser"></a>
 # Ecuación de conducción de calor con fuente laser
 ∂T/∂t = α∇²T + Q_laser/(ρ·cp)
 
-<a id="donde"></a>
 # Donde:
-<a id="α--difusividad-térmica-del-material"></a>
 # α = difusividad térmica del material
-<a id="q_laser--fuente-de-calor-del-láser-distribución-gaussian"></a>
 # Q_laser = fuente de calor del láser (distribución Gaussian)
-<a id="ρ--densidad-del-material"></a>
 # ρ = densidad del material
-<a id="cp--calor-específico"></a>
 # cp = calor específico
 ```
 
@@ -83,19 +77,13 @@ The service provides **predictive multi-physics simulation** that enables:
 <a id="2-dinámica-de-fluidos-melt-pool"></a>
 #### **2. Fluid Dynamics (Melt Pool)**
 ```python
-<a id="ecuaciones-de-navier-stokes-para-flujo-de-metal-líquido"></a>
 # Ecuaciones de Navier-Stokes para flujo de metal líquido
 ∂u/∂t + (u·∇)u = -∇p/ρ + ν∇²u + g + F_surface
 
-<a id="donde-1"></a>
 # Donde:
-<a id="u--campo-de-velocidad-del-metal-líquido"></a>
 # u = campo de velocidad del metal líquido
-<a id="p--presión"></a>
 # p = presión
-<a id="ν--viscosidad-cinemática"></a>
 # ν = viscosidad cinemática
-<a id="f_surface--fuerzas-superficiales-marangoni-capilaridad"></a>
 # F_surface = fuerzas superficiales (Marangoni, capilaridad)
 ```
 
@@ -108,13 +96,11 @@ The service provides **predictive multi-physics simulation** that enables:
 <a id="3-evolución-microestructural"></a>
 #### **3. Microstructural Evolution**
 ```python
-<a id="modelo-de-solidificación-direccional"></a>
 # Modelo de solidificación direccional
 G = |∇T|  # Gradiente térmico
 R = V_interface  # Velocidad de solidificación
 CET = G/R  # Criterio Columnar-to-Equiaxed Transition
 
-<a id="tamaño-de-grano-dendrítico"></a>
 # Tamaño de grano dendrítico:
 λ₁ = A * (G*R)^(-n)  # Espaciado dendrítico primario
 ```
@@ -128,19 +114,13 @@ CET = G/R  # Criterio Columnar-to-Equiaxed Transition
 <a id="4-physics-informed-neural-networks-pinn"></a>
 ### **4. Physics-Informed Neural Networks (PINN)**
 ```python
-<a id="loss-function-para-pinn-en-am"></a>
 # Loss function para PINN en AM:
 L_total = L_pde + L_boundary + L_initial + L_measurement
 
-<a id="donde-2"></a>
 # Donde:
-<a id="l_pde--residuo-de-ecuaciones-diferenciales"></a>
 # L_pde = residuo de ecuaciones diferenciales
-<a id="l_boundary--condiciones-de-frontera"></a>
 # L_boundary = condiciones de frontera
-<a id="l_initial--condiciones-iniciales"></a>
 # L_initial = condiciones iniciales
-<a id="l_measurement--datos-experimentales"></a>
 # L_measurement = datos experimentales
 ```
 
@@ -156,7 +136,6 @@ L_total = L_pde + L_boundary + L_initial + L_measurement
 
 **AXIOM META 4 Workflow**:
 ```python
-<a id="1-configurar-simulación-lpbf"></a>
 # 1. Configurar simulación LPBF
 am_service = AdditiveManufacturingService()
 material = TitaniumAlloy("Ti-6Al-4V")
@@ -167,7 +146,6 @@ process_params = {
     "layer_thickness": 0.03  # mm
 }
 
-<a id="2-ejecutar-optimización-multi-objetivo"></a>
 # 2. Ejecutar optimización multi-objetivo
 optimization_result = am_service.optimize_parameters(
     material=material,
@@ -176,7 +154,6 @@ optimization_result = am_service.optimize_parameters(
     constraints={"porosity": "<0.1%", "surface_roughness": "<Ra 6.3"}
 )
 
-<a id="3-predicción-de-microestructura"></a>
 # 3. Predicción de microestructura
 microstructure = am_service.predict_microstructure(
     optimal_params=optimization_result.best_params,
@@ -199,14 +176,12 @@ microstructure = am_service.predict_microstructure(
 
 **AXIOM META 4 Workflow**:
 ```python
-<a id="1-análisis-de-componente-dañado"></a>
 # 1. Análisis de componente dañado
 damage_analysis = am_service.analyze_damage(
     component_scan="blade_scan.stl",
     material_properties="Inconel_718_properties.json"
 )
 
-<a id="2-planificación-de-reparación-ded"></a>
 # 2. Planificación de reparación DED
 repair_strategy = am_service.plan_ded_repair(
     damage_region=damage_analysis.critical_areas,
@@ -214,7 +189,6 @@ repair_strategy = am_service.plan_ded_repair(
     substrate_material="Inconel_718_wrought"
 )
 
-<a id="3-simulación-de-proceso-de-reparación"></a>
 # 3. Simulación de proceso de reparación
 repair_simulation = am_service.simulate_ded_process(
     toolpath=repair_strategy.toolpath,
@@ -238,14 +212,12 @@ repair_simulation = am_service.simulate_ded_process(
 
 **AXIOM META 4 Workflow**:
 ```python
-<a id="1-procesamiento-de-datos-médicos"></a>
 # 1. Procesamiento de datos médicos
 patient_data = am_service.process_medical_scan(
     dicom_files="patient_CT_scan/",
     segmentation_roi="femur_head"
 )
 
-<a id="2-diseño-generativo-con-constraints-biomecánicos"></a>
 # 2. Diseño generativo con constraints biomecánicos
 implant_design = am_service.generative_design(
     anatomy=patient_data.bone_geometry,
@@ -257,7 +229,6 @@ implant_design = am_service.generative_design(
     }
 )
 
-<a id="3-optimización-para-ebm-electron-beam-melting"></a>
 # 3. Optimización para EBM (Electron Beam Melting)
 manufacturing_plan = am_service.optimize_ebm_process(
     part_geometry=implant_design.final_geometry,
@@ -350,23 +321,18 @@ manufacturing_plan = am_service.optimize_ebm_process(
 ### **Installation and Configuration**
 
 ```bash
-<a id="1-clonar-repositorio"></a>
 # 1. Clonar repositorio
 git clone https://github.com/atlas/axiom-meta4.git
 cd axiom-meta4
 
-<a id="2-configurar-entorno-virtual"></a>
 # 2. Configurar entorno virtual
 python -m venv .venv
 source .venv/bin/activate  # Linux/Mac
-<a id="o-venvscriptsactivate---windows"></a>
 # o .venv\Scripts\activate  # Windows
 
-<a id="3-instalar-dependencias"></a>
 # 3. Instalar dependencias
 pip install -r requirements.txt
 
-<a id="4-verificar-instalación"></a>
 # 4. Verificar instalación
 python -c "from app.additive_manufacturing_service import AdditiveManufacturingService; print('✅ AM Service OK')"
 ```
@@ -378,11 +344,9 @@ python -c "from app.additive_manufacturing_service import AdditiveManufacturingS
 from app.additive_manufacturing_service import AdditiveManufacturingService
 import numpy as np
 
-<a id="1-inicializar-servicio"></a>
 # 1. Inicializar servicio
 am_service = AdditiveManufacturingService()
 
-<a id="2-definir-material"></a>
 # 2. Definir material
 material = {
     "name": "Ti-6Al-4V",
@@ -394,7 +358,6 @@ material = {
     "solidus_temperature": 1878   # K
 }
 
-<a id="3-configurar-parámetros-de-proceso"></a>
 # 3. Configurar parámetros de proceso
 process_params = {
     "laser_power": 250,  # W
@@ -404,7 +367,6 @@ process_params = {
     "beam_diameter": 0.08  # mm
 }
 
-<a id="4-definir-geometría-de-simulación"></a>
 # 4. Definir geometría de simulación
 geometry = {
     "length": 2.0,  # mm
@@ -412,7 +374,6 @@ geometry = {
     "height": 0.3   # mm (10 layers)
 }
 
-<a id="5-ejecutar-simulación"></a>
 # 5. Ejecutar simulación
 simulation_result = am_service.simulate_lpbf_process(
     material=material,
@@ -423,13 +384,11 @@ simulation_result = am_service.simulate_lpbf_process(
     output_fields=["temperature", "melt_pool_dimensions", "cooling_rate"]
 )
 
-<a id="6-analizar-resultados"></a>
 # 6. Analizar resultados
 print(f"Melt pool dimensions: {simulation_result.melt_pool_dimensions}")
 print(f"Peak temperature: {simulation_result.peak_temperature:.0f} K")
 print(f"Cooling rate: {simulation_result.cooling_rate:.0f} K/s")
 
-<a id="7-predicción-de-propiedades"></a>
 # 7. Predicción de propiedades
 properties = am_service.predict_properties(
     thermal_history=simulation_result.thermal_history,
@@ -447,7 +406,6 @@ print(f"Predicted porosity: {properties.porosity:.3f}%")
 from app.additive_manufacturing_service import AdditiveManufacturingService
 from scipy.optimize import minimize
 
-<a id="1-función-objetivo-para-optimización"></a>
 # 1. Función objetivo para optimización
 def objective_function(params):
     laser_power, scan_speed, hatch_spacing = params
@@ -469,12 +427,10 @@ def objective_function(params):
     
     return objective
 
-<a id="2-configurar-optimización"></a>
 # 2. Configurar optimización
 initial_guess = [250, 1000, 0.1]  # [W, mm/s, mm]
 bounds = [(150, 350), (500, 1500), (0.05, 0.15)]  # Límites físicos
 
-<a id="3-ejecutar-optimización"></a>
 # 3. Ejecutar optimización
 optimization_result = minimize(
     objective_function,

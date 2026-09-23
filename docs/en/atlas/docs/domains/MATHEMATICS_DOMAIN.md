@@ -110,11 +110,9 @@ The Mathematics domain in AXIOM ATLAS provides advanced tools for mathematical c
 ## Installation Requirements
 
 ```bash
-<a id="core-dependencies"></a>
 # Core dependencies
 pip install -r requirements-core.txt
 
-<a id="domain-specific-dependencies"></a>
 # Domain-specific dependencies
 pip install -r requirements-mathematics.txt
 ```
@@ -127,11 +125,9 @@ pip install -r requirements-mathematics.txt
 ```python
 from app.domains.mathematics.services.mathematical_discovery_engine import MathematicalDiscoveryEngine
 
-<a id="initialize-service"></a>
 # Initialize service
 engine = MathematicalDiscoveryEngine()
 
-<a id="generate-conjectures"></a>
 # Generate conjectures
 conjectures = await engine.generate_seed_conjectures(domain="number_theory", limit=5)
 
@@ -184,15 +180,12 @@ This domain is based on standard tools such as SymPy, SciPy, NumPy, and automate
 <a id="run-domain-specific-tests"></a>
 ### Run domain-specific tests:
 ```bash
-<a id="unit-tests"></a>
 # Unit tests
 pytest tests/unit/mathematics/ -v
 
-<a id="integration-tests"></a>
 # Integration tests
 pytest tests/integration/mathematics/ -v
 
-<a id="with-coverage"></a>
 # With coverage
 pytest tests/mathematics/ --cov=app/domains/mathematics --cov-report=html
 ```

@@ -78,105 +78,74 @@ The service provides **automated clinical validation** that enables:
 <a id="1-cálculo-de-ef-por-método-simpson"></a>
 #### **1. EF Calculation by Simpson Method**
 ```python
-<a id="fracción-de-eyección-usando-regla-de-simpson-biplanar"></a>
 # Fracción de eyección usando regla de Simpson biplanar:
 
-<a id="volumen-usando-suma-de-discos-elípticos"></a>
 # Volumen usando suma de discos elípticos
 V = (π/4) * (A₁ * A₂ / L) * Σ(aᵢ * bᵢ)
 
-<a id="donde"></a>
 # Donde:
-<a id="a₁-a₂--áreas-en-vistas-apical-4c-y-2c"></a>
 # A₁, A₂ = áreas en vistas apical 4C y 2C
-<a id="l--longitud-del-ventrículo-izquierdo"></a>
 # L = longitud del ventrículo izquierdo
-<a id="aᵢ-bᵢ--diámetros-de-disco-i-en-planos-perpendiculares"></a>
 # aᵢ, bᵢ = diámetros de disco i en planos perpendiculares
 
-<a id="fracción-de-eyección"></a>
 # Fracción de eyección
 EF = ((EDV - ESV) / EDV) * 100
 
-<a id="donde-1"></a>
 # Donde:
-<a id="edv--end-diastolic-volume"></a>
 # EDV = End-diastolic volume
-<a id="esv--end-systolic-volume"></a>
 # ESV = End-systolic volume
 ```
 
 <a id="2-análisis-de-strain-usando-speckle-tracking"></a>
 #### **2. Strain Analysis using Speckle Tracking**
 ```python
-<a id="strain-longitudinal-global"></a>
 # Strain longitudinal global:
 
-<a id="strain-segmental"></a>
 # Strain segmental
 ε_segmental(t) = (L(t) - L₀) / L₀
 
-<a id="donde-2"></a>
 # Donde:
-<a id="lt--longitud-del-segmento-en-tiempo-t"></a>
 # L(t) = longitud del segmento en tiempo t
-<a id="l₀--longitud-de-referencia-end-diastole"></a>
 # L₀ = longitud de referencia (end-diastole)
 
-<a id="strain-rate"></a>
 # Strain rate
 SR(t) = dε/dt
 
-<a id="global-longitudinal-strain-promedio-de-17-segmentos"></a>
 # Global Longitudinal Strain (promedio de 17 segmentos)
 GLS = (1/17) * Σ(ε_peak_segmental)
 
-<a id="criterios-de-normalidad-ahaase-2015"></a>
 # Criterios de normalidad (AHA/ASE 2015):
-<a id="normal-gls---18"></a>
 # Normal: GLS ≤ -18%
-<a id="borderline-gls--16-to--18"></a>
 # Borderline: GLS -16% to -18%
-<a id="abnormal-gls---16"></a>
 # Abnormal: GLS > -16%
 ```
 
 <a id="3-validación-estadística"></a>
 #### **3. Statistical Validation**
 ```python
-<a id="análisis-de-reproducibilidad-inter-observador"></a>
 # Análisis de reproducibilidad inter-observador:
 
-<a id="coefficient-of-variation"></a>
 # Coefficient of Variation
 CV = (σ / μ) * 100
 
-<a id="intraclass-correlation-coefficient"></a>
 # Intraclass Correlation Coefficient
 ICC = (MSB - MSW) / (MSB + (k-1)*MSW)
 
-<a id="bland-altman-analysis"></a>
 # Bland-Altman Analysis
 bias = mean(diff)
 limits_of_agreement = bias ± 1.96 * σ_diff
 
-<a id="donde-3"></a>
 # Donde:
-<a id="msb--mean-square-between-subjects"></a>
 # MSB = Mean Square Between subjects
-<a id="msw--mean-square-within-subjects"></a>
 # MSW = Mean Square Within subjects
-<a id="k--number-of-observations-per-subject"></a>
 # k = number of observations per subject
 ```
 
 <a id="4-machine-learning-para-análisis-avanzado"></a>
 #### **4. Machine Learning for Advanced Analysis**
 ```python
-<a id="red-neuronal-para-detección-automática-de-bordes"></a>
 # Red neuronal para detección automática de bordes:
 
-<a id="arquitectura-u-net-para-segmentación"></a>
 # Arquitectura U-Net para segmentación
 def unet_model(input_shape):
     # Encoder pathway
@@ -192,7 +161,6 @@ def unet_model(input_shape):
     
     return Model(inputs=[inputs], outputs=[conv10])
 
-<a id="loss-function-para-segmentación-médica"></a>
 # Loss function para segmentación médica
 def dice_loss(y_true, y_pred):
     intersection = K.sum(y_true * y_pred)
@@ -212,11 +180,9 @@ def dice_loss(y_true, y_pred):
 
 **AXIOM META 4 Workflow**:
 ```python
-<a id="1-cargar-estudio-ecocardiográfico"></a>
 # 1. Cargar estudio ecocardiográfico
 clinical_service = AdvancedClinicalValidationService()
 
-<a id="cargar-imágenes-dicom"></a>
 # Cargar imágenes DICOM
 echo_study = clinical_service.load_dicom_study(
     study_path="patient_12345_echo/",
@@ -224,7 +190,6 @@ echo_study = clinical_service.load_dicom_study(
     views_required=["A4C", "A2C", "ALAX"]  # Apical views
 )
 
-<a id="2-análisis-automático-de-función-sistólica"></a>
 # 2. Análisis automático de función sistólica
 systolic_analysis = clinical_service.analyze_systolic_function(
     echo_images=echo_study.images,
@@ -233,7 +198,6 @@ systolic_analysis = clinical_service.analyze_systolic_function(
     aha_segments=17
 )
 
-<a id="3-cálculo-de-fracción-de-eyección"></a>
 # 3. Cálculo de fracción de eyección
 ef_result = clinical_service.calculate_ejection_fraction(
     end_diastolic_volume=systolic_analysis.edv,
@@ -242,7 +206,6 @@ ef_result = clinical_service.calculate_ejection_fraction(
     confidence_interval=True
 )
 
-<a id="4-análisis-de-strain-global-y-segmental"></a>
 # 4. Análisis de strain global y segmental
 strain_analysis = clinical_service.analyze_cardiac_strain(
     echo_images=echo_study.images,
@@ -250,7 +213,6 @@ strain_analysis = clinical_service.analyze_cardiac_strain(
     strain_types=["longitudinal", "circumferential", "radial"]
 )
 
-<a id="5-generación-de-reporte-clínico-automatizado"></a>
 # 5. Generación de reporte clínico automatizado
 clinical_report = clinical_service.generate_clinical_report(
     patient_data=echo_study.patient_info,
@@ -276,7 +238,6 @@ clinical_report = clinical_service.generate_clinical_report(
 
 **AXIOM META 4 Workflow**:
 ```python
-<a id="1-configuración-de-protocol-de-cardiotoxicidad"></a>
 # 1. Configuración de protocol de cardiotoxicidad
 cardiotox_protocol = clinical_service.cardiotoxicity_protocol(
     chemotherapy_agent="doxorubicin",
@@ -285,7 +246,6 @@ cardiotox_protocol = clinical_service.cardiotoxicity_protocol(
     monitoring_frequency="every_3_cycles"
 )
 
-<a id="2-análisis-longitudinal-automatizado"></a>
 # 2. Análisis longitudinal automatizado
 longitudinal_analysis = clinical_service.longitudinal_tracking(
     patient_id="onco_patient_789",
@@ -294,7 +254,6 @@ longitudinal_analysis = clinical_service.longitudinal_tracking(
     secondary_endpoints=["EF_change", "diastolic_function"]
 )
 
-<a id="3-detección-de-cambios-significativos"></a>
 # 3. Detección de cambios significativos
 change_detection = clinical_service.detect_significant_changes(
     baseline_gls=-20.5,    # % (normal)
@@ -303,7 +262,6 @@ change_detection = clinical_service.detect_significant_changes(
     guidelines="ASE_EACVI_cardiotoxicity"
 )
 
-<a id="4-alertas-clínicas-automáticas"></a>
 # 4. Alertas clínicas automáticas
 clinical_alerts = clinical_service.generate_clinical_alerts(
     change_analysis=change_detection,
@@ -315,7 +273,6 @@ clinical_alerts = clinical_service.generate_clinical_alerts(
     ]
 )
 
-<a id="5-dashboard-de-seguimiento"></a>
 # 5. Dashboard de seguimiento
 monitoring_dashboard = clinical_service.create_monitoring_dashboard(
     patient_cohort="cardio_oncology",
@@ -339,7 +296,6 @@ monitoring_dashboard = clinical_service.create_monitoring_dashboard(
 
 **AXIOM META 4 Workflow**:
 ```python
-<a id="1-configuración-de-estudio-de-validación-fda"></a>
 # 1. Configuración de estudio de validación FDA
 fda_validation = clinical_service.fda_validation_protocol(
     device_type="drug_eluting_stent",
@@ -349,7 +305,6 @@ fda_validation = clinical_service.fda_validation_protocol(
     alpha=0.05
 )
 
-<a id="2-análisis-de-función-coronaria-post-procedimiento"></a>
 # 2. Análisis de función coronaria post-procedimiento
 coronary_analysis = clinical_service.analyze_coronary_function(
     pre_pci_images=baseline_angio,
@@ -358,7 +313,6 @@ coronary_analysis = clinical_service.analyze_coronary_function(
     quantitative_analysis=True
 )
 
-<a id="3-evaluación-de-función-ventricular"></a>
 # 3. Evaluación de función ventricular
 ventricular_assessment = clinical_service.comprehensive_lv_assessment(
     echo_studies=serial_echo_data,
@@ -371,7 +325,6 @@ ventricular_assessment = clinical_service.comprehensive_lv_assessment(
     ]
 )
 
-<a id="4-análisis-estadístico-para-submission-regulatoria"></a>
 # 4. Análisis estadístico para submission regulatoria
 regulatory_analysis = clinical_service.regulatory_statistical_analysis(
     primary_data=coronary_analysis.tvf_rate,
@@ -380,7 +333,6 @@ regulatory_analysis = clinical_service.regulatory_statistical_analysis(
     analysis_sets=["itt", "pp", "safety"]
 )
 
-<a id="5-generación-de-documentación-regulatoria"></a>
 # 5. Generación de documentación regulatoria
 fda_submission = clinical_service.generate_fda_submission(
     study_data=regulatory_analysis,
@@ -500,27 +452,22 @@ fda_submission = clinical_service.generate_fda_submission(
 ### **Installation and Configuration**
 
 ```bash
-<a id="1-clonar-repositorio"></a>
 # 1. Clonar repositorio
 git clone https://github.com/atlas/axiom-meta4.git
 cd axiom-meta4
 
-<a id="2-configurar-entorno-virtual"></a>
 # 2. Configurar entorno virtual
 python -m venv .venv
 source .venv/bin/activate  # Linux/Mac
 
-<a id="3-instalar-dependencias-médicas-específicas"></a>
 # 3. Instalar dependencias médicas específicas
 pip install -r requirements.txt
 pip install pydicom SimpleITK opencv-python scikit-image
 
-<a id="4-configurar-credenciales-para-sistemas-médicos"></a>
 # 4. Configurar credenciales para sistemas médicos
 export DICOM_SCP_PORT=11112
 export HL7_ENDPOINT="hospital.system.local"
 
-<a id="5-verificar-instalación"></a>
 # 5. Verificar instalación
 python -c "from app.advanced_clinical_validation_service import AdvancedClinicalValidationService; print('✅ Clinical Service OK')"
 ```
@@ -533,11 +480,9 @@ from app.advanced_clinical_validation_service import AdvancedClinicalValidationS
 import pydicom
 import numpy as np
 
-<a id="1-inicializar-servicio-clínico"></a>
 # 1. Inicializar servicio clínico
 clinical_service = AdvancedClinicalValidationService()
 
-<a id="2-cargar-estudio-ecocardiográfico"></a>
 # 2. Cargar estudio ecocardiográfico
 echo_study = clinical_service.load_echo_study(
     study_path="./sample_data/echo_study_001/",
@@ -545,7 +490,6 @@ echo_study = clinical_service.load_echo_study(
     study_date="2025-09-09"
 )
 
-<a id="3-configurar-análisis-según-guías-ahaaccesc"></a>
 # 3. Configurar análisis según guías AHA/ACC/ESC
 analysis_config = {
     "ef_method": "simpson_biplane",
@@ -555,14 +499,12 @@ analysis_config = {
     "guidelines": "AHA_ACC_ESC_2020"
 }
 
-<a id="4-ejecutar-análisis-automático-de-función-sistólica"></a>
 # 4. Ejecutar análisis automático de función sistólica
 systolic_analysis = clinical_service.analyze_systolic_function(
     echo_images=echo_study.get_cine_loops(),
     config=analysis_config
 )
 
-<a id="5-calcular-fracción-de-eyección-con-múltiples-métodos"></a>
 # 5. Calcular fracción de eyección con múltiples métodos
 ef_simpson = clinical_service.calculate_ef_simpson(
     a4c_edv=systolic_analysis.a4c_volumes.edv,
@@ -578,7 +520,6 @@ ef_area_length = clinical_service.calculate_ef_area_length(
     lv_length_systole=systolic_analysis.lv_lengths.es
 )
 
-<a id="6-análisis-de-strain-global-longitudinal"></a>
 # 6. Análisis de strain global longitudinal
 strain_analysis = clinical_service.analyze_global_strain(
     echo_images=echo_study.get_cine_loops(),
@@ -586,7 +527,6 @@ strain_analysis = clinical_service.analyze_global_strain(
     frame_rate=echo_study.frame_rate
 )
 
-<a id="7-interpretación-clínica-automatizada"></a>
 # 7. Interpretación clínica automatizada
 clinical_interpretation = clinical_service.interpret_results(
     ejection_fraction=ef_simpson.value,
@@ -594,7 +534,6 @@ clinical_interpretation = clinical_service.interpret_results(
     guidelines="AHA_ACC_ESC_2020"
 )
 
-<a id="8-imprimir-resultados"></a>
 # 8. Imprimir resultados
 print("=== ANÁLISIS DE FUNCIÓN VENTRICULAR ===")
 print(f"Paciente: {echo_study.patient_id}")
@@ -623,11 +562,9 @@ from app.advanced_clinical_validation_service import AdvancedClinicalValidationS
 from datetime import datetime, timedelta
 import pandas as pd
 
-<a id="1-configurar-protocolo-de-seguimiento-de-cardiotoxicidad"></a>
 # 1. Configurar protocolo de seguimiento de cardiotoxicidad
 cardiotox_service = clinical_service.cardiotoxicity_monitoring()
 
-<a id="2-definir-protocolo-de-quimioterapia"></a>
 # 2. Definir protocolo de quimioterapia
 chemo_protocol = {
     "agent": "doxorubicin",
@@ -637,7 +574,6 @@ chemo_protocol = {
     "total_cycles": 8
 }
 
-<a id="3-configurar-timepoints-de-seguimiento"></a>
 # 3. Configurar timepoints de seguimiento
 timepoints = [
     {"name": "baseline", "cycle": 0, "date": "2025-01-15"},
@@ -648,7 +584,6 @@ timepoints = [
     {"name": "followup_6m", "cycle": "NA", "date": "2025-12-15"}
 ]
 
-<a id="4-análisis-longitudinal-automatizado"></a>
 # 4. Análisis longitudinal automatizado
 longitudinal_results = []
 
@@ -692,7 +627,6 @@ for timepoint in timepoints:
     
     longitudinal_results.append(timepoint_result)
 
-<a id="5-análisis-de-cambios-significativos"></a>
 # 5. Análisis de cambios significativos
 baseline = longitudinal_results[0]
 change_analysis = []
@@ -710,7 +644,6 @@ for result in longitudinal_results[1:]:
     
     change_analysis.append(changes)
 
-<a id="6-detección-de-cardiotoxicidad"></a>
 # 6. Detección de cardiotoxicidad
 cardiotox_detection = cardiotox_service.detect_cardiotoxicity(
     change_analysis=change_analysis,
@@ -718,7 +651,6 @@ cardiotox_detection = cardiotox_service.detect_cardiotoxicity(
     risk_factors=["age_>65", "hypertension", "diabetes"]
 )
 
-<a id="7-recomendaciones-clínicas-automáticas"></a>
 # 7. Recomendaciones clínicas automáticas
 clinical_recommendations = cardiotox_service.generate_recommendations(
     detection_results=cardiotox_detection,
@@ -727,17 +659,14 @@ clinical_recommendations = cardiotox_service.generate_recommendations(
     chemo_protocol=chemo_protocol
 )
 
-<a id="8-dashboard-de-visualización"></a>
 # 8. Dashboard de visualización
 df_longitudinal = pd.DataFrame(longitudinal_results)
 
-<a id="plot-evolution"></a>
 # Plot evolution
 import matplotlib.pyplot as plt
 
 fig, axes = plt.subplots(2, 2, figsize=(15, 10))
 
-<a id="ef-evolution"></a>
 # EF evolution
 axes[0,0].plot(df_longitudinal['timepoint'], df_longitudinal['ef_simpson'], 'bo-')
 axes[0,0].axhline(y=50, color='r', linestyle='--', label='Lower limit normal')
@@ -745,7 +674,6 @@ axes[0,0].set_title('Ejection Fraction Evolution')
 axes[0,0].set_ylabel('EF (%)')
 axes[0,0].tick_params(axis='x', rotation=45)
 
-<a id="gls-evolution"></a>
 # GLS evolution
 axes[0,1].plot(df_longitudinal['timepoint'], df_longitudinal['gls'], 'go-')
 axes[0,1].axhline(y=-16, color='r', linestyle='--', label='Abnormal threshold')
@@ -753,7 +681,6 @@ axes[0,1].set_title('Global Longitudinal Strain Evolution')
 axes[0,1].set_ylabel('GLS (%)')
 axes[0,1].tick_params(axis='x', rotation=45)
 
-<a id="relative-changes-from-baseline"></a>
 # Relative changes from baseline
 ef_change = ((df_longitudinal['ef_simpson'] - baseline['ef_simpson']) / baseline['ef_simpson']) * 100
 gls_change = ((df_longitudinal['gls'] - baseline['gls']) / abs(baseline['gls'])) * 100
@@ -773,7 +700,6 @@ axes[1,1].tick_params(axis='x', rotation=45)
 plt.tight_layout()
 plt.show()
 
-<a id="9-reporte-de-cardiotoxicidad"></a>
 # 9. Reporte de cardiotoxicidad
 print("=== REPORTE DE CARDIOTOXICIDAD ===")
 print(f"Paciente: {echo_study.patient_id}")

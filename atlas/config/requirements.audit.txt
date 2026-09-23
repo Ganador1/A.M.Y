@@ -1,0 +1,13 @@
+# Minimal subset for security auditing to avoid heavy native builds
+fastapi==0.116.1
+starlette==0.47.2
+uvicorn==0.24.0
+python-multipart==0.0.18
+httpx==0.25.2
+# Patched per pip-audit GHSA advisories
+jinja2>=3.1.6,<4
+redis==6.4.0
+sqlalchemy==2.0.23
+alembic==1.12.1
+requests==2.32.5
+cryptography==45.0.7

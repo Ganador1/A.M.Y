@@ -6,6 +6,7 @@ import re
 
 SECRET = re.compile(r'(?<![A-Za-z0-9])(?:sk-[A-Za-z0-9_-]{24,}|gh[pousr]_[A-Za-z0-9]{24,}|github_pat_[A-Za-z0-9_]{24,}|AIza[A-Za-z0-9_-]{30,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,})')
 HOME_PATH = re.compile(r'[/](?:Users|home)[/][^/\s<>"\'`]+')
+PUBLIC_SERVICE_HOMES = {'/home/amy', '/home/axiom', '/home/runner', '/home/vscode', '/home/app', '/home/ubuntu', '/home/user'}
 VOLUME_PATH = re.compile(r'[/]Volumes[/][^/\n"\'`<>]+')
 EMAIL = re.compile(r'[A-Za-z0-9_.+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}')
 
@@ -22,7 +23,14 @@ def sanitize(text, identifiers):
         text, n = re.subn(re.escape(value), 'Ganador1', text, flags=re.I)
         if n:
             changes['private_identifier'] = changes.get('private_identifier', 0) + n
-    text, n = HOME_PATH.subn('/home/amy', text)
+    n = 0
+    def replace_home(match):
+        nonlocal n
+        if match.group() in PUBLIC_SERVICE_HOMES:
+            return match.group()
+        n += 1
+        return '/home/amy'
+    text = HOME_PATH.sub(replace_home, text)
     if n: changes['personal_home_path'] = n
     text, n = VOLUME_PATH.subn('/workspace', text)
     if n: changes['local_volume_path'] = n

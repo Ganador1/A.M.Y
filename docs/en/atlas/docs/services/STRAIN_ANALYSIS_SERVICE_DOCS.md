@@ -47,11 +47,9 @@ The **Myocardial Strain Analysis Service** is an advanced component of AXIOM MET
 ```python
 from app.strain_analysis import StrainAnalysisService
 
-<a id="inicialización"></a>
 # Inicialización
 service = StrainAnalysisService()
 
-<a id="análisis-completo"></a>
 # Análisis completo
 result = service.analyze_myocardial_strain(
     displacement_field=displacement_data,      # np.ndarray 4D (x,y,z,t)
@@ -225,7 +223,6 @@ def _detect_pathologies(self, regional_analyses, global_analysis) -> Dict:
 <a id="1-detección-precoz-de-disfunción"></a>
 ### 1. Early Detection of Dysfunction
 ```python
-<a id="paciente-con-gls-borderline"></a>
 # Paciente con GLS borderline
 if result.global_analysis.global_longitudinal_strain > -18.0:
     recommendation = "Considerar ecocardiografía de seguimiento en 6 meses"
@@ -234,7 +231,6 @@ if result.global_analysis.global_longitudinal_strain > -18.0:
 <a id="2-evaluación-de-resincronización"></a>
 ### 2. Resynchronization Assessment
 ```python
-<a id="análisis-de-disincronía"></a>
 # Análisis de disincronía
 if result.global_analysis.dyssynchrony_global > 50:
     recommendation = "Evaluar candidato para TRC"
@@ -243,7 +239,6 @@ if result.global_analysis.dyssynchrony_global > 50:
 <a id="3-monitoreo-de-quimioterapia-cardiotóxica"></a>
 ### 3. Monitoring of Cardiotoxic Chemotherapy
 ```python
-<a id="detección-de-cambios-sutiles"></a>
 # Detección de cambios sutiles
 baseline_gls = -20.0
 current_gls = result.global_analysis.global_longitudinal_strain
@@ -257,7 +252,6 @@ if abs(current_gls - baseline_gls) > 3.0:
 <a id="con-advanced-clinical-validation"></a>
 ### With Advanced Clinical Validation
 ```python
-<a id="combinar-con-análisis-de-función-ventricular"></a>
 # Combinar con análisis de función ventricular
 clinical_validation.validate_cardiac_function(
     strain_result=result,
@@ -268,7 +262,6 @@ clinical_validation.validate_cardiac_function(
 <a id="con-multiscale-models"></a>
 ### With Multiscale Models
 ```python
-<a id="integrar-con-modelado-multi-escala"></a>
 # Integrar con modelado multi-escala
 multiscale_result = multiscale_service.solve_multiscale_problem(
     cardiac_geometry=geometry,

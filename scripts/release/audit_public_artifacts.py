@@ -3,7 +3,7 @@ from pathlib import Path
 import argparse,hashlib,json,re,sys,tarfile,zipfile
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
 from scripts.release.privacy import findings,load_identifiers
-from scripts.release.check_release import unsafe_member
+from scripts.release.check_release import unsafe_member, nonpublic_member
 
 
 def audit(directory,identifiers,credentials=()):
@@ -16,6 +16,7 @@ def audit(directory,identifiers,credentials=()):
             count+=1
             issues=findings(name,identifiers)
             if unsafe_member(name):issues.append('unsafe_member')
+            if nonpublic_member(name):issues.append('nonpublic_member')
             try:text=data.decode('utf-8')
             except UnicodeError:issues.append('unexpected_binary');text=''
             issues+=findings(text,identifiers)

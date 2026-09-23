@@ -1,0 +1,16 @@
+# Grafana datasource configuration for ATLAS Security Database
+# This file configures the SQLite datasource for audit events and metrics
+
+apiVersion: 1
+
+datasources:
+  - name: ATLAS Security DB
+    type: frser-sqlite-datasource
+    access: proxy
+    isDefault: true
+    editable: true
+    version: 1
+    jsonData:
+      path: /app/migrations.db
+    secureJsonData: {}
+    uid: atlas_security_db

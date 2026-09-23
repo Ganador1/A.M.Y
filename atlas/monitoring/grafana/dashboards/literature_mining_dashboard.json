@@ -1,0 +1,230 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Literature Mining Service Dashboard",
+    "tags": ["literature", "mining", "monitoring", "prometheus"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "API Calls per Minute",
+        "type": "graph",
+        "gridPos": {
+          "x": 0,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        },
+        "targets": [
+          {
+            "expr": "rate(literature_mining_api_calls_total[1m])",
+            "legendFormat": "{{api_name}} - {{status}}",
+            "refId": "A"
+          }
+        ],
+        "datasource": "Prometheus"
+      },
+      {
+        "id": 2,
+        "title": "Search Duration (seconds)",
+        "type": "graph",
+        "gridPos": {
+          "x": 12,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        },
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(literature_mining_search_duration_seconds_bucket[5m]))",
+            "legendFormat": "95th percentile - {{domain}}",
+            "refId": "A"
+          },
+          {
+            "expr": "histogram_quantile(0.50, rate(literature_mining_search_duration_seconds_bucket[5m]))",
+            "legendFormat": "50th percentile - {{domain}}",
+            "refId": "B"
+          }
+        ],
+        "datasource": "Prometheus"
+      },
+      {
+        "id": 3,
+        "title": "Papers Processed",
+        "type": "stat",
+        "gridPos": {
+          "x": 0,
+          "y": 8,
+          "w": 6,
+          "h": 4
+        },
+        "targets": [
+          {
+            "expr": "sum(rate(literature_mining_papers_processed_total[5m]))",
+            "format": "time_series",
+            "refId": "A"
+          }
+        ],
+        "datasource": "Prometheus",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "value": null,
+                  "color": "green"
+                },
+                {
+                  "value": 80,
+                  "color": "red"
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      },
+      {
+        "id": 4,
+        "title": "Entities Extracted",
+        "type": "piechart",
+        "gridPos": {
+          "x": 6,
+          "y": 8,
+          "w": 6,
+          "h": 8
+        },
+        "targets": [
+          {
+            "expr": "sum by(entity_type) (literature_mining_entities_extracted_total)",
+            "legendFormat": "{{entity_type}}",
+            "refId": "A"
+          }
+        ],
+        "datasource": "Prometheus"
+      },
+      {
+        "id": 5,
+        "title": "Impact Metrics",
+        "type": "gauge",
+        "gridPos": {
+          "x": 12,
+          "y": 8,
+          "w": 6,
+          "h": 8
+        },
+        "targets": [
+          {
+            "expr": "literature_mining_avg_citations",
+            "legendFormat": "Avg Citations",
+            "refId": "A"
+          },
+          {
+            "expr": "literature_mining_h_index_estimate",
+            "legendFormat": "H-Index Estimate",
+            "refId": "B"
+          },
+          {
+            "expr": "literature_mining_impact_score",
+            "legendFormat": "Impact Score",
+            "refId": "C"
+          }
+        ],
+        "datasource": "Prometheus"
+      },
+      {
+        "id": 6,
+        "title": "Cache Performance",
+        "type": "graph",
+        "gridPos": {
+          "x": 0,
+          "y": 16,
+          "w": 8,
+          "h": 6
+        },
+        "targets": [
+          {
+            "expr": "rate(literature_mining_cache_hits_total[5m]) / (rate(literature_mining_cache_hits_total[5m]) + rate(literature_mining_cache_misses_total[5m])) * 100",
+            "legendFormat": "Cache Hit Rate (%)",
+            "refId": "A"
+          }
+        ],
+        "datasource": "Prometheus"
+      },
+      {
+        "id": 7,
+        "title": "Error Rate",
+        "type": "graph",
+        "gridPos": {
+          "x": 8,
+          "y": 16,
+          "w": 8,
+          "h": 6
+        },
+        "targets": [
+          {
+            "expr": "rate(literature_mining_errors_total[5m]) / rate(literature_mining_api_calls_total[5m]) * 100",
+            "legendFormat": "Error Rate (%)",
+            "refId": "A"
+          }
+        ],
+        "datasource": "Prometheus"
+      },
+      {
+        "id": 8,
+        "title": "Rate Limited Requests",
+        "type": "stat",
+        "gridPos": {
+          "x": 16,
+          "y": 16,
+          "w": 8,
+          "h": 6
+        },
+        "targets": [
+          {
+            "expr": "sum(rate(literature_mining_rate_limited_requests_total[5m]))",
+            "format": "time_series",
+            "refId": "A"
+          }
+        ],
+        "datasource": "Prometheus"
+      }
+    ],
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "templating": {
+      "list": [
+        {
+          "name": "domain",
+          "type": "query",
+          "query": "label_values(literature_mining_searches_total, domain)",
+          "refresh": 1,
+          "includeAll": true,
+          "multi": true
+        },
+        {
+          "name": "api_name",
+          "type": "query",
+          "query": "label_values(literature_mining_api_calls_total, api_name)",
+          "refresh": 1,
+          "includeAll": true,
+          "multi": true
+        }
+      ]
+    },
+    "refresh": "30s",
+    "schemaVersion": 27,
+    "version": 1,
+    "links": []
+  },
+  "folderId": 0,
+  "overwrite": false
+}

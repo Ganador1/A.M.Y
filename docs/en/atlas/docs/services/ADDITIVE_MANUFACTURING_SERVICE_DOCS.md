@@ -47,11 +47,9 @@ The **Additive Manufacturing Service** is an advanced component of AXIOM META 4 
 ```python
 from app.additive_manufacturing import AdditiveManufacturingService
 
-<a id="inicialización"></a>
 # Inicialización
 service = AdditiveManufacturingService()
 
-<a id="simular-proceso-de-manufactura-aditiva"></a>
 # Simular proceso de manufactura aditiva
 simulation_result = service.simulate_am_process(
     process_parameters=process_params,
@@ -546,7 +544,6 @@ def calibrate_models(self, experimental_dataset: List[Dict], parameter_bounds: D
 <a id="1-optimización-de-procesos-lpbf"></a>
 ### 1. LPBF Process Optimization
 ```python
-<a id="caso-optimización-de-parámetros-para-ti6al4v"></a>
 # Caso: Optimización de parámetros para Ti6Al4V
 lpbf_optimization = {
     'objectives': {
@@ -569,7 +566,6 @@ result = service.optimize_process_parameters(**lpbf_optimization)
 <a id="2-diseño-de-soporte-estructural"></a>
 ### 2. Structural Support Design
 ```python
-<a id="caso-diseño-de-componente-aeroespacial"></a>
 # Caso: Diseño de componente aeroespacial
 aerospace_design = {
     'requirements': {
@@ -592,7 +588,6 @@ result = service.generative_design(**aerospace_design)
 <a id="3-análisis-de-defectos"></a>
 ### 3. Defect Analysis
 ```python
-<a id="caso-análisis-de-porosidad-en-componente-impreso"></a>
 # Caso: Análisis de porosidad en componente impreso
 defect_analysis = {
     'component_geometry': '/path/to/component.stl',
@@ -614,7 +609,6 @@ result = service.analyze_defects(**defect_analysis)
 <a id="con-multiscale-models-service"></a>
 ### With Multiscale Models Service
 ```python
-<a id="usar-resultados-de-am-para-modelado-multi-escala"></a>
 # Usar resultados de AM para modelado multi-escala
 am_stresses = am_service.calculate_residual_stresses(
     process_params=process_parameters,
@@ -630,7 +624,6 @@ multiscale_result = multiscale_service.solve_multiscale_problem(
 <a id="con-plasma-physics-service"></a>
 ### With Plasma Physics Service
 ```python
-<a id="modelar-interacción-plasma-material-en-am"></a>
 # Modelar interacción plasma-material en AM
 plasma_material = plasma_service.simulate_plasma_material_interaction(
     laser_parameters=laser_params,

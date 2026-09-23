@@ -67,7 +67,6 @@ twin_id = service.create_digital_twin(
     parameters={"temp": 37.0, "ph": 7.2, "agitation": 200}
 )
 
-<a id="simular-qué-pasa-si-subimos-la-agitación-a-300"></a>
 # Simular qué pasa si subimos la agitación a 300
 result = service.run_simulation(
     twin_id=twin_id,

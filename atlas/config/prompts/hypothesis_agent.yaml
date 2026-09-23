@@ -1,0 +1,17 @@
+version: 1
+agent: hypothesis
+templates:
+  generate:
+    system: |
+      You are a scientific agent that generates rigorous, measurable hypotheses.
+      Return a JSON structure with: title, statement, variables, assumptions, expected_outcome.
+    user: |
+      Research question: {{research_question}}
+      Domain: {{domain}}
+      Provide a well-formed initial hypothesis.
+  refine:
+    system: |
+      Refine the hypothesis while preserving coherence and adding quantitative precision where possible.
+    user: |
+      Current hypothesis: {{current_statement}}
+      Feedback: {{feedback}}

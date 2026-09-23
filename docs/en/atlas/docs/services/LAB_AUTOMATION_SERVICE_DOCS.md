@@ -47,7 +47,6 @@ from app.domains.engineering.services.lab_automation_service import LabAutomatio
 service = LabAutomationService()
 await service.initialize()
 
-<a id="ejecutar-un-protocolo-pcr"></a>
 # Ejecutar un protocolo PCR
 result = await service.run_pcr_protocol(
     samples=[{"id": "S1", "well": "A1", "volume": 25}],

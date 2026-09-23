@@ -72,4 +72,4 @@ Be kind, be precise, be honest about what your code does and does not do.
 
 ## Release evidence and language
 
-Write maintained public documentation in English. Preserve historical evidence in its original language and bytes; add translations as separately attributed files. Do not claim novelty from a successful tool call, internal review score or hash check. See docs/publication/RESULTS_CATALOG.md.
+Write maintained public documentation in English. Preserve historical evidence in its original language and bytes; add translations as separately attributed files. Do not claim novelty from a successful tool call, internal review score or hash check. See docs/RESULTS.md.

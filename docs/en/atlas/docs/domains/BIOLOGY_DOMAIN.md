@@ -102,11 +102,9 @@ The Biology domain in AXIOM ATLAS provides advanced tools for biological computi
 ## Installation Requirements
 
 ```bash
-<a id="core-dependencies"></a>
 # Core dependencies
 pip install -r requirements-core.txt
 
-<a id="domain-specific-dependencies"></a>
 # Domain-specific dependencies
 pip install -r requirements-biology.txt
 ```
@@ -119,11 +117,9 @@ pip install -r requirements-biology.txt
 ```python
 from app.domains.biology.services.computational_biology import ComputationalBiologyService
 
-<a id="initialize-service"></a>
 # Initialize service
 service = ComputationalBiologyService()
 
-<a id="execute-method"></a>
 # Execute method
 result = await service.simulate_neural_network(params)
 
@@ -174,15 +170,12 @@ This domain is based on standard tools such as BioPython, NetworkX, and AI model
 <a id="run-domain-specific-tests"></a>
 ### Run domain-specific tests:
 ```bash
-<a id="unit-tests"></a>
 # Unit tests
 pytest tests/unit/biology/ -v
 
-<a id="integration-tests"></a>
 # Integration tests
 pytest tests/integration/biology/ -v
 
-<a id="with-coverage"></a>
 # With coverage
 pytest tests/biology/ --cov=app/domains/biology --cov-report=html
 ```

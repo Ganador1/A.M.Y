@@ -47,11 +47,9 @@ The **Plasma Physics Service** is a specialized component of AXIOM META 4 that i
 ```python
 from app.plasma_physics import PlasmaPhysicsService
 
-<a id="inicialización"></a>
 # Inicialización
 service = PlasmaPhysicsService()
 
-<a id="resolver-problema-mhd"></a>
 # Resolver problema MHD
 mhd_result = service.solve_mhd_problem(
     geometry=domain_geometry,
@@ -602,7 +600,6 @@ def _memory_optimized_solver(self, large_domain: Dict) -> MHDSolution:
 <a id="1-modelado-de-flujo-sanguíneo-en-campos-magnéticos"></a>
 ### 1. Modeling Blood Flow in Magnetic Fields
 ```python
-<a id="caso-hemodinámica-en-resonancia-magnética"></a>
 # Caso: Hemodinámica en resonancia magnética
 hemodynamics_case = {
     'geometry': {
@@ -626,7 +623,6 @@ result = service.simulate_magnetic_hemodynamics(**hemodynamics_case)
 <a id="2-optimización-de-ablación-por-radiofrecuencia"></a>
 ### 2. Radiofrequency Ablation Optimization
 ```python
-<a id="caso-ablación-de-arritmias-cardíacas"></a>
 # Caso: Ablación de arritmias cardíacas
 ablation_case = {
     'tissue': {
@@ -648,7 +644,6 @@ result = service.simulate_rf_ablation(**ablation_case)
 <a id="3-diseño-de-bobinas-para-tms"></a>
 ### 3. Coil Design for TMS
 ```python
-<a id="caso-optimización-de-bobina-para-tms"></a>
 # Caso: Optimización de bobina para TMS
 tms_case = {
     'head_model': {
@@ -699,7 +694,6 @@ result = service.simulate_tms_induction(**tms_case)
 <a id="con-multiscale-models-service"></a>
 ### With Multiscale Models Service
 ```python
-<a id="usar-resultados-de-plasma-para-condiciones-de-contorno-multi-escala"></a>
 # Usar resultados de plasma para condiciones de contorno multi-escala
 plasma_bc = plasma_service.calculate_plasma_boundary_conditions(
     magnetic_field=magnetic_params,
@@ -715,7 +709,6 @@ multiscale_result = multiscale_service.solve_multiscale_problem(
 <a id="con-strain-analysis-service"></a>
 ### With Strain Analysis Service
 ```python
-<a id="modelar-efectos-de-ablación-en-strain-miocárdico"></a>
 # Modelar efectos de ablación en strain miocárdico
 ablation_damage = plasma_service.simulate_rf_ablation_damage(
     electrode_config=electrode_params,

@@ -110,11 +110,9 @@ The Chemistry domain in AXIOM ATLAS provides advanced tools for chemical computa
 ## Installation Requirements
 
 ```bash
-<a id="core-dependencies"></a>
 # Core dependencies
 pip install -r requirements-core.txt
 
-<a id="domain-specific-dependencies"></a>
 # Domain-specific dependencies
 pip install -r requirements-chemistry.txt
 ```
@@ -127,11 +125,9 @@ pip install -r requirements-chemistry.txt
 ```python
 from app.domains.chemistry.services.computational_chemistry import ComputationalChemistryService
 
-<a id="initialize-service"></a>
 # Initialize service
 service = ComputationalChemistryService()
 
-<a id="calculate-electronic-structure"></a>
 # Calculate electronic structure
 result = await service.calculate_electronic_structure(molecule_params)
 
@@ -184,15 +180,12 @@ This domain is based on standard tools such as RDKit, OpenMM, ASE, and quantum c
 <a id="run-domain-specific-tests"></a>
 ### Run domain-specific tests:
 ```bash
-<a id="unit-tests"></a>
 # Unit tests
 pytest tests/unit/chemistry/ -v
 
-<a id="integration-tests"></a>
 # Integration tests
 pytest tests/integration/chemistry/ -v
 
-<a id="with-coverage"></a>
 # With coverage
 pytest tests/chemistry/ --cov=app/domains/chemistry --cov-report=html
 ```

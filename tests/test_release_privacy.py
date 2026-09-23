@@ -17,6 +17,12 @@ def test_credentials_redacted_but_task_identifiers_survive():
     assert findings(fake, []) == ['credential_pattern']
 
 
+def test_container_user_and_ci_paths_keep_their_runtime_meaning():
+    text = 'COPY /root/.local /home/axiom/.local\nPATH=/home/axiom/.local/bin\n/home/runner/work'
+    assert sanitize(text, [])[0] == text
+    assert sanitize('/home/amy/project', [])[0] == '/home/amy/project'
+
+
 def test_translation_rejects_lost_literals_and_truncation():
     part, values = mask('Resultado `x=42` y valor 17. Texto suficientemente largo.')
     assert values == ['`x=42`', '17']

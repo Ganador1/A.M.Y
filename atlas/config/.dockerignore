@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.venv/
+.env
+
+# Data & outputs
+mlruns/
+data/
+static/graphs/
+
+# VCS
+.git/
+.gitignore
+
+# OS/IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Caches
+*.cache/
+.cache/
+
+# Logs
+*.log
+server.log
+stdout.log
+stderr.log
+
+# Tests artifacts
+.coverage
+htmlcov/
+pytest_cache/
