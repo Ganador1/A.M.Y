@@ -8,7 +8,7 @@
     },
     {
       "path": ".github/workflows/cd.yml",
-      "sha256": "e73fce5c7437f8eacaeda1d03efca0b6682128585d4e6cf138f49e6cc821737b",
+      "sha256": "c3fe3db45d7aca1551a483956c49fd8f66cad1e0a98f0f245c4caddfca4401e5",
       "privacy_substitutions": {}
     },
     {
@@ -18,7 +18,7 @@
     },
     {
       "path": ".github/workflows/public-candidate.yml",
-      "sha256": "fa72286b61bf9b1e8df94d52dea78ed4e57d4e3693fcca1b86190831dcc2fffd",
+      "sha256": "ce49ddde7005e9d7ba734002b1a92582cd9a2f58cf817d4193c4b45e0afde1e6",
       "privacy_substitutions": {}
     },
     {
