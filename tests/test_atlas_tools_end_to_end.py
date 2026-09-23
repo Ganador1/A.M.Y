@@ -131,6 +131,51 @@ def test_ssh_edge_localization_map_reports_frontier_state_localization(registry)
     assert "localized_edge_state=true" in out
 
 
+def test_ssh_disorder_diagnostic_benchmark_contract(registry):
+    out = _run(
+        registry,
+        "ssh_disorder_diagnostic_benchmark",
+        "20,40;deltas=0.1;strengths=0,0.2;"
+        "disorders=off_diagonal,diagonal;"
+        "orientations=trivial,topological;realizations=8;"
+        "namespace=atlas-contract;protocol_sha256=" + "a" * 64,
+    )
+
+    assert "SSH disorder diagnostic benchmark" in out
+    assert "seed_derivation=sha256" in out
+    assert "paired_orientations=true" in out
+    assert "primary_estimand=error_gap_minus_error_joint" in out
+    assert "disorder_type=off_diagonal" in out
+    assert "disorder_type=diagonal" in out
+    assert "reference_label=not_defined" in out
+    assert "protocol_sha256=" in out
+    assert f"preregistration_sha256={'a' * 64}" in out
+
+
+def test_ssh_gap_certificate_exact_offline_contract(registry):
+    import json
+    from fractions import Fraction
+    from atlas.app.ssh_certificate_tool import decode_gap_certificate
+    from atlas.app.ssh_spectral_certificate import verify_gap_certificate
+
+    payload = '{"hoppings":["1","1","1"],"iterations":0,"threshold":"5/4"}'
+    output = _run(registry, "ssh_gap_certificate", payload)
+    assert output == _run(registry, "ssh_gap_certificate", payload)
+    result = json.loads(output)
+    certificate = decode_gap_certificate(result["certificate"])
+    assert verify_gap_certificate(certificate)
+    assert certificate["gap_squared_lower"] == Fraction(4, 3)
+    assert certificate["gap_squared_upper"] == 2
+    assert result["threshold"]["verdict"] == "inconclusive"
+    assert result["approximations"]["certified"] is False
+    assert "zero_onsite" in certificate["scope"]
+
+
+def test_ssh_gap_certificate_rejects_diagonal_disorder_option(registry):
+    output = _run(registry, "ssh_gap_certificate", '{"hoppings":[1,1,1],"onsite":[0,1,0,0]}')
+    assert output.startswith("Error: unknown options: onsite")
+
+
 # (name, input, list-of-substrings-that-must-all-appear, human label)
 CASES = [
     # SymPy
@@ -247,17 +292,17 @@ CASES = [
     ),
     ("quantum_circuit", "bell:2", ["Entanglement entropy: 1.0 bit"], "Bell"),
     ("quantum_circuit", "grover:4", ["Search space: 16", "Optimal iterations: 3"], "Grover"),
-    ("quantum_circuit", "qft:3", ["Total gates: 9"], "QFT"),
+    ("quantum_circuit", "qft:3", ["Total gates: 7", "Output-reversal SWAP gates: 1"], "QFT"),
     ("quantum_circuit", "vqe:H2", ["TABULATED", "-1.137"], "VQE labelled"),
     # Astronomy
     (
         "cosmology_residual_comparison",
         "0.01,0.1,0.5,1,2;threshold=5",
         [
-            "Planck18 versus low-redshift Hubble-law comparison",
+            "Illustrative Lambda-CDM versus low-redshift Hubble-law comparison",
             "sample size n=5",
             "z=0.010000",
-            "Planck18_luminosity_distance_Mpc",
+            "model_luminosity_distance_Mpc",
             "hubble_law_distance_Mpc",
             "percent_residual",
             "RMSE_Mpc",

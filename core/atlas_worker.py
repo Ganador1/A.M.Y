@@ -1,15 +1,8 @@
-"""
-Atlas Worker — Proceso persistente para ejecutar herramientas de Atlas.
+"""Persistent Atlas worker with a JSON stdin/stdout protocol.
 
-Mantiene DynamicToolRegistry en memoria para evitar el overhead
-de ~15s de inicialización en cada llamada.
-
-Se comunica con A.M.Y via stdin/stdout con JSON:
-  → {"id": 1, "action": "list_tools", "domain": null}
-  ← {"id": 1, "result": ["tool1", "tool2", ...]}
-  
-  → {"id": 2, "action": "run_tool", "tool_name": "...", "tool_input": "..."}
-  ← {"id": 2, "result": "output string"}
+Retains the scientific tool registry between requests to avoid repeated startup.
+Protocol: {"id": 1, "action": "list_tools", "domain": null}.
+Responses echo the request ID and return a result or an error.
 """
 import io
 import json
@@ -18,8 +11,7 @@ import os
 import sys
 from pathlib import Path
 
-# Redirigir stdout a un buffer durante init para que los logs de startup
-# de DynamicToolRegistry no contaminen la comunicación JSON
+# Buffer startup output so registry logs cannot corrupt the JSON protocol.
 _real_stdout = sys.stdout
 sys.stdout = io.StringIO()
 
@@ -27,7 +19,7 @@ logging.disable(logging.CRITICAL)
 os.environ["ENABLE_REDIS_CACHE"] = "false"
 os.environ["MPLBACKEND"] = "Agg"
 
-ATLAS_ROOT = Path(__file__).parent.parent / "atlas"
+ATLAS_ROOT = Path(os.environ.get("AMY_ATLAS_ROOT", str(Path(__file__).parent.parent / "atlas"))).expanduser().resolve()
 AMY_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(AMY_ROOT))
 sys.path.insert(0, str(ATLAS_ROOT))
@@ -38,10 +30,10 @@ import asyncio
 
 
 class AtlasWorker:
-    """Worker persistente que mantiene DynamicToolRegistry en memoria."""
+    """Persistent worker retaining the tool registry in memory."""
 
     def __init__(self):
-        # Inicializar con stdout redirigido para evitar contaminación
+        # Initialize while stdout is redirected to protect the protocol.
         self.registry = DynamicToolRegistry()
         # Register extended scientific tools (AstroPy / PySCF / ASE / PyMatGen)
         try:
@@ -52,7 +44,7 @@ class AtlasWorker:
             pass
         self.loop = asyncio.new_event_loop()
         asyncio.set_event_loop(self.loop)
-        # Restaurar stdout real para la comunicación
+        # Restore stdout for protocol responses.
         sys.stdout = _real_stdout
 
     def list_tools(self, domain: str | None = None) -> list[str]:
@@ -114,9 +106,15 @@ class AtlasWorker:
                 result = self.describe_tools(request.get("domain"))
                 return {"id": req_id, "result": result}
             elif action == "run_tool":
+                # Validate and preserve the exact tool name before execution.
+                from core.security_hardening_v2 import require_valid_tool_name
+                tool_name = require_valid_tool_name(request["tool_name"])
+                tool_input = request["tool_input"]
+                if not isinstance(tool_input, str):
+                    raise ValueError("invalid tool_input")
                 result = self.run_tool(
-                    request["tool_name"],
-                    request["tool_input"],
+                    tool_name,
+                    tool_input,
                 )
                 return {"id": req_id, "result": result}
             elif action == "ping":

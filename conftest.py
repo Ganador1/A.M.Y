@@ -109,6 +109,8 @@ _ATLAS_FILES = {
 
 # Files that reach out over the network (literature search, citation verify).
 _NETWORK_FILES = {
+    "test_enhanced_e2e.py",  # real paper enhancement / literature services
+    "test_full_enhancement.py",  # real enhancement integrations
     "test_cognitive_cycle.py",  # runs real _perceive/_think (web + LLM); flakes on rate limits
     "test_connection.py",
     "test_end_to_end_pipeline.py",

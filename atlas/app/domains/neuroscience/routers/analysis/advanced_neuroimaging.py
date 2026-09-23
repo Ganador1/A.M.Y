@@ -15,8 +15,8 @@ from typing import Dict, List, Optional, Any
 import numpy as np
 import logging
 
-from app.domains.neuroscience.services.neuroimaging.advanced_neuroimaging_analysis import (
 from app.exceptions.domain.neuroscience import NeuroscienceError
+from app.domains.neuroscience.services.neuroimaging.advanced_neuroimaging_analysis import (
     AdvancedNeuroimagingAnalysis,
     NeuroimagingData,
     ImagingModality,

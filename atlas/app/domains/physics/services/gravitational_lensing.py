@@ -345,6 +345,16 @@ class GravitationalLensingService(BaseService):
         try:
             logger.info("🔍 Analizando evento de microlensing")
             
+            # This finite point-source calculation excludes perfect alignment
+            # (divergent magnification), nonpositive mass, distance and speed.
+            for name, value in (("lens_mass_solar", lens_mass_solar),
+                                ("source_distance_kpc", source_distance_kpc),
+                                ("lens_distance_kpc", lens_distance_kpc),
+                                ("impact_parameter_au", impact_parameter_au),
+                                ("relative_velocity_km_s", relative_velocity_km_s)):
+                if isinstance(value, (bool, np.bool_)) or not isinstance(value, (int, float, np.integer, np.floating)) or not np.isfinite(value) or value <= 0:
+                    raise ValueError(f"{name} must be finite and positive")
+
             # Calcular Einstein radius para microlensing
             einstein_radius_au = self._calculate_microlensing_einstein_radius(
                 lens_mass_solar, source_distance_kpc, lens_distance_kpc
@@ -361,6 +371,13 @@ class GravitationalLensingService(BaseService):
                 einstein_radius_au, relative_velocity_km_s
             )
             
+            # Einstein radius crossing time t_E = R_E / v_transverse.
+            # Keep the existing event_duration_days = 2*t_E convention, used
+            # by the light-curve generator. Convert AU -> km -> seconds -> days.
+            einstein_crossing_time_days = (
+                einstein_radius_au * 1.496e8 / relative_velocity_km_s / 86400.0
+            )
+
             # Curva de luz del evento
             light_curve = self._generate_microlensing_light_curve(
                 u_min, event_duration, relative_velocity_km_s, einstein_radius_au
@@ -372,7 +389,7 @@ class GravitationalLensingService(BaseService):
                     "impact_parameter_normalized": u_min,
                     "maximum_magnification": max_magnification,
                     "event_duration_days": event_duration,
-                    "einstein_crossing_time_days": event_duration / (2 * np.sqrt(1 + u_min**2))
+                    "einstein_crossing_time_days": einstein_crossing_time_days
                 },
                 "event_classification": {
                     "event_type": "Point source" if u_min > 0.1 else "High magnification",
@@ -392,7 +409,7 @@ class GravitationalLensingService(BaseService):
                 }
             }
             
-        except QuantumError as e:
+        except Exception as e:
             logger.error(f"❌ Error en análisis de microlensing: {str(e)}")
             raise
     

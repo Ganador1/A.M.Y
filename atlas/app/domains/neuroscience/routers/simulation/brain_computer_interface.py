@@ -18,8 +18,8 @@ from typing import Dict, List, Any
 from datetime import datetime
 import logging
 
-from app.domains.neuroscience.services.neuromorphic.brain_computer_interface import (
 from app.exceptions.domain.neuroscience import NeuroscienceError
+from app.domains.neuroscience.services.neuromorphic.brain_computer_interface import (
     bci_service,
     BCIModalityType,
     DecodingAlgorithm,

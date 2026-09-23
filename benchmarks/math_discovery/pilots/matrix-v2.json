@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "matrix_id": "amy-math-calibration-v2",
+  "cases": [
+    {
+      "benchmark_id": "power-congruence-mod60-false-v1",
+      "campaign_id": "math-pilot-mod60-false-002",
+      "class": "false_modular_universal",
+      "expected_file": "benchmarks/math_discovery/pilots/power-congruence-mod60.expected.json",
+      "expected_claim_status": "refuted"
+    },
+    {
+      "benchmark_id": "power-congruence-mod30-true-v1",
+      "campaign_id": "math-pilot-mod30-true-001",
+      "class": "true_formal_universal",
+      "expected_file": "benchmarks/math_discovery/pilots/power-congruence-mod30.expected.json",
+      "expected_claim_status": "formally_verified"
+    },
+    {
+      "benchmark_id": "undefined-sequence-inconclusive-v1",
+      "campaign_id": "math-pilot-undefined-sequence-001",
+      "class": "underspecified_statement",
+      "expected_file": "benchmarks/math_discovery/pilots/undefined-sequence.expected.json",
+      "expected_claim_status": "proposed"
+    },
+    {
+      "benchmark_id": "real-domain-square-false-v1",
+      "campaign_id": "math-pilot-real-square-false-001",
+      "class": "domain_counterexample",
+      "expected_file": "benchmarks/math_discovery/pilots/real-domain-square.expected.json",
+      "expected_claim_status": "refuted"
+    },
+    {
+      "benchmark_id": "z3-timeout-unknown-v1",
+      "campaign_id": "math-pilot-z3-timeout-002",
+      "class": "tool_unknown_fail_closed",
+      "expected_file": "benchmarks/math_discovery/pilots/pigeonhole-timeout.expected.json",
+      "expected_claim_status": "proposed"
+    }
+  ]
+}

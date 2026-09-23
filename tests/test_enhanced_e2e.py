@@ -51,4 +51,5 @@ async def test_enhanced_paper():
     print("...")
     print(f"\n[Total: {len(content)} chars, {len(content.split())} words]")
 
-asyncio.run(test_enhanced_paper())
+if __name__ == "__main__":
+    asyncio.run(test_enhanced_paper())

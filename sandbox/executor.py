@@ -85,6 +85,16 @@ class SandboxExecutor:
             return False
 
     async def execute(self, code: str, language: str = "python") -> dict:
+        from core.execution_evidence import evidence_span
+
+        with evidence_span("sandbox.execute", {"code": code, "language": language,
+                                              "max_time": self.max_time, "max_memory_mb": self.max_memory,
+                                              "use_docker": self.use_docker}, actor="amy.sandbox") as span:
+            result = await self._execute_impl(code, language)
+            span.result(result)
+            return result
+
+    async def _execute_impl(self, code: str, language: str = "python") -> dict:
         """Execute code in a sandboxed environment. language: 'python' or 'bash'.
 
         The isolation tier (Docker vs hardened subprocess) and the
@@ -263,6 +273,8 @@ class SandboxExecutor:
         script_path.chmod(0o700)
 
         proc = None
+        communication_task = None
+        stdout = stderr = None
         # rlimit preexec (CPU/address-space cap) is POSIX-only; mirror the
         # Python tier so a runaway bash loop is bounded, not just wall-clocked.
         preexec = self._rlimit_preexec if os.name == "posix" else None
@@ -275,10 +287,13 @@ class SandboxExecutor:
                 env=self._sandbox_env(),
                 preexec_fn=preexec,
             )
+            communication_task = asyncio.create_task(proc.communicate())
             stdout, stderr = await asyncio.wait_for(
-                proc.communicate(), timeout=self.max_time
+                asyncio.shield(communication_task), timeout=self.max_time
             )
+            retained = self._retain_output(stdout, stderr, run_dir)
             return {
+                **retained,
                 "success": proc.returncode == 0,
                 "stdout": stdout.decode("utf-8", errors="ignore")[:5000],
                 "stderr": stderr.decode("utf-8", errors="ignore")[:2000],
@@ -292,10 +307,15 @@ class SandboxExecutor:
                 "stderr": f"Bash script timed out after {self.max_time}s",
                 "return_code": -1,
             }
+        except asyncio.CancelledError:
+            await self._terminate(proc)
+            raise
         except Exception as e:
             await self._terminate(proc)
             return {"success": False, "stdout": "", "stderr": str(e), "return_code": -1}
         finally:
+            if stdout is None:
+                await self._retain_interrupted_output(communication_task, run_dir)
             shutil.rmtree(run_dir, ignore_errors=True)
 
     def _rlimit_preexec(self):
@@ -338,6 +358,8 @@ class SandboxExecutor:
         script_path.write_text(code, encoding="utf-8")
 
         proc = None
+        communication_task = None
+        stdout = stderr = None
         # rlimit preexec is POSIX-only; skip on platforms without fork.
         preexec = self._rlimit_preexec if os.name == "posix" else None
         try:
@@ -349,12 +371,15 @@ class SandboxExecutor:
                 cwd=str(run_dir),
                 preexec_fn=preexec,
             )
+            communication_task = asyncio.create_task(proc.communicate())
             stdout, stderr = await asyncio.wait_for(
-                proc.communicate(),
+                asyncio.shield(communication_task),
                 timeout=self.max_time,
             )
 
+            retained = self._retain_output(stdout, stderr, run_dir)
             return {
+                **retained,
                 "success": proc.returncode == 0,
                 "stdout": stdout.decode("utf-8", errors="ignore")[:5000],
                 "stderr": stderr.decode("utf-8", errors="ignore")[:2000],
@@ -368,6 +393,9 @@ class SandboxExecutor:
                 "stderr": f"Execution timed out after {self.max_time}s",
                 "return_code": -1,
             }
+        except asyncio.CancelledError:
+            await self._terminate(proc)
+            raise
         except Exception as e:
             await self._terminate(proc)
             return {
@@ -377,6 +405,8 @@ class SandboxExecutor:
                 "return_code": -1,
             }
         finally:
+            if stdout is None:
+                await self._retain_interrupted_output(communication_task, run_dir)
             shutil.rmtree(run_dir, ignore_errors=True)
 
     @staticmethod
@@ -414,18 +444,39 @@ class SandboxExecutor:
         else:
             script_path.write_text("#!/bin/bash\ncd /work\nset -e\n" + code, encoding="utf-8")
 
-        interpreter = "python" if language == "python" else "bash"
         image = "amy-sandbox:latest"
+        container_name = f"amy-sandbox-{uuid.uuid4().hex}"
+        image_id = "unknown"
+        try:
+            inspected = subprocess.run(
+                ["docker", "image", "inspect", image, "--format={{.Id}}"],
+                capture_output=True,
+                check=False,
+                text=True,
+                timeout=3,
+            )
+            image_id = inspected.stdout.strip() or "unknown"
+        except (OSError, subprocess.SubprocessError):
+            pass
 
         if language == "python":
             cmd = ["python", "/work/script.py"]
         else:
             cmd = ["bash", "/work/script.sh"]
 
+        proc = None
+        communication_task = None
+        stdout = stderr = None
         try:
             proc = await asyncio.create_subprocess_exec(
-                "docker", "run", "--rm",
+                "docker", "run", "--rm", "--name", container_name,
                 f"--memory={self.max_memory}m",
+                "--cpus=1",
+                "--pids-limit=128",
+                "--cap-drop=ALL",
+                "--security-opt=no-new-privileges",
+                "--read-only",
+                "--tmpfs=/tmp:rw,noexec,nosuid,size=64m",
                 "--network=none",
                 "--env", "PYTHONNOUSERSITE=1",
                 "--env", "MPLBACKEND=Agg",
@@ -436,8 +487,9 @@ class SandboxExecutor:
                 stdout=asyncio.subprocess.PIPE,
                 stderr=asyncio.subprocess.PIPE,
             )
+            communication_task = asyncio.create_task(proc.communicate())
             stdout, stderr = await asyncio.wait_for(
-                proc.communicate(),
+                asyncio.shield(communication_task),
                 timeout=self.max_time,
             )
 
@@ -451,21 +503,105 @@ class SandboxExecutor:
                 except Exception:
                     pass
 
+            retained = self._retain_output(stdout, stderr, work_dir)
             return {
+                **retained,
                 "success": proc.returncode == 0,
                 "stdout": stdout.decode("utf-8", errors="ignore")[:5000],
                 "stderr": stderr.decode("utf-8", errors="ignore")[:2000],
                 "return_code": proc.returncode,
+                "image": image,
+                "image_id": image_id,
                 "work_dir": str(work_dir),
                 "result_files": result_files,
             }
         except asyncio.TimeoutError:
-            return {"success": False, "stdout": "", "stderr": "Docker timeout", "return_code": -1, "work_dir": str(work_dir)}
+            await self._terminate_docker(container_name, proc)
+            return {
+                "success": False,
+                "stdout": "",
+                "stderr": "Docker timeout",
+                "return_code": -1,
+                "image": image,
+                "image_id": image_id,
+                "work_dir": str(work_dir),
+            }
+        except asyncio.CancelledError:
+            await self._terminate_docker(container_name, proc)
+            raise
         except Exception as e:
+            if proc is not None:
+                await self._terminate_docker(container_name, proc)
             return {"success": False, "stdout": "", "stderr": str(e), "return_code": -1, "work_dir": str(work_dir)}
         finally:
+            if stdout is None:
+                await self._retain_interrupted_output(communication_task, work_dir)
             # Clean up the work directory after a short grace period
             try:
                 shutil.rmtree(work_dir, ignore_errors=True)
             except Exception:
                 pass
+
+    def _retain_output(self, stdout: bytes, stderr: bytes, directory: Path) -> dict:
+        """Retain exact bytes before display truncation or workdir deletion."""
+        from core.execution_evidence import current_evidence, record_bytes, record_event
+
+        run = current_evidence()
+        if run is None:
+            return {}
+        files = {}
+        omitted = []
+        total = 0
+        for path in sorted(directory.rglob("*")):
+            relative = str(path.relative_to(directory))
+            if path.is_symlink():
+                omitted.append({"path": relative, "reason": "symlink"})
+                continue
+            if not path.is_file():
+                continue
+            size = path.stat().st_size
+            if size + total > 64 * 1024 * 1024:
+                omitted.append({"path": relative, "reason": "64 MiB file capture budget"})
+                continue
+            content = path.read_bytes()
+            total += len(content)
+            files[relative] = record_bytes(relative, content)
+        retained = {"stdout": record_bytes("stdout.bin", stdout),
+                    "stderr": record_bytes("stderr.bin", stderr), "files": files,
+                    "omitted_files": omitted,
+                    "display_limits": {"stdout_characters": 5000, "stderr_characters": 2000}}
+        record_event("sandbox.output", retained, actor="amy.sandbox")
+        if omitted:
+            run.mark_incomplete("sandbox result files omitted; see sandbox.output")
+        return {"execution_evidence": retained}
+
+    async def _retain_interrupted_output(self, task, directory):
+        from core.execution_evidence import current_evidence
+
+        if task is None:
+            return
+        try:
+            stdout, stderr = await asyncio.wait_for(asyncio.shield(task), timeout=5)
+            self._retain_output(stdout, stderr, directory)
+        except (Exception, asyncio.CancelledError):
+            task.cancel()
+            run = current_evidence()
+            if run is not None:
+                run.mark_incomplete("sandbox pipes could not be fully retained after interruption")
+
+    async def _terminate_docker(self, container_name: str, proc) -> None:
+        """Stop this experiment's container as well as its Docker CLI process."""
+        # Killing only the CLI can leave the container consuming CPU/RAM. Target
+        # its unique name on timeout, cancellation, and transport failures alike.
+        cleanup = None
+        try:
+            cleanup = await asyncio.create_subprocess_exec(
+                "docker", "kill", container_name,
+                stdout=asyncio.subprocess.DEVNULL,
+                stderr=asyncio.subprocess.DEVNULL,
+            )
+            await asyncio.wait_for(cleanup.wait(), timeout=5)
+        except (OSError, asyncio.TimeoutError):
+            await self._terminate(cleanup)
+        finally:
+            await self._terminate(proc)

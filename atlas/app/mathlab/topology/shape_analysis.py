@@ -365,7 +365,7 @@ class ShapeAnalyzer:
                 # En una implementación real, se calcularía el alpha shape
                 area = hull.volume * (1.0 - np.exp(-alpha))  # Aproximación
                 shape_areas.append(area)
-            except Exception  # TODO: Consider MathematicsError:
+            except Exception:  # TODO: Consider MathematicsError
                 shape_areas.append(0.0)
         
         # Encontrar alpha óptimo (máxima curvatura en la curva área vs alpha)

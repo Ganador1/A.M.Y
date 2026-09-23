@@ -1,0 +1,58 @@
+[
+  {
+    "task_id": "truth-square-mod-four",
+    "category": "verification",
+    "prompt": "Determine whether this statement is true for every integer n: n^2 modulo 4 is either 0 or 1.",
+    "validator": "exact_verdict",
+    "expected": {"verdict": "true"}
+  },
+  {
+    "task_id": "false-euler-polynomial",
+    "category": "falsification",
+    "prompt": "Determine whether n^2+n+41 is prime for every nonnegative integer n. If false, provide one nonnegative integer counterexample.",
+    "validator": "euler_41_counterexample",
+    "expected": {"verdict": "false"}
+  },
+  {
+    "task_id": "truth-odd-sum",
+    "category": "proof",
+    "prompt": "Determine whether the sum of the first n positive odd integers equals n^2 for every positive integer n.",
+    "validator": "exact_verdict",
+    "expected": {"verdict": "true"}
+  },
+  {
+    "task_id": "false-divisibility-converse",
+    "category": "falsification",
+    "prompt": "Determine whether this statement is true for all integers a,b,c: if a divides bc then a divides b or a divides c. If false, provide a triple [a,b,c].",
+    "validator": "divisibility_counterexample",
+    "expected": {"verdict": "false"}
+  },
+  {
+    "task_id": "calculate-gcd",
+    "category": "calculation",
+    "prompt": "Compute gcd(123456, 7890).",
+    "validator": "exact_integer",
+    "expected": {"answer": 6}
+  },
+  {
+    "task_id": "calculate-modular-power",
+    "category": "calculation",
+    "prompt": "Compute the least nonnegative residue of 7^222 modulo 1000.",
+    "validator": "exact_integer",
+    "expected": {"answer": 49}
+  },
+  {
+    "task_id": "audit-invalid-square-proof",
+    "category": "proof_audit",
+    "prompt": "Audit this argument: 'For every real x, x^2 >= x. Proof: x^2-x=x(x-1), and both x and x-1 have the same sign, so their product is nonnegative.' Is the argument valid?",
+    "validator": "exact_verdict",
+    "expected": {"verdict": "invalid"}
+  },
+  {
+    "task_id": "truth-prime-above-one",
+    "category": "proof",
+    "prompt": "Determine whether for every integer n>1 there exists a prime p dividing n.",
+    "validator": "exact_verdict",
+    "expected": {"verdict": "true"}
+  }
+]

@@ -1,3 +1,4 @@
+# Legacy example: model identifiers, availability and budgets require operator review.
 # Enhanced Agent Configuration for AXIOM Atlas
 # Integrates cloud APIs and specialized scientific models
 #
@@ -13,7 +14,7 @@ roles:
   # -------------------------------------------------------------------------
   orchestrator:
     description: "Strategic planning and scientific goal decomposition"
-    # Option 1: Groq Cloud (RECOMMENDED - ultra-fast, free tier)
+    # Option 1: Groq Cloud (example provider)
     model: llama-3.1-70b-versatile
     provider: groq
     params:
@@ -46,7 +47,7 @@ roles:
   # -------------------------------------------------------------------------
   bio_hypothesis:
     description: "Biological hypothesis generation with PubMed knowledge"
-    # Option 1: BioGPT (RECOMMENDED - specialized, 15M PubMed abstracts)
+    # Option 1: BioGPT (specialized example model)
     model: biogpt
     provider: huggingface
     params:
@@ -279,9 +280,9 @@ performance:
 # COST MANAGEMENT
 # ============================================================================
 cost_management:
-  # Free tier limits (conservative estimates)
+  # Historical example budgets; not current provider limits
   groq_daily_limit: 1000  # requests
-  together_monthly_budget: 25  # dollars (free credits)
+  together_monthly_budget: 25  # dollars (example budget)
   huggingface_rate_limit: 100  # requests per hour
 
   # Alert thresholds
@@ -307,8 +308,8 @@ experimental:
 #
 # Migration Guide:
 # 1. Get API keys:
-#    - Groq: https://console.groq.com (FREE)
-#    - Together AI: https://api.together.xyz (FREE credits)
+#    - Groq: https://console.groq.com (check current terms)
+#    - Together AI: https://api.together.xyz (check current terms)
 #    - HuggingFace: https://huggingface.co/settings/tokens (optional)
 #
 # 2. Add to .env:
@@ -322,9 +323,4 @@ experimental:
 #
 # 5. Monitor performance and adjust routing strategy
 #
-# Expected improvements:
-# - 8-10x larger models (70B vs 8B)
-# - Specialized scientific knowledge (papers)
-# - Ultra-low latency (Groq: <100ms)
-# - Zero cost (free tiers)
-# - Automatic fallback to local models
+# Optional routing and fallback mechanisms depend on reachable configured providers.

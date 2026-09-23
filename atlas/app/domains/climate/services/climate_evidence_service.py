@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 from pathlib import Path
 from statistics import mean
 from typing import Any, Dict, List, Optional
@@ -54,13 +55,26 @@ class ClimateEvidenceService(BaseService):
         if action != "climate_evidence":
             return {"success": False, "error": f"Acción no soportada: {action}"}
 
-        entries = self._entries()
-        anomalies = [
-            float(entry["J-D"])
-            for entry in entries
-            if isinstance(entry.get("J-D"), (int, float))
-        ]
+        entries = sorted(self._entries(), key=lambda entry: entry["Year"])
+        years = [entry["Year"] for entry in entries]
+        if len(set(years)) != len(years):
+            return {"success": False, "error": "Duplicate Year values are not valid annual observations"}
+        usable = [entry for entry in entries
+                  if isinstance(entry.get("J-D"), (int, float))
+                  and math.isfinite(float(entry["J-D"]))]
+        anomalies = [float(entry["J-D"]) for entry in usable]
+        if not anomalies:
+            return {"success": False, "error": "No finite annual temperature anomalies available"}
         result = self._compute_support(anomalies)
+        recent_years = {entry["Year"] for entry in usable[-30:]}
+        baseline_years = {entry["Year"] for entry in usable[:30]}
+        overlap = sorted(recent_years & baseline_years)
+        result.context.update({
+            "overlap_years": len(overlap),
+            "overlap_year_values": overlap,
+            "comparison_windows_disjoint": not overlap,
+            "coverage_scope": "Fraction of 30 finite annual observations in the recent window; not coverage of two independent periods",
+        })
 
         return {
             "success": True,

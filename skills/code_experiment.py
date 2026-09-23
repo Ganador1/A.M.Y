@@ -8,6 +8,7 @@ import hashlib
 import json
 import re
 import time
+import uuid
 from pathlib import Path
 
 import structlog
@@ -38,13 +39,15 @@ class CodeExperimentSkill:
         Execute an experiment in the sandbox and record its provenance.
 
         Returns a dict with:
-        - experiment_id (SHA-256 of code+inputs)
+        - experiment_id (content hash plus unique execution suffix)
         - success
         - stdout, stderr
         - result_files
         - provenance_path
         """
-        experiment_id = self._compute_id(code, inputs)
+        started = time.monotonic()
+        content_id = self._compute_id(code, inputs)
+        experiment_id = f"{content_id}_{uuid.uuid4().hex[:12]}"
         log.info("experiment.starting", experiment_id=experiment_id, hypothesis=hypothesis[:80])
 
         result = await self.executor.execute(code, language=language)
@@ -55,7 +58,8 @@ class CodeExperimentSkill:
             "reason": None,
             "original_stderr": result.get("stderr", ""),
         }
-        attempts = [{"success": result.get("success"), "stderr": result.get("stderr", "")}]
+        attempts = [{"success": result.get("success"), "stderr": result.get("stderr", ""),
+                     "result": dict(result)}]
         if language == "python" and not result.get("success"):
             repaired = self._repair_python_code(code, result.get("stderr", ""))
             if repaired is not None and repaired["code"] != code:
@@ -65,6 +69,7 @@ class CodeExperimentSkill:
                 attempts.append({
                     "success": repaired_result.get("success"),
                     "stderr": repaired_result.get("stderr", ""),
+                    "result": dict(repaired_result),
                 })
                 if repaired_result.get("success"):
                     result = repaired_result
@@ -73,6 +78,7 @@ class CodeExperimentSkill:
 
         provenance = {
             "experiment_id": experiment_id,
+            "content_id": content_id,
             "hypothesis": hypothesis,
             "timestamp": time.time(),
             "language": language,
@@ -88,8 +94,20 @@ class CodeExperimentSkill:
             "attempts": attempts,
         }
 
-        prov_path = EXPERIMENTS_DIR / f"{experiment_id}.json"
-        prov_path.write_text(json.dumps(provenance, indent=2), encoding="utf-8")
+        from core.provenance import get_provenance_manager
+        manager = get_provenance_manager()
+        record = manager.record_execution(
+            tool_name=f"sandbox_{language}",
+            tool_input=json.dumps({"hypothesis": hypothesis, "code": code, "inputs": inputs or {}}, sort_keys=True),
+            tool_output=json.dumps(provenance, sort_keys=True), success=bool(result.get("success")),
+            duration_seconds=time.monotonic() - started, domain="computational_experiment", experiment_id=experiment_id,
+            extra={"content_id": content_id, "executed_code_sha256": hashlib.sha256(executed_code.encode()).hexdigest(),
+                   "truth_verified": False},
+        )
+        experiment_id = record["experiment_id"]
+        prov_path = manager.base_dir / experiment_id / "provenance.json"
+        from core.execution_evidence import record_event
+        record_event("experiment.recorded", {"record": record, "execution": provenance}, actor="amy.sandbox")
 
         log.info(
             "experiment.complete",
@@ -101,6 +119,7 @@ class CodeExperimentSkill:
         return {
             "experiment_id": experiment_id,
             **result,
+            "result_files": result.get("result_files", {}),
             "provenance_path": str(prov_path),
             "repair": repair,
         }

@@ -7,8 +7,6 @@ stats; ollama embed had no failover and 429 Retry-After was ignored.
 """
 import time
 
-import pytest
-
 from cognition.curiosity import CuriosityModule
 from cognition.reasoning import ReasoningEngine, _parse_json_robust
 from core.heartbeat import Heartbeat, _action_details
@@ -208,6 +206,33 @@ async def test_reasoning_treats_null_action_details_as_empty_dict():
     assert thought["action_type"] == "experiment"
     assert thought["content"] == "run an experiment"
     assert thought["cycle"] == 7
+
+
+async def test_reasoning_forwards_configured_thinking_mode():
+    class FakeClient:
+        async def chat(self, **kwargs):
+            self.kwargs = kwargs
+            return {
+                "message": {
+                    "content": '{"action_type":"think_more","content":"ok"}'
+                }
+            }
+
+    client = FakeClient()
+    engine = ReasoningEngine.__new__(ReasoningEngine)
+    engine.config = {"reasoner": {"temperature": 0.7, "max_tokens": 256}}
+    engine.client = client
+    engine.reasoner_model = "deepseek-v4-flash:0731-cloud"
+    engine.reasoner_ctx = 65536
+    engine.reasoner_think = True
+
+    await engine.reason(
+        focus={"content": "focus", "source": "test"},
+        context={"cycle": 1},
+    )
+
+    assert client.kwargs["think"] is True
+    assert client.kwargs["num_ctx"] == 65536
 
 
 def test_reasoning_prompt_forces_pivot_after_repeated_literature_searches():

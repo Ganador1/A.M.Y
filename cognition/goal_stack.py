@@ -34,11 +34,13 @@ class Goal:
     priority: float = 0.5  # 0-1
     created_at: float = field(default_factory=time.time)
     completed_at: float | None = None
+    retired_at: float | None = None
+    retirement_reason: str = ""
     depth: int = 0  # 0 = mission, 1 = sub-goal, 2 = sub-sub-goal, ...
     result: str = ""
     sub_goal_ids: list[str] = field(default_factory=list)
     attempts: int = 0
-    max_attempts: int = 10
+    max_attempts: int = 5
 
 
 class GoalStack:
@@ -63,8 +65,8 @@ class GoalStack:
         """Set the top-level mission. Replaces any previous mission."""
         # Archive old goals
         for g in self.goals.values():
-            if g.status == GoalStatus.ACTIVE:
-                g.status = GoalStatus.COMPLETED
+            if g.status in (GoalStatus.ACTIVE, GoalStatus.BLOCKED):
+                await self.retire_goal(g.id, reason="Mission replaced; achievement not established")
 
         mission = Goal(
             description=goal,
@@ -77,13 +79,22 @@ class GoalStack:
 
     async def push_subgoal(self, parent: str, description: str, priority: float = 0.5) -> str:
         """Create a sub-goal under a parent goal."""
+        desc_clean = description.strip()
+        desc_lower = desc_clean.lower()
+        # Deduplicate active subgoals to prevent stack accumulation
+        for g in self.goals.values():
+            if g.status == GoalStatus.ACTIVE and g.description.strip().lower() == desc_lower:
+                if priority > g.priority:
+                    g.priority = priority
+                return g.id
+
         # Find parent by description if not an ID
         parent_goal = self._find_goal(parent)
         if not parent_goal:
             parent_goal = self.goals.get(self.mission_id)
 
         subgoal = Goal(
-            description=description,
+            description=desc_clean,
             parent_id=parent_goal.id if parent_goal else None,
             priority=priority,
             depth=(parent_goal.depth + 1) if parent_goal else 1,
@@ -96,7 +107,7 @@ class GoalStack:
 
         log.info(
             "goal_stack.subgoal_created",
-            description=description[:80],
+            description=desc_clean[:80],
             parent=parent_goal.description[:40] if parent_goal else "none",
             depth=subgoal.depth,
         )
@@ -127,6 +138,21 @@ class GoalStack:
                     parent.status = GoalStatus.ACTIVE
                     log.info("goal_stack.parent_unblocked", description=parent.description[:80])
 
+    async def retire_goal(self, goal_id: str, reason: str = ""):
+        """Remove pending work from scheduling without asserting achievement.
+
+        Preserve its result and attempts for audit. Retiring a child never
+        satisfies the parent's completion conditions.
+        """
+        goal = self.goals.get(goal_id)
+        if not goal or goal.status not in (GoalStatus.ACTIVE, GoalStatus.BLOCKED):
+            return
+        goal.status = GoalStatus.DEFERRED
+        goal.retired_at = time.time()
+        goal.retirement_reason = reason
+        log.info("goal_stack.goal_retired", goal_id=goal.id,
+                 description=goal.description[:80], reason=reason)
+
     async def get_active_goals(self) -> list[dict]:
         """Get all currently active goals, sorted by priority."""
         active = [
@@ -142,12 +168,41 @@ class GoalStack:
         ]
         return sorted(active, key=lambda x: (-x["priority"], x["depth"]))
 
+    def _current_lineage(self, goal_id: str) -> list[str]:
+        """Reach the current mission through pending or blocked ancestors only."""
+        chain, seen = [], set()
+        while goal_id in self.goals and goal_id not in seen:
+            seen.add(goal_id)
+            goal = self.goals[goal_id]
+            if goal.status not in (GoalStatus.ACTIVE, GoalStatus.BLOCKED):
+                return []
+            chain.append(goal_id)
+            if goal_id == self.mission_id:
+                return chain
+            goal_id = goal.parent_id
+        return []
+
+    async def get_current_active_goals(self) -> list[dict]:
+        """Active goals reachable from the current pending mission tree.
+
+        Blocked parents may await active children; completed, failed, deferred
+        or archived branches must not re-enter focus or the planning prompt.
+        """
+        return [g for g in await self.get_active_goals() if self._current_lineage(g["id"])]
+
     async def get_attention_candidate(self) -> dict | None:
-        """Get the highest priority active goal for the workspace competition."""
-        active = await self.get_active_goals()
-        if active:
-            return active[0]
-        return None
+        """Offer executable current subgoals without replacing the root contract."""
+        current = await self.get_current_active_goals()
+        if not current:
+            return None
+        parents = {ancestor for g in current for ancestor in self._current_lineage(g["id"])[1:]}
+        frontier = [g for g in current if g["id"] not in parents]
+        highest = max(g["priority"] for g in frontier)
+        peers = [g for g in frontier if g["priority"] == highest]
+        # Fair turns among equal-priority pending goals do not imply completion.
+        turn = getattr(self, "_attention_turn", 0)
+        self._attention_turn = turn + 1
+        return peers[turn % len(peers)]
 
     async def report_impasse(self, goal_id: str, reason: str):
         """

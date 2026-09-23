@@ -1,119 +1,65 @@
-# A.M.Y
+# Getting started with A.M.Y
 
-[![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
-[![License: Apache--2.0](https://img.shields.io/badge/License-Apache--2.0-green.svg)](LICENSE)
-[![Science: Verifiable](https://img.shields.io/badge/science-verifiable-green.svg)](SCIENCE_MANIFESTO.md)
+**A.M.Y — Autonomous Mind Yield** is an experimental research agent. Given a mission, it cycles through reasoning, tool use, memory and review to decide what to investigate next. **AMY** coordinates the work; **Atlas** supplies scientific tools. The [main README](README.md) explains the architecture, agent roles and research scope.
 
-> Una mente artificial autonoma para investigar, experimentar, validar y escribir resultados cientificos con trazabilidad reproducible.
+This guide covers the public **1.1.0rc1** source branch. You can start by checking the included results offline, or configure a model and scientific tools for a new mission.
 
----
+**Version 1.1.0rc1 — release candidate.**
 
-## Estado Publico
-
-| Area | Estado |
-|---|---|
-| Version | v1.0.0 |
-| Ultima validacion | May 21, 2026 |
-| Atlas | 94 herramientas cientificas en 23 dominios |
-| Cobertura multi-dominio | 23 / 23 dominios generan papers end-to-end |
-| Provenance | SHA-256 verificable por experimento |
-| Licencia | Apache-2.0 |
-
-El objetivo de A.M.Y no es producir texto plausible. El objetivo es ejecutar herramientas reales, guardar evidencia, rechazar afirmaciones sin provenance y mantener un registro que otra persona pueda auditar.
-
-## Inicio Rapido
-
-### Requisitos
-
-- Python 3.13+
-- macOS o Linux
-- 8GB+ RAM recomendado
-- Una clave de proveedor de modelos compatible con tu configuracion local
-
-### Instalacion
+## Get the public source
 
 ```bash
-git clone https://github.com/Ganador1/A.M.Y.git
-cd amy
-
-python -m venv .venv
+git clone --branch main https://github.com/Ganador1/A.M.Y.git
+cd A.M.Y
+python3.13 -m venv .venv
 source .venv/bin/activate
+python -m pip install -e '.[test]'
+python amy.py --help
+```
 
-pip install -r requirements.txt
+Python 3.13+ is required for the runtime. The source includes Atlas, but its scientific dependencies need separate setup. Follow [ENVIRONMENT.md](ENVIRONMENT.md) for the worker environment. The wheel alone is not the full laboratory.
+
+## Verify results without a model
+
+```bash
+python release_evidence/autocorrelation/verify.py
+python -m pip install -r release_evidence/runtime/requirements.txt
+python release_evidence/runtime/verify.py
+```
+
+The first command checks an exact mathematical witness. The second rechecks recorded numerical measurements. Neither requires a cloud key. Read the [reproduction guide](docs/REPRODUCIBILITY.md) for expected results and the scope of each verifier.
+
+## Configure a mission
+
+```bash
 cp .env.example .env
+cp config.release.yaml config.local.yaml
 ```
 
-Edita `.env` con tus claves locales y ejecuta una verificacion rapida:
+Add your own provider credentials to `.env`. Edit `config.local.yaml` to select available models, a bounded research question and appropriate resource limits. The public `config.yaml` matches the portable `config.release.yaml`; both use CPU settings and disable automatic mission chaining.
+
+For generated-code experiments, start Docker and build the isolation image:
 
 ```bash
-python test_amy_quick.py
+docker build -t amy-sandbox:latest sandbox/
+python amy.py --config config.local.yaml --goal "Your bounded research question"
 ```
 
-### Ejecucion
+Stop the interactive run with Ctrl-C. Disabling mission chaining does not impose a time budget. For unattended model comparisons, use the bounded calibration launcher described in the [reproduction guide](docs/REPRODUCIBILITY.md), beginning with a small worker subset.
+
+## Inspect the work
+
+Follow the paths in your configuration or campaign output directory to inspect decisions, receipts, scientific outputs, memory and reports. Keep failed experiments when evaluating a run. A valid tool execution and a convincing summary do not by themselves establish a new scientific finding.
+
+Read the [results catalog](docs/RESULTS.md) for the included research, the [evidence guide](docs/EVIDENCE.md) for provenance limits, and the [tool guide](ATLAS_TOOL_GUIDE.md) for scientific capabilities and their dependencies.
+
+## Develop and contribute
 
 ```bash
-# Ciclo corto de depuracion
-python run_amy_debug.py
-
-# Mision completa con generacion de paper
-python run_amy_full_mission.py
-
-# Generacion enfocada de paper
-python run_amy_paper.py
+python -m pip install -r scripts/release/requirements-validation.txt
+python -m pytest tests -m "not network" -q
 ```
 
-## Arquitectura
+See the [contribution guide](CONTRIBUTING.md), [changelog](CHANGELOG.md), [migration guide](docs/MIGRATION.md), [security policy](SECURITY.md) and [use policy](USE_POLICY.md).
 
-A.M.Y mantiene un ciclo cognitivo continuo:
-
-1. **Perceive**: sensores de literatura, archivos, tiempo y APIs recogen señales.
-2. **Attend**: el workspace global decide que informacion merece foco.
-3. **Think**: el razonamiento propone hipotesis y planes falsables.
-4. **Act**: Atlas ejecuta herramientas cientificas o el sandbox ejecuta experimentos.
-5. **Learn**: memoria episodica, semantica y procedimental registran resultados.
-
-Atlas funciona como laboratorio cientifico debajo de A.M.Y. Sus herramientas cubren matematicas, fisica, quimica, biologia, medicina, estadistica, astronomia, neurociencia, materiales e ingenieria.
-
-## Ciencia y Reproducibilidad
-
-A.M.Y aplica cuatro reglas de publicacion:
-
-- Toda afirmacion numerica debe venir de una ejecucion o una fuente verificable.
-- Cada tool call escribe `data/experiments/<id>/provenance.json` y `output.txt`.
-- El hash SHA-256 del output completo se cita en el paper.
-- El auditor recomputa hashes y rechaza manuscritos con evidencia faltante o alterada.
-
-Los papers curados viven en `papers/showcase/`. Los lotes de validacion multi-dominio viven en `experiments/all_domains/`.
-
-## Seguridad y Uso Responsable
-
-El proyecto incluye un safety kernel para bloquear usos de alto riesgo antes de ejecutar herramientas. La politica publica esta en [USE_POLICY.md](USE_POLICY.md) y los detalles de reporte estan en [SECURITY.md](SECURITY.md).
-
-Restricciones principales:
-
-- No desarrollo, optimizacion o asistencia para armas biologicas o quimicas.
-- No vigilancia masiva ni abuso de datos personales.
-- No instrucciones para evadir controles, robar credenciales o danar sistemas.
-- Uso academico y comercial permitido mientras respete la licencia y la politica de uso.
-
-## Documentacion
-
-| Documento | Contenido |
-|---|---|
-| [README.md](README.md) | Estado tecnico completo |
-| [SCIENCE_MANIFESTO.md](SCIENCE_MANIFESTO.md) | Principios cientificos |
-| [ATLAS_TOOL_GUIDE.md](ATLAS_TOOL_GUIDE.md) | Integracion A.M.Y -> Atlas |
-| [RESEARCH.md](RESEARCH.md) | Referencias y contexto |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Guia de contribucion |
-| [SECURITY.md](SECURITY.md) | Reporte de vulnerabilidades y abuso |
-| [USE_POLICY.md](USE_POLICY.md) | Politica de uso responsable |
-
-## Licencia
-
-Apache-2.0 - ver [LICENSE](LICENSE).
-
----
-
-**Autor:** Giovanni Arangio
-
-**Repositorio:** https://github.com/Ganador1/A.M.Y
+Apache-2.0; see [LICENSE](LICENSE). Maintainer: **Ganador1**.

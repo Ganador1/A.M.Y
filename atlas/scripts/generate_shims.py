@@ -79,7 +79,7 @@ services_map = {
     "domains/neuroscience/services": ["neuroscience_light_service"]
 }
 
-base_path = "/Volumes/Ganador disk/atlas/app/services"
+base_path = "/workspace/atlas/app/services"
 
 for subfolder, services in services_map.items():
     for service in services:

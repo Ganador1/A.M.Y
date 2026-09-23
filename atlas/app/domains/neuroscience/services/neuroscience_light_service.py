@@ -28,24 +28,61 @@ class NeuroscienceLightService(BaseService):
             
         return {"success": False, "error": f"Unknown operation: {operation}"}
 
-    def _bandpower_fft(self, signal: np.ndarray, band: List[float]) -> float:
+    def _spectrum_fft(self, signal: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
         n = len(signal)
         if n == 0:
-            return 0.0
+            return np.array([], dtype=float), np.array([], dtype=float)
         # Hann window to reduce spectral leakage
         window = np.hanning(n)
         sig_w = signal * window
         # One-sided FFT
         fft_vals = np.fft.rfft(sig_w)
         fft_freqs = np.fft.rfftfreq(n, d=1.0 / self.fs)
-        psd = (np.abs(fft_vals) ** 2) / (np.sum(window ** 2))
+        psd = (np.abs(fft_vals) ** 2) / (self.fs * np.sum(window ** 2))
+        # Fold negative-frequency power into positive bins, excluding DC/Nyquist.
+        if n % 2 == 0:
+            psd[1:-1] *= 2
+        else:
+            psd[1:] *= 2
 
-        fmin, fmax = band
-        idx = np.logical_and(fft_freqs >= fmin, fft_freqs <= fmax)
-        # Trapz integration of PSD over band
-        if not np.any(idx):
+        return fft_freqs, psd
+
+    @staticmethod
+    def _integrate_spectrum(frequencies: np.ndarray, density: np.ndarray,
+                            band: List[float]) -> float:
+        """Integrate the piecewise-linear PSD, clipped to represented bins.
+
+        Including interpolated band edges makes adjacent integrals additive.
+        No PSD is extrapolated beyond the first/last represented frequency.
+        """
+        if len(frequencies) < 2:
             return 0.0
-        return float(np.trapz(psd[idx], fft_freqs[idx]))
+        lo = max(float(band[0]), float(frequencies[0]))
+        hi = min(float(band[1]), float(frequencies[-1]))
+        if hi <= lo:
+            return 0.0
+        interior = (frequencies > lo) & (frequencies < hi)
+        knots = np.concatenate(([lo], frequencies[interior], [hi]))
+        values = np.interp(knots, frequencies, density)
+        return float(np.trapezoid(values, knots))
+
+    def _bandpower_fft(self, signal: np.ndarray, band: List[float]) -> float:
+        frequencies, density = self._spectrum_fft(signal)
+        return self._integrate_spectrum(frequencies, density, band)
+
+    def _validated_eeg_data(self, data, min_channels: int) -> np.ndarray:
+        """Validate both lightweight async APIs before any FFT or normalization."""
+        if not np.isfinite(self.fs) or self.fs <= 0:
+            raise ValueError("sampling_rate_hz must be finite and greater than zero")
+        try:
+            arr = np.asarray(data, dtype=float)
+        except (TypeError, ValueError, OverflowError) as exc:
+            raise ValueError("EEG data must be a rectangular numeric matrix") from exc
+        if arr.ndim != 2 or arr.shape[0] < min_channels or arr.shape[1] < 3:
+            raise ValueError(f"EEG data requires at least {min_channels} channel(s) and 3 samples per channel")
+        if not np.isfinite(arr).all():
+            raise ValueError("EEG samples must all be finite")
+        return arr
 
     async def analyze_eeg_bandpowers(self, data: List[List[float]]) -> Dict[str, Any]:
         """
@@ -57,9 +94,10 @@ class NeuroscienceLightService(BaseService):
         Returns:
             dict con band powers por canal y totales normalizados.
         """
-        arr = np.array(data, dtype=float)
-        if arr.ndim != 2:
-            return {"error": "Formato inválido: se espera [n_channels][n_samples]"}
+        try:
+            arr = self._validated_eeg_data(data, min_channels=1)
+        except ValueError as exc:
+            return {"success": False, "error": str(exc)}
 
         bands = {
             "delta": (1.0, 4.0),
@@ -72,13 +110,14 @@ class NeuroscienceLightService(BaseService):
         channel_results: List[Dict[str, float]] = []
         for ch in arr:
             ch_res: Dict[str, float] = {}
-            total_power = 0.0
-            # Wideband power for normalization
-            total_power = self._bandpower_fft(ch, [1.0, min(0.5 * self.fs, 45.0)])
+            frequencies, density = self._spectrum_fft(ch)
+            # All adjacent bands share one PSD and the same edge integration.
+            total_power = self._integrate_spectrum(
+                frequencies, density, [1.0, min(0.5 * self.fs, 45.0)])
             total_power = max(total_power, 1e-12)
 
             for name, (lo, hi) in bands.items():
-                p = self._bandpower_fft(ch, [lo, hi])
+                p = self._integrate_spectrum(frequencies, density, [lo, hi])
                 ch_res[name] = p
                 ch_res[f"{name}_rel"] = p / total_power
             ch_res["total_power"] = total_power
@@ -94,6 +133,8 @@ class NeuroscienceLightService(BaseService):
             "n_channels": int(arr.shape[0]),
             "n_samples": int(arr.shape[1]),
             "bands": list(bands.keys()),
+            "bandpower_method": "hann_psd_linear_edges_v2",
+            "frequency_support_hz": [float(frequencies[0]), float(frequencies[-1])],
             "channel_bandpowers": channel_results,
             "aggregate": agg,
         }
@@ -103,9 +144,10 @@ class NeuroscienceLightService(BaseService):
         Calcula conectividad simple por pares (coherencia normalizada) por banda usando correlación de señales filtradas por FFT-mask.
         Ligero y sin dependencias externas.
         """
-        arr = np.array(data, dtype=float)
-        if arr.ndim != 2 or arr.shape[0] < 2:
-            return {"error": "Se requieren >=2 canales con formato [n_channels][n_samples]"}
+        try:
+            arr = self._validated_eeg_data(data, min_channels=2)
+        except ValueError as exc:
+            return {"success": False, "error": str(exc)}
 
         bands = {
             "delta": (1.0, 4.0),
@@ -137,7 +179,7 @@ class NeuroscienceLightService(BaseService):
                 filt_z = (filt - filt.mean(axis=1, keepdims=True))
                 denom = np.sqrt(np.sum(filt_z**2, axis=1, keepdims=True)) + 1e-12
                 filt_z /= denom
-                conn = np.matmul(filt_z, filt_z.T) / max(1, filt_z.shape[1])
+                conn = np.matmul(filt_z, filt_z.T)
                 conn = np.clip(conn, -1.0, 1.0)
             results["matrices"][name] = conn.tolist()
 

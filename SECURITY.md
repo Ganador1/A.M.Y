@@ -4,10 +4,7 @@
 
 If you discover a security vulnerability in A.M.Y, please report it responsibly.
 
-**Do NOT open a public issue.** Instead, email the maintainer directly:
-
-- **Contact:** giovanniaramgio@gmail.com
-- **Subject prefix:** `[A.M.Y SECURITY]`
+Do not post vulnerabilities, credentials or private data in public issues. The maintainer's public identity is **Ganador1**. Use the repository's private vulnerability-reporting facility when available; otherwise request a private reporting channel from the maintainer without disclosing exploit details publicly. No personal email address is published in this policy.
 
 Please include:
 

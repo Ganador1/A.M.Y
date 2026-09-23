@@ -26,10 +26,11 @@ async def test_reflect_runs_self_retrain_on_throttle():
             return {"type": "world_model", "beliefs_updated": 0}
 
     class _Reflect:
-        async def reflect(self, world_model, goal_stack):
+        async def reflect(self, world_model, goal_stack, experiment_receipts, operating_contract):
             return None
 
     hb = Heartbeat.__new__(Heartbeat)
+    hb._operating_contract = ""
     hb.ctx = CognitiveContext()
     hb.metrics = HeartbeatMetrics()
     hb.reflection = _Reflect()
@@ -56,10 +57,11 @@ async def test_reflect_runs_self_retrain_on_throttle():
 async def test_reflect_safe_without_self_retrain():
     # self_retrain=None must be a clean no-op (tests / minimal configs).
     class _Reflect:
-        async def reflect(self, world_model, goal_stack):
+        async def reflect(self, world_model, goal_stack, experiment_receipts, operating_contract):
             return None
 
     hb = Heartbeat.__new__(Heartbeat)
+    hb._operating_contract = ""
     hb.ctx = CognitiveContext()
     hb.metrics = HeartbeatMetrics()
     hb.reflection = _Reflect()

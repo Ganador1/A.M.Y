@@ -274,7 +274,7 @@ def create_visualization():
         plt.tight_layout()
         
         # Guardar la figura
-        output_path = '/Users/giovanniarangio/atlas/demos/mathematics_demo_plots.png'
+        output_path = '/home/amy/atlas/demos/mathematics_demo_plots.png'
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         print(f"  ✅ Visualizaciones guardadas en: {output_path}")
         

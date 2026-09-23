@@ -56,3 +56,33 @@ def test_missing_custom_config_raises_clear_error(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     with pytest.raises(FileNotFoundError):
         amy.resolve_config(["--config", "does_not_exist.yaml"])
+
+
+def test_default_config_falls_back_to_installed_data_file(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    data_root = tmp_path / "installed"
+    installed_config = data_root / "share" / "amy" / "config.yaml"
+    installed_config.parent.mkdir(parents=True)
+    _write_cfg(installed_config, goal="installed default")
+    monkeypatch.setattr(
+        amy.sysconfig,
+        "get_path",
+        lambda name: str(data_root) if name == "data" else None,
+    )
+
+    cfg = amy.resolve_config([])
+
+    assert cfg["mission"]["goal"] == "installed default"
+
+
+def test_installed_default_prefers_portable_release_profile(tmp_path, monkeypatch):
+    import amy
+    shared = tmp_path / "share" / "amy"
+    shared.mkdir(parents=True)
+    (shared / "config.yaml").write_text("mission: {goal: operator}\n")
+    (shared / "config.release.yaml").write_text("mission: {goal: portable}\nheartbeat: {continuous_mission: false}\n")
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(amy.sysconfig, "get_path", lambda key: str(tmp_path))
+    actual = amy.load_config()
+    assert actual["mission"]["goal"] == "portable"
+    assert actual["heartbeat"]["continuous_mission"] is False

@@ -80,7 +80,7 @@ def main():
     print("\nEste test verifica que cada loop se puede importar e inicializar")
     print("sin ejecutar experimentos (para evitar dependencias faltantes).\n")
     
-    base_path = Path("/Volumes/Ganador disk/atlas/app/autonomous/pipelines")
+    base_path = Path("/workspace/atlas/app/autonomous/pipelines")
     
     loops = [
         ("QuantumLoop", str(base_path / "quantum_loop.py"), "QuantumLoop"),

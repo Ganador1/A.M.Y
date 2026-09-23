@@ -8,13 +8,15 @@ fails, the other takes over seamlessly.
 Implements the /api/chat endpoint (OpenAI-compatible messages format).
 """
 import asyncio
-import json
 import os
 import time
 from itertools import cycle
 
 import httpx
 import structlog
+
+from core.model_broker import get_global_request_gate
+from core.execution_evidence import evidence_span, record_bytes
 
 log = structlog.get_logger()
 
@@ -94,6 +96,13 @@ class OllamaCloudClient:
         self._key_cycle = cycle(range(len(self._keys)))
         self._key_failures: dict[int, float] = {}  # key_index → last_failure_time
         self._cooldown_seconds = 120  # Wait 2 min before retrying a rate-limited key
+        # Every OllamaCloudClient in this process shares the same transport gate.
+        # This is the enforcement layer beneath the priority-aware ModelBroker, and
+        # prevents legacy direct clients from exceeding the three-call plan limit.
+        configured_limit = config.get("max_concurrency")
+        self._request_gate = get_global_request_gate(
+            int(configured_limit) if configured_limit is not None else None
+        )
 
         # Shared httpx async client (connection pooling)
         self._http: httpx.AsyncClient | None = None
@@ -152,8 +161,9 @@ class OllamaCloudClient:
         max_tokens: int = 4096,
         stream: bool = False,
         format_json: bool = False,
+        format_schema: dict | None = None,
         num_ctx: int | None = None,
-        think: bool | None = None,
+        think: bool | str | None = None,
     ) -> dict:
         """
         Send a chat completion request to Ollama Cloud.
@@ -178,7 +188,11 @@ class OllamaCloudClient:
         }
         if num_ctx:
             payload["options"]["num_ctx"] = num_ctx
-        if format_json:
+        if format_json and format_schema is not None:
+            raise ValueError("format_json and format_schema are mutually exclusive")
+        if format_schema is not None:
+            payload["format"] = format_schema
+        elif format_json:
             payload["format"] = "json"
         if think is not None:
             payload["think"] = think
@@ -275,35 +289,51 @@ class OllamaCloudClient:
         never hang a cognitive cycle (httpx's read timeout only fires between
         bytes and is defeated by continuous 'thinking' token streams).
         """
-        http = await self._get_http()
-        url = f"{self.base_url}{endpoint}"
+        with evidence_span("llm.transport", {
+            "endpoint": endpoint, "base_url": self.base_url, "payload": payload,
+        }) as span:
+            http = await self._get_http()
+            url = f"{self.base_url}{endpoint}"
+            request_gate = getattr(self, "_request_gate", None)
+            if request_gate is None:
+                # Some hermetic tests construct clients without loading keys.
+                request_gate = get_global_request_gate()
+            async with request_gate.slot():
+                response = await asyncio.wait_for(
+                    http.post(
+                        url, json=payload,
+                        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+                    ),
+                    timeout=self._total_timeout(),
+                )
 
-        response = await asyncio.wait_for(
-            http.post(
-                url,
-                json=payload,
-                headers={
-                    "Authorization": f"Bearer {api_key}",
-                    "Content-Type": "application/json",
-                },
-            ),
-            timeout=self._total_timeout(),
-        )
+            # Retain exact body bytes before decoding or raising on HTTP status.
+            # Authorization headers and API keys never enter this receipt.
+            receipt = {"status_code": response.status_code}
+            response_body = getattr(response, "content", None)
+            if isinstance(response_body, bytes):
+                receipt["response_body"] = record_bytes("llm-response-body", response_body, "application/json")
+            try:
+                sent_body = response.request.content
+            except (AttributeError, RuntimeError, httpx.RequestNotRead):
+                sent_body = None
+            if isinstance(sent_body, bytes):
+                receipt["request_body"] = record_bytes("llm-request-body", sent_body, "application/json")
+            span.result({"receipt": receipt})
 
-        if response.status_code != 200:
-            body = response.text[:500]
-            err = httpx.HTTPStatusError(
-                f"Ollama Cloud returned {response.status_code}: {body}",
-                request=response.request,
-                response=response,
-            )
-            # Surface a server-provided Retry-After (seconds) on 429/503 so the
-            # failover loop can honor it instead of the fixed 120s cooldown.
-            if response.status_code in (429, 503):
-                err.retry_after = self._parse_retry_after(response.headers.get("Retry-After"))
-            raise err
+            if response.status_code != 200:
+                body = response.text[:500]
+                err = httpx.HTTPStatusError(
+                    f"Ollama Cloud returned {response.status_code}: {body}",
+                    request=response.request, response=response,
+                )
+                if response.status_code in (429, 503):
+                    err.retry_after = self._parse_retry_after(response.headers.get("Retry-After"))
+                raise err
 
-        return response.json()
+            result = response.json()
+            span.result({"receipt": receipt, "response": result})
+            return result
 
     @staticmethod
     def _parse_retry_after(value: str | None) -> float | None:

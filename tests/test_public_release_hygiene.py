@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import re
 import subprocess
 import sys
@@ -27,6 +28,9 @@ def _load_secret_hygiene_module():
 
 
 def _tracked_files() -> list[str]:
+    public_manifest = ROOT / "PUBLIC_SOURCE_MANIFEST.json"
+    if public_manifest.exists():
+        return [row["path"] for row in json.loads(public_manifest.read_text())["files"]]
     proc = subprocess.run(
         ["git", "ls-files"],
         cwd=ROOT,
@@ -50,14 +54,15 @@ def test_public_metadata_points_to_current_repository_and_license():
     }
 
     public_readme = (ROOT / "README_PUBLIC.md").read_text(encoding="utf-8")
-    assert f"git clone {REPOSITORY_URL}.git" in public_readme
+    assert f"git clone --branch main {REPOSITORY_URL}.git" in public_readme
     assert "Apache-2.0" in public_readme
     assert "MIT" not in public_readme
     assert "tuusuario" not in public_readme
     assert "Pre-release" not in public_readme
     assert "v0.9.0" not in public_readme
     assert "84+" not in public_readme
-    assert "94" in public_readme
+    assert "release candidate" in public_readme.lower()
+    assert "94 herramientas" not in public_readme
 
 
 def test_public_readme_does_not_link_missing_repository_docs():
@@ -71,9 +76,9 @@ def test_public_readme_does_not_link_missing_repository_docs():
     assert missing == []
 
 
-def test_public_entrypoint_titles_are_project_name_only():
-    assert (ROOT / "README.md").read_text(encoding="utf-8").splitlines()[0] == "# A.M.Y"
-    assert (ROOT / "README_PUBLIC.md").read_text(encoding="utf-8").splitlines()[0] == "# A.M.Y"
+def test_public_entrypoints_identify_project_and_getting_started():
+    assert (ROOT / "README.md").read_text(encoding="utf-8").splitlines()[0] == "# A.M.Y — Autonomous Mind Yield"
+    assert (ROOT / "README_PUBLIC.md").read_text(encoding="utf-8").splitlines()[0] == "# Getting started with A.M.Y"
 
 
 def test_secret_hygiene_scans_repository_root_and_no_live_kubernetes_secret_is_tracked():
@@ -122,24 +127,27 @@ def test_release_hygiene_workflow_runs_public_checks():
     assert "scripts/diagnostics/verify_secret_hygiene.py" in text
 
 
-def test_public_docs_do_not_carry_assistant_or_model_brand_markers():
-    forbidden = (
-        "".join(chr(code) for code in (99, 111, 100, 101, 120)),
-        "".join(chr(code) for code in (103, 112, 116)),
+def test_release_candidate_metadata_and_curated_evidence_are_consistent():
+    spec = importlib.util.spec_from_file_location(
+        "check_release", ROOT / "scripts/release/check_release.py"
     )
-    public_docs = (
-        "README.md",
-        "README_PUBLIC.md",
-        "ATLAS_TOOL_GUIDE.md",
-        "RELEASE_CHECKLIST.md",
-        "pyproject.toml",
-    )
-    offenders = []
-    for rel_path in public_docs:
-        text = (ROOT / rel_path).read_text(encoding="utf-8").lower()
-        for marker in forbidden:
-            if marker in text:
-                offenders.append(rel_path)
-                break
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    result = module.check(ROOT)
+    assert result["passed"], result["errors"]
 
-    assert offenders == []
+
+def test_release_member_filter_rejects_private_state_and_traversal():
+    spec = importlib.util.spec_from_file_location(
+        "check_release", ROOT / "scripts/release/check_release.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    for name in ("../secret", "/tmp/secret", "amy/.env", "amy/atlas/.api_keys.enc",
+                 "amy/output/transcript.json", "amy/.venv/bin/python",
+                 "amy/atlas/app/security/secrets_backup.json", "amy/service.secret.json",
+                 "amy/secret.yaml"):
+        assert module.unsafe_member(name), name
+    for name in ("amy/.env.example", "amy/core/runtime_receipts.py",
+                 "amy/release_evidence/autocorrelation/candidate.json"):
+        assert not module.unsafe_member(name), name

@@ -214,8 +214,27 @@ def test_atlas_tools_allows_mixed_evidence_reports_with_real_successes():
     assert "mixed evidence report" in assessment["warnings"]
 
 
+def test_atlas_tools_rejects_orchestrator_report_without_real_evidence():
+    from core.atlas_tools import assess_tool_output
+
+    assessment = assess_tool_output(
+        "ToolEvidenceOrchestrator corroboration (mathematics):\n"
+        "- support_score: 0\n"
+        "- real_success_count: 0\n"
+        "- tier_counts: {'mock': 3}",
+        tool_name="evidence_corroborate_mathematics",
+    )
+
+    assert assessment["usable"] is False
+    assert assessment["evidence_level"] == "none"
+    assert "no real evidence" in assessment["markers"]
+
+
 async def test_heartbeat_rejects_unusable_atlas_tool_output():
     heartbeat = object.__new__(Heartbeat)
+    from core.runtime_receipts import ReceiptStore
+    heartbeat._receipt_store = ReceiptStore()
+    heartbeat._experiment_receipts = heartbeat._receipt_store.index
     heartbeat._atlas_tools = None
     heartbeat._tool_results_history = []
 
@@ -251,7 +270,10 @@ async def test_heartbeat_rejects_unusable_atlas_tool_output():
 
     assert result["success"] is False
     assert result["error"] == "unusable_tool_output"
-    assert heartbeat.episodic_memory.events == []
+    assert len(heartbeat.episodic_memory.events) == 1
+    failure = heartbeat.episodic_memory.events[0]["metadata"]
+    assert failure["success"] is False
+    assert failure["error"] == "unusable_tool_output"
     assert heartbeat.world_model.observations == []
 
 

@@ -1,0 +1,33 @@
+{
+  "scope": "Locally retained source digests, not external attestation",
+  "sources": [
+    {
+      "path": "output/amy-multimodel-20260919/aggregate-final.json",
+      "sha256": "7117ba259d92eaa4615079f9170dcf012ea29275dabc4867af82574c45afdd4c"
+    },
+    {
+      "path": "output/amy-multimodel-20260919/comparison-final.json",
+      "sha256": "3d44df1de46bbf5754e33b4db4e9aaa908d71203c39abb5fb4aba83c911eb720"
+    },
+    {
+      "path": "output/amy-multimodel-20260919/comparison-02-final.json",
+      "sha256": "80623f6bbe702039099d09144c546a027fe48caf5eec40789a3b7c76b63b9148"
+    },
+    {
+      "path": "output/amy-multimodel-20260919/comparison-03-final.json",
+      "sha256": "c281143269d9cd18a81072b45b8ae2438ab999a0da6c2d7d9122b0706fcb5305"
+    },
+    {
+      "path": "output/amy-multimodel-20260919/comparison-04-final.json",
+      "sha256": "a5aec220561ae86c7a445b36f858ac077b0509ba4ff94720d248b9460de62e7f"
+    },
+    {
+      "path": "output/amy-multimodel-20260919/tests-envelope-integration.txt",
+      "sha256": "7289674d2bd019cd5c565ea0d4ae9597729d12d42075a997343a89ff517870f4"
+    },
+    {
+      "path": "output/amy-multimodel-20260919/tests-contract-clarification.txt",
+      "sha256": "49c757ec5adee117a4bc72bb978a22c1ee729225fefbdb638562e8310257abd1"
+    }
+  ]
+}

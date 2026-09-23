@@ -43,8 +43,8 @@ from fastapi import APIRouter, HTTPException, BackgroundTasks, Depends
 from typing import Dict, List, Any, Optional
 import logging
 
-from app.services.agent2_bridge_service import (
 from app.exceptions.domain.mathematics import MathematicsError
+from app.services.agent2_bridge_service import (
     Agent2BridgeService,
     DataIngestionRequest,
     DataIngestionResponse,

@@ -1,5 +1,5 @@
-# Catálogo de modelos disponibles para MultiAgentCoordinator
-# Se puede ampliar dinámicamente. Campo alias permite referenciar variantes.
+# Catalog of available models for MultiAgentCoordinator
+# Can be extended dynamically. The alias field can reference variants.
 models:
   llama3:8b:
     provider: ollama

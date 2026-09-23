@@ -313,6 +313,13 @@ class FormalVerificationService(BaseService):
     @staticmethod
     def _find_lean_binary() -> Optional[str]:
         """Return a usable Lean executable path, or None if Lean isn't installed."""
+        try:
+            from app.services.theorem_proving.lean4_env import find_lean_binary
+            b = find_lean_binary()
+            if b:
+                return b
+        except Exception:
+            pass
         import shutil
         for name in ("lean", "lake"):
             path = shutil.which(name)
@@ -346,6 +353,11 @@ class FormalVerificationService(BaseService):
         import asyncio
         import os
         import tempfile
+        try:
+            from app.services.theorem_proving.lean4_env import get_lean_env
+            lean_env = get_lean_env()
+        except Exception:
+            lean_env = dict(os.environ)
 
         with tempfile.TemporaryDirectory() as tmp:
             lean_file = os.path.join(tmp, "amy_goal.lean")
@@ -358,6 +370,7 @@ class FormalVerificationService(BaseService):
                 lean_bin, lean_file,
                 stdout=asyncio.subprocess.PIPE,
                 stderr=asyncio.subprocess.PIPE,
+                env=lean_env,
             )
             try:
                 stdout, stderr = await asyncio.wait_for(proc.communicate(), timeout=timeout)

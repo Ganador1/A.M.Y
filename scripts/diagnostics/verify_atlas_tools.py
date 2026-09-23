@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exercise every Atlas tool with a REAL input and a known expected property.
+"""Exercise a selected set of Atlas tools against known expected properties.
 
 This is a *verification harness*, not a unit test: it instantiates the actual
 `DynamicToolRegistry` from atlas/app/run_agent_with_tools_legacy.py (bypassing
@@ -233,8 +233,8 @@ CHECKS = [
      "Bell state entropy = 1 bit"),
     ("quantum_circuit", "grover:4", contains("Search space: 16", "Optimal iterations: 3"),
      "Grover 4-qubit: 16 elems, 3 iterations"),
-    ("quantum_circuit", "qft:3", contains("Total gates: 9"),
-     "QFT 3-qubit: 9 gates"),
+    ("quantum_circuit", "qft:3", contains("Total gates: 7", "Hadamard gates: 3", "Controlled phase gates: 3", "Output-reversal SWAP gates: 1"),
+     "QFT 3-qubit: 3 H + 3 controlled-phase + 1 reversal SWAP"),
     ("quantum_circuit", "vqe:H2", contains("TABULATED", "-1.137"),
      "VQE H₂ tabulated, labelled, -1.137 Ha"),
     # ── Biology ───────────────────────────────────────────────────────────

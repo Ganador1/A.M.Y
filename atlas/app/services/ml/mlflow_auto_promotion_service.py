@@ -96,7 +96,7 @@ class MLflowAutoPromotionService(BaseService):
         super().__init__("MLflowAutoPromotion")
         
         # Configurar MLflow
-        self.tracking_uri = settings.MLFLOW_TRACKING_URI, "file:./mlruns")
+        self.tracking_uri = getattr(settings, "MLFLOW_TRACKING_URI", "file:./mlruns")
         mlflow.set_tracking_uri(self.tracking_uri)
         
         self.client = MlflowClient(self.tracking_uri)

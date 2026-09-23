@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script automatizado para ejecutar Phase 8.4 sin input manual
 
-cd "/Volumes/Ganador disk/atlas"
+cd "/workspace/atlas"
 
 echo "🚀 Iniciando Phase 8.4 - Quantum Loop con HuggingFace API"
 echo "================================================"

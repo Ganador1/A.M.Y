@@ -149,8 +149,8 @@ from typing import Dict, List, Any, Optional
 import logging
 from datetime import datetime
 
-from ..crystallography.xray_crystallography_service import (
 from app.exceptions.domain.chemistry import ChemistryError
+from ..crystallography.xray_crystallography_service import (
     XRayCrystallographyService,
     DiffractionPattern,
     PhaseAnalysisResult,

@@ -1,0 +1,541 @@
+{
+  "scope": "Selected English technical references; original hashes identify the sources, translated hashes identify these public derivatives. Historical claims are not revalidated.",
+  "documents": [
+    {
+      "original_path": "atlas/app/domains/biology/README.md",
+      "original_sha256": "05854dc374bcf7b2617c7242e8cc7f4ff06f70ba6e61dddd637d4706548cd916",
+      "english_path": "docs/en/atlas/app/domains/biology/README.md",
+      "english_sha256": "0300c7961f30ea200388689807c2af5115bec3864bac58dd70daee8a26a22d4a",
+      "protected_spans": 50,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/app/domains/biology/SERVICES.md",
+      "original_sha256": "d85fa243020f6fb9f899c9005de7a870b59323000bc9e5eaafadf540e399a279",
+      "english_path": "docs/en/atlas/app/domains/biology/SERVICES.md",
+      "english_sha256": "a36a7fd164ae318e22f453231a6958fa883c803e3de76bd5adcea1ea46a46136",
+      "protected_spans": 0,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/app/domains/mathematics/ALGORITHM_CATALOG.md",
+      "original_sha256": "453e142bd4c5f073f9f4c00c700da36614797879f37d39dec8b7443ad035ca55",
+      "english_path": "docs/en/atlas/app/domains/mathematics/ALGORITHM_CATALOG.md",
+      "english_sha256": "eeb6b6826ec1a71ebf0095cfa06761b56742681a9e1711618791f82e014db504",
+      "protected_spans": 13,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/app/domains/mathematics/API_GUIDE.md",
+      "original_sha256": "9a08113a0134eae32d16ef3c7d9d0d9d5eea5b1e5f3bf846cc0ecd7814f0a477",
+      "english_path": "docs/en/atlas/app/domains/mathematics/API_GUIDE.md",
+      "english_sha256": "df2d83a023d050b046c09e004b675a1e700c898317bdaafb3eb9326d250b04fa",
+      "protected_spans": 41,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/app/domains/mathematics/README.md",
+      "original_sha256": "582edb75ca5ca0b184ea11640472833c88ba215799db800cde427ecd37cd992a",
+      "english_path": "docs/en/atlas/app/domains/mathematics/README.md",
+      "english_sha256": "b29cceed06f9a7981cc270242fe57f6d30fef28234fc9d5c35309ab6784a1b52",
+      "protected_spans": 1,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/app/domains/mathematics/SERVICES.md",
+      "original_sha256": "185349f11fa9ebc58b424be84927eb1f51b3188d58a3d063caffb4e8a8b7dea6",
+      "english_path": "docs/en/atlas/app/domains/mathematics/SERVICES.md",
+      "english_sha256": "9fe21552bc4b393e4460509780c065150ea20e3531004ab84a3c87484ad89074",
+      "protected_spans": 25,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/app/domains/medicine/DICOM_GUIDE.md",
+      "original_sha256": "4f845c35ce4f15757bb6e679ffe0c118e54c425a53d305449dc7c2e71dab13df",
+      "english_path": "docs/en/atlas/app/domains/medicine/DICOM_GUIDE.md",
+      "english_sha256": "14f2f46c053257168ea58ba9ba299985cbce10690d3b8613115037e94973752f",
+      "protected_spans": 9,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/app/domains/neuroscience/IMAGING_PROTOCOLS.md",
+      "original_sha256": "bac6fe3e7254a2ff624c2da38ece33fdf2a62ba2217284a8e82063f818ef3d9f",
+      "english_path": "docs/en/atlas/app/domains/neuroscience/IMAGING_PROTOCOLS.md",
+      "english_sha256": "1b8df695280cc49e4ecbc88a0367a1607e63e4d81ad2439e59367afea5472f7f",
+      "protected_spans": 10,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/app/domains/physics/computational/README.md",
+      "original_sha256": "95ff2ee6511cdb3a17263324f476843f227272e23ff27629a5232616bfd104c9",
+      "english_path": "docs/en/atlas/app/domains/physics/computational/README.md",
+      "english_sha256": "f56f2b1b2f9a86ad39de35bb4213583d422de34cf6e0216603708a381d301de7",
+      "protected_spans": 12,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/app/domains/physics/quantum/ALGORITHMS.md",
+      "original_sha256": "4732a37529e52ca7517c615abc1684302030d70b80be6aa5f5ca08517c478177",
+      "english_path": "docs/en/atlas/app/domains/physics/quantum/ALGORITHMS.md",
+      "english_sha256": "c8ee1feab0cecc5c533800437266fe3e2576f3a209f3778aa95c7fb3312b2447",
+      "protected_spans": 10,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/app/domains/physics/quantum/README.md",
+      "original_sha256": "918146db64548c30579ffc4caf952d9b1309d772fe701297aa4de2a0a8dbc325",
+      "english_path": "docs/en/atlas/app/domains/physics/quantum/README.md",
+      "english_sha256": "b665aee3014591469d022ad17ec24403b88359465c0d6ddb98f85ed0c077ced8",
+      "protected_spans": 44,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/api/API_OVERVIEW.md",
+      "original_sha256": "94109544b162c7e3628790394f6d8f66ba252243dc78cbae64af2795ca8b3386",
+      "english_path": "docs/en/atlas/docs/api/API_OVERVIEW.md",
+      "english_sha256": "4a7e9a5ae2cc18a5ae9513d0b297bdcbced5e8016799a88574a3e974aaf1b192",
+      "protected_spans": 10,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/api/ROUTERS_INDEX.md",
+      "original_sha256": "1c2468fce5f40ac0de5cc2f19c44200465e27d76ca00a9036062c15862380e8e",
+      "english_path": "docs/en/atlas/docs/api/ROUTERS_INDEX.md",
+      "english_sha256": "40f5c0992fe8f40d35fc0a2db7d18f343055aee16658133f42c0158219c02fe0",
+      "protected_spans": 107,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/app_entrypoints.md",
+      "original_sha256": "70ba0499c643c9e345a80e4ff1df62b537b9fd94e64ad76e9fbbd42e7dda6ed7",
+      "english_path": "docs/en/atlas/docs/app_entrypoints.md",
+      "english_sha256": "bba62943975a75dd9fd6ad3589f0e74c67167becfba8eb988bc7d6d4535899fa",
+      "protected_spans": 21,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/architecture.md",
+      "original_sha256": "47943a98a4cd57e3a59a1d55858540835fae020a7514dfe1a65e64b79cee99cf",
+      "english_path": "docs/en/atlas/docs/architecture.md",
+      "english_sha256": "5b34cdef93084f77b6fdcc8e1c05d0224c3f6732a3ef30109e20164621d8c34d",
+      "protected_spans": 33,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/configuration.md",
+      "original_sha256": "c19c5f10eb0229d5aec305d30f91f55a4bd58a2d6cdbf1031bd769ee7eb77184",
+      "english_path": "docs/en/atlas/docs/configuration.md",
+      "english_sha256": "aa7ddf6c5fab2937139a5aef1a8ddc437b1b1d0b130b7f8bfa8a4c4ad5002571",
+      "protected_spans": 171,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/domains/BIOLOGY_DOMAIN.md",
+      "original_sha256": "51ea53a510fe62e4feb1fe8997fa97a793bae8412541ae8a3215718186683bb7",
+      "english_path": "docs/en/atlas/docs/domains/BIOLOGY_DOMAIN.md",
+      "english_sha256": "8459859494ee99883fb9d408a2a070564aa90b5a8f924e91f10ebb8b7d978b87",
+      "protected_spans": 51,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/domains/CHEMISTRY_DOMAIN.md",
+      "original_sha256": "89c4efbaf1171ed7019404a39e0221eb8b4a3181a3c4ef8fb7f9ce0fbfdb8087",
+      "english_path": "docs/en/atlas/docs/domains/CHEMISTRY_DOMAIN.md",
+      "english_sha256": "f264bcdab011aa05fb086e636f766f1e81efccff47d24eebee845ac841e2e7e6",
+      "protected_spans": 55,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/domains/MATHEMATICS_DOMAIN.md",
+      "original_sha256": "cc21c1a953fb57fdbe60b8741f0a947bce7ce57e0851ca2681fc2d22811bbae8",
+      "english_path": "docs/en/atlas/docs/domains/MATHEMATICS_DOMAIN.md",
+      "english_sha256": "48733d80153a35e793921b233db070decd8604f4b32bf131e8c1b6288a0f2d6a",
+      "protected_spans": 56,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/domains/PHYSICS_DOMAIN.md",
+      "original_sha256": "56fbf1449b06f583f6e2a207ff75b16661bd6e028aee8c62c07e7b3af227f1c2",
+      "english_path": "docs/en/atlas/docs/domains/PHYSICS_DOMAIN.md",
+      "english_sha256": "7f975a2b8123b8ed92bb378cc4c57af9698d11c29792005f6469a2a00d7d206b",
+      "protected_spans": 53,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/domains/astronomy/API_GUIDE.md",
+      "original_sha256": "e1e52c70dc23eb0f8404e51059b54fc0d21edec79562ab9e97960360cc7f4a5e",
+      "english_path": "docs/en/atlas/docs/domains/astronomy/API_GUIDE.md",
+      "english_sha256": "23290f4b343cc6be3cf4a3450e470fcc329cf890646ce2809dcf0e427f1a7706",
+      "protected_spans": 12,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/domains/astronomy/README.md",
+      "original_sha256": "00fe5acf8856d63a174875e411719c5208b5bf347bc35cc16d3aee491baf8099",
+      "english_path": "docs/en/atlas/docs/domains/astronomy/README.md",
+      "english_sha256": "98552a9dd0270b346ae76944172e6ac7ff01689454c90dabd845c0f9fb843b79",
+      "protected_spans": 32,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/guides/ADDITIVE_MANUFACTURING_GUIDE.md",
+      "original_sha256": "ba3cd3737e23888097dbec8c8c592285379e20d052293c7cb721d804a798926a",
+      "english_path": "docs/en/atlas/docs/guides/ADDITIVE_MANUFACTURING_GUIDE.md",
+      "english_sha256": "6f507d6810e0626c7ebfec9b3d21f812891cdf52f84fa23986ee7f9906b22f5d",
+      "protected_spans": 172,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/guides/ADVANCED_CLINICAL_VALIDATION_GUIDE.md",
+      "original_sha256": "55235fcf7d1b18c15a1086a88ef83c99f277cbf7883a38bc8bb550b2c31a26ed",
+      "english_path": "docs/en/atlas/docs/guides/ADVANCED_CLINICAL_VALIDATION_GUIDE.md",
+      "english_sha256": "e53a68f0754c263e6f92e1da9c1fcc5c68e4b2fbabf543d51ad11d842b3cabae",
+      "protected_spans": 234,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/guides/ADVANCED_OPTIMIZATION_AND_AUTOMATION_GUIDE.md",
+      "original_sha256": "df7204e2747d7661de85c4827fec2b83545460089c3e736383eb90c7637ce81a",
+      "english_path": "docs/en/atlas/docs/guides/ADVANCED_OPTIMIZATION_AND_AUTOMATION_GUIDE.md",
+      "english_sha256": "c5a391ed4de89c6b43e815a5b5435fd9810b057a984bd329a18201b6f930a70e",
+      "protected_spans": 44,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/guides/AXIOM_SERVICES_USAGE_GUIDE.md",
+      "original_sha256": "d3e8ffd43105d611b6757392398354e647c136d27b241cabfa1080555c6654ac",
+      "english_path": "docs/en/atlas/docs/guides/AXIOM_SERVICES_USAGE_GUIDE.md",
+      "english_sha256": "31d4ba938583286de6070f3e135817e4321e42e8f92bdf51b599571f456461f6",
+      "protected_spans": 72,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/guides/EXAMPLES_PRACTICAL.md",
+      "original_sha256": "8dbcc01bdebd79693db20208738d1de270edb3707c17a682d57df4e3dd315995",
+      "english_path": "docs/en/atlas/docs/guides/EXAMPLES_PRACTICAL.md",
+      "english_sha256": "d51e04204868af3af1ad9f31c9f618776610df15ad27de3aefb1a83a2acfb824",
+      "protected_spans": 41,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/guides/GPU_DISTRIBUTED_COMPUTING_GUIDE.md",
+      "original_sha256": "abc5f224192d7f36016b53a7b787339cedcae57b4bc64404c711abdb369e30af",
+      "english_path": "docs/en/atlas/docs/guides/GPU_DISTRIBUTED_COMPUTING_GUIDE.md",
+      "english_sha256": "df5ea9dac072f81230073de037bfa727c1c4655c7a5461c729a8490dbe7d0fb8",
+      "protected_spans": 40,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/guides/INDUSTRIAL_INTEGRATION_GUIDE.md",
+      "original_sha256": "302d8545658faa56160a1b3e6bbf8fa560db9f549c139c77913075064f9b30ce",
+      "english_path": "docs/en/atlas/docs/guides/INDUSTRIAL_INTEGRATION_GUIDE.md",
+      "english_sha256": "c57c53d6388f99098c87b2432b26fd0dfef36e77e7f4ac5e2ca2ce44857e5387",
+      "protected_spans": 16,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/guides/MONITORING_OBSERVABILITY_GUIDE.md",
+      "original_sha256": "d3d48716a161b0cd40870ce88eaec9e0a755e94f3b4ff8ff84885f5eec550f32",
+      "english_path": "docs/en/atlas/docs/guides/MONITORING_OBSERVABILITY_GUIDE.md",
+      "english_sha256": "7a27180cc530cdb26ebbafe496955d9a6816d8142000c4645d35f53588dfb5d4",
+      "protected_spans": 46,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/guides/MULTI_MODEL_INTEGRATION_GUIDE.md",
+      "original_sha256": "e854610a9392b5f0e4f75c464eeb255f647d292f724e3d1f812c80f4384315b6",
+      "english_path": "docs/en/atlas/docs/guides/MULTI_MODEL_INTEGRATION_GUIDE.md",
+      "english_sha256": "977fe1924d32bc6c60b738e5ea08acc42208f19b1a176aa67de65d861b743e0f",
+      "protected_spans": 72,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/guides/PROMPT_POLICY_README.md",
+      "original_sha256": "70c9ab396dcfeebf6af0779bdf46cb83f61975946d9bc962876e187478d0860d",
+      "english_path": "docs/en/atlas/docs/guides/PROMPT_POLICY_README.md",
+      "english_sha256": "83c371e35d0ad90704ec17c4513788cb87124d6fc5968be86ba699eb932be14f",
+      "protected_spans": 25,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/guides/SCIENTIFIC_EVALUATION_SPEC.md",
+      "original_sha256": "c416cbef6c6cefafec1e29fe273fe3cb7083e4323d372a94118580bb8d8e2d00",
+      "english_path": "docs/en/atlas/docs/guides/SCIENTIFIC_EVALUATION_SPEC.md",
+      "english_sha256": "a26d07e2976700232a288f2dd98e9a3381cd9cdb6e1619db8c0f9bf599d94dff",
+      "protected_spans": 26,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/router_registry.md",
+      "original_sha256": "b5cc2a45800f7cfd029755cab756e8c4178207de8ca91122766f00ff6d4d7676",
+      "english_path": "docs/en/atlas/docs/router_registry.md",
+      "english_sha256": "8de958e9cd0e02872d45275d6a2dafd0d8a0c1a3911f43ed35e6896774d212b5",
+      "protected_spans": 29,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/ADDITIVE_MANUFACTURING_SERVICE_DOCS.md",
+      "original_sha256": "265f13bfed374358aba31cb41d334685680f062504be56ba041d774fc0fa3845",
+      "english_path": "docs/en/atlas/docs/services/ADDITIVE_MANUFACTURING_SERVICE_DOCS.md",
+      "english_sha256": "c5524ab846ce34dff711a4b9d2aa30c72bedbbd05c49861199d55d50c3ecbcdd",
+      "protected_spans": 65,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/ADVANCED_CLINICAL_VALIDATION_SERVICE_DOCS.md",
+      "original_sha256": "fc2d79e17a17d359688f3963ead4e513364381f5a3dbf4d09de4dfc8552e811e",
+      "english_path": "docs/en/atlas/docs/services/ADVANCED_CLINICAL_VALIDATION_SERVICE_DOCS.md",
+      "english_sha256": "895a0b5fc6b636647f2789db415aa68e15bf947e9b2b185e1023abbaa9032edc",
+      "protected_spans": 63,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/ADVANCED_EARTH_SCIENCES_SERVICE_DOCS.md",
+      "original_sha256": "51ccd1a55640e5be57f4b801bfdde7cad50fde822022470527df07eeb0cc4302",
+      "english_path": "docs/en/atlas/docs/services/ADVANCED_EARTH_SCIENCES_SERVICE_DOCS.md",
+      "english_sha256": "22ce86c87e63456bd24d20d873b2ac998f7daf371ad85d0c3d0916173e55aa98",
+      "protected_spans": 10,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/ADVANCED_KNOWLEDGE_GRAPH_SERVICE_DOCS.md",
+      "original_sha256": "02f2420ad42d3bdaa9b6d18b7a8f7b1281b6eb6041b1609caebab12f353b2369",
+      "english_path": "docs/en/atlas/docs/services/ADVANCED_KNOWLEDGE_GRAPH_SERVICE_DOCS.md",
+      "english_sha256": "1b4c0570ee5fda18d0322c00ca9eb380180391370e534c389078c8d7dbe0b937",
+      "protected_spans": 14,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/CAUSAL_DISCOVERY_SERVICE_DOCS.md",
+      "original_sha256": "fbcf4f41a1105f0ec40e0384c6bfa8d94cefa4c5a8f758430d876f23465fa29c",
+      "english_path": "docs/en/atlas/docs/services/CAUSAL_DISCOVERY_SERVICE_DOCS.md",
+      "english_sha256": "bb4b29d47154f9681cba7ea9364446b336d8b2df9afdb11984064b4eb6bacbf3",
+      "protected_spans": 17,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/DEVELOPER_GUIDE_NEW_FEATURES.md",
+      "original_sha256": "c619e47ab974205b5323953fa6d73a4e773e7cae041a6ae284727c34e99efb87",
+      "english_path": "docs/en/atlas/docs/services/DEVELOPER_GUIDE_NEW_FEATURES.md",
+      "english_sha256": "3b6137425f8f005fe86c3ebc0684ff1a98fb394ef9c36a2b733e6f7f0d5f9aa4",
+      "protected_spans": 70,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/DIGITAL_TWINS_SERVICE_DOCS.md",
+      "original_sha256": "0ecc05f7079dce5e0c313805eaca3bbe3ebf0eb7d5c8faa727c98d94978141ae",
+      "english_path": "docs/en/atlas/docs/services/DIGITAL_TWINS_SERVICE_DOCS.md",
+      "english_sha256": "45c1deffdbaa392a5b80dd36b819293d219793df5521b7b5decac67840fe3b2b",
+      "protected_spans": 18,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/DNABERT2_SERVICE_DOCS.md",
+      "original_sha256": "d9874736dbed77a29326338b3ad9f2e947d4195b32775b151f5ee64eb03acc06",
+      "english_path": "docs/en/atlas/docs/services/DNABERT2_SERVICE_DOCS.md",
+      "english_sha256": "92c843a73cc2da03454339de07f85f26fc4c2df5c113b7ae09a84df078745aff",
+      "protected_spans": 26,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/FEDERATED_LEARNING_SERVICE_DOCS.md",
+      "original_sha256": "76a225de7e32e7f7f267e31bdc330c57b58817c7e0803306e65d7b0dc410d90b",
+      "english_path": "docs/en/atlas/docs/services/FEDERATED_LEARNING_SERVICE_DOCS.md",
+      "english_sha256": "3aa7e853aba93c78bdef124e4580b4ac8bd242d97d1311f41e30447437d1ddd3",
+      "protected_spans": 14,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/GNOME_MATERIALS_SERVICE_DOCS.md",
+      "original_sha256": "f34164145b93e2b2ee3355777da4a015ec10578863ff4c93d7c0819ce6464dd6",
+      "english_path": "docs/en/atlas/docs/services/GNOME_MATERIALS_SERVICE_DOCS.md",
+      "english_sha256": "345523941cf88dadd601c3bfaaeabcf4aa77b76a8fd55e4dcb78b81f3f854ef0",
+      "protected_spans": 17,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/LAB_AUTOMATION_SERVICE_DOCS.md",
+      "original_sha256": "fb8a626cc186121783d5a29cd84020a83bc5db8c9f7815cbe31b31b0394bf47b",
+      "english_path": "docs/en/atlas/docs/services/LAB_AUTOMATION_SERVICE_DOCS.md",
+      "english_sha256": "1f09c316fab30cb3013029cdd881edadae887e4c4e7b72b3c52556c4a7df1718",
+      "protected_spans": 16,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/LITERATURE_SERVICE_DOCS.md",
+      "original_sha256": "d0d8ba7dc9a1f28752b57e898893343be2255068501533905b73df43deae50ab",
+      "english_path": "docs/en/atlas/docs/services/LITERATURE_SERVICE_DOCS.md",
+      "english_sha256": "50622f78ecd44c16ad07aa2493a16ffbae8bb8d4db15db1c5472c82111181ebf",
+      "protected_spans": 37,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/MEDICAL_IMAGING_SERVICE_COMPLETE_GUIDE.md",
+      "original_sha256": "29e2f33e57d73a43ca49e0553f578acc0a5742d513d4a7e6e664662682e6357b",
+      "english_path": "docs/en/atlas/docs/services/MEDICAL_IMAGING_SERVICE_COMPLETE_GUIDE.md",
+      "english_sha256": "03d241ca63f77fb6938f58044a1d8d242003aa0285796ae147ef731779a0341d",
+      "protected_spans": 102,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/MOLECULAR_DYNAMICS_SERVICE_DOCS.md",
+      "original_sha256": "cf261c65668dd013d1854e6b1f3dc99d39148b7ba8ac2b2b4d68617a9c332d33",
+      "english_path": "docs/en/atlas/docs/services/MOLECULAR_DYNAMICS_SERVICE_DOCS.md",
+      "english_sha256": "810b09ee5508850e094662332e3d1f3db27c3ae1842866a24beb48075bbff375",
+      "protected_spans": 86,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/MULTIMODAL_REASONING_SERVICE_DOCS.md",
+      "original_sha256": "95a1cbee0a64dd4b288cbbb40d7bd54f93a0606874b05dd8028d0ad47bb1c963",
+      "english_path": "docs/en/atlas/docs/services/MULTIMODAL_REASONING_SERVICE_DOCS.md",
+      "english_sha256": "b2aec458261bc48a644f37514e2ddbd69b492f1f180e69e0b40d5c572c18f2d4",
+      "protected_spans": 16,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/MULTISCALE_MODELS_SERVICE_DOCS.md",
+      "original_sha256": "b35f29f8aee7b9f1787bf82b931a2e16a3065fc5d79d974b934a46ae6aa7907e",
+      "english_path": "docs/en/atlas/docs/services/MULTISCALE_MODELS_SERVICE_DOCS.md",
+      "english_sha256": "aa1858ef054190b35f5379012ebe0329f7cc24d3759dddab5cad5d379206d861",
+      "protected_spans": 58,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/PLASMA_PHYSICS_SERVICE_DOCS.md",
+      "original_sha256": "f5866e6c5b44a3e322238ec3582fd3e8fee823e390e5ada201a9bc8ff9b3d8ce",
+      "english_path": "docs/en/atlas/docs/services/PLASMA_PHYSICS_SERVICE_DOCS.md",
+      "english_sha256": "3602f271845f5b977c60948cc477cabce1020aceccf8c44e826ffcfea335df5c",
+      "protected_spans": 72,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/QUANTUM_ALGORITHMS_SERVICE_DOCS.md",
+      "original_sha256": "21cf2c14ee45e30189b216fa73ccebc3bc08114f7d16377631d5ceb1c0364bb1",
+      "english_path": "docs/en/atlas/docs/services/QUANTUM_ALGORITHMS_SERVICE_DOCS.md",
+      "english_sha256": "ad74c8bf97a14abcabe012f54077db8041be060bb51c768bf956b00a3979714f",
+      "protected_spans": 16,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/REPRODUCIBILITY_SERVICE_DOCS.md",
+      "original_sha256": "f3c8083df6531479c0f0847786c177131ee844b7cc69e6cee434ca4a309b70d6",
+      "english_path": "docs/en/atlas/docs/services/REPRODUCIBILITY_SERVICE_DOCS.md",
+      "english_sha256": "b232de40d392b9aa48da50f16eb65b10e793598f68029e253592ecc67809b653",
+      "protected_spans": 24,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/SOLID_STATE_PHYSICS_SERVICE_DOCS.md",
+      "original_sha256": "ab248552e491d42d4e2f1bc665f97cdbafca11e553be62a833bfa751cb06e47e",
+      "english_path": "docs/en/atlas/docs/services/SOLID_STATE_PHYSICS_SERVICE_DOCS.md",
+      "english_sha256": "105047a25dde27444d5e9c26368e977153cb0b9081866ee9ed6781124d3f9eb1",
+      "protected_spans": 116,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/STRAIN_ANALYSIS_SERVICE_DOCS.md",
+      "original_sha256": "3473ca93193c1f9ce10e7ceb0a3c4f45010c16affa44cb3c90f75d6d5985cb9e",
+      "english_path": "docs/en/atlas/docs/services/STRAIN_ANALYSIS_SERVICE_DOCS.md",
+      "english_sha256": "1764d7b7503b78d75cfb325048e9bc0db4fdee91d4a15b3a82702660447c83a5",
+      "protected_spans": 99,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/services/SYNTHETIC_DATA_SERVICE_DOCS.md",
+      "original_sha256": "198590526c64dae36108c60cb446dce04f640a869cd1e4b7660f29c6f841f715",
+      "english_path": "docs/en/atlas/docs/services/SYNTHETIC_DATA_SERVICE_DOCS.md",
+      "english_sha256": "aa32474054ebe87d15881f977da46a9a25f8f68b02d12de85d9f04ac1596037c",
+      "protected_spans": 20,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/system/AXIOM_AUTONOMOUS_LAB_SYSTEM.md",
+      "original_sha256": "0a82648e45a1a058d1aef436bbb71de6683c092bd6f06e4de034e7eaebb482c7",
+      "english_path": "docs/en/atlas/docs/system/AXIOM_AUTONOMOUS_LAB_SYSTEM.md",
+      "english_sha256": "fd37011b2b7592417717edb5a5f9f4027d8d3829ba1bf996d46ef20f796c9a0d",
+      "protected_spans": 33,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/system/BIO_CHEM_ETHICS_AND_SAFETY.md",
+      "original_sha256": "0f5bbd83f126a95b09fee9535f30bd49c859053358dacfbd64f0d5d8a8816443",
+      "english_path": "docs/en/atlas/docs/system/BIO_CHEM_ETHICS_AND_SAFETY.md",
+      "english_sha256": "623fa90e6b81422cf9a8c9a7ba38800e88174aa99e2a20335072fa655c2597a3",
+      "protected_spans": 56,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/system/DISTRIBUTED_SCALING_MANAGER_GUIDE.md",
+      "original_sha256": "2f6bffd417a2d353deac17fe174850c2f429c4c76a1ea922ba7ed198080c363e",
+      "english_path": "docs/en/atlas/docs/system/DISTRIBUTED_SCALING_MANAGER_GUIDE.md",
+      "english_sha256": "e265d9dd2d010de62c7f1d74bb72b61afc9896610aa1f3a59627ef85f0736354",
+      "protected_spans": 158,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/system/ETHICS_AND_SAFETY.md",
+      "original_sha256": "83f84709a3376b6b6ddcad001c83bf11dcc958a2b40f273ef17b00383993467f",
+      "english_path": "docs/en/atlas/docs/system/ETHICS_AND_SAFETY.md",
+      "english_sha256": "88312f90a9eea9b85c3fd254ff1649c406916b3cc97ce43316ede159866877ee",
+      "protected_spans": 52,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/system/IMPROVEMENT_FEEDBACK_HOOKS.md",
+      "original_sha256": "e02bef27e990ac57de0818263634e38d27fdf479a4e357b7f1739d6f5b0d323a",
+      "english_path": "docs/en/atlas/docs/system/IMPROVEMENT_FEEDBACK_HOOKS.md",
+      "english_sha256": "10a6faa7ef894ed2ffdbccaadeb87ba9eadc6d8877cf162f5ac90e4208b4b62d",
+      "protected_spans": 29,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/system/OBSERVABILITY_METRICS.md",
+      "original_sha256": "aad1fc887463c6f2745654e098fbbcd663dde8a6c4570c817865bcd97c8ddbc0",
+      "english_path": "docs/en/atlas/docs/system/OBSERVABILITY_METRICS.md",
+      "english_sha256": "84d763dcebce9e223fa5adc5a91ae7cb982fe5225d5ceb769b3f242efa9cebd2",
+      "protected_spans": 131,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/system/POLICY_ENGINE_UNIFIED_DESIGN.md",
+      "original_sha256": "38b979bedcc259be5af52b9874d23b0d89c3ee3e78fc623c6a616d8896bc2829",
+      "english_path": "docs/en/atlas/docs/system/POLICY_ENGINE_UNIFIED_DESIGN.md",
+      "english_sha256": "b25449200289ff3cb7311123b6e9b1def9631dad2032cf0d4a95b108e2932c71",
+      "protected_spans": 56,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/system/PROMPT_REGISTRY_DESIGN.md",
+      "original_sha256": "60b28bd299d3e5cc4d022218519e85e7fbc235f99cc905e4a46980fc88f3b7de",
+      "english_path": "docs/en/atlas/docs/system/PROMPT_REGISTRY_DESIGN.md",
+      "english_sha256": "dc96ffe9abcf84411220f096ae1245b9f5ef52b34d8ececf6639f64169810ff9",
+      "protected_spans": 44,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/tools/AUTONOMOUS_PIPELINES.md",
+      "original_sha256": "4ee3025e45f8869536c84b6fa8e331b207695a0dbd43746be80564b4dff1460f",
+      "english_path": "docs/en/atlas/docs/tools/AUTONOMOUS_PIPELINES.md",
+      "english_sha256": "090d39334483085f133f7458d74b886991f3f7f8d32eaecd80d265521bf69cdf",
+      "protected_spans": 14,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/tools/INDEX.md",
+      "original_sha256": "29746a4b9c6252cc91975cb2bf477c74d285563e457a450a1d25a9c6cdeb6ced",
+      "english_path": "docs/en/atlas/docs/tools/INDEX.md",
+      "english_sha256": "d6e264c7b927d3c55f87614b99cc31a92eee7cda563394a8fba5404d2b6a11ac",
+      "protected_spans": 7,
+      "privacy_substitutions": {}
+    },
+    {
+      "original_path": "atlas/docs/tools/TOOL_ADAPTERS.md",
+      "original_sha256": "79aa28dfff7e8d8d9c2b0f061a295e6de2aaeec04b74a9a6c8cd19c590dc1242",
+      "english_path": "docs/en/atlas/docs/tools/TOOL_ADAPTERS.md",
+      "english_sha256": "aca67f59eb5379b8bf60ecfeaf9b1888b9d6363dbb62ec5da3f19c710e7257da",
+      "protected_spans": 20,
+      "privacy_substitutions": {}
+    }
+  ]
+}

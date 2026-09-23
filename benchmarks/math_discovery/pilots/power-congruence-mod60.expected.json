@@ -1,0 +1,5 @@
+{
+  "counterexample": 2,
+  "expected_verdict": "refuted",
+  "reason": "2^5 - 2 = 30 is not divisible by 60"
+}

@@ -118,7 +118,8 @@ class QuantumPhysicsService(BaseService):
             t = np.linspace(0, t_max, n_points)
 
             # Solve Schrödinger equation
-            result = sesolve(H, psi0, t, [])
+            solver_options = {"method": "adams", "atol": 1e-12, "rtol": 1e-10}
+            result = sesolve(H, psi0, t, e_ops=[], options=solver_options)
 
             # Calculate expectation values
             sx_exp = qt.expect(sigmax(), result.states)
@@ -127,6 +128,14 @@ class QuantumPhysicsService(BaseService):
 
             return {
                 "simulation_type": "spin_evolution",
+                "numerical_solver": {
+                    "library": "QuTiP",
+                    "version": qt.__version__,
+                    "requested_options": solver_options,
+                    "effective_options": dict(result.options),
+                    "statistics": dict(result.stats),
+                    "scope": "Finite numerical solution of H=B.sigma/2; tighter ODE tolerances do not constitute a global error bound."
+                },
                 "parameters": {
                     "magnetic_field": {"Bx": Bx, "By": By, "Bz": Bz},
                     "time_range": {"t_min": 0, "t_max": t_max, "n_points": n_points}
@@ -171,7 +180,7 @@ class QuantumPhysicsService(BaseService):
             t = np.linspace(0, t_max, n_points)
 
             # Solve Schrödinger equation
-            result = sesolve(H, psi0, t, [])
+            result = sesolve(H, psi0, t, e_ops=[])
 
             # Calculate position and momentum expectation values
             x = (a + a.dag()) / np.sqrt(2)
@@ -225,6 +234,12 @@ class QuantumPhysicsService(BaseService):
             gamma = parameters.get("gamma", 0.1)
             t_max = parameters.get("t_max", 25.0)
             n_points = parameters.get("n_points", 250)
+            if (isinstance(omega, bool) or not isinstance(omega, (int, float))
+                    or not np.isfinite(omega) or omega <= 0):
+                return {"error": "omega must be finite and positive for H=+omega*sigma_z/2."}
+            if (isinstance(gamma, bool) or not isinstance(gamma, (int, float))
+                    or not np.isfinite(gamma) or gamma < 0):
+                return {"error": "gamma must be finite and nonnegative."}
 
             # Two-level system operators
             sz = sigmaz()
@@ -244,12 +259,13 @@ class QuantumPhysicsService(BaseService):
             t = np.linspace(0, t_max, n_points)
 
             # Solve master equation
-            result = mesolve(H, psi0, t, c_ops, [])
+            result = mesolve(H, psi0, t, c_ops=c_ops, e_ops=[])
 
             # Calculate expectation values
             sz_exp = qt.expect(sz, result.states)
-            population_ground = qt.expect(qt.ket2dm(basis(2, 0)), result.states)
-            population_excited = qt.expect(qt.ket2dm(basis(2, 1)), result.states)
+            # For omega>0, H assigns +omega/2 to |0> and -omega/2 to |1>.
+            population_excited = qt.expect(qt.ket2dm(basis(2, 0)), result.states)
+            population_ground = qt.expect(qt.ket2dm(basis(2, 1)), result.states)
 
             return {
                 "simulation_type": "two_level_system",
@@ -257,6 +273,16 @@ class QuantumPhysicsService(BaseService):
                     "omega": omega,
                     "gamma": gamma,
                     "time_range": {"t_min": 0, "t_max": t_max, "n_points": n_points}
+                },
+                "model_convention": {
+                    "hamiltonian": "H = +omega*sigma_z/2",
+                    "hbar": 1,
+                    "initial_state": "|0> (excited, energy +omega/2)",
+                    "ground_state": "|1> (energy -omega/2)",
+                    "collapse_operator": "sqrt(gamma)*|1><0|",
+                    "time_units": "model time unit",
+                    "omega_and_gamma_units": "inverse model time unit",
+                    "scope": "Ideal two-level amplitude-damping model; finite numerical trajectory, not empirical validation."
                 },
                 "results": {
                     "time": t.tolist(),
@@ -357,7 +383,7 @@ class QuantumPhysicsService(BaseService):
             t = np.linspace(0, t_max, n_points)
 
             # Solve master equation
-            result = mesolve(H, psi0, t, c_ops, [])
+            result = mesolve(H, psi0, t, c_ops=c_ops, e_ops=[])
 
             # Calculate expectation values
             n_cavity = qt.expect(qt.tensor(a.dag() * a, qt.qeye(2)), result.states)

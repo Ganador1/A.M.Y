@@ -5,8 +5,8 @@ API endpoints for advanced algebra operations.
 
 from fastapi import APIRouter, HTTPException
 from typing import List, Dict, Any
-from app.models.advanced_models import (
 from app.exceptions.domain.mathematics import MathematicsError
+from app.models.advanced_models import (
     MatrixRequest, MatrixResult, MatrixResponse,
     ComplexNumberRequest, ComplexNumberResult, ComplexNumberResponse,
     PolynomialRequest, PolynomialResult, PolynomialResponse,

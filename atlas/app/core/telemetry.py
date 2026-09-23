@@ -33,18 +33,18 @@ class AxiomTelemetry:
     """Configuración centralizada de telemetría para AXIOM ATLAS"""
 
     def __init__(self):
-        self.service_name = settings.SERVICE_NAME, "axiom-atlas")
-        self.service_version = settings.SERVICE_VERSION, "1.0.0")
-        self.environment = settings.SENTRY_ENVIRONMENT, "development")
+        self.service_name = getattr(settings, "SERVICE_NAME", "axiom-atlas")
+        self.service_version = getattr(settings, "SERVICE_VERSION", "1.0.0")
+        self.environment = getattr(settings, "SENTRY_ENVIRONMENT", "development")
 
         # Configuración de tracing
-        self.traces_sample_rate = float(settings.SENTRY_TRACES_SAMPLE_RATE, "1.0"))
-        self.profiles_sample_rate = float(settings.SENTRY_PROFILES_SAMPLE_RATE, "1.0"))
+        self.traces_sample_rate = float(getattr(settings, "SENTRY_TRACES_SAMPLE_RATE", "1.0"))
+        self.profiles_sample_rate = float(getattr(settings, "SENTRY_PROFILES_SAMPLE_RATE", "1.0"))
 
         # Configuración de exporters
-        self.jaeger_enabled = settings.JAEGER_ENABLED, "true").lower() == "true"
-        self.otlp_enabled = settings.OTLP_ENABLED, "false").lower() == "true"
-        self.console_enabled = settings.CONSOLE_EXPORTER, "false").lower() == "true"
+        self.jaeger_enabled = str(getattr(settings, "JAEGER_ENABLED", "true")).lower() == "true"
+        self.otlp_enabled = str(getattr(settings, "OTLP_ENABLED", "false")).lower() == "true"
+        self.console_enabled = str(getattr(settings, "CONSOLE_EXPORTER", "false")).lower() == "true"
 
     def setup_tracing(self) -> TracerProvider:
         """Configurar tracing con múltiples exporters"""
@@ -52,7 +52,7 @@ class AxiomTelemetry:
             SERVICE_NAME: self.service_name,
             SERVICE_VERSION: self.service_version,
             "environment": self.environment,
-            "service.instance.id": settings.HOSTNAME, "localhost"),
+            "service.instance.id": getattr(settings, "HOSTNAME", "localhost"),
         })
 
         tracer_provider = TracerProvider(resource=resource)
@@ -62,8 +62,8 @@ class AxiomTelemetry:
 
         # Jaeger Exporter (principal para desarrollo)
         if self.jaeger_enabled:
-            jaeger_host = settings.JAEGER_HOST, "localhost")
-            jaeger_port = int(settings.JAEGER_PORT, "14268"))
+            jaeger_host = getattr(settings, "JAEGER_HOST", "localhost")
+            jaeger_port = int(getattr(settings, "JAEGER_PORT", "14268"))
             jaeger_exporter = JaegerExporter(
                 agent_host_name=jaeger_host,
                 agent_port=jaeger_port,
@@ -73,7 +73,7 @@ class AxiomTelemetry:
 
         # OTLP Exporter (para producción)
         if self.otlp_enabled:
-            otlp_endpoint = settings.OTLP_ENDPOINT, "http://localhost:4317")
+            otlp_endpoint = getattr(settings, "OTLP_ENDPOINT", "http://localhost:4317")
             otlp_exporter = OTLPSpanExporter(
                 endpoint=otlp_endpoint,
                 headers={"service.name": self.service_name}
@@ -106,7 +106,7 @@ class AxiomTelemetry:
         metric_readers = []
 
         if self.otlp_enabled:
-            otlp_endpoint = settings.OTLP_ENDPOINT, "http://localhost:4317")
+            otlp_endpoint = getattr(settings, "OTLP_ENDPOINT", "http://localhost:4317")
             otlp_metric_exporter = OTLPMetricExporter(
                 endpoint=otlp_endpoint,
                 headers={"service.name": self.service_name}

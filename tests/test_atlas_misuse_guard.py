@@ -3,12 +3,14 @@
 
 from __future__ import annotations
 
+import os
 import subprocess
+import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-ATLAS_PYTHON = ROOT / "atlas" / ".venv_new" / "bin" / "python3"
+ATLAS_PYTHON = Path(os.environ.get("AMY_ATLAS_PYTHON", sys.executable)).expanduser()
 
 
 def _run_atlas_code(code: str) -> str:
@@ -17,6 +19,7 @@ def _run_atlas_code(code: str) -> str:
         cwd=str(ROOT / "atlas"),
         text=True,
         capture_output=True,
+        env={**os.environ, "AMY_ATLAS_PYTHON": str(ATLAS_PYTHON)},
         timeout=90,
     )
     combined = proc.stdout + proc.stderr
@@ -147,10 +150,11 @@ async def main():
 asyncio.run(main())
 """
     proc = subprocess.run(
-        [str(ROOT / ".venv" / "bin" / "python"), "-c", code],
+        [sys.executable, "-c", code],
         cwd=str(ROOT),
         text=True,
         capture_output=True,
+        env={**os.environ, "AMY_ATLAS_PYTHON": str(ATLAS_PYTHON)},
         timeout=60,
     )
     combined = proc.stdout + proc.stderr
@@ -178,10 +182,11 @@ async def main():
 asyncio.run(main())
 """
     proc = subprocess.run(
-        [str(ROOT / ".venv" / "bin" / "python"), "-c", code],
+        [sys.executable, "-c", code],
         cwd=str(ROOT),
         text=True,
         capture_output=True,
+        env={**os.environ, "AMY_ATLAS_PYTHON": str(ATLAS_PYTHON)},
         timeout=60,
     )
     combined = proc.stdout + proc.stderr

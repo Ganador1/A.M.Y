@@ -65,8 +65,31 @@ class PlasmaParameters:
     plasma_potential: float      # V
     debye_length: float          # m
     larmor_radius: float         # m
-    plasma_frequency: float      # Hz
-    cyclotron_frequency: float   # Hz
+    plasma_frequency: float      # angular frequency, rad/s
+    cyclotron_frequency: float   # angular frequency, rad/s; see convention below
+    cyclotron_frequency_convention: str = "positive_e_times_field_magnitude_over_m_e"
+
+    def characteristic_scales(self) -> Dict[str, Any]:
+        """Serialize angular values and their explicit cycles-per-second forms.
+
+        Historical frequency fields remain angular: the solver uses omega in
+        v_th/omega for the Larmor radius. A signed scalar B uses positive e*B/m_e;
+        this is not the signed electron-charge gyrofrequency convention.
+        """
+        return {
+            "debye_length": float(self.debye_length),
+            "larmor_radius": float(self.larmor_radius),
+            "plasma_frequency": float(self.plasma_frequency),
+            "cyclotron_frequency": float(self.cyclotron_frequency),
+            "plasma_frequency_hz": float(self.plasma_frequency / (2 * np.pi)),
+            "cyclotron_frequency_hz": float(self.cyclotron_frequency / (2 * np.pi)),
+            "units": {
+                "debye_length": "m", "larmor_radius": "m",
+                "plasma_frequency": "rad/s", "cyclotron_frequency": "rad/s",
+                "plasma_frequency_hz": "Hz", "cyclotron_frequency_hz": "Hz",
+            },
+            "cyclotron_frequency_convention": self.cyclotron_frequency_convention,
+        }
 
 
 @dataclass
@@ -449,12 +472,7 @@ class PlasmaPhysicsService(BaseService):
                 density = request_data.get("density", 1e20)
                 b_field = request_data.get("magnetic_field", 1.0)
                 params = self.calculate_plasma_parameters(temp, density, b_field)
-                return {
-                    "debye_length": params.debye_length,
-                    "plasma_frequency": params.plasma_frequency,
-                    "larmor_radius": params.larmor_radius,
-                    "cyclotron_frequency": params.cyclotron_frequency
-                }
+                return params.characteristic_scales()
                 
             else:
                 return {"error": f"Unknown operation: {operation}"}
@@ -487,6 +505,29 @@ class PlasmaPhysicsService(BaseService):
 
     def calculate_plasma_parameters(self, temperature: float, density: float,
                                   magnetic_field: float) -> PlasmaParameters:
+        # Classical thermal scales require finite positive T and density.
+        # B is a signed field component; its magnitude sets the radius.
+        normalized = []
+        for name, value in (("temperature", temperature), ("density", density),
+                            ("magnetic_field", magnetic_field)):
+            if isinstance(value, (bool, np.bool_)) or not isinstance(value, (int, float, np.integer, np.floating)):
+                raise ValueError(f"{name} must be a finite real number")
+            # JSON integers can exceed NumPy's native integer range even for
+            # ordinary plasma densities. Normalize to the floating arithmetic
+            # already used below before asking NumPy to test finiteness.
+            try:
+                numeric = float(value)
+            except (OverflowError, ValueError):
+                raise ValueError(f"{name} must be a finite real number") from None
+            if not np.isfinite(numeric):
+                raise ValueError(f"{name} must be a finite real number")
+            normalized.append(numeric)
+        temperature, density, magnetic_field = normalized
+        if temperature <= 0 or density <= 0:
+            raise ValueError("temperature and density must be positive")
+        if magnetic_field == 0:
+            raise ValueError("nonzero magnetic field required for a finite Larmor radius")
+
         # Constantes físicas
         k_b = 1.381e-23
         e = 1.602e-19
@@ -497,7 +538,7 @@ class PlasmaPhysicsService(BaseService):
         debye_length = np.sqrt(epsilon_0 * k_b * temperature / (density * e**2))
         plasma_frequency = np.sqrt(density * e**2 / (epsilon_0 * m_e))
         cyclotron_frequency = e * magnetic_field / m_e
-        larmor_radius = np.sqrt(k_b * temperature * m_e) / (e * magnetic_field)
+        larmor_radius = np.sqrt(k_b * temperature * m_e) / (e * abs(magnetic_field))
 
         return PlasmaParameters(
             temperature_electron=temperature,
@@ -510,7 +551,8 @@ class PlasmaPhysicsService(BaseService):
             debye_length=debye_length,
             larmor_radius=larmor_radius,
             plasma_frequency=plasma_frequency,
-            cyclotron_frequency=cyclotron_frequency
+            cyclotron_frequency=cyclotron_frequency,
+            cyclotron_frequency_convention="positive_e_times_signed_B_over_m_e",
         )
 
     def calculate_transport_coefficients(self, temperature: float, density: float,
@@ -623,10 +665,7 @@ class PlasmaPhysicsService(BaseService):
                         "magnetic_field": solution.plasma_parameters.magnetic_field.tolist(),
                         "electric_field": solution.plasma_parameters.electric_field.tolist(),
                         "plasma_potential": solution.plasma_parameters.plasma_potential,
-                        "debye_length": solution.plasma_parameters.debye_length,
-                        "larmor_radius": solution.plasma_parameters.larmor_radius,
-                        "plasma_frequency": solution.plasma_parameters.plasma_frequency,
-                        "cyclotron_frequency": solution.plasma_parameters.cyclotron_frequency
+                        **solution.plasma_parameters.characteristic_scales(),
                     },
                     "energy_density": solution.energy_density,
                     "magnetic_energy": solution.magnetic_energy,

@@ -33,6 +33,12 @@ from app.services.llm_providers.ollama_provider import ollama_provider
 import sympy
 import numpy as np
 
+from app.ssh_disorder_benchmark import (
+    BenchmarkConfig as SSHDisorderBenchmarkConfig,
+    format_benchmark_report as format_ssh_disorder_benchmark_report,
+    run_benchmark as run_ssh_disorder_benchmark,
+)
+
 # MATH DOMAIN SERVICES (Lazy loaded to avoid circular deps if possible, but safe here)
 try:
     from app.domains.mathematics.services.calculus_service import CalculusService, CalculusRequest
@@ -425,6 +431,43 @@ class DynamicToolRegistry:
             input_format="atom_count_series_with_localization_options",
             output_format="ssh_edge_localization_map"
         ))
+
+        self.register_tool(ToolDescriptor(
+            name="ssh_disorder_diagnostic_benchmark",
+            domain="chemistry",
+            description=(
+                "Benchmark gap-only versus joint gap/edge-weight/IPR diagnostics "
+                "on paired finite SSH chains with off-diagonal and diagonal disorder. "
+                "Input: '20,40;deltas=0.1;strengths=0,0.2;"
+                "disorders=off_diagonal,diagonal;orientations=trivial,topological;"
+                "realizations=8;namespace=study;protocol_sha256=<64 hex>'"
+            ),
+            function=self._ssh_disorder_diagnostic_benchmark,
+            input_format="ssh_disorder_benchmark_protocol",
+            output_format="ssh_disorder_diagnostic_benchmark"
+        ))
+
+        self.register_tool(ToolDescriptor(
+            name="ssh_gap_certificate",
+            domain="chemistry",
+            description=(
+                "Certify exact squared half-filling gap bounds for a finite open even SSH chain "
+                "with positive rational hoppings and zero onsite energies. JSON input: "
+                "'{\"hoppings\":[\"1/2\",\"3/2\",\"1/2\"],\"threshold\":\"1/10\",\"iterations\":4}'. "
+                "Require 3..511 odd-count hoppings (128-bit rational components); iterations 0..100. "
+                "Each hopping joins adjacent sites: site_count = len(hoppings) + 1. "
+                "For example, 3 hoppings describe 4 sites; 11 hoppings describe 12 sites. "
+                "Optional strategy 'auto' selects the smallest exact relative interval that fits, "
+                "using float, Green-kernel columns (Chen 2010) and adjacent-column balancing; "
+                "default strategy 'float' preserves the previous witness proposal. "
+                "Returns hex rational certificate and witness; threshold is on the gap, not its square. "
+                "Does not certify topology, diagonal disorder or novelty."
+            ),
+            function=self._ssh_gap_certificate,
+            input_format="ssh_positive_rational_hoppings_json",
+            output_format="ssh_exact_gap_certificate_json",
+            evidence_grade="exact_computation",
+        ))
         
         self.register_tool(ToolDescriptor(
             name="bond_energy_analyzer",
@@ -774,12 +817,27 @@ class DynamicToolRegistry:
 
             payload_raw = (input_data or "").strip()
             if not payload_raw:
-                return f"Error: service '{service_name}' requires JSON input (e.g., {{\"action\": \"status\"}})."
+                return f"Error: service '{service_name}' requires JSON input (e.g., {{\"operation\": \"service_info\"}})."
 
             try:
                 payload = json.loads(payload_raw)
             except Exception as e:
                 return f"Error: invalid JSON input for service '{service_name}': {e}"
+
+            if not isinstance(payload, dict):
+                return f"Error: service '{service_name}' requires a JSON object, got {type(payload).__name__}"
+
+            # Do not invent an extra field: closed service schemas may reject
+            # unknown keys. If both aliases are supplied, they must agree.
+            if (
+                "action" in payload
+                and "operation" in payload
+                and payload["action"] != payload["operation"]
+            ):
+                return (
+                    f"Error: conflicting 'action' and 'operation' values for "
+                    f"service '{service_name}'"
+                )
 
             if not hasattr(service, "process_request"):
                 return f"Error: Service '{service_name}' has no process_request(). Type: {type(service).__name__}"
@@ -787,7 +845,12 @@ class DynamicToolRegistry:
             res = service.process_request(payload)
             if asyncio.iscoroutine(res):
                 res = await res
-            return _compact_json(res, max_chars=6000)
+            # Keep scientific arrays intact. A display prefix is not a service
+            # result: truncating JSON discards evidence before the worker sees it.
+            serialized = json.dumps(res, ensure_ascii=False, allow_nan=False)
+            if len(serialized.encode("utf-8")) > 1024 * 1024:
+                return f"Error: service '{service_name}' response exceeds 1 MiB; reduce the requested output"
+            return serialized
         except Exception as e:
             return f"Error loading service {service_name}: {str(e)}"
     
@@ -913,19 +976,9 @@ class DynamicToolRegistry:
             data = parts[1].strip()
             
             if operation == "analyze_molecule" or operation == "molecular_descriptors":
-                # Parse molecular formula
-                formula = data.upper()
-                element_pattern = re.compile(r'([A-Z][a-z]?)(\d*)')
-                elements = {}
-                for match in element_pattern.finditer(formula):
-                    elem = match.group(1)
-                    count = int(match.group(2)) if match.group(2) else 1
-                    elements[elem] = count
-                
-                # Calculate properties
-                # Atomic weights
-                weights = {'H': 1.008, 'C': 12.011, 'N': 14.007, 'O': 15.999, 'S': 32.065, 'P': 30.974, 'CL': 35.453}
-                mw = sum(weights.get(e, 12) * c for e, c in elements.items())
+                # Preserve element case and consume the whole formula. Unknown
+                # elements must never silently receive carbon's atomic weight.
+                formula, elements, mw, _ = self._molecular_formula_data(data)
                 
                 # Estimate properties
                 n_atoms = sum(elements.values())
@@ -1079,11 +1132,13 @@ class DynamicToolRegistry:
                 if n_qubits == 2:
                     return f"Quantum Bell State Simulation:\n- Circuit: H(q0) → CNOT(q0, q1)\n- Initial state: |00⟩\n- Final state: (|00⟩ + |11⟩)/√2\n- Entanglement entropy: 1.0 bit\n- Measurement probabilities: {{|00⟩: 0.5, |11⟩: 0.5}}\n- Fidelity: 1.0"
                 else:
-                    return f"Bell state requires 2 qubits, got {n_qubits}"
+                    return f"Error: Bell state requires 2 qubits, got {n_qubits}"
                     
             elif circuit_type == "grover":
                 n_qubits = int(params)
-                # Grover's algorithm simulation
+                if n_qubits < 1:
+                    return "Error: Grover search requires a positive number of qubits"
+                # Analytic ideal single-marked-state formula.
                 optimal_iterations = int(math.pi / 4 * math.sqrt(2 ** n_qubits))
                 success_prob = math.sin((2 * optimal_iterations + 1) * math.asin(1 / math.sqrt(2 ** n_qubits))) ** 2
                 
@@ -1115,9 +1170,13 @@ class DynamicToolRegistry:
                     
             elif circuit_type == "qft":
                 n_qubits = int(params)
-                # QFT circuit
-                n_gates = n_qubits * (n_qubits + 1) // 2 + n_qubits  # Hadamards + controlled rotations
-                return f"Quantum Fourier Transform ({n_qubits} qubits):\n- Total gates: {n_gates}\n- Hadamard gates: {n_qubits}\n- Controlled phase gates: {n_qubits * (n_qubits - 1) // 2}\n- Circuit depth: O(n²)\n- Applications: Phase estimation, Shor's algorithm"
+                if n_qubits < 1:
+                    return "Error: QFT requires a positive number of qubits"
+                # Count abstract H, controlled-phase and final reversal SWAP gates.
+                # A SWAP is counted as one gate, not decomposed into CNOTs.
+                swaps = n_qubits // 2
+                n_gates = n_qubits * (n_qubits + 1) // 2 + swaps
+                return f"Quantum Fourier Transform ({n_qubits} qubits):\n- Total gates: {n_gates}\n- Hadamard gates: {n_qubits}\n- Controlled phase gates: {n_qubits * (n_qubits - 1) // 2}\n- Output-reversal SWAP gates: {swaps}\n- Convention: each controlled-phase or SWAP is one abstract gate; analytic count, no live circuit run\n- Circuit depth upper bound: O(n²)\n- Applications: Phase estimation, Shor's algorithm"
                 
             else:
                 return f"Unknown circuit '{circuit_type}'. Available: bell, grover, vqe, qft"
@@ -1304,12 +1363,16 @@ Method: Symbolic simplification
                 end = arg
             
             if operation == "goldbach":
-                # Verify Goldbach conjecture for even numbers in range
+                # Verify only the explicitly enumerated finite even range.
+                first_even = max(4, start if start % 2 == 0 else start + 1)
+                tested = range(first_even, end + 1, 2)
+                if not tested:
+                    return "Error: range contains no even integers at least 4"
                 verified_count = 0
                 failed = []
                 sample_pairs = []
                 
-                for n in range(max(4, start if start % 2 == 0 else start + 1), end + 1, 2):
+                for n in tested:
                     pairs_found = False
                     for p in range(2, n // 2 + 1):
                         if sympy.isprime(p) and sympy.isprime(n - p):
@@ -1322,7 +1385,7 @@ Method: Symbolic simplification
                     else:
                         failed.append(n)
                 
-                total_tested = (end - max(4, start)) // 2 + 1
+                total_tested = len(tested)
                 
                 return f"""Goldbach Conjecture Verification for n ∈ [{max(4, start)}, {end}]:
 Status: {'ALL VERIFIED ✓' if not failed else 'COUNTEREXAMPLES FOUND!'}
@@ -1883,13 +1946,15 @@ Recurrence check:
             elif operation == "generate":
                 seq_type = data.lower()
                 n = int(parts[2]) if len(parts) > 2 else 20
+                if len(parts) > 3 or n < 0:
+                    return "Error: sequence count must be a nonnegative integer with no extra fields"
                 
                 if seq_type == "fibonacci":
-                    seq = [1, 1]
+                    seq = [1, 1][:n]
                     for _ in range(n - 2):
                         seq.append(seq[-1] + seq[-2])
                 elif seq_type == "primes":
-                    seq = list(sympy.primerange(2, sympy.prime(n) + 1))[:n]
+                    seq = list(sympy.primerange(2, sympy.prime(n) + 1))[:n] if n else []
                 elif seq_type == "triangular":
                     seq = [i * (i + 1) // 2 for i in range(1, n + 1)]
                 elif seq_type == "catalan":
@@ -1972,8 +2037,10 @@ Result: {limit_val}
             elif operation == "taylor":
                 # Taylor series: expression:variable:point:order
                 var = sympy.Symbol(var_spec) if var_spec else x
-                point = sympy.sympify(extra.split(":")[0]) if extra else 0
-                order = int(extra.split(":")[1]) if ":" in extra else 5
+                point = sympy.sympify(extra) if extra else 0
+                order = int(parts[4].strip()) if len(parts) > 4 else 5
+                if len(parts) > 5 or order < 0:
+                    return "Error: Taylor degree must be a nonnegative integer with no extra fields"
                 
                 expr = sympy.sympify(expression)
                 series = sympy.series(expr, var, point, order + 1).removeO()
@@ -2184,6 +2251,13 @@ a₀ coefficient: {a0}
                     })
                     if not isinstance(res, dict):
                         return str(res)
+                    if not res.get("success", False):
+                        status = res.get("status", "failed")
+                        error = res.get("error", "unknown orchestrator failure")
+                        return (
+                            f"Error: ToolEvidenceOrchestrator corroboration failed "
+                            f"({_domain}); status={status}; {error}"
+                        )
 
                     # Compact summary for LLM consumption
                     agg = res.get("aggregate", {}) or {}
@@ -2332,9 +2406,11 @@ a₀ coefficient: {a0}
         value = ast.literal_eval(array_text.strip())
         if not isinstance(value, (list, tuple)):
             raise ValueError("expected a numeric list or tuple literal")
+        if not value or any(type(item) not in (int, float) for item in value):
+            raise ValueError("expected a nonempty one-dimensional list of real numbers, not bool/string")
         data = np.array(value, dtype=float)
-        if data.size == 0:
-            raise ValueError("numeric array cannot be empty")
+        if not np.all(np.isfinite(data)):
+            raise ValueError("numeric input must be finite")
         return data
     
     def _numpy_statistics(self, query: str) -> str:
@@ -2343,18 +2419,20 @@ a₀ coefficient: {a0}
             parts = query.split(":", 1)
             operation = parts[0].strip()
             data = self._parse_numeric_array_literal(parts[1])
-            
-            if operation == "mean":
-                return f"Mean: {np.mean(data):.6f}"
-            elif operation == "std":
-                return f"Standard Deviation: {np.std(data):.6f}"
-            elif operation == "var":
-                return f"Variance: {np.var(data):.6f}"
-            elif operation == "median":
-                return f"Median: {np.median(data):.6f}"
-            elif operation == "summary":
-                return f"Mean: {np.mean(data):.4f}, Std: {np.std(data):.4f}, Min: {np.min(data):.4f}, Max: {np.max(data):.4f}"
-            else:
+            with np.errstate(over="raise", invalid="raise", divide="raise"):
+                functions = {"mean": ("Mean", np.mean), "std": ("Standard Deviation", np.std),
+                             "var": ("Variance", np.var), "median": ("Median", np.median)}
+                if operation in functions:
+                    label, function = functions[operation]
+                    result = float(function(data))
+                    if not math.isfinite(result):
+                        raise ValueError("statistic is non-finite")
+                    return f"{label}: {result:.6f}"
+                if operation == "summary":
+                    values = [float(function(data)) for function in (np.mean, np.std, np.min, np.max)]
+                    if not all(math.isfinite(value) for value in values):
+                        raise ValueError("summary contains a non-finite statistic")
+                    return "Mean: {:.4f}, Std: {:.4f}, Min: {:.4f}, Max: {:.4f}".format(*values)
                 return f"Unknown operation: {operation}"
         except Exception as e:
             return f"Error: {str(e)}"
@@ -2403,6 +2481,8 @@ a₀ coefficient: {a0}
             # Try different input formats
             if ";" in query:
                 parts = query.split(";")
+                if len(parts) != 2:
+                    raise ValueError("provide exactly two arrays")
                 arr1 = self._parse_numeric_array_literal(parts[0])
                 arr2 = self._parse_numeric_array_literal(parts[1])
             elif query.startswith("correlation:"):
@@ -2410,16 +2490,23 @@ a₀ coefficient: {a0}
                 data = query.replace("correlation:", "").strip()
                 # Find the two arrays
                 import re
-                arrays = re.findall(r'\[[\d.,\s-]+\]', data)
-                if len(arrays) >= 2:
-                    arr1 = self._parse_numeric_array_literal(arrays[0])
-                    arr2 = self._parse_numeric_array_literal(arrays[1])
+                arrays = re.fullmatch(r'\s*(\[[\d.eE+,\s-]+\])\s*,\s*(\[[\d.eE+,\s-]+\])\s*', data)
+                if arrays:
+                    arr1 = self._parse_numeric_array_literal(arrays.group(1))
+                    arr2 = self._parse_numeric_array_literal(arrays.group(2))
                 else:
                     return "Error: Need two arrays. Format: correlation:[1,2,3],[4,5,6]"
             else:
                 return "Error: Use format ';' separated or 'correlation:[arr1],[arr2]'"
             
-            corr = np.corrcoef(arr1, arr2)[0, 1]
+            if len(arr1) != len(arr2) or len(arr1) < 2:
+                raise ValueError("correlation requires equal-length arrays with at least two observations")
+            if np.all(arr1 == arr1[0]) or np.all(arr2 == arr2[0]):
+                raise ValueError("correlation undefined for a constant array")
+            with np.errstate(over="raise", invalid="raise", divide="raise"):
+                corr = float(np.corrcoef(arr1, arr2)[0, 1])
+            if not math.isfinite(corr):
+                raise ValueError("correlation is non-finite")
             return f"Pearson correlation coefficient: {corr:.6f} (n={len(arr1)})"
         except Exception as e:
             return f"Error: {str(e)}"
@@ -2661,18 +2748,31 @@ a₀ coefficient: {a0}
             test_type = parts[0].strip().lower()
             payload = query[len(parts[0]) + 1:]  # everything after the first ':'
 
+            def require_finite_statistics(*values):
+                if not all(math.isfinite(float(value)) for value in values):
+                    raise ValueError("test statistic or p-value is undefined/non-finite for these samples")
+
             if test_type == "ttest":
                 data1, data2 = self._extract_two_arrays(payload)
+                if len(data1) < 2 or len(data2) < 2:
+                    return "Error: independent-sample t test requires at least two observations per group"
+                if np.ptp(data1) == 0 and np.ptp(data2) == 0:
+                    return "Error: t test is undefined when both samples have zero variance"
                 t_stat, p_value = stats.ttest_ind(data1, data2)
+                require_finite_statistics(t_stat, p_value)
                 return f"T-test: t-statistic={t_stat:.4f}, p-value={p_value:.4f}"
             elif test_type == "kstest":
                 data = self._parse_numeric_array_literal(parts[1])
                 dist = parts[2].strip() if len(parts) > 2 else "norm"
                 stat, p_value = stats.kstest(data, dist)
+                require_finite_statistics(stat, p_value)
                 return f"KS-test ({dist}): statistic={stat:.4f}, p-value={p_value:.4f}"
             elif test_type == "shapiro":
                 data = self._parse_numeric_array_literal(parts[1])
+                if len(data) < 3 or np.ptp(data) == 0:
+                    return "Error: Shapiro-Wilk requires at least three observations and a nonconstant sample"
                 stat, p_value = stats.shapiro(data)
+                require_finite_statistics(stat, p_value)
                 return f"Shapiro-Wilk test: statistic={stat:.4f}, p-value={p_value:.4f}"
             elif test_type == "pearson":
                 # Pearson correlation test - flexible parsing
@@ -2700,12 +2800,18 @@ a₀ coefficient: {a0}
                 if len(data1) != len(data2):
                     return f"Error: Arrays must have equal length. Got {len(data1)} and {len(data2)}"
                     
+                if len(data1) < 2 or np.ptp(data1) == 0 or np.ptp(data2) == 0:
+                    return "Error: Pearson correlation undefined for insufficient or constant samples"
                 r, p_value = stats.pearsonr(data1, data2)
+                require_finite_statistics(r, p_value)
                 significance = "significant" if p_value < 0.05 else "not significant"
                 return f"Pearson correlation: r={r:.4f}, p-value={p_value:.4f} ({significance})"
             elif test_type == "spearman":
                 data1, data2 = self._extract_two_arrays(payload)
+                if len(data1) != len(data2) or len(data1) < 3 or np.ptp(data1) == 0 or np.ptp(data2) == 0:
+                    return "Error: Spearman test requires paired nonconstant samples of at least three observations"
                 rho, p_value = stats.spearmanr(data1, data2)
+                require_finite_statistics(rho, p_value)
                 return f"Spearman correlation: rho={rho:.4f}, p-value={p_value:.4f}"
             else:
                 return f"Unknown test type: {test_type}. Available: ttest, kstest, shapiro, pearson, spearman"
@@ -2729,7 +2835,11 @@ a₀ coefficient: {a0}
             sd2 = float(np.std(data2, ddof=1))
             diff = mean2 - mean1
             pooled_sd = float(np.sqrt(((n1 - 1) * sd1 ** 2 + (n2 - 1) * sd2 ** 2) / (n1 + n2 - 2)))
-            cohen_d = float(diff / pooled_sd) if pooled_sd else 0.0
+            if not all(math.isfinite(value) for value in (mean1, mean2, sd1, sd2, diff, pooled_sd)):
+                return "Error: sample summaries overflowed or are non-finite"
+            if pooled_sd <= 0:
+                return "Error: standardized effect is undefined because pooled sample standard deviation is zero"
+            cohen_d = float(diff / pooled_sd)
             hedges_correction = 1.0 - (3.0 / (4.0 * (n1 + n2) - 9.0))
             hedges_g = float(cohen_d * hedges_correction)
 
@@ -2763,6 +2873,12 @@ a₀ coefficient: {a0}
             zcrit = float(stats.norm.ppf(1.0 - alpha / 2.0))
             ncp = abs(cohen_d) * np.sqrt((n1 * n2) / (n1 + n2))
             observed_power = float(stats.norm.cdf(-zcrit - ncp) + (1.0 - stats.norm.cdf(zcrit - ncp)))
+
+            if not all(math.isfinite(float(value)) for value in (
+                cohen_d, hedges_g, se, welch_df, ci_low, ci_high, t_stat, p_value,
+                boot_low, boot_high, observed_power
+            )):
+                return "Error: effect, interval, test or power computation returned a non-finite value"
 
             return (
                 "Two-sample effect and power summary:\n"
@@ -3357,6 +3473,99 @@ a₀ coefficient: {a0}
             )
         except Exception as e:
             return f"Error: {str(e)}"
+
+    def _ssh_gap_certificate(self, query: str) -> str:
+        """Adapt explicit rational hopping inputs to a verifiable certificate."""
+        from app.ssh_certificate_tool import ssh_gap_certificate
+
+        return ssh_gap_certificate(query)
+
+    def _ssh_disorder_diagnostic_benchmark(self, query: str) -> str:
+        """Run the deterministic, paired SSH disorder diagnostic benchmark."""
+        try:
+            segments = [part.strip() for part in query.split(";") if part.strip()]
+            if not segments:
+                return (
+                    "Error: Provide chain lengths and protocol options, e.g. "
+                    "'20,40;deltas=0.1;strengths=0,0.2;"
+                    "disorders=off_diagonal,diagonal;realizations=8;"
+                    "namespace=study'"
+                )
+            lengths = tuple(
+                dict.fromkeys(
+                    int(part.strip())
+                    for part in re.split(r"[,\s]+", segments[0])
+                    if part.strip()
+                )
+            )
+            options = {
+                "deltas": (0.05, 0.1, 0.2),
+                "strengths": (0.0, 0.05, 0.1, 0.2, 0.4),
+                "disorder_types": ("off_diagonal", "diagonal"),
+                "orientations": ("trivial", "topological"),
+                "realizations": 128,
+                "namespace": "amy-ssh-disorder-v1",
+                "beta": -2.5,
+                "edge_sites": 2,
+                "gap_threshold": 0.20,
+                "edge_threshold": 0.50,
+                "ipr_threshold": 2.50,
+                "protocol_sha256": "",
+            }
+            for option in segments[1:]:
+                if "=" not in option:
+                    raise ValueError(f"protocol option lacks '=': {option}")
+                key, value = [item.strip() for item in option.split("=", 1)]
+                key = key.lower()
+                if key == "deltas":
+                    options["deltas"] = tuple(
+                        dict.fromkeys(self._parse_float_series_option(value, key))
+                    )
+                elif key in {"strengths", "disorder_strengths", "w"}:
+                    options["strengths"] = tuple(
+                        dict.fromkeys(self._parse_float_series_option(value, key))
+                    )
+                elif key in {"disorders", "disorder_types"}:
+                    options["disorder_types"] = tuple(
+                        dict.fromkeys(
+                            part.strip().lower()
+                            for part in value.split(",")
+                            if part.strip()
+                        )
+                    )
+                elif key == "orientations":
+                    options["orientations"] = tuple(
+                        dict.fromkeys(
+                            part.strip().lower()
+                            for part in value.split(",")
+                            if part.strip()
+                        )
+                    )
+                elif key == "realizations":
+                    options["realizations"] = int(value)
+                elif key == "namespace":
+                    options["namespace"] = value
+                elif key in {"beta", "b"}:
+                    options["beta"] = float(value)
+                elif key == "edge_sites":
+                    options["edge_sites"] = int(value)
+                elif key == "gap_threshold":
+                    options["gap_threshold"] = float(value)
+                elif key == "edge_threshold":
+                    options["edge_threshold"] = float(value)
+                elif key in {"ipr_threshold", "normalized_ipr_threshold"}:
+                    options["ipr_threshold"] = float(value)
+                elif key in {"protocol_sha256", "preregistration_sha256"}:
+                    options["protocol_sha256"] = value.lower()
+                else:
+                    raise ValueError(f"unknown benchmark option: {key}")
+
+            config = SSHDisorderBenchmarkConfig(lengths=lengths, **options)
+            return format_ssh_disorder_benchmark_report(
+                run_ssh_disorder_benchmark(config)
+            )
+        except Exception as e:
+            return f"Error: {str(e)}"
     
     def _bond_energy_analyzer(self, query: str) -> str:
         """Analyze chemical bond energies."""
@@ -3379,9 +3588,13 @@ a₀ coefficient: {a0}
                     return f"Bond energy of {key}: {bond_energies[key]} kJ/mol"
             return f"Unknown bond type: {bond}. Available: {list(bond_energies.keys())}"
     
-    def _molecular_weight_calc(self, query: str) -> str:
-        """Calculate molecular weight from chemical formula."""
-        import re
+    @staticmethod
+    def _molecular_formula_data(query: str):
+        """Parse a bounded neutral formula, preserving case and parentheses.
+
+        Charges, hydrates, isotope notation, zero/leading-zero counts and
+        unknown elements are unsupported and rejected, never guessed.
+        """
         atomic_weights = {
             'H': 1.008, 'C': 12.011, 'N': 14.007, 'O': 15.999, 'S': 32.065,
             'P': 30.974, 'F': 18.998, 'Cl': 35.453, 'Br': 79.904, 'I': 126.904,
@@ -3389,33 +3602,60 @@ a₀ coefficient: {a0}
             'Na': 22.990, 'K': 39.098, 'Ca': 40.078, 'Mg': 24.305, 'Fe': 55.845
         }
         
+        if not isinstance(query, str):
+            raise ValueError("formula must be a string")
         formula = query.strip()
-        # Parse formula like C6H12O6
-        pattern = r'([A-Z][a-z]?)(\d*)'
-        matches = re.findall(pattern, formula)
-        if not matches:
-            return f"Error: Could not parse molecular formula: {formula}"
-        
-        total_weight = 0
-        composition = []
-        unknown_elements = []
-        for element, count in matches:
-            if element:
-                count = int(count) if count else 1
-                if element in atomic_weights:
-                    weight = atomic_weights[element] * count
-                    total_weight += weight
-                    composition.append(f"{element}{count}: {weight:.3f}")
-                else:
-                    unknown_elements.append(element)
-        if unknown_elements:
-            unknown = ", ".join(sorted(set(unknown_elements)))
-            return f"Error: Unknown element(s) in formula {formula}: {unknown}"
-        if total_weight <= 0:
-            return f"Error: Molecular weight calculation failed for {formula}"
-        
-        return (f"Molecular weight of {formula}: {total_weight:.3f} g/mol\n"
-                f"Composition: {', '.join(composition)}")
+        if not formula or len(formula) > 256:
+            raise ValueError("formula must contain 1..256 characters")
+        tokens = re.findall(r"[A-Z][a-z]?|[0-9]+|[()]", formula)
+        if "".join(tokens) != formula:
+            raise ValueError("unsupported formula syntax; use neutral element symbols, counts and parentheses")
+        stack = [{}]
+        index = 0
+        while index < len(tokens):
+            token = tokens[index]
+            index += 1
+            if token == "(":
+                if len(stack) >= 16:
+                    raise ValueError("formula nesting exceeds 16 levels")
+                stack.append({})
+                continue
+            if token == ")":
+                if len(stack) == 1 or not stack[-1]:
+                    raise ValueError("unbalanced or empty parenthesized group")
+                group = stack.pop()
+            else:
+                if re.fullmatch(r"[A-Z][a-z]?", token) is None:
+                    raise ValueError("atom count must follow an element or group")
+                if token not in atomic_weights:
+                    raise ValueError(f"Unknown element(s) in formula {formula}: {token}")
+                group = {token: 1}
+            multiplier = 1
+            if index < len(tokens) and tokens[index].isdigit():
+                count = tokens[index]
+                index += 1
+                if re.fullmatch(r"[1-9][0-9]*", count) is None or len(count) > 7:
+                    raise ValueError("atom counts must be positive integers without leading zeroes")
+                multiplier = int(count)
+            for element, count in group.items():
+                stack[-1][element] = stack[-1].get(element, 0) + count * multiplier
+                if stack[-1][element] > 1_000_000:
+                    raise ValueError("formula atom count exceeds 1000000")
+        if len(stack) != 1 or not stack[0]:
+            raise ValueError("unbalanced or empty molecular formula")
+        elements = stack[0]
+        total_weight = math.fsum(atomic_weights[element] * count for element, count in elements.items())
+        composition = [f"{element}{count}: {atomic_weights[element] * count:.3f}" for element, count in elements.items()]
+        return formula, elements, total_weight, composition
+
+    def _molecular_weight_calc(self, query: str) -> str:
+        """Calculate molecular weight from a fully parsed neutral formula."""
+        try:
+            formula, _, total_weight, composition = self._molecular_formula_data(query)
+            return (f"Molecular weight of {formula}: {total_weight:.3f} g/mol\n"
+                    f"Composition: {', '.join(composition)}")
+        except (ValueError, TypeError, OverflowError) as exc:
+            return f"Error: {exc}"
     
     # Biology tool implementations
     def _dna_analyzer(self, query: str) -> str:
@@ -3427,9 +3667,11 @@ a₀ coefficient: {a0}
         seq = query.strip().upper()
         
         # Validate sequence
-        valid = set("ATCGN")
+        if not seq:
+            return "Error: DNA sequence cannot be empty"
+        valid = set("ATCG")
         if not all(c in valid for c in seq):
-            return f"Invalid DNA sequence. Use only A, T, C, G. Received: {seq[:20]}..."
+            return "Error: ambiguous or invalid DNA sequence; only A, T, C, G are supported"
         
         length = len(seq)
         a_count = seq.count('A')
@@ -3571,6 +3813,8 @@ a₀ coefficient: {a0}
     def _protein_properties(self, query: str) -> str:
         """Calculate protein properties from amino acid sequence."""
         seq = query.strip().upper()
+        if not seq or any(aa not in "ARNDCEQGHILKMFPSTWYV" for aa in seq):
+            return "Error: provide a nonempty peptide containing only the 20 canonical amino-acid symbols"
         
         # Amino acid molecular weights (Da)
         aa_weights = {
@@ -3607,12 +3851,16 @@ a₀ coefficient: {a0}
         """Calculate quantum mechanical energy levels."""
         try:
             parts = query.split(":")
+            if len(parts) > 2:
+                raise ValueError("provide exactly one system:parameters pair")
             system = parts[0].strip().lower()
             params = parts[1].strip() if len(parts) > 1 else "1"
             
             if system == "hydrogen":
                 # Hydrogen atom energy levels: E_n = -13.6 / n^2 eV
                 n = int(params)
+                if n < 1:
+                    raise ValueError("hydrogen principal quantum number must be a positive integer")
                 energy = -13.6 / (n ** 2)
                 levels = [-13.6 / (i ** 2) for i in range(1, min(n + 3, 8))]
                 return (f"Hydrogen atom energy level n={n}:\n"
@@ -3623,26 +3871,37 @@ a₀ coefficient: {a0}
             elif system == "harmonic":
                 # Quantum harmonic oscillator: E_n = ℏω(n + 1/2)
                 p = params.split(",")
+                if len(p) > 2:
+                    raise ValueError("harmonic input is n,energy_quantum_eV")
                 n = int(p[0])
-                omega = float(p[1]) if len(p) > 1 else 1.0  # eV
-                hbar = 6.582e-16  # eV·s
-                energy = omega * (n + 0.5)  # In units of ℏω
-                levels = [omega * (i + 0.5) for i in range(n + 3)]
-                return (f"Quantum harmonic oscillator (ω={omega} eV):\n"
-                        f"  E_{n} = {energy:.4f} ℏω = {energy * omega:.4f} eV\n"
+                omega = float(p[1]) if len(p) > 1 else 1.0  # supplied ℏω in eV
+                if n < 0 or not math.isfinite(omega) or omega <= 0:
+                    raise ValueError("harmonic n must be non-negative and the energy quantum finite and positive")
+                energy = omega * (n + 0.5)
+                if not math.isfinite(energy):
+                    raise ValueError("harmonic energy exceeds the finite numerical range")
+                levels = [omega * (i + 0.5) for i in range(min(n + 3, 8))]
+                return (f"Quantum harmonic oscillator (ℏω={omega} eV):\n"
+                        f"  E_{n} = {n + 0.5:.4f} ℏω = {energy:.4f} eV\n"
                         f"  Zero-point energy: {0.5 * omega:.4f} eV\n"
-                        f"  First {len(levels)} levels: {[round(e, 4) for e in levels]} ℏω")
+                        f"  First {len(levels)} levels: {[round(e, 4) for e in levels]} eV")
             
             elif system == "particle_box":
                 # Particle in a box: E_n = n²h²/(8mL²)
                 p = params.split(",")
+                if len(p) > 2:
+                    raise ValueError("particle_box input is n,length_nm")
                 n = int(p[0])
                 L = float(p[1]) if len(p) > 1 else 1.0  # nm
+                if n < 1 or not math.isfinite(L) or L <= 0:
+                    raise ValueError("particle_box n must be positive and length finite and positive")
                 h = 4.136e-15  # eV·s
                 m_e = 0.511e6 / (3e8)**2  # eV/c² → electron mass
                 L_m = L * 1e-9  # Convert to meters
                 E_0 = (h ** 2) / (8 * m_e * L_m ** 2)  # Ground state factor
                 energy = n ** 2 * E_0
+                if not math.isfinite(energy) or not math.isfinite(E_0):
+                    raise ValueError("particle-box energy exceeds the finite numerical range")
                 return (f"Particle in 1D box (L={L} nm):\n"
                         f"  E_{n} = {energy:.4f} eV\n"
                         f"  E_1 (ground state) = {E_0:.4f} eV")
@@ -3668,6 +3927,8 @@ a₀ coefficient: {a0}
             for field in fields[1:]:
                 if field.lower().startswith("delta="):
                     delta = float(field.split("=", 1)[1])
+            if not math.isfinite(delta):
+                return "Error: quantum_defect delta must be finite"
             if any(n <= delta for n in n_values):
                 return "Error: quantum_defect delta must be smaller than every n in the input series."
 
@@ -3729,7 +3990,7 @@ a₀ coefficient: {a0}
             return f"Error: {str(e)}"
 
     def _cosmology_residual_comparison(self, query: str) -> str:
-        """Compare Planck18-parameter FLRW distances with low-z controls."""
+        """Compare explicit illustrative Lambda-CDM distances with low-z controls."""
         try:
             fields = [part.strip() for part in query.split(";") if part.strip()]
             if not fields:
@@ -3743,13 +4004,16 @@ a₀ coefficient: {a0}
             z_values = list(dict.fromkeys(z_values))
             if len(z_values) < 3:
                 return "Error: Provide at least three redshifts for a residual comparison."
-            if any(z <= 0 for z in z_values):
-                return "Error: redshifts must be positive."
+            if any(not math.isfinite(z) or z <= 0 for z in z_values):
+                return "Error: redshifts must be finite and positive."
 
             threshold = 5.0
             for field in fields[1:]:
                 if field.lower().startswith("threshold="):
                     threshold = float(field.split("=", 1)[1])
+
+            if not math.isfinite(threshold) or threshold <= 0:
+                return "Error: threshold must be finite and positive."
 
             c_km_s = 299792.458
             h0 = 67.660
@@ -3788,8 +4052,16 @@ a₀ coefficient: {a0}
             hubble_distances = []
             second_order_distances = []
             for z in z_values:
-                comoving = hubble_distance * integral_to(z)
-                planck_distances.append((1.0 + z) * comoving)
+                radial_integral = integral_to(z)
+                if omega_k > 0:
+                    root_k = math.sqrt(omega_k)
+                    transverse = hubble_distance * math.sinh(root_k * radial_integral) / root_k
+                elif omega_k < 0:
+                    root_k = math.sqrt(-omega_k)
+                    transverse = hubble_distance * math.sin(root_k * radial_integral) / root_k
+                else:
+                    transverse = hubble_distance * radial_integral
+                planck_distances.append((1.0 + z) * transverse)
                 hubble_distances.append(hubble_distance * z)
                 second_order_distances.append(
                     hubble_distance * z * (1.0 + 0.5 * (1.0 - q0) * z)
@@ -3820,7 +4092,7 @@ a₀ coefficient: {a0}
 
             rows = [
                 (
-                    f"    z={z:.6f}: Planck18_luminosity_distance_Mpc={dl:.6f}, "
+                    f"    z={z:.6f}: model_luminosity_distance_Mpc={dl:.6f}, "
                     f"hubble_law_distance_Mpc={hz:.6f}, "
                     f"hubble_percent_residual={hpct:.6f}, "
                     f"cosmographic_second_order_distance_Mpc={cz:.6f}, "
@@ -3832,25 +4104,27 @@ a₀ coefficient: {a0}
             ]
 
             return (
-                "Planck18 versus low-redshift Hubble-law comparison:\n"
+                "Illustrative Lambda-CDM versus low-redshift Hubble-law comparison:\n"
                 f"  Parameters: H0={h0:.3f} km/s/Mpc, Omega_m={omega_m:.4f}, "
                 f"Omega_Lambda={omega_l:.4f}, Omega_k={omega_k:.6f}, q0={q0:.6f}\n"
                 f"  sample size n={len(z_values)}\n"
-                "  Residual table where percent_residual = 100*(approximation-Planck18)/Planck18:\n"
+                "  Residual table where percent_residual = 100*(approximation-model)/model:\n"
                 + "\n".join(rows)
                 + "\n"
-                f"  hubble_law RMSE_Mpc={hubble_rmse:.6f}; R2_vs_Planck18={hubble_fit['r2']:.6f}; "
+                f"  hubble_law RMSE_Mpc={hubble_rmse:.6f}; R2_vs_model={hubble_fit['r2']:.6f}; "
                 f"max_abs_percent_residual={max_abs_percent:.6f}; residual standard deviation_Mpc={hubble_residual_std:.6f}\n"
-                f"  cosmographic_second_order RMSE_Mpc={second_rmse:.6f}; R2_vs_Planck18={second_fit['r2']:.6f}; "
+                f"  cosmographic_second_order RMSE_Mpc={second_rmse:.6f}; R2_vs_model={second_fit['r2']:.6f}; "
                 f"max_abs_percent_residual={second_max_abs_percent:.6f}; residual standard deviation_Mpc={second_residual_std:.6f}\n"
                 f"  Best approximation by RMSE_Mpc: {best_model}\n"
                 f"  Deterministic model-comparison effect size (hubble_law_RMSE_Mpc - cosmographic_second_order_RMSE_Mpc)={rmse_effect_size:.6f}\n"
                 f"  breakdown_redshift_threshold_percent={threshold:.6f}; first_threshold_crossing_z={first_crossing}\n"
                 "  Deterministic residual statistics: confidence interval not estimated because the calculation is a fixed "
-                "Planck18-parameter grid, not a random observational sample.\n"
+                "illustrative Lambda-CDM grid, not a random observational sample.\n"
                 "  Falsifiable next check: add an independently implemented FLRW integrator or a catalog-backed supernova "
                 "distance set; weaken the approximation claim if the threshold crossing or RMSE ordering changes under "
                 "the same redshift grid and units.\n"
+                "  Model scope: radiation and neutrinos are omitted; the displayed rounded parameters define an "
+                "illustrative curved Lambda-CDM model, not the full Planck18 realization.\n"
                 "  Caution: this is not an observational Hubble-constant measurement and does not address Hubble tension."
             )
         except Exception as e:
