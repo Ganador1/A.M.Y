@@ -82,6 +82,10 @@ jobs:
       - name: Verify the selected deterministic Atlas tools
         run: python scripts/diagnostics/verify_atlas_tools.py
 
+      - name: Verify observed climate data and failure boundaries
+        run: |
+          PYTHONPATH=atlas python -m pytest atlas/tests/unit/test_climate_loop.py --confcutdir=atlas/tests/unit -q
+
       - name: Recompute retained mathematical and numerical evidence
         run: |
           python release_evidence/autocorrelation/verify.py

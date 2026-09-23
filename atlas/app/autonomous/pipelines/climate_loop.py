@@ -39,7 +39,9 @@ class ClimateLoop:
         self.earth_service = earth_service or AdvancedEarthSciencesService()
         self.data_lake_service = ScientificDataLakeService()
         self.database_service = AdvancedScientificDatabaseService()
-        self.climate_evidence_service = ClimateEvidenceService()
+        self.climate_evidence_service = ClimateEvidenceService(
+            gistemp_path=earth_service.gistemp_csv_path if earth_service is not None else None
+        )
         
         self._last_climate_analysis: Optional[Dict[str, Any]] = None
         self.tool_evidence = ToolEvidenceBridge(default_domain="climate")
@@ -72,7 +74,7 @@ class ClimateLoop:
             evidence_result = await self.climate_evidence_service.process_request(climate_evidence_payload)
             
             if evidence_result.get("success"):
-                evidence_data = evidence_result.get("data", {})
+                evidence_data = evidence_result
                 support_score = evidence_data.get("support_score", 0.0)
                 coverage = evidence_data.get("coverage", 0.0)
                 mean_signal = evidence_data.get("mean_signal", 0.0)
@@ -103,7 +105,7 @@ class ClimateLoop:
                             "lon_min": -180.0,
                             "lon_max": 180.0,
                         },
-                        "evidence_context": evidence_data.get("context", {}),
+                        "evidence_context": evidence_data.get("analysis", {}),
                     })
         except Exception as exc:
             logger.warning(f"ClimateEvidenceService fetch failed: {exc}")
@@ -196,9 +198,9 @@ class ClimateLoop:
             logger.info(f"Fetched {len(regions)} real climate regions from advanced services")
             return regions[:k]
         
-        # Fallback: minimal synthetic regions only if all services fail
-        logger.warning("All advanced climate services failed, using minimal synthetic fallback")
-        return self._seed_synthetic_regions(k)
+        # The caller still has other sources to try. Do not fill the candidate
+        # quota with synthetic regions before those sources have been attempted.
+        return []
 
     def _seed_synthetic_regions(self, k: int = 7) -> List[Dict[str, Any]]:
         regions: List[Dict[str, Any]] = []
@@ -323,7 +325,7 @@ class ClimateLoop:
                 model_name="CESM2",
                 scenario=scenario or "SSP245",
             )
-        except (RuntimeError, ValueError, TimeoutError) as exc:  # pragma: no cover - defensivo
+        except (RuntimeError, ValueError, TimeoutError, OSError) as exc:
             logger.warning("Climate model analysis failed: %s", exc)
             return []
 
@@ -420,17 +422,24 @@ class ClimateLoop:
 
         seed_count = max(top_n * 2, 6)
         
-        # PRIORITY 1: Try advanced climate services (real data)
-        regions = await self._fetch_real_climate_data_async(seed_count)
+        observed_only = not self.earth_service.simulation_mode
+        if observed_only:
+            # Honor an explicitly configured observational dataset. A missing
+            # dataset must not silently become a successful simulated run.
+            regions = await self._fetch_climate_regions_async(seed_count, scenario)
+            if not regions:
+                return {"success": False, "reason": "no_observed_climate_data"}
+        else:
+            regions = await self._fetch_real_climate_data_async(seed_count)
         
         # PRIORITY 2: Try CMIP6 climate model analysis
-        if not regions or len(regions) < 3:
+        if not observed_only and (not regions or len(regions) < 3):
             logger.info("Supplementing with CMIP6 climate model data")
             cmip6_regions = await self._fetch_climate_regions_async(seed_count, scenario)
             regions.extend(cmip6_regions)
         
         # PRIORITY 3: Try external APIs
-        if not regions or len(regions) < 2:
+        if not observed_only and (not regions or len(regions) < 2):
             logger.info("Supplementing with external API data")
             external_regions = self._fetch_external_regions(seed_count)
             regions.extend(external_regions)
@@ -458,9 +467,10 @@ class ClimateLoop:
         support_scores: List[float] = []
 
         for idx, region in enumerate(selected):
-            novelty_res = self.novelty.assess(
+            novelty_score = self.novelty.assess(
                 [region["anomaly_index"], region["impact_potential"], region["information_gain"]]
             )
+            novelty_res = {"novelty_score": float(novelty_score)}
             novelty_scores.append(novelty_res["novelty_score"])
             enrichment = await self._enrich_candidate_async(region) if idx < 2 else {}
             evidence_summary: Optional[EvidenceSummary] = None

@@ -14,6 +14,8 @@ All notable changes to A.M.Y are documented in this file. The format is based on
 - Failure accounting, tool dispatch rejection and goal completion boundaries.
 - Ambiguous H₂ assessment field associating distance with minimum sampled energy.
 - Placeholder citation DOI and overbroad public reproducibility claims.
+- Observed climate runs now honor the configured dataset, reject missing observations without synthetic replacement, and handle the numerical novelty score correctly.
+- Public documentation, portable test interpreters and retained Atlas configuration, migration and interface assets.
 
 ### Evaluation and limits
 - Five models, 20 sessions, 51 checked measurements; 14 quantitative closures across four different protocol/code versions. Six unsuccessful sessions retained.

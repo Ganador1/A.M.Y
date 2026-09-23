@@ -13,12 +13,12 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "5fe2d62d24d21afd3e2b384a9b779c3eff38542833f5dbc850e2f728fab28594",
+      "sha256": "caced3112e37085ce2c4e3d1f8aeb7a2efc97644db45d7ac600f587906cdd742",
       "privacy_substitutions": {}
     },
     {
       "path": ".github/workflows/public-candidate.yml",
-      "sha256": "7f93dc06cae65f8dfbfdd3bc73902cf94f932c24fa12bcc77cd940e3582efc95",
+      "sha256": "fa72286b61bf9b1e8df94d52dea78ed4e57d4e3693fcca1b86190831dcc2fffd",
       "privacy_substitutions": {}
     },
     {
@@ -38,7 +38,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "f4f3b164e054a4d9ca0ca7c13c07f77078f0f808a4f07b35f1f45a524ccadee1",
+      "sha256": "fa8fdf6808483ee3308ea9193976e2caf75140fdda7e357da16ba33988e06257",
       "privacy_substitutions": {}
     },
     {
@@ -147,11 +147,6 @@
       "privacy_substitutions": {}
     },
     {
-      "path": "atlas/alembic.ini",
-      "sha256": "932ed8f9139c603723e4152a8029ee8afeedfdc2345ca22b0cdac811e41b693e",
-      "privacy_substitutions": {}
-    },
-    {
       "path": "atlas/alembic/env.py",
       "sha256": "7a38647b6b249dd40668fa2dfe41c993d2fb3c7a84c81e20d3f93817169ac4f1",
       "privacy_substitutions": {}
@@ -189,6 +184,11 @@
     {
       "path": "atlas/alembic/versions/f1fd628cbe31_add_auth_tables_users_refresh_tokens_.py",
       "sha256": "a4ed81ae0c97484d508d253ce8cb55cc5cb00c87a74c704e8464ca30a6939584",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "atlas/alembic.ini",
+      "sha256": "932ed8f9139c603723e4152a8029ee8afeedfdc2345ca22b0cdac811e41b693e",
       "privacy_substitutions": {}
     },
     {
@@ -342,11 +342,6 @@
       "privacy_substitutions": {}
     },
     {
-      "path": "atlas/app/agents/contracts.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "privacy_substitutions": {}
-    },
-    {
       "path": "atlas/app/agents/contracts/__init__.py",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "privacy_substitutions": {}
@@ -354,6 +349,11 @@
     {
       "path": "atlas/app/agents/contracts/conjecture_contracts.py",
       "sha256": "ac8d507088c4d2adef87901988051684b465869e0daee2582da05b18b4e116a2",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "atlas/app/agents/contracts.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "privacy_substitutions": {}
     },
     {
@@ -558,7 +558,7 @@
     },
     {
       "path": "atlas/app/autonomous/pipelines/climate_loop.py",
-      "sha256": "7c804e905c771b1e347e4d1dcad71fb7bd5fd83c19bbdfbea5cb124bd204a429",
+      "sha256": "dbce2127adddf578aea92fd6206e3176e25a253c3abb708a9da4def7bbca57fc",
       "privacy_substitutions": {}
     },
     {
@@ -637,13 +637,13 @@
       "privacy_substitutions": {}
     },
     {
-      "path": "atlas/app/cache.py",
-      "sha256": "c9767824dabd45512ee3ce0d4e8c65c47ec213371565e9fabda13e7189e99509",
+      "path": "atlas/app/cache/unified_cache.py",
+      "sha256": "c36636d7e7e7b9ea974b0aa549b043aec1af0d12956951e8966c0c7f07b264d0",
       "privacy_substitutions": {}
     },
     {
-      "path": "atlas/app/cache/unified_cache.py",
-      "sha256": "c36636d7e7e7b9ea974b0aa549b043aec1af0d12956951e8966c0c7f07b264d0",
+      "path": "atlas/app/cache.py",
+      "sha256": "c9767824dabd45512ee3ce0d4e8c65c47ec213371565e9fabda13e7189e99509",
       "privacy_substitutions": {}
     },
     {
@@ -2204,11 +2204,6 @@
       "privacy_substitutions": {}
     },
     {
-      "path": "atlas/app/domains/mathematics/utils.py",
-      "sha256": "32eb13deb9f0b9392f4cc0823f898f0f684d18f44eda9cff19d636f9adb8e248",
-      "privacy_substitutions": {}
-    },
-    {
       "path": "atlas/app/domains/mathematics/utils/__init__.py",
       "sha256": "32eb13deb9f0b9392f4cc0823f898f0f684d18f44eda9cff19d636f9adb8e248",
       "privacy_substitutions": {}
@@ -2216,6 +2211,11 @@
     {
       "path": "atlas/app/domains/mathematics/utils/symbolic_normalizer.py",
       "sha256": "f46e9ba07661902bd2158c36849fbdbc6abd66823e9a8d892b2d228822f5f3b2",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "atlas/app/domains/mathematics/utils.py",
+      "sha256": "32eb13deb9f0b9392f4cc0823f898f0f684d18f44eda9cff19d636f9adb8e248",
       "privacy_substitutions": {}
     },
     {
@@ -6074,7 +6074,7 @@
     },
     {
       "path": "atlas/app/services/theorem_proving/lean4_integration.py",
-      "sha256": "7ea986bd072e5dcc3c1023be601037d61c5d3c5af35e269149668564ab2d6b02",
+      "sha256": "0f36854a51d49bc2a65bfadcac8174846f047a1929b4c0a6073ae04dcc675eae",
       "privacy_substitutions": {}
     },
     {
@@ -7668,13 +7668,13 @@
       "privacy_substitutions": {}
     },
     {
-      "path": "atlas/monitoring/prometheus.yml",
-      "sha256": "8c60befb9541d20d284bb8311b8b256f68c104cf29fcf1d1afb4badfcff5435c",
+      "path": "atlas/monitoring/prometheus/prometheus.yml",
+      "sha256": "4ca927c4c344fa499bae7d02fe715410162838369f956ae198da097366f992a2",
       "privacy_substitutions": {}
     },
     {
-      "path": "atlas/monitoring/prometheus/prometheus.yml",
-      "sha256": "4ca927c4c344fa499bae7d02fe715410162838369f956ae198da097366f992a2",
+      "path": "atlas/monitoring/prometheus.yml",
+      "sha256": "8c60befb9541d20d284bb8311b8b256f68c104cf29fcf1d1afb4badfcff5435c",
       "privacy_substitutions": {}
     },
     {
@@ -11164,7 +11164,7 @@
     },
     {
       "path": "atlas/tests/unit/test_climate_loop.py",
-      "sha256": "3a53b13d3da462c394c4a5e3db3fa8e8438c0d9fdc5b739aaf61cbc6f738c15c",
+      "sha256": "09f726917ea54a4c5d7b894917cec4aa63896c2af779f81e2c5bf30bc4eafcc5",
       "privacy_substitutions": {}
     },
     {
@@ -12151,13 +12151,6 @@
       "path": "config.release.yaml",
       "sha256": "8cda79f8924d6f58cebee7e354cd4dc3de845dc424689b337e228184b3671322",
       "privacy_substitutions": {}
-    },
-    {
-      "path": "config.yaml",
-      "sha256": "8cda79f8924d6f58cebee7e354cd4dc3de845dc424689b337e228184b3671322",
-      "privacy_substitutions": {
-        "portable_default": 1
-      }
     },
     {
       "path": "conftest.py",
@@ -14113,7 +14106,7 @@
     },
     {
       "path": "tests/test_atlas_misuse_guard.py",
-      "sha256": "d32e4796f7bb0ec0674fe06226075757383bade5139693095ef6c937d0e27cda",
+      "sha256": "1c1c28e079a14264a21b53438218b74ac5e455d2db814725a86c8d290d11c399",
       "privacy_substitutions": {}
     },
     {
@@ -14483,6 +14476,13 @@
       "path": "uv.lock",
       "sha256": "94ef71a02489d0891618c18c3a7eda8cbc2ae3b507669ce23deb5c17f1402573",
       "privacy_substitutions": {}
+    },
+    {
+      "path": "config.yaml",
+      "sha256": "8cda79f8924d6f58cebee7e354cd4dc3de845dc424689b337e228184b3671322",
+      "privacy_substitutions": {
+        "portable_default": 1
+      }
     }
   ]
 }
