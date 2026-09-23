@@ -1,0 +1,106 @@
+# Política de Ethics Gate - Configuración completa
+version: "1.0"
+
+# Umbrales de scoring
+thresholds:
+  low: 3
+  medium: 7
+  high: 11
+  critical: 15
+
+# Pesos por dominio científico
+domain_weights:
+  # Matemáticas y computación (bajo riesgo)
+  algebra: 0
+  calculus: 0
+  statistics: 1
+  optimization: 1
+  cryptography: 2
+  visualization: 0
+
+  # Física y química (riesgo bajo-medio)
+  quantum_physics: 3
+  computational_chemistry: 4
+  plasma_physics: 5
+  quantum_chemistry: 6
+
+  # Medicina y biología (riesgo medio-alto)
+  medical_imaging: 6
+  computational_biology: 7
+  neuro_simulation: 7
+  clinical_validation: 7
+  molecular_dynamics: 7
+
+  # Biología avanzada (riesgo alto)
+  genomics: 8
+  metabolic_networks: 8
+  systems_biology: 8
+
+  # Alto riesgo dual-use
+  synthetic_biology: 9
+  biosecurity_assessment: 10
+  gain_of_function: 10
+
+  # Materiales
+  materials_screening: 5
+  simulation: 2
+
+# Niveles que requieren justificación firmada
+signature_levels:
+  - HIGH
+  - CRITICAL
+
+# Keywords bloqueadas (rechazo automático)
+keywords:
+  blocked_keywords:
+    - bioweapon
+    - dual-use weaponization
+    - gain-of-function pathogen
+    - weaponized virus
+    - chemical weapon synthesis
+    - explosive device design
+    - unauthorized human experimentation
+
+  # Keywords sensibles (incrementan score)
+  sensitive_keywords:
+    biology:
+      - pathogen
+      - virus
+      - bacteria
+      - infection
+      - biosafety
+      - contagion
+      - epidemic
+    chemistry:
+      - toxic
+      - hazard
+      - explosive
+      - flammable
+      - carcinogenic
+      - mutagenic
+    clinical:
+      - patient
+      - clinical trial
+      - diagnosis
+      - treatment
+      - human subject
+    materials:
+      - nuclear
+      - radioactive
+      - fissile
+
+# Scoring por sensibilidad de datos
+data_sensitivity_weights:
+  none: 0
+  low: 1
+  medium: 3
+  high: 5
+  critical: 8
+
+# Scoring por intención declarada
+intent_weights:
+  research: 0
+  education: 0
+  commercial: 1
+  defense: 3
+  dual_use: 5

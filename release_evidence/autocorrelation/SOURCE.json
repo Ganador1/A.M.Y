@@ -1,0 +1,8 @@
+{
+  "original_path": "experiments/discovery_rotation_20260911/session_20260911_200738/studies/auto_m0014/candidate.json",
+  "original_sha256": "61e84f056028aae225b100a9ee6c86095dd7733ea9f28e40712ce4c8814a92c9",
+  "transformation": "Copied mathematical payload; removed machine-specific provenance paths. Original bytes remain unchanged in the research archive.",
+  "original_actor": "AMY-selected request; fixed Codex warm-basis algorithm and exact verifier",
+  "producer_sha256": "920983cd135f6d2d520aa4e8fff327e3a84cb7b9eb1f720fbbbb4e3fa8bd6ba4",
+  "scope": "Witness verification only; this file is not a replay of the full search lineage."
+}

@@ -1,0 +1,41 @@
+# Requirements CI/CD - Solo dependencias esenciales para tests y seguridad
+# Version: 1.0.0 - Optimizado para GitHub Actions
+
+# === CORE TESTING ===
+pytest==8.4.1
+pytest-asyncio==0.25.3
+pytest-cov==6.1.1
+pytest-timeout==2.3.1
+
+# === FRAMEWORK BASICS ===
+fastapi==0.116.1
+uvicorn[standard]==0.34.1
+pydantic==2.11.7
+pydantic-settings==2.7.2
+
+# === DATABASE (SQLite para tests) ===
+sqlalchemy==2.0.40
+alembic==1.15.1
+
+# === SECURITY SCANNERS ===
+bandit[toml]==1.8.6
+semgrep==1.107.0
+safety==3.2.13
+
+# === MINIMAL SCIENTIFIC (solo para imports básicos) ===
+numpy==2.2.4
+sympy==1.13.3
+
+# === UTILITIES ===
+python-dotenv==1.0.1
+pyyaml==6.0.2
+requests==2.32.3
+aiohttp==3.11.18
+
+# === AUTH & SECURITY ===
+pyjwt[crypto]==2.10.1
+cryptography==44.0.0
+passlib[bcrypt]==1.7.4
+
+# NOTE: Heavy dependencies (torch, scipy, rdkit, transformers) 
+# are excluded from CI to reduce build time from 5min to <1min

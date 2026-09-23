@@ -1,0 +1,5 @@
+SEED=42 N_SURR=500 N=120 WINDOW=30 PHI=0.50 SIGMA=7.0 FRAC=0.30
+method=gaussian mean_tau_var=-0.0075 95CI_var=[-0.0393,0.0243] mean_tau_ac1=0.0052 95CI_ac1=[-0.0273,0.0378] n=500
+method=lowess mean_tau_var=-0.0057 95CI_var=[-0.0377,0.0264] mean_tau_ac1=0.0049 95CI_ac1=[-0.0279,0.0376] n=500
+method=spline mean_tau_var=-0.0250 95CI_var=[-0.0537,0.0037] mean_tau_ac1=-0.0018 95CI_ac1=[-0.0331,0.0295] n=500
+elapsed_sec=1.9

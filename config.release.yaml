@@ -1,0 +1,96 @@
+# English release example. Review model availability and resource limits before running.
+mission:
+  goal: Run a bounded scientific calibration with explicit controls
+  description: Retain successful and failed experiments. Report supported findings
+    and limitations without claiming novelty.
+  urgency: medium
+llm:
+  provider: ollama_cloud
+  base_url: https://ollama.com/api
+  max_concurrency: 2
+  tool_observation_mode: certified_summary
+  experiment_receipt_context: true
+  reasoner:
+    model: deepseek-v4.1-flash:cloud
+    temperature: 0.7
+    max_tokens: 16384
+    num_ctx: 1048576
+    think: true
+  fast:
+    model: deepseek-v4.1-flash:cloud
+    temperature: 0.3
+    max_tokens: 1536
+    num_ctx: 32768
+    think: false
+  reflection:
+    max_tokens: 4096
+    think: false
+hardware:
+  device: cpu
+  dtype: float32
+  platform: portable
+  mps_fallback_to_cpu: true
+heartbeat:
+  max_consecutive_decision_failures: 5
+  max_total_decision_failures: 30
+  memory_checkpoint_interval: 20
+  experiment_receipt_projection: ssh_outward_decimal_v1
+  base_interval_seconds: 30
+  focused_interval_seconds: 5
+  idle_interval_seconds: 120
+  max_cycles_before_reflection: 20
+  continuous_mission: false
+evidence:
+  enabled: true
+  root: ./data/execution_evidence
+  provenance_per_run: true
+memory:
+  namespace_by_mission: true
+  mission_memory_root: ./data/missions
+  vector_db_path: ./data/chromadb
+  knowledge_graph_path: ./data/knowledge_graph.json
+  episodic_log_path: ./data/episodic_memory.jsonl
+  max_episodic_before_consolidation: 1000
+  belief_confidence_threshold: 0.3
+skills:
+  library_path: ./data/skill_library
+  max_retrieval: 5
+research:
+  max_papers_per_search: 10
+  sources:
+  - arxiv
+  - pubmed
+  - semantic_scholar
+  download_pdfs: false
+atlas:
+  peer_review_timeout_seconds: 90
+  model: deepseek-v4.1-flash:cloud
+curiosity:
+  epistemic_weight: 0.85
+  surprise_threshold: 0.5
+  novelty_decay: 0.95
+communication:
+  method: file
+  breakthrough_threshold: 0.5
+  report_path: ./reports/
+  max_reports_per_day: 10
+sandbox:
+  enabled: true
+  use_docker: true
+  require_isolation: true
+  allow_network: false
+  allow_subprocess: false
+  max_execution_time: 300
+  max_memory_mb: 2048
+  allowed_languages:
+  - python
+  - r
+atlas_quality_gate:
+  min_support_score: 0.35
+  min_tool_realism_score: 0.6
+  max_failure_count: 5
+  verify_citations: true
+logging:
+  level: INFO
+  thought_log_path: ./logs/stream_of_consciousness.jsonl
+  action_log_path: ./logs/actions.jsonl

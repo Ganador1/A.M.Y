@@ -1,0 +1,54 @@
+{
+  "campaigns": [
+    {
+      "source": "comparison-final.json",
+      "sessions": 10,
+      "quantified_closures": 8,
+      "measurements": 30,
+      "transport_calls": 75,
+      "truncated_responses": 11,
+      "valid_execution_chains": 10,
+      "valid_existing_journals": 10
+    },
+    {
+      "source": "comparison-02-final.json",
+      "sessions": 4,
+      "quantified_closures": 0,
+      "measurements": 3,
+      "transport_calls": 25,
+      "truncated_responses": 3,
+      "valid_execution_chains": 4,
+      "valid_existing_journals": 2
+    },
+    {
+      "source": "comparison-03-final.json",
+      "sessions": 4,
+      "quantified_closures": 4,
+      "measurements": 12,
+      "transport_calls": 33,
+      "truncated_responses": 8,
+      "valid_execution_chains": 4,
+      "valid_existing_journals": 4
+    },
+    {
+      "source": "comparison-04-final.json",
+      "sessions": 2,
+      "quantified_closures": 2,
+      "measurements": 6,
+      "transport_calls": 15,
+      "truncated_responses": 3,
+      "valid_execution_chains": 2,
+      "valid_existing_journals": 2
+    }
+  ],
+  "totals": {
+    "sessions": 20,
+    "quantified_closures": 14,
+    "measurements": 51,
+    "transport_calls": 148,
+    "truncated_responses": 25,
+    "valid_execution_chains": 20,
+    "valid_existing_journals": 18
+  },
+  "scope": "Versioned calibration campaigns; not interchangeable trials, model ranking, or scientific novelty."
+}

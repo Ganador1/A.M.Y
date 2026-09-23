@@ -1,0 +1,11 @@
+{
+  "scope": "Public derivative integrity; no external signatures",
+  "sha256": {
+    "LICENSE": "f787b245c7d482af626c4efa7ebedef8772683687df4fdf770d79482d6d7f215",
+    "README.md": "3c3c27fca70ac74c7a977fac6c01a321a3fdadaf4a74abf222c36fe8bb827074",
+    "SOURCE.json": "96eeb4eff58f74849e20f4fb4c7cc1b423922790019b1e37944edcbeeebdbf18",
+    "candidate.json": "66f61b16b31d573cdfe3154304827cae4fff06f95449c9235cb1a914a0b18c6b",
+    "exact_verifier.py": "9a926d2cca70bc2e2d10d77f5cd894984cf740d29e9dc3818124f4c1e7103e41",
+    "verify.py": "5861fb9f71a526cb8bcb91b845640e2984420ed62299904d1276c89706082dfb"
+  }
+}

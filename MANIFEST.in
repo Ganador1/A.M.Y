@@ -1,0 +1,22 @@
+include LICENSE CITATION.cff CHANGELOG.md README_PUBLIC.md CONTRIBUTING.md ENVIRONMENT.md
+include SCIENCE_MANIFESTO.md ATLAS_TOOL_GUIDE.md RESEARCH.md RELEASE_CHECKLIST.md SECURITY.md USE_POLICY.md
+include config.release.yaml .env.example uv.lock pytest.ini conftest.py
+recursive-include docs/releases *.md
+recursive-include docs/publication *.md
+include docs/PROJECT_MAP.md
+recursive-include release_evidence *.py *.json *.md *.txt LICENSE
+include scripts/release/check_release.py
+prune output
+prune data
+prune zenodo_deposits
+prune tmp
+prune .worktrees
+prune .git
+prune .venv
+global-exclude *.pyc *.key *.pem *.enc .DS_Store
+
+recursive-include tests/fixtures *.json
+include scripts/diagnostics/verify_secret_hygiene.py
+
+recursive-include docs/en *.md *.json
+include docs/ENGLISH_MANUALS.md

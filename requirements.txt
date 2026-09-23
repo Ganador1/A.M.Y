@@ -1,0 +1,43 @@
+# A.M.Y dependencies — pinned versions for reproducibility
+# Apple Silicon / MPS Metal compatible (M1-M4)
+# Tested on Python 3.13 and 3.14
+
+# Core
+PyYAML==6.0.3
+rich==15.0.0
+python-dotenv==1.2.2
+
+# HTTP Client (Ollama Cloud API)
+httpx==0.28.1
+
+# Memory & Knowledge
+chromadb==1.5.8
+networkx==3.6.1
+
+# PyTorch with MPS Metal support (Apple Silicon)
+torch==2.11.0
+torchvision==0.26.0
+torchaudio==2.11.0
+
+# Active Inference
+jax==0.10.0
+jaxlib==0.10.0
+
+# Web Research
+beautifulsoup4==4.14.3
+arxiv==3.0.0
+feedparser==6.0.12
+
+# Data & Experiment
+numpy==2.4.4
+pandas==3.0.2
+scipy==1.17.1
+scikit-learn==1.8.0
+matplotlib==3.10.8
+
+# Logging
+structlog==25.5.0
+
+# Testing (install separately or via: pip install -e .[test])
+# pytest==8.4.2
+# pytest-asyncio==1.2.0

@@ -1,0 +1,1 @@
+"""Excepciones por dominio científico"""

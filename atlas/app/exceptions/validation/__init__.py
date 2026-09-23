@@ -1,0 +1,1 @@
+"""Excepciones de validación y ética"""

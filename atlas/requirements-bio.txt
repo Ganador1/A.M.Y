@@ -1,0 +1,8 @@
+biopython
+scanpy
+anndata
+openmm
+mdtraj
+cobra
+neuron
+brian2

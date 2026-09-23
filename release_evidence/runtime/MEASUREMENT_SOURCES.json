@@ -1,0 +1,1133 @@
+{
+  "scope": "Derived public numerical records, not a rewritten native evidence chain. Hashes of originals retained for comparison; originals remain private.",
+  "files": [
+    {
+      "path": "measurements/campaign-01/worker-01/m0001/request.json",
+      "original_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "public_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-01/m0001/result.json",
+      "original_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "public_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-01/m0002/request.json",
+      "original_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "public_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-01/m0002/result.json",
+      "original_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "public_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-01/m0003/request.json",
+      "original_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "public_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-01/m0003/result.json",
+      "original_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "public_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0001/audit.json",
+      "original_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "public_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0001/certificate.json",
+      "original_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "public_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0001/negative-control.json",
+      "original_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "public_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0001/request.json",
+      "original_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "public_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0001/result.json",
+      "original_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "public_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0002/audit.json",
+      "original_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "public_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0002/certificate.json",
+      "original_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "public_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0002/negative-control.json",
+      "original_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "public_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0002/request.json",
+      "original_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "public_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0002/result.json",
+      "original_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "public_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0003/audit.json",
+      "original_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "public_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0003/certificate.json",
+      "original_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "public_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0003/negative-control.json",
+      "original_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "public_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0003/request.json",
+      "original_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "public_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-02/m0003/result.json",
+      "original_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "public_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-03/m0001/request.json",
+      "original_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "public_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-03/m0001/result.json",
+      "original_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "public_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-03/m0002/request.json",
+      "original_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "public_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-03/m0002/result.json",
+      "original_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "public_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-03/m0003/request.json",
+      "original_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "public_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-03/m0003/result.json",
+      "original_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "public_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0001/audit.json",
+      "original_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "public_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0001/certificate.json",
+      "original_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "public_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0001/negative-control.json",
+      "original_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "public_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0001/request.json",
+      "original_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "public_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0001/result.json",
+      "original_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "public_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0002/audit.json",
+      "original_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "public_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0002/certificate.json",
+      "original_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "public_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0002/negative-control.json",
+      "original_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "public_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0002/request.json",
+      "original_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "public_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0002/result.json",
+      "original_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "public_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0003/audit.json",
+      "original_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "public_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0003/certificate.json",
+      "original_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "public_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0003/negative-control.json",
+      "original_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "public_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0003/request.json",
+      "original_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "public_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-04/m0003/result.json",
+      "original_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "public_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-05/m0001/request.json",
+      "original_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "public_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-05/m0001/result.json",
+      "original_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "public_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-05/m0002/request.json",
+      "original_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "public_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-05/m0002/result.json",
+      "original_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "public_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-05/m0003/request.json",
+      "original_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "public_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-05/m0003/result.json",
+      "original_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "public_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0001/audit.json",
+      "original_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "public_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0001/certificate.json",
+      "original_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "public_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0001/negative-control.json",
+      "original_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "public_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0001/request.json",
+      "original_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "public_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0001/result.json",
+      "original_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "public_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0002/audit.json",
+      "original_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "public_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0002/certificate.json",
+      "original_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "public_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0002/negative-control.json",
+      "original_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "public_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0002/request.json",
+      "original_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "public_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0002/result.json",
+      "original_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "public_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0003/audit.json",
+      "original_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "public_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0003/certificate.json",
+      "original_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "public_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0003/negative-control.json",
+      "original_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "public_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0003/request.json",
+      "original_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "public_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-06/m0003/result.json",
+      "original_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "public_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-07/m0001/request.json",
+      "original_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "public_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-07/m0001/result.json",
+      "original_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "public_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-07/m0002/request.json",
+      "original_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "public_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-07/m0002/result.json",
+      "original_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "public_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-07/m0003/request.json",
+      "original_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "public_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-07/m0003/result.json",
+      "original_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "public_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0001/audit.json",
+      "original_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "public_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0001/certificate.json",
+      "original_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "public_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0001/negative-control.json",
+      "original_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "public_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0001/request.json",
+      "original_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "public_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0001/result.json",
+      "original_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "public_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0002/audit.json",
+      "original_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "public_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0002/certificate.json",
+      "original_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "public_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0002/negative-control.json",
+      "original_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "public_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0002/request.json",
+      "original_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "public_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0002/result.json",
+      "original_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "public_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0003/audit.json",
+      "original_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "public_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0003/certificate.json",
+      "original_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "public_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0003/negative-control.json",
+      "original_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "public_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0003/request.json",
+      "original_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "public_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-08/m0003/result.json",
+      "original_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "public_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-09/m0001/request.json",
+      "original_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "public_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-09/m0001/result.json",
+      "original_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "public_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-09/m0002/request.json",
+      "original_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "public_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-09/m0002/result.json",
+      "original_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "public_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-09/m0003/request.json",
+      "original_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "public_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-09/m0003/result.json",
+      "original_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "public_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0001/audit.json",
+      "original_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "public_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0001/certificate.json",
+      "original_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "public_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0001/negative-control.json",
+      "original_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "public_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0001/request.json",
+      "original_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "public_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0001/result.json",
+      "original_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "public_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0002/audit.json",
+      "original_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "public_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0002/certificate.json",
+      "original_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "public_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0002/negative-control.json",
+      "original_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "public_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0002/request.json",
+      "original_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "public_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0002/result.json",
+      "original_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "public_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0003/audit.json",
+      "original_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "public_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0003/certificate.json",
+      "original_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "public_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0003/negative-control.json",
+      "original_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "public_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0003/request.json",
+      "original_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "public_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-01/worker-10/m0003/result.json",
+      "original_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "public_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-02/worker-03/m0001/request.json",
+      "original_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "public_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-02/worker-03/m0001/result.json",
+      "original_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "public_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-02/worker-03/m0002/request.json",
+      "original_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "public_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-02/worker-03/m0002/result.json",
+      "original_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "public_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-02/worker-04/m0001/audit.json",
+      "original_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "public_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-02/worker-04/m0001/certificate.json",
+      "original_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "public_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-02/worker-04/m0001/negative-control.json",
+      "original_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "public_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-02/worker-04/m0001/request.json",
+      "original_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "public_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-02/worker-04/m0001/result.json",
+      "original_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "public_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-03/m0001/request.json",
+      "original_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "public_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-03/m0001/result.json",
+      "original_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "public_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-03/m0002/request.json",
+      "original_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "public_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-03/m0002/result.json",
+      "original_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "public_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-03/m0003/request.json",
+      "original_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "public_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-03/m0003/result.json",
+      "original_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "public_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0001/audit.json",
+      "original_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "public_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0001/certificate.json",
+      "original_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "public_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0001/negative-control.json",
+      "original_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "public_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0001/request.json",
+      "original_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "public_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0001/result.json",
+      "original_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "public_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0002/audit.json",
+      "original_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "public_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0002/certificate.json",
+      "original_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "public_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0002/negative-control.json",
+      "original_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "public_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0002/request.json",
+      "original_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "public_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0002/result.json",
+      "original_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "public_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0003/audit.json",
+      "original_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "public_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0003/certificate.json",
+      "original_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "public_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0003/negative-control.json",
+      "original_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "public_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0003/request.json",
+      "original_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "public_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-04/m0003/result.json",
+      "original_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "public_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-05/m0001/request.json",
+      "original_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "public_sha256": "f52babd915bf1dbfd3959c5e158e71b86a1bbd3214fb7afba6bad8811257cc8c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-05/m0001/result.json",
+      "original_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "public_sha256": "fba67a4d589c1b65d7b9e89b9f18a56659268249c6d317c220b39438a8aa1e75",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-05/m0002/request.json",
+      "original_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "public_sha256": "5776b1eba8a1391350ec12017103202007f2c716540a4c4ec723c369e6c06d24",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-05/m0002/result.json",
+      "original_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "public_sha256": "e5750b7050fb02ee49aefc4e68906b570f289ac7f32d9c13cc99ad2eda6d43cd",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-05/m0003/request.json",
+      "original_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "public_sha256": "f54de1622ea0a7e033ca9ff226050dff7b56a177dc62044fa801c3be7245167b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-05/m0003/result.json",
+      "original_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "public_sha256": "80d7a50b596a4bb9472b5928a831ad37007366007fe629ae2058ac28c719d1a7",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0001/audit.json",
+      "original_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "public_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0001/certificate.json",
+      "original_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "public_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0001/negative-control.json",
+      "original_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "public_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0001/request.json",
+      "original_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "public_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0001/result.json",
+      "original_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "public_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0002/audit.json",
+      "original_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "public_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0002/certificate.json",
+      "original_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "public_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0002/negative-control.json",
+      "original_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "public_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0002/request.json",
+      "original_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "public_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0002/result.json",
+      "original_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "public_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0003/audit.json",
+      "original_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "public_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0003/certificate.json",
+      "original_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "public_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0003/negative-control.json",
+      "original_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "public_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0003/request.json",
+      "original_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "public_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-03/worker-06/m0003/result.json",
+      "original_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "public_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0001/audit.json",
+      "original_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "public_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0001/certificate.json",
+      "original_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "public_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0001/negative-control.json",
+      "original_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "public_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0001/request.json",
+      "original_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "public_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0001/result.json",
+      "original_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "public_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0002/audit.json",
+      "original_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "public_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0002/certificate.json",
+      "original_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "public_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0002/negative-control.json",
+      "original_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "public_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0002/request.json",
+      "original_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "public_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0002/result.json",
+      "original_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "public_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0003/audit.json",
+      "original_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "public_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0003/certificate.json",
+      "original_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "public_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0003/negative-control.json",
+      "original_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "public_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0003/request.json",
+      "original_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "public_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-04/m0003/result.json",
+      "original_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "public_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0001/request.json",
+      "original_sha256": "43773b6595e989c0005f12fa54458c186e0d3e451f6e1abfcaf08471f54e850e",
+      "public_sha256": "43773b6595e989c0005f12fa54458c186e0d3e451f6e1abfcaf08471f54e850e",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0001/result.json",
+      "original_sha256": "f95839a4b5e049a4ec34b43f0d45b56f215d208d138034bf3abc476cfa63cdc3",
+      "public_sha256": "f95839a4b5e049a4ec34b43f0d45b56f215d208d138034bf3abc476cfa63cdc3",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0002/audit.json",
+      "original_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "public_sha256": "0deb672fb5e4d2f6f047230d925076d2fe17ce5216d0438d9889cd78715beecf",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0002/certificate.json",
+      "original_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "public_sha256": "d09e78e2da8299ef1b611ec97ce2b720093f07b19fb0163dabc3dc379cc9a445",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0002/negative-control.json",
+      "original_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "public_sha256": "6a3dc37a1ee3373cf90ec42d6a88a039a215ce60eb2ee48ca742fdd549c81a26",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0002/request.json",
+      "original_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "public_sha256": "0cc990f5dbba49c52f3907e1db07d6d7c90e1de166da899bb82cf844eb07227b",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0002/result.json",
+      "original_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "public_sha256": "f395fd47b8316688128b4d19baa2fa05ee5a09d9e72166aa87284edf576fd724",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0003/audit.json",
+      "original_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "public_sha256": "115d34f94fd16eef724e1b3da658469fee7952da1c916c7c86ba0d6a9d10f228",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0003/certificate.json",
+      "original_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "public_sha256": "54b93df03deba8dde5f739f6de63733ddbb4f9c8466d1f2ba59c5e8f11aec8e0",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0003/negative-control.json",
+      "original_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "public_sha256": "c96cee1dbc04597cb1aa66f97455987d06a8125ff9171e8c93a1f6376504bcc8",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0003/request.json",
+      "original_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "public_sha256": "2d7bf3d7ebe7a72b31fa16d35e1e812b5d32ab29c4ec0b4ceb225352ff3682ff",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0003/result.json",
+      "original_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "public_sha256": "602a556daf5854e20039f4cc8adaca288e42807b625a9a396aa94d49d9ff933c",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0004/audit.json",
+      "original_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "public_sha256": "4cef3576eb76324b405d0a05e009fd3b4e005d0ffadff0ca15112010210f5b45",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0004/certificate.json",
+      "original_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "public_sha256": "91361b6ccac220ffa27f27a4ea05f7e36100680f31842f13db5ed0c402662086",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0004/negative-control.json",
+      "original_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "public_sha256": "353108328a041a6ebf562e033fbbe5178cc035b3c5f75eddcaf6148ac24ab99f",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0004/request.json",
+      "original_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "public_sha256": "32fcc2364a6d3a2ca047db3f67ec19a51991c490124229e38c652e4621b697ee",
+      "privacy_substitutions": {}
+    },
+    {
+      "path": "measurements/campaign-04/worker-06/m0004/result.json",
+      "original_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "public_sha256": "c356901217504d9613664cfb97a088296494a686a3418be8583b789fcd5ae184",
+      "privacy_substitutions": {}
+    }
+  ]
+}

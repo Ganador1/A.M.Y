@@ -1,0 +1,12 @@
+qutip
+qiskit
+cirq
+pyscf
+openbabel-wheel
+rdkit
+ase
+pymatgen
+deepchem
+pennylane
+qiskit-optimization
+qiskit-machine-learning
