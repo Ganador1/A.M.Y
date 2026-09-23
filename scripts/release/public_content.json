@@ -240,6 +240,8 @@
     "atlas/monitoring/prometheus/prometheus.yml",
     "atlas/nginx/nginx.conf",
     "atlas/pytest.ini",
+    "atlas/real_data_tests/README.md",
+    "atlas/real_data_tests/climate_nasa_gistemp.csv",
     "atlas/scripts/GUIA_INTEGRACION_RAPIDA.py",
     "atlas/scripts/RESUMEN_COMPARATIVO_MULTIDOMAIN.sh",
     "atlas/scripts/analysis/analyze_code.py",
