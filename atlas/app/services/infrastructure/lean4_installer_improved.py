@@ -382,6 +382,7 @@ class AdvancedLean4InstallerService:
     
     async def _check_internet_connectivity(self) -> bool:
         """Check internet connectivity"""
+        try:
             # Try to connect to GitHub (where elan installer is hosted)
             proc = await asyncio.create_subprocess_exec(
                 'curl', '-s', '--max-time', '10', 'https://github.com',

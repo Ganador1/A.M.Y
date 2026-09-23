@@ -47,8 +47,8 @@ from fastapi import APIRouter, WebSocket, WebSocketDisconnect, HTTPException
 from fastapi.responses import HTMLResponse
 
 from app.core.logging import get_logger
-from app.domains.medicine.services.medical_realtime_service import (
 from app.exceptions.domain.medicine import MedicalError
+from app.domains.medicine.services.medical_realtime_service import (
     MedicalRealtimeService,
     create_medical_realtime_service,
     StreamType,

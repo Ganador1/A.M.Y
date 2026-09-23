@@ -1,0 +1,5 @@
+{
+  "expected_tool_status": "UNKNOWN",
+  "expected_claim_status": "proposed",
+  "reason": "an intentionally insufficient solver budget must fail closed"
+}

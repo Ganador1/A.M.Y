@@ -6,7 +6,7 @@
 domain_overrides: {}
 roles:
   orchestrator:
-    description: Planificación estratégica y descomposición de tareas científicas
+    description: Strategic planning and scientific task decomposition
     model: nemotron-3-super:cloud
     provider: ollama
     params:
@@ -14,7 +14,7 @@ roles:
       temperature: 0.3
   
   bio_hypothesis:
-    description: Generación de hipótesis biológicas y científicas
+    description: Biological and scientific hypothesis generation
     model: nemotron-3-super:cloud
     provider: ollama
     params:
@@ -22,7 +22,7 @@ roles:
       temperature: 0.4
   
   physchem_coder:
-    description: Diseño de experimentos computacionales
+    description: Computational experiment design
     model: qwen3-coder-next:cloud
     provider: ollama
     params:
@@ -30,7 +30,7 @@ roles:
       temperature: 0.2
   
   reviewer:
-    description: Evaluación crítica reflexiva y peer review
+    description: Reflective critical evaluation and peer review
     model: mistral-large-3:675b-cloud
     provider: ollama
     params:
@@ -38,7 +38,7 @@ roles:
       temperature: 0.2
   
   publisher:
-    description: Síntesis y generación de reportes científicos
+    description: Synthesis and scientific report generation
     model: mistral-large-3:675b-cloud
     provider: ollama
     params:

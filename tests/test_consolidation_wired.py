@@ -59,6 +59,7 @@ def test_heartbeat_wires_a_consolidator():
     # The heartbeat must actually own a consolidator (the bug was that nothing
     # ever constructed/called one).
     hb = Heartbeat.__new__(Heartbeat)
+    hb._operating_contract = ""
     # Attribute is set in __init__; assert the wiring contract exists in source.
     import inspect
     src = inspect.getsource(Heartbeat.__init__)
@@ -77,6 +78,7 @@ async def test_heartbeat_reflect_runs_consolidation_after_throttle(tmp_path):
                     metadata={"code": "print(1)", "result": {"success": True}})
 
     hb = Heartbeat.__new__(Heartbeat)
+    hb._operating_contract = ""
     hb.config = {}
     hb.episodic_memory = ep
     hb.semantic_memory = sem
@@ -86,7 +88,7 @@ async def test_heartbeat_reflect_runs_consolidation_after_throttle(tmp_path):
 
     # Stub the LLM-backed reflection step; keep the real consolidation wiring.
     class _Reflect:
-        async def reflect(self, world_model, goal_stack):
+        async def reflect(self, world_model, goal_stack, experiment_receipts, operating_contract):
             return None
     hb.reflection = _Reflect()
 

@@ -24,8 +24,8 @@ from pydantic import BaseModel, Field
 from typing import Dict, List, Any, Optional
 import logging
 
-from app.domains.neuroscience.services.neuromorphic.multi_scale_modeling import (
 from app.exceptions.domain.neuroscience import NeuroscienceError
+from app.domains.neuroscience.services.neuromorphic.multi_scale_modeling import (
     MultiScaleModelingService,
     NetworkParameters,
     SimulationParameters,

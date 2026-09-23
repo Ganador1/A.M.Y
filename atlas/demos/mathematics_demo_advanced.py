@@ -136,7 +136,7 @@ def demo_complex_analysis():
     ax3.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('/Users/giovanniarangio/atlas/demos/complex_analysis.png', dpi=300, bbox_inches='tight')
+    plt.savefig('/home/amy/atlas/demos/complex_analysis.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 def demo_optimization_algorithms():
@@ -272,7 +272,7 @@ def demo_optimization_algorithms():
     axes[2].grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('/Users/giovanniarangio/atlas/demos/optimization_demo.png', dpi=300, bbox_inches='tight')
+    plt.savefig('/home/amy/atlas/demos/optimization_demo.png', dpi=300, bbox_inches='tight')
     plt.show()
     
     # Mostrar convergencia
@@ -282,7 +282,7 @@ def demo_optimization_algorithms():
     plt.xlabel('Generación')
     plt.ylabel('Mejor Fitness')
     plt.grid(True, alpha=0.3)
-    plt.savefig('/Users/giovanniarangio/atlas/demos/genetic_convergence.png', dpi=300, bbox_inches='tight')
+    plt.savefig('/home/amy/atlas/demos/genetic_convergence.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 def demo_mathematical_ml():
@@ -376,7 +376,7 @@ def demo_mathematical_ml():
             plt.grid(True, alpha=0.3)
         
         plt.tight_layout()
-        plt.savefig('/Users/giovanniarangio/atlas/demos/ml_approximation.png', dpi=300, bbox_inches='tight')
+        plt.savefig('/home/amy/atlas/demos/ml_approximation.png', dpi=300, bbox_inches='tight')
         plt.show()
         
         # Mostrar tabla de resultados
@@ -430,7 +430,7 @@ def demo_fractal_mathematics():
         plt.colorbar(im, ax=axes[i])
     
     plt.tight_layout()
-    plt.savefig('/Users/giovanniarangio/atlas/demos/mandelbrot_fractals.png', dpi=300, bbox_inches='tight')
+    plt.savefig('/home/amy/atlas/demos/mandelbrot_fractals.png', dpi=300, bbox_inches='tight')
     plt.show()
     
     print_section("Conjunto de Julia")
@@ -474,7 +474,7 @@ def demo_fractal_mathematics():
         plt.colorbar(im, ax=axes[i])
     
     plt.tight_layout()
-    plt.savefig('/Users/giovanniarangio/atlas/demos/julia_fractals.png', dpi=300, bbox_inches='tight')
+    plt.savefig('/home/amy/atlas/demos/julia_fractals.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 def demo_signal_processing():
@@ -559,7 +559,7 @@ def demo_signal_processing():
     axes[1, 1].grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('/Users/giovanniarangio/atlas/demos/signal_processing.png', dpi=300, bbox_inches='tight')
+    plt.savefig('/home/amy/atlas/demos/signal_processing.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 def performance_stress_test():
@@ -679,7 +679,7 @@ def performance_stress_test():
     axes[2].grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('/Users/giovanniarangio/atlas/demos/performance_benchmark.png', dpi=300, bbox_inches='tight')
+    plt.savefig('/home/amy/atlas/demos/performance_benchmark.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 def main():
@@ -720,7 +720,7 @@ def main():
         ]
         
         for file in generated_files:
-            print(f"  📊 /Users/giovanniarangio/atlas/demos/{file}")
+            print(f"  📊 /home/amy/atlas/demos/{file}")
         
     except Exception as e:
         print(f"\n❌ Error durante la demostración avanzada: {e}")

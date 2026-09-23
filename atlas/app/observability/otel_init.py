@@ -41,12 +41,12 @@ def init_tracing(app=None) -> Optional[TracerProvider]:
     if not OPENTELEMETRY_AVAILABLE:
         return None
         
-    enabled = settings.OTEL_ENABLED, "false").lower() == "true"
+    enabled = str(getattr(settings, "OTEL_ENABLED", "false")).lower() == "true"
     if not enabled:
         return None
 
-    service_name = settings.OTEL_SERVICE_NAME, "axiom-meta4")
-    endpoint = settings.OTEL_EXPORTER_OTLP_ENDPOINT, "http://localhost:4318")
+    service_name = getattr(settings, "OTEL_SERVICE_NAME", "axiom-meta4")
+    endpoint = getattr(settings, "OTEL_EXPORTER_OTLP_ENDPOINT", "http://localhost:4318")
 
     resource = Resource.create({"service.name": service_name})
     provider = TracerProvider(resource=resource)

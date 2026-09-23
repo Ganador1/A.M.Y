@@ -371,6 +371,8 @@ def graph_chromatic_number(spec: str) -> str:
 
     n = g.number_of_nodes()
     m = g.number_of_edges()
+    if nx.number_of_selfloops(g):
+        return "Error: proper vertex coloring is undefined for a graph with self-loops"
 
     # Greedy upper bound.
     colors = nx.greedy_color(g, strategy="largest_first")
@@ -379,7 +381,7 @@ def graph_chromatic_number(spec: str) -> str:
     # Exact for small graphs by trying k=1,2,...
     exact_chi: int | None = None
     if n <= 12:
-        for k in range(1, max(2, greedy_chi) + 1):
+        for k in range(0 if n == 0 else 1, max(2, greedy_chi) + 1):
             if _is_k_colorable(g, k):
                 exact_chi = k
                 break
@@ -405,6 +407,8 @@ def graph_chromatic_number(spec: str) -> str:
 def _is_k_colorable(g, k: int) -> bool:
     """Backtracking k-coloring check."""
     nodes = list(g.nodes())
+    if any(g.has_edge(v, v) for v in nodes):
+        return False
     if k <= 0:
         return len(nodes) == 0
     color = {}
@@ -479,7 +483,7 @@ def euler_characteristic_from_face_vector(face_vector: Sequence[int]) -> str:
         return f"Error: face counts must be non-negative; got {fv}"
     chi = sum(((-1) ** i) * f for i, f in enumerate(fv))
     pretty = " + ".join(
-        f"{'-' if i % 2 else '+'}{f}·(-1)^{i}" for i, f in enumerate(fv)
+        f"{f}·(-1)^{i}" for i, f in enumerate(fv)
     )
     pretty = pretty.replace("+-", "-")
     return (

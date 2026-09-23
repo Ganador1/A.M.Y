@@ -43,8 +43,8 @@ from typing import List, Dict, Any, Optional
 from datetime import datetime
 import logging
 
-from app.services.evidence_synthesis_service import (
 from app.exceptions.domain.biology import BiologyError
+from app.services.evidence_synthesis_service import (
     AdvancedEvidenceSynthesisService,
     EvidenceSource,
     EvidenceType,

@@ -29,10 +29,8 @@ class BreakthroughDetector:
     async def evaluate(self, thought: dict, action_result: dict, semantic_memory) -> bool:
         """Is this a breakthrough worth reporting?
 
-        A breakthrough MUST be backed by verifiable provenance:
-        - an experiment_id from a sandbox run, OR
-        - a verified citation, OR
-        - an Atlas paper with tool_realism evidence.
+        A candidate notification requires a successful retained execution.
+        Its score is heuristic and does not certify a scientific discovery.
         """
 
         if self._reports_today >= self.max_reports:
@@ -63,7 +61,14 @@ class BreakthroughDetector:
             + 0.1 * provenance_bonus
         )
 
+        # This is a candidate notification gate, never a novelty/truth proof.
         is_breakthrough = score >= self.threshold and has_provenance
+        from core.execution_evidence import record_event
+        record_event("breakthrough.assessment", {
+            "candidate_report": is_breakthrough, "heuristic_score": score,
+            "provenance": provenance_assessment(action_result),
+            "scientific_truth_verified": False, "novelty_verified": False,
+        })
 
         if is_breakthrough:
             self._reports_today += 1
@@ -83,34 +88,61 @@ class BreakthroughDetector:
         return is_breakthrough
 
     def _has_verifiable_provenance(self, thought: dict, action_result: dict) -> bool:
-        """Check whether this result has verifiable provenance."""
-        # 1. Sandbox experiment with experiment_id
-        if action_result.get("type") == "experiment":
-            result = action_result.get("result", {})
-            if result.get("experiment_id") or result.get("provenance_path"):
-                return True
+        """Check retained bytes, not words, peer scores or caller assertions."""
+        return provenance_assessment(action_result)["integrity_verified"]
 
-        # 2. Atlas peer-review with evidence
-        if action_result.get("type") == "peer_review_paper":
-            if action_result.get("success") and action_result.get("score", 0) >= 5:
-                return True
 
-        # 3. Literature search that verified a claim
-        if action_result.get("type") in ("research", "search_literature"):
-            # Require that the thought explicitly mentions verification
-            content = thought.get("content", "")
-            if "verified" in content.lower() or "confirmed" in content.lower():
-                return True
+def provenance_assessment(action_result: dict) -> dict:
+    """Bind a candidate to a successful retained execution and its journal.
 
-        # 4. Custom script that produced result files
-        if action_result.get("type") == "run_script":
-            result = action_result.get("result", {})
-            if result.get("success") and result.get("result_files"):
-                return True
+    A real computation can still implement the wrong scientific model. Neither
+    this check nor the model's confidence establishes scientific truth/novelty.
+    """
+    import hashlib
+    import json
+    from pathlib import Path
+    from core.provenance import get_provenance_manager
 
-        # 5. Explicit experiment_id mentioned in the thought content
-        content = thought.get("content", "")
-        if "experiment_" in content.lower():
-            return True
-
-        return False
+    assessment = {"integrity_verified": False, "scientific_truth_verified": False,
+                  "novelty_verified": False, "reason": "no bound execution receipt"}
+    try:
+        kind = action_result.get("type")
+        result = action_result.get("result")
+        execution = result if kind in ("experiment", "run_script") and isinstance(result, dict) else action_result
+        experiment_id = execution.get("experiment_id")
+        if not experiment_id or execution.get("success") is not True:
+            return assessment
+        manager = get_provenance_manager()
+        verified = manager.verify_experiment_id(experiment_id)
+        if not verified["integrity_verified"]:
+            return assessment
+        record = verified["record"]
+        if record["tool"]["success"] is not True:
+            return assessment
+        output = (Path(verified["path"]).parent / "output.txt").read_bytes()
+        if kind == "run_scientific_tool":
+            bound = (isinstance(result, str)
+                     and hashlib.sha256(result.encode()).hexdigest() == record["tool"]["output_hash"]
+                     and action_result.get("tool_name") == record["tool"]["name"])
+        elif kind in ("experiment", "run_script"):
+            retained = json.loads(output)
+            bound = (retained.get("experiment_id") == experiment_id
+                     and all(retained.get(key) == execution.get(key) for key in
+                             ("success", "stdout", "stderr", "return_code", "result_files")))
+        else:
+            bound = False
+        journal = manager.verify_journal()
+        entries = [json.loads(line) for line in manager.journal_path.read_bytes().splitlines() if line.strip()]
+        memberships = [entry for entry in entries if entry.get("experiment_id") == experiment_id
+                       and entry.get("record_hash") == record["integrity"]["record_hash"]
+                       and entry.get("sequence") == record["integrity"]["journal_sequence"]]
+        if not bound or not journal["integrity_verified"] or len(memberships) != 1:
+            return assessment
+        assessment.update(integrity_verified=True, experiment_id=experiment_id,
+                          record_hash=record["integrity"]["record_hash"],
+                          output_sha256=record["tool"]["output_hash"],
+                          journal_head=journal["head_hash"],
+                          reason="retained output matches a successful journaled execution")
+    except (OSError, ValueError, TypeError, KeyError, AttributeError):
+        pass
+    return assessment

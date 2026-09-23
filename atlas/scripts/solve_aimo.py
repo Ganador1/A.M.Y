@@ -183,7 +183,7 @@ if __name__ == "__main__":
     test_file = "ai-mathematical-olympiad-progress-prize-3/test.csv"
     if not os.path.exists(test_file):
         # Try absolute path if relative fails
-        test_file = "/Volumes/Ganador disk/atlas/ai-mathematical-olympiad-progress-prize-3/test.csv"
+        test_file = "/workspace/atlas/ai-mathematical-olympiad-progress-prize-3/test.csv"
     
     solver.warmup()
     solver.run_on_csv(test_file, "submission.csv")

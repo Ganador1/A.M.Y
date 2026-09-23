@@ -12,6 +12,7 @@ Each fact has:
 """
 import asyncio
 import json
+import math
 import os
 import time
 from pathlib import Path
@@ -39,6 +40,7 @@ class SemanticMemory:
         self.save_interval_seconds = config.get("knowledge_graph_save_interval", 5.0)
         self.max_sources_per_fact = config.get("max_sources_per_fact", 25)
         self.facts: dict[str, dict] = {}
+        self.claims: dict[str, dict] = {}
         self._dirty = False
         self._last_save = 0.0
         self._load()
@@ -54,6 +56,7 @@ class SemanticMemory:
             with open(self.graph_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
             self.facts = data.get("facts", {})
+            self.claims = data.get("claims", {})
             log.info("semantic_memory.loaded", count=len(self.facts))
         except (json.JSONDecodeError, KeyError, OSError) as exc:
             # Preserve the corrupt file for forensics instead of zeroing memory.
@@ -64,13 +67,14 @@ class SemanticMemory:
             except OSError:
                 log.error("semantic_memory.load_corrupt", error=str(exc))
             self.facts = {}
+            self.claims = {}
 
     def _write_to_disk(self):
         """Atomically persist the graph (tmp file + os.replace) so a crash
         mid-write cannot leave a truncated file that _load would then wipe."""
         tmp = self.graph_path.with_suffix(self.graph_path.suffix + ".tmp")
         with open(tmp, "w", encoding="utf-8") as f:
-            json.dump({"facts": self.facts, "updated_at": time.time()}, f, indent=2)
+            json.dump({"facts": self.facts, "claims": getattr(self, "claims", {}), "updated_at": time.time()}, f, indent=2)
         os.replace(tmp, self.graph_path)
 
     async def _maybe_save(self):
@@ -90,6 +94,35 @@ class SemanticMemory:
         self._last_save = time.time()
         self._dirty = False
         await asyncio.to_thread(self._write_to_disk)
+
+    async def add_claim(self, subject: str, predicate: str, obj: str,
+                        model_confidence=0.5, source: str = "", *,
+                        experiment_ids: list[str] | None = None,
+                        known_experiment_ids: list[str] | None = None):
+        """Retain an unverified model assertion without promoting it to a fact.
+
+        Receipt existence records attribution only: it does not establish that
+        the referenced calculation entails this subject/predicate/object claim.
+        """
+        subject, predicate, obj = str(subject), str(predicate), str(obj)
+        key = json.dumps([subject, predicate, obj], ensure_ascii=False)
+        confidence = model_confidence if type(model_confidence) in (int, float) else None
+        if confidence is not None and (not math.isfinite(confidence) or not 0 <= confidence <= 1):
+            confidence = None
+        observation = {"source": source, "model_confidence": confidence,
+                       "experiment_ids": list(experiment_ids or []),
+                       "known_experiment_ids": list(known_experiment_ids or []),
+                       "timestamp": time.time()}
+        claim = self.claims.setdefault(key, {
+            "subject": subject, "predicate": predicate, "object": obj,
+            "verification_status": "unverified_model_claim", "interpretation_verified": False,
+            "observations": [], "times_reported": 0,
+        })
+        claim["times_reported"] += 1
+        claim["observations"].append(observation)
+        claim["observations"] = claim["observations"][-self.max_sources_per_fact:]
+        await self._maybe_save()
+        return claim
 
     async def add_fact(
         self,
@@ -172,18 +205,22 @@ class SemanticMemory:
 
     async def summarize(self) -> str:
         """Get a text summary of the knowledge graph."""
+        pending = len(getattr(self, "claims", {}))
         if not self.facts:
+            if pending:
+                return f"No stored facts. Unverified model claims retained: {pending}."
             return "No knowledge yet."
 
         high = await self.get_high_confidence()
         uncertain = await self.get_uncertain()
 
         summary = f"Total facts: {len(self.facts)}\n"
+        summary += f"Unverified model claims retained: {pending}\n"
         summary += f"High confidence: {len(high)}\n"
         summary += f"Uncertain: {len(uncertain)}\n\n"
 
         if high:
-            summary += "Top confirmed facts:\n"
+            summary += "Stored facts with high assigned confidence (not independently verified):\n"
             for f in high[:10]:
                 summary += f"  - {f['subject']} {f['predicate']} {f['object']} ({f['confidence']:.2f})\n"
 

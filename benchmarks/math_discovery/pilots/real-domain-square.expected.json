@@ -1,0 +1,6 @@
+{
+  "expected_verdict": "refuted",
+  "counterexample": "1/2",
+  "smallest_counterexample_exists": false,
+  "reason": "(1/2)^2 = 1/4 < 1/2; every x in (0,1) is a counterexample"
+}

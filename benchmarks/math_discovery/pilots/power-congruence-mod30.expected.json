@@ -1,0 +1,5 @@
+{
+  "expected_verdict": "supported",
+  "counterexample": null,
+  "reason": "n^5 - n is divisible by 2, 3, and 5 for every integer n"
+}

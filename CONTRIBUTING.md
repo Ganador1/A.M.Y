@@ -5,7 +5,7 @@ Thank you for considering a contribution to A.M.Y. The project welcomes pull req
 ## Before you start
 
 1. Read the SCIENCE_MANIFESTO.md and the USE_POLICY.md. Both express the spirit of the project.
-2. Run the regression tests locally: `.venv/bin/python -m pytest tests/test_atlas_misuse_guard.py tests/test_security_guardrails.py tests/test_science_gates.py`. They should pass 30/30 before you start.
+2. Run the regression tests locally: `.venv/bin/python -m pytest tests/test_atlas_misuse_guard.py tests/test_security_guardrails.py tests/test_science_gates.py`. Record the actual pass, fail and skip counts for your environment.
 3. If you are about to touch the safety policy, read SECURITY.md as well.
 
 ## Setting up your environment
@@ -41,11 +41,11 @@ The rubric scorer at experiments/ab_test/scoring/score_paper.py is deliberately 
 
 ### New cognitive agents
 
-A.M.Y v1.0 ships with Ranking and Reflection. If you propose a new agent (planning, memory, simulation), it should:
+A.M.Y includes ranking and reflection modules. If you propose a new agent (planning, memory, simulation), it should:
 
 - Live under cognition/.
 - Be wireable into communication/paper_generator.py without breaking existing behaviour.
-- Pass the existing 30/30 tests.
+- Pass the relevant existing tests and retain failures in the report.
 - Come with a measurement of its effect on the rubric (an A/B in experiments/).
 
 ## Style
@@ -69,3 +69,7 @@ Use the GitHub issue tracker. For security-sensitive issues use SECURITY.md inst
 ## Code of conduct
 
 Be kind, be precise, be honest about what your code does and does not do.
+
+## Release evidence and language
+
+Write maintained public documentation in English. Preserve historical evidence in its original language and bytes; add translations as separately attributed files. Do not claim novelty from a successful tool call, internal review score or hash check. See docs/RESULTS.md.

@@ -272,7 +272,7 @@ class ServiceProfiler:
         """Calcular el tamaño aproximado de objetos en bytes."""
         try:
             return len(json.dumps(objects, default=str).encode('utf-8'))
-        except Exception  # TODO: Change to JSONDecodeError or ValueError:
+        except Exception:  # TODO: Change to JSONDecodeError or ValueError
             return 0
     
     def _record_metrics(self, 

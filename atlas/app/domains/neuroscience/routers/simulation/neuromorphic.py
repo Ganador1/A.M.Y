@@ -22,8 +22,8 @@ import logging
 from datetime import datetime
 
 # Importar servicios neuromórficos
-from ...services.neuromorphic.spiking_neural_networks import (
 from app.exceptions.domain.neuroscience import NeuroscienceError
+from ...services.neuromorphic.spiking_neural_networks import (
     spiking_neural_network_service,
     NeuronType,
     ConnectivityType,

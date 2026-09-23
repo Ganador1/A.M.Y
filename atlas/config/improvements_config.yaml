@@ -1,3 +1,4 @@
+# Optional service example. Replace placeholder credentials in local configuration.
 cache:
   dir: data/scientific_cache
   ttl_days: 7

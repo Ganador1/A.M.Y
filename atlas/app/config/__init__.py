@@ -113,7 +113,7 @@ class Settings(BaseSettings):
 	api_bearer_token: Optional[str] = Field(default=None)
 
 	# Database Configuration
-	database_url: Optional[str] = Field(default="postgresql://giovanniarangio@localhost:5432/axiom_meta4")
+	database_url: Optional[str] = Field(default="postgresql://Ganador1@localhost:5432/axiom_meta4")
 	database_pool_size: int = 10
 	database_max_overflow: int = 20
 	database_pool_timeout: int = 30

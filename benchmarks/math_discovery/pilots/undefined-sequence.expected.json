@@ -1,0 +1,6 @@
+{
+  "expected_verdict": "inconclusive",
+  "expected_claim_status": "proposed",
+  "required_gap": "T is undefined",
+  "reason": "the text does not determine a mathematical proposition"
+}

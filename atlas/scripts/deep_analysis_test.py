@@ -11,10 +11,10 @@ import os
 import json
 from datetime import datetime
 
-sys.path.insert(0, "/Volumes/Ganador disk/atlas")
+sys.path.insert(0, "/workspace/atlas")
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
-OUTPUT_DIR = "/Volumes/Ganador disk/atlas/artifacts/research_papers"
+OUTPUT_DIR = "/workspace/atlas/artifacts/research_papers"
 
 
 async def run_deep_test(topic: str, model: str = "minimax-m2.1:cloud"):

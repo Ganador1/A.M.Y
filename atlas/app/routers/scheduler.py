@@ -10,8 +10,8 @@ import uuid
 from fastapi import APIRouter, Depends, HTTPException, status, Query, Body
 from pydantic import BaseModel, Field
 
-from app.services.policy_aware_scheduler import (
 from app.exceptions.domain.biology import BiologyError
+from app.services.policy_aware_scheduler import (
     scheduler, ScheduledTask, ResourceRequirements, PolicyFactors,
     TaskPriority, TaskStatus, get_scheduler
 )

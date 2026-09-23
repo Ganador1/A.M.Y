@@ -12,7 +12,7 @@ import json
 import time
 from datetime import datetime
 
-sys.path.insert(0, "/Volumes/Ganador disk/atlas")
+sys.path.insert(0, "/workspace/atlas")
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 MODELS = [
@@ -157,7 +157,7 @@ async def main():
         print(f"⚡ FASTEST: {fastest['model']} (Time: {fastest['total_time']}s)")
     
     # Save
-    with open("/Volumes/Ganador disk/atlas/artifacts/quick_benchmark_results.json", "w") as f:
+    with open("/workspace/atlas/artifacts/quick_benchmark_results.json", "w") as f:
         json.dump({"timestamp": datetime.now().isoformat(), "results": results}, f, indent=2)
     
     print(f"\n📁 Results saved to artifacts/quick_benchmark_results.json")

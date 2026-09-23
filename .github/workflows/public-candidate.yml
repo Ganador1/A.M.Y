@@ -1,0 +1,35 @@
+name: Public candidate validation
+on:
+  push:
+    branches: ['main', 'codex/public-release-*']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Install runtime, numerical and HTTP test dependencies
+        run: |
+          python -m pip install '.[test]' -r scripts/release/requirements-validation.txt
+      - name: Static correctness
+        run: ruff check amy.py core cognition memory senses communication evolution sandbox skills --select E9,F63,F7,F82
+      - name: Public regression suite
+        run: python -m pytest tests -m "not network" -q
+      - name: Recompute retained numerical evidence
+        run: |
+          python release_evidence/autocorrelation/verify.py
+          python release_evidence/runtime/verify.py
+      - name: Check release surface
+        run: |
+          python scripts/release/check_release.py
+          python scripts/diagnostics/verify_secret_hygiene.py --strict
+      - name: Build runtime packages
+        run: |
+          python -m build
+          python scripts/release/normalize_archive_metadata.py dist/amy-1.1.0rc1.tar.gz

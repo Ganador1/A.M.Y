@@ -1,14 +1,9 @@
 """
-Atlas Tools — Acceso directo a las herramientas científicas de Atlas desde A.M.Y.
+Atlas Tools — Direct access to Atlas scientific tools from AMY.
 
-Expone búsqueda de literatura real (arXiv, PubMed, Semantic Scholar, Patents)
-y herramientas de experimentación (SymPy, NumPy, BioPython, etc.) sin necesidad
-de pasar por el ciclo completo de peer review.
-
-A.M.Y usa esto para:
-- Verificar hipótesis con literatura real antes de formalizar un paper
-- Ejecutar cálculos matemáticos y simulaciones
-- Buscar evidencia que falsifique o corrobore sus teorías
+Provides literature search and computational tools without requiring the full
+manuscript peer-review cycle. AMY uses this interface to test hypotheses,
+run calculations and simulations, and seek corroborating or falsifying evidence.
 """
 import asyncio
 import importlib.util
@@ -18,9 +13,11 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 
 import structlog
+from core.execution_evidence import evidence_span
 
 log = structlog.get_logger()
 
@@ -42,6 +39,28 @@ ATLAS_ROOT = _resolve_atlas_root()
 ATLAS_VENV_PYTHON = _resolve_atlas_python(ATLAS_ROOT)
 ATLAS_RESULT_MARKER = "__ATLAS_RESULT__"
 
+_SAFE_ATLAS_SUBPROCESS_ENV_KEYS = frozenset(
+    {
+        "PATH",
+        "PYTHONPATH",
+        "VIRTUAL_ENV",
+        "LANG",
+        "LC_ALL",
+        "LC_CTYPE",
+        "HOME",
+        "TMPDIR",
+        "USER",
+        "LOGNAME",
+        "SHELL",
+        "TERM",
+        "PYTHONNOUSERSITE",
+        "LEAN_PATH",
+        "LEAN_SRC_PATH",
+        "ELAN_HOME",
+        "ELAN_TOOLCHAIN",
+    }
+)
+
 UNUSABLE_TOOL_OUTPUT_MARKERS = (
     "atlas no disponible",
     "tool not found",
@@ -49,6 +68,9 @@ UNUSABLE_TOOL_OUTPUT_MARKERS = (
     "unknown operation",
     "error:",
     "error executing",
+    "symbolic calculus error",
+    "could not parse",
+    "failed to parse",
     "format should",
     "traceback",
     "not implemented",
@@ -161,14 +183,91 @@ def _primary_ollama_api_key() -> str:
         )
 
 
-def assess_tool_output(output: object, tool_name: str | None = None) -> dict:
+def _build_atlas_subprocess_env(*, ollama_api_key: str = "") -> dict[str, str]:
+    """Build a minimal Atlas environment, including Ollama only explicitly."""
+    extra = {
+        "ENABLE_REDIS_CACHE": "false",
+        "MPLBACKEND": "Agg",
+        "OLLAMA_BASE_URL": "https://ollama.com",
+    }
+    # Ensure Lean 4 / Mathlib paths are populated for child processes
+    try:
+        try:
+            from core.lean4_env import get_lean_env
+        except ImportError:
+            from app.services.theorem_proving.lean4_env import get_lean_env
+        lean_env = get_lean_env()
+        for k in ("LEAN_PATH", "LEAN_SRC_PATH", "ELAN_HOME"):
+            if k in lean_env:
+                extra[k] = lean_env[k]
+    except Exception:
+        pass
+
+    try:
+        from core.security_hardening_v2 import sanitize_subprocess_env
+    except ImportError:
+        env = {
+            key: os.environ[key]
+            for key in _SAFE_ATLAS_SUBPROCESS_ENV_KEYS
+            if key in os.environ
+        }
+        env.update(extra)
+        if ollama_api_key:
+            env["OLLAMA_API_KEY"] = ollama_api_key
+        return env
+
+    return sanitize_subprocess_env(
+        extra=extra,
+        include_ollama_key=ollama_api_key,
+    )
+
+
+def assess_tool_output(output: object, tool_name: str | None = None, *,
+                       tool_input: object = None) -> dict:
     """
     Classify whether an Atlas tool output is safe to treat as a real result.
 
     This is intentionally conservative for scientific provenance: operational
     failures, mocks, placeholders, and unimplemented tools are not evidence.
     """
+    from core.scientific_certificate_checks import check_scientific_certificate
+    normalized_tool = (tool_name or "").strip().lower()
+    audit = check_scientific_certificate(normalized_tool, output, expected_input=tool_input)
+    if audit is not None:
+        valid = audit["valid"] is True
+        markers = [] if valid else ["scientific certificate validation failed"]
+        if not valid and normalized_tool == "h2_rhf_certificate":
+            unavailable = any(error.startswith(("ImportError:", "ModuleNotFoundError:")) for error in audit["errors"])
+            markers.append("h2 verifier unavailable or failed" if unavailable else "h2 independent verification failed")
+        return {
+            "usable": valid,
+            "evidence_level": ("numerical_consistency" if normalized_tool == "h2_rhf_certificate"
+                               else "exact_model_computation") if valid else "none",
+            "markers": markers, "warnings": audit["errors"], "preview": str(output or "")[:500],
+            "certificate_verified": valid, "input_bound": audit["input_bound"],
+            "verification_scope": audit["scope"], "certificate_kind": audit["certificate_kind"],
+            "independent_verification": audit["verification"], "verified_summary": audit["summary"],
+            "scientific_truth_verified": False, "novelty_verified": False, "authenticated": False,
+        }
     text = str(output or "")
+    # BaseService failures are returned as JSON, not an "Error:" prefix.
+    # Only an explicit boolean false is a failure signal; numeric error
+    # estimates or prose mentioning errors do not imply a failed operation.
+    structured = output if isinstance(output, dict) else None
+    if structured is None:
+        try:
+            structured = json.loads(text)
+        except (ValueError, TypeError, RecursionError):
+            pass
+    reported_failure = isinstance(structured, dict) and structured.get("success") is False
+    # Atlas dispatchers return these operational rejections as plain text or
+    # as a top-level error field. Match the error envelope, not mentions in
+    # scientific prose, quotations, or nested observational data.
+    rejection_text = structured.get("error") if isinstance(structured, dict) else text
+    unsupported_dispatch = isinstance(rejection_text, str) and bool(re.match(
+        r"\A\s*(?:Error:\s*)?Unknown (?:test type|system|circuit(?: type)?)\s*(?=[:'\"]|\Z)",
+        rejection_text, re.IGNORECASE,
+    ))
     text_lower = text.lower()
     markers = [
         marker
@@ -177,8 +276,12 @@ def assess_tool_output(output: object, tool_name: str | None = None) -> dict:
     ]
     if re.search(r"(?im)^\s*error\s*:", text):
         markers.append("error:")
+    if reported_failure:
+        markers.append("service reported success:false")
+    if unsupported_dispatch:
+        markers.append("unsupported tool operation")
     warnings = []
-    evidence_level = "strong"
+    evidence_level = "operational_only"
 
     if re.search(r"molecular weight of .+?:\s*0+(?:\.0+)?\s*g/mol", text_lower):
         markers.append("zero molecular weight")
@@ -196,32 +299,41 @@ def assess_tool_output(output: object, tool_name: str | None = None) -> dict:
             markers = [marker for marker in markers if marker != "mock"]
             evidence_level = "mixed"
             warnings.append("mixed evidence report")
+        else:
+            evidence_level = "none"
+            markers.append("no real evidence")
+            warnings.append("orchestrator report contains no successful real evidence")
 
     normalized_tool = (tool_name or "").strip().lower()
     if normalized_tool in WEAK_EVIDENCE_TOOLS:
         evidence_level = "weak"
         markers.append("known weak evidence tool")
+    if reported_failure or unsupported_dispatch:
+        evidence_level = "none"
     return {
         "usable": not markers and bool(text.strip()),
         "evidence_level": evidence_level,
         "markers": markers,
         "warnings": warnings,
         "preview": text[:500],
+        "certificate_verified": False, "input_bound": False,
+        "verification_scope": "unverified_tool_output", "scientific_truth_verified": False,
+        "novelty_verified": False, "authenticated": False,
     }
 
 
 class AtlasTools:
-    """
-    Interfaz ligera a las herramientas científicas de Atlas.
-    Usa un worker persistente para evitar el overhead de inicialización.
-
-    No lanza el ciclo completo de peer review — solo ejecuta herramientas específicas.
-    """
+    """Lightweight interface to scientific tools through a persistent Atlas worker."""
 
     def __init__(self):
         self.available = ATLAS_VENV_PYTHON.exists() and ATLAS_ROOT.exists()
         self._worker = None
+        self._worker_ready = False
         self._lock = None
+        self._start_lock = None
+        self._owner_loop = None
+        self._startup_count = 0
+        self._last_startup_seconds = None
         # Monotonic per-instance request id. Hardcoded ids (ping/list/describe
         # all used id=0; run_tool used hash(tool_name)) could collide, so a
         # stale response left in the pipe after a timeout could be mis-matched
@@ -235,36 +347,105 @@ class AtlasTools:
         self._req_id += 1
         return self._req_id
 
+    def _worker_entrypoint(self) -> Path:
+        """Code-owned worker entrypoint; experimental subclasses may override it."""
+        return Path(__file__).parent / "atlas_worker.py"
+
     async def _ensure_worker(self):
-        """Inicia el worker persistente si no está activo.
+        """Start the persistent worker if it is not active.
 
         Leaves self._worker set ONLY if the worker started and passed the ping
         handshake; otherwise it is torn down and left None so callers can detect
         the failure (rather than dereferencing a half-dead worker)."""
-        if self._worker is not None:
+        loop = asyncio.get_running_loop()
+        owner_loop = getattr(self, "_owner_loop", None)
+        if owner_loop is not None and owner_loop is not loop:
+            if self._worker is not None:
+                raise RuntimeError(
+                    "AtlasTools is bound to another event loop; close it in "
+                    "its owning loop and create a new AtlasTools instance"
+                )
+            # No live worker: discard old-loop locks and safely rebind.
+            self._lock = None
+            self._start_lock = None
+        self._owner_loop = loop
+
+        if (
+            self._worker is not None
+            and getattr(self, "_worker_ready", False)
+            and self._worker.returncode is None
+            and not self._worker.stdin.is_closing()
+        ):
             return
-        if self._lock is None:
-            self._lock = asyncio.Lock()
-        worker_script = Path(__file__).parent / "atlas_worker.py"
-        self._worker = await asyncio.create_subprocess_exec(
-            str(ATLAS_VENV_PYTHON), str(worker_script),
-            stdin=asyncio.subprocess.PIPE,
-            stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.DEVNULL,
-            cwd=str(ATLAS_ROOT),
-            env={
-                **os.environ,
-                "ENABLE_REDIS_CACHE": "false",
-                "MPLBACKEND": "Agg",
-                "OLLAMA_BASE_URL": "https://ollama.com",
-                "OLLAMA_API_KEY": _primary_ollama_api_key(),
-            },
-        )
-        # Verificar que el worker responda
-        response = await self._send_request({"id": self._next_id(), "action": "ping"})
-        if response.get("result") != "pong":
-            log.warning("atlas_tools.worker_no_pong", response=response)
-            await self._reset_worker()
+
+        if getattr(self, "_start_lock", None) is None:
+            self._start_lock = asyncio.Lock()
+        async with self._start_lock:
+            if (
+                self._worker is not None
+                and getattr(self, "_worker_ready", False)
+                and self._worker.returncode is None
+                and not self._worker.stdin.is_closing()
+            ):
+                return
+            if self._worker is not None:
+                await self._reset_worker()
+            if self._lock is None:
+                self._lock = asyncio.Lock()
+            startup_started = time.monotonic()
+            worker_script = self._worker_entrypoint()
+            worker_env = _build_atlas_subprocess_env(
+                ollama_api_key=_primary_ollama_api_key()
+            )
+            worker_env["AMY_ATLAS_ROOT"] = str(ATLAS_ROOT.resolve())
+            self._worker = await asyncio.create_subprocess_exec(
+                str(ATLAS_VENV_PYTHON), str(worker_script),
+                stdin=asyncio.subprocess.PIPE,
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.DEVNULL,
+                cwd=str(ATLAS_ROOT),
+                env=worker_env,
+            )
+            self._worker_ready = False
+            # Check that the worker responds before exposing it to callers
+            # waiting on the startup lock.
+            response = await self._send_request(
+                {"id": self._next_id(), "action": "ping"}
+            )
+            if response.get("result") != "pong":
+                log.warning("atlas_tools.worker_no_pong", response=response)
+                await self._reset_worker()
+            else:
+                self._worker_ready = True
+                self._startup_count = getattr(self, "_startup_count", 0) + 1
+                self._last_startup_seconds = round(
+                    time.monotonic() - startup_started, 3
+                )
+                log.info(
+                    "atlas_tools.worker_ready",
+                    startup_seconds=self._last_startup_seconds,
+                    startup_count=self._startup_count,
+                    cold_start=self._startup_count == 1,
+                )
+
+    async def warm_up(self) -> dict:
+        """Start and handshake the owned worker before latency-sensitive work."""
+        if not self.available:
+            return {"ready": False, "error": "Atlas unavailable", **self.worker_metrics()}
+        await self._ensure_worker()
+        return {"ready": bool(self._worker_ready), **self.worker_metrics()}
+
+    def worker_metrics(self) -> dict:
+        """Expose worker lifecycle latency without parsing logs."""
+        return {
+            "startup_count": getattr(self, "_startup_count", 0),
+            "last_startup_seconds": getattr(self, "_last_startup_seconds", None),
+            "worker_ready": bool(
+                self._worker is not None
+                and self._worker_ready
+                and self._worker.returncode is None
+            ),
+        }
 
     async def _reset_worker(self):
         """Terminate and reap the current worker, then clear the reference.
@@ -275,6 +456,7 @@ class AtlasTools:
         the pipe to be mis-matched to the next request."""
         proc = self._worker
         self._worker = None
+        self._worker_ready = False
         if proc is None or proc.returncode is not None:
             return
         try:
@@ -287,9 +469,13 @@ class AtlasTools:
         """Tear down the persistent worker. Call on shutdown."""
         await self._reset_worker()
 
-    async def _send_request(self, request: dict, timeout: float = 120.0) -> dict:
-        """Envía un request al worker y espera respuesta, ignorando lineas basura."""
-        if self._worker is None or self._worker.stdin.is_closing():
+    async def _send_request(self, request: dict, timeout: float = 180.0) -> dict:
+        """Send a request and wait for its matching response, ignoring unrelated output."""
+        if (
+            self._worker is None
+            or self._worker.returncode is not None
+            or self._worker.stdin.is_closing()
+        ):
             await self._reset_worker()
             await self._ensure_worker()
         # _ensure_worker can fail the handshake and leave the worker None; do
@@ -299,15 +485,23 @@ class AtlasTools:
         async with self._lock:
             line = json.dumps(request) + "\n"
             self._worker.stdin.write(line.encode())
-            await self._worker.stdin.drain()
+            try:
+                await self._worker.stdin.drain()
+            except asyncio.CancelledError:
+                # The request may have been partially written. A fresh worker
+                # is the only safe way to avoid a late response poisoning the
+                # next request on this JSONL stream.
+                await self._reset_worker()
+                raise
 
-            # Bucle para saltar logs u otras líneas hasta encontrar la respuesta al request.
+            # Skip log lines until the matching protocol response arrives.
             # Max non-JSON lines to skip prevents infinite loop if worker outputs garbage.
             max_skipped_lines = 500
             skipped = 0
-            start_time = asyncio.get_event_loop().time()
+            loop = asyncio.get_running_loop()
+            start_time = loop.time()
             while True:
-                time_left = timeout - (asyncio.get_event_loop().time() - start_time)
+                time_left = timeout - (loop.time() - start_time)
                 if time_left <= 0:
                     # Desync: the worker may still emit this request's response
                     # later, poisoning the next call. Reset so the next request
@@ -320,6 +514,9 @@ class AtlasTools:
                         self._worker.stdout.readline(), timeout=time_left
                     )
                 except asyncio.TimeoutError:
+                    await self._reset_worker()
+                    raise
+                except asyncio.CancelledError:
                     await self._reset_worker()
                     raise
                 if not response_bytes:
@@ -356,18 +553,7 @@ class AtlasTools:
         domain: str = "medicine",
         max_results: int = 8,
     ) -> dict:
-        """
-        Busca literatura científica real, en paralelo, sobre fuentes abiertas:
-        OpenAlex, Crossref, Europe PMC, PubMed, DOAJ, CORE.
-
-        Sustituye la antigua ruta por subprocess al LiteratureService de Atlas,
-        que consultaba ~14 fuentes en serie con reintentos y excedía el timeout
-        de 90s (arXiv colgaba, Semantic Scholar devolvía 429). El cliente nuevo
-        (core.literature_search) las consulta concurrentemente con un deadline
-        global, así que responde en ~2-4s.
-
-        Returns: {"papers": [...], "support_score": float, "sources_succeeded": [...]}
-        """
+        """Search open literature sources concurrently with a global deadline. Returns papers, a support score and successful source names."""
         # Safety / misuse checks run BEFORE any network call.
         misuse_decision = _evaluate_atlas_misuse_or_fail_closed(
             operation="search_literature",
@@ -396,7 +582,11 @@ class AtlasTools:
         try:
             from core.literature_search import search_literature_async
 
-            result = await search_literature_async(query, max_results=max_results)
+            result = await search_literature_async(
+                query,
+                domain=domain,
+                max_results=max_results,
+            )
             # Only fall through to the legacy path if we got literally nothing
             # AND the Atlas worker is available to try.
             if result.get("papers") or not self.available:
@@ -416,10 +606,7 @@ class AtlasTools:
         )
 
     async def verify_hypothesis(self, hypothesis: str, domain: str = "medicine") -> dict:
-        """
-        Verifica una hipótesis contra literatura real.
-        Devuelve support_score (0-1), papers a favor, papers en contra.
-        """
+        """Compare a hypothesis with literature and return a support score and sources."""
         if not self.available:
             return {"support_score": 0, "error": "Atlas no disponible"}
         misuse_decision = _evaluate_atlas_misuse_or_fail_closed(
@@ -454,51 +641,50 @@ class AtlasTools:
     async def run_scientific_tool(
         self, tool_name: str, tool_input: str, domain: str = "medicine"
     ) -> str:
-        """
-        Ejecuta una herramienta científica específica de Atlas.
-        Ejemplos: sympy_solve_equation, evidence_corroborate_medicine,
-                  number_theory_advanced, prime_gap_analysis, etc.
-        """
-        if not self.available:
-            return "Atlas no disponible"
-        misuse_decision = _evaluate_atlas_misuse_or_fail_closed(
-            operation="run_scientific_tool",
-            content=tool_input,
-            domain=domain,
-            tool_name=tool_name,
-        )
-        if not misuse_decision["allowed"]:
-            log.warning(
-                "atlas_tools.misuse_blocked",
-                tool=tool_name,
+        """Execute a specific Atlas tool and retain its evidence span."""
+        with evidence_span("atlas.scientific_tool", {
+            "tool_name": tool_name, "tool_input": tool_input, "domain": domain,
+        }) as span:
+            if not self.available:
+                return span.result("Atlas no disponible")
+            misuse_decision = _evaluate_atlas_misuse_or_fail_closed(
+                operation="run_scientific_tool",
+                content=tool_input,
                 domain=domain,
-                rules=misuse_decision.get("matched_rules", []),
+                tool_name=tool_name,
             )
-            return _atlas_misuse_blocked_message(misuse_decision)
-        decision = _evaluate_safety_or_fail_closed(
-            operation="run_scientific_tool",
-            content=tool_input,
-            domain=domain,
-            tool_name=tool_name,
-        )
-        if not decision["allowed"]:
-            log.warning(
-                "atlas_tools.safety_blocked",
-                tool=tool_name,
+            if not misuse_decision["allowed"]:
+                log.warning(
+                    "atlas_tools.misuse_blocked",
+                    tool=tool_name,
+                    domain=domain,
+                    rules=misuse_decision.get("matched_rules", []),
+                )
+                return span.result(_atlas_misuse_blocked_message(misuse_decision))
+            decision = _evaluate_safety_or_fail_closed(
+                operation="run_scientific_tool",
+                content=tool_input,
                 domain=domain,
-                rules=decision.get("matched_rules", []),
+                tool_name=tool_name,
             )
-            return _blocked_message(decision)
-        await self._ensure_worker()
-        response = await self._send_request({
-            "id": self._next_id(),
-            "action": "run_tool",
-            "tool_name": tool_name,
-            "tool_input": tool_input,
-        })
-        if "error" in response and response["error"]:
-            return f"Error: {response['error']}"
-        return response.get("result", "")
+            if not decision["allowed"]:
+                log.warning(
+                    "atlas_tools.safety_blocked",
+                    tool=tool_name,
+                    domain=domain,
+                    rules=decision.get("matched_rules", []),
+                )
+                return span.result(_blocked_message(decision))
+            await self._ensure_worker()
+            response = await self._send_request({
+                "id": self._next_id(),
+                "action": "run_tool",
+                "tool_name": tool_name,
+                "tool_input": tool_input,
+            })
+            if "error" in response and response["error"]:
+                return span.result(f"Error: {response['error']}")
+            return span.result(response.get("result", ""))
 
     async def list_tools(self, domain: str | None = None) -> list[str]:
         """Lista herramientas disponibles en Atlas, opcionalmente filtradas por dominio."""
@@ -516,11 +702,7 @@ class AtlasTools:
         return response.get("result", [])
 
     async def describe_tools(self, domain: str | None = None) -> list[dict]:
-        """Lista tools con name+domain+description+input_format.
-
-        A.M.Y usa esto para que el LLM sepa qué herramienta elegir y
-        cómo formatear el input — sin esto el modelo tiene que adivinar.
-        """
+        """Return live tool names, domains, descriptions and input formats."""
         if not self.available:
             return []
         await self._ensure_worker()
@@ -536,11 +718,9 @@ class AtlasTools:
 
     def _run_subprocess(self, code: str, timeout: int = 120) -> str:
         """Ejecuta código Python en el venv de Atlas y retorna stdout."""
-        env = os.environ.copy()
-        env["OLLAMA_BASE_URL"] = "https://ollama.com"
-        env["OLLAMA_API_KEY"] = _primary_ollama_api_key()
-        env["ENABLE_REDIS_CACHE"] = "false"
-        env["MPLBACKEND"] = "Agg"
+        env = _build_atlas_subprocess_env(
+            ollama_api_key=_primary_ollama_api_key()
+        )
 
         with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as f:
             f.write(code)
@@ -645,12 +825,17 @@ asyncio.run(main())
         return {"support_score": 0, "raw": out[:500]}
 
 
-# Global singleton
-_atlas_tools: AtlasTools | None = None
-
-
 def get_atlas_tools() -> AtlasTools:
-    global _atlas_tools
-    if _atlas_tools is None:
-        _atlas_tools = AtlasTools()
-    return _atlas_tools
+    """Create an Atlas client for one owning component/event loop.
+
+    ``AtlasTools`` owns an asyncio subprocess, its stream readers, and an
+    ``asyncio.Lock``.  Those objects are bound to the event loop that created
+    them, so a process-wide singleton is unsafe: a later ``asyncio.run`` (or a
+    pytest test using a fresh loop) cannot reuse the first loop's worker.
+
+    Callers such as ``Heartbeat`` already retain the returned instance for
+    their lifetime and close it during shutdown.  Returning a fresh client here
+    therefore preserves worker reuse *within* a mission without leaking
+    loop-bound state *between* missions.
+    """
+    return AtlasTools()

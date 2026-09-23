@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use A.M.Y or cite its computational evidence, please cite this repository and system as below."
+title: "A.M.Y: Autonomous Mind Yield — Verifiable Autonomous Scientific Discovery"
+abstract: "An autonomous cognitive architecture for hypothesis generation, adversarial falsification, real-tool computational verification, and tamper-evident provenance-backed scientific release."
+version: 1.1.0rc1
+license: Apache-2.0
+repository-code: "https://github.com/Ganador1/A.M.Y"
+authors:
+  - family-names: "Ganador1"
+    alias: "Ganador1"
+    affiliation: "Independent Research"
+keywords:
+  - "autonomous-agent"
+  - "scientific-discovery"
+  - "provenance"
+  - "rfc8785"
+  - "in-toto"
+  - "reproducible-science"

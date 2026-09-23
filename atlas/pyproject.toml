@@ -8,9 +8,9 @@ version = "4.1.0"
 description = "Autonomous Scientific Research Platform with Multi-Agent AI"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "MIT"}
+license = {text = "Apache-2.0"}
 authors = [
-    {name = "Giovanni Arangio", email = "giovanni@axiom.ai"}
+    {name = "Ganador1"}
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -99,10 +99,10 @@ all = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/giovanniarangio/axiom-atlas"
-Documentation = "https://axiom-atlas.readthedocs.io"
-Repository = "https://github.com/giovanniarangio/axiom-atlas.git"
-Issues = "https://github.com/giovanniarangio/axiom-atlas/issues"
+Homepage = "https://github.com/Ganador1/A.M.Y"
+Documentation = "https://github.com/Ganador1/A.M.Y/tree/codex/public-release-1.1.0rc1/atlas"
+Repository = "https://github.com/Ganador1/A.M.Y.git"
+Issues = "https://github.com/Ganador1/A.M.Y/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]

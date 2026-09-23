@@ -484,6 +484,16 @@ class AdditiveManufacturingService(BaseService):
         """
         self.logger.info(f"🔧 Configurando proceso {process_type.value} para material {material_type.value}...")
 
+        # Validate supplied dimensional material parameters before accepting
+        # configuration; no simulation is needed to reject negative density.
+        if not isinstance(material_properties, dict):
+            raise ValueError("material_properties must be an object")
+        for name in ("density", "specific_heat", "thermal_diffusivity"):
+            if name in material_properties:
+                value = material_properties[name]
+                if isinstance(value, (bool, np.bool_)) or not isinstance(value, (int, float, np.integer, np.floating)) or not np.isfinite(value) or value <= 0:
+                    raise ValueError(f"{name} must be finite and positive")
+
         # Inicializar solvers
         self.thermal_solver = ThermalTransportEquations(material_properties)
         self.fluid_solver = FluidDynamicsEquations(material_properties)

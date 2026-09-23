@@ -81,7 +81,7 @@ async def detect_lean4_installation() -> DetectLean4InstallationResult:
             "elan_version": "elan 3.0.0",
             "mathlib": {
                 "found": true,
-                "path": "/Users/user/.elan/toolchains"
+                "path": "/home/amy/.elan/toolchains"
             }
         },
         "recommendations": [
@@ -195,10 +195,10 @@ async def validate_lean4_configuration() -> ValidateLean4ConfigurationResult:
         "overall_status": "healthy",
         "system_info": {
             "os": "darwin",
-            "elan_home": "/Users/user/.elan"
+            "elan_home": "/home/amy/.elan"
         },
         "binary_checks": {
-            "lean": {"available": true, "path": "/Users/user/.elan/bin/lean"},
+            "lean": {"available": true, "path": "/home/amy/.elan/bin/lean"},
             "elan": {"available": true, "executable": true},
             "lake": {"available": true}
         },
@@ -328,7 +328,7 @@ async def uninstall_lean4() -> UninstallLean4Result:
     {
         "success": true,
         "message": "Lean4 desinstalado exitosamente",
-        "removed_path": "/Users/user/.elan",
+        "removed_path": "/home/amy/.elan",
         "note": "Reiniciar terminal para que los cambios surtan efecto"
     }
     ```
@@ -387,8 +387,8 @@ async def get_system_information() -> GetSystemInformationResult:
             "gcc": {"available": true}
         },
         "installation_paths": {
-            "default_elan_home": "/Users/user/.elan",
-            "user_home": "/Users/user"
+            "default_elan_home": "/home/amy/.elan",
+            "user_home": "/home/amy"
         },
         "compatibility": {
             "lean4_supported": true,

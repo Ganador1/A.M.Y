@@ -6,8 +6,6 @@ Lean4 Integration (stub seguro)
 """
 
 from __future__ import annotations
-import aiofiles
-
 import asyncio
 import os
 import platform
@@ -23,20 +21,25 @@ from app.config import settings
 
 
 def _detect_lean() -> DetectLeanResult:
-    # Resolver ELAN_HOME con fallback robusto
-    env_elan = os.getenv("ELAN_HOME")
-    settings_elan = getattr(settings, "ELAN_HOME", None)
-    elan_home = os.path.expanduser(env_elan or settings_elan or "~/.elan")
-
-    # Construir rutas por defecto basadas en ELAN_HOME
-    default_lean_bin = os.path.join(elan_home, "bin", "lean")
-    default_lake_bin = os.path.join(elan_home, "bin", "lake")
-
-    # Permitir override directo LEAN_BIN
-    env_lean_bin = os.getenv("LEAN_BIN")
-    settings_lean_bin = getattr(settings, "LEAN_BIN", None)
-    lean_bin = env_lean_bin or settings_lean_bin or default_lean_bin
-    lake_bin = default_lake_bin
+    try:
+        from app.services.theorem_proving.lean4_env import (
+            find_lean_binary, find_lake_binary, get_lean_env
+        )
+        lean_bin = find_lean_binary()
+        lake_bin = find_lake_binary()
+        env_dict = get_lean_env()
+        elan_home = env_dict.get("ELAN_HOME", os.path.expanduser("~/.elan"))
+    except Exception:
+        env_elan = os.getenv("ELAN_HOME")
+        settings_elan = getattr(settings, "ELAN_HOME", None)
+        elan_home = os.path.expanduser(env_elan or settings_elan or "~/.elan")
+        default_lean_bin = os.path.join(elan_home, "bin", "lean")
+        default_lake_bin = os.path.join(elan_home, "bin", "lake")
+        env_lean_bin = os.getenv("LEAN_BIN")
+        settings_lean_bin = getattr(settings, "LEAN_BIN", None)
+        lean_bin = env_lean_bin or settings_lean_bin or default_lean_bin
+        lake_bin = default_lake_bin
+        env_dict = dict(os.environ)
 
     available = bool(lean_bin) and os.path.exists(lean_bin)
     return {
@@ -44,13 +47,14 @@ def _detect_lean() -> DetectLeanResult:
         "elan_home": elan_home,
         "lean_bin": lean_bin,
         "lake_bin": lake_bin,
+        "env_dict": env_dict,
     }
 
 
 class Lean4Service:
     def __init__(self) -> None:
         self.env = _detect_lean()
-        self.default_timeout = int(os.getenv("LEAN_TIMEOUT_MS", getattr(settings, "lean_timeout_ms", "15000")))
+        self.default_timeout = int(os.getenv("LEAN_TIMEOUT_MS", getattr(settings, "lean_timeout_ms", "60000")))
         self.logger = logging.getLogger(__name__)
         
         # Configuración extendida para validación y diagnóstico
@@ -77,12 +81,12 @@ class Lean4Service:
         try:
             with tempfile.TemporaryDirectory() as td:
                 src_path = os.path.join(td, "Main.lean")
-                with aiofiles.aiofiles.open(src_path, "w", encoding="utf-8") as f:
-                    f.write(src)
+                Path(src_path).write_text(src, encoding="utf-8")
                 proc = await asyncio.create_subprocess_exec(
                     self.env["lean_bin"], src_path,
                     stdout=asyncio.subprocess.PIPE,
                     stderr=asyncio.subprocess.PIPE,
+                    env=self.env.get("env_dict"),
                 )
                 try:
                     to = (timeout_ms if timeout_ms is not None else self.default_timeout) / 1000.0
@@ -93,9 +97,22 @@ class Lean4Service:
                 out = (stdout or b"").decode()
                 err = (stderr or b"").decode()
                 success = proc.returncode == 0
+                uses_sorry = bool(re.search(r"declaration uses [`']?sorry[`']?", out + err, re.IGNORECASE))
+                
+                if success and not uses_sorry:
+                    status = "PROVEN"
+                    proven = True
+                elif uses_sorry:
+                    status = "UNPROVEN_SORRY"
+                    proven = False
+                else:
+                    status = "FAILED"
+                    proven = False
+
                 return {
-                    "proven": success,
-                    "status": "PROVEN" if success else "UNKNOWN",
+                    "proven": proven,
+                    "status": status,
+                    "uses_sorry": uses_sorry,
                     "stdout": out[:2000],
                     "stderr": err[:2000],
                 }
@@ -103,24 +120,17 @@ class Lean4Service:
             return {"proven": None, "status": "ERROR", "reason": str(e)}
 
     def _build_lean_source(self, statement: str, context: Optional[Dict[str, Any]]) -> str:
-        header = """
-import Mathlib
-from app.config import settings
-from app.types.lean4_integration_types import (
-    DetectLeanResult,
-    ProveTheoremResult,
-    VerifyAtlasHypothesisResult,
-    ValidateConfigurationResult,
-    GetToolchainInfoResult,
-    CheckMathlibStatusResult,
-    CheckWorkspaceSetupResult,
-    TestBasicCompilationResult,
-)
-set_option maxHeartbeats 200000
-"""
         body = statement.strip()
         if not body:
             body = "theorem triv : True := by trivial"
+        
+        # If code already defines whole file with options/imports, use directly
+        if "set_option" in body or "import" in body:
+            return body + "\n"
+        
+        header = """-- Generated by A.M.Y / Lean4Service
+set_option maxHeartbeats 200000
+"""
         return header + "\n" + body + "\n"
 
     async def verify_atlas_hypothesis(self, hypothesis: VerifyAtlasHypothesisResult) -> VerifyAtlasHypothesisResult:
@@ -266,32 +276,42 @@ set_option maxHeartbeats 200000
     async def _check_mathlib_status(self) -> CheckMathlibStatusResult:
         """Estado de mathlib4"""
         try:
+            from app.services.theorem_proving.lean4_env import (
+                find_lean_project_dir, resolve_lean_search_paths, is_mathlib_available
+            )
+            lean_paths, _ = resolve_lean_search_paths()
+            found_paths = [p for p in lean_paths if "mathlib" in p.lower() and Path(p).exists()]
+
+            proj_dir = find_lean_project_dir()
+            if proj_dir:
+                pkg_mathlib = proj_dir / ".lake" / "packages" / "mathlib"
+                if pkg_mathlib.exists() and str(pkg_mathlib) not in found_paths:
+                    found_paths.append(str(pkg_mathlib))
+
             mathlib_paths = [
                 Path(self.env.get('elan_home', '')) / 'toolchains',
                 Path.home() / 'mathlib4',
                 Path.cwd() / 'mathlib4'
             ]
             
-            mathlib_info = {
-                'found_paths': [],
-                'cache_available': False,
-                'version': None
-            }
-            
             for path in mathlib_paths:
                 if path.exists():
                     # Buscar archivos de mathlib
                     mathlib_files = list(path.rglob('*Mathlib*'))
-                    if mathlib_files:
-                        mathlib_info['found_paths'].append(str(path))
+                    if mathlib_files and str(path) not in found_paths:
+                        found_paths.append(str(path))
             
             # Verificar cache de mathlib
             cache_path = Path.home() / '.cache' / 'mathlib4'
-            if cache_path.exists():
-                mathlib_info['cache_available'] = True
-                mathlib_info['cache_path'] = str(cache_path)
+            cache_available = cache_path.exists() or bool(found_paths)
             
-            return mathlib_info
+            return {
+                'found_paths': found_paths,
+                'cache_available': cache_available,
+                'cache_path': str(cache_path) if cache_path.exists() else (found_paths[0] if found_paths else None),
+                'mathlib_available': is_mathlib_available(),
+                'version': None
+            }
             
         except Exception as e:
             return {'error': str(e)}
@@ -350,7 +370,8 @@ def hello : String := "Hello from Lean 4!"
                 proc = await asyncio.create_subprocess_exec(
                     self.env['lean_bin'], temp_file,
                     stdout=asyncio.subprocess.PIPE,
-                    stderr=asyncio.subprocess.PIPE
+                    stderr=asyncio.subprocess.PIPE,
+                    env=self.env.get('env_dict')
                 )
                 stdout, stderr = await proc.communicate()
                 

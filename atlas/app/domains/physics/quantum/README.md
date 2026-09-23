@@ -119,12 +119,12 @@ pytest tests/physics/ -v
 - [Chemistry](../../chemistry/README.md)
 
 ## Contributing
-Ver [CONTRIBUTING.md](../../../CONTRIBUTING.md) en la raíz.
+Ver [CONTRIBUTING.md](../../../../../CONTRIBUTING.md) en la raíz.
 
 ## License
-Ver [LICENSE](../../../LICENSE.md).
+Ver [LICENSE](../../../../../LICENSE).
 
 ## Support
-- **Documentation:** [Full docs](../../../docs/README.md)
+- **Documentation:** [Full docs](../../../../../docs/ENGLISH_MANUALS.md)
 - **Issues:** GitHub Issues
 - **Discussions:** GitHub Discussions

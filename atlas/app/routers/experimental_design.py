@@ -41,8 +41,8 @@ from fastapi import APIRouter, HTTPException, BackgroundTasks
 from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Optional
 
-from app.services.experimental_design_service import (
 from app.exceptions.domain.biology import BiologyError
+from app.services.experimental_design_service import (
     ExperimentalDesignAssistantService,
     ResearchObjective,
     ResourceConstraints,

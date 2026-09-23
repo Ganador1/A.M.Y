@@ -128,8 +128,9 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
             response.headers[header] = value
         
         # Remover headers que pueden revelar información del servidor
-        response.headers.pop("Server", None)
-        response.headers.pop("X-Powered-By", None)
+        for header in ("Server", "X-Powered-By"):
+            if header in response.headers:
+                del response.headers[header]
         
         # Log de headers agregados (solo en desarrollo)
         if logger.isEnabledFor(logging.DEBUG):

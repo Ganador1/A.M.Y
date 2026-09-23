@@ -40,6 +40,9 @@ async def test_heartbeat_scientific_tool_execution_records_real_provenance(monke
     monkeypatch.setattr(provenance, "_provenance", manager)
 
     heartbeat = Heartbeat.__new__(Heartbeat)
+    from core.runtime_receipts import ReceiptStore
+    heartbeat._receipt_store = ReceiptStore()
+    heartbeat._experiment_receipts = heartbeat._receipt_store.index
     heartbeat._atlas_tools = FakeAtlasTools()
     heartbeat._tool_results_history = []
     heartbeat.episodic_memory = FakeMemory()

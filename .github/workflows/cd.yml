@@ -13,53 +13,64 @@ on:
 
 permissions:
   contents: write
+  id-token: write
+  attestations: write
 
 jobs:
   verify:
-    name: Pre-release verification
+    name: Pre-release verification (Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.13", "3.14"]
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
+          python-version: ${{ matrix.python-version }}
           cache: pip
 
-      - name: Install minimal deps
+      - name: Install runtime and validated test dependencies
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install \
-            "pytest>=8.0" \
-            "pytest-asyncio>=0.23" \
-            "pyyaml>=6.0" \
-            "rich>=13.0" \
-            "python-dotenv>=1.0.0" \
-            "structlog>=24.1.0" \
-            "numpy>=1.26" \
-            "scipy>=1.12" \
-            "sympy>=1.12" \
-            "networkx>=3.2" \
-            "httpx>=0.27"
+          python -m pip install '.[test]' -r scripts/release/requirements-validation.txt
+          echo "AMY_ATLAS_PYTHON=$(command -v python)" >> "$GITHUB_ENV"
 
-      - name: Run hermetic test suite
+      - name: Ruff correctness gate
+        run: |
+          ruff check \
+            amy.py core cognition memory senses communication evolution sandbox skills tests \
+            --select E9,F63,F7,F82 --output-format=github
+
+      - name: Run all regression tests without external services
         run: |
           python -m pytest \
-            tests/test_public_release_hygiene.py \
-            tests/test_science_gates.py \
-            tests/test_scientific_hardening.py \
-            tests/test_atlas_real_tools.py \
-            tests/test_atlas_no_mocks.py \
-            tests/test_atlas_tools_end_to_end.py \
-            tests/test_literature_search.py \
-            -q --tb=short
+            tests -m "not network" -q --tb=short -p no:cacheprovider
 
-      - name: Verify every Atlas tool computes (no mocks, deterministic)
+      - name: Run focused Atlas evidence-boundary tests
+        run: |
+          PYTHONPATH=atlas python -m pytest \
+            atlas/tests/unit/orchestration/test_tool_evidence_external_science.py \
+            --confcutdir=atlas/tests/unit/orchestration \
+            -q --tb=short -p no:cacheprovider
+
+      - name: Verify the selected deterministic Atlas tool suite
         run: python scripts/diagnostics/verify_atlas_tools.py
+
+      - name: Recompute retained mathematical and numerical evidence
+        run: |
+          python release_evidence/autocorrelation/verify.py
+          python release_evidence/runtime/verify.py
 
       - name: Verify secret hygiene
         run: python scripts/diagnostics/verify_secret_hygiene.py --strict
+
+      - name: Verify public documentation and release metadata
+        run: python scripts/release/check_release.py
 
   build:
     name: Build distribution
@@ -70,32 +81,8 @@ jobs:
       version: ${{ steps.resolve.outputs.version }}
     steps:
       - uses: actions/checkout@v4
-
-      - name: Resolve tag/version
-        id: resolve
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            TAG="${{ inputs.tag }}"
-          else
-            TAG="${GITHUB_REF#refs/tags/}"
-          fi
-          VERSION="${TAG#v}"
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
-          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-          echo "Releasing tag=$TAG version=$VERSION"
-
-      - name: Verify pyproject version matches tag
-        run: |
-          python -c "
-          import sys, tomllib
-          from pathlib import Path
-          data = tomllib.loads(Path('pyproject.toml').read_text())
-          declared = data['project']['version']
-          expected = '${{ steps.resolve.outputs.version }}'
-          if declared != expected:
-              sys.exit(f'pyproject.toml version {declared!r} != tag version {expected!r}')
-          print(f'OK: pyproject version matches tag ({declared})')
-          "
+        with:
+          ref: ${{ inputs.tag || github.ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -103,14 +90,59 @@ jobs:
           python-version: "3.13"
           cache: pip
 
-      - name: Install build tooling
-        run: python -m pip install --upgrade pip build
+      - name: Resolve tag/version
+        id: resolve
+        env:
+          REQUESTED_TAG: ${{ inputs.tag }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="$REQUESTED_TAG"
+          else
+            TAG="${GITHUB_REF#refs/tags/}"
+          fi
+          [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(rc[0-9]+)?$ ]] || exit 1
+          VERSION="${TAG#v}"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Releasing tag=$TAG version=$VERSION"
+
+      - name: Verify pyproject version matches tag
+        env:
+          EXPECTED_VERSION: ${{ steps.resolve.outputs.version }}
+        run: |
+          python -c "
+          import os, sys, tomllib
+          from pathlib import Path
+          data = tomllib.loads(Path('pyproject.toml').read_text())
+          declared = data['project']['version']
+          expected = os.environ['EXPECTED_VERSION']
+          if declared != expected:
+              sys.exit(f'pyproject.toml version {declared!r} != tag version {expected!r}')
+          print(f'OK: pyproject version matches tag ({declared})')
+          "
+
+      - name: Install validated build tooling
+        run: python -m pip install '.[test]' -r scripts/release/requirements-validation.txt
 
       - name: Build sdist + wheel
         run: python -m build --sdist --wheel --outdir dist/
 
+      - name: Normalize source archive ownership
+        run: |
+          for archive in dist/*.tar.gz; do
+            python scripts/release/normalize_archive_metadata.py "$archive"
+          done
+
+      - name: Verify distribution contents and release metadata
+        run: python scripts/release/check_release.py --dist dist/
+
       - name: Show artifacts
         run: ls -lah dist/
+
+      - name: Attest the built distribution artifacts
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: 'dist/*'
 
       - name: Upload artifacts for release job
         uses: actions/upload-artifact@v4
@@ -127,6 +159,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ needs.build.outputs.tag }}
 
       - name: Download artifacts
         uses: actions/download-artifact@v4
@@ -136,11 +169,13 @@ jobs:
 
       - name: Extract changelog section
         id: notes
+        env:
+          RELEASE_VERSION: ${{ needs.build.outputs.version }}
         run: |
           python <<'PY' > release_notes.md
-          import re, sys
+          import os, re, sys
           from pathlib import Path
-          version = "${{ needs.build.outputs.version }}"
+          version = os.environ["RELEASE_VERSION"]
           text = Path("CHANGELOG.md").read_text(encoding="utf-8")
           pattern = re.compile(rf"^## \[{re.escape(version)}\][^\n]*\n(.*?)(?=^## \[|\Z)", re.S | re.M)
           m = pattern.search(text)
@@ -157,7 +192,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ needs.build.outputs.tag }}
         run: |
-          gh release create "$TAG" \
+          FLAGS=()
+          if [[ "$TAG" == *rc* ]]; then FLAGS+=(--prerelease --draft); fi
+          gh release create "$TAG" "${FLAGS[@]}" \
             --title "A.M.Y $TAG" \
             --notes-file release_notes.md \
             dist/*

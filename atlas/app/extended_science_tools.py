@@ -36,15 +36,20 @@ def astropy_unit_convert(query: str) -> str:
     Format: 'value:from_unit:to_unit' (e.g. '1:pc:lyr', '5000:K:eV').
     """
     from astropy import units as u
+    import math
 
     parts = query.split(":")
     if len(parts) != 3:
         return "Error: Format should be 'value:from_unit:to_unit'. Example: '1:pc:lyr'"
     try:
         value = float(parts[0])
+        if not math.isfinite(value):
+            raise ValueError("unit conversion requires a finite value")
         from_u = u.Unit(parts[1].strip())
         to_u = u.Unit(parts[2].strip())
-        result = (value * from_u).to(to_u, equivalencies=u.spectral())
+        result = (value * from_u).to(to_u, equivalencies=u.spectral() + u.temperature_energy())
+        if not math.isfinite(float(result.value)):
+            raise ValueError("converted value is non-finite")
         return f"{value} {from_u} = {result.value:.6g} {to_u}"
     except Exception as e:
         return f"Error: {e}. Examples: '1:pc:lyr', '5000:K:eV', '1:au:km'"
@@ -107,7 +112,45 @@ def astropy_blackbody(query: str) -> str:
         return f"Error: {e}. Expected a number (temperature in Kelvin)."
 
 
+# ── Millennium Prize Problems Certificates ────────────────────────────────────
+
+def riemann_zeta_certificate(query: str) -> str:
+    from .millennium_tools import riemann_zeta_certificate as rzc
+    return rzc(query)
+
+
+def bsd_elliptic_certificate(query: str) -> str:
+    from .millennium_tools import bsd_elliptic_certificate as bec
+    return bec(query)
+
+
+def p_vs_np_complexity_certificate(query: str) -> str:
+    from .millennium_tools import p_vs_np_complexity_certificate as pvc
+    return pvc(query)
+
+
+def yang_mills_lattice_certificate(query: str) -> str:
+    from .millennium_tools import yang_mills_lattice_certificate as ymc
+    return ymc(query)
+
+
+def hodge_variety_certificate(query: str) -> str:
+    from .millennium_tools import hodge_variety_certificate as hvc
+    return hvc(query)
+
+
+def lean4_prove_certificate(query: str) -> str:
+    from .millennium_tools import lean4_prove_certificate as l4c
+    return l4c(query)
+
+
 # ── PySCF: real quantum chemistry ─────────────────────────────────────────────
+
+def h2_rhf_certificate(query: str) -> str:
+    """Return the full H2 RHF/STO-3G calculation and its independent NumPy audit."""
+    from .h2_rhf_certificate import h2_rhf_certificate_tool
+    return h2_rhf_certificate_tool(query)
+
 
 def pyscf_hf_energy(query: str) -> str:
     """Run Hartree-Fock SCF on a small molecule.
@@ -302,36 +345,62 @@ def ase_thermochemistry(query: str) -> str:
     """Compute ideal-gas thermochemistry for a small molecule (vibrations from EMT).
     Format: 'molecule_name:temperature_K' (e.g. 'H2O:298').
     """
+    import math
+    import os
+    import tempfile
+
+    parts = query.split(":")
+    if len(parts) > 2 or not parts[0].strip():
+        return "Error: expected 'molecule_name:positive_temperature_K'."
+    name = parts[0].strip()
     try:
+        T = float(parts[1]) if len(parts) > 1 else 298.15
+    except (ValueError, TypeError):
+        return "Error: temperature must be a finite positive number in kelvin."
+    if not math.isfinite(T) or T <= 0:
+        return "Error: temperature must be a finite positive number in kelvin."
+
+    try:
+        # ASE's vibration imports require real matplotlib.axes/projections.
+        # Loading pyplot while repository stubs are excluded also prevents the
+        # local mpl_toolkits stub from shadowing its installed counterpart.
+        from .core.real_matplotlib import get_real_pyplot
+        get_real_pyplot()
         from ase.build import molecule
         from ase.calculators.emt import EMT
         from ase.vibrations import Vibrations
         from ase.thermochemistry import IdealGasThermo
-        import tempfile, os
-    except ImportError:
-        return "Error: ASE not available."
-
-    parts = query.split(":")
-    name = parts[0].strip()
-    T = float(parts[1]) if len(parts) > 1 else 298.15
+    except ImportError as exc:
+        return f"Error: ASE thermochemistry import failed ({type(exc).__name__}: {exc})."
+    except Exception as exc:
+        return f"Error: ASE thermochemistry dependency initialization failed ({type(exc).__name__}: {exc})."
 
     try:
         with tempfile.TemporaryDirectory() as tmp:
-            os.chdir(tmp)
             atoms = molecule(name)
             atoms.calc = EMT()
             e_pot = atoms.get_potential_energy()
-            vib = Vibrations(atoms)
+            # An absolute cache prefix keeps all vibration files inside the
+            # temporary directory without changing process-global cwd.
+            vib = Vibrations(atoms, name=os.path.join(tmp, "vibrations"))
             vib.run()
             vib_energies = vib.get_energies()
+            geometry = "nonlinear" if len(atoms) > 2 else "linear"
             thermo = IdealGasThermo(vib_energies=vib_energies,
-                                    geometry="nonlinear" if len(atoms) > 2 else "linear",
+                                    geometry=geometry,
                                     potentialenergy=e_pot, atoms=atoms,
                                     symmetrynumber=1, spin=0)
             G = thermo.get_gibbs_energy(temperature=T, pressure=101325, verbose=False)
+            if not math.isfinite(float(e_pot)) or not math.isfinite(float(G)):
+                return "Error: ASE thermochemistry returned a non-finite energy."
             return (f"ASE thermochemistry for {name} at T={T} K (EMT level):\n"
                     f"  Potential energy: {e_pot:.6f} eV\n"
-                    f"  Gibbs free energy: {G:.6f} eV")
+                    f"  Gibbs free energy: {G:.6f} eV\n"
+                    f"  Assumptions: fixed ASE database geometry (not optimized); "
+                    f"ideal gas; geometry={geometry} (atom-count heuristic); "
+                    f"pressure=101325 Pa; symmetrynumber=1; spin=0.\n"
+                    f"  Scope: EMT model calculation, not empirical thermochemistry; "
+                    f"geometry, symmetry and spin assumptions are not validated for arbitrary molecules.")
     except Exception as exc:
         return (f"Error: {exc}. "
                 f"Try 'H2O:298', 'CH4:500', 'N2:1000'.")
@@ -341,7 +410,8 @@ def ase_thermochemistry(query: str) -> str:
 
 def pymatgen_structure(query: str) -> str:
     """Get crystal-structure properties for common materials.
-    Format: 'material' (e.g. 'Si', 'NaCl', 'TiO2'). Generates a primitive cell.
+    Format: 'material' (e.g. 'Si', 'NaCl', 'TiO2'). Reports the cell convention.
+    Fixed illustrative lattice parameters, not an optimization or measurement.
     """
     try:
         from pymatgen.core import Lattice, Structure, Composition
@@ -362,15 +432,30 @@ def pymatgen_structure(query: str) -> str:
         if name not in templates:
             return f"Error: Unknown material '{name}'. Available: {', '.join(templates)}."
         kind, a, species, coords = templates[name]
-        lat = Lattice.cubic(a)
+        if name in {"Si", "NaCl"}:
+            # Two atoms belong to an fcc primitive cell, volume a^3/4,
+            # rather than a conventional cube (which has eight atoms).
+            # AFLOW A_cF8_227_a-001 and AB_cF8_225_a_b-001.
+            lat = Lattice([[0, a/2, a/2], [a/2, 0, a/2], [a/2, a/2, 0]])
+            cell = "fcc primitive (a labels the conventional cubic lattice constant)"
+        elif name == "TiO2":
+            # Rutile is tP6 with independent a,c parameters, not cubic.
+            # AFLOW A2B_tP6_136_f_a-001; c is an explicit model parameter.
+            lat = Lattice.tetragonal(a, 2.958)
+            cell = "tetragonal primitive; c = 2.9580 Å (fixed model parameter)"
+        else:
+            lat = Lattice.cubic(a)
+            cell = "fcc conventional cubic"
         struct = Structure(lat, species, coords)
         comp = Composition.from_dict({s: species.count(s) for s in set(species)})
         return (f"PyMatGen structure of {name} ({kind}):\n"
                 f"  Composition: {comp.formula} (reduced: {comp.reduced_formula})\n"
                 f"  Lattice constant: a = {a:.4f} Å\n"
+                f"  Cell: {cell}\n"
                 f"  Volume: {struct.volume:.4f} Å³\n"
                 f"  Number of sites: {struct.num_sites}\n"
-                f"  Density: {struct.density:.4f} g/cm³")
+                f"  Density: {struct.density:.4f} g/cm³\n"
+                "  Fixed prototype model; not a measured or optimized structure.")
     except Exception as exc:
         return f"Error: {exc}"
 
@@ -412,6 +497,22 @@ EXTENDED_TOOLS = [
         "function": astropy_blackbody,
         "input_format": "temperature_K (e.g. '5778' for Sun)",
         "output_format": "Wien peaks + Stefan-Boltzmann emittance",
+        "evidence_grade": "real_local",
+    },
+    {
+        "name": "h2_rhf_certificate",
+        "domain": "chemistry",
+        "description": (
+            "Compute fixed neutral-singlet H2 RHF/STO-3G at an explicit distance, "
+            "including full AO integrals, density, orbitals, convergence and an independent "
+            "NumPy energy/normalization/idempotence/residual/bonding-orbital audit. "
+            "JSON input exactly one distance_angstrom or distance_bohr; allowed range "
+            "0.3..4 angstrom. Output JSON <=48 KiB. Shared PySCF/libcint integrals; "
+            "numerical consistency only, not an exact physical energy, interval bound or novelty claim."
+        ),
+        "function": h2_rhf_certificate,
+        "input_format": '{"distance_angstrom":"0.74"} OR {"distance_bohr":"1.4"}',
+        "output_format": "JSON calculation, metadata, integrals, SCF state and independent audit",
         "evidence_grade": "real_local",
     },
     {
@@ -468,6 +569,65 @@ EXTENDED_TOOLS = [
         "output_format": "composition, lattice constant, volume, density",
         "evidence_grade": "real_local",
     },
+    {
+        "name": "riemann_zeta_certificate",
+        "domain": "mathematics",
+        "description": "Certified numerical and analytical probe for the Riemann Hypothesis. Evaluate zeta zeros on critical line, sample Z(t), test Li's criterion lambda_n > 0, or probe off-line values. Input JSON string.",
+        "function": riemann_zeta_certificate,
+        "input_format": '{"zeros_index": [1, 2]} OR {"li_criterion_n": 5} OR {"sample_line": {"t_start": 10, "t_end": 30}}',
+        "output_format": "JSON with exact zeros, critical line alignment, Li coefficient, and SHA-256 certificate",
+        "evidence_grade": "real_local",
+    },
+    {
+        "name": "bsd_elliptic_certificate",
+        "domain": "mathematics",
+        "description": "Certified arithmetic analysis of elliptic curves E/Q: y^2 = x^3 + Ax + B for Birch and Swinnerton-Dyer conjecture. Computes discriminant, j-invariant, bad primes, torsion subgroup, Frobenius traces a_p, and real period. Input JSON string.",
+        "function": bsd_elliptic_certificate,
+        "input_format": '{"A": -1, "B": 0, "primes_limit": 50}',
+        "output_format": "JSON invariants, torsion structure, partial BSD Euler product, and certificate hash",
+        "evidence_grade": "real_local",
+    },
+    {
+        "name": "p_vs_np_complexity_certificate",
+        "domain": "mathematics",
+        "description": "Certified Boolean complexity analyzer for P versus NP. Exact DPLL solver with decision tree metrics, random 3-SAT phase transition generation, polynomial-time certificate verification, and theoretical barriers. Input JSON string.",
+        "function": p_vs_np_complexity_certificate,
+        "input_format": '{"random_3sat": {"n_vars": 16, "alpha": 4.26, "seed": 42}} OR {"clauses": [[1, -2], [-1, 2]]}',
+        "output_format": "JSON SAT/UNSAT status, decision tree nodes explored, poly-time verification, barrier notes",
+        "evidence_grade": "real_local",
+    },
+    {
+        "name": "yang_mills_lattice_certificate",
+        "domain": "physics",
+        "description": "Certified non-perturbative SU(2) Euclidean lattice gauge theory probe for Yang-Mills Mass Gap. Wilson plaquette action, Creutz ratios, string tension sigma, and glueball mass gap Delta > 0. Input JSON string.",
+        "function": yang_mills_lattice_certificate,
+        "input_format": '{"lattice_size": [4, 4, 4, 4], "beta": 2.3, "n_sweeps": 50, "thermalization": 15}',
+        "output_format": "JSON average plaquette, Wilson loops, string tension, estimated mass gap Delta, and certificate hash",
+        "evidence_grade": "real_local",
+    },
+    {
+        "name": "hodge_variety_certificate",
+        "domain": "mathematics",
+        "description": "Certified complex algebraic geometry probe for the Hodge Conjecture. Computes Hodge diamond, Betti numbers, rational Hodge classes, Lefschetz (1,1) verification, and Shioda character conditions for Fermat varieties and Calabi-Yau/K3 manifolds. Input JSON string.",
+        "function": hodge_variety_certificate,
+        "input_format": '{"variety_type": "k3_surface"} OR {"variety_type": "fermat_hypersurface", "dimension": 2, "degree": 4}',
+        "output_format": "JSON Hodge diamond, Betti numbers, Euler char, rational Hodge class dimensions, and status",
+        "evidence_grade": "real_local",
+    },
+    {
+        "name": "lean4_prove_certificate",
+        "domain": "mathematics",
+        "description": (
+            "Formal interactive theorem prover using the Lean 4 kernel. Formulates lemmas, "
+            "verifies type theory proofs, and checks mathematical hypotheses for the Millennium Problems "
+            "(RH, BSD, P vs NP, Yang-Mills, Hodge). Rejects unproven goals and 'sorry'. "
+            "Input JSON: {'theorem_name': str, 'lean_code': str}."
+        ),
+        "function": lean4_prove_certificate,
+        "input_format": '{"theorem_name": "mod24_residues", "lean_code": "theorem res : ∀ r : Fin 24, ... := by decide"}',
+        "output_format": "JSON proof status, verified_by_lean_kernel, AST errors/diagnostics, and certificate hash",
+        "evidence_grade": "real_local",
+    },
 ]
 
 
@@ -481,8 +641,9 @@ def register_extended_tools(registry):
         except ImportError:
             return 0
 
+    from .population_selection_certificate import TOOL_DESCRIPTOR
     count = 0
-    for spec in EXTENDED_TOOLS:
+    for spec in [*EXTENDED_TOOLS, TOOL_DESCRIPTOR]:
         registry.register_tool(ToolDescriptor(
             name=spec["name"],
             domain=spec["domain"],

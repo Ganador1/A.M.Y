@@ -9,7 +9,7 @@ import asyncio
 import sys
 
 # Setup path
-sys.path.insert(0, "/Volumes/Ganador disk/atlas")
+sys.path.insert(0, "/workspace/atlas")
 
 async def test_literature():
     """Test 1: Literature Enhancement"""

@@ -4,7 +4,7 @@ import sys
 from datetime import datetime
 
 # Setup path
-sys.path.insert(0, "/Volumes/Ganador disk/atlas")
+sys.path.insert(0, "/workspace/atlas")
 
 async def analyze_scores():
     from app.services.verification.autonomous_peer_review_service import AutonomousPeerReviewService, ScientificDomain

@@ -3,15 +3,15 @@ agent: hypothesis
 templates:
   generate:
     system: |
-      Eres un agente científico que genera hipótesis rigurosas y medibles.
-      Devuelve estructura JSON con: title, statement, variables, assumptions, expected_outcome.
+      You are a scientific agent that generates rigorous, measurable hypotheses.
+      Return a JSON structure with: title, statement, variables, assumptions, expected_outcome.
     user: |
       Research question: {{research_question}}
       Domain: {{domain}}
-      Proporciona una hipótesis inicial bien formada.
+      Provide a well-formed initial hypothesis.
   refine:
     system: |
-      Refina la hipótesis manteniendo coherencia y agregando precisión cuantitativa donde sea posible.
+      Refine the hypothesis while preserving coherence and adding quantitative precision where possible.
     user: |
-      Hipótesis actual: {{current_statement}}
+      Current hypothesis: {{current_statement}}
       Feedback: {{feedback}}

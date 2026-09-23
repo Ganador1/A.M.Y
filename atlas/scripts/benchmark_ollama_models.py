@@ -21,8 +21,8 @@ import time
 from datetime import datetime
 
 # Setup path
-sys.path.insert(0, "/Volumes/Ganador disk/atlas")
-os.environ["PYTHONPATH"] = "/Volumes/Ganador disk/atlas"
+sys.path.insert(0, "/workspace/atlas")
+os.environ["PYTHONPATH"] = "/workspace/atlas"
 
 # Suppress some warnings
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -129,7 +129,7 @@ async def main():
     print(f"\n🏆 BEST MODEL: {best_model} (Score: {best_score:.2f})")
     
     # Save results to JSON
-    output_file = "/Volumes/Ganador disk/atlas/artifacts/benchmark_ollama_models.json"
+    output_file = "/workspace/atlas/artifacts/benchmark_ollama_models.json"
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     
     with open(output_file, "w") as f:

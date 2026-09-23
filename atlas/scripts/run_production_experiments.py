@@ -47,7 +47,7 @@ class ProductionExperimentRunner:
             import importlib.util
             spec = importlib.util.spec_from_file_location(
                 "quantum_loop",
-                "/Volumes/Ganador disk/atlas/app/autonomous/pipelines/quantum_loop.py"
+                "/workspace/atlas/app/autonomous/pipelines/quantum_loop.py"
             )
             
             if not spec or not spec.loader:
@@ -103,7 +103,7 @@ class ProductionExperimentRunner:
             import importlib.util
             spec = importlib.util.spec_from_file_location(
                 "biology_loop",
-                "/Volumes/Ganador disk/atlas/app/autonomous/pipelines/biology_loop.py"
+                "/workspace/atlas/app/autonomous/pipelines/biology_loop.py"
             )
             
             if not spec or not spec.loader:
@@ -154,7 +154,7 @@ class ProductionExperimentRunner:
             import importlib.util
             spec = importlib.util.spec_from_file_location(
                 "mathematics_loop",
-                "/Volumes/Ganador disk/atlas/app/autonomous/pipelines/mathematics_loop.py"
+                "/workspace/atlas/app/autonomous/pipelines/mathematics_loop.py"
             )
             
             if not spec or not spec.loader:
