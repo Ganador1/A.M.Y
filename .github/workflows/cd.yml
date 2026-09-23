@@ -40,6 +40,9 @@ jobs:
           python -m pip install '.[test]' -r scripts/release/requirements-validation.txt
           echo "AMY_ATLAS_PYTHON=$(command -v python)" >> "$GITHUB_ENV"
 
+      - name: Verify clean checkout before tests generate local state
+        run: python scripts/diagnostics/verify_secret_hygiene.py --strict
+
       - name: Ruff correctness gate
         run: |
           ruff check \
@@ -61,13 +64,13 @@ jobs:
       - name: Verify the selected deterministic Atlas tool suite
         run: python scripts/diagnostics/verify_atlas_tools.py
 
+      - name: Verify observed climate data and failure boundaries
+        run: PYTHONPATH=atlas python -m pytest atlas/tests/unit/test_climate_loop.py --confcutdir=atlas/tests/unit -q
+
       - name: Recompute retained mathematical and numerical evidence
         run: |
           python release_evidence/autocorrelation/verify.py
           python release_evidence/runtime/verify.py
-
-      - name: Verify secret hygiene
-        run: python scripts/diagnostics/verify_secret_hygiene.py --strict
 
       - name: Verify public documentation and release metadata
         run: python scripts/release/check_release.py
